@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Rdsmysqlv2\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAccess
+class ProjectTermTargetUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckDetailForDescribeTaskDetailOutput';
+    protected static $swaggerModelName = 'ProjectTermTargetUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'impact' => 'string',
-        'issue' => 'string'
+        'project_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'impact' => null,
-        'issue' => null
+        'project_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'impact' => 'Impact',
-        'issue' => 'Issue'
+        'project_id' => 'projectId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'impact' => 'setImpact',
-        'issue' => 'setIssue'
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'impact' => 'getImpact',
-        'issue' => 'getIssue'
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['impact'] = isset($data['impact']) ? $data['impact'] : null;
-        $this->container['issue'] = isset($data['issue']) ? $data['issue'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets impact
+     * Gets project_id
      *
      * @return string
      */
-    public function getImpact()
+    public function getProjectId()
     {
-        return $this->container['impact'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets impact
+     * Sets project_id
      *
-     * @param string $impact impact
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setImpact($impact)
+    public function setProjectId($project_id)
     {
-        $this->container['impact'] = $impact;
-
-        return $this;
-    }
-
-    /**
-     * Gets issue
-     *
-     * @return string
-     */
-    public function getIssue()
-    {
-        return $this->container['issue'];
-    }
-
-    /**
-     * Sets issue
-     *
-     * @param string $issue issue
-     *
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->container['issue'] = $issue;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

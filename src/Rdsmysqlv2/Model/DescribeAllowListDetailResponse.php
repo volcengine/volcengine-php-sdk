@@ -35,6 +35,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_name' => 'string',
         'allow_list_type' => 'string',
         'associated_instances' => '\Volcengine\Rdsmysqlv2\Model\AssociatedInstanceForDescribeAllowListDetailOutput[]',
+        'project_name' => 'string',
         'security_group_bind_infos' => '\Volcengine\Rdsmysqlv2\Model\SecurityGroupBindInfoForDescribeAllowListDetailOutput[]',
         'user_allow_list' => 'string'
     ];
@@ -52,6 +53,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_name' => null,
         'allow_list_type' => null,
         'associated_instances' => null,
+        'project_name' => null,
         'security_group_bind_infos' => null,
         'user_allow_list' => null
     ];
@@ -90,6 +92,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_name' => 'AllowListName',
         'allow_list_type' => 'AllowListType',
         'associated_instances' => 'AssociatedInstances',
+        'project_name' => 'ProjectName',
         'security_group_bind_infos' => 'SecurityGroupBindInfos',
         'user_allow_list' => 'UserAllowList'
     ];
@@ -107,6 +110,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_name' => 'setAllowListName',
         'allow_list_type' => 'setAllowListType',
         'associated_instances' => 'setAssociatedInstances',
+        'project_name' => 'setProjectName',
         'security_group_bind_infos' => 'setSecurityGroupBindInfos',
         'user_allow_list' => 'setUserAllowList'
     ];
@@ -124,6 +128,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_name' => 'getAllowListName',
         'allow_list_type' => 'getAllowListType',
         'associated_instances' => 'getAssociatedInstances',
+        'project_name' => 'getProjectName',
         'security_group_bind_infos' => 'getSecurityGroupBindInfos',
         'user_allow_list' => 'getUserAllowList'
     ];
@@ -195,6 +200,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         $this->container['allow_list_name'] = isset($data['allow_list_name']) ? $data['allow_list_name'] : null;
         $this->container['allow_list_type'] = isset($data['allow_list_type']) ? $data['allow_list_type'] : null;
         $this->container['associated_instances'] = isset($data['associated_instances']) ? $data['associated_instances'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['security_group_bind_infos'] = isset($data['security_group_bind_infos']) ? $data['security_group_bind_infos'] : null;
         $this->container['user_allow_list'] = isset($data['user_allow_list']) ? $data['user_allow_list'] : null;
     }
@@ -387,6 +393,30 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
     public function setAssociatedInstances($associated_instances)
     {
         $this->container['associated_instances'] = $associated_instances;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

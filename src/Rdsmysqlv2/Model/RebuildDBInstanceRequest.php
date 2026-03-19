@@ -39,6 +39,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => '\Volcengine\Rdsmysqlv2\Model\InstanceTagForRebuildDBInstanceInput[]',
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForRebuildDBInstanceInput[]',
         'port' => 'int',
+        'private_ip_address' => 'string',
         'project_name' => 'string',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForRebuildDBInstanceInput',
         'request_source' => 'string',
@@ -65,6 +66,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => null,
         'node_info' => null,
         'port' => 'int32',
+        'private_ip_address' => null,
         'project_name' => null,
         'proxy_node_custom' => null,
         'request_source' => null,
@@ -112,6 +114,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'InstanceTags',
         'node_info' => 'NodeInfo',
         'port' => 'Port',
+        'private_ip_address' => 'PrivateIpAddress',
         'project_name' => 'ProjectName',
         'proxy_node_custom' => 'ProxyNodeCustom',
         'request_source' => 'RequestSource',
@@ -138,6 +141,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'setInstanceTags',
         'node_info' => 'setNodeInfo',
         'port' => 'setPort',
+        'private_ip_address' => 'setPrivateIpAddress',
         'project_name' => 'setProjectName',
         'proxy_node_custom' => 'setProxyNodeCustom',
         'request_source' => 'setRequestSource',
@@ -164,6 +168,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'getInstanceTags',
         'node_info' => 'getNodeInfo',
         'port' => 'getPort',
+        'private_ip_address' => 'getPrivateIpAddress',
         'project_name' => 'getProjectName',
         'proxy_node_custom' => 'getProxyNodeCustom',
         'request_source' => 'getRequestSource',
@@ -244,6 +249,7 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['private_ip_address'] = isset($data['private_ip_address']) ? $data['private_ip_address'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
         $this->container['request_source'] = isset($data['request_source']) ? $data['request_source'] : null;
@@ -540,6 +546,30 @@ class RebuildDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setPort($port)
     {
         $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_ip_address
+     *
+     * @return string
+     */
+    public function getPrivateIpAddress()
+    {
+        return $this->container['private_ip_address'];
+    }
+
+    /**
+     * Sets private_ip_address
+     *
+     * @param string $private_ip_address private_ip_address
+     *
+     * @return $this
+     */
+    public function setPrivateIpAddress($private_ip_address)
+    {
+        $this->container['private_ip_address'] = $private_ip_address;
 
         return $this;
     }

@@ -440,6 +440,68 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function cleanNonWhiteSession($body = null)
+    {
+        list($response) = $this->cleanNonWhiteSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cleanNonWhiteSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\CleanNonWhiteSessionResponse';
+        $request = $this->cleanNonWhiteSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function cleanNonWhiteSessionAsync($body = null)
+    {
+        return $this->cleanNonWhiteSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cleanNonWhiteSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\CleanNonWhiteSessionResponse';
+        $request = $this->cleanNonWhiteSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function cleanNonWhiteSessionRequest($body)
+    {
+        $resourcePath = '/CleanNonWhiteSession/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function copyParameterTemplate($body = null)
     {
         list($response) = $this->copyParameterTemplateWithHttpInfo($body);
@@ -722,6 +784,68 @@ class RDSMYSQLV2Api
     protected function createDBAccountRequest($body)
     {
         $resourcePath = '/CreateDBAccount/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createDBBlueGreenInstance($body = null)
+    {
+        list($response) = $this->createDBBlueGreenInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDBBlueGreenInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\CreateDBBlueGreenInstanceResponse';
+        $request = $this->createDBBlueGreenInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDBBlueGreenInstanceAsync($body = null)
+    {
+        return $this->createDBBlueGreenInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDBBlueGreenInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\CreateDBBlueGreenInstanceResponse';
+        $request = $this->createDBBlueGreenInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDBBlueGreenInstanceRequest($body)
+    {
+        $resourcePath = '/CreateDBBlueGreenInstance/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1404,6 +1528,68 @@ class RDSMYSQLV2Api
     protected function deleteDBAccountRequest($body)
     {
         $resourcePath = '/DeleteDBAccount/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteDBBlueGreenRelation($body = null)
+    {
+        list($response) = $this->deleteDBBlueGreenRelationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteDBBlueGreenRelationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DeleteDBBlueGreenRelationResponse';
+        $request = $this->deleteDBBlueGreenRelationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteDBBlueGreenRelationAsync($body = null)
+    {
+        return $this->deleteDBBlueGreenRelationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteDBBlueGreenRelationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DeleteDBBlueGreenRelationResponse';
+        $request = $this->deleteDBBlueGreenRelationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteDBBlueGreenRelationRequest($body)
+    {
+        $resourcePath = '/DeleteDBBlueGreenRelation/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2796,6 +2982,130 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeDBBlueGreenDifferences($body = null)
+    {
+        list($response) = $this->describeDBBlueGreenDifferencesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBBlueGreenDifferencesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBBlueGreenDifferencesResponse';
+        $request = $this->describeDBBlueGreenDifferencesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBBlueGreenDifferencesAsync($body = null)
+    {
+        return $this->describeDBBlueGreenDifferencesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBBlueGreenDifferencesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBBlueGreenDifferencesResponse';
+        $request = $this->describeDBBlueGreenDifferencesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBBlueGreenDifferencesRequest($body)
+    {
+        $resourcePath = '/DescribeDBBlueGreenDifferences/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeDBBlueGreenInstance($body = null)
+    {
+        list($response) = $this->describeDBBlueGreenInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBBlueGreenInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBBlueGreenInstanceResponse';
+        $request = $this->describeDBBlueGreenInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBBlueGreenInstanceAsync($body = null)
+    {
+        return $this->describeDBBlueGreenInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBBlueGreenInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBBlueGreenInstanceResponse';
+        $request = $this->describeDBBlueGreenInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBBlueGreenInstanceRequest($body)
+    {
+        $resourcePath = '/DescribeDBBlueGreenInstance/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeDBDisasterRecoveryInstances($body = null)
     {
         list($response) = $this->describeDBDisasterRecoveryInstancesWithHttpInfo($body);
@@ -3974,6 +4284,68 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeDBSwitchBlueGreenPrecheck($body = null)
+    {
+        list($response) = $this->describeDBSwitchBlueGreenPrecheckWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBSwitchBlueGreenPrecheckWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBSwitchBlueGreenPrecheckResponse';
+        $request = $this->describeDBSwitchBlueGreenPrecheckRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBSwitchBlueGreenPrecheckAsync($body = null)
+    {
+        return $this->describeDBSwitchBlueGreenPrecheckAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBSwitchBlueGreenPrecheckAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeDBSwitchBlueGreenPrecheckResponse';
+        $request = $this->describeDBSwitchBlueGreenPrecheckRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBSwitchBlueGreenPrecheckRequest($body)
+    {
+        $resourcePath = '/DescribeDBSwitchBlueGreenPrecheck/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeDatabases($body = null)
     {
         list($response) = $this->describeDatabasesWithHttpInfo($body);
@@ -4318,6 +4690,68 @@ class RDSMYSQLV2Api
     protected function describeFailoverLogsRequest($body)
     {
         $resourcePath = '/DescribeFailoverLogs/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeNonWhiteSessionList($body = null)
+    {
+        list($response) = $this->describeNonWhiteSessionListWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeNonWhiteSessionListWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeNonWhiteSessionListResponse';
+        $request = $this->describeNonWhiteSessionListRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeNonWhiteSessionListAsync($body = null)
+    {
+        return $this->describeNonWhiteSessionListAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeNonWhiteSessionListAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeNonWhiteSessionListResponse';
+        $request = $this->describeNonWhiteSessionListRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeNonWhiteSessionListRequest($body)
+    {
+        $resourcePath = '/DescribeNonWhiteSessionList/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5062,6 +5496,68 @@ class RDSMYSQLV2Api
     protected function describeTasksRequest($body)
     {
         $resourcePath = '/DescribeTasks/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeUpgradeEngineMajorVersionPrecheckResult($body = null)
+    {
+        list($response) = $this->describeUpgradeEngineMajorVersionPrecheckResultWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeUpgradeEngineMajorVersionPrecheckResultWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUpgradeEngineMajorVersionPrecheckResultResponse';
+        $request = $this->describeUpgradeEngineMajorVersionPrecheckResultRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeUpgradeEngineMajorVersionPrecheckResultAsync($body = null)
+    {
+        return $this->describeUpgradeEngineMajorVersionPrecheckResultAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeUpgradeEngineMajorVersionPrecheckResultAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUpgradeEngineMajorVersionPrecheckResultResponse';
+        $request = $this->describeUpgradeEngineMajorVersionPrecheckResultRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeUpgradeEngineMajorVersionPrecheckResultRequest($body)
+    {
+        $resourcePath = '/DescribeUpgradeEngineMajorVersionPrecheckResult/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -8810,6 +9306,68 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function switchDBBlueGreen($body = null)
+    {
+        list($response) = $this->switchDBBlueGreenWithHttpInfo($body);
+        return $response;
+    }
+
+    public function switchDBBlueGreenWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\SwitchDBBlueGreenResponse';
+        $request = $this->switchDBBlueGreenRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function switchDBBlueGreenAsync($body = null)
+    {
+        return $this->switchDBBlueGreenAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function switchDBBlueGreenAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\SwitchDBBlueGreenResponse';
+        $request = $this->switchDBBlueGreenRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function switchDBBlueGreenRequest($body)
+    {
+        $resourcePath = '/SwitchDBBlueGreen/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function switchDBInstanceHA($body = null)
     {
         list($response) = $this->switchDBInstanceHAWithHttpInfo($body);
@@ -8844,6 +9402,68 @@ class RDSMYSQLV2Api
     protected function switchDBInstanceHARequest($body)
     {
         $resourcePath = '/SwitchDBInstanceHA/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function switchDBPrecheckBlueGreen($body = null)
+    {
+        list($response) = $this->switchDBPrecheckBlueGreenWithHttpInfo($body);
+        return $response;
+    }
+
+    public function switchDBPrecheckBlueGreenWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\SwitchDBPrecheckBlueGreenResponse';
+        $request = $this->switchDBPrecheckBlueGreenRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function switchDBPrecheckBlueGreenAsync($body = null)
+    {
+        return $this->switchDBPrecheckBlueGreenAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function switchDBPrecheckBlueGreenAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\SwitchDBPrecheckBlueGreenResponse';
+        $request = $this->switchDBPrecheckBlueGreenRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function switchDBPrecheckBlueGreenRequest($body)
+    {
+        $resourcePath = '/SwitchDBPrecheckBlueGreen/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -9030,6 +9650,130 @@ class RDSMYSQLV2Api
     protected function upgradeAllowListVersionRequest($body)
     {
         $resourcePath = '/UpgradeAllowListVersion/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upgradeDBInstanceEngineMajorVersion($body = null)
+    {
+        list($response) = $this->upgradeDBInstanceEngineMajorVersionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\UpgradeDBInstanceEngineMajorVersionResponse';
+        $request = $this->upgradeDBInstanceEngineMajorVersionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionAsync($body = null)
+    {
+        return $this->upgradeDBInstanceEngineMajorVersionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\UpgradeDBInstanceEngineMajorVersionResponse';
+        $request = $this->upgradeDBInstanceEngineMajorVersionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upgradeDBInstanceEngineMajorVersionRequest($body)
+    {
+        $resourcePath = '/UpgradeDBInstanceEngineMajorVersion/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionPrecheck($body = null)
+    {
+        list($response) = $this->upgradeDBInstanceEngineMajorVersionPrecheckWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionPrecheckWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\UpgradeDBInstanceEngineMajorVersionPrecheckResponse';
+        $request = $this->upgradeDBInstanceEngineMajorVersionPrecheckRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionPrecheckAsync($body = null)
+    {
+        return $this->upgradeDBInstanceEngineMajorVersionPrecheckAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upgradeDBInstanceEngineMajorVersionPrecheckAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\UpgradeDBInstanceEngineMajorVersionPrecheckResponse';
+        $request = $this->upgradeDBInstanceEngineMajorVersionPrecheckRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upgradeDBInstanceEngineMajorVersionPrecheckRequest($body)
+    {
+        $resourcePath = '/UpgradeDBInstanceEngineMajorVersionPrecheck/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

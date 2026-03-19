@@ -51,6 +51,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'status' => 'string',
         'sub_path' => 'string',
         'task_action' => 'string',
+        'tls_info' => '\Volcengine\Vepfs\Model\TlsInfoForDescribeDataFlowTasksOutput',
         'total_size' => 'string',
         'update_time' => 'string'
     ];
@@ -84,6 +85,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'status' => null,
         'sub_path' => null,
         'task_action' => null,
+        'tls_info' => null,
         'total_size' => null,
         'update_time' => null
     ];
@@ -138,6 +140,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'status' => 'Status',
         'sub_path' => 'SubPath',
         'task_action' => 'TaskAction',
+        'tls_info' => 'TlsInfo',
         'total_size' => 'TotalSize',
         'update_time' => 'UpdateTime'
     ];
@@ -171,6 +174,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'status' => 'setStatus',
         'sub_path' => 'setSubPath',
         'task_action' => 'setTaskAction',
+        'tls_info' => 'setTlsInfo',
         'total_size' => 'setTotalSize',
         'update_time' => 'setUpdateTime'
     ];
@@ -204,6 +208,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'status' => 'getStatus',
         'sub_path' => 'getSubPath',
         'task_action' => 'getTaskAction',
+        'tls_info' => 'getTlsInfo',
         'total_size' => 'getTotalSize',
         'update_time' => 'getUpdateTime'
     ];
@@ -384,6 +389,7 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['sub_path'] = isset($data['sub_path']) ? $data['sub_path'] : null;
         $this->container['task_action'] = isset($data['task_action']) ? $data['task_action'] : null;
+        $this->container['tls_info'] = isset($data['tls_info']) ? $data['tls_info'] : null;
         $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -1045,6 +1051,30 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
             );
         }
         $this->container['task_action'] = $task_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_info
+     *
+     * @return \Volcengine\Vepfs\Model\TlsInfoForDescribeDataFlowTasksOutput
+     */
+    public function getTlsInfo()
+    {
+        return $this->container['tls_info'];
+    }
+
+    /**
+     * Sets tls_info
+     *
+     * @param \Volcengine\Vepfs\Model\TlsInfoForDescribeDataFlowTasksOutput $tls_info tls_info
+     *
+     * @return $this
+     */
+    public function setTlsInfo($tls_info)
+    {
+        $this->container['tls_info'] = $tls_info;
 
         return $this;
     }

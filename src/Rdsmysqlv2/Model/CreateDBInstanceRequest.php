@@ -29,8 +29,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allow_list_ids' => 'string[]',
+        'auto_renew' => 'string',
         'auto_storage_scaling_config' => '\Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDBInstanceInput',
         'charge_info' => '\Volcengine\Rdsmysqlv2\Model\ChargeInfoForCreateDBInstanceInput',
+        'charge_type' => 'string',
+        'db_engine' => 'string',
         'db_engine_version' => 'string',
         'db_param_group_id' => 'string',
         'db_time_zone' => 'string',
@@ -38,12 +41,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'enable_external_replication' => 'bool',
         'engine_type' => 'string',
         'instance_name' => 'string',
+        'instance_spec_name' => 'string',
         'instance_tags' => '\Volcengine\Rdsmysqlv2\Model\InstanceTagForCreateDBInstanceInput[]',
         'instance_type' => 'string',
         'lower_case_table_names' => 'string',
         'maintenance_window' => '\Volcengine\Rdsmysqlv2\Model\MaintenanceWindowForCreateDBInstanceInput',
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForCreateDBInstanceInput[]',
+        'parameter_template_id' => 'string',
         'port' => 'int',
+        'prepaid_period' => 'string',
+        'private_ip_address' => 'string',
         'project_name' => 'string',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForCreateDBInstanceInput',
         'storage_space' => 'int',
@@ -51,7 +58,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'subnet_id' => 'string',
         'super_account_name' => 'string',
         'super_account_password' => 'string',
-        'vpc_id' => 'string'
+        'used_time' => 'string',
+        'vpc_id' => 'string',
+        'vpc_id' => 'string',
+        'zone' => 'string'
     ];
 
     /**
@@ -61,8 +71,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'allow_list_ids' => null,
+        'auto_renew' => null,
         'auto_storage_scaling_config' => null,
         'charge_info' => null,
+        'charge_type' => null,
+        'db_engine' => null,
         'db_engine_version' => null,
         'db_param_group_id' => null,
         'db_time_zone' => null,
@@ -70,12 +83,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'enable_external_replication' => null,
         'engine_type' => null,
         'instance_name' => null,
+        'instance_spec_name' => null,
         'instance_tags' => null,
         'instance_type' => null,
         'lower_case_table_names' => null,
         'maintenance_window' => null,
         'node_info' => null,
+        'parameter_template_id' => null,
         'port' => 'int32',
+        'prepaid_period' => null,
+        'private_ip_address' => null,
         'project_name' => null,
         'proxy_node_custom' => null,
         'storage_space' => 'int32',
@@ -83,7 +100,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'subnet_id' => null,
         'super_account_name' => null,
         'super_account_password' => null,
-        'vpc_id' => null
+        'used_time' => null,
+        'vpc_id' => null,
+        'vpc_id' => null,
+        'zone' => null
     ];
 
     /**
@@ -114,8 +134,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'allow_list_ids' => 'AllowListIds',
+        'auto_renew' => 'AutoRenew',
         'auto_storage_scaling_config' => 'AutoStorageScalingConfig',
         'charge_info' => 'ChargeInfo',
+        'charge_type' => 'ChargeType',
+        'db_engine' => 'DBEngine',
         'db_engine_version' => 'DBEngineVersion',
         'db_param_group_id' => 'DBParamGroupId',
         'db_time_zone' => 'DBTimeZone',
@@ -123,12 +146,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'enable_external_replication' => 'EnableExternalReplication',
         'engine_type' => 'EngineType',
         'instance_name' => 'InstanceName',
+        'instance_spec_name' => 'InstanceSpecName',
         'instance_tags' => 'InstanceTags',
         'instance_type' => 'InstanceType',
         'lower_case_table_names' => 'LowerCaseTableNames',
         'maintenance_window' => 'MaintenanceWindow',
         'node_info' => 'NodeInfo',
+        'parameter_template_id' => 'ParameterTemplateId',
         'port' => 'Port',
+        'prepaid_period' => 'PrepaidPeriod',
+        'private_ip_address' => 'PrivateIpAddress',
         'project_name' => 'ProjectName',
         'proxy_node_custom' => 'ProxyNodeCustom',
         'storage_space' => 'StorageSpace',
@@ -136,7 +163,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'subnet_id' => 'SubnetId',
         'super_account_name' => 'SuperAccountName',
         'super_account_password' => 'SuperAccountPassword',
-        'vpc_id' => 'VpcId'
+        'used_time' => 'UsedTime',
+        'vpc_id' => 'VpcID',
+        'vpc_id' => 'VpcId',
+        'zone' => 'Zone'
     ];
 
     /**
@@ -146,8 +176,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'allow_list_ids' => 'setAllowListIds',
+        'auto_renew' => 'setAutoRenew',
         'auto_storage_scaling_config' => 'setAutoStorageScalingConfig',
         'charge_info' => 'setChargeInfo',
+        'charge_type' => 'setChargeType',
+        'db_engine' => 'setDbEngine',
         'db_engine_version' => 'setDbEngineVersion',
         'db_param_group_id' => 'setDbParamGroupId',
         'db_time_zone' => 'setDbTimeZone',
@@ -155,12 +188,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'enable_external_replication' => 'setEnableExternalReplication',
         'engine_type' => 'setEngineType',
         'instance_name' => 'setInstanceName',
+        'instance_spec_name' => 'setInstanceSpecName',
         'instance_tags' => 'setInstanceTags',
         'instance_type' => 'setInstanceType',
         'lower_case_table_names' => 'setLowerCaseTableNames',
         'maintenance_window' => 'setMaintenanceWindow',
         'node_info' => 'setNodeInfo',
+        'parameter_template_id' => 'setParameterTemplateId',
         'port' => 'setPort',
+        'prepaid_period' => 'setPrepaidPeriod',
+        'private_ip_address' => 'setPrivateIpAddress',
         'project_name' => 'setProjectName',
         'proxy_node_custom' => 'setProxyNodeCustom',
         'storage_space' => 'setStorageSpace',
@@ -168,7 +205,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'subnet_id' => 'setSubnetId',
         'super_account_name' => 'setSuperAccountName',
         'super_account_password' => 'setSuperAccountPassword',
-        'vpc_id' => 'setVpcId'
+        'used_time' => 'setUsedTime',
+        'vpc_id' => 'setVpcId',
+        'vpc_id' => 'setVpcId',
+        'zone' => 'setZone'
     ];
 
     /**
@@ -178,8 +218,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'allow_list_ids' => 'getAllowListIds',
+        'auto_renew' => 'getAutoRenew',
         'auto_storage_scaling_config' => 'getAutoStorageScalingConfig',
         'charge_info' => 'getChargeInfo',
+        'charge_type' => 'getChargeType',
+        'db_engine' => 'getDbEngine',
         'db_engine_version' => 'getDbEngineVersion',
         'db_param_group_id' => 'getDbParamGroupId',
         'db_time_zone' => 'getDbTimeZone',
@@ -187,12 +230,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'enable_external_replication' => 'getEnableExternalReplication',
         'engine_type' => 'getEngineType',
         'instance_name' => 'getInstanceName',
+        'instance_spec_name' => 'getInstanceSpecName',
         'instance_tags' => 'getInstanceTags',
         'instance_type' => 'getInstanceType',
         'lower_case_table_names' => 'getLowerCaseTableNames',
         'maintenance_window' => 'getMaintenanceWindow',
         'node_info' => 'getNodeInfo',
+        'parameter_template_id' => 'getParameterTemplateId',
         'port' => 'getPort',
+        'prepaid_period' => 'getPrepaidPeriod',
+        'private_ip_address' => 'getPrivateIpAddress',
         'project_name' => 'getProjectName',
         'proxy_node_custom' => 'getProxyNodeCustom',
         'storage_space' => 'getStorageSpace',
@@ -200,7 +247,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'subnet_id' => 'getSubnetId',
         'super_account_name' => 'getSuperAccountName',
         'super_account_password' => 'getSuperAccountPassword',
-        'vpc_id' => 'getVpcId'
+        'used_time' => 'getUsedTime',
+        'vpc_id' => 'getVpcId',
+        'vpc_id' => 'getVpcId',
+        'zone' => 'getZone'
     ];
 
     /**
@@ -264,8 +314,11 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allow_list_ids'] = isset($data['allow_list_ids']) ? $data['allow_list_ids'] : null;
+        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_storage_scaling_config'] = isset($data['auto_storage_scaling_config']) ? $data['auto_storage_scaling_config'] : null;
         $this->container['charge_info'] = isset($data['charge_info']) ? $data['charge_info'] : null;
+        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['db_engine'] = isset($data['db_engine']) ? $data['db_engine'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['db_param_group_id'] = isset($data['db_param_group_id']) ? $data['db_param_group_id'] : null;
         $this->container['db_time_zone'] = isset($data['db_time_zone']) ? $data['db_time_zone'] : null;
@@ -273,12 +326,16 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['enable_external_replication'] = isset($data['enable_external_replication']) ? $data['enable_external_replication'] : null;
         $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
+        $this->container['instance_spec_name'] = isset($data['instance_spec_name']) ? $data['instance_spec_name'] : null;
         $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['lower_case_table_names'] = isset($data['lower_case_table_names']) ? $data['lower_case_table_names'] : null;
         $this->container['maintenance_window'] = isset($data['maintenance_window']) ? $data['maintenance_window'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
+        $this->container['parameter_template_id'] = isset($data['parameter_template_id']) ? $data['parameter_template_id'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['prepaid_period'] = isset($data['prepaid_period']) ? $data['prepaid_period'] : null;
+        $this->container['private_ip_address'] = isset($data['private_ip_address']) ? $data['private_ip_address'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
@@ -286,7 +343,10 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['super_account_name'] = isset($data['super_account_name']) ? $data['super_account_name'] : null;
         $this->container['super_account_password'] = isset($data['super_account_password']) ? $data['super_account_password'] : null;
+        $this->container['used_time'] = isset($data['used_time']) ? $data['used_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
     }
 
     /**
@@ -353,6 +413,30 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_renew
+     *
+     * @return string
+     */
+    public function getAutoRenew()
+    {
+        return $this->container['auto_renew'];
+    }
+
+    /**
+     * Sets auto_renew
+     *
+     * @param string $auto_renew auto_renew
+     *
+     * @return $this
+     */
+    public function setAutoRenew($auto_renew)
+    {
+        $this->container['auto_renew'] = $auto_renew;
+
+        return $this;
+    }
+
+    /**
      * Gets auto_storage_scaling_config
      *
      * @return \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDBInstanceInput
@@ -396,6 +480,54 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setChargeInfo($charge_info)
     {
         $this->container['charge_info'] = $charge_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_type
+     *
+     * @return string
+     */
+    public function getChargeType()
+    {
+        return $this->container['charge_type'];
+    }
+
+    /**
+     * Sets charge_type
+     *
+     * @param string $charge_type charge_type
+     *
+     * @return $this
+     */
+    public function setChargeType($charge_type)
+    {
+        $this->container['charge_type'] = $charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets db_engine
+     *
+     * @return string
+     */
+    public function getDbEngine()
+    {
+        return $this->container['db_engine'];
+    }
+
+    /**
+     * Sets db_engine
+     *
+     * @param string $db_engine db_engine
+     *
+     * @return $this
+     */
+    public function setDbEngine($db_engine)
+    {
+        $this->container['db_engine'] = $db_engine;
 
         return $this;
     }
@@ -569,6 +701,30 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_spec_name
+     *
+     * @return string
+     */
+    public function getInstanceSpecName()
+    {
+        return $this->container['instance_spec_name'];
+    }
+
+    /**
+     * Sets instance_spec_name
+     *
+     * @param string $instance_spec_name instance_spec_name
+     *
+     * @return $this
+     */
+    public function setInstanceSpecName($instance_spec_name)
+    {
+        $this->container['instance_spec_name'] = $instance_spec_name;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_tags
      *
      * @return \Volcengine\Rdsmysqlv2\Model\InstanceTagForCreateDBInstanceInput[]
@@ -689,6 +845,30 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets parameter_template_id
+     *
+     * @return string
+     */
+    public function getParameterTemplateId()
+    {
+        return $this->container['parameter_template_id'];
+    }
+
+    /**
+     * Sets parameter_template_id
+     *
+     * @param string $parameter_template_id parameter_template_id
+     *
+     * @return $this
+     */
+    public function setParameterTemplateId($parameter_template_id)
+    {
+        $this->container['parameter_template_id'] = $parameter_template_id;
+
+        return $this;
+    }
+
+    /**
      * Gets port
      *
      * @return int
@@ -708,6 +888,54 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setPort($port)
     {
         $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets prepaid_period
+     *
+     * @return string
+     */
+    public function getPrepaidPeriod()
+    {
+        return $this->container['prepaid_period'];
+    }
+
+    /**
+     * Sets prepaid_period
+     *
+     * @param string $prepaid_period prepaid_period
+     *
+     * @return $this
+     */
+    public function setPrepaidPeriod($prepaid_period)
+    {
+        $this->container['prepaid_period'] = $prepaid_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_ip_address
+     *
+     * @return string
+     */
+    public function getPrivateIpAddress()
+    {
+        return $this->container['private_ip_address'];
+    }
+
+    /**
+     * Sets private_ip_address
+     *
+     * @param string $private_ip_address private_ip_address
+     *
+     * @return $this
+     */
+    public function setPrivateIpAddress($private_ip_address)
+    {
+        $this->container['private_ip_address'] = $private_ip_address;
 
         return $this;
     }
@@ -881,6 +1109,30 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets used_time
+     *
+     * @return string
+     */
+    public function getUsedTime()
+    {
+        return $this->container['used_time'];
+    }
+
+    /**
+     * Sets used_time
+     *
+     * @param string $used_time used_time
+     *
+     * @return $this
+     */
+    public function setUsedTime($used_time)
+    {
+        $this->container['used_time'] = $used_time;
+
+        return $this;
+    }
+
+    /**
      * Gets vpc_id
      *
      * @return string
@@ -900,6 +1152,54 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setVpcId($vpc_id)
     {
         $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone
+     *
+     * @return string
+     */
+    public function getZone()
+    {
+        return $this->container['zone'];
+    }
+
+    /**
+     * Sets zone
+     *
+     * @param string $zone zone
+     *
+     * @return $this
+     */
+    public function setZone($zone)
+    {
+        $this->container['zone'] = $zone;
 
         return $this;
     }
