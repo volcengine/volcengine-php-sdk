@@ -90,7 +90,7 @@ class ApiClient
         $request->sessionToken = $this->configuration->getSessionToken();
 
         // No explicit credentials set — use default credential chain
-        if (empty($request->ak) || empty($request->sk)) {
+        if (empty($request->ak) && empty($request->sk)) {
             $credentialProvider = $this->configuration->getCredentialProvider();
             if ($credentialProvider === null) {
                 $credentialProvider = new \Volcengine\Common\Auth\Providers\DefaultCredentialProvider();
