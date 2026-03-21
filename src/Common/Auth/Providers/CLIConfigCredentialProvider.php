@@ -7,12 +7,14 @@ class CLIConfigCredentialProvider extends Provider
     const PROVIDER_NAME = 'CLIConfigCredentialProvider';
 
     private $profileName;
+    private $configPath;
     private $cachedCredentials;
     private $delegate = null;
 
-    public function __construct($profileName = null)
+    public function __construct($profileName = null, $configPath = null)
     {
         $this->profileName = $profileName;
+        $this->configPath = $configPath;
     }
 
     public function getCredentials()
@@ -173,6 +175,9 @@ class CLIConfigCredentialProvider extends Provider
 
     private function resolveConfigPath()
     {
+        if (!empty($this->configPath)) {
+            return $this->configPath;
+        }
         $envPath = getenv('VOLCENGINE_CLI_CONFIG_FILE');
         if ($envPath !== false && $envPath !== '') {
             return $envPath;
