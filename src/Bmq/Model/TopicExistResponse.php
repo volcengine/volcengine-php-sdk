@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
+class TopicExistResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAvailableVPCForBMQRequest';
+    protected static $swaggerModelName = 'TopicExistResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'max_results' => 'int',
-        'name' => 'string',
-        'next_token' => 'string',
-        'project_name' => 'string',
-        'vpc_ids' => 'string[]'
+        'existed' => 'bool'
     ];
 
     /**
@@ -42,12 +37,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'max_results' => 'int32',
-        'name' => null,
-        'next_token' => null,
-        'project_name' => null,
-        'vpc_ids' => null
+        'existed' => null
     ];
 
     /**
@@ -77,12 +67,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'max_results' => 'MaxResults',
-        'name' => 'Name',
-        'next_token' => 'NextToken',
-        'project_name' => 'ProjectName',
-        'vpc_ids' => 'VpcIds'
+        'existed' => 'Existed'
     ];
 
     /**
@@ -91,12 +76,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'max_results' => 'setMaxResults',
-        'name' => 'setName',
-        'next_token' => 'setNextToken',
-        'project_name' => 'setProjectName',
-        'vpc_ids' => 'setVpcIds'
+        'existed' => 'setExisted'
     ];
 
     /**
@@ -105,12 +85,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'max_results' => 'getMaxResults',
-        'name' => 'getName',
-        'next_token' => 'getNextToken',
-        'project_name' => 'getProjectName',
-        'vpc_ids' => 'getVpcIds'
+        'existed' => 'getExisted'
     ];
 
     /**
@@ -173,12 +148,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['existed'] = isset($data['existed']) ? $data['existed'] : null;
     }
 
     /**
@@ -190,9 +160,6 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_name'] === null) {
-            $invalidProperties[] = "'project_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +176,25 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets existed
      *
-     * @return string
+     * @return bool
      */
-    public function getInstanceId()
+    public function getExisted()
     {
-        return $this->container['instance_id'];
+        return $this->container['existed'];
     }
 
     /**
-     * Sets instance_id
+     * Sets existed
      *
-     * @param string $instance_id instance_id
+     * @param bool $existed existed
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setExisted($existed)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return int
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param int $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_token
-     *
-     * @return string
-     */
-    public function getNextToken()
-    {
-        return $this->container['next_token'];
-    }
-
-    /**
-     * Sets next_token
-     *
-     * @param string $next_token next_token
-     *
-     * @return $this
-     */
-    public function setNextToken($next_token)
-    {
-        $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['existed'] = $existed;
 
         return $this;
     }
