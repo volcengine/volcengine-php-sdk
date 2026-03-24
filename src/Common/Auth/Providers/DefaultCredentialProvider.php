@@ -21,10 +21,16 @@ class DefaultCredentialProvider extends Provider
     private $reuseLastProviderEnabled;
     private $lastProvider;
 
-    public function __construct($roleName = null, $reuseLastProviderEnabled = true)
+    public function __construct($roleName = null, $reuseLastProviderEnabled = true, $providers = null)
     {
         $this->reuseLastProviderEnabled = $reuseLastProviderEnabled;
-        $this->providers = $this->buildProviderChain($roleName);
+        if ($providers !== null) {
+            // Custom provider chain
+            $this->providers = $providers;
+        } else {
+            // Default 4-step chain
+            $this->providers = $this->buildProviderChain($roleName);
+        }
     }
 
     public function getCredentials()
