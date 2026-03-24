@@ -6,16 +6,18 @@ class EcsRoleCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'EcsRoleCredentialProvider';
 
-    // TODO: IMDS endpoint to be confirmed by ECS team
+    // IMDSv2 endpoint and paths
     const IMDS_ENDPOINT = 'http://100.96.0.96';
-    // TODO: IMDS paths to be confirmed
-    const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/';
-    // TODO: IMDSv2 token support to be confirmed
-    // const IMDS_TOKEN_PATH = '/volcstack/latest/api/token';
-    // const IMDS_TOKEN_TTL_HEADER = 'X-volcengine-ecs-metadata-token-ttl-seconds';
-    // const IMDS_TOKEN_HEADER = 'X-volcengine-ecs-metadata-token';
+    const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/'; // POST
+    const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?type=user'; // GET
+    const IMDS_TOKEN_PATH = '/latest/api/token'; // GET
 
-    // TODO: Response field names to be confirmed
+    // IMDSv2 headers
+    const IMDS_TOKEN_TTL_HEADER = 'X-volc-ecs-metadata-token-ttl-seconds';
+    const IMDS_TOKEN_HEADER = 'X-volc-ecs-metadata-token';
+    const IMDS_TOKEN_TTL_SECONDS = '21600'; // 6 hours
+
+    // Response field names
     const FIELD_ACCESS_KEY_ID = 'AccessKeyId';
     const FIELD_SECRET_ACCESS_KEY = 'SecretAccessKey';
     const FIELD_SESSION_TOKEN = 'SessionToken';
@@ -48,7 +50,7 @@ class EcsRoleCredentialProvider extends Provider
         $this->roleName = $roleName;
         $this->connectTimeout = $connectTimeout;
         $this->readTimeout = $readTimeout;
-        $this->maxRetries = $maxRetries;
+        $this->maxRetries = max($maxRetries, 1);
         $this->retryInterval = $retryInterval;
         $this->expireBufferSeconds = $expireBufferSeconds;
     }
@@ -70,12 +72,7 @@ class EcsRoleCredentialProvider extends Provider
             }
         }
 
-        if (empty($resolvedRoleName)) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': roleName is required. Set VOLCENGINE_ECS_METADATA env var or pass roleName explicitly'
-            );
-        }
-
+        // roleName can be null — will be auto-detected on first refresh
         return new self($resolvedRoleName);
     }
 
@@ -91,9 +88,15 @@ class EcsRoleCredentialProvider extends Provider
 
     private function refresh()
     {
-        $roleName = $this->roleName;
+        // Step 1: Get IMDSv2 token (fresh every time)
+        $imdsToken = $this->getIMDSv2Token();
+
+        // Step 2: Resolve role name
+        $roleName = $this->resolveRoleName($imdsToken);
+
+        // Step 3: POST to get credentials
         $url = self::IMDS_ENDPOINT . self::IMDS_CREDENTIALS_PATH . $roleName;
-        $body = $this->doGetWithRetry($url);
+        $body = $this->doRequestWithRetry($url, 'POST', [self::IMDS_TOKEN_HEADER => $imdsToken]);
 
         $data = json_decode($body, true);
         if (!is_array($data)) {
@@ -130,7 +133,74 @@ class EcsRoleCredentialProvider extends Provider
         $this->expirationTime = $expiration - $this->expireBufferSeconds;
     }
 
-    private function doGetWithRetry($url)
+    // --- IMDSv2 token ---
+
+    private function getIMDSv2Token()
+    {
+        $url = self::IMDS_ENDPOINT . self::IMDS_TOKEN_PATH;
+        $body = $this->doRequestWithRetry($url, 'GET', [
+            self::IMDS_TOKEN_TTL_HEADER => self::IMDS_TOKEN_TTL_SECONDS,
+        ]);
+        $token = trim($body);
+        if (empty($token)) {
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': IMDSv2 token endpoint returned empty response'
+            );
+        }
+        return $token;
+    }
+
+    // --- roleName resolution ---
+
+    private function resolveRoleName($imdsToken)
+    {
+        if (!empty($this->roleName)) {
+            return $this->roleName;
+        }
+
+        $envRole = getenv('VOLCENGINE_ECS_METADATA');
+        if ($envRole !== false && $envRole !== '') {
+            return $envRole;
+        }
+
+        // Auto-detect from IMDS (not cached — roles can change dynamically)
+        return $this->autoDetectRoleName($imdsToken);
+    }
+
+    private function autoDetectRoleName($imdsToken)
+    {
+        $url = self::IMDS_ENDPOINT . self::IMDS_ROLE_NAME_PATH;
+        $body = $this->doRequestWithRetry($url, 'GET', [
+            self::IMDS_TOKEN_HEADER => $imdsToken,
+        ]);
+
+        $roles = json_decode($body, true);
+        if (!is_array($roles)) {
+            // Fallback: split by newlines
+            $roles = array_filter(array_map('trim', explode("\n", trim($body))));
+        }
+
+        $roles = array_values($roles);
+        if (empty($roles)) {
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': no IAM roles found via IMDS'
+            );
+        }
+
+        if (count($roles) > 1) {
+            error_log(
+                self::PROVIDER_NAME . ': multiple IAM roles found: '
+                . implode(', ', $roles) . ". Using '{$roles[0]}'. "
+                . 'Set VOLCENGINE_ECS_METADATA to avoid ambiguity.'
+            );
+        }
+
+        return $roles[0];
+    }
+
+    // --- HTTP helpers ---
+
+    private function doRequestWithRetry($url, $method = 'GET', $headers = [])
     {
         $retries = max($this->maxRetries, 1);
         $lastError = null;
@@ -138,7 +208,7 @@ class EcsRoleCredentialProvider extends Provider
 
         for ($attempt = 0; $attempt < $retries; $attempt++) {
             try {
-                return $this->doGet($url, $timeout);
+                return $this->doRequest($url, $method, $headers, $timeout);
             } catch (\RuntimeException $e) {
                 $lastError = $e;
                 if ($attempt < $retries - 1) {
@@ -150,13 +220,20 @@ class EcsRoleCredentialProvider extends Provider
         throw $lastError;
     }
 
-    private function doGet($url, $timeout)
+    private function doRequest($url, $method, $headers, $timeout)
     {
+        $httpHeaders = [];
+        foreach ($headers as $k => $v) {
+            $httpHeaders[] = "{$k}: {$v}";
+        }
+
         $ctx = stream_context_create([
             'http' => [
-                'method' => 'GET',
+                'method' => $method,
                 'timeout' => $timeout,
                 'ignore_errors' => true,
+                'header' => implode("\r\n", $httpHeaders),
+                'content' => '', // empty body for POST
             ],
         ]);
 
@@ -167,7 +244,7 @@ class EcsRoleCredentialProvider extends Provider
             );
         }
 
-        // Check HTTP status from response headers
+        // Check HTTP status
         if (isset($http_response_header) && is_array($http_response_header)) {
             $statusLine = $http_response_header[0];
             if (preg_match('/HTTP\/\S+\s+(\d+)/', $statusLine, $matches)) {
