@@ -35,6 +35,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'string',
         'description' => 'string',
         'enable_apmplus' => 'bool',
+        'enable_zti_token' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionInput[]',
         'exclusive_mode' => 'bool',
         'initializer_sec' => 'int',
@@ -70,6 +71,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_strategy' => null,
         'description' => null,
         'enable_apmplus' => null,
+        'enable_zti_token' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'initializer_sec' => 'int32',
@@ -126,6 +128,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'CpuStrategy',
         'description' => 'Description',
         'enable_apmplus' => 'EnableApmplus',
+        'enable_zti_token' => 'EnableZTIToken',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'initializer_sec' => 'InitializerSec',
@@ -161,6 +164,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'setCpuStrategy',
         'description' => 'setDescription',
         'enable_apmplus' => 'setEnableApmplus',
+        'enable_zti_token' => 'setEnableZtiToken',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'initializer_sec' => 'setInitializerSec',
@@ -196,6 +200,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'getCpuStrategy',
         'description' => 'getDescription',
         'enable_apmplus' => 'getEnableApmplus',
+        'enable_zti_token' => 'getEnableZtiToken',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'initializer_sec' => 'getInitializerSec',
@@ -285,6 +290,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
+        $this->container['enable_zti_token'] = isset($data['enable_zti_token']) ? $data['enable_zti_token'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
@@ -501,6 +507,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setEnableApmplus($enable_apmplus)
     {
         $this->container['enable_apmplus'] = $enable_apmplus;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_zti_token
+     *
+     * @return string
+     */
+    public function getEnableZtiToken()
+    {
+        return $this->container['enable_zti_token'];
+    }
+
+    /**
+     * Sets enable_zti_token
+     *
+     * @param string $enable_zti_token enable_zti_token
+     *
+     * @return $this
+     */
+    public function setEnableZtiToken($enable_zti_token)
+    {
+        $this->container['enable_zti_token'] = $enable_zti_token;
 
         return $this;
     }
