@@ -3,7 +3,9 @@
 namespace Volcengine\Common\Auth\Providers;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
+use Volcengine\Common\ApiException;
 use Volcengine\Common\Utils;
 
 class OidcEnvCredentialProvider extends Provider
@@ -33,7 +35,8 @@ class OidcEnvCredentialProvider extends Provider
         $stsEndpoint = null,
         $durationSeconds = self::DEFAULT_DURATION_SECONDS,
         $expireBufferSeconds = self::DEFAULT_EXPIRE_BUFFER_SECONDS
-    ) {
+    )
+    {
         $this->roleTrn = $roleTrn;
         $this->roleSessionName = !empty($roleSessionName)
             ? $roleSessionName
@@ -86,6 +89,9 @@ class OidcEnvCredentialProvider extends Provider
         $queryParams = [
             'Action' => 'AssumeRoleWithOIDC',
             'Version' => '2018-01-01',
+        ];
+
+        $body = [
             'DurationSeconds' => $this->durationSeconds,
             'RoleSessionName' => $this->roleSessionName,
             'RoleTrn' => $this->roleTrn,
@@ -102,15 +108,15 @@ class OidcEnvCredentialProvider extends Provider
             $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
         }
         $query = substr($query, 0, -1);
-
+        $httpBody = http_build_query($body);
         // OIDC AssumeRole is effectively unsigned; use empty AK/SK for signing.
-        $headers = ['Host' => $this->stsEndpoint];
+        $headers = ['Host' => $this->stsEndpoint, 'Content-Type' => 'application/x-www-form-urlencoded'];
         $headers = Utils::signv4('', '', self::DEFAULT_REGION, 'sts',
-            '', $query, 'GET', '/', $headers);
+            $httpBody, $query, 'POST', '/', $headers);
 
-        $request = new Request('GET',
+        $request = new Request('POST',
             'https://' . $this->stsEndpoint . '/' . ($query ? "?{$query}" : ''),
-            $headers, '');
+            $headers, $httpBody);
 
         $client = new Client([
             'timeout' => 30,
@@ -120,9 +126,14 @@ class OidcEnvCredentialProvider extends Provider
 
         try {
             $response = $client->send($request);
-        } catch (\Exception $e) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC request failed - ' . $e->getMessage()
+        } catch (RequestException $e) {
+            $resp = $e->getResponse();
+            $respBody = $resp ? (string)$resp->getBody() : '';
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}{$respBody}",
+                $e->getCode(),
+                $resp ? $resp->getHeaders() : null,
+                $respBody
             );
         }
 
