@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitionSandboxResponse implements ModelInterface, ArrayAccess
+class UpsertSecretTokenRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitionSandboxResponse';
+    protected static $swaggerModelName = 'UpsertSecretTokenRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -30,7 +30,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'function_id' => 'string',
         'sandbox_id' => 'string',
-        'status' => 'string'
+        'token' => 'string'
     ];
 
     /**
@@ -41,7 +41,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'function_id' => null,
         'sandbox_id' => null,
-        'status' => null
+        'token' => null
     ];
 
     /**
@@ -73,7 +73,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'function_id' => 'FunctionId',
         'sandbox_id' => 'SandboxId',
-        'status' => 'Status'
+        'token' => 'Token'
     ];
 
     /**
@@ -84,7 +84,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'function_id' => 'setFunctionId',
         'sandbox_id' => 'setSandboxId',
-        'status' => 'setStatus'
+        'token' => 'setToken'
     ];
 
     /**
@@ -95,7 +95,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'function_id' => 'getFunctionId',
         'sandbox_id' => 'getSandboxId',
-        'status' => 'getStatus'
+        'token' => 'getToken'
     ];
 
     /**
@@ -160,7 +160,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     {
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
     }
 
     /**
@@ -172,6 +172,12 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['token'] === null) {
+            $invalidProperties[] = "'token' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -236,25 +242,25 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets token
      *
      * @return string
      */
-    public function getStatus()
+    public function getToken()
     {
-        return $this->container['status'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets status
+     * Sets token
      *
-     * @param string $status status
+     * @param string $token token
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setToken($token)
     {
-        $this->container['status'] = $status;
+        $this->container['token'] = $token;
 
         return $this;
     }
