@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Emr\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitionSandboxResponse implements ModelInterface, ArrayAccess
+class SystemDiskForCreateClusterInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitionSandboxResponse';
+    protected static $swaggerModelName = 'SystemDiskForCreateClusterInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'sandbox_id' => 'string',
-        'status' => 'string'
+        'size' => 'int',
+        'volume_type' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'sandbox_id' => null,
-        'status' => null
+        'size' => 'int32',
+        'volume_type' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'sandbox_id' => 'SandboxId',
-        'status' => 'Status'
+        'size' => 'Size',
+        'volume_type' => 'VolumeType'
     ];
 
     /**
@@ -82,9 +79,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'sandbox_id' => 'setSandboxId',
-        'status' => 'setStatus'
+        'size' => 'setSize',
+        'volume_type' => 'setVolumeType'
     ];
 
     /**
@@ -93,9 +89,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'sandbox_id' => 'getSandboxId',
-        'status' => 'getStatus'
+        'size' => 'getSize',
+        'volume_type' => 'getVolumeType'
     ];
 
     /**
@@ -158,9 +153,8 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class TransitionSandboxResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets size
      *
-     * @return string
+     * @return int
      */
-    public function getFunctionId()
+    public function getSize()
     {
-        return $this->container['function_id'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets function_id
+     * Sets size
      *
-     * @param string $function_id function_id
+     * @param int $size size
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setSize($size)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['size'] = $size;
 
         return $this;
     }
 
     /**
-     * Gets sandbox_id
+     * Gets volume_type
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getVolumeType()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['volume_type'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets volume_type
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $volume_type volume_type
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setVolumeType($volume_type)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['volume_type'] = $volume_type;
 
         return $this;
     }

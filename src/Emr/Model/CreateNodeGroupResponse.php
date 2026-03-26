@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Emr\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RunCodeRequest implements ModelInterface, ArrayAccess
+class CreateNodeGroupResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RunCodeRequest';
+    protected static $swaggerModelName = 'CreateNodeGroupResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => 'string',
-        'function_id' => 'string',
-        'sandbox_id' => 'string'
+        'cluster_id' => 'string',
+        'node_group_id' => 'string',
+        'operation_id' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'function_id' => null,
-        'sandbox_id' => null
+        'cluster_id' => null,
+        'node_group_id' => null,
+        'operation_id' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data',
-        'function_id' => 'FunctionId',
-        'sandbox_id' => 'SandboxId'
+        'cluster_id' => 'ClusterId',
+        'node_group_id' => 'NodeGroupId',
+        'operation_id' => 'OperationId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'function_id' => 'setFunctionId',
-        'sandbox_id' => 'setSandboxId'
+        'cluster_id' => 'setClusterId',
+        'node_group_id' => 'setNodeGroupId',
+        'operation_id' => 'setOperationId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'function_id' => 'getFunctionId',
-        'sandbox_id' => 'getSandboxId'
+        'cluster_id' => 'getClusterId',
+        'node_group_id' => 'getNodeGroupId',
+        'operation_id' => 'getOperationId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['node_group_id'] = isset($data['node_group_id']) ? $data['node_group_id'] : null;
+        $this->container['operation_id'] = isset($data['operation_id']) ? $data['operation_id'] : null;
     }
 
     /**
@@ -172,12 +172,6 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +188,73 @@ class RunCodeRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets cluster_id
      *
      * @return string
      */
-    public function getData()
+    public function getClusterId()
     {
-        return $this->container['data'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets data
+     * Sets cluster_id
      *
-     * @param string $data data
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setData($data)
+    public function setClusterId($cluster_id)
     {
-        $this->container['data'] = $data;
+        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
 
     /**
-     * Gets function_id
+     * Gets node_group_id
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getNodeGroupId()
     {
-        return $this->container['function_id'];
+        return $this->container['node_group_id'];
     }
 
     /**
-     * Sets function_id
+     * Sets node_group_id
      *
-     * @param string $function_id function_id
+     * @param string $node_group_id node_group_id
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setNodeGroupId($node_group_id)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['node_group_id'] = $node_group_id;
 
         return $this;
     }
 
     /**
-     * Gets sandbox_id
+     * Gets operation_id
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getOperationId()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['operation_id'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets operation_id
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $operation_id operation_id
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setOperationId($operation_id)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['operation_id'] = $operation_id;
 
         return $this;
     }

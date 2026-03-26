@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Emr\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RunCodeResponse implements ModelInterface, ArrayAccess
+class ResultDataForRunApplicationActionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RunCodeResponse';
+    protected static $swaggerModelName = 'ResultDataForRunApplicationActionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'result' => 'string'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'result' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'result' => 'Result'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'result' => 'setResult'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'result' => 'getResult'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -174,30 +173,6 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets result
-     *
-     * @return string
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     *
-     * @param string $result result
-     *
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

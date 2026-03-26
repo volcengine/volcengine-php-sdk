@@ -32,6 +32,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         'max_results' => 'int',
         'name' => 'string',
         'next_token' => 'string',
+        'project_name' => 'string',
         'vpc_ids' => 'string[]'
     ];
 
@@ -45,6 +46,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         'max_results' => 'int32',
         'name' => null,
         'next_token' => null,
+        'project_name' => null,
         'vpc_ids' => null
     ];
 
@@ -79,6 +81,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         'max_results' => 'MaxResults',
         'name' => 'Name',
         'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
         'vpc_ids' => 'VpcIds'
     ];
 
@@ -92,6 +95,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         'max_results' => 'setMaxResults',
         'name' => 'setName',
         'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
         'vpc_ids' => 'setVpcIds'
     ];
 
@@ -105,6 +109,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         'max_results' => 'getMaxResults',
         'name' => 'getName',
         'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
         'vpc_ids' => 'getVpcIds'
     ];
 
@@ -172,6 +177,7 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
     }
 
@@ -184,6 +190,9 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_name'] === null) {
+            $invalidProperties[] = "'project_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -291,6 +300,30 @@ class ListAvailableVPCForBMQRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

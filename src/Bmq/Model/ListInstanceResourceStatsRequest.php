@@ -29,6 +29,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_ids' => 'string',
+        'project_name' => 'string',
         'with_group' => 'bool',
         'with_partition' => 'bool',
         'with_topic' => 'bool'
@@ -41,6 +42,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_ids' => null,
+        'project_name' => null,
         'with_group' => null,
         'with_partition' => null,
         'with_topic' => null
@@ -74,6 +76,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_ids' => 'InstanceIds',
+        'project_name' => 'ProjectName',
         'with_group' => 'WithGroup',
         'with_partition' => 'WithPartition',
         'with_topic' => 'WithTopic'
@@ -86,6 +89,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_ids' => 'setInstanceIds',
+        'project_name' => 'setProjectName',
         'with_group' => 'setWithGroup',
         'with_partition' => 'setWithPartition',
         'with_topic' => 'setWithTopic'
@@ -98,6 +102,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_ids' => 'getInstanceIds',
+        'project_name' => 'getProjectName',
         'with_group' => 'getWithGroup',
         'with_partition' => 'getWithPartition',
         'with_topic' => 'getWithTopic'
@@ -164,6 +169,7 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['with_group'] = isset($data['with_group']) ? $data['with_group'] : null;
         $this->container['with_partition'] = isset($data['with_partition']) ? $data['with_partition'] : null;
         $this->container['with_topic'] = isset($data['with_topic']) ? $data['with_topic'] : null;
@@ -216,6 +222,30 @@ class ListInstanceResourceStatsRequest implements ModelInterface, ArrayAccess
     public function setInstanceIds($instance_ids)
     {
         $this->container['instance_ids'] = $instance_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

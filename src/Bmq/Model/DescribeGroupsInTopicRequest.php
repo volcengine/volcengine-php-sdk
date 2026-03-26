@@ -28,7 +28,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'topic_id' => 'string'
+        'instance_id' => 'string',
+        'topic_id' => 'string',
+        'topic_name' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'topic_id' => null
+        'instance_id' => null,
+        'topic_id' => null,
+        'topic_name' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'topic_id' => 'TopicId'
+        'instance_id' => 'InstanceId',
+        'topic_id' => 'TopicId',
+        'topic_name' => 'TopicName'
     ];
 
     /**
@@ -76,7 +82,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'topic_id' => 'setTopicId'
+        'instance_id' => 'setInstanceId',
+        'topic_id' => 'setTopicId',
+        'topic_name' => 'setTopicName'
     ];
 
     /**
@@ -85,7 +93,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'topic_id' => 'getTopicId'
+        'instance_id' => 'getInstanceId',
+        'topic_id' => 'getTopicId',
+        'topic_name' => 'getTopicName'
     ];
 
     /**
@@ -148,7 +158,9 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['topic_id'] = isset($data['topic_id']) ? $data['topic_id'] : null;
+        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
     }
 
     /**
@@ -176,6 +188,30 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
      * Gets topic_id
      *
      * @return string
@@ -195,6 +231,30 @@ class DescribeGroupsInTopicRequest implements ModelInterface, ArrayAccess
     public function setTopicId($topic_id)
     {
         $this->container['topic_id'] = $topic_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets topic_name
+     *
+     * @return string
+     */
+    public function getTopicName()
+    {
+        return $this->container['topic_name'];
+    }
+
+    /**
+     * Sets topic_name
+     *
+     * @param string $topic_name topic_name
+     *
+     * @return $this
+     */
+    public function setTopicName($topic_name)
+    {
+        $this->container['topic_name'] = $topic_name;
 
         return $this;
     }

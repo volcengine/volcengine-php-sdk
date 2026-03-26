@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Emr\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitionSandboxRequest implements ModelInterface, ArrayAccess
+class GetClusterRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitionSandboxRequest';
+    protected static $swaggerModelName = 'GetClusterRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'function_id' => 'string',
-        'sandbox_id' => 'string'
+        'cluster_id' => 'string'
     ];
 
     /**
@@ -39,9 +37,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'function_id' => null,
-        'sandbox_id' => null
+        'cluster_id' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'function_id' => 'FunctionId',
-        'sandbox_id' => 'SandboxId'
+        'cluster_id' => 'ClusterId'
     ];
 
     /**
@@ -82,9 +76,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'function_id' => 'setFunctionId',
-        'sandbox_id' => 'setSandboxId'
+        'cluster_id' => 'setClusterId'
     ];
 
     /**
@@ -93,9 +85,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'function_id' => 'getFunctionId',
-        'sandbox_id' => 'getSandboxId'
+        'cluster_id' => 'getClusterId'
     ];
 
     /**
@@ -158,9 +148,7 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
     }
 
     /**
@@ -172,15 +160,6 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['action'] === null) {
-            $invalidProperties[] = "'action' can't be null";
-        }
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
-        if ($this->container['sandbox_id'] === null) {
-            $invalidProperties[] = "'sandbox_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,73 +176,25 @@ class TransitionSandboxRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets cluster_id
      *
      * @return string
      */
-    public function getAction()
+    public function getClusterId()
     {
-        return $this->container['action'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets action
+     * Sets cluster_id
      *
-     * @param string $action action
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setClusterId($cluster_id)
     {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
-     *
-     * @return string
-     */
-    public function getSandboxId()
-    {
-        return $this->container['sandbox_id'];
-    }
-
-    /**
-     * Sets sandbox_id
-     *
-     * @param string $sandbox_id sandbox_id
-     *
-     * @return $this
-     */
-    public function setSandboxId($sandbox_id)
-    {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
