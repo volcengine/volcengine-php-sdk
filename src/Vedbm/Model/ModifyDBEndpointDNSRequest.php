@@ -28,7 +28,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'dns_visibility' => 'bool',
+        'endpoint_id' => 'string',
+        'instance_id' => 'string',
+        'network_type' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'dns_visibility' => null,
+        'endpoint_id' => null,
+        'instance_id' => null,
+        'network_type' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'dns_visibility' => 'DNSVisibility',
+        'endpoint_id' => 'EndpointId',
+        'instance_id' => 'InstanceId',
+        'network_type' => 'NetworkType'
     ];
 
     /**
@@ -76,7 +85,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'dns_visibility' => 'setDnsVisibility',
+        'endpoint_id' => 'setEndpointId',
+        'instance_id' => 'setInstanceId',
+        'network_type' => 'setNetworkType'
     ];
 
     /**
@@ -85,7 +97,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'dns_visibility' => 'getDnsVisibility',
+        'endpoint_id' => 'getEndpointId',
+        'instance_id' => 'getInstanceId',
+        'network_type' => 'getNetworkType'
     ];
 
     /**
@@ -129,8 +144,21 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const NETWORK_TYPE__PRIVATE = 'Private';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNetworkTypeAllowableValues()
+    {
+        return [
+            self::NETWORK_TYPE__PRIVATE,
+        ];
+    }
     
 
     /**
@@ -148,6 +176,10 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dns_visibility'] = isset($data['dns_visibility']) ? $data['dns_visibility'] : null;
+        $this->container['endpoint_id'] = isset($data['endpoint_id']) ? $data['endpoint_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
     }
 
     /**
@@ -158,6 +190,26 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['dns_visibility'] === null) {
+            $invalidProperties[] = "'dns_visibility' can't be null";
+        }
+        if ($this->container['endpoint_id'] === null) {
+            $invalidProperties[] = "'endpoint_id' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['network_type'] === null) {
+            $invalidProperties[] = "'network_type' can't be null";
+        }
+        $allowedValues = $this->getNetworkTypeAllowableValues();
+        if (!is_null($this->container['network_type']) && !in_array($this->container['network_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'network_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -173,6 +225,111 @@ class ModifyDBEndpointDNSRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets dns_visibility
+     *
+     * @return bool
+     */
+    public function getDnsVisibility()
+    {
+        return $this->container['dns_visibility'];
+    }
+
+    /**
+     * Sets dns_visibility
+     *
+     * @param bool $dns_visibility dns_visibility
+     *
+     * @return $this
+     */
+    public function setDnsVisibility($dns_visibility)
+    {
+        $this->container['dns_visibility'] = $dns_visibility;
+
+        return $this;
+    }
+
+    /**
+     * Gets endpoint_id
+     *
+     * @return string
+     */
+    public function getEndpointId()
+    {
+        return $this->container['endpoint_id'];
+    }
+
+    /**
+     * Sets endpoint_id
+     *
+     * @param string $endpoint_id endpoint_id
+     *
+     * @return $this
+     */
+    public function setEndpointId($endpoint_id)
+    {
+        $this->container['endpoint_id'] = $endpoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_type
+     *
+     * @return string
+     */
+    public function getNetworkType()
+    {
+        return $this->container['network_type'];
+    }
+
+    /**
+     * Sets network_type
+     *
+     * @param string $network_type network_type
+     *
+     * @return $this
+     */
+    public function setNetworkType($network_type)
+    {
+        $allowedValues = $this->getNetworkTypeAllowableValues();
+        if (!in_array($network_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'network_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['network_type'] = $network_type;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
