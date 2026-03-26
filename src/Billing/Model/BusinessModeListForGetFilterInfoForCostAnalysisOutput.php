@@ -151,7 +151,7 @@ class BusinessModeListForGetFilterInfoForCostAnalysisOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['business_mode_code'] = isset($data['business_mode_code']) ? $data['business_mode_code'] : null;
         $this->container['business_mode_name'] = isset($data['business_mode_name']) ? $data['business_mode_name'] : null;

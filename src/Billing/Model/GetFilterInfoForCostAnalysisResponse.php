@@ -211,7 +211,7 @@ class GetFilterInfoForCostAnalysisResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bill_category_list'] = isset($data['bill_category_list']) ? $data['bill_category_list'] : null;
         $this->container['billing_mode_list'] = isset($data['billing_mode_list']) ? $data['billing_mode_list'] : null;

@@ -151,7 +151,7 @@ class DiscountDetailForQueryPriceForPayAsYouGoOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['discount_price'] = isset($data['discount_price']) ? $data['discount_price'] : null;
         $this->container['discount_type'] = isset($data['discount_type']) ? $data['discount_type'] : null;

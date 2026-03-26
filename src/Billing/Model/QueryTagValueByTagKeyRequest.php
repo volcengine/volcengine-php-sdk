@@ -161,7 +161,7 @@ class QueryTagValueByTagKeyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['begin_time_str'] = isset($data['begin_time_str']) ? $data['begin_time_str'] : null;
         $this->container['end_time_str'] = isset($data['end_time_str']) ? $data['end_time_str'] : null;

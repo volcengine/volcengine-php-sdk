@@ -221,7 +221,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['acquire_time'] = isset($data['acquire_time']) ? $data['acquire_time'] : null;

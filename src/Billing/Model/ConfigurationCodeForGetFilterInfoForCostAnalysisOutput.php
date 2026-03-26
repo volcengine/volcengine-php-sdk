@@ -151,7 +151,7 @@ class ConfigurationCodeForGetFilterInfoForCostAnalysisOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['config_code'] = isset($data['config_code']) ? $data['config_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;

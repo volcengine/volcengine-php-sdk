@@ -186,7 +186,7 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['budget_range_billing_mode'] = isset($data['budget_range_billing_mode']) ? $data['budget_range_billing_mode'] : null;
         $this->container['budget_range_owner'] = isset($data['budget_range_owner']) ? $data['budget_range_owner'] : null;

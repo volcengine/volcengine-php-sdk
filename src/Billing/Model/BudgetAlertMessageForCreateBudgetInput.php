@@ -161,7 +161,7 @@ class BudgetAlertMessageForCreateBudgetInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['email_send_switch'] = isset($data['email_send_switch']) ? $data['email_send_switch'] : null;
         $this->container['internal_send_switch'] = isset($data['internal_send_switch']) ? $data['internal_send_switch'] : null;

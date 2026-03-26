@@ -151,7 +151,7 @@ class BillingModeInfoListForListBudgetFilterBillingModeOutput implements ModelIn
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_mode_code'] = isset($data['billing_mode_code']) ? $data['billing_mode_code'] : null;
         $this->container['billing_mode_name'] = isset($data['billing_mode_name']) ? $data['billing_mode_name'] : null;

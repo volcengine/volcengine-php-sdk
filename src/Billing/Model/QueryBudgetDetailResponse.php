@@ -161,7 +161,7 @@ class QueryBudgetDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
         $this->container['budget_alert_message_detail_list'] = isset($data['budget_alert_message_detail_list']) ? $data['budget_alert_message_detail_list'] : null;

@@ -186,7 +186,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['begin_time_str'] = isset($data['begin_time_str']) ? $data['begin_time_str'] : null;
         $this->container['classify_dimension'] = isset($data['classify_dimension']) ? $data['classify_dimension'] : null;

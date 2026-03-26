@@ -151,7 +151,7 @@ class UpdateAuthRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_list_str'] = isset($data['auth_list_str']) ? $data['auth_list_str'] : null;
         $this->container['relation_id'] = isset($data['relation_id']) ? $data['relation_id'] : null;

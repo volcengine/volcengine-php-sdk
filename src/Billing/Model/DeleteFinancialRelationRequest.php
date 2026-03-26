@@ -156,7 +156,7 @@ class DeleteFinancialRelationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
         $this->container['relation_id'] = isset($data['relation_id']) ? $data['relation_id'] : null;
