@@ -28,7 +28,9 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_id' => 'string'
+        'group_id' => 'string',
+        'group_name' => 'string',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_id' => null
+        'group_id' => null,
+        'group_name' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_id' => 'GroupId'
+        'group_id' => 'GroupId',
+        'group_name' => 'GroupName',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -76,7 +82,9 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_id' => 'setGroupId'
+        'group_id' => 'setGroupId',
+        'group_name' => 'setGroupName',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_id' => 'getGroupId'
+        'group_id' => 'getGroupId',
+        'group_name' => 'getGroupName',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -149,6 +159,8 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
+        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -160,9 +172,6 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['group_id'] === null) {
-            $invalidProperties[] = "'group_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -198,6 +207,54 @@ class DeleteGroupRequest implements ModelInterface, ArrayAccess
     public function setGroupId($group_id)
     {
         $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_name
+     *
+     * @return string
+     */
+    public function getGroupName()
+    {
+        return $this->container['group_name'];
+    }
+
+    /**
+     * Sets group_name
+     *
+     * @param string $group_name group_name
+     *
+     * @return $this
+     */
+    public function setGroupName($group_name)
+    {
+        $this->container['group_name'] = $group_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
