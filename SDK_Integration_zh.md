@@ -6,20 +6,26 @@
 - [集成SDK](#集成sdk)
 - [环境要求](#环境要求)
 - [访问凭据](#访问凭据)
-    - [AK、SK设置](#aksk设置)
-    - [STS Token设置](#sts-token设置)
-    - [AssumeRole](#assumerole)
+  - [凭证提供者概览](#凭证提供者概览)
+  - [AK、SK设置](#aksk设置)
+  - [STS Token设置](#sts-token设置)
+  - [AssumeRole](#assumerole)
+  - [OIDC 凭证提供者](#oidc-凭证提供者)
+  - [环境变量凭证提供者](#环境变量凭证提供者)
+  - [CLI 配置凭证提供者](#cli-配置凭证提供者)
+  - [ECS 角色凭证提供者](#ecs-角色凭证提供者)
+  - [默认凭证提供者](#默认凭证提供者)
 - [EndPoint配置](#endpoint配置)
-    - [自定义Endpoint](#自定义endpoint)
-    - [自定义RegionId](#自定义regionid)
-    - [自动化Endpoint寻址](#自动化endpoint寻址)
-        - [Endpoint默认寻址](#endpoint默认寻址)
+  - [自定义Endpoint](#自定义endpoint)
+  - [自定义RegionId](#自定义regionid)
+  - [自动化Endpoint寻址](#自动化endpoint寻址)
+  - [Endpoint默认寻址](#endpoint默认寻址)
 - [Https请求配置](#https请求配置)
-    - [指定scheme](#指定scheme)
-    - [忽略SSL验证](#忽略ssl验证)
-    - [指定TLS协议版本](#指定tls协议版本)
+  - [指定scheme](#指定scheme)
+  - [忽略SSL验证](#忽略ssl验证)
+  - [指定TLS协议版本](#指定tls协议版本)
 - [Http(s)代理配置](#https代理配置)
-    - [配置Http(s)代理](#配置https代理)
+  - [配置Http(s)代理](#配置https代理)
 
 # 集成SDK
 
@@ -33,7 +39,19 @@ SDK 的集成主要包括以下三个步骤：引入 SDK、配置访问凭证，
 
 # 访问凭据
 
-为保障资源访问安全，火山引擎 PHP SDK 目前支持 `AK/SK`和 `STS Token` 认证设置。
+火山引擎 PHP SDK 同时支持显式凭证配置，以及基于 `CredentialProvider` 的自动凭证解析。
+
+## 凭证提供者概览
+
+| Provider | 用途 | 是否自动刷新 | 典型场景 |
+| --- | --- | --- | --- |
+| 直接在 `Configuration` 中设置 `AK/SK` 或 `AK/SK/Token` | 显式传入固定或临时凭证 | 否 | 简单服务端接入 |
+| `StsProvider` | STS AssumeRole | 是 | 基于角色的临时凭证 |
+| `OidcEnvCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
+| `CLIConfigCredentialProvider` | 从 `~/.volcengine/config.json` 读取 | 视 mode 而定 | 复用 CLI 登录态或 profile |
+| `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
+| `DefaultCredentialProvider` | 默认凭证链封装 | 取决于实际命中的 provider | 业务代码不显式写 AK/SK |
 
 ## AK、SK设置
 
@@ -169,6 +187,153 @@ try {
     echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
 }
 
+```
+
+## OIDC 凭证提供者
+
+`OidcEnvCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证。
+
+支持的 OIDC 环境变量：
+
+- `VOLCENGINE_OIDC_ROLE_TRN`
+- `VOLCENGINE_OIDC_TOKEN_FILE`
+- `VOLCENGINE_OIDC_ROLE_SESSION_NAME`
+- `VOLCENGINE_OIDC_ROLE_POLICY`
+- `VOLCENGINE_OIDC_STS_ENDPOINT`
+
+可以直接传参构造，也可以通过 `OidcEnvCredentialProvider::fromEnvironment()` 从环境变量创建。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider(
+            "trn:iam::1234567890:role/oidc-role",
+            "/var/run/secrets/oidc/token",
+            "credentials-php-demo",
+            null,
+            "sts.volcengineapi.com"
+        )
+    );
+```
+
+基于环境变量的示例：
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+putenv("VOLCENGINE_OIDC_ROLE_TRN=trn:iam::1234567890:role/oidc-role");
+putenv("VOLCENGINE_OIDC_TOKEN_FILE=/var/run/secrets/oidc/token");
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider::fromEnvironment()
+    );
+```
+
+## 环境变量凭证提供者
+
+`EnvironmentVariableCredentialProvider` 支持从以下环境变量读取凭证：
+
+- `VOLCENGINE_ACCESS_KEY`
+- `VOLCENGINE_SECRET_KEY`
+- `VOLCENGINE_SESSION_TOKEN`，可选
+
+实现中同时兼容以下历史环境变量：
+
+- `VOLCSTACK_ACCESS_KEY_ID` / `VOLCSTACK_ACCESS_KEY`
+- `VOLCSTACK_SECRET_ACCESS_KEY` / `VOLCSTACK_SECRET_KEY`
+- `VOLCSTACK_SESSION_TOKEN`
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+putenv("VOLCENGINE_ACCESS_KEY=YourAK");
+putenv("VOLCENGINE_SECRET_KEY=YourSK");
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\EnvironmentVariableCredentialProvider()
+    );
+```
+
+## CLI 配置凭证提供者
+
+`CLIConfigCredentialProvider` 默认读取 `~/.volcengine/config.json`。
+
+- 配置文件路径优先级：构造函数 `configPath` > `VOLCENGINE_CLI_CONFIG_FILE` > `~/.volcengine/config.json`
+- Profile 优先级：构造函数 `profileName` > `VOLCENGINE_PROFILE` / `VOLCSTACK_PROFILE` > 配置文件中的 `current` > `default`
+
+支持的 profile mode：
+
+- `AK` 或空
+- `StsToken`
+- `RamRoleArn`，内部委托给 `StsProvider`
+- `OIDC`，内部委托给 `OidcEnvCredentialProvider`
+- `EcsRole`，内部委托给 `EcsRoleCredentialProvider`
+- `SSO`，内部委托给 `SsoCredentialProvider`
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\CLIConfigCredentialProvider(
+            "prod",
+            getenv("HOME") . "/.volcengine/config.json"
+        )
+    );
+```
+
+## ECS 角色凭证提供者
+
+`EcsRoleCredentialProvider` 从 ECS IMDS 中读取临时凭证。
+
+- `roleName` 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动探测
+- 禁用开关：`VOLCENGINE_ECS_METADATA_DISABLED=true`
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name")
+    );
+```
+
+## 默认凭证提供者
+
+当 `ak`、`sk` 和 `credentialProvider` 都未设置时，SDK 会自动使用 `DefaultCredentialProvider`。通常不需要业务方手动拼默认凭证链，除非要自定义链路选项。
+
+默认凭证链顺序：
+
+1. `EnvironmentVariableCredentialProvider`
+2. `OidcEnvCredentialProvider`
+3. `CLIConfigCredentialProvider`
+4. `EcsRoleCredentialProvider`
+
+默认开启 `reuseLastProviderEnabled=true`，后续请求会优先复用上一次成功解析的 provider。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\DefaultCredentialProvider()
+    );
 ```
 
 # EndPoint配置
