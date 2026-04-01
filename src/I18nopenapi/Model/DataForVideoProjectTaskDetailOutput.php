@@ -161,7 +161,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['sub_tasks'] = isset($data['sub_tasks']) ? $data['sub_tasks'] : null;
         $this->container['task'] = isset($data['task']) ? $data['task'] : null;

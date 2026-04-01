@@ -156,7 +156,7 @@ class ReferenceDocItemForDocumentTaskCreateInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['reference_doc_name'] = isset($data['reference_doc_name']) ? $data['reference_doc_name'] : null;
         $this->container['reference_doc_type'] = isset($data['reference_doc_type']) ? $data['reference_doc_type'] : null;

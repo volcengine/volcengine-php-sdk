@@ -29,14 +29,14 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerTypes = [
         'create_time' => 'string',
-        'current_stage' => 'string',
+        'current_stage' => 'int',
         'default_style' => 'string',
-        'episode_num' => 'int',
+        'episode_num' => 'string',
         'id' => 'string',
-        'op_status' => 'string',
+        'op_status' => 'int',
         'source_language' => 'string',
         'source_subtitle_file_info' => '\Volcengine\I18nopenapi\Model\SourceSubtitleFileInfoForVideoProjectTaskDetailOutput',
-        'status' => 'string',
+        'status' => 'int',
         'subtask_type' => 'int',
         'suppression_status' => 'int',
         'suppression_video_info' => '\Volcengine\I18nopenapi\Model\SuppressionVideoInfoForVideoProjectTaskDetailOutput',
@@ -45,7 +45,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
         'text_ai_remove' => 'bool',
         'translate_ocr_text' => 'bool',
         'update_time' => 'string',
-        'use_dub_task' => 'string',
+        'use_dub_task' => 'bool',
         'use_mt' => 'bool',
         'use_ocr' => 'bool',
         'vid_with_ai_remove' => 'string',
@@ -60,14 +60,14 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'create_time' => null,
-        'current_stage' => null,
+        'current_stage' => 'int32',
         'default_style' => null,
-        'episode_num' => 'int32',
+        'episode_num' => null,
         'id' => null,
-        'op_status' => null,
+        'op_status' => 'int32',
         'source_language' => null,
         'source_subtitle_file_info' => null,
-        'status' => null,
+        'status' => 'int32',
         'subtask_type' => 'int32',
         'suppression_status' => 'int32',
         'suppression_video_info' => null,
@@ -256,7 +256,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['current_stage'] = isset($data['current_stage']) ? $data['current_stage'] : null;
@@ -334,7 +334,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Gets current_stage
      *
-     * @return string
+     * @return int
      */
     public function getCurrentStage()
     {
@@ -344,7 +344,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Sets current_stage
      *
-     * @param string $current_stage current_stage
+     * @param int $current_stage current_stage
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Gets episode_num
      *
-     * @return int
+     * @return string
      */
     public function getEpisodeNum()
     {
@@ -392,7 +392,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Sets episode_num
      *
-     * @param int $episode_num episode_num
+     * @param string $episode_num episode_num
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Gets op_status
      *
-     * @return string
+     * @return int
      */
     public function getOpStatus()
     {
@@ -440,7 +440,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Sets op_status
      *
-     * @param string $op_status op_status
+     * @param int $op_status op_status
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Gets status
      *
-     * @return string
+     * @return int
      */
     public function getStatus()
     {
@@ -512,7 +512,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param int $status status
      *
      * @return $this
      */
@@ -718,7 +718,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Gets use_dub_task
      *
-     * @return string
+     * @return bool
      */
     public function getUseDubTask()
     {
@@ -728,7 +728,7 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     /**
      * Sets use_dub_task
      *
-     * @param string $use_dub_task use_dub_task
+     * @param bool $use_dub_task use_dub_task
      *
      * @return $this
      */

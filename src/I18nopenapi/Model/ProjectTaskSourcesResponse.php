@@ -151,7 +151,7 @@ class ProjectTaskSourcesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;

@@ -151,7 +151,7 @@ class DocumentTaskDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['list'] = isset($data['list']) ? $data['list'] : null;
         $this->container['task_info'] = isset($data['task_info']) ? $data['task_info'] : null;

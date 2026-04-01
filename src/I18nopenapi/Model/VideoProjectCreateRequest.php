@@ -171,7 +171,7 @@ class VideoProjectCreateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_storage_link'] = isset($data['cloud_storage_link']) ? $data['cloud_storage_link'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;

@@ -166,7 +166,7 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_source_languages'] = isset($data['all_source_languages']) ? $data['all_source_languages'] : null;
         $this->container['all_target_languages'] = isset($data['all_target_languages']) ? $data['all_target_languages'] : null;

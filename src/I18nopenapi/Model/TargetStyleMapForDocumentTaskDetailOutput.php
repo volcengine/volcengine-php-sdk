@@ -146,7 +146,7 @@ class TargetStyleMapForDocumentTaskDetailOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['af'] = isset($data['af']) ? $data['af'] : null;
     }
