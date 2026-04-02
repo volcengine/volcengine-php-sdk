@@ -161,7 +161,7 @@ class ProjectTextAcrossImportRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['async'] = isset($data['async']) ? $data['async'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;

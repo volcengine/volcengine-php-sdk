@@ -156,7 +156,7 @@ class DataForProjectMtDetectOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lang_code'] = isset($data['lang_code']) ? $data['lang_code'] : null;
         $this->container['lang_name'] = isset($data['lang_name']) ? $data['lang_name'] : null;

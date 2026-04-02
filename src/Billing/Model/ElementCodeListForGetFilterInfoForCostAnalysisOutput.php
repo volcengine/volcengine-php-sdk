@@ -151,7 +151,7 @@ class ElementCodeListForGetFilterInfoForCostAnalysisOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['product_element_code'] = isset($data['product_element_code']) ? $data['product_element_code'] : null;
         $this->container['product_element_name'] = isset($data['product_element_name']) ? $data['product_element_name'] : null;

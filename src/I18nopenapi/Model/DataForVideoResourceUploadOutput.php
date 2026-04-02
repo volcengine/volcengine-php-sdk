@@ -161,7 +161,7 @@ class DataForVideoResourceUploadOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['image_uri'] = isset($data['image_uri']) ? $data['image_uri'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;

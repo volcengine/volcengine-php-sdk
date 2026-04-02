@@ -29,6 +29,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       */
     protected static $swaggerTypes = [
         'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput',
+        'dub_task_ids' => 'string[]',
         'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
         'task_ids' => 'string[]'
     ];
@@ -40,6 +41,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       */
     protected static $swaggerFormats = [
         'base_resp' => null,
+        'dub_task_ids' => null,
         'subtitle_file_check_reports' => null,
         'task_ids' => null
     ];
@@ -72,6 +74,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     protected static $attributeMap = [
         'base_resp' => 'BaseResp',
+        'dub_task_ids' => 'DubTaskIDs',
         'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
         'task_ids' => 'TaskIDs'
     ];
@@ -83,6 +86,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     protected static $setters = [
         'base_resp' => 'setBaseResp',
+        'dub_task_ids' => 'setDubTaskIds',
         'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
         'task_ids' => 'setTaskIds'
     ];
@@ -94,6 +98,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     protected static $getters = [
         'base_resp' => 'getBaseResp',
+        'dub_task_ids' => 'getDubTaskIds',
         'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
         'task_ids' => 'getTaskIds'
     ];
@@ -156,9 +161,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
+        $this->container['dub_task_ids'] = isset($data['dub_task_ids']) ? $data['dub_task_ids'] : null;
         $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
         $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
@@ -207,6 +213,30 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     public function setBaseResp($base_resp)
     {
         $this->container['base_resp'] = $base_resp;
+
+        return $this;
+    }
+
+    /**
+     * Gets dub_task_ids
+     *
+     * @return string[]
+     */
+    public function getDubTaskIds()
+    {
+        return $this->container['dub_task_ids'];
+    }
+
+    /**
+     * Sets dub_task_ids
+     *
+     * @param string[] $dub_task_ids dub_task_ids
+     *
+     * @return $this
+     */
+    public function setDubTaskIds($dub_task_ids)
+    {
+        $this->container['dub_task_ids'] = $dub_task_ids;
 
         return $this;
     }

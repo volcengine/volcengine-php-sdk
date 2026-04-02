@@ -151,7 +151,7 @@ class DataForLanguagesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;

@@ -161,7 +161,7 @@ class ProjectNamespaceTargetDeleteByKeysRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;

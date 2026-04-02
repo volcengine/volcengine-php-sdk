@@ -27,7 +27,7 @@ class ConnectUtils
      * @param string $dbUser Database username
      * @param string $instanceId RDS instance ID
      * @param int $expires Token expiration time in seconds (default: 900, i.e., 15 minutes). If <= 0, uses default 900.
-     * @return string Authentication token (full pre-signed URL)
+     * @return string Authentication token (query string only, without host)
      * @throws \InvalidArgumentException If required parameters are missing or invalid
      */
     public static function buildAuthToken(
@@ -90,15 +90,22 @@ class ConnectUtils
             'InstanceId' => $instanceId,
         ];
 
-        // Set up interceptor chain - only ResolveEndpoint + Sign
-        $chain = new InterceptorChain();
-        $chain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
-        $chain->appendRequestInterceptor(new SignRequestInterceptor(null));
-
-        // Execute chain
+        // Resolve endpoint first
         $context = new Context();
         $context->setRequest($request);
-        $chain->executeRequest($context);
+        $resolveChain = new InterceptorChain();
+        $resolveChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
+        $resolveChain->executeRequest($context);
+
+        // Save resolved host for X-Host param, then clear host so it won't be signed
+        $resolvedHost = $context->getRequest()->host;
+        $context->getRequest()->queryParams['X-Host'] = $context->getRequest()->schema . '://' . $resolvedHost;
+        $context->getRequest()->host = null;
+
+        // Sign request (host is null, won't be included in signature)
+        $signChain = new InterceptorChain();
+        $signChain->appendRequestInterceptor(new SignRequestInterceptor(null));
+        $signChain->executeRequest($context);
 
         return $context->getRequest()->presignedUrl;
     }

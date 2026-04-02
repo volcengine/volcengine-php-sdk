@@ -156,7 +156,7 @@ class ListForListInvitationOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth'] = isset($data['auth']) ? $data['auth'] : null;
         $this->container['invitation_type'] = isset($data['invitation_type']) ? $data['invitation_type'] : null;

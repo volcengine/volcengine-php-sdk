@@ -161,7 +161,7 @@ class ProjectNamespaceSourceMultiUpdateRequest implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ignore_exist'] = isset($data['ignore_exist']) ? $data['ignore_exist'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;

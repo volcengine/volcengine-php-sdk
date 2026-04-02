@@ -151,7 +151,7 @@ class ListForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['doc'] = isset($data['doc']) ? $data['doc'] : null;
         $this->container['subtasks'] = isset($data['subtasks']) ? $data['subtasks'] : null;

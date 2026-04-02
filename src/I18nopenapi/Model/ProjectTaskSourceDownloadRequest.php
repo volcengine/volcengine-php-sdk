@@ -204,7 +204,7 @@ class ProjectTaskSourceDownloadRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dir_type'] = isset($data['dir_type']) ? $data['dir_type'] : null;
         $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;

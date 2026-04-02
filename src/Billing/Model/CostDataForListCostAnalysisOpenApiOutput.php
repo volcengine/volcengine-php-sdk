@@ -156,7 +156,7 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['classify_dimension'] = isset($data['classify_dimension']) ? $data['classify_dimension'] : null;
         $this->container['classify_item'] = isset($data['classify_item']) ? $data['classify_item'] : null;

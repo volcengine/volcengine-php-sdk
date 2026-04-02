@@ -156,7 +156,7 @@ class DocumentTaskStopRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['sub_task_ids'] = isset($data['sub_task_ids']) ? $data['sub_task_ids'] : null;
