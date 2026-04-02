@@ -176,7 +176,7 @@ class ListCouponsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['coupon_id'] = isset($data['coupon_id']) ? $data['coupon_id'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;

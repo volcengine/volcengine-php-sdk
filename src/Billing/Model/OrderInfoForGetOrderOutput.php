@@ -226,7 +226,7 @@ class OrderInfoForGetOrderOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['buyer_customer_name'] = isset($data['buyer_customer_name']) ? $data['buyer_customer_name'] : null;
         $this->container['buyer_id'] = isset($data['buyer_id']) ? $data['buyer_id'] : null;

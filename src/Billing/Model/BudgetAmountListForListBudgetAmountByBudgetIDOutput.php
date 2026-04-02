@@ -171,7 +171,7 @@ class BudgetAmountListForListBudgetAmountByBudgetIDOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['actual_amount'] = isset($data['actual_amount']) ? $data['actual_amount'] : null;
         $this->container['budget_amount'] = isset($data['budget_amount']) ? $data['budget_amount'] : null;

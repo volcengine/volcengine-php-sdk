@@ -971,7 +971,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['amortized_begin_time'] = isset($data['amortized_begin_time']) ? $data['amortized_begin_time'] : null;
         $this->container['amortized_day_num'] = isset($data['amortized_day_num']) ? $data['amortized_day_num'] : null;

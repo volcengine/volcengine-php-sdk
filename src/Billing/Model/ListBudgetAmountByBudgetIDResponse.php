@@ -146,7 +146,7 @@ class ListBudgetAmountByBudgetIDResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['budget_amount_list'] = isset($data['budget_amount_list']) ? $data['budget_amount_list'] : null;
     }

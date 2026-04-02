@@ -191,7 +191,7 @@ class ProductLimitListForListCouponsOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_method'] = isset($data['billing_method']) ? $data['billing_method'] : null;
         $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;

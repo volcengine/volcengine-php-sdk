@@ -151,7 +151,7 @@ class PayerUserNameListForGetFilterInfoForCostAnalysisOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;

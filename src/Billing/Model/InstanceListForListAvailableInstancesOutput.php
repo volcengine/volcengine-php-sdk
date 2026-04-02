@@ -36,6 +36,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         'instance_name' => 'string',
         'payment_method' => 'string',
         'product' => 'string',
+        'product_name' => 'string',
         'remain_renew_times' => 'string',
         'renew_type' => 'string',
         'renewal_duration_unit' => 'string',
@@ -58,6 +59,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         'instance_name' => null,
         'payment_method' => null,
         'product' => null,
+        'product_name' => null,
         'remain_renew_times' => null,
         'renew_type' => null,
         'renewal_duration_unit' => null,
@@ -101,6 +103,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         'instance_name' => 'InstanceName',
         'payment_method' => 'PaymentMethod',
         'product' => 'Product',
+        'product_name' => 'ProductName',
         'remain_renew_times' => 'RemainRenewTimes',
         'renew_type' => 'RenewType',
         'renewal_duration_unit' => 'RenewalDurationUnit',
@@ -123,6 +126,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         'instance_name' => 'setInstanceName',
         'payment_method' => 'setPaymentMethod',
         'product' => 'setProduct',
+        'product_name' => 'setProductName',
         'remain_renew_times' => 'setRemainRenewTimes',
         'renew_type' => 'setRenewType',
         'renewal_duration_unit' => 'setRenewalDurationUnit',
@@ -145,6 +149,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         'instance_name' => 'getInstanceName',
         'payment_method' => 'getPaymentMethod',
         'product' => 'getProduct',
+        'product_name' => 'getProductName',
         'remain_renew_times' => 'getRemainRenewTimes',
         'renew_type' => 'getRenewType',
         'renewal_duration_unit' => 'getRenewalDurationUnit',
@@ -211,7 +216,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
@@ -221,6 +226,7 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['product_name'] = isset($data['product_name']) ? $data['product_name'] : null;
         $this->container['remain_renew_times'] = isset($data['remain_renew_times']) ? $data['remain_renew_times'] : null;
         $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['renewal_duration_unit'] = isset($data['renewal_duration_unit']) ? $data['renewal_duration_unit'] : null;
@@ -441,6 +447,30 @@ class InstanceListForListAvailableInstancesOutput implements ModelInterface, Arr
     public function setProduct($product)
     {
         $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_name
+     *
+     * @return string
+     */
+    public function getProductName()
+    {
+        return $this->container['product_name'];
+    }
+
+    /**
+     * Sets product_name
+     *
+     * @param string $product_name product_name
+     *
+     * @return $this
+     */
+    public function setProductName($product_name)
+    {
+        $this->container['product_name'] = $product_name;
 
         return $this;
     }
