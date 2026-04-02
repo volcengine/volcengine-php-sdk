@@ -151,7 +151,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_text_validate'] = isset($data['source_text_validate']) ? $data['source_text_validate'] : null;
         $this->container['target_text_validate'] = isset($data['target_text_validate']) ? $data['target_text_validate'] : null;

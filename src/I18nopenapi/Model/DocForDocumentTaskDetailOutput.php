@@ -171,7 +171,7 @@ class DocForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['doc_id'] = isset($data['doc_id']) ? $data['doc_id'] : null;
         $this->container['doc_name'] = isset($data['doc_name']) ? $data['doc_name'] : null;

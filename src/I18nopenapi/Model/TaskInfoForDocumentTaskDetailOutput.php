@@ -28,7 +28,7 @@ class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_remove_type' => 'string',
+        'ai_remove_type' => 'int',
         'asr_model' => 'int',
         'bgm_policy' => 'int',
         'comment' => 'string',
@@ -65,7 +65,7 @@ class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_remove_type' => null,
+        'ai_remove_type' => 'int32',
         'asr_model' => 'int32',
         'bgm_policy' => 'int32',
         'comment' => null,
@@ -286,7 +286,7 @@ class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;
@@ -346,7 +346,7 @@ class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets ai_remove_type
      *
-     * @return string
+     * @return int
      */
     public function getAiRemoveType()
     {
@@ -356,7 +356,7 @@ class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets ai_remove_type
      *
-     * @param string $ai_remove_type ai_remove_type
+     * @param int $ai_remove_type ai_remove_type
      *
      * @return $this
      */

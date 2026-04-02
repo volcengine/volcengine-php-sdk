@@ -32,7 +32,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'created_at' => 'string',
         'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskDetailOutput',
         'deadline' => 'string',
-        'drama_task_workflow' => 'string',
+        'drama_task_workflow' => 'int',
         'duration_count' => 'string',
         'id' => 'string',
         'name' => 'string',
@@ -40,14 +40,14 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'source_language' => 'string',
         'source_videos' => 'string',
-        'status' => 'string',
+        'status' => 'int',
         'target_languages' => 'string[]',
-        'task_type' => 'string',
-        'translation_team' => 'string',
+        'task_type' => 'int',
+        'translation_team' => 'int',
         'updated_at' => 'string',
         'updater' => 'string',
         'words_count' => 'string',
-        'workflow_type' => 'string'
+        'workflow_type' => 'int'
     ];
 
     /**
@@ -60,7 +60,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'created_at' => null,
         'creator' => null,
         'deadline' => null,
-        'drama_task_workflow' => null,
+        'drama_task_workflow' => 'int32',
         'duration_count' => null,
         'id' => null,
         'name' => null,
@@ -68,14 +68,14 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'project_name' => null,
         'source_language' => null,
         'source_videos' => null,
-        'status' => null,
+        'status' => 'int32',
         'target_languages' => null,
-        'task_type' => null,
-        'translation_team' => null,
+        'task_type' => 'int32',
+        'translation_team' => 'int32',
         'updated_at' => null,
         'updater' => null,
         'words_count' => null,
-        'workflow_type' => null
+        'workflow_type' => 'int32'
     ];
 
     /**
@@ -241,7 +241,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -388,7 +388,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets drama_task_workflow
      *
-     * @return string
+     * @return int
      */
     public function getDramaTaskWorkflow()
     {
@@ -398,7 +398,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets drama_task_workflow
      *
-     * @param string $drama_task_workflow drama_task_workflow
+     * @param int $drama_task_workflow drama_task_workflow
      *
      * @return $this
      */
@@ -580,7 +580,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return string
+     * @return int
      */
     public function getStatus()
     {
@@ -590,7 +590,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param int $status status
      *
      * @return $this
      */
@@ -628,7 +628,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets task_type
      *
-     * @return string
+     * @return int
      */
     public function getTaskType()
     {
@@ -638,7 +638,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets task_type
      *
-     * @param string $task_type task_type
+     * @param int $task_type task_type
      *
      * @return $this
      */
@@ -652,7 +652,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets translation_team
      *
-     * @return string
+     * @return int
      */
     public function getTranslationTeam()
     {
@@ -662,7 +662,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets translation_team
      *
-     * @param string $translation_team translation_team
+     * @param int $translation_team translation_team
      *
      * @return $this
      */
@@ -748,7 +748,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets workflow_type
      *
-     * @return string
+     * @return int
      */
     public function getWorkflowType()
     {
@@ -758,7 +758,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets workflow_type
      *
-     * @param string $workflow_type workflow_type
+     * @param int $workflow_type workflow_type
      *
      * @return $this
      */

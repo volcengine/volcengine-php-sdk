@@ -211,7 +211,7 @@ class SubtaskForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cat_stage'] = isset($data['cat_stage']) ? $data['cat_stage'] : null;
         $this->container['cat_type'] = isset($data['cat_type']) ? $data['cat_type'] : null;

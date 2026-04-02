@@ -161,7 +161,7 @@ class SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput implements Mo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
         $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
