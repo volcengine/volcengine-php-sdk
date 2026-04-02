@@ -171,7 +171,7 @@ class RunCodeResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['compile_result'] = isset($data['compile_result']) ? $data['compile_result'] : null;
         $this->container['executor_pod_name'] = isset($data['executor_pod_name']) ? $data['executor_pod_name'] : null;

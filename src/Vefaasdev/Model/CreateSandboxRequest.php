@@ -28,10 +28,20 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async' => 'bool',
+        'cpu_milli' => 'int',
         'envs' => '\Volcengine\Vefaasdev\Model\EnvForCreateSandboxInput[]',
         'function_id' => 'string',
-        'metadata' => '\Volcengine\Vefaasdev\Model\MetadataForCreateSandboxInput',
-        'timeout' => 'int'
+        'instance_image_info' => '\Volcengine\Vefaasdev\Model\InstanceImageInfoForCreateSandboxInput',
+        'instance_nas_mount_config' => '\Volcengine\Vefaasdev\Model\InstanceNasMountConfigForCreateSandboxInput',
+        'instance_tos_mount_config' => '\Volcengine\Vefaasdev\Model\InstanceTosMountConfigForCreateSandboxInput',
+        'max_concurrency' => 'int',
+        'memory_mb' => 'int',
+        'metadata' => 'map[string,string]',
+        'request_timeout' => 'int',
+        'session_id' => 'string',
+        'timeout' => 'int',
+        'timeout_unit' => 'string'
     ];
 
     /**
@@ -40,10 +50,20 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async' => null,
+        'cpu_milli' => 'int32',
         'envs' => null,
         'function_id' => null,
+        'instance_image_info' => null,
+        'instance_nas_mount_config' => null,
+        'instance_tos_mount_config' => null,
+        'max_concurrency' => 'int32',
+        'memory_mb' => 'int32',
         'metadata' => null,
-        'timeout' => 'int32'
+        'request_timeout' => 'int32',
+        'session_id' => null,
+        'timeout' => 'int32',
+        'timeout_unit' => null
     ];
 
     /**
@@ -73,10 +93,20 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async' => 'Async',
+        'cpu_milli' => 'CpuMilli',
         'envs' => 'Envs',
         'function_id' => 'FunctionId',
+        'instance_image_info' => 'InstanceImageInfo',
+        'instance_nas_mount_config' => 'InstanceNasMountConfig',
+        'instance_tos_mount_config' => 'InstanceTosMountConfig',
+        'max_concurrency' => 'MaxConcurrency',
+        'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
-        'timeout' => 'Timeout'
+        'request_timeout' => 'RequestTimeout',
+        'session_id' => 'SessionId',
+        'timeout' => 'Timeout',
+        'timeout_unit' => 'TimeoutUnit'
     ];
 
     /**
@@ -85,10 +115,20 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async' => 'setAsync',
+        'cpu_milli' => 'setCpuMilli',
         'envs' => 'setEnvs',
         'function_id' => 'setFunctionId',
+        'instance_image_info' => 'setInstanceImageInfo',
+        'instance_nas_mount_config' => 'setInstanceNasMountConfig',
+        'instance_tos_mount_config' => 'setInstanceTosMountConfig',
+        'max_concurrency' => 'setMaxConcurrency',
+        'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
-        'timeout' => 'setTimeout'
+        'request_timeout' => 'setRequestTimeout',
+        'session_id' => 'setSessionId',
+        'timeout' => 'setTimeout',
+        'timeout_unit' => 'setTimeoutUnit'
     ];
 
     /**
@@ -97,10 +137,20 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async' => 'getAsync',
+        'cpu_milli' => 'getCpuMilli',
         'envs' => 'getEnvs',
         'function_id' => 'getFunctionId',
+        'instance_image_info' => 'getInstanceImageInfo',
+        'instance_nas_mount_config' => 'getInstanceNasMountConfig',
+        'instance_tos_mount_config' => 'getInstanceTosMountConfig',
+        'max_concurrency' => 'getMaxConcurrency',
+        'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
-        'timeout' => 'getTimeout'
+        'request_timeout' => 'getRequestTimeout',
+        'session_id' => 'getSessionId',
+        'timeout' => 'getTimeout',
+        'timeout_unit' => 'getTimeoutUnit'
     ];
 
     /**
@@ -161,12 +211,22 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['async'] = isset($data['async']) ? $data['async'] : null;
+        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['instance_image_info'] = isset($data['instance_image_info']) ? $data['instance_image_info'] : null;
+        $this->container['instance_nas_mount_config'] = isset($data['instance_nas_mount_config']) ? $data['instance_nas_mount_config'] : null;
+        $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
+        $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
+        $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['timeout_unit'] = isset($data['timeout_unit']) ? $data['timeout_unit'] : null;
     }
 
     /**
@@ -195,6 +255,54 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async
+     *
+     * @return bool
+     */
+    public function getAsync()
+    {
+        return $this->container['async'];
+    }
+
+    /**
+     * Sets async
+     *
+     * @param bool $async async
+     *
+     * @return $this
+     */
+    public function setAsync($async)
+    {
+        $this->container['async'] = $async;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_milli
+     *
+     * @return int
+     */
+    public function getCpuMilli()
+    {
+        return $this->container['cpu_milli'];
+    }
+
+    /**
+     * Sets cpu_milli
+     *
+     * @param int $cpu_milli cpu_milli
+     *
+     * @return $this
+     */
+    public function setCpuMilli($cpu_milli)
+    {
+        $this->container['cpu_milli'] = $cpu_milli;
+
+        return $this;
+    }
 
     /**
      * Gets envs
@@ -245,9 +353,129 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_image_info
+     *
+     * @return \Volcengine\Vefaasdev\Model\InstanceImageInfoForCreateSandboxInput
+     */
+    public function getInstanceImageInfo()
+    {
+        return $this->container['instance_image_info'];
+    }
+
+    /**
+     * Sets instance_image_info
+     *
+     * @param \Volcengine\Vefaasdev\Model\InstanceImageInfoForCreateSandboxInput $instance_image_info instance_image_info
+     *
+     * @return $this
+     */
+    public function setInstanceImageInfo($instance_image_info)
+    {
+        $this->container['instance_image_info'] = $instance_image_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_nas_mount_config
+     *
+     * @return \Volcengine\Vefaasdev\Model\InstanceNasMountConfigForCreateSandboxInput
+     */
+    public function getInstanceNasMountConfig()
+    {
+        return $this->container['instance_nas_mount_config'];
+    }
+
+    /**
+     * Sets instance_nas_mount_config
+     *
+     * @param \Volcengine\Vefaasdev\Model\InstanceNasMountConfigForCreateSandboxInput $instance_nas_mount_config instance_nas_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceNasMountConfig($instance_nas_mount_config)
+    {
+        $this->container['instance_nas_mount_config'] = $instance_nas_mount_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_tos_mount_config
+     *
+     * @return \Volcengine\Vefaasdev\Model\InstanceTosMountConfigForCreateSandboxInput
+     */
+    public function getInstanceTosMountConfig()
+    {
+        return $this->container['instance_tos_mount_config'];
+    }
+
+    /**
+     * Sets instance_tos_mount_config
+     *
+     * @param \Volcengine\Vefaasdev\Model\InstanceTosMountConfigForCreateSandboxInput $instance_tos_mount_config instance_tos_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceTosMountConfig($instance_tos_mount_config)
+    {
+        $this->container['instance_tos_mount_config'] = $instance_tos_mount_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_concurrency
+     *
+     * @return int
+     */
+    public function getMaxConcurrency()
+    {
+        return $this->container['max_concurrency'];
+    }
+
+    /**
+     * Sets max_concurrency
+     *
+     * @param int $max_concurrency max_concurrency
+     *
+     * @return $this
+     */
+    public function setMaxConcurrency($max_concurrency)
+    {
+        $this->container['max_concurrency'] = $max_concurrency;
+
+        return $this;
+    }
+
+    /**
+     * Gets memory_mb
+     *
+     * @return int
+     */
+    public function getMemoryMb()
+    {
+        return $this->container['memory_mb'];
+    }
+
+    /**
+     * Sets memory_mb
+     *
+     * @param int $memory_mb memory_mb
+     *
+     * @return $this
+     */
+    public function setMemoryMb($memory_mb)
+    {
+        $this->container['memory_mb'] = $memory_mb;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
-     * @return \Volcengine\Vefaasdev\Model\MetadataForCreateSandboxInput
+     * @return map[string,string]
      */
     public function getMetadata()
     {
@@ -257,13 +485,61 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Volcengine\Vefaasdev\Model\MetadataForCreateSandboxInput $metadata metadata
+     * @param map[string,string] $metadata metadata
      *
      * @return $this
      */
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_timeout
+     *
+     * @return int
+     */
+    public function getRequestTimeout()
+    {
+        return $this->container['request_timeout'];
+    }
+
+    /**
+     * Sets request_timeout
+     *
+     * @param int $request_timeout request_timeout
+     *
+     * @return $this
+     */
+    public function setRequestTimeout($request_timeout)
+    {
+        $this->container['request_timeout'] = $request_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_id
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->container['session_id'];
+    }
+
+    /**
+     * Sets session_id
+     *
+     * @param string $session_id session_id
+     *
+     * @return $this
+     */
+    public function setSessionId($session_id)
+    {
+        $this->container['session_id'] = $session_id;
 
         return $this;
     }
@@ -288,6 +564,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setTimeout($timeout)
     {
         $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout_unit
+     *
+     * @return string
+     */
+    public function getTimeoutUnit()
+    {
+        return $this->container['timeout_unit'];
+    }
+
+    /**
+     * Sets timeout_unit
+     *
+     * @param string $timeout_unit timeout_unit
+     *
+     * @return $this
+     */
+    public function setTimeoutUnit($timeout_unit)
+    {
+        $this->container['timeout_unit'] = $timeout_unit;
 
         return $this;
     }
