@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
+class TosMountConfigForCreateFunctionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForCreateSandboxInput';
+    protected static $swaggerModelName = 'TosMountConfigForCreateFunctionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'credentials' => '\Volcengine\Vefaasdev\Model\CredentialsForCreateFunctionInput',
+        'enable_tos' => 'bool',
+        'mount_points' => '\Volcengine\Vefaasdev\Model\MountPointForCreateFunctionInput[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'credentials' => null,
+        'enable_tos' => null,
+        'mount_points' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'credentials' => 'Credentials',
+        'enable_tos' => 'EnableTos',
+        'mount_points' => 'MountPoints'
     ];
 
     /**
@@ -76,7 +82,9 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'credentials' => 'setCredentials',
+        'enable_tos' => 'setEnableTos',
+        'mount_points' => 'setMountPoints'
     ];
 
     /**
@@ -85,7 +93,9 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'credentials' => 'getCredentials',
+        'enable_tos' => 'getEnableTos',
+        'mount_points' => 'getMountPoints'
     ];
 
     /**
@@ -146,8 +156,11 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
+        $this->container['enable_tos'] = isset($data['enable_tos']) ? $data['enable_tos'] : null;
+        $this->container['mount_points'] = isset($data['mount_points']) ? $data['mount_points'] : null;
     }
 
     /**
@@ -173,6 +186,78 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets credentials
+     *
+     * @return \Volcengine\Vefaasdev\Model\CredentialsForCreateFunctionInput
+     */
+    public function getCredentials()
+    {
+        return $this->container['credentials'];
+    }
+
+    /**
+     * Sets credentials
+     *
+     * @param \Volcengine\Vefaasdev\Model\CredentialsForCreateFunctionInput $credentials credentials
+     *
+     * @return $this
+     */
+    public function setCredentials($credentials)
+    {
+        $this->container['credentials'] = $credentials;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_tos
+     *
+     * @return bool
+     */
+    public function getEnableTos()
+    {
+        return $this->container['enable_tos'];
+    }
+
+    /**
+     * Sets enable_tos
+     *
+     * @param bool $enable_tos enable_tos
+     *
+     * @return $this
+     */
+    public function setEnableTos($enable_tos)
+    {
+        $this->container['enable_tos'] = $enable_tos;
+
+        return $this;
+    }
+
+    /**
+     * Gets mount_points
+     *
+     * @return \Volcengine\Vefaasdev\Model\MountPointForCreateFunctionInput[]
+     */
+    public function getMountPoints()
+    {
+        return $this->container['mount_points'];
+    }
+
+    /**
+     * Sets mount_points
+     *
+     * @param \Volcengine\Vefaasdev\Model\MountPointForCreateFunctionInput[] $mount_points mount_points
+     *
+     * @return $this
+     */
+    public function setMountPoints($mount_points)
+    {
+        $this->container['mount_points'] = $mount_points;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
+class GetRevisionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForListSandboxesOutput';
+    protected static $swaggerModelName = 'GetRevisionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'function_id' => 'string',
+        'revision_number' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'function_id' => null,
+        'revision_number' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'function_id' => 'FunctionId',
+        'revision_number' => 'RevisionNumber'
     ];
 
     /**
@@ -76,7 +79,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'function_id' => 'setFunctionId',
+        'revision_number' => 'setRevisionNumber'
     ];
 
     /**
@@ -85,7 +89,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'function_id' => 'getFunctionId',
+        'revision_number' => 'getRevisionNumber'
     ];
 
     /**
@@ -146,8 +151,10 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
     }
 
     /**
@@ -159,6 +166,12 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['revision_number'] === null) {
+            $invalidProperties[] = "'revision_number' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -173,6 +186,54 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int $revision_number revision_number
+     *
+     * @return $this
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
