@@ -12,7 +12,8 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | --- | --- | --- | --- |
 | Direct `Configuration` (`AK/SK` or `AK/SK/Token`) | Explicit static or temporary credentials | No | Simple server-side integration |
 | `StsProvider` | STS AssumeRole | Yes | Role-based temporary credentials |
-| `OidcEnvCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
 | `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
@@ -143,7 +144,7 @@ try {
 
 ## OIDC Credential Provider
 
-`OidcEnvCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC.
+`OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC.
 
 Supported OIDC env vars:
 
@@ -153,7 +154,7 @@ Supported OIDC env vars:
 - `VOLCENGINE_OIDC_ROLE_POLICY`
 - `VOLCENGINE_OIDC_STS_ENDPOINT`
 
-You can either construct the provider explicitly, or build it from environment variables with `OidcEnvCredentialProvider::fromEnvironment()`.
+You can either construct the provider explicitly, or build it from environment variables with `OidcCredentialProvider::fromEnvironment()`.
 
 ```php
 <?php
@@ -162,7 +163,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
             "trn:iam::1234567890:role/oidc-role",
             "/var/run/secrets/oidc/token",
             "credentials-php-demo",
@@ -184,7 +185,35 @@ putenv("VOLCENGINE_OIDC_TOKEN_FILE=/var/run/secrets/oidc/token");
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider(
-        \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider::fromEnvironment()
+        \Volcengine\Common\Auth\Providers\OidcCredentialProvider::fromEnvironment()
+    );
+```
+
+## SAML Credential Provider
+
+`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
+
+> ⚠️ Notes
+>
+> 1. Least privilege.
+> 2. Reasonable TTL; recommended ≤ 1 hour.
+> 3. `samlAssertion` is the base64-encoded SAML Response returned by your IdP.
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
+            "YourRoleName",
+            "1234567890",                              // account id
+            "MyIdp",                                   // SAML provider name
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion
+            null,                                      // role policy (optional)
+            "sts.volcengineapi.com"                    // sts endpoint (optional)
+        )
     );
 ```
 
@@ -228,7 +257,7 @@ Supported profile modes:
 - `AK` or empty
 - `StsToken`
 - `RamRoleArn` (delegates to `StsProvider`)
-- `OIDC` (delegates to `OidcEnvCredentialProvider`)
+- `OIDC` (delegates to `OidcCredentialProvider`)
 - `EcsRole` (delegates to `EcsRoleCredentialProvider`)
 - `SSO` (delegates to `SsoCredentialProvider`)
 
@@ -271,7 +300,7 @@ When `ak`, `sk`, and `credentialProvider` are all unset, the SDK automatically u
 Default chain order:
 
 1. `EnvironmentVariableCredentialProvider`
-2. `OidcEnvCredentialProvider`
+2. `OidcCredentialProvider`
 3. `CLIConfigCredentialProvider`
 4. `EcsRoleCredentialProvider`
 

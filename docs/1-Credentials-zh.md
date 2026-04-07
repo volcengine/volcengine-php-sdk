@@ -12,7 +12,8 @@
 | --- | --- | --- | --- |
 | 直接在 `Configuration` 中设置 `AK/SK` 或 `AK/SK/Token` | 显式传入固定或临时凭证 | 否 | 简单服务端接入 |
 | `StsProvider` | STS AssumeRole | 是 | 基于角色的临时凭证 |
-| `OidcEnvCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
+| `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 从 `~/.volcengine/config.json` 读取 | 视 mode 而定 | 复用 CLI 登录态或 profile |
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
@@ -156,7 +157,7 @@ try {
 
 ## OIDC 凭证提供者
 
-`OidcEnvCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证。
+`OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证。
 
 支持的 OIDC 环境变量：
 
@@ -166,7 +167,7 @@ try {
 - `VOLCENGINE_OIDC_ROLE_POLICY`
 - `VOLCENGINE_OIDC_STS_ENDPOINT`
 
-可以直接传参构造，也可以通过 `OidcEnvCredentialProvider::fromEnvironment()` 从环境变量创建。
+可以直接传参构造，也可以通过 `OidcCredentialProvider::fromEnvironment()` 从环境变量创建。
 
 ```php
 <?php
@@ -175,7 +176,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
             "trn:iam::1234567890:role/oidc-role",
             "/var/run/secrets/oidc/token",
             "credentials-php-demo",
@@ -197,7 +198,35 @@ putenv("VOLCENGINE_OIDC_TOKEN_FILE=/var/run/secrets/oidc/token");
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider(
-        \Volcengine\Common\Auth\Providers\OidcEnvCredentialProvider::fromEnvironment()
+        \Volcengine\Common\Auth\Providers\OidcCredentialProvider::fromEnvironment()
+    );
+```
+
+## SAML 凭证提供者
+
+`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
+
+> ⚠️ 注意事项
+>
+> 1. 最小权限原则。
+> 2. 合理的有效期；建议不超过 1 小时。
+> 3. `samlAssertion` 为 IdP 返回的 base64 编码的 SAML Response。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
+            "YourRoleName",
+            "1234567890",                              // account id
+            "MyIdp",                                   // SAML provider 名称
+            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion
+            null,                                      // role policy（可选）
+            "sts.volcengineapi.com"                    // sts endpoint（可选）
+        )
     );
 ```
 
@@ -241,7 +270,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 - `AK` 或空
 - `StsToken`
 - `RamRoleArn`，内部委托给 `StsProvider`
-- `OIDC`，内部委托给 `OidcEnvCredentialProvider`
+- `OIDC`，内部委托给 `OidcCredentialProvider`
 - `EcsRole`，内部委托给 `EcsRoleCredentialProvider`
 - `SSO`，内部委托给 `SsoCredentialProvider`
 
@@ -284,7 +313,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 默认凭证链顺序：
 
 1. `EnvironmentVariableCredentialProvider`
-2. `OidcEnvCredentialProvider`
+2. `OidcCredentialProvider`
 3. `CLIConfigCredentialProvider`
 4. `EcsRoleCredentialProvider`
 

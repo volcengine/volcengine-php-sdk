@@ -6,7 +6,7 @@ namespace Volcengine\Common\Auth\Providers;
  * 4-step default credential chain:
  *
  * 1. EnvironmentVariableCredentialProvider  (env AK/SK/STS)
- * 2. OidcEnvCredentialProvider              (env OIDC)
+ * 2. OidcCredentialProvider                 (env OIDC)
  * 3. CLIConfigCredentialProvider            (CLI config.json)
  * 4. EcsRoleCredentialProvider              (IMDS)
  *
@@ -42,7 +42,7 @@ class DefaultCredentialProvider extends Provider
                 if ($creds !== null) {
                     return $creds;
                 }
-            } catch (\Throwable $e) {
+            } catch (\Exception $e) {
                 // Clear cached provider and fall through to full chain
                 $this->lastProvider = null;
             }
@@ -59,7 +59,7 @@ class DefaultCredentialProvider extends Provider
                     }
                     return $creds;
                 }
-            } catch (\Throwable $e) {
+            } catch (\Exception $e) {
                 $errors[] = get_class($provider) . ': ' . $e->getMessage();
             }
         }
@@ -80,7 +80,7 @@ class DefaultCredentialProvider extends Provider
 
         // Step 2: OIDC from environment variables (lazy - may throw if env not set)
         $chain[] = new LazyProvider(function () {
-            return OidcEnvCredentialProvider::fromEnvironment();
+            return OidcCredentialProvider::fromEnvironment();
         });
 
         // Step 3: CLI config.json
@@ -117,7 +117,7 @@ class LazyProvider extends Provider
         if (!$this->initialized) {
             try {
                 $this->delegate = call_user_func($this->factory);
-            } catch (\Throwable $e) {
+            } catch (\Exception $e) {
                 $this->initError = $e->getMessage();
             }
             $this->initialized = true;

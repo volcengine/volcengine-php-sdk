@@ -146,7 +146,7 @@ class CLIConfigCredentialProvider extends Provider
                     );
                 }
 
-                $this->delegate = new OidcEnvCredentialProvider($roleTrn, $oidcTokenFile);
+                $this->delegate = new OidcCredentialProvider($roleTrn, $oidcTokenFile);
                 return null;
 
             case 'ecsrole':
