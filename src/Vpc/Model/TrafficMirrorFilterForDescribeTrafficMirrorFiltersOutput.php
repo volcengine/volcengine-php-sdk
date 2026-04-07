@@ -36,7 +36,8 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeTrafficMirrorFiltersOutput[]',
         'traffic_mirror_filter_id' => 'string',
-        'traffic_mirror_filter_name' => 'string'
+        'traffic_mirror_filter_name' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         'status' => null,
         'tags' => null,
         'traffic_mirror_filter_id' => null,
-        'traffic_mirror_filter_name' => null
+        'traffic_mirror_filter_name' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         'status' => 'Status',
         'tags' => 'Tags',
         'traffic_mirror_filter_id' => 'TrafficMirrorFilterId',
-        'traffic_mirror_filter_name' => 'TrafficMirrorFilterName'
+        'traffic_mirror_filter_name' => 'TrafficMirrorFilterName',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -108,7 +111,8 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         'status' => 'setStatus',
         'tags' => 'setTags',
         'traffic_mirror_filter_id' => 'setTrafficMirrorFilterId',
-        'traffic_mirror_filter_name' => 'setTrafficMirrorFilterName'
+        'traffic_mirror_filter_name' => 'setTrafficMirrorFilterName',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -125,7 +129,8 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         'status' => 'getStatus',
         'tags' => 'getTags',
         'traffic_mirror_filter_id' => 'getTrafficMirrorFilterId',
-        'traffic_mirror_filter_name' => 'getTrafficMirrorFilterName'
+        'traffic_mirror_filter_name' => 'getTrafficMirrorFilterName',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -186,7 +191,7 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -197,6 +202,7 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['traffic_mirror_filter_id'] = isset($data['traffic_mirror_filter_id']) ? $data['traffic_mirror_filter_id'] : null;
         $this->container['traffic_mirror_filter_name'] = isset($data['traffic_mirror_filter_name']) ? $data['traffic_mirror_filter_name'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -435,6 +441,30 @@ class TrafficMirrorFilterForDescribeTrafficMirrorFiltersOutput implements ModelI
     public function setTrafficMirrorFilterName($traffic_mirror_filter_name)
     {
         $this->container['traffic_mirror_filter_name'] = $traffic_mirror_filter_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

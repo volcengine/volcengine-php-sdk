@@ -28,19 +28,20 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created_at' => 'string',
         'description' => 'string',
         'destination_cidr_block' => 'string',
         'destination_port_range' => 'string',
         'policy' => 'string',
         'priority' => 'int',
-        'project_name' => 'string',
         'protocol' => 'string',
         'source_cidr_block' => 'string',
         'source_port_range' => 'string',
         'status' => 'string',
         'traffic_direction' => 'string',
         'traffic_mirror_filter_id' => 'string',
-        'traffic_mirror_filter_rule_id' => 'string'
+        'traffic_mirror_filter_rule_id' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -49,19 +50,20 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created_at' => null,
         'description' => null,
         'destination_cidr_block' => null,
         'destination_port_range' => null,
         'policy' => null,
         'priority' => null,
-        'project_name' => null,
         'protocol' => null,
         'source_cidr_block' => null,
         'source_port_range' => null,
         'status' => null,
         'traffic_direction' => null,
         'traffic_mirror_filter_id' => null,
-        'traffic_mirror_filter_rule_id' => null
+        'traffic_mirror_filter_rule_id' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -91,19 +93,20 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
      * @var string[]
      */
     protected static $attributeMap = [
+        'created_at' => 'CreatedAt',
         'description' => 'Description',
         'destination_cidr_block' => 'DestinationCidrBlock',
         'destination_port_range' => 'DestinationPortRange',
         'policy' => 'Policy',
         'priority' => 'Priority',
-        'project_name' => 'ProjectName',
         'protocol' => 'Protocol',
         'source_cidr_block' => 'SourceCidrBlock',
         'source_port_range' => 'SourcePortRange',
         'status' => 'Status',
         'traffic_direction' => 'TrafficDirection',
         'traffic_mirror_filter_id' => 'TrafficMirrorFilterId',
-        'traffic_mirror_filter_rule_id' => 'TrafficMirrorFilterRuleId'
+        'traffic_mirror_filter_rule_id' => 'TrafficMirrorFilterRuleId',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -112,19 +115,20 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
      * @var string[]
      */
     protected static $setters = [
+        'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
         'destination_cidr_block' => 'setDestinationCidrBlock',
         'destination_port_range' => 'setDestinationPortRange',
         'policy' => 'setPolicy',
         'priority' => 'setPriority',
-        'project_name' => 'setProjectName',
         'protocol' => 'setProtocol',
         'source_cidr_block' => 'setSourceCidrBlock',
         'source_port_range' => 'setSourcePortRange',
         'status' => 'setStatus',
         'traffic_direction' => 'setTrafficDirection',
         'traffic_mirror_filter_id' => 'setTrafficMirrorFilterId',
-        'traffic_mirror_filter_rule_id' => 'setTrafficMirrorFilterRuleId'
+        'traffic_mirror_filter_rule_id' => 'setTrafficMirrorFilterRuleId',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -133,19 +137,20 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
      * @var string[]
      */
     protected static $getters = [
+        'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
         'destination_cidr_block' => 'getDestinationCidrBlock',
         'destination_port_range' => 'getDestinationPortRange',
         'policy' => 'getPolicy',
         'priority' => 'getPriority',
-        'project_name' => 'getProjectName',
         'protocol' => 'getProtocol',
         'source_cidr_block' => 'getSourceCidrBlock',
         'source_port_range' => 'getSourcePortRange',
         'status' => 'getStatus',
         'traffic_direction' => 'getTrafficDirection',
         'traffic_mirror_filter_id' => 'getTrafficMirrorFilterId',
-        'traffic_mirror_filter_rule_id' => 'getTrafficMirrorFilterRuleId'
+        'traffic_mirror_filter_rule_id' => 'getTrafficMirrorFilterRuleId',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -206,14 +211,14 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['destination_port_range'] = isset($data['destination_port_range']) ? $data['destination_port_range'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['source_cidr_block'] = isset($data['source_cidr_block']) ? $data['source_cidr_block'] : null;
         $this->container['source_port_range'] = isset($data['source_port_range']) ? $data['source_port_range'] : null;
@@ -221,6 +226,7 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
         $this->container['traffic_direction'] = isset($data['traffic_direction']) ? $data['traffic_direction'] : null;
         $this->container['traffic_mirror_filter_id'] = isset($data['traffic_mirror_filter_id']) ? $data['traffic_mirror_filter_id'] : null;
         $this->container['traffic_mirror_filter_rule_id'] = isset($data['traffic_mirror_filter_rule_id']) ? $data['traffic_mirror_filter_rule_id'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -246,6 +252,30 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -363,30 +393,6 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
     public function setPriority($priority)
     {
         $this->container['priority'] = $priority;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
 
         return $this;
     }
@@ -555,6 +561,30 @@ class EgressFilterRuleForDescribeTrafficMirrorFiltersOutput implements ModelInte
     public function setTrafficMirrorFilterRuleId($traffic_mirror_filter_rule_id)
     {
         $this->container['traffic_mirror_filter_rule_id'] = $traffic_mirror_filter_rule_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

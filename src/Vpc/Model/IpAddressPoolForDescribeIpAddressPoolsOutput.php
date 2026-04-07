@@ -216,7 +216,7 @@ class IpAddressPoolForDescribeIpAddressPoolsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['business_status'] = isset($data['business_status']) ? $data['business_status'] : null;
         $this->container['cidr_blocks'] = isset($data['cidr_blocks']) ? $data['cidr_blocks'] : null;

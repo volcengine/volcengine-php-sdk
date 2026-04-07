@@ -28,6 +28,9 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ipv6_cidr_block' => 'string',
+        'ipv6_isp' => 'string',
+        'ipv6_mask_len' => 'int',
         'secondary_cidr_block' => 'string',
         'vpc_id' => 'string'
     ];
@@ -38,6 +41,9 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ipv6_cidr_block' => null,
+        'ipv6_isp' => null,
+        'ipv6_mask_len' => null,
         'secondary_cidr_block' => null,
         'vpc_id' => null
     ];
@@ -69,6 +75,9 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
+        'ipv6_isp' => 'Ipv6Isp',
+        'ipv6_mask_len' => 'Ipv6MaskLen',
         'secondary_cidr_block' => 'SecondaryCidrBlock',
         'vpc_id' => 'VpcId'
     ];
@@ -79,6 +88,9 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
+        'ipv6_isp' => 'setIpv6Isp',
+        'ipv6_mask_len' => 'setIpv6MaskLen',
         'secondary_cidr_block' => 'setSecondaryCidrBlock',
         'vpc_id' => 'setVpcId'
     ];
@@ -89,6 +101,9 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
+        'ipv6_isp' => 'getIpv6Isp',
+        'ipv6_mask_len' => 'getIpv6MaskLen',
         'secondary_cidr_block' => 'getSecondaryCidrBlock',
         'vpc_id' => 'getVpcId'
     ];
@@ -151,8 +166,11 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
+        $this->container['ipv6_isp'] = isset($data['ipv6_isp']) ? $data['ipv6_isp'] : null;
+        $this->container['ipv6_mask_len'] = isset($data['ipv6_mask_len']) ? $data['ipv6_mask_len'] : null;
         $this->container['secondary_cidr_block'] = isset($data['secondary_cidr_block']) ? $data['secondary_cidr_block'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -183,6 +201,78 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_isp
+     *
+     * @return string
+     */
+    public function getIpv6Isp()
+    {
+        return $this->container['ipv6_isp'];
+    }
+
+    /**
+     * Sets ipv6_isp
+     *
+     * @param string $ipv6_isp ipv6_isp
+     *
+     * @return $this
+     */
+    public function setIpv6Isp($ipv6_isp)
+    {
+        $this->container['ipv6_isp'] = $ipv6_isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_mask_len
+     *
+     * @return int
+     */
+    public function getIpv6MaskLen()
+    {
+        return $this->container['ipv6_mask_len'];
+    }
+
+    /**
+     * Sets ipv6_mask_len
+     *
+     * @param int $ipv6_mask_len ipv6_mask_len
+     *
+     * @return $this
+     */
+    public function setIpv6MaskLen($ipv6_mask_len)
+    {
+        $this->container['ipv6_mask_len'] = $ipv6_mask_len;
+
+        return $this;
+    }
 
     /**
      * Gets secondary_cidr_block

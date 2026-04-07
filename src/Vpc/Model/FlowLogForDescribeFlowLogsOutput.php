@@ -38,7 +38,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'lock_reason' => 'string',
         'log_project_id' => 'string',
         'log_topic_id' => 'string',
-        'open_analyze_product_log' => 'bool',
         'project_name' => 'string',
         'resource_id' => 'string',
         'resource_type' => 'string',
@@ -65,7 +64,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'lock_reason' => null,
         'log_project_id' => null,
         'log_topic_id' => null,
-        'open_analyze_product_log' => null,
         'project_name' => null,
         'resource_id' => null,
         'resource_type' => null,
@@ -113,7 +111,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'lock_reason' => 'LockReason',
         'log_project_id' => 'LogProjectId',
         'log_topic_id' => 'LogTopicId',
-        'open_analyze_product_log' => 'OpenAnalyzeProductLog',
         'project_name' => 'ProjectName',
         'resource_id' => 'ResourceId',
         'resource_type' => 'ResourceType',
@@ -140,7 +137,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'lock_reason' => 'setLockReason',
         'log_project_id' => 'setLogProjectId',
         'log_topic_id' => 'setLogTopicId',
-        'open_analyze_product_log' => 'setOpenAnalyzeProductLog',
         'project_name' => 'setProjectName',
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
@@ -167,7 +163,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'lock_reason' => 'getLockReason',
         'log_project_id' => 'getLogProjectId',
         'log_topic_id' => 'getLogTopicId',
-        'open_analyze_product_log' => 'getOpenAnalyzeProductLog',
         'project_name' => 'getProjectName',
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
@@ -253,7 +248,7 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
@@ -265,7 +260,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         $this->container['lock_reason'] = isset($data['lock_reason']) ? $data['lock_reason'] : null;
         $this->container['log_project_id'] = isset($data['log_project_id']) ? $data['log_project_id'] : null;
         $this->container['log_topic_id'] = isset($data['log_topic_id']) ? $data['log_topic_id'] : null;
-        $this->container['open_analyze_product_log'] = isset($data['open_analyze_product_log']) ? $data['open_analyze_product_log'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
@@ -544,30 +538,6 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
     public function setLogTopicId($log_topic_id)
     {
         $this->container['log_topic_id'] = $log_topic_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_analyze_product_log
-     *
-     * @return bool
-     */
-    public function getOpenAnalyzeProductLog()
-    {
-        return $this->container['open_analyze_product_log'];
-    }
-
-    /**
-     * Sets open_analyze_product_log
-     *
-     * @param bool $open_analyze_product_log open_analyze_product_log
-     *
-     * @return $this
-     */
-    public function setOpenAnalyzeProductLog($open_analyze_product_log)
-    {
-        $this->container['open_analyze_product_log'] = $open_analyze_product_log;
 
         return $this;
     }

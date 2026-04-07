@@ -35,6 +35,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'subnet_name' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateSubnetInput[]',
         'vpc_id' => 'string',
+        'vpc_ipv6_cidr_block' => 'string',
         'zone_id' => 'string'
     ];
 
@@ -51,6 +52,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'subnet_name' => null,
         'tags' => null,
         'vpc_id' => null,
+        'vpc_ipv6_cidr_block' => null,
         'zone_id' => null
     ];
 
@@ -88,6 +90,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'subnet_name' => 'SubnetName',
         'tags' => 'Tags',
         'vpc_id' => 'VpcId',
+        'vpc_ipv6_cidr_block' => 'VpcIpv6CidrBlock',
         'zone_id' => 'ZoneId'
     ];
 
@@ -104,6 +107,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'subnet_name' => 'setSubnetName',
         'tags' => 'setTags',
         'vpc_id' => 'setVpcId',
+        'vpc_ipv6_cidr_block' => 'setVpcIpv6CidrBlock',
         'zone_id' => 'setZoneId'
     ];
 
@@ -120,6 +124,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'subnet_name' => 'getSubnetName',
         'tags' => 'getTags',
         'vpc_id' => 'getVpcId',
+        'vpc_ipv6_cidr_block' => 'getVpcIpv6CidrBlock',
         'zone_id' => 'getZoneId'
     ];
 
@@ -181,7 +186,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
@@ -190,6 +195,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         $this->container['subnet_name'] = isset($data['subnet_name']) ? $data['subnet_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['vpc_ipv6_cidr_block'] = isset($data['vpc_ipv6_cidr_block']) ? $data['vpc_ipv6_cidr_block'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -390,6 +396,30 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
     public function setVpcId($vpc_id)
     {
         $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getVpcIpv6CidrBlock()
+    {
+        return $this->container['vpc_ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets vpc_ipv6_cidr_block
+     *
+     * @param string $vpc_ipv6_cidr_block vpc_ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setVpcIpv6CidrBlock($vpc_ipv6_cidr_block)
+    {
+        $this->container['vpc_ipv6_cidr_block'] = $vpc_ipv6_cidr_block;
 
         return $this;
     }

@@ -206,7 +206,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cidr_ip'] = isset($data['cidr_ip']) ? $data['cidr_ip'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;

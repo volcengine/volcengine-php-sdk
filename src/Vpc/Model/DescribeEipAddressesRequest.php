@@ -292,7 +292,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allocation_ids'] = isset($data['allocation_ids']) ? $data['allocation_ids'] : null;
         $this->container['associated_instance_id'] = isset($data['associated_instance_id']) ? $data['associated_instance_id'] : null;

@@ -28,8 +28,8 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool',
         'id' => 'string',
+        'status' => 'string',
         'type' => 'string',
         'weight' => 'int'
     ];
@@ -40,8 +40,8 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null,
         'id' => null,
+        'status' => null,
         'type' => null,
         'weight' => null
     ];
@@ -73,8 +73,8 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'Enabled',
         'id' => 'Id',
+        'status' => 'Status',
         'type' => 'Type',
         'weight' => 'Weight'
     ];
@@ -85,8 +85,8 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
         'id' => 'setId',
+        'status' => 'setStatus',
         'type' => 'setType',
         'weight' => 'setWeight'
     ];
@@ -97,8 +97,8 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
         'id' => 'getId',
+        'status' => 'getStatus',
         'type' => 'getType',
         'weight' => 'getWeight'
     ];
@@ -161,10 +161,10 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
@@ -194,30 +194,6 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     *
-     * @param bool $enabled enabled
-     *
-     * @return $this
-     */
-    public function setEnabled($enabled)
-    {
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
      * @return string
@@ -237,6 +213,30 @@ class MemberForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAcce
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

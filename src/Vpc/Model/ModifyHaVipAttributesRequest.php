@@ -156,7 +156,7 @@ class ModifyHaVipAttributesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ha_vip_id'] = isset($data['ha_vip_id']) ? $data['ha_vip_id'] : null;

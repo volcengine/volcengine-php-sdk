@@ -28,6 +28,7 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ipv6_cidr_block' => 'string',
         'secondary_cidr_block' => 'string',
         'vpc_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ipv6_cidr_block' => null,
         'secondary_cidr_block' => null,
         'vpc_id' => null
     ];
@@ -69,6 +71,7 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'secondary_cidr_block' => 'SecondaryCidrBlock',
         'vpc_id' => 'VpcId'
     ];
@@ -79,6 +82,7 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'secondary_cidr_block' => 'setSecondaryCidrBlock',
         'vpc_id' => 'setVpcId'
     ];
@@ -89,6 +93,7 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'secondary_cidr_block' => 'getSecondaryCidrBlock',
         'vpc_id' => 'getVpcId'
     ];
@@ -151,8 +156,9 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['secondary_cidr_block'] = isset($data['secondary_cidr_block']) ? $data['secondary_cidr_block'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -183,6 +189,30 @@ class DisassociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
+
+        return $this;
+    }
 
     /**
      * Gets secondary_cidr_block

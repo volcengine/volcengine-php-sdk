@@ -35,6 +35,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'project_name' => 'string',
         'route_table_id' => 'string',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6GatewaysOutput[]',
         'update_time' => 'string',
         'vpc_id' => 'string'
     ];
@@ -52,6 +53,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'project_name' => null,
         'route_table_id' => null,
         'status' => null,
+        'tags' => null,
         'update_time' => null,
         'vpc_id' => null
     ];
@@ -90,6 +92,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'project_name' => 'ProjectName',
         'route_table_id' => 'RouteTableId',
         'status' => 'Status',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId'
     ];
@@ -107,6 +110,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'project_name' => 'setProjectName',
         'route_table_id' => 'setRouteTableId',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId'
     ];
@@ -124,6 +128,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'project_name' => 'getProjectName',
         'route_table_id' => 'getRouteTableId',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId'
     ];
@@ -186,7 +191,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -195,6 +200,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -387,6 +393,30 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeIpv6GatewaysOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeIpv6GatewaysOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
