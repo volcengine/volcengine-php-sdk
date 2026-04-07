@@ -171,7 +171,7 @@ class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput implements Mo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attach_date'] = isset($data['attach_date']) ? $data['attach_date'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

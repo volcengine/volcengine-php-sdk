@@ -161,7 +161,7 @@ class UpdatePolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['new_description'] = isset($data['new_description']) ? $data['new_description'] : null;
         $this->container['new_policy_document'] = isset($data['new_policy_document']) ? $data['new_policy_document'] : null;
