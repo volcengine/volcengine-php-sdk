@@ -166,7 +166,7 @@ class GetPodPropertyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['persist_property_list'] = isset($data['persist_property_list']) ? $data['persist_property_list'] : null;
         $this->container['property_list'] = isset($data['property_list']) ? $data['property_list'] : null;

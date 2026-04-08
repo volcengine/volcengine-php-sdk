@@ -161,7 +161,7 @@ class OverlaySettingForListPhoneTemplateOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['settings_name'] = isset($data['settings_name']) ? $data['settings_name'] : null;
         $this->container['settings_type'] = isset($data['settings_type']) ? $data['settings_type'] : null;

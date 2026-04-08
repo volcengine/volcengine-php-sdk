@@ -44,11 +44,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'dc_info' => '\Volcengine\Acep\Model\DcInfoForListPodOutput',
         'display_layout_id' => 'string',
         'down_bandwidth_limit' => 'int',
+        'eip' => '\Volcengine\Acep\Model\EipForListPodOutput',
         'host_id' => 'string',
         'image_id' => 'string',
         'image_name' => 'string',
         'intranet_ip' => 'string',
         'online' => 'int',
+        'phone_template_id' => 'string',
         'pod_id' => 'string',
         'pod_name' => 'string',
         'port_mapping_rule_list' => '\Volcengine\Acep\Model\PortMappingRuleListForListPodOutput[]',
@@ -81,11 +83,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'dc_info' => null,
         'display_layout_id' => null,
         'down_bandwidth_limit' => 'int32',
+        'eip' => null,
         'host_id' => null,
         'image_id' => null,
         'image_name' => null,
         'intranet_ip' => null,
         'online' => 'int32',
+        'phone_template_id' => null,
         'pod_id' => null,
         'pod_name' => null,
         'port_mapping_rule_list' => null,
@@ -139,11 +143,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'dc_info' => 'DcInfo',
         'display_layout_id' => 'DisplayLayoutId',
         'down_bandwidth_limit' => 'DownBandwidthLimit',
+        'eip' => 'Eip',
         'host_id' => 'HostId',
         'image_id' => 'ImageId',
         'image_name' => 'ImageName',
         'intranet_ip' => 'IntranetIP',
         'online' => 'Online',
+        'phone_template_id' => 'PhoneTemplateId',
         'pod_id' => 'PodId',
         'pod_name' => 'PodName',
         'port_mapping_rule_list' => 'PortMappingRuleList',
@@ -176,11 +182,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'dc_info' => 'setDcInfo',
         'display_layout_id' => 'setDisplayLayoutId',
         'down_bandwidth_limit' => 'setDownBandwidthLimit',
+        'eip' => 'setEip',
         'host_id' => 'setHostId',
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
         'intranet_ip' => 'setIntranetIp',
         'online' => 'setOnline',
+        'phone_template_id' => 'setPhoneTemplateId',
         'pod_id' => 'setPodId',
         'pod_name' => 'setPodName',
         'port_mapping_rule_list' => 'setPortMappingRuleList',
@@ -213,11 +221,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'dc_info' => 'getDcInfo',
         'display_layout_id' => 'getDisplayLayoutId',
         'down_bandwidth_limit' => 'getDownBandwidthLimit',
+        'eip' => 'getEip',
         'host_id' => 'getHostId',
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
         'intranet_ip' => 'getIntranetIp',
         'online' => 'getOnline',
+        'phone_template_id' => 'getPhoneTemplateId',
         'pod_id' => 'getPodId',
         'pod_name' => 'getPodName',
         'port_mapping_rule_list' => 'getPortMappingRuleList',
@@ -286,7 +296,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adb'] = isset($data['adb']) ? $data['adb'] : null;
         $this->container['adb_expire_time'] = isset($data['adb_expire_time']) ? $data['adb_expire_time'] : null;
@@ -304,11 +314,13 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['dc_info'] = isset($data['dc_info']) ? $data['dc_info'] : null;
         $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;
         $this->container['down_bandwidth_limit'] = isset($data['down_bandwidth_limit']) ? $data['down_bandwidth_limit'] : null;
+        $this->container['eip'] = isset($data['eip']) ? $data['eip'] : null;
         $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['intranet_ip'] = isset($data['intranet_ip']) ? $data['intranet_ip'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
+        $this->container['phone_template_id'] = isset($data['phone_template_id']) ? $data['phone_template_id'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['pod_name'] = isset($data['pod_name']) ? $data['pod_name'] : null;
         $this->container['port_mapping_rule_list'] = isset($data['port_mapping_rule_list']) ? $data['port_mapping_rule_list'] : null;
@@ -728,6 +740,30 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets eip
+     *
+     * @return \Volcengine\Acep\Model\EipForListPodOutput
+     */
+    public function getEip()
+    {
+        return $this->container['eip'];
+    }
+
+    /**
+     * Sets eip
+     *
+     * @param \Volcengine\Acep\Model\EipForListPodOutput $eip eip
+     *
+     * @return $this
+     */
+    public function setEip($eip)
+    {
+        $this->container['eip'] = $eip;
+
+        return $this;
+    }
+
+    /**
      * Gets host_id
      *
      * @return string
@@ -843,6 +879,30 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     public function setOnline($online)
     {
         $this->container['online'] = $online;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_template_id
+     *
+     * @return string
+     */
+    public function getPhoneTemplateId()
+    {
+        return $this->container['phone_template_id'];
+    }
+
+    /**
+     * Sets phone_template_id
+     *
+     * @param string $phone_template_id phone_template_id
+     *
+     * @return $this
+     */
+    public function setPhoneTemplateId($phone_template_id)
+    {
+        $this->container['phone_template_id'] = $phone_template_id;
 
         return $this;
     }

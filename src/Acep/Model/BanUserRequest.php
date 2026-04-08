@@ -166,7 +166,7 @@ class BanUserRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['forbidden_interval'] = isset($data['forbidden_interval']) ? $data['forbidden_interval'] : null;
         $this->container['is_preview_stream'] = isset($data['is_preview_stream']) ? $data['is_preview_stream'] : null;

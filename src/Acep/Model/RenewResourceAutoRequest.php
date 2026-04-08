@@ -156,7 +156,7 @@ class RenewResourceAutoRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pre_order_list'] = isset($data['pre_order_list']) ? $data['pre_order_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;

@@ -221,7 +221,7 @@ class RowForGetPodAppListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['activity'] = isset($data['activity']) ? $data['activity'] : null;
         $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
