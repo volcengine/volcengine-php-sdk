@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAccess
+class CustomEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportOutput';
+    protected static $swaggerModelName = 'customEmotionTagForVideoEditorGetEmotionTagsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'task_id' => 'int'
+        'create_time' => 'int',
+        'emotion_tag' => 'string',
+        'id' => 'int',
+        'name' => 'string',
+        'operator' => 'string',
+        'task_id' => 'int',
+        'type' => 'int',
+        'voice_id' => 'string'
     ];
 
     /**
@@ -39,9 +44,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'message' => null,
-        'task_id' => 'int32'
+        'create_time' => 'int32',
+        'emotion_tag' => null,
+        'id' => 'int32',
+        'name' => null,
+        'operator' => null,
+        'task_id' => 'int32',
+        'type' => 'int32',
+        'voice_id' => null
     ];
 
     /**
@@ -71,9 +81,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'task_id' => 'taskId'
+        'create_time' => 'createTime',
+        'emotion_tag' => 'emotionTag',
+        'id' => 'id',
+        'name' => 'name',
+        'operator' => 'operator',
+        'task_id' => 'taskId',
+        'type' => 'type',
+        'voice_id' => 'voiceId'
     ];
 
     /**
@@ -82,9 +97,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'task_id' => 'setTaskId'
+        'create_time' => 'setCreateTime',
+        'emotion_tag' => 'setEmotionTag',
+        'id' => 'setId',
+        'name' => 'setName',
+        'operator' => 'setOperator',
+        'task_id' => 'setTaskId',
+        'type' => 'setType',
+        'voice_id' => 'setVoiceId'
     ];
 
     /**
@@ -93,9 +113,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'task_id' => 'getTaskId'
+        'create_time' => 'getCreateTime',
+        'emotion_tag' => 'getEmotionTag',
+        'id' => 'getId',
+        'name' => 'getName',
+        'operator' => 'getOperator',
+        'task_id' => 'getTaskId',
+        'type' => 'getType',
+        'voice_id' => 'getVoiceId'
     ];
 
     /**
@@ -158,9 +183,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['voice_id'] = isset($data['voice_id']) ? $data['voice_id'] : null;
     }
 
     /**
@@ -188,49 +218,121 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets code
+     * Gets create_time
      *
      * @return int
      */
-    public function getCode()
+    public function getCreateTime()
     {
-        return $this->container['code'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets code
+     * Sets create_time
      *
-     * @param int $code code
+     * @param int $create_time create_time
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setCreateTime($create_time)
     {
-        $this->container['code'] = $code;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets emotion_tag
      *
      * @return string
      */
-    public function getMessage()
+    public function getEmotionTag()
     {
-        return $this->container['message'];
+        return $this->container['emotion_tag'];
     }
 
     /**
-     * Sets message
+     * Sets emotion_tag
      *
-     * @param string $message message
+     * @param string $emotion_tag emotion_tag
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setEmotionTag($emotion_tag)
     {
-        $this->container['message'] = $message;
+        $this->container['emotion_tag'] = $emotion_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string $operator operator
+     *
+     * @return $this
+     */
+    public function setOperator($operator)
+    {
+        $this->container['operator'] = $operator;
 
         return $this;
     }
@@ -255,6 +357,54 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
     public function setTaskId($task_id)
     {
         $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice_id
+     *
+     * @return string
+     */
+    public function getVoiceId()
+    {
+        return $this->container['voice_id'];
+    }
+
+    /**
+     * Sets voice_id
+     *
+     * @param string $voice_id voice_id
+     *
+     * @return $this
+     */
+    public function setVoiceId($voice_id)
+    {
+        $this->container['voice_id'] = $voice_id;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
+class VideoEditorSyncSpeakerToSubTaskResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'textValidateForProjectsOutput';
+    protected static $swaggerModelName = 'VideoEditorSyncSpeakerToSubTaskResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_text_validate' => 'bool',
-        'target_text_validate' => 'bool'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_text_validate' => null,
-        'target_text_validate' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_text_validate' => 'sourceTextValidate',
-        'target_text_validate' => 'targetTextValidate'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'source_text_validate' => 'setSourceTextValidate',
-        'target_text_validate' => 'setTargetTextValidate'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'source_text_validate' => 'getSourceTextValidate',
-        'target_text_validate' => 'getTargetTextValidate'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['source_text_validate'] = isset($data['source_text_validate']) ? $data['source_text_validate'] : null;
-        $this->container['target_text_validate'] = isset($data['target_text_validate']) ? $data['target_text_validate'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets source_text_validate
-     *
-     * @return bool
-     */
-    public function getSourceTextValidate()
-    {
-        return $this->container['source_text_validate'];
-    }
-
-    /**
-     * Sets source_text_validate
-     *
-     * @param bool $source_text_validate source_text_validate
-     *
-     * @return $this
-     */
-    public function setSourceTextValidate($source_text_validate)
-    {
-        $this->container['source_text_validate'] = $source_text_validate;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_text_validate
-     *
-     * @return bool
-     */
-    public function getTargetTextValidate()
-    {
-        return $this->container['target_text_validate'];
-    }
-
-    /**
-     * Sets target_text_validate
-     *
-     * @param bool $target_text_validate target_text_validate
-     *
-     * @return $this
-     */
-    public function setTargetTextValidate($target_text_validate)
-    {
-        $this->container['target_text_validate'] = $target_text_validate;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

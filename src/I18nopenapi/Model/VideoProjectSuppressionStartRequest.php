@@ -36,7 +36,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'manual_style' => 'string',
         'project_id' => 'string',
         'start_time' => 'int',
-        'subtask_ids' => 'int[]'
+        'subtask_ids' => 'string[]'
     ];
 
     /**
@@ -53,7 +53,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'manual_style' => null,
         'project_id' => null,
         'start_time' => 'int32',
-        'subtask_ids' => 'int32'
+        'subtask_ids' => null
     ];
 
     /**
@@ -433,7 +433,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
     /**
      * Gets subtask_ids
      *
-     * @return int[]
+     * @return string[]
      */
     public function getSubtaskIds()
     {
@@ -443,7 +443,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subtask_ids
      *
-     * @param int[] $subtask_ids subtask_ids
+     * @param string[] $subtask_ids subtask_ids
      *
      * @return $this
      */

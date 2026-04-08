@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAccess
+class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportOutput';
+    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'task_id' => 'int'
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -39,9 +37,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'message' => null,
-        'task_id' => 'int32'
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -71,9 +67,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'task_id' => 'taskId'
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -82,9 +76,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'task_id' => 'setTaskId'
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -93,9 +85,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'task_id' => 'getTaskId'
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -158,9 +148,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -172,6 +160,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +179,25 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets code
+     * Gets subtask_id
      *
      * @return int
      */
-    public function getCode()
+    public function getSubtaskId()
     {
-        return $this->container['code'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets code
+     * Sets subtask_id
      *
-     * @param int $code code
+     * @param int $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_id
-     *
-     * @return int
-     */
-    public function getTaskId()
-    {
-        return $this->container['task_id'];
-    }
-
-    /**
-     * Sets task_id
-     *
-     * @param int $task_id task_id
-     *
-     * @return $this
-     */
-    public function setTaskId($task_id)
-    {
-        $this->container['task_id'] = $task_id;
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

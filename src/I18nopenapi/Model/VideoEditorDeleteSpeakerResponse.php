@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, ArrayAccess
+class VideoEditorDeleteSpeakerResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BaseRespForVideoProjectTaskBatchStartAIFlowOutput';
+    protected static $swaggerModelName = 'VideoEditorDeleteSpeakerResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status_code' => 'int',
-        'status_message' => 'string'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status_code' => 'int32',
-        'status_message' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'status_code' => 'StatusCode',
-        'status_message' => 'StatusMessage'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'status_code' => 'setStatusCode',
-        'status_message' => 'setStatusMessage'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'status_code' => 'getStatusCode',
-        'status_message' => 'getStatusMessage'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      */
     public function __construct($data = null)
     {
-        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
-        $this->container['status_message'] = isset($data['status_message']) ? $data['status_message'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets status_code
-     *
-     * @return int
-     */
-    public function getStatusCode()
-    {
-        return $this->container['status_code'];
-    }
-
-    /**
-     * Sets status_code
-     *
-     * @param int $status_code status_code
-     *
-     * @return $this
-     */
-    public function setStatusCode($status_code)
-    {
-        $this->container['status_code'] = $status_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_message
-     *
-     * @return string
-     */
-    public function getStatusMessage()
-    {
-        return $this->container['status_message'];
-    }
-
-    /**
-     * Sets status_message
-     *
-     * @param string $status_message status_message
-     *
-     * @return $this
-     */
-    public function setStatusMessage($status_message)
-    {
-        $this->container['status_message'] = $status_message;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

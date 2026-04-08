@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
+class VideoEditorSyncSpeakerToSubTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'extraForProjectsOutput';
+    protected static $swaggerModelName = 'VideoEditorSyncSpeakerToSubTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'setting' => '\Volcengine\I18nopenapi\Model\SettingForProjectsOutput'
+        'id' => 'int',
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'setting' => null
+        'id' => 'int32',
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'setting' => 'setting'
+        'id' => 'id',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'setting' => 'setSetting'
+        'id' => 'setId',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'setting' => 'getSetting'
+        'id' => 'getId',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -148,7 +153,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['setting'] = isset($data['setting']) ? $data['setting'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -160,6 +166,12 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +188,49 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets setting
+     * Gets id
      *
-     * @return \Volcengine\I18nopenapi\Model\SettingForProjectsOutput
+     * @return int
      */
-    public function getSetting()
+    public function getId()
     {
-        return $this->container['setting'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets setting
+     * Sets id
      *
-     * @param \Volcengine\I18nopenapi\Model\SettingForProjectsOutput $setting setting
+     * @param int $id id
      *
      * @return $this
      */
-    public function setSetting($setting)
+    public function setId($id)
     {
-        $this->container['setting'] = $setting;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_id
+     *
+     * @return int
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param int $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

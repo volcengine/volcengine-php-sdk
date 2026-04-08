@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SettingForProjectsOutput implements ModelInterface, ArrayAccess
+class VideoEditorDeleteSpeakerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'settingForProjectsOutput';
+    protected static $swaggerModelName = 'VideoEditorDeleteSpeakerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'approval' => 'bool',
-        'auto_fill_target_text' => '\Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput',
-        'text_validate' => '\Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput'
+        'id' => 'int',
+        'subtask_id' => 'int',
+        'type' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'approval' => null,
-        'auto_fill_target_text' => null,
-        'text_validate' => null
+        'id' => 'int32',
+        'subtask_id' => 'int32',
+        'type' => 'int32'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'approval' => 'approval',
-        'auto_fill_target_text' => 'autoFillTargetText',
-        'text_validate' => 'textValidate'
+        'id' => 'id',
+        'subtask_id' => 'subtaskId',
+        'type' => 'type'
     ];
 
     /**
@@ -82,9 +82,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'approval' => 'setApproval',
-        'auto_fill_target_text' => 'setAutoFillTargetText',
-        'text_validate' => 'setTextValidate'
+        'id' => 'setId',
+        'subtask_id' => 'setSubtaskId',
+        'type' => 'setType'
     ];
 
     /**
@@ -93,9 +93,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'approval' => 'getApproval',
-        'auto_fill_target_text' => 'getAutoFillTargetText',
-        'text_validate' => 'getTextValidate'
+        'id' => 'getId',
+        'subtask_id' => 'getSubtaskId',
+        'type' => 'getType'
     ];
 
     /**
@@ -158,9 +158,9 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['approval'] = isset($data['approval']) ? $data['approval'] : null;
-        $this->container['auto_fill_target_text'] = isset($data['auto_fill_target_text']) ? $data['auto_fill_target_text'] : null;
-        $this->container['text_validate'] = isset($data['text_validate']) ? $data['text_validate'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -172,6 +172,12 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +194,73 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets approval
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getApproval()
+    public function getId()
     {
-        return $this->container['approval'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets approval
+     * Sets id
      *
-     * @param bool $approval approval
+     * @param int $id id
      *
      * @return $this
      */
-    public function setApproval($approval)
+    public function setId($id)
     {
-        $this->container['approval'] = $approval;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets auto_fill_target_text
+     * Gets subtask_id
      *
-     * @return \Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput
+     * @return int
      */
-    public function getAutoFillTargetText()
+    public function getSubtaskId()
     {
-        return $this->container['auto_fill_target_text'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets auto_fill_target_text
+     * Sets subtask_id
      *
-     * @param \Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput $auto_fill_target_text auto_fill_target_text
+     * @param int $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setAutoFillTargetText($auto_fill_target_text)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['auto_fill_target_text'] = $auto_fill_target_text;
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }
 
     /**
-     * Gets text_validate
+     * Gets type
      *
-     * @return \Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput
+     * @return int
      */
-    public function getTextValidate()
+    public function getType()
     {
-        return $this->container['text_validate'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets text_validate
+     * Sets type
      *
-     * @param \Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput $text_validate text_validate
+     * @param int $type type
      *
      * @return $this
      */
-    public function setTextValidate($text_validate)
+    public function setType($type)
     {
-        $this->container['text_validate'] = $text_validate;
+        $this->container['type'] = $type;
 
         return $this;
     }

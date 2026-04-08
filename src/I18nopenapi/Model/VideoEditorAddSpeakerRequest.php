@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'extraForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorAddSpeakerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'setting' => '\Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput'
+        'speaker_name' => 'string',
+        'subtask_id' => 'int',
+        'type' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'setting' => null
+        'speaker_name' => null,
+        'subtask_id' => 'int32',
+        'type' => 'int32'
     ];
 
     /**
@@ -67,7 +71,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'setting' => 'setting'
+        'speaker_name' => 'speakerName',
+        'subtask_id' => 'subtaskId',
+        'type' => 'type'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'setting' => 'setSetting'
+        'speaker_name' => 'setSpeakerName',
+        'subtask_id' => 'setSubtaskId',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'setting' => 'getSetting'
+        'speaker_name' => 'getSpeakerName',
+        'subtask_id' => 'getSubtaskId',
+        'type' => 'getType'
     ];
 
     /**
@@ -148,7 +158,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['setting'] = isset($data['setting']) ? $data['setting'] : null;
+        $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -160,6 +172,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['speaker_name'] === null) {
+            $invalidProperties[] = "'speaker_name' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +194,73 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets setting
+     * Gets speaker_name
      *
-     * @return \Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput
+     * @return string
      */
-    public function getSetting()
+    public function getSpeakerName()
     {
-        return $this->container['setting'];
+        return $this->container['speaker_name'];
     }
 
     /**
-     * Sets setting
+     * Sets speaker_name
      *
-     * @param \Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput $setting setting
+     * @param string $speaker_name speaker_name
      *
      * @return $this
      */
-    public function setSetting($setting)
+    public function setSpeakerName($speaker_name)
     {
-        $this->container['setting'] = $setting;
+        $this->container['speaker_name'] = $speaker_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_id
+     *
+     * @return int
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param int $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

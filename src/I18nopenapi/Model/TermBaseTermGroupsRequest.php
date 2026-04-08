@@ -33,7 +33,7 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
         'offset' => 'int',
         'sort_type' => 'int',
         'sorting' => 'int',
-        'term_base_id' => 'int'
+        'term_base_id' => 'string'
     ];
 
     /**
@@ -47,7 +47,7 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
         'offset' => 'int32',
         'sort_type' => 'int32',
         'sorting' => 'int32',
-        'term_base_id' => 'int32'
+        'term_base_id' => null
     ];
 
     /**
@@ -337,7 +337,7 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets term_base_id
      *
-     * @return int
+     * @return string
      */
     public function getTermBaseId()
     {
@@ -347,7 +347,7 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets term_base_id
      *
-     * @param int $term_base_id term_base_id
+     * @param string $term_base_id term_base_id
      *
      * @return $this
      */

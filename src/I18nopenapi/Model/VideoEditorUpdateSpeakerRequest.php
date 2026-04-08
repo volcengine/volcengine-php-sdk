@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
+class VideoEditorUpdateSpeakerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'autoFillTargetTextForProjectsOutput';
+    protected static $swaggerModelName = 'VideoEditorUpdateSpeakerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'on_create' => 'bool',
-        'on_update' => 'bool'
+        'id' => 'int',
+        'speaker_name' => 'string',
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'on_create' => null,
-        'on_update' => null
+        'id' => 'int32',
+        'speaker_name' => null,
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'on_create' => 'onCreate',
-        'on_update' => 'onUpdate'
+        'id' => 'id',
+        'speaker_name' => 'speakerName',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'on_create' => 'setOnCreate',
-        'on_update' => 'setOnUpdate'
+        'id' => 'setId',
+        'speaker_name' => 'setSpeakerName',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'on_create' => 'getOnCreate',
-        'on_update' => 'getOnUpdate'
+        'id' => 'getId',
+        'speaker_name' => 'getSpeakerName',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['on_create'] = isset($data['on_create']) ? $data['on_create'] : null;
-        $this->container['on_update'] = isset($data['on_update']) ? $data['on_update'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -166,6 +172,15 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['speaker_name'] === null) {
+            $invalidProperties[] = "'speaker_name' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +197,73 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets on_create
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getOnCreate()
+    public function getId()
     {
-        return $this->container['on_create'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets on_create
+     * Sets id
      *
-     * @param bool $on_create on_create
+     * @param int $id id
      *
      * @return $this
      */
-    public function setOnCreate($on_create)
+    public function setId($id)
     {
-        $this->container['on_create'] = $on_create;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets on_update
+     * Gets speaker_name
      *
-     * @return bool
+     * @return string
      */
-    public function getOnUpdate()
+    public function getSpeakerName()
     {
-        return $this->container['on_update'];
+        return $this->container['speaker_name'];
     }
 
     /**
-     * Sets on_update
+     * Sets speaker_name
      *
-     * @param bool $on_update on_update
+     * @param string $speaker_name speaker_name
      *
      * @return $this
      */
-    public function setOnUpdate($on_update)
+    public function setSpeakerName($speaker_name)
     {
-        $this->container['on_update'] = $on_update;
+        $this->container['speaker_name'] = $speaker_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_id
+     *
+     * @return int
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param int $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

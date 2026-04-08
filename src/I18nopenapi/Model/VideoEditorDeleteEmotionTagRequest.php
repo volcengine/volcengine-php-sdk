@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'autoFillTargetTextForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorDeleteEmotionTagRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'on_create' => 'bool',
-        'on_update' => 'bool'
+        'id' => 'int',
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'on_create' => null,
-        'on_update' => null
+        'id' => 'int32',
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -69,8 +69,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'on_create' => 'onCreate',
-        'on_update' => 'onUpdate'
+        'id' => 'id',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'on_create' => 'setOnCreate',
-        'on_update' => 'setOnUpdate'
+        'id' => 'setId',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'on_create' => 'getOnCreate',
-        'on_update' => 'getOnUpdate'
+        'id' => 'getId',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['on_create'] = isset($data['on_create']) ? $data['on_create'] : null;
-        $this->container['on_update'] = isset($data['on_update']) ? $data['on_update'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
 
 
     /**
-     * Gets on_create
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getOnCreate()
+    public function getId()
     {
-        return $this->container['on_create'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets on_create
+     * Sets id
      *
-     * @param bool $on_create on_create
+     * @param int $id id
      *
      * @return $this
      */
-    public function setOnCreate($on_create)
+    public function setId($id)
     {
-        $this->container['on_create'] = $on_create;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets on_update
+     * Gets subtask_id
      *
-     * @return bool
+     * @return int
      */
-    public function getOnUpdate()
+    public function getSubtaskId()
     {
-        return $this->container['on_update'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets on_update
+     * Sets subtask_id
      *
-     * @param bool $on_update on_update
+     * @param int $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setOnUpdate($on_update)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['on_update'] = $on_update;
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

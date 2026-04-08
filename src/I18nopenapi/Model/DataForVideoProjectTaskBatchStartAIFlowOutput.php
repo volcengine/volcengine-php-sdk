@@ -28,7 +28,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectTaskBatchStartAIFlowOutput'
+        'status_code' => 'string',
+        'status_message' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'base_resp' => null
+        'status_code' => null,
+        'status_message' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'base_resp' => 'BaseResp'
+        'status_code' => 'statusCode',
+        'status_message' => 'statusMessage'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'base_resp' => 'setBaseResp'
+        'status_code' => 'setStatusCode',
+        'status_message' => 'setStatusMessage'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'base_resp' => 'getBaseResp'
+        'status_code' => 'getStatusCode',
+        'status_message' => 'getStatusMessage'
     ];
 
     /**
@@ -148,7 +153,8 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['status_message'] = isset($data['status_message']) ? $data['status_message'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class DataForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, A
 
 
     /**
-     * Gets base_resp
+     * Gets status_code
      *
-     * @return \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectTaskBatchStartAIFlowOutput
+     * @return string
      */
-    public function getBaseResp()
+    public function getStatusCode()
     {
-        return $this->container['base_resp'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets base_resp
+     * Sets status_code
      *
-     * @param \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectTaskBatchStartAIFlowOutput $base_resp base_resp
+     * @param string $status_code status_code
      *
      * @return $this
      */
-    public function setBaseResp($base_resp)
+    public function setStatusCode($status_code)
     {
-        $this->container['base_resp'] = $base_resp;
+        $this->container['status_code'] = $status_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_message
+     *
+     * @return string
+     */
+    public function getStatusMessage()
+    {
+        return $this->container['status_message'];
+    }
+
+    /**
+     * Sets status_message
+     *
+     * @param string $status_message status_message
+     *
+     * @return $this
+     */
+    public function setStatusMessage($status_message)
+    {
+        $this->container['status_message'] = $status_message;
 
         return $this;
     }

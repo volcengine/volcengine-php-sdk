@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAccess
+class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportOutput';
+    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'task_id' => 'int'
+        'create_time' => 'string',
+        'id' => 'string',
+        'operator' => 'string',
+        'status' => 'int',
+        'term_baseld' => 'string',
+        'total' => 'int',
+        'update_time' => 'string',
+        'uploaded_count' => 'int'
     ];
 
     /**
@@ -39,9 +44,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'message' => null,
-        'task_id' => 'int32'
+        'create_time' => null,
+        'id' => null,
+        'operator' => null,
+        'status' => 'int32',
+        'term_baseld' => null,
+        'total' => 'int32',
+        'update_time' => null,
+        'uploaded_count' => 'int32'
     ];
 
     /**
@@ -71,9 +81,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'task_id' => 'taskId'
+        'create_time' => 'createTime',
+        'id' => 'id',
+        'operator' => 'operator',
+        'status' => 'status',
+        'term_baseld' => 'termBaseld',
+        'total' => 'total',
+        'update_time' => 'updateTime',
+        'uploaded_count' => 'uploadedCount'
     ];
 
     /**
@@ -82,9 +97,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'task_id' => 'setTaskId'
+        'create_time' => 'setCreateTime',
+        'id' => 'setId',
+        'operator' => 'setOperator',
+        'status' => 'setStatus',
+        'term_baseld' => 'setTermBaseld',
+        'total' => 'setTotal',
+        'update_time' => 'setUpdateTime',
+        'uploaded_count' => 'setUploadedCount'
     ];
 
     /**
@@ -93,9 +113,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'task_id' => 'getTaskId'
+        'create_time' => 'getCreateTime',
+        'id' => 'getId',
+        'operator' => 'getOperator',
+        'status' => 'getStatus',
+        'term_baseld' => 'getTermBaseld',
+        'total' => 'getTotal',
+        'update_time' => 'getUpdateTime',
+        'uploaded_count' => 'getUploadedCount'
     ];
 
     /**
@@ -158,9 +183,14 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['term_baseld'] = isset($data['term_baseld']) ? $data['term_baseld'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['uploaded_count'] = isset($data['uploaded_count']) ? $data['uploaded_count'] : null;
     }
 
     /**
@@ -188,73 +218,193 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets code
-     *
-     * @return int
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets create_time
      *
      * @return string
      */
-    public function getMessage()
+    public function getCreateTime()
     {
-        return $this->container['message'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets message
+     * Sets create_time
      *
-     * @param string $message message
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setCreateTime($create_time)
     {
-        $this->container['message'] = $message;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets task_id
+     * Gets id
      *
-     * @return int
+     * @return string
      */
-    public function getTaskId()
+    public function getId()
     {
-        return $this->container['task_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets task_id
+     * Sets id
      *
-     * @param int $task_id task_id
+     * @param string $id id
      *
      * @return $this
      */
-    public function setTaskId($task_id)
+    public function setId($id)
     {
-        $this->container['task_id'] = $task_id;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string $operator operator
+     *
+     * @return $this
+     */
+    public function setOperator($operator)
+    {
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_baseld
+     *
+     * @return string
+     */
+    public function getTermBaseld()
+    {
+        return $this->container['term_baseld'];
+    }
+
+    /**
+     * Sets term_baseld
+     *
+     * @param string $term_baseld term_baseld
+     *
+     * @return $this
+     */
+    public function setTermBaseld($term_baseld)
+    {
+        $this->container['term_baseld'] = $term_baseld;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets uploaded_count
+     *
+     * @return int
+     */
+    public function getUploadedCount()
+    {
+        return $this->container['uploaded_count'];
+    }
+
+    /**
+     * Sets uploaded_count
+     *
+     * @param int $uploaded_count uploaded_count
+     *
+     * @return $this
+     */
+    public function setUploadedCount($uploaded_count)
+    {
+        $this->container['uploaded_count'] = $uploaded_count;
 
         return $this;
     }
