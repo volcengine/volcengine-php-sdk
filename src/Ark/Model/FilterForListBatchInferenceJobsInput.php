@@ -189,7 +189,7 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_model_ids'] = isset($data['custom_model_ids']) ? $data['custom_model_ids'] : null;
         $this->container['foundation_models'] = isset($data['foundation_models']) ? $data['foundation_models'] : null;

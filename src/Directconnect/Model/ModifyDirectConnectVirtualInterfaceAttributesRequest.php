@@ -206,7 +206,7 @@ class ModifyDirectConnectVirtualInterfaceAttributesRequest implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['bfd_detect_interval'] = isset($data['bfd_detect_interval']) ? $data['bfd_detect_interval'] : null;

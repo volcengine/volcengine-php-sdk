@@ -161,7 +161,7 @@ class ConvertVideoGenerationForGetExecutionOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;

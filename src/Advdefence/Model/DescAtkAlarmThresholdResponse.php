@@ -166,7 +166,7 @@ class DescAtkAlarmThresholdResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['band_width'] = isset($data['band_width']) ? $data['band_width'] : null;
         $this->container['default_band_width'] = isset($data['default_band_width']) ? $data['default_band_width'] : null;

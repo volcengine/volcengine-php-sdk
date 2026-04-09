@@ -186,7 +186,7 @@ class GetBackupDownloadLinkResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_download_link'] = isset($data['backup_download_link']) ? $data['backup_download_link'] : null;
         $this->container['backup_file_name'] = isset($data['backup_file_name']) ? $data['backup_file_name'] : null;

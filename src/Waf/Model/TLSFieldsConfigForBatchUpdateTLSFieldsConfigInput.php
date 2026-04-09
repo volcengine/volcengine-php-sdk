@@ -146,7 +146,7 @@ class TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['headers_config'] = isset($data['headers_config']) ? $data['headers_config'] : null;
     }

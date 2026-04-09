@@ -196,7 +196,7 @@ class DomesticDomainForDescribeDnsScheduleOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_account_id'] = isset($data['cloud_account_id']) ? $data['cloud_account_id'] : null;
         $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;

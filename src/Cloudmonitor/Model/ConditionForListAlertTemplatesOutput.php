@@ -171,7 +171,7 @@ class ConditionForListAlertTemplatesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
         $this->container['evaluation_window'] = isset($data['evaluation_window']) ? $data['evaluation_window'] : null;

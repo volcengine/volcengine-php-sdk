@@ -151,7 +151,7 @@ class GetBruteForceBanStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_ban_count'] = isset($data['auto_ban_count']) ? $data['auto_ban_count'] : null;
         $this->container['today_auto_ban_count'] = isset($data['today_auto_ban_count']) ? $data['today_auto_ban_count'] : null;

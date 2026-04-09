@@ -161,7 +161,7 @@ class GetPolicyStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_hardening_stats'] = isset($data['cluster_hardening_stats']) ? $data['cluster_hardening_stats'] : null;
         $this->container['clusters_without_varmor_count'] = isset($data['clusters_without_varmor_count']) ? $data['clusters_without_varmor_count'] : null;

@@ -151,7 +151,7 @@ class ModifyDBInstanceAutoUpgradeEngineMinorVersionRequest implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_upgrade_minor_version'] = isset($data['auto_upgrade_minor_version']) ? $data['auto_upgrade_minor_version'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

@@ -166,7 +166,7 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;
         $this->container['default_module_quick_conf'] = isset($data['default_module_quick_conf']) ? $data['default_module_quick_conf'] : null;

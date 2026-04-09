@@ -161,7 +161,7 @@ class AttachInstancesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['entrusted'] = isset($data['entrusted']) ? $data['entrusted'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;

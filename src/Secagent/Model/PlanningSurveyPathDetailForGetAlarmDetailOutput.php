@@ -156,7 +156,7 @@ class PlanningSurveyPathDetailForGetAlarmDetailOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['tool_name'] = isset($data['tool_name']) ? $data['tool_name'] : null;
         $this->container['tool_paras'] = isset($data['tool_paras']) ? $data['tool_paras'] : null;

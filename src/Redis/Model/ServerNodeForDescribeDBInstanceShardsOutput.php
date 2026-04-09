@@ -161,7 +161,7 @@ class ServerNodeForDescribeDBInstanceShardsOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['current_role'] = isset($data['current_role']) ? $data['current_role'] : null;
         $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;

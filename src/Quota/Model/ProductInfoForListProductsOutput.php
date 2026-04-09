@@ -166,7 +166,7 @@ class ProductInfoForListProductsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['category_name'] = isset($data['category_name']) ? $data['category_name'] : null;
         $this->container['category_name_en'] = isset($data['category_name_en']) ? $data['category_name_en'] : null;

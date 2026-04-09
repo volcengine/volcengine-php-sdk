@@ -221,7 +221,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action_name'] = isset($data['action_name']) ? $data['action_name'] : null;
         $this->container['can_cancel'] = isset($data['can_cancel']) ? $data['can_cancel'] : null;

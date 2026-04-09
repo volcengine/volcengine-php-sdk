@@ -151,7 +151,7 @@ class GetVegraphReadAndWriteStatusResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enabled_read'] = isset($data['enabled_read']) ? $data['enabled_read'] : null;
         $this->container['enabled_write'] = isset($data['enabled_write']) ? $data['enabled_write'] : null;

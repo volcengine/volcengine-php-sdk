@@ -191,7 +191,7 @@ class PolicyForGetPolicyOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attachment_count'] = isset($data['attachment_count']) ? $data['attachment_count'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;

@@ -226,7 +226,7 @@ class HighAesGeneralV14IPKeepRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binary_data_base64'] = isset($data['binary_data_base64']) ? $data['binary_data_base64'] : null;
         $this->container['ddim_steps'] = isset($data['ddim_steps']) ? $data['ddim_steps'] : null;

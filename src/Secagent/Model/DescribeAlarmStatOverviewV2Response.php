@@ -206,7 +206,7 @@ class DescribeAlarmStatOverviewV2Response implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['analysis_attempted_count'] = isset($data['analysis_attempted_count']) ? $data['analysis_attempted_count'] : null;
         $this->container['analysis_false_count'] = isset($data['analysis_false_count']) ? $data['analysis_false_count'] : null;

@@ -146,7 +146,7 @@ class DescribeUpgradeEngineMajorVersionPrecheckResultResponse implements ModelIn
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['precheck_results'] = isset($data['precheck_results']) ? $data['precheck_results'] : null;
     }

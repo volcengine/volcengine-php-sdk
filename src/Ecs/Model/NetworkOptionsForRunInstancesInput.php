@@ -146,7 +146,7 @@ class NetworkOptionsForRunInstancesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
     }

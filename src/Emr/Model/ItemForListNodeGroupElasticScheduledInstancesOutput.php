@@ -176,7 +176,7 @@ class ItemForListNodeGroupElasticScheduledInstancesOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_release_at'] = isset($data['auto_release_at']) ? $data['auto_release_at'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;

@@ -226,7 +226,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['application_extras'] = isset($data['application_extras']) ? $data['application_extras'] : null;
         $this->container['application_names'] = isset($data['application_names']) ? $data['application_names'] : null;

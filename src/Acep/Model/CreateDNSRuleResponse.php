@@ -176,7 +176,7 @@ class CreateDNSRuleResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;

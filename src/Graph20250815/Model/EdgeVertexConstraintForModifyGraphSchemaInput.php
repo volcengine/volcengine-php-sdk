@@ -151,7 +151,7 @@ class EdgeVertexConstraintForModifyGraphSchemaInput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['primary_key_columns'] = isset($data['primary_key_columns']) ? $data['primary_key_columns'] : null;
         $this->container['schema_label_type'] = isset($data['schema_label_type']) ? $data['schema_label_type'] : null;

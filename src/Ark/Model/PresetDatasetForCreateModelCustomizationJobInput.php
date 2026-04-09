@@ -156,7 +156,7 @@ class PresetDatasetForCreateModelCustomizationJobInput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dataset_version_id'] = isset($data['dataset_version_id']) ? $data['dataset_version_id'] : null;
         $this->container['inject_multiplier'] = isset($data['inject_multiplier']) ? $data['inject_multiplier'] : null;

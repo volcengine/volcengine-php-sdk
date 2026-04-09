@@ -166,7 +166,7 @@ class ImageInfoForListInstanceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bg3_deploy_version'] = isset($data['bg3_deploy_version']) ? $data['bg3_deploy_version'] : null;
         $this->container['bg3_image_version'] = isset($data['bg3_image_version']) ? $data['bg3_image_version'] : null;

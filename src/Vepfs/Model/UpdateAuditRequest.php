@@ -176,7 +176,7 @@ class UpdateAuditRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audit_events'] = isset($data['audit_events']) ? $data['audit_events'] : null;
         $this->container['audit_id'] = isset($data['audit_id']) ? $data['audit_id'] : null;

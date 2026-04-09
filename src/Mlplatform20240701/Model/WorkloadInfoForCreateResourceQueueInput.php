@@ -168,7 +168,7 @@ class WorkloadInfoForCreateResourceQueueInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_priority'] = isset($data['default_priority']) ? $data['default_priority'] : null;
         $this->container['workload_type'] = isset($data['workload_type']) ? $data['workload_type'] : null;

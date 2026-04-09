@@ -166,7 +166,7 @@ class ConsumedQueueInfoForDescribeConsumedTopicDetailOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consume_offset'] = isset($data['consume_offset']) ? $data['consume_offset'] : null;
         $this->container['diff_count'] = isset($data['diff_count']) ? $data['diff_count'] : null;

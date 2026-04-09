@@ -281,7 +281,7 @@ class DescribeNLBServerGroupAttributesResponse implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['any_port_enabled'] = isset($data['any_port_enabled']) ? $data['any_port_enabled'] : null;

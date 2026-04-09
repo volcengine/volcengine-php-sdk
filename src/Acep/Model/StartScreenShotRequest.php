@@ -196,7 +196,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['duration_limit'] = isset($data['duration_limit']) ? $data['duration_limit'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;

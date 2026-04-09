@@ -161,7 +161,7 @@ class SnapshotChainForDescribeSnapshotChainsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['snapshot_chain_id'] = isset($data['snapshot_chain_id']) ? $data['snapshot_chain_id'] : null;
         $this->container['snapshot_count'] = isset($data['snapshot_count']) ? $data['snapshot_count'] : null;

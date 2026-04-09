@@ -221,7 +221,7 @@ class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection'] = isset($data['connection']) ? $data['connection'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;

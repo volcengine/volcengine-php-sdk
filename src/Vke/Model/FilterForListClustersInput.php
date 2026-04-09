@@ -231,7 +231,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;

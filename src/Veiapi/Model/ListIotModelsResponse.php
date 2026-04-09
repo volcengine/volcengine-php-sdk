@@ -151,7 +151,7 @@ class ListIotModelsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['models'] = isset($data['models']) ? $data['models'] : null;
         $this->container['pageinator'] = isset($data['pageinator']) ? $data['pageinator'] : null;

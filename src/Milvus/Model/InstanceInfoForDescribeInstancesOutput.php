@@ -201,7 +201,7 @@ class InstanceInfoForDescribeInstancesOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_config'] = isset($data['charge_config']) ? $data['charge_config'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;

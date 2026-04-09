@@ -211,7 +211,7 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnose_detail'] = isset($data['diagnose_detail']) ? $data['diagnose_detail'] : null;
         $this->container['http_request_header'] = isset($data['http_request_header']) ? $data['http_request_header'] : null;

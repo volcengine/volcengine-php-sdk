@@ -146,7 +146,7 @@ class DescribeQuitApplicationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
     }

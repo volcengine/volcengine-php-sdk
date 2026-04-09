@@ -151,7 +151,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['rdma_network_interfaces'] = isset($data['rdma_network_interfaces']) ? $data['rdma_network_interfaces'] : null;
         $this->container['rdma_product_name'] = isset($data['rdma_product_name']) ? $data['rdma_product_name'] : null;

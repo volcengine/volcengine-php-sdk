@@ -151,7 +151,7 @@ class ListAPIKeysRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['only_available'] = isset($data['only_available']) ? $data['only_available'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;

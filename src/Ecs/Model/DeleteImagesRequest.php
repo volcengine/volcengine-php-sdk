@@ -151,7 +151,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_binded_snapshots'] = isset($data['delete_binded_snapshots']) ? $data['delete_binded_snapshots'] : null;
         $this->container['image_ids'] = isset($data['image_ids']) ? $data['image_ids'] : null;

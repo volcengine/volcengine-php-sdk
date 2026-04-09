@@ -151,7 +151,7 @@ class DescribeSpotAdviceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_spot_resources'] = isset($data['available_spot_resources']) ? $data['available_spot_resources'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

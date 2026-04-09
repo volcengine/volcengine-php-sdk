@@ -151,7 +151,7 @@ class VpcInfoForMSCreateInstanceOneStepInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;

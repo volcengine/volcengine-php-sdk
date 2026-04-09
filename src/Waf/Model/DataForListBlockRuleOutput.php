@@ -231,7 +231,7 @@ class DataForListBlockRuleOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['add_src'] = isset($data['add_src']) ? $data['add_src'] : null;

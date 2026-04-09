@@ -151,7 +151,7 @@ class DescribeCdnRegionAndIspRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['area'] = isset($data['area']) ? $data['area'] : null;
         $this->container['lang'] = isset($data['lang']) ? $data['lang'] : null;

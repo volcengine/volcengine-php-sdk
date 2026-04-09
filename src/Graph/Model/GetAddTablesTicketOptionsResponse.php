@@ -146,7 +146,7 @@ class GetAddTablesTicketOptionsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allow_enable_rotate'] = isset($data['allow_enable_rotate']) ? $data['allow_enable_rotate'] : null;
     }

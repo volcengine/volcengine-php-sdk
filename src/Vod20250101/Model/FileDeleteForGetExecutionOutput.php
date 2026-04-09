@@ -146,7 +146,7 @@ class FileDeleteForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['skip_error'] = isset($data['skip_error']) ? $data['skip_error'] : null;
     }

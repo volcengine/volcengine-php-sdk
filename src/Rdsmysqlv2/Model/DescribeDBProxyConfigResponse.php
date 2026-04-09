@@ -186,7 +186,7 @@ class DescribeDBProxyConfigResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binlog_dump'] = isset($data['binlog_dump']) ? $data['binlog_dump'] : null;
         $this->container['check_modify_db_proxy_allowed'] = isset($data['check_modify_db_proxy_allowed']) ? $data['check_modify_db_proxy_allowed'] : null;

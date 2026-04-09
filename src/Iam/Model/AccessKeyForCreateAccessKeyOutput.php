@@ -171,7 +171,7 @@ class AccessKeyForCreateAccessKeyOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
         $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;

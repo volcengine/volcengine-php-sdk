@@ -156,7 +156,7 @@ class SetQueueAttributesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['message_retention_period'] = isset($data['message_retention_period']) ? $data['message_retention_period'] : null;
         $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;

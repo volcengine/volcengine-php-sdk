@@ -176,7 +176,7 @@ class UserForListCozeUserOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['coze_user_id'] = isset($data['coze_user_id']) ? $data['coze_user_id'] : null;
         $this->container['coze_user_in_enterprise'] = isset($data['coze_user_in_enterprise']) ? $data['coze_user_in_enterprise'] : null;

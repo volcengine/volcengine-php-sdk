@@ -211,7 +211,7 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_host'] = isset($data['all_host']) ? $data['all_host'] : null;
         $this->container['all_host_details'] = isset($data['all_host_details']) ? $data['all_host_details'] : null;

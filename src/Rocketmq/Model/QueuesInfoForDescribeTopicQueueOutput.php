@@ -166,7 +166,7 @@ class QueuesInfoForDescribeTopicQueueOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['end_offset'] = isset($data['end_offset']) ? $data['end_offset'] : null;
         $this->container['last_update_timestamp'] = isset($data['last_update_timestamp']) ? $data['last_update_timestamp'] : null;

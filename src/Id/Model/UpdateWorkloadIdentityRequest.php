@@ -161,7 +161,7 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allowed_resource_oauth2_return_urls'] = isset($data['allowed_resource_oauth2_return_urls']) ? $data['allowed_resource_oauth2_return_urls'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

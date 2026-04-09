@@ -186,7 +186,7 @@ class BindAXNEResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['phone_no_a'] = isset($data['phone_no_a']) ? $data['phone_no_a'] : null;
         $this->container['phone_no_a_city_code'] = isset($data['phone_no_a_city_code']) ? $data['phone_no_a_city_code'] : null;

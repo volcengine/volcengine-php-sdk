@@ -186,7 +186,7 @@ class TopDataDetailForDescribeOriginStatusCodeRankingOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['item_key'] = isset($data['item_key']) ? $data['item_key'] : null;
         $this->container['status2xx'] = isset($data['status2xx']) ? $data['status2xx'] : null;

@@ -196,7 +196,7 @@ class BatchListMegaTTSTrainStatusRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['expire_time_end'] = isset($data['expire_time_end']) ? $data['expire_time_end'] : null;
         $this->container['expire_time_start'] = isset($data['expire_time_start']) ? $data['expire_time_start'] : null;

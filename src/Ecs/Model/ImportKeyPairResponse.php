@@ -156,7 +156,7 @@ class ImportKeyPairResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['finger_print'] = isset($data['finger_print']) ? $data['finger_print'] : null;
         $this->container['key_pair_id'] = isset($data['key_pair_id']) ? $data['key_pair_id'] : null;

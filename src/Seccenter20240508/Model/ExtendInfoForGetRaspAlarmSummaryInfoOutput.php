@@ -151,7 +151,7 @@ class ExtendInfoForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['listen_ports'] = isset($data['listen_ports']) ? $data['listen_ports'] : null;
         $this->container['vul_info'] = isset($data['vul_info']) ? $data['vul_info'] : null;

@@ -156,7 +156,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
         $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;

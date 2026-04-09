@@ -161,7 +161,7 @@ class AuthConfigForExecContainerImageCommitmentInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['plain_http'] = isset($data['plain_http']) ? $data['plain_http'] : null;

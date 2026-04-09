@@ -196,7 +196,7 @@ class GetAlertResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alerting_rule_id'] = isset($data['alerting_rule_id']) ? $data['alerting_rule_id'] : null;
         $this->container['alerting_rule_query'] = isset($data['alerting_rule_query']) ? $data['alerting_rule_query'] : null;

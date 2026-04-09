@@ -151,7 +151,7 @@ class AccessPolicyForModifyAccessKeyAuthorityInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authority'] = isset($data['authority']) ? $data['authority'] : null;
         $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;

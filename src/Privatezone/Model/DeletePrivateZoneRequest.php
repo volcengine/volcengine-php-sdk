@@ -151,7 +151,7 @@ class DeletePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_when_empty'] = isset($data['delete_when_empty']) ? $data['delete_when_empty'] : null;
         $this->container['zid'] = isset($data['zid']) ? $data['zid'] : null;

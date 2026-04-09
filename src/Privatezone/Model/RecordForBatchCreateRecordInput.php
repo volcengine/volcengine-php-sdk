@@ -176,7 +176,7 @@ class RecordForBatchCreateRecordInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['line'] = isset($data['line']) ? $data['line'] : null;

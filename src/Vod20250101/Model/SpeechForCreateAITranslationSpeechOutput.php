@@ -171,7 +171,7 @@ class SpeechForCreateAITranslationSpeechOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_url'] = isset($data['audio_url']) ? $data['audio_url'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;

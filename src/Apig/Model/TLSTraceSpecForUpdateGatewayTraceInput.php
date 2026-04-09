@@ -161,7 +161,7 @@ class TLSTraceSpecForUpdateGatewayTraceInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['iam_user_ak'] = isset($data['iam_user_ak']) ? $data['iam_user_ak'] : null;
         $this->container['iam_user_sk'] = isset($data['iam_user_sk']) ? $data['iam_user_sk'] : null;

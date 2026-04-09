@@ -176,7 +176,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ak'] = isset($data['ak']) ? $data['ak'] : null;
         $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;

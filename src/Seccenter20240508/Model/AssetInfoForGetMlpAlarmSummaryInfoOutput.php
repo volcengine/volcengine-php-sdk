@@ -151,7 +151,7 @@ class AssetInfoForGetMlpAlarmSummaryInfoOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_info'] = isset($data['cluster_info']) ? $data['cluster_info'] : null;
         $this->container['host_info'] = isset($data['host_info']) ? $data['host_info'] : null;

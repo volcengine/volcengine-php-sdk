@@ -151,7 +151,7 @@ class DataForGetK8sAssetStatisticOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['k8s_namespace'] = isset($data['k8s_namespace']) ? $data['k8s_namespace'] : null;
         $this->container['k8s_workload'] = isset($data['k8s_workload']) ? $data['k8s_workload'] : null;

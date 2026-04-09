@@ -196,7 +196,7 @@ class LocationDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['remote_address'] = isset($data['remote_address']) ? $data['remote_address'] : null;
         $this->container['request_headers'] = isset($data['request_headers']) ? $data['request_headers'] : null;

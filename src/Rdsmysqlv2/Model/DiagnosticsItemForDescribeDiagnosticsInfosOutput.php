@@ -161,7 +161,7 @@ class DiagnosticsItemForDescribeDiagnosticsInfosOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnostics_item'] = isset($data['diagnostics_item']) ? $data['diagnostics_item'] : null;
         $this->container['diagnostics_result'] = isset($data['diagnostics_result']) ? $data['diagnostics_result'] : null;

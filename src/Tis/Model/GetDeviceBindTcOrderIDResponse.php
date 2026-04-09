@@ -146,7 +146,7 @@ class GetDeviceBindTcOrderIDResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['tc_order_id'] = isset($data['tc_order_id']) ? $data['tc_order_id'] : null;
     }

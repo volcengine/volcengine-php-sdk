@@ -161,7 +161,7 @@ class ListResourceAssociationAuthorizationsResponse implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorization_infos'] = isset($data['authorization_infos']) ? $data['authorization_infos'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

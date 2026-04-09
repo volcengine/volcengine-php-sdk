@@ -221,7 +221,7 @@ class Img2ImgOutpaintingRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binary_data_base64'] = isset($data['binary_data_base64']) ? $data['binary_data_base64'] : null;
         $this->container['bottom'] = isset($data['bottom']) ? $data['bottom'] : null;

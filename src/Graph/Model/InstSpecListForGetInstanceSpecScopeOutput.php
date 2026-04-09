@@ -156,7 +156,7 @@ class InstSpecListForGetInstanceSpecScopeOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cpu_num'] = isset($data['cpu_num']) ? $data['cpu_num'] : null;
         $this->container['mem_in_gb'] = isset($data['mem_in_gb']) ? $data['mem_in_gb'] : null;

@@ -151,7 +151,7 @@ class FailDeviceListForCreateDeviceWithoutApprovalOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['fail_device_list'] = isset($data['fail_device_list']) ? $data['fail_device_list'] : null;
         $this->container['fail_reason'] = isset($data['fail_reason']) ? $data['fail_reason'] : null;

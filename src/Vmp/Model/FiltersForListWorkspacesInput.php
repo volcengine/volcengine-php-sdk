@@ -171,7 +171,7 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cross_account'] = isset($data['cross_account']) ? $data['cross_account'] : null;
         $this->container['cross_region'] = isset($data['cross_region']) ? $data['cross_region'] : null;

@@ -221,7 +221,7 @@ class DataForGetVulnDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affect_packs'] = isset($data['affect_packs']) ? $data['affect_packs'] : null;
         $this->container['cnnvd_id'] = isset($data['cnnvd_id']) ? $data['cnnvd_id'] : null;

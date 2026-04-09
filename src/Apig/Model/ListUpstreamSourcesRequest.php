@@ -166,7 +166,7 @@ class ListUpstreamSourcesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;

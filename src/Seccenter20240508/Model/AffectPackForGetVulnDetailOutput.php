@@ -166,7 +166,7 @@ class AffectPackForGetVulnDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affected_version'] = isset($data['affected_version']) ? $data['affected_version'] : null;
         $this->container['fixed_version'] = isset($data['fixed_version']) ? $data['fixed_version'] : null;

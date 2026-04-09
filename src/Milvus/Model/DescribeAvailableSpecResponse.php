@@ -161,7 +161,7 @@ class DescribeAvailableSpecResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_cu_type_support_spec_list'] = isset($data['node_cu_type_support_spec_list']) ? $data['node_cu_type_support_spec_list'] : null;
         $this->container['node_support_spec_list'] = isset($data['node_support_spec_list']) ? $data['node_support_spec_list'] : null;

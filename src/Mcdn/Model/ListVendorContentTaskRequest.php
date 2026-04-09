@@ -186,7 +186,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_account_id'] = isset($data['cloud_account_id']) ? $data['cloud_account_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;

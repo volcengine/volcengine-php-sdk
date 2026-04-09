@@ -161,7 +161,7 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
         $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;

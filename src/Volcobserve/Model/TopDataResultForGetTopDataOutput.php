@@ -151,7 +151,7 @@ class TopDataResultForGetTopDataOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group_keys'] = isset($data['group_keys']) ? $data['group_keys'] : null;
         $this->container['metric_data'] = isset($data['metric_data']) ? $data['metric_data'] : null;

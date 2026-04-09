@@ -151,7 +151,7 @@ class FeatureGatesForCreateDefaultNodePoolInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['in_place_pod_vertical_scaling'] = isset($data['in_place_pod_vertical_scaling']) ? $data['in_place_pod_vertical_scaling'] : null;
         $this->container['qo_s_resource_manager'] = isset($data['qo_s_resource_manager']) ? $data['qo_s_resource_manager'] : null;

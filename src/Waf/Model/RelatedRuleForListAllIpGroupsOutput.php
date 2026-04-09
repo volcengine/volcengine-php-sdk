@@ -156,7 +156,7 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;

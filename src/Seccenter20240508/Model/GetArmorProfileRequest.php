@@ -156,7 +156,7 @@ class GetArmorProfileRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['armor_profile_name'] = isset($data['armor_profile_name']) ? $data['armor_profile_name'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;

@@ -151,7 +151,7 @@ class DescribeInstanceAllowListsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorized_allow_lists'] = isset($data['authorized_allow_lists']) ? $data['authorized_allow_lists'] : null;
         $this->container['unauthorized_allow_list_num'] = isset($data['unauthorized_allow_list_num']) ? $data['unauthorized_allow_list_num'] : null;

@@ -196,7 +196,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;

@@ -181,7 +181,7 @@ class ListResolverRulesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['endpoint_id'] = isset($data['endpoint_id']) ? $data['endpoint_id'] : null;
         $this->container['endpoint_trn'] = isset($data['endpoint_trn']) ? $data['endpoint_trn'] : null;

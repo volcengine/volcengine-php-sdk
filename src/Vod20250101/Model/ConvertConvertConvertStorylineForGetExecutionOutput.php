@@ -171,7 +171,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_tags'] = isset($data['all_tags']) ? $data['all_tags'] : null;
         $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;

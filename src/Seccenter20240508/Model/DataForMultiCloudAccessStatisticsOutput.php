@@ -176,7 +176,7 @@ class DataForMultiCloudAccessStatisticsOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['can_install_agent'] = isset($data['can_install_agent']) ? $data['can_install_agent'] : null;
         $this->container['can_sync'] = isset($data['can_sync']) ? $data['can_sync'] : null;

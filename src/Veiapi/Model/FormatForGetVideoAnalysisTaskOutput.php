@@ -186,7 +186,7 @@ class FormatForGetVideoAnalysisTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bit_rate'] = isset($data['bit_rate']) ? $data['bit_rate'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;

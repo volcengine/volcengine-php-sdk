@@ -166,7 +166,7 @@ class UpdatePodResourceApplyNumRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['apply_num'] = isset($data['apply_num']) ? $data['apply_num'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;

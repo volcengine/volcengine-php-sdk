@@ -156,7 +156,7 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cert_id'] = isset($data['cert_id']) ? $data['cert_id'] : null;
         $this->container['cert_id2'] = isset($data['cert_id2']) ? $data['cert_id2'] : null;

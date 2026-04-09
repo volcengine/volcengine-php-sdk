@@ -211,7 +211,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
         $this->container['custom_header_kvs'] = isset($data['custom_header_kvs']) ? $data['custom_header_kvs'] : null;

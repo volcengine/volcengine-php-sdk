@@ -151,7 +151,7 @@ class DescribeSpotPriceHistoryResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['spot_prices'] = isset($data['spot_prices']) ? $data['spot_prices'] : null;

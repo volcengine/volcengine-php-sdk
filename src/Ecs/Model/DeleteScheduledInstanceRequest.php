@@ -151,7 +151,7 @@ class DeleteScheduledInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;

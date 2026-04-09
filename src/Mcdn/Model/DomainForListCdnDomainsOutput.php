@@ -266,7 +266,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['biz_node_id'] = isset($data['biz_node_id']) ? $data['biz_node_id'] : null;
         $this->container['biz_node_name'] = isset($data['biz_node_name']) ? $data['biz_node_name'] : null;

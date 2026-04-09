@@ -151,7 +151,7 @@ class GetFwdRuleLipListResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lip_list'] = isset($data['lip_list']) ? $data['lip_list'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;

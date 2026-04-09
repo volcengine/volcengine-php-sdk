@@ -181,7 +181,7 @@ class InstanceForDescribeCloudAssistantStatusOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_version'] = isset($data['client_version']) ? $data['client_version'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;

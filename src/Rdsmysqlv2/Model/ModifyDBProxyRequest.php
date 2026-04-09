@@ -161,7 +161,7 @@ class ModifyDBProxyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['convert_default_endpoint'] = isset($data['convert_default_endpoint']) ? $data['convert_default_endpoint'] : null;
         $this->container['enable_db_proxy'] = isset($data['enable_db_proxy']) ? $data['enable_db_proxy'] : null;

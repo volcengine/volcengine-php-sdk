@@ -225,7 +225,7 @@ class CustomKeyStoreForDescribeCustomKeyStoresOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection_error_code'] = isset($data['connection_error_code']) ? $data['connection_error_code'] : null;
         $this->container['connection_state'] = isset($data['connection_state']) ? $data['connection_state'] : null;

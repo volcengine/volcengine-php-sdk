@@ -156,7 +156,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['not_support_reason'] = isset($data['not_support_reason']) ? $data['not_support_reason'] : null;
         $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;

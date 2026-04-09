@@ -176,7 +176,7 @@ class GetAlarmTraceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['c2_list'] = isset($data['c2_list']) ? $data['c2_list'] : null;
         $this->container['full_data'] = isset($data['full_data']) ? $data['full_data'] : null;

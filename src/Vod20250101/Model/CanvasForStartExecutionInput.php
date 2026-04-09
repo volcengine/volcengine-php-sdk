@@ -176,7 +176,7 @@ class CanvasForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['background_color'] = isset($data['background_color']) ? $data['background_color'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;

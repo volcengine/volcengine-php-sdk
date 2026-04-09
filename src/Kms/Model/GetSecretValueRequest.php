@@ -156,7 +156,7 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
         $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;

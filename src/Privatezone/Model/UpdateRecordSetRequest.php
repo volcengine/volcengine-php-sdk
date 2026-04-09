@@ -156,7 +156,7 @@ class UpdateRecordSetRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['record_set_id'] = isset($data['record_set_id']) ? $data['record_set_id'] : null;
         $this->container['weight_enabled'] = isset($data['weight_enabled']) ? $data['weight_enabled'] : null;

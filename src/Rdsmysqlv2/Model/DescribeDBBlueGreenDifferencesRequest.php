@@ -151,7 +151,7 @@ class DescribeDBBlueGreenDifferencesRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['green_endpoints'] = isset($data['green_endpoints']) ? $data['green_endpoints'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

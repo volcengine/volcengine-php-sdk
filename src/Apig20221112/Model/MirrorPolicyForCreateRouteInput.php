@@ -151,7 +151,7 @@ class MirrorPolicyForCreateRouteInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['percent'] = isset($data['percent']) ? $data['percent'] : null;
         $this->container['upstream'] = isset($data['upstream']) ? $data['upstream'] : null;

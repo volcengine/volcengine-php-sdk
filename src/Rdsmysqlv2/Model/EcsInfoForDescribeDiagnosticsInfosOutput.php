@@ -171,7 +171,7 @@ class EcsInfoForDescribeDiagnosticsInfosOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ecs_instance_id'] = isset($data['ecs_instance_id']) ? $data['ecs_instance_id'] : null;
         $this->container['ecs_instance_name'] = isset($data['ecs_instance_name']) ? $data['ecs_instance_name'] : null;

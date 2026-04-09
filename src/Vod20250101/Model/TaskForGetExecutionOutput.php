@@ -241,7 +241,7 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['abr_transcode'] = isset($data['abr_transcode']) ? $data['abr_transcode'] : null;
         $this->container['ad_audit'] = isset($data['ad_audit']) ? $data['ad_audit'] : null;

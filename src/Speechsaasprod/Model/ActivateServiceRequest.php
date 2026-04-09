@@ -161,7 +161,7 @@ class ActivateServiceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['blueprint_id'] = isset($data['blueprint_id']) ? $data['blueprint_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;

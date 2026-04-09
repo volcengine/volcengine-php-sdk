@@ -151,7 +151,7 @@ class GetOrganizationDiscoveredResourceCountsRequest implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_status'] = isset($data['resource_status']) ? $data['resource_status'] : null;
         $this->container['resource_types'] = isset($data['resource_types']) ? $data['resource_types'] : null;

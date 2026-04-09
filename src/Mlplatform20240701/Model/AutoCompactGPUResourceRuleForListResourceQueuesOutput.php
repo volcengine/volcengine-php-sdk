@@ -191,7 +191,7 @@ class AutoCompactGPUResourceRuleForListResourceQueuesOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affected_workload_types'] = isset($data['affected_workload_types']) ? $data['affected_workload_types'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;

@@ -186,7 +186,7 @@ class ConfigurationForDescribeInstanceConfigOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['config_key'] = isset($data['config_key']) ? $data['config_key'] : null;
         $this->container['cur_value'] = isset($data['cur_value']) ? $data['cur_value'] : null;

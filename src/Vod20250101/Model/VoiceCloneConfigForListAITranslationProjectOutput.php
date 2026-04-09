@@ -146,7 +146,7 @@ class VoiceCloneConfigForListAITranslationProjectOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['background_volume'] = isset($data['background_volume']) ? $data['background_volume'] : null;
     }

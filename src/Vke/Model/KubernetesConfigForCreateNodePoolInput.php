@@ -186,7 +186,7 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_sync_disabled'] = isset($data['auto_sync_disabled']) ? $data['auto_sync_disabled'] : null;
         $this->container['containerd_config'] = isset($data['containerd_config']) ? $data['containerd_config'] : null;

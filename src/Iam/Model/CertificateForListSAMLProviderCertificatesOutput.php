@@ -191,7 +191,7 @@ class CertificateForListSAMLProviderCertificatesOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;

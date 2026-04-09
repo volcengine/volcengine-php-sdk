@@ -176,7 +176,7 @@ class CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput implements
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_status'] = isset($data['billing_status']) ? $data['billing_status'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;

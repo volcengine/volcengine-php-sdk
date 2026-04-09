@@ -151,7 +151,7 @@ class AIProviderSettingsForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;

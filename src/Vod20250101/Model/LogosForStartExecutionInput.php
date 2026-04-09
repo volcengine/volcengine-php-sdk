@@ -305,7 +305,7 @@ class LogosForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adapt_mode'] = isset($data['adapt_mode']) ? $data['adapt_mode'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;

@@ -171,7 +171,7 @@ class StatusForGetServiceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_replicas'] = isset($data['available_replicas']) ? $data['available_replicas'] : null;
         $this->container['expected_replicias'] = isset($data['expected_replicias']) ? $data['expected_replicias'] : null;

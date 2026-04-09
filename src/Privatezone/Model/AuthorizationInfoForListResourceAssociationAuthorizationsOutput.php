@@ -176,7 +176,7 @@ class AuthorizationInfoForListResourceAssociationAuthorizationsOutput implements
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;

@@ -201,7 +201,7 @@ class EffectiveScopeForListApplicationConfigHistoriesOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_names'] = isset($data['component_names']) ? $data['component_names'] : null;
         $this->container['effective_type'] = isset($data['effective_type']) ? $data['effective_type'] : null;

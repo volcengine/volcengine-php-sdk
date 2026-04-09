@@ -161,7 +161,7 @@ class LineGroupConfigForUpdateTaskInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group_list'] = isset($data['group_list']) ? $data['group_list'] : null;
         $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;

@@ -161,7 +161,7 @@ class TagResourcesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;

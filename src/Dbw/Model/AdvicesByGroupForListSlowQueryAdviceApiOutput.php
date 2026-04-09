@@ -151,7 +151,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['advice'] = isset($data['advice']) ? $data['advice'] : null;
         $this->container['advices'] = isset($data['advices']) ? $data['advices'] : null;

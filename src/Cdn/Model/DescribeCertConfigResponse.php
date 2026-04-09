@@ -156,7 +156,7 @@ class DescribeCertConfigResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cert_not_config'] = isset($data['cert_not_config']) ? $data['cert_not_config'] : null;
         $this->container['other_cert_config'] = isset($data['other_cert_config']) ? $data['other_cert_config'] : null;

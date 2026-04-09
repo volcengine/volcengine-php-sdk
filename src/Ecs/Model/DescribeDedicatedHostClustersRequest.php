@@ -166,7 +166,7 @@ class DescribeDedicatedHostClustersRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dedicated_host_cluster_ids'] = isset($data['dedicated_host_cluster_ids']) ? $data['dedicated_host_cluster_ids'] : null;
         $this->container['dedicated_host_cluster_name'] = isset($data['dedicated_host_cluster_name']) ? $data['dedicated_host_cluster_name'] : null;

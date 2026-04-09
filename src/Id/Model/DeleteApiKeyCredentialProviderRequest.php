@@ -151,7 +151,7 @@ class DeleteApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;

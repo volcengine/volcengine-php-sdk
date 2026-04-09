@@ -171,7 +171,7 @@ class ConfigItemForCalculatePriceV2Output implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_items'] = isset($data['charge_items']) ? $data['charge_items'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;

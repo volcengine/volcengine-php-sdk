@@ -156,7 +156,7 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_prefetch'] = isset($data['enable_prefetch']) ? $data['enable_prefetch'] : null;
         $this->container['file_system_ids'] = isset($data['file_system_ids']) ? $data['file_system_ids'] : null;

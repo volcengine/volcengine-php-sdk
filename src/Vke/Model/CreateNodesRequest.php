@@ -201,7 +201,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['additional_container_storage_enabled'] = isset($data['additional_container_storage_enabled']) ? $data['additional_container_storage_enabled'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;

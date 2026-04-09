@@ -156,7 +156,7 @@ class VirusHitDataListForGetVirusAlarmSummaryInfoOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hit_len'] = isset($data['hit_len']) ? $data['hit_len'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;

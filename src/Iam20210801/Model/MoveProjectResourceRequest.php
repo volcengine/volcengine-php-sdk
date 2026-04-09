@@ -151,7 +151,7 @@ class MoveProjectResourceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_trn'] = isset($data['resource_trn']) ? $data['resource_trn'] : null;
         $this->container['target_project_name'] = isset($data['target_project_name']) ? $data['target_project_name'] : null;

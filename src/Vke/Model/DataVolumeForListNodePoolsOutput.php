@@ -222,7 +222,7 @@ class DataVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_system'] = isset($data['file_system']) ? $data['file_system'] : null;
         $this->container['mount_point'] = isset($data['mount_point']) ? $data['mount_point'] : null;

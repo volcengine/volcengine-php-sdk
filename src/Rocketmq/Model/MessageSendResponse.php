@@ -166,7 +166,7 @@ class MessageSendResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
         $this->container['msgqueue'] = isset($data['msgqueue']) ? $data['msgqueue'] : null;

@@ -151,7 +151,7 @@ class ClusterHardeningStatsForGetPolicyStatisticsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hardened_cluster_count'] = isset($data['hardened_cluster_count']) ? $data['hardened_cluster_count'] : null;
         $this->container['installed_cluster_count'] = isset($data['installed_cluster_count']) ? $data['installed_cluster_count'] : null;

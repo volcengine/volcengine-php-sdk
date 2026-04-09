@@ -166,7 +166,7 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bash_audit_cap'] = isset($data['bash_audit_cap']) ? $data['bash_audit_cap'] : null;
         $this->container['client_bruteforce_ban_cap'] = isset($data['client_bruteforce_ban_cap']) ? $data['client_bruteforce_ban_cap'] : null;

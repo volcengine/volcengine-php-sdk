@@ -156,7 +156,7 @@ class LogForDescribeMigrationLogsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['log_level'] = isset($data['log_level']) ? $data['log_level'] : null;
         $this->container['log_message'] = isset($data['log_message']) ? $data['log_message'] : null;

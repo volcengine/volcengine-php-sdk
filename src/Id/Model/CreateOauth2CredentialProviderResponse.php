@@ -161,7 +161,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['callback_url'] = isset($data['callback_url']) ? $data['callback_url'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;

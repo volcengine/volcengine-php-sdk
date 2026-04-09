@@ -176,7 +176,7 @@ class ConvertTrafficConfigForGetServiceOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enables'] = isset($data['enables']) ? $data['enables'] : null;
         $this->container['mirror_traffic_policy'] = isset($data['mirror_traffic_policy']) ? $data['mirror_traffic_policy'] : null;

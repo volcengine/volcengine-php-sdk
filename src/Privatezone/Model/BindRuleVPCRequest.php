@@ -161,7 +161,7 @@ class BindRuleVPCRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
         $this->container['rule_trn'] = isset($data['rule_trn']) ? $data['rule_trn'] : null;

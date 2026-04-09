@@ -156,7 +156,7 @@ class TestFailoverDBInstanceZoneRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failback_to_primary_delay_in_minutes'] = isset($data['failback_to_primary_delay_in_minutes']) ? $data['failback_to_primary_delay_in_minutes'] : null;
         $this->container['failed_zone_id'] = isset($data['failed_zone_id']) ? $data['failed_zone_id'] : null;

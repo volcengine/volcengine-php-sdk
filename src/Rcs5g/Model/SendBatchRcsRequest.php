@@ -212,7 +212,7 @@ class SendBatchRcsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['channel_type'] = isset($data['channel_type']) ? $data['channel_type'] : null;
         $this->container['chatbot_id'] = isset($data['chatbot_id']) ? $data['chatbot_id'] : null;

@@ -151,7 +151,7 @@ class CapacityInfoForDescribeFileSystemStatisticsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['total_ti_b'] = isset($data['total_ti_b']) ? $data['total_ti_b'] : null;
         $this->container['used_gi_b'] = isset($data['used_gi_b']) ? $data['used_gi_b'] : null;

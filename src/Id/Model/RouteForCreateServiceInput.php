@@ -191,7 +191,7 @@ class RouteForCreateServiceInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api_spec'] = isset($data['api_spec']) ? $data['api_spec'] : null;
         $this->container['auth_resource_type'] = isset($data['auth_resource_type']) ? $data['auth_resource_type'] : null;

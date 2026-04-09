@@ -161,7 +161,7 @@ class IpConfigForCreateResolverEndpointInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['az_id'] = isset($data['az_id']) ? $data['az_id'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;

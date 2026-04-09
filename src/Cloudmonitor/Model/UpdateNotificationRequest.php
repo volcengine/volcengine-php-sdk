@@ -166,7 +166,7 @@ class UpdateNotificationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;

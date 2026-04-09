@@ -216,7 +216,7 @@ class ModifyScalingGroupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['active_scaling_configuration_id'] = isset($data['active_scaling_configuration_id']) ? $data['active_scaling_configuration_id'] : null;
         $this->container['default_cooldown'] = isset($data['default_cooldown']) ? $data['default_cooldown'] : null;

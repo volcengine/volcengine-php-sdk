@@ -186,7 +186,7 @@ class MessageQueueForCreateEventRuleInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_encrypt'] = isset($data['auth_encrypt']) ? $data['auth_encrypt'] : null;
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;

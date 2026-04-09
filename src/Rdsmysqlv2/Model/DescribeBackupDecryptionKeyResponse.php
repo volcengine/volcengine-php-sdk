@@ -151,7 +151,7 @@ class DescribeBackupDecryptionKeyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['decryption_key'] = isset($data['decryption_key']) ? $data['decryption_key'] : null;
         $this->container['iv'] = isset($data['iv']) ? $data['iv'] : null;

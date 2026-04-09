@@ -256,7 +256,7 @@ class SpanListForGetTraceDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api_name'] = isset($data['api_name']) ? $data['api_name'] : null;
         $this->container['api_time'] = isset($data['api_time']) ? $data['api_time'] : null;

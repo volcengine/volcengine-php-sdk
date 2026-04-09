@@ -151,7 +151,7 @@ class DescribeInstancesIamRolesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instances_iam_roles'] = isset($data['instances_iam_roles']) ? $data['instances_iam_roles'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

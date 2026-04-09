@@ -186,7 +186,7 @@ class DescribeDirectConnectTrafficQosRulesRequest implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['direct_connect_traffic_qos_queue_id'] = isset($data['direct_connect_traffic_qos_queue_id']) ? $data['direct_connect_traffic_qos_queue_id'] : null;

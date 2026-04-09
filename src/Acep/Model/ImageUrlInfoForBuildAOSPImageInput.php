@@ -151,7 +151,7 @@ class ImageUrlInfoForBuildAOSPImageInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['system_img'] = isset($data['system_img']) ? $data['system_img'] : null;
         $this->container['vendor_img'] = isset($data['vendor_img']) ? $data['vendor_img'] : null;

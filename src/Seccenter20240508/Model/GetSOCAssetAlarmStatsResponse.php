@@ -161,7 +161,7 @@ class GetSOCAssetAlarmStatsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['handled'] = isset($data['handled']) ? $data['handled'] : null;
         $this->container['ignored'] = isset($data['ignored']) ? $data['ignored'] : null;

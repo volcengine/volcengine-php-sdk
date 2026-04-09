@@ -166,7 +166,7 @@ class OpeningHookForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
         $this->container['min_clip_duration'] = isset($data['min_clip_duration']) ? $data['min_clip_duration'] : null;

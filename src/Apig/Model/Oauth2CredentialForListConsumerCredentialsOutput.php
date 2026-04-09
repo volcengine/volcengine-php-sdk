@@ -151,7 +151,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;

@@ -161,7 +161,7 @@ class UpdateBindVPCRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binds'] = isset($data['binds']) ? $data['binds'] : null;
         $this->container['unbinds'] = isset($data['unbinds']) ? $data['unbinds'] : null;

@@ -151,7 +151,7 @@ class ListTabletServerResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['leader_addr'] = isset($data['leader_addr']) ? $data['leader_addr'] : null;
         $this->container['tablet_server_infos'] = isset($data['tablet_server_infos']) ? $data['tablet_server_infos'] : null;

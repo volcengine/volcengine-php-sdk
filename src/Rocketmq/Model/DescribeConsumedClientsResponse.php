@@ -151,7 +151,7 @@ class DescribeConsumedClientsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection_count'] = isset($data['connection_count']) ? $data['connection_count'] : null;
         $this->container['consumed_clients_info'] = isset($data['consumed_clients_info']) ? $data['consumed_clients_info'] : null;

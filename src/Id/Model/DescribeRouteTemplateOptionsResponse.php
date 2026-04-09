@@ -151,7 +151,7 @@ class DescribeRouteTemplateOptionsResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['routes'] = isset($data['routes']) ? $data['routes'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;

@@ -156,7 +156,7 @@ class GetAllowedIPAddressesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_ip_list'] = isset($data['enable_ip_list']) ? $data['enable_ip_list'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;

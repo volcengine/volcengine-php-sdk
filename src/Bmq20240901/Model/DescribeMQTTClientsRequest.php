@@ -196,7 +196,7 @@ class DescribeMQTTClientsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_id_like'] = isset($data['client_id_like']) ? $data['client_id_like'] : null;
         $this->container['client_id_specify_list'] = isset($data['client_id_specify_list']) ? $data['client_id_specify_list'] : null;

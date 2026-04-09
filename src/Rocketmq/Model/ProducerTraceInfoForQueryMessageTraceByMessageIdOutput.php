@@ -161,7 +161,7 @@ class ProducerTraceInfoForQueryMessageTraceByMessageIdOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['message_born_host'] = isset($data['message_born_host']) ? $data['message_born_host'] : null;
         $this->container['message_born_timestamp'] = isset($data['message_born_timestamp']) ? $data['message_born_timestamp'] : null;

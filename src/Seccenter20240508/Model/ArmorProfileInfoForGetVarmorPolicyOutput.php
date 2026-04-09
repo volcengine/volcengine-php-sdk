@@ -166,7 +166,7 @@ class ArmorProfileInfoForGetVarmorPolicyOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['armor_profile_name'] = isset($data['armor_profile_name']) ? $data['armor_profile_name'] : null;
         $this->container['armor_profile_yaml'] = isset($data['armor_profile_yaml']) ? $data['armor_profile_yaml'] : null;

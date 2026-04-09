@@ -151,7 +151,7 @@ class GetUserPoolMausResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['month'] = isset($data['month']) ? $data['month'] : null;
         $this->container['user_pool_maus'] = isset($data['user_pool_maus']) ? $data['user_pool_maus'] : null;

@@ -186,7 +186,7 @@ class ListProjectRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['created_from'] = isset($data['created_from']) ? $data['created_from'] : null;
         $this->container['created_orderby'] = isset($data['created_orderby']) ? $data['created_orderby'] : null;

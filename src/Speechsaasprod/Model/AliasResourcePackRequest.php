@@ -161,7 +161,7 @@ class AliasResourcePackRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
         $this->container['instance_number'] = isset($data['instance_number']) ? $data['instance_number'] : null;

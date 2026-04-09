@@ -151,7 +151,7 @@ class GetRaspConfigStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['process_white_list_count'] = isset($data['process_white_list_count']) ? $data['process_white_list_count'] : null;
         $this->container['rasp_close_count'] = isset($data['rasp_close_count']) ? $data['rasp_close_count'] : null;

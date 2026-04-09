@@ -156,7 +156,7 @@ class CompleteResourceTokenAuthRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
         $this->container['session_uri'] = isset($data['session_uri']) ? $data['session_uri'] : null;

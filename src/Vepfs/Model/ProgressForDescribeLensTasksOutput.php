@@ -187,7 +187,7 @@ class ProgressForDescribeLensTasksOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['directories_queued'] = isset($data['directories_queued']) ? $data['directories_queued'] : null;
         $this->container['entries_processed'] = isset($data['entries_processed']) ? $data['entries_processed'] : null;

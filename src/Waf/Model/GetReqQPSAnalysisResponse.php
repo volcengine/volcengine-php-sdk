@@ -151,7 +151,7 @@ class GetReqQPSAnalysisResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['average_qps'] = isset($data['average_qps']) ? $data['average_qps'] : null;
         $this->container['peak_qps'] = isset($data['peak_qps']) ? $data['peak_qps'] : null;

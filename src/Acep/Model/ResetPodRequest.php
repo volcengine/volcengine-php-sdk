@@ -176,7 +176,7 @@ class ResetPodRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_size'] = isset($data['data_size']) ? $data['data_size'] : null;
         $this->container['phone_template_id'] = isset($data['phone_template_id']) ? $data['phone_template_id'] : null;

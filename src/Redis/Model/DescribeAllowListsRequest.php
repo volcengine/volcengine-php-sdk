@@ -171,7 +171,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['ip_segment'] = isset($data['ip_segment']) ? $data['ip_segment'] : null;

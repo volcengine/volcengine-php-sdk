@@ -161,7 +161,7 @@ class DescribeLifecycleHooksResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lifecycle_hooks'] = isset($data['lifecycle_hooks']) ? $data['lifecycle_hooks'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

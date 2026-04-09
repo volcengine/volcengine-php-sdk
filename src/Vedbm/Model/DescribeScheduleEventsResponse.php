@@ -151,7 +151,7 @@ class DescribeScheduleEventsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['schedule_tasks_info'] = isset($data['schedule_tasks_info']) ? $data['schedule_tasks_info'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

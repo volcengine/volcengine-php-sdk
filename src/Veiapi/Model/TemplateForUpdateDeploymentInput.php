@@ -161,7 +161,7 @@ class TemplateForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
         $this->container['dns_policy'] = isset($data['dns_policy']) ? $data['dns_policy'] : null;

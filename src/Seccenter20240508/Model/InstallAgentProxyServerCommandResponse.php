@@ -151,7 +151,7 @@ class InstallAgentProxyServerCommandResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['install_command'] = isset($data['install_command']) ? $data['install_command'] : null;
         $this->container['uninstall_command'] = isset($data['uninstall_command']) ? $data['uninstall_command'] : null;

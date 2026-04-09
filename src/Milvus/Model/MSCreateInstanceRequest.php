@@ -231,7 +231,7 @@ class MSCreateInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_protect'] = isset($data['delete_protect']) ? $data['delete_protect'] : null;
         $this->container['delete_protect_enabled'] = isset($data['delete_protect_enabled']) ? $data['delete_protect_enabled'] : null;

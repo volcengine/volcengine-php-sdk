@@ -181,7 +181,7 @@ class PlusAlarmInfo6001ForGetHidsAlarmInfoOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['class'] = isset($data['class']) ? $data['class'] : null;
         $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;

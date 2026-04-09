@@ -161,7 +161,7 @@ class UpdateGroupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['new_description'] = isset($data['new_description']) ? $data['new_description'] : null;
         $this->container['new_display_name'] = isset($data['new_display_name']) ? $data['new_display_name'] : null;

@@ -181,7 +181,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
         $this->container['only_ai_application_asset'] = isset($data['only_ai_application_asset']) ? $data['only_ai_application_asset'] : null;

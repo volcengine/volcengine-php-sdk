@@ -151,7 +151,7 @@ class DescribeDBBlueGreenInstanceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['blue_instance'] = isset($data['blue_instance']) ? $data['blue_instance'] : null;
         $this->container['green_instance'] = isset($data['green_instance']) ? $data['green_instance'] : null;

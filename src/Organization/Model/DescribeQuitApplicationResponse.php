@@ -146,7 +146,7 @@ class DescribeQuitApplicationResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['org_quit_application'] = isset($data['org_quit_application']) ? $data['org_quit_application'] : null;
     }

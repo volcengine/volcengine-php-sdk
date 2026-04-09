@@ -196,7 +196,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_account_ids'] = isset($data['cloud_account_ids']) ? $data['cloud_account_ids'] : null;
         $this->container['domain_name'] = isset($data['domain_name']) ? $data['domain_name'] : null;

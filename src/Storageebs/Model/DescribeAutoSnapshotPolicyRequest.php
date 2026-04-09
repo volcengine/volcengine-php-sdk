@@ -166,7 +166,7 @@ class DescribeAutoSnapshotPolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_snapshot_policy_ids'] = isset($data['auto_snapshot_policy_ids']) ? $data['auto_snapshot_policy_ids'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

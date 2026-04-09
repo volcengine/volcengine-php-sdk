@@ -161,7 +161,7 @@ class AuthResponseConfigForAddCdnDomainInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cache_action'] = isset($data['cache_action']) ? $data['cache_action'] : null;
         $this->container['response_action'] = isset($data['response_action']) ? $data['response_action'] : null;

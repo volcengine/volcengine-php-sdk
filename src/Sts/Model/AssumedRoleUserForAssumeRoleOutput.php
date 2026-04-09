@@ -151,7 +151,7 @@ class AssumedRoleUserForAssumeRoleOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['assumed_role_id'] = isset($data['assumed_role_id']) ? $data['assumed_role_id'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;

@@ -191,7 +191,7 @@ class ReservationConfigForListResourceReservationPlansOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_duration_hours'] = isset($data['max_duration_hours']) ? $data['max_duration_hours'] : null;
         $this->container['max_task_lifetime_seconds'] = isset($data['max_task_lifetime_seconds']) ? $data['max_task_lifetime_seconds'] : null;

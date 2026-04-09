@@ -201,7 +201,7 @@ class WafActionListForModifyTLSConfigInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['answer_opt'] = isset($data['answer_opt']) ? $data['answer_opt'] : null;
         $this->container['block'] = isset($data['block']) ? $data['block'] : null;

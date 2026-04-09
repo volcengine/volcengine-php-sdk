@@ -156,7 +156,7 @@ class DimensionForListProductQuotaDimensionsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dimension_code'] = isset($data['dimension_code']) ? $data['dimension_code'] : null;
         $this->container['dimension_name'] = isset($data['dimension_name']) ? $data['dimension_name'] : null;

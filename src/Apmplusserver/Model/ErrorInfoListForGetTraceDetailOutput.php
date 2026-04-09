@@ -171,7 +171,7 @@ class ErrorInfoListForGetTraceDetailOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['error_kind'] = isset($data['error_kind']) ? $data['error_kind'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;

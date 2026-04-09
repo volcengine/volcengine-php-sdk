@@ -146,7 +146,7 @@ class ExtensionForGetLeafInstanceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['subject_alternative_name'] = isset($data['subject_alternative_name']) ? $data['subject_alternative_name'] : null;
     }

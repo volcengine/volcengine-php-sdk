@@ -181,7 +181,7 @@ class DescribeDBDisasterRecoveryInstancesResponse implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['disaster_recovery_instances'] = isset($data['disaster_recovery_instances']) ? $data['disaster_recovery_instances'] : null;
         $this->container['dr_dts_task_id'] = isset($data['dr_dts_task_id']) ? $data['dr_dts_task_id'] : null;

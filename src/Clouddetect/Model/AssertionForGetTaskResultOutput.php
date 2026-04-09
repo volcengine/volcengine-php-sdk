@@ -156,7 +156,7 @@ class AssertionForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition_message'] = isset($data['condition_message']) ? $data['condition_message'] : null;
         $this->container['result_value'] = isset($data['result_value']) ? $data['result_value'] : null;

@@ -151,7 +151,7 @@ class CreateO11yAgentECSDeployTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;

@@ -161,7 +161,7 @@ class DescribeVegraphConfigInK8sResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bg3_canary_config'] = isset($data['bg3_canary_config']) ? $data['bg3_canary_config'] : null;
         $this->container['bg3_config'] = isset($data['bg3_config']) ? $data['bg3_config'] : null;

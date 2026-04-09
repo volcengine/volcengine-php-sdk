@@ -161,7 +161,7 @@ class CreateDeviceWithoutApprovalRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['device_list'] = isset($data['device_list']) ? $data['device_list'] : null;
         $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;

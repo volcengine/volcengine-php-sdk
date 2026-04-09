@@ -146,7 +146,7 @@ class ModifyVolumeExtraPerformanceResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['order_number'] = isset($data['order_number']) ? $data['order_number'] : null;
     }

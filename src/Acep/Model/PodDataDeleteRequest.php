@@ -161,7 +161,7 @@ class PodDataDeleteRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_path_list'] = isset($data['file_path_list']) ? $data['file_path_list'] : null;
         $this->container['package_list'] = isset($data['package_list']) ? $data['package_list'] : null;

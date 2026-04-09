@@ -151,7 +151,7 @@ class GetPolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;
         $this->container['policy_name'] = isset($data['policy_name']) ? $data['policy_name'] : null;

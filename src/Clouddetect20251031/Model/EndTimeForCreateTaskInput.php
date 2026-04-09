@@ -151,7 +151,7 @@ class EndTimeForCreateTaskInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hour'] = isset($data['hour']) ? $data['hour'] : null;
         $this->container['minute'] = isset($data['minute']) ? $data['minute'] : null;

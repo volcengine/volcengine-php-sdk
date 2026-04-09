@@ -151,7 +151,7 @@ class BaselineListForEditBaselineCheckConfigInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['baseline_id_list'] = isset($data['baseline_id_list']) ? $data['baseline_id_list'] : null;
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;

@@ -171,7 +171,7 @@ class UpdateSharedConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allow_ip_access_rule'] = isset($data['allow_ip_access_rule']) ? $data['allow_ip_access_rule'] : null;
         $this->container['allow_referer_access_rule'] = isset($data['allow_referer_access_rule']) ? $data['allow_referer_access_rule'] : null;

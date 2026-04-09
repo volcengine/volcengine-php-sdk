@@ -146,7 +146,7 @@ class DeleteInboundAuthConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['inbound_auth_config_id'] = isset($data['inbound_auth_config_id']) ? $data['inbound_auth_config_id'] : null;
     }

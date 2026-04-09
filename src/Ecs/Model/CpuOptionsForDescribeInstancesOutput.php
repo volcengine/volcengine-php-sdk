@@ -151,7 +151,7 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['core_count'] = isset($data['core_count']) ? $data['core_count'] : null;
         $this->container['threads_per_core'] = isset($data['threads_per_core']) ? $data['threads_per_core'] : null;

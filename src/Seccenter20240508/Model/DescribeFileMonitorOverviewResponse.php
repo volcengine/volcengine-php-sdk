@@ -161,7 +161,7 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['monitor_agent_count'] = isset($data['monitor_agent_count']) ? $data['monitor_agent_count'] : null;
         $this->container['monitor_directory_count'] = isset($data['monitor_directory_count']) ? $data['monitor_directory_count'] : null;

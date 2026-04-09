@@ -151,7 +151,7 @@ class FilterForListRepoImageLayerInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pkg_name'] = isset($data['pkg_name']) ? $data['pkg_name'] : null;
         $this->container['vuln_id'] = isset($data['vuln_id']) ? $data['vuln_id'] : null;

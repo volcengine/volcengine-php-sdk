@@ -156,7 +156,7 @@ class ComponentInfoForGetVersionSetAndComponentsInfoOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_name'] = isset($data['component_name']) ? $data['component_name'] : null;
         $this->container['component_tag_in_path'] = isset($data['component_tag_in_path']) ? $data['component_tag_in_path'] : null;

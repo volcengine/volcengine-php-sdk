@@ -267,7 +267,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_storage'] = isset($data['data_storage']) ? $data['data_storage'] : null;
         $this->container['data_storage_path'] = isset($data['data_storage_path']) ? $data['data_storage_path'] : null;

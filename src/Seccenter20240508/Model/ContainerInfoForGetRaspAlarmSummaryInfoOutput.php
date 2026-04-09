@@ -216,7 +216,7 @@ class ContainerInfoForGetRaspAlarmSummaryInfoOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['container_create_time'] = isset($data['container_create_time']) ? $data['container_create_time'] : null;
         $this->container['container_create_timestamp'] = isset($data['container_create_timestamp']) ? $data['container_create_timestamp'] : null;

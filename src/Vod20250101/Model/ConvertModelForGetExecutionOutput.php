@@ -161,7 +161,7 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asr_app_id'] = isset($data['asr_app_id']) ? $data['asr_app_id'] : null;
         $this->container['asr_app_type'] = isset($data['asr_app_type']) ? $data['asr_app_type'] : null;

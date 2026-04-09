@@ -176,7 +176,7 @@ class DescribeAclsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['acls'] = isset($data['acls']) ? $data['acls'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

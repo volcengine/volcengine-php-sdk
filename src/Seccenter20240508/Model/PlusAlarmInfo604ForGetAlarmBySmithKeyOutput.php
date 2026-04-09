@@ -156,7 +156,7 @@ class PlusAlarmInfo604ForGetAlarmBySmithKeyOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['old_uid'] = isset($data['old_uid']) ? $data['old_uid'] : null;
         $this->container['old_username'] = isset($data['old_username']) ? $data['old_username'] : null;

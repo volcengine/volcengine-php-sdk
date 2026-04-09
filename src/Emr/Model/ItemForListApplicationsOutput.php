@@ -181,7 +181,7 @@ class ItemForListApplicationsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['application_config_home'] = isset($data['application_config_home']) ? $data['application_config_home'] : null;
         $this->container['application_home'] = isset($data['application_home']) ? $data['application_home'] : null;

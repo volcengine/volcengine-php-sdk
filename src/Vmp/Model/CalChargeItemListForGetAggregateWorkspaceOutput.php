@@ -151,7 +151,7 @@ class CalChargeItemListForGetAggregateWorkspaceOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attr_value'] = isset($data['attr_value']) ? $data['attr_value'] : null;
         $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;

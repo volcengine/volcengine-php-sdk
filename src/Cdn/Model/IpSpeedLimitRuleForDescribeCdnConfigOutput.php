@@ -151,7 +151,7 @@ class IpSpeedLimitRuleForDescribeCdnConfigOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['ip_speed_limit_action'] = isset($data['ip_speed_limit_action']) ? $data['ip_speed_limit_action'] : null;

@@ -166,7 +166,7 @@ class HostOverviewForGetMultiLevelInstitutionDetailOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['host_num'] = isset($data['host_num']) ? $data['host_num'] : null;
         $this->container['offline'] = isset($data['offline']) ? $data['offline'] : null;

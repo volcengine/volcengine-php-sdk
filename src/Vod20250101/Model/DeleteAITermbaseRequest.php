@@ -151,7 +151,7 @@ class DeleteAITermbaseRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
         $this->container['termbase_id'] = isset($data['termbase_id']) ? $data['termbase_id'] : null;

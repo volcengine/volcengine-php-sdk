@@ -156,7 +156,7 @@ class DescribeCdnConfigResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['domain_config'] = isset($data['domain_config']) ? $data['domain_config'] : null;
         $this->container['feature_config'] = isset($data['feature_config']) ? $data['feature_config'] : null;

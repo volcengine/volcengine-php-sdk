@@ -181,7 +181,7 @@ class CreateInstanceOneStepRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_config'] = isset($data['charge_config']) ? $data['charge_config'] : null;
         $this->container['delete_protect_enabled'] = isset($data['delete_protect_enabled']) ? $data['delete_protect_enabled'] : null;

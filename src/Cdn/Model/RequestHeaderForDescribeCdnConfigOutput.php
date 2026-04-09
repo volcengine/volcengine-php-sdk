@@ -151,7 +151,7 @@ class RequestHeaderForDescribeCdnConfigOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['request_header_action'] = isset($data['request_header_action']) ? $data['request_header_action'] : null;

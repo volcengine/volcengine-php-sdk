@@ -172,7 +172,7 @@ class ConvertMoeEnhanceForGetExecutionOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['video_strategy'] = isset($data['video_strategy']) ? $data['video_strategy'] : null;

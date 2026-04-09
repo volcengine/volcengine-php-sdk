@@ -151,7 +151,7 @@ class DeleteMessageRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;
         $this->container['receipt_handle'] = isset($data['receipt_handle']) ? $data['receipt_handle'] : null;

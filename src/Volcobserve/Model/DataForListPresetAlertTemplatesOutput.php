@@ -206,7 +206,7 @@ class DataForListPresetAlertTemplatesOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_notification'] = isset($data['alert_notification']) ? $data['alert_notification'] : null;
         $this->container['applied_project_name'] = isset($data['applied_project_name']) ? $data['applied_project_name'] : null;

@@ -181,7 +181,7 @@ class DataForGetModelCustomizationJobOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['encryption_keyring_type'] = isset($data['encryption_keyring_type']) ? $data['encryption_keyring_type'] : null;
         $this->container['kms_trn'] = isset($data['kms_trn']) ? $data['kms_trn'] : null;

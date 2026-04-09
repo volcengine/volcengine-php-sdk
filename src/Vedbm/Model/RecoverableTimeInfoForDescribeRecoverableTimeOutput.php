@@ -151,7 +151,7 @@ class RecoverableTimeInfoForDescribeRecoverableTimeOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['earliest_recoverable_time'] = isset($data['earliest_recoverable_time']) ? $data['earliest_recoverable_time'] : null;
         $this->container['latest_recoverable_time'] = isset($data['latest_recoverable_time']) ? $data['latest_recoverable_time'] : null;

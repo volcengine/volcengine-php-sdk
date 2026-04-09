@@ -156,7 +156,7 @@ class TtsForUpdateAIGatewayModelInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bit_depth'] = isset($data['bit_depth']) ? $data['bit_depth'] : null;
         $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;

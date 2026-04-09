@@ -342,7 +342,7 @@ class ItemForListVideoAnalysisTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['api_base'] = isset($data['api_base']) ? $data['api_base'] : null;

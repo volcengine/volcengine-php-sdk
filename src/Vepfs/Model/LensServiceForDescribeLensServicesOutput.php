@@ -199,7 +199,7 @@ class LensServiceForDescribeLensServicesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['capacity_info'] = isset($data['capacity_info']) ? $data['capacity_info'] : null;
         $this->container['feature_infos'] = isset($data['feature_infos']) ? $data['feature_infos'] : null;

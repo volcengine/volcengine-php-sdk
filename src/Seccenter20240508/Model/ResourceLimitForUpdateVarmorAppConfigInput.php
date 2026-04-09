@@ -161,7 +161,7 @@ class ResourceLimitForUpdateVarmorAppConfigInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_resource_limit'] = isset($data['agent_resource_limit']) ? $data['agent_resource_limit'] : null;
         $this->container['bpf_resource_limit'] = isset($data['bpf_resource_limit']) ? $data['bpf_resource_limit'] : null;

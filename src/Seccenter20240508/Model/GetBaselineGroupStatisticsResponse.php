@@ -201,7 +201,7 @@ class GetBaselineGroupStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['checklist_num'] = isset($data['checklist_num']) ? $data['checklist_num'] : null;
         $this->container['high_risk_num'] = isset($data['high_risk_num']) ? $data['high_risk_num'] : null;

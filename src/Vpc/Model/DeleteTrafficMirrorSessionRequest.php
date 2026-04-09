@@ -146,7 +146,7 @@ class DeleteTrafficMirrorSessionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['traffic_mirror_session_id'] = isset($data['traffic_mirror_session_id']) ? $data['traffic_mirror_session_id'] : null;
     }

@@ -166,7 +166,7 @@ class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dns_config'] = isset($data['dns_config']) ? $data['dns_config'] : null;
         $this->container['method_list'] = isset($data['method_list']) ? $data['method_list'] : null;

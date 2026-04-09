@@ -161,7 +161,7 @@ class PodMuteRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['display_list'] = isset($data['display_list']) ? $data['display_list'] : null;
         $this->container['mute'] = isset($data['mute']) ? $data['mute'] : null;

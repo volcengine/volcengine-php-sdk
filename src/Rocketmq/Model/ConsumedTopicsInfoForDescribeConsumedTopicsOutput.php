@@ -156,7 +156,7 @@ class ConsumedTopicsInfoForDescribeConsumedTopicsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['queue_num'] = isset($data['queue_num']) ? $data['queue_num'] : null;
         $this->container['sub_string'] = isset($data['sub_string']) ? $data['sub_string'] : null;

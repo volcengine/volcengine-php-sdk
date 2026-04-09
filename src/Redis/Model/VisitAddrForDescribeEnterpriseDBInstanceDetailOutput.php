@@ -166,7 +166,7 @@ class VisitAddrForDescribeEnterpriseDBInstanceDetailOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['addr_type'] = isset($data['addr_type']) ? $data['addr_type'] : null;
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;

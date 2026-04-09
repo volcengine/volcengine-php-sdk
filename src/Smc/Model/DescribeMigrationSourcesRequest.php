@@ -191,7 +191,7 @@ class DescribeMigrationSourcesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
         $this->container['order_by_column'] = isset($data['order_by_column']) ? $data['order_by_column'] : null;

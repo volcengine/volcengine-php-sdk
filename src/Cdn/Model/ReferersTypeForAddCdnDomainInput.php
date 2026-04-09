@@ -151,7 +151,7 @@ class ReferersTypeForAddCdnDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['common_type'] = isset($data['common_type']) ? $data['common_type'] : null;
         $this->container['regular_type'] = isset($data['regular_type']) ? $data['regular_type'] : null;

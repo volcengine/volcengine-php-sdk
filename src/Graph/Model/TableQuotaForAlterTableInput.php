@@ -151,7 +151,7 @@ class TableQuotaForAlterTableInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['gremlin_quota_configs'] = isset($data['gremlin_quota_configs']) ? $data['gremlin_quota_configs'] : null;
         $this->container['psm_quota_configs'] = isset($data['psm_quota_configs']) ? $data['psm_quota_configs'] : null;

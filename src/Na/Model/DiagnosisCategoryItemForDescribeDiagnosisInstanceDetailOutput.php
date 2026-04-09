@@ -151,7 +151,7 @@ class DiagnosisCategoryItemForDescribeDiagnosisInstanceDetailOutput implements M
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnosis_items'] = isset($data['diagnosis_items']) ? $data['diagnosis_items'] : null;
         $this->container['item_category_name'] = isset($data['item_category_name']) ? $data['item_category_name'] : null;

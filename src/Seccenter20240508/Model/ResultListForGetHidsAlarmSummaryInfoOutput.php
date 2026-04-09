@@ -296,7 +296,7 @@ class ResultListForGetHidsAlarmSummaryInfoOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['argv'] = isset($data['argv']) ? $data['argv'] : null;
         $this->container['attr'] = isset($data['attr']) ? $data['attr'] : null;

@@ -156,7 +156,7 @@ class RevokeDatabasePrivilegeRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_names'] = isset($data['account_names']) ? $data['account_names'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;

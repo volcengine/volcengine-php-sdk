@@ -156,7 +156,7 @@ class KibanaConfigForDescribeInstanceOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['session_keep_alive'] = isset($data['session_keep_alive']) ? $data['session_keep_alive'] : null;

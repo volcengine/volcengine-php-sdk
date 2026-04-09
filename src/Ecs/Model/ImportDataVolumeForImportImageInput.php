@@ -146,7 +146,7 @@ class ImportDataVolumeForImportImageInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_volume_url'] = isset($data['data_volume_url']) ? $data['data_volume_url'] : null;
     }

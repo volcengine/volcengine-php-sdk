@@ -166,7 +166,7 @@ class ListAllowRuleRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;

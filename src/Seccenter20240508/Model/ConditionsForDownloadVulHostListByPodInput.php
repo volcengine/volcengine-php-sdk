@@ -186,7 +186,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_tags'] = isset($data['agent_tags']) ? $data['agent_tags'] : null;
         $this->container['asset_name'] = isset($data['asset_name']) ? $data['asset_name'] : null;

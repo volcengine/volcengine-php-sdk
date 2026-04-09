@@ -184,7 +184,7 @@ class ConcatForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['mid'] = isset($data['mid']) ? $data['mid'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;

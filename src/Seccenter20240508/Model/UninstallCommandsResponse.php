@@ -156,7 +156,7 @@ class UninstallCommandsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['not_volc_linux'] = isset($data['not_volc_linux']) ? $data['not_volc_linux'] : null;
         $this->container['volc_linux'] = isset($data['volc_linux']) ? $data['volc_linux'] : null;

@@ -433,7 +433,7 @@ class InstanceInfoForDescribeInstanceOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cerebro_enabled'] = isset($data['cerebro_enabled']) ? $data['cerebro_enabled'] : null;
         $this->container['cerebro_private_domain'] = isset($data['cerebro_private_domain']) ? $data['cerebro_private_domain'] : null;

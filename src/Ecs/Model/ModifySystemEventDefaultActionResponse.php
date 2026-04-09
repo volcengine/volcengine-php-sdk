@@ -151,7 +151,7 @@ class ModifySystemEventDefaultActionResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
         $this->container['related_event_id'] = isset($data['related_event_id']) ? $data['related_event_id'] : null;

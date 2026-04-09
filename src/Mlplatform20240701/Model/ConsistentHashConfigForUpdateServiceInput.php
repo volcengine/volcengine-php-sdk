@@ -164,7 +164,7 @@ class ConsistentHashConfigForUpdateServiceInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hash_key_type'] = isset($data['hash_key_type']) ? $data['hash_key_type'] : null;
         $this->container['http_header_name'] = isset($data['http_header_name']) ? $data['http_header_name'] : null;

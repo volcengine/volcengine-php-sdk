@@ -176,7 +176,7 @@ class CreateDisplayLayoutMiniRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['density'] = isset($data['density']) ? $data['density'] : null;
         $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;

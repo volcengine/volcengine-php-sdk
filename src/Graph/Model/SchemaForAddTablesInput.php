@@ -161,7 +161,7 @@ class SchemaForAddTablesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['edges'] = isset($data['edges']) ? $data['edges'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;

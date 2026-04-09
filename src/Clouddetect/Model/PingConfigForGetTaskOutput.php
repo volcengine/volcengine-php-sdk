@@ -181,7 +181,7 @@ class PingConfigForGetTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connect_timeout'] = isset($data['connect_timeout']) ? $data['connect_timeout'] : null;
         $this->container['enable_divide_package'] = isset($data['enable_divide_package']) ? $data['enable_divide_package'] : null;

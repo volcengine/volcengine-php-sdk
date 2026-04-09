@@ -151,7 +151,7 @@ class DataForGetAssetClusterStatisticOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['type_rsp_list'] = isset($data['type_rsp_list']) ? $data['type_rsp_list'] : null;

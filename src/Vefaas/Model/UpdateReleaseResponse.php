@@ -201,7 +201,7 @@ class UpdateReleaseResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['current_traffic_weight'] = isset($data['current_traffic_weight']) ? $data['current_traffic_weight'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;

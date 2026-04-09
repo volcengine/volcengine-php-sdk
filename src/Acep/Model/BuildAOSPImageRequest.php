@@ -166,7 +166,7 @@ class BuildAOSPImageRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['image_annotation'] = isset($data['image_annotation']) ? $data['image_annotation'] : null;
         $this->container['image_file_format'] = isset($data['image_file_format']) ? $data['image_file_format'] : null;

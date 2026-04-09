@@ -166,7 +166,7 @@ class DescribeNatIpsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['nat_gateway_id'] = isset($data['nat_gateway_id']) ? $data['nat_gateway_id'] : null;
         $this->container['nat_ip_ids'] = isset($data['nat_ip_ids']) ? $data['nat_ip_ids'] : null;

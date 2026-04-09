@@ -171,7 +171,7 @@ class DataForDescribeContentBlockTasksOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['block_reason'] = isset($data['block_reason']) ? $data['block_reason'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;

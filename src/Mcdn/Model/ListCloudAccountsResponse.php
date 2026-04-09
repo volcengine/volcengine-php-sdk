@@ -151,7 +151,7 @@ class ListCloudAccountsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_accounts'] = isset($data['cloud_accounts']) ? $data['cloud_accounts'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;

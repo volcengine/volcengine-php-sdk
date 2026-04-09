@@ -184,7 +184,7 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
         $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;

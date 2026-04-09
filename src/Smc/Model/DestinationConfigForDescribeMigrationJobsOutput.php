@@ -191,7 +191,7 @@ class DestinationConfigForDescribeMigrationJobsOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_install_blk_none'] = isset($data['auto_install_blk_none']) ? $data['auto_install_blk_none'] : null;
         $this->container['auto_install_virtio11'] = isset($data['auto_install_virtio11']) ? $data['auto_install_virtio11'] : null;

@@ -186,7 +186,7 @@ class ParameterDefinitionForDescribeCommandsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['decimal_precision'] = isset($data['decimal_precision']) ? $data['decimal_precision'] : null;
         $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;

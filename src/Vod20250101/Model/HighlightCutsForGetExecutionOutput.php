@@ -166,7 +166,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
         $this->container['max_number'] = isset($data['max_number']) ? $data['max_number'] : null;

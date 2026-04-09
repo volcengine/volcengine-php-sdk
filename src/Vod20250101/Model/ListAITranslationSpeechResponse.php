@@ -151,7 +151,7 @@ class ListAITranslationSpeechResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['preset_speeches'] = isset($data['preset_speeches']) ? $data['preset_speeches'] : null;
         $this->container['user_speeches'] = isset($data['user_speeches']) ? $data['user_speeches'] : null;

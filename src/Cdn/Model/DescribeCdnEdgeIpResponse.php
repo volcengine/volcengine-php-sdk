@@ -151,7 +151,7 @@ class DescribeCdnEdgeIpResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cdn_ipv4'] = isset($data['cdn_ipv4']) ? $data['cdn_ipv4'] : null;
         $this->container['cdn_ipv6'] = isset($data['cdn_ipv6']) ? $data['cdn_ipv6'] : null;

@@ -211,7 +211,7 @@ class DataForListWafServiceCertificateOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['applicable_domains'] = isset($data['applicable_domains']) ? $data['applicable_domains'] : null;
         $this->container['clb_certificate_id'] = isset($data['clb_certificate_id']) ? $data['clb_certificate_id'] : null;

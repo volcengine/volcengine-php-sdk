@@ -156,7 +156,7 @@ class ListNodesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['is_mainland'] = isset($data['is_mainland']) ? $data['is_mainland'] : null;
         $this->container['line_type'] = isset($data['line_type']) ? $data['line_type'] : null;

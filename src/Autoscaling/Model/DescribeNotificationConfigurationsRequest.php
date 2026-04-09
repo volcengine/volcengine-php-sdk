@@ -146,7 +146,7 @@ class DescribeNotificationConfigurationsRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['scaling_group_ids'] = isset($data['scaling_group_ids']) ? $data['scaling_group_ids'] : null;
     }

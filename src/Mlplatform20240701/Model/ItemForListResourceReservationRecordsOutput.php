@@ -201,7 +201,7 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['activation_time'] = isset($data['activation_time']) ? $data['activation_time'] : null;
         $this->container['allocated_compute_resource'] = isset($data['allocated_compute_resource']) ? $data['allocated_compute_resource'] : null;

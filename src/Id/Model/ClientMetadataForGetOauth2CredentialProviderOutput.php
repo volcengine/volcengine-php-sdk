@@ -181,7 +181,7 @@ class ClientMetadataForGetOauth2CredentialProviderOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
         $this->container['client_uri'] = isset($data['client_uri']) ? $data['client_uri'] : null;

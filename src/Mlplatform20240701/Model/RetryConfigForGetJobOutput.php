@@ -156,7 +156,7 @@ class RetryConfigForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['interval_seconds'] = isset($data['interval_seconds']) ? $data['interval_seconds'] : null;
         $this->container['max_retry_times'] = isset($data['max_retry_times']) ? $data['max_retry_times'] : null;

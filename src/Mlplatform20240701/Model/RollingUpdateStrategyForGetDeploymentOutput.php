@@ -151,7 +151,7 @@ class RollingUpdateStrategyForGetDeploymentOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_surge'] = isset($data['max_surge']) ? $data['max_surge'] : null;
         $this->container['max_unavailable'] = isset($data['max_unavailable']) ? $data['max_unavailable'] : null;

@@ -156,7 +156,7 @@ class MsgqueueForMessageSendOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['broker_name'] = isset($data['broker_name']) ? $data['broker_name'] : null;
         $this->container['queue_id'] = isset($data['queue_id']) ? $data['queue_id'] : null;

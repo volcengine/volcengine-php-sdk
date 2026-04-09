@@ -171,7 +171,7 @@ class ListQuotaApplicationTemplatesRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

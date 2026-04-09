@@ -231,7 +231,7 @@ class CloudAccountForListCloudAccountsOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cloud_account_vendor_permission'] = isset($data['cloud_account_vendor_permission']) ? $data['cloud_account_vendor_permission'] : null;
         $this->container['content_settings'] = isset($data['content_settings']) ? $data['content_settings'] : null;

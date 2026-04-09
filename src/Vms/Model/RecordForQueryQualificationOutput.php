@@ -156,7 +156,7 @@ class RecordForQueryQualificationOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['qualification_admin_info_vo'] = isset($data['qualification_admin_info_vo']) ? $data['qualification_admin_info_vo'] : null;
         $this->container['qualification_main_info_vo'] = isset($data['qualification_main_info_vo']) ? $data['qualification_main_info_vo'] : null;

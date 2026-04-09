@@ -186,7 +186,7 @@ class DataForListRegistriesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['collect_time'] = isset($data['collect_time']) ? $data['collect_time'] : null;

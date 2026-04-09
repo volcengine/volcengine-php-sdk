@@ -203,7 +203,7 @@ class ResListForSlowQueryAdviceTaskHistoryApiOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['advice_index_num'] = isset($data['advice_index_num']) ? $data['advice_index_num'] : null;
         $this->container['advice_num'] = isset($data['advice_num']) ? $data['advice_num'] : null;

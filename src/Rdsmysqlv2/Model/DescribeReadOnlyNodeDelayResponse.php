@@ -151,7 +151,7 @@ class DescribeReadOnlyNodeDelayResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delay_replication_time'] = isset($data['delay_replication_time']) ? $data['delay_replication_time'] : null;
         $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;

@@ -146,7 +146,7 @@ class DescribeDbAccountTableColumnInfoResponse implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['table_infos'] = isset($data['table_infos']) ? $data['table_infos'] : null;
     }

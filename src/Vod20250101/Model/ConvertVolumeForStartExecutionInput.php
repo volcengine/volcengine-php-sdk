@@ -174,7 +174,7 @@ class ConvertVolumeForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['integrated_loudness'] = isset($data['integrated_loudness']) ? $data['integrated_loudness'] : null;
         $this->container['loudness_range'] = isset($data['loudness_range']) ? $data['loudness_range'] : null;

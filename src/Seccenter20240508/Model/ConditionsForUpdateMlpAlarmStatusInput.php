@@ -361,7 +361,7 @@ class ConditionsForUpdateMlpAlarmStatusInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_group'] = isset($data['agent_group']) ? $data['agent_group'] : null;
         $this->container['agent_group_list'] = isset($data['agent_group_list']) ? $data['agent_group_list'] : null;

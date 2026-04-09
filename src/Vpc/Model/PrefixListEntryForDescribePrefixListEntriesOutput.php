@@ -156,7 +156,7 @@ class PrefixListEntryForDescribePrefixListEntriesOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cidr'] = isset($data['cidr']) ? $data['cidr'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

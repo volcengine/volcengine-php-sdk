@@ -151,7 +151,7 @@ class HttpForcedRedirectForBatchUpdateCdnConfigInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_forced_redirect'] = isset($data['enable_forced_redirect']) ? $data['enable_forced_redirect'] : null;
         $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;

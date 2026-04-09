@@ -151,7 +151,7 @@ class BackendSpecForListGatewaysOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['is_vke_with_flannel_cni_supported'] = isset($data['is_vke_with_flannel_cni_supported']) ? $data['is_vke_with_flannel_cni_supported'] : null;
         $this->container['vke_pod_cidr'] = isset($data['vke_pod_cidr']) ? $data['vke_pod_cidr'] : null;

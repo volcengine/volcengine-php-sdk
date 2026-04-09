@@ -168,7 +168,7 @@ class DeletePolicyForCreateDataFlowTaskInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_time_before'] = isset($data['delete_time_before']) ? $data['delete_time_before'] : null;
         $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;

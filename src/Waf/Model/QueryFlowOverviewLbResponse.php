@@ -166,7 +166,7 @@ class QueryFlowOverviewLbResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['back_source_count_peak'] = isset($data['back_source_count_peak']) ? $data['back_source_count_peak'] : null;
         $this->container['back_source_qps_peak'] = isset($data['back_source_qps_peak']) ? $data['back_source_qps_peak'] : null;

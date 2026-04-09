@@ -211,7 +211,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affinity_group_sizes'] = isset($data['affinity_group_sizes']) ? $data['affinity_group_sizes'] : null;
         $this->container['baseline_credit'] = isset($data['baseline_credit']) ? $data['baseline_credit'] : null;

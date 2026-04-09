@@ -151,7 +151,7 @@ class DataForGetAssetClustersSyncEndOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['latest_sync_time'] = isset($data['latest_sync_time']) ? $data['latest_sync_time'] : null;
         $this->container['sync_processing'] = isset($data['sync_processing']) ? $data['sync_processing'] : null;

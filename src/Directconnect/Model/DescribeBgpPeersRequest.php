@@ -181,7 +181,7 @@ class DescribeBgpPeersRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bgp_peer_ids'] = isset($data['bgp_peer_ids']) ? $data['bgp_peer_ids'] : null;
         $this->container['bgp_peer_name'] = isset($data['bgp_peer_name']) ? $data['bgp_peer_name'] : null;

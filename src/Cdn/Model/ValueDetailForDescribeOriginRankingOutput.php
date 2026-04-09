@@ -161,7 +161,7 @@ class ValueDetailForDescribeOriginRankingOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['item_key'] = isset($data['item_key']) ? $data['item_key'] : null;
         $this->container['ratio'] = isset($data['ratio']) ? $data['ratio'] : null;

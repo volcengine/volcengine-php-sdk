@@ -146,7 +146,7 @@ class MiniseriesOptionForStartExecutionInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cut_mode'] = isset($data['cut_mode']) ? $data['cut_mode'] : null;
     }

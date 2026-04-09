@@ -244,7 +244,7 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['bandwidth_package_name'] = isset($data['bandwidth_package_name']) ? $data['bandwidth_package_name'] : null;

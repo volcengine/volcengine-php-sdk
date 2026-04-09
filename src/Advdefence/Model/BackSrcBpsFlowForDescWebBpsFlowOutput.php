@@ -156,7 +156,7 @@ class BackSrcBpsFlowForDescWebBpsFlowOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['avg_bps'] = isset($data['avg_bps']) ? $data['avg_bps'] : null;
         $this->container['max_bps'] = isset($data['max_bps']) ? $data['max_bps'] : null;

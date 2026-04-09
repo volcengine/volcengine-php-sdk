@@ -226,7 +226,7 @@ class BootstrapScriptForCreateClusterInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['effective_scope'] = isset($data['effective_scope']) ? $data['effective_scope'] : null;
         $this->container['execution_fail_strategy'] = isset($data['execution_fail_strategy']) ? $data['execution_fail_strategy'] : null;

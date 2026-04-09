@@ -186,7 +186,7 @@ class BaselineListForListBaselinesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affected_host'] = isset($data['affected_host']) ? $data['affected_host'] : null;
         $this->container['baseline_id'] = isset($data['baseline_id']) ? $data['baseline_id'] : null;

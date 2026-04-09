@@ -151,7 +151,7 @@ class ExtraPerformanceForCalculatePriceV2Input implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['extra_performance_type'] = isset($data['extra_performance_type']) ? $data['extra_performance_type'] : null;
         $this->container['extra_performance_value'] = isset($data['extra_performance_value']) ? $data['extra_performance_value'] : null;

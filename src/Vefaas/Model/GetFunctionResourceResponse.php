@@ -151,7 +151,7 @@ class GetFunctionResourceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_resource'] = isset($data['account_resource']) ? $data['account_resource'] : null;
         $this->container['function_resource'] = isset($data['function_resource']) ? $data['function_resource'] : null;

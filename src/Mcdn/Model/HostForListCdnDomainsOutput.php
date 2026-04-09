@@ -151,7 +151,7 @@ class HostForListCdnDomainsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['header_host'] = isset($data['header_host']) ? $data['header_host'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;

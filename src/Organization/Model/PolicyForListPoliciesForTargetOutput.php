@@ -166,7 +166,7 @@ class PolicyForListPoliciesForTargetOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attached_time'] = isset($data['attached_time']) ? $data['attached_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

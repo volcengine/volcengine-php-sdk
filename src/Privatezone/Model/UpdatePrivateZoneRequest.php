@@ -161,7 +161,7 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['load_balance'] = isset($data['load_balance']) ? $data['load_balance'] : null;
         $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;

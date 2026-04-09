@@ -176,7 +176,7 @@ class GetMlpAlarmSummaryInfoResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_content'] = isset($data['alarm_content']) ? $data['alarm_content'] : null;
         $this->container['alarm_desc'] = isset($data['alarm_desc']) ? $data['alarm_desc'] : null;

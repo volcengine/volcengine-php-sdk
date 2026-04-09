@@ -176,7 +176,7 @@ class AuthorizedAllowListForDescribeInstanceAllowListsOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allow_list_desc'] = isset($data['allow_list_desc']) ? $data['allow_list_desc'] : null;
         $this->container['allow_list_ip_num'] = isset($data['allow_list_ip_num']) ? $data['allow_list_ip_num'] : null;

@@ -211,7 +211,7 @@ class TaskProgressForListDataMigrateTaskOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_bytes'] = isset($data['failed_bytes']) ? $data['failed_bytes'] : null;
         $this->container['failed_objects'] = isset($data['failed_objects']) ? $data['failed_objects'] : null;

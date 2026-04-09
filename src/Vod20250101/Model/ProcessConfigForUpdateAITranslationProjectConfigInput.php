@@ -151,7 +151,7 @@ class ProcessConfigForUpdateAITranslationProjectConfigInput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['disable_smart_subtitle_rewrite'] = isset($data['disable_smart_subtitle_rewrite']) ? $data['disable_smart_subtitle_rewrite'] : null;
         $this->container['disable_subtitle_punct_split'] = isset($data['disable_subtitle_punct_split']) ? $data['disable_subtitle_punct_split'] : null;

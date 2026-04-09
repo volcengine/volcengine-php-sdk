@@ -251,7 +251,7 @@ class DataForGetAIFingerprintPortOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cmdline'] = isset($data['cmdline']) ? $data['cmdline'] : null;
         $this->container['comm'] = isset($data['comm']) ? $data['comm'] : null;

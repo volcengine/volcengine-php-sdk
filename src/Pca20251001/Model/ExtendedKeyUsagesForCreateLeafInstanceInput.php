@@ -171,7 +171,7 @@ class ExtendedKeyUsagesForCreateLeafInstanceInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_auth'] = isset($data['client_auth']) ? $data['client_auth'] : null;
         $this->container['code_signing'] = isset($data['code_signing']) ? $data['code_signing'] : null;

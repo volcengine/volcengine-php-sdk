@@ -151,7 +151,7 @@ class DeleteLensTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_analysis_data'] = isset($data['delete_analysis_data']) ? $data['delete_analysis_data'] : null;
         $this->container['lens_task_id'] = isset($data['lens_task_id']) ? $data['lens_task_id'] : null;

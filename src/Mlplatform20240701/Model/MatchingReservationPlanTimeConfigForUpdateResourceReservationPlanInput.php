@@ -151,7 +151,7 @@ class MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput imp
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_task_lifetime_seconds'] = isset($data['max_task_lifetime_seconds']) ? $data['max_task_lifetime_seconds'] : null;
         $this->container['min_continuous_resource_duration_seconds'] = isset($data['min_continuous_resource_duration_seconds']) ? $data['min_continuous_resource_duration_seconds'] : null;

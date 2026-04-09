@@ -151,7 +151,7 @@ class DescribeBackupEncryptionStatusResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_encryption_status'] = isset($data['data_encryption_status']) ? $data['data_encryption_status'] : null;
         $this->container['log_encryption_status'] = isset($data['log_encryption_status']) ? $data['log_encryption_status'] : null;

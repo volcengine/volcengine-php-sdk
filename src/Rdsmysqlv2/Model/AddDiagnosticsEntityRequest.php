@@ -166,7 +166,7 @@ class AddDiagnosticsEntityRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnostics_type'] = isset($data['diagnostics_type']) ? $data['diagnostics_type'] : null;
         $this->container['ecs_instance_ids'] = isset($data['ecs_instance_ids']) ? $data['ecs_instance_ids'] : null;

@@ -176,7 +176,7 @@ class PortMappingRuleListForListPodOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;

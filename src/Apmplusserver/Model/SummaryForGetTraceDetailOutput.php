@@ -166,7 +166,7 @@ class SummaryForGetTraceDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_span_ids'] = isset($data['component_span_ids']) ? $data['component_span_ids'] : null;
         $this->container['error_span_ids'] = isset($data['error_span_ids']) ? $data['error_span_ids'] : null;

@@ -151,7 +151,7 @@ class DescribeHpcClustersResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hpc_clusters'] = isset($data['hpc_clusters']) ? $data['hpc_clusters'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

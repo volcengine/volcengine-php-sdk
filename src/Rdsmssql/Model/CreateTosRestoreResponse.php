@@ -146,7 +146,7 @@ class CreateTosRestoreResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['restore_task_id'] = isset($data['restore_task_id']) ? $data['restore_task_id'] : null;
     }

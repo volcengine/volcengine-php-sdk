@@ -161,7 +161,7 @@ class ObservableConfigForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_metric_service'] = isset($data['custom_metric_service']) ? $data['custom_metric_service'] : null;
         $this->container['dashboard_private_url'] = isset($data['dashboard_private_url']) ? $data['dashboard_private_url'] : null;

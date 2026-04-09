@@ -191,7 +191,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_state'] = isset($data['alert_state']) ? $data['alert_state'] : null;
         $this->container['alert_template_ids'] = isset($data['alert_template_ids']) ? $data['alert_template_ids'] : null;

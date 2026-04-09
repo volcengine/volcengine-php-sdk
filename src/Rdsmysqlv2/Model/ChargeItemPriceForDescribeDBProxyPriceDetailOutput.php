@@ -171,7 +171,7 @@ class ChargeItemPriceForDescribeDBProxyPriceDetailOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_item_key'] = isset($data['charge_item_key']) ? $data['charge_item_key'] : null;
         $this->container['charge_item_type'] = isset($data['charge_item_type']) ? $data['charge_item_type'] : null;

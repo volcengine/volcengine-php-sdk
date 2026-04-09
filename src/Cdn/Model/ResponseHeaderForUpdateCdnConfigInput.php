@@ -151,7 +151,7 @@ class ResponseHeaderForUpdateCdnConfigInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['response_header_action'] = isset($data['response_header_action']) ? $data['response_header_action'] : null;

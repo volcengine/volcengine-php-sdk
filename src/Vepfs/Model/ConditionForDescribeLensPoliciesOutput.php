@@ -222,7 +222,7 @@ class ConditionForDescribeLensPoliciesOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['constraint_type'] = isset($data['constraint_type']) ? $data['constraint_type'] : null;
         $this->container['number_value'] = isset($data['number_value']) ? $data['number_value'] : null;

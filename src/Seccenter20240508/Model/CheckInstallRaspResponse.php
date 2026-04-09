@@ -161,7 +161,7 @@ class CheckInstallRaspResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['chosen_count'] = isset($data['chosen_count']) ? $data['chosen_count'] : null;
         $this->container['hit_limit'] = isset($data['hit_limit']) ? $data['hit_limit'] : null;

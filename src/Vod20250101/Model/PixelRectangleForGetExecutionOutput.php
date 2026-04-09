@@ -161,7 +161,7 @@ class PixelRectangleForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bottom_right_x'] = isset($data['bottom_right_x']) ? $data['bottom_right_x'] : null;
         $this->container['bottom_right_y'] = isset($data['bottom_right_y']) ? $data['bottom_right_y'] : null;

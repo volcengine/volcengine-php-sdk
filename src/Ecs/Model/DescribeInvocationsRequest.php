@@ -201,7 +201,7 @@ class DescribeInvocationsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['command_id'] = isset($data['command_id']) ? $data['command_id'] : null;
         $this->container['command_name'] = isset($data['command_name']) ? $data['command_name'] : null;

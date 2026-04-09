@@ -151,7 +151,7 @@ class GetVulnScanConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;

@@ -166,7 +166,7 @@ class ModuleQuickConfForCreateDomainOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api'] = isset($data['api']) ? $data['api'] : null;
         $this->container['auto_cc'] = isset($data['auto_cc']) ? $data['auto_cc'] : null;

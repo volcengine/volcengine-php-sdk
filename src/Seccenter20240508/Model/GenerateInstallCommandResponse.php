@@ -196,7 +196,7 @@ class GenerateInstallCommandResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_protect'] = isset($data['auto_protect']) ? $data['auto_protect'] : null;
         $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;

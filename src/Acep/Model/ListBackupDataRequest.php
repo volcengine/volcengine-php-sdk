@@ -171,7 +171,7 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_data_id_list'] = isset($data['backup_data_id_list']) ? $data['backup_data_id_list'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

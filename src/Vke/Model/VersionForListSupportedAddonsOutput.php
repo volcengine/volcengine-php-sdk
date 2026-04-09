@@ -156,7 +156,7 @@ class VersionForListSupportedAddonsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['compatibilities'] = isset($data['compatibilities']) ? $data['compatibilities'] : null;
         $this->container['compatible_versions'] = isset($data['compatible_versions']) ? $data['compatible_versions'] : null;

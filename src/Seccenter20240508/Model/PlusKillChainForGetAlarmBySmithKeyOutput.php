@@ -176,7 +176,7 @@ class PlusKillChainForGetAlarmBySmithKeyOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['docker'] = isset($data['docker']) ? $data['docker'] : null;
         $this->container['external_conns'] = isset($data['external_conns']) ? $data['external_conns'] : null;

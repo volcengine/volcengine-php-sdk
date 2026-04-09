@@ -161,7 +161,7 @@ class GetAIFingerprintRefreshStatusResponse implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cooldown_time'] = isset($data['cooldown_time']) ? $data['cooldown_time'] : null;
         $this->container['percent'] = isset($data['percent']) ? $data['percent'] : null;

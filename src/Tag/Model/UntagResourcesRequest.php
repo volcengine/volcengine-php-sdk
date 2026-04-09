@@ -151,7 +151,7 @@ class UntagResourcesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_trn_list'] = isset($data['resource_trn_list']) ? $data['resource_trn_list'] : null;
         $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;

@@ -344,7 +344,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['create_time_end'] = isset($data['create_time_end']) ? $data['create_time_end'] : null;

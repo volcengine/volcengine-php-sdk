@@ -166,7 +166,7 @@ class GetOneRaspAlarmResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['base_alarm_info'] = isset($data['base_alarm_info']) ? $data['base_alarm_info'] : null;
         $this->container['base_info'] = isset($data['base_info']) ? $data['base_info'] : null;

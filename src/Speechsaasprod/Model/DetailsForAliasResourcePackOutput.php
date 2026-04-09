@@ -186,7 +186,7 @@ class DetailsForAliasResourcePackOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['aliasable'] = isset($data['aliasable']) ? $data['aliasable'] : null;
         $this->container['demo_link'] = isset($data['demo_link']) ? $data['demo_link'] : null;

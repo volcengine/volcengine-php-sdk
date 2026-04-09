@@ -161,7 +161,7 @@ class ScaleInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_spec_list'] = isset($data['component_spec_list']) ? $data['component_spec_list'] : null;
         $this->container['ha_enabled'] = isset($data['ha_enabled']) ? $data['ha_enabled'] : null;

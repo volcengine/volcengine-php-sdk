@@ -171,7 +171,7 @@ class DescribeBizFlowAndConnCountResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['biz_in_kbps_flow'] = isset($data['biz_in_kbps_flow']) ? $data['biz_in_kbps_flow'] : null;
         $this->container['biz_in_pps_flow'] = isset($data['biz_in_pps_flow']) ? $data['biz_in_pps_flow'] : null;

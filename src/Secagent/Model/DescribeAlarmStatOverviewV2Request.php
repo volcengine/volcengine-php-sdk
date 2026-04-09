@@ -156,7 +156,7 @@ class DescribeAlarmStatOverviewV2Request implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['stat_scope_type'] = isset($data['stat_scope_type']) ? $data['stat_scope_type'] : null;
         $this->container['trend_range_end_sec'] = isset($data['trend_range_end_sec']) ? $data['trend_range_end_sec'] : null;

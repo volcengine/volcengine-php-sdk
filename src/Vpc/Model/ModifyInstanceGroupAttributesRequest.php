@@ -156,7 +156,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;

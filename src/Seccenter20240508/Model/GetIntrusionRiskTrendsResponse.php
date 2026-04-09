@@ -161,7 +161,7 @@ class GetIntrusionRiskTrendsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['critical_trends'] = isset($data['critical_trends']) ? $data['critical_trends'] : null;
         $this->container['high_trends'] = isset($data['high_trends']) ? $data['high_trends'] : null;

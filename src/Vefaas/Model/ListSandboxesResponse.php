@@ -156,7 +156,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
         $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;

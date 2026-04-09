@@ -151,7 +151,7 @@ class GetGlobalDefaultDeleteOptionResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_delete_all_resources'] = isset($data['default_delete_all_resources']) ? $data['default_delete_all_resources'] : null;
         $this->container['last_change_time'] = isset($data['last_change_time']) ? $data['last_change_time'] : null;

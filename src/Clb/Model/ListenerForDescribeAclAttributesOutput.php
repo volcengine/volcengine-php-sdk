@@ -166,7 +166,7 @@ class ListenerForDescribeAclAttributesOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['acl_type'] = isset($data['acl_type']) ? $data['acl_type'] : null;
         $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;

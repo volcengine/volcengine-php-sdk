@@ -226,7 +226,7 @@ class GetOAuthProviderResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorize_template'] = isset($data['authorize_template']) ? $data['authorize_template'] : null;
         $this->container['authorize_url'] = isset($data['authorize_url']) ? $data['authorize_url'] : null;

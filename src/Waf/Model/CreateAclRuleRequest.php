@@ -226,7 +226,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['acl_type'] = isset($data['acl_type']) ? $data['acl_type'] : null;

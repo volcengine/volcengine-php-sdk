@@ -151,7 +151,7 @@ class BandwidthLimitForBatchUpdateCdnConfigInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth_limit_rule'] = isset($data['bandwidth_limit_rule']) ? $data['bandwidth_limit_rule'] : null;
         $this->container['switch'] = isset($data['switch']) ? $data['switch'] : null;

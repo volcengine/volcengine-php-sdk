@@ -201,7 +201,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allowed_callback_urls'] = isset($data['allowed_callback_urls']) ? $data['allowed_callback_urls'] : null;
         $this->container['allowed_cors'] = isset($data['allowed_cors']) ? $data['allowed_cors'] : null;

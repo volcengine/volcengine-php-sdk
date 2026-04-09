@@ -196,7 +196,7 @@ class BackupDatabaseDetailForDescribeBackupDetailOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_download_link_eip'] = isset($data['backup_download_link_eip']) ? $data['backup_download_link_eip'] : null;
         $this->container['backup_download_link_inner'] = isset($data['backup_download_link_inner']) ? $data['backup_download_link_inner'] : null;

@@ -231,7 +231,7 @@ class SummaryMapForGetAccountSummaryOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_keys_per_account_quota'] = isset($data['access_keys_per_account_quota']) ? $data['access_keys_per_account_quota'] : null;
         $this->container['access_keys_per_user_quota'] = isset($data['access_keys_per_user_quota']) ? $data['access_keys_per_user_quota'] : null;

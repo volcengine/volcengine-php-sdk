@@ -166,7 +166,7 @@ class DescribeTicketsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['list_type'] = isset($data['list_type']) ? $data['list_type'] : null;
         $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;

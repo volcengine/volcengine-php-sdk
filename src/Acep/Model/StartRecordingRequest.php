@@ -166,7 +166,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['duration_limit'] = isset($data['duration_limit']) ? $data['duration_limit'] : null;
         $this->container['is_saved_on_pod'] = isset($data['is_saved_on_pod']) ? $data['is_saved_on_pod'] : null;

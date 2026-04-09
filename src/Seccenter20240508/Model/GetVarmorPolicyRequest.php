@@ -151,7 +151,7 @@ class GetVarmorPolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['policy_id'] = isset($data['policy_id']) ? $data['policy_id'] : null;

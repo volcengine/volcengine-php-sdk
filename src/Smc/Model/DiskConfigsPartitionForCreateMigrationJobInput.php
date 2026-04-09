@@ -151,7 +151,7 @@ class DiskConfigsPartitionForCreateMigrationJobInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['abort_partition'] = isset($data['abort_partition']) ? $data['abort_partition'] : null;
         $this->container['destination_partition_size'] = isset($data['destination_partition_size']) ? $data['destination_partition_size'] : null;

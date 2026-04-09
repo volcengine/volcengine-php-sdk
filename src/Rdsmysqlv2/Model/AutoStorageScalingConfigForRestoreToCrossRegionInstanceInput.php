@@ -161,7 +161,7 @@ class AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput implements Mo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_storage_auto_scale'] = isset($data['enable_storage_auto_scale']) ? $data['enable_storage_auto_scale'] : null;
         $this->container['scaling_detect_node'] = isset($data['scaling_detect_node']) ? $data['scaling_detect_node'] : null;

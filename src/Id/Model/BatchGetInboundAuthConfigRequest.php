@@ -146,7 +146,7 @@ class BatchGetInboundAuthConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['inbound_auth_config_ids'] = isset($data['inbound_auth_config_ids']) ? $data['inbound_auth_config_ids'] : null;
     }

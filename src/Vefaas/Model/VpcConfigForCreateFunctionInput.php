@@ -166,7 +166,7 @@ class VpcConfigForCreateFunctionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_shared_internet_access'] = isset($data['enable_shared_internet_access']) ? $data['enable_shared_internet_access'] : null;
         $this->container['enable_vpc'] = isset($data['enable_vpc']) ? $data['enable_vpc'] : null;

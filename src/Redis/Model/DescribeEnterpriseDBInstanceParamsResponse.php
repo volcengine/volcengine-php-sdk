@@ -151,7 +151,7 @@ class DescribeEnterpriseDBInstanceParamsResponse implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['total_params_num'] = isset($data['total_params_num']) ? $data['total_params_num'] : null;

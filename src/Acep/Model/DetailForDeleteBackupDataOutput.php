@@ -156,7 +156,7 @@ class DetailForDeleteBackupDataOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_data_id'] = isset($data['backup_data_id']) ? $data['backup_data_id'] : null;
         $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;

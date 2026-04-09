@@ -161,7 +161,7 @@ class ModifyParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['template_description'] = isset($data['template_description']) ? $data['template_description'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;

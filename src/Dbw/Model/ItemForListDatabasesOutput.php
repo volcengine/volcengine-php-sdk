@@ -176,7 +176,7 @@ class ItemForListDatabasesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['c_type'] = isset($data['c_type']) ? $data['c_type'] : null;
         $this->container['character_set_name'] = isset($data['character_set_name']) ? $data['character_set_name'] : null;

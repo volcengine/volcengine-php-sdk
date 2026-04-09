@@ -156,7 +156,7 @@ class DeleteLaunchTemplateVersionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_versions'] = isset($data['delete_versions']) ? $data['delete_versions'] : null;
         $this->container['launch_template_id'] = isset($data['launch_template_id']) ? $data['launch_template_id'] : null;

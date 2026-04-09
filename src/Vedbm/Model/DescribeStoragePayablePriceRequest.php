@@ -161,7 +161,7 @@ class DescribeStoragePayablePriceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['storage_types'] = isset($data['storage_types']) ? $data['storage_types'] : null;
     }

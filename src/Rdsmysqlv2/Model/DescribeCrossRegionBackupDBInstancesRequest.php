@@ -176,7 +176,7 @@ class DescribeCrossRegionBackupDBInstancesRequest implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_after_time'] = isset($data['enable_after_time']) ? $data['enable_after_time'] : null;
         $this->container['enable_before_time'] = isset($data['enable_before_time']) ? $data['enable_before_time'] : null;

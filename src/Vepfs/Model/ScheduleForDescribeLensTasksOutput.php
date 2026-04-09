@@ -235,7 +235,7 @@ class ScheduleForDescribeLensTasksOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['conflict_policy'] = isset($data['conflict_policy']) ? $data['conflict_policy'] : null;
         $this->container['once_run_timing'] = isset($data['once_run_timing']) ? $data['once_run_timing'] : null;

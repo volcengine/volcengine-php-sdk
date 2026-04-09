@@ -146,7 +146,7 @@ class ListLayeredGroupRelatedHostRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
     }

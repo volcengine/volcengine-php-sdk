@@ -151,7 +151,7 @@ class FailedHostForGetBaselineDetectProgressDetailOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_reason'] = isset($data['failed_reason']) ? $data['failed_reason'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;

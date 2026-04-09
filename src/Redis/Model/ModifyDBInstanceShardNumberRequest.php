@@ -171,7 +171,7 @@ class ModifyDBInstanceShardNumberRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['apply_immediately'] = isset($data['apply_immediately']) ? $data['apply_immediately'] : null;
         $this->container['backup_point_name'] = isset($data['backup_point_name']) ? $data['backup_point_name'] : null;

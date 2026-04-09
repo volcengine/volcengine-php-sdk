@@ -221,7 +221,7 @@ class DescribeAuditLogDetailRowForDescribeAuditLogDetailOutput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affect_row'] = isset($data['affect_row']) ? $data['affect_row'] : null;
         $this->container['db'] = isset($data['db']) ? $data['db'] : null;

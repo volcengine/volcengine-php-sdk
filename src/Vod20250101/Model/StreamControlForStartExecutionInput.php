@@ -199,7 +199,7 @@ class StreamControlForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['keep_audio_streams'] = isset($data['keep_audio_streams']) ? $data['keep_audio_streams'] : null;
         $this->container['keep_data_streams'] = isset($data['keep_data_streams']) ? $data['keep_data_streams'] : null;

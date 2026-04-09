@@ -156,7 +156,7 @@ class DescribeTaskDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['check_item_log'] = isset($data['check_item_log']) ? $data['check_item_log'] : null;
         $this->container['check_items'] = isset($data['check_items']) ? $data['check_items'] : null;

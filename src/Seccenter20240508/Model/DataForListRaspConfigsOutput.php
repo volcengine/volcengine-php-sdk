@@ -236,7 +236,7 @@ class DataForListRaspConfigsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_process_inject'] = isset($data['all_process_inject']) ? $data['all_process_inject'] : null;
         $this->container['block_uuid'] = isset($data['block_uuid']) ? $data['block_uuid'] : null;

@@ -286,7 +286,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adb'] = isset($data['adb']) ? $data['adb'] : null;
         $this->container['adb_expire_time'] = isset($data['adb_expire_time']) ? $data['adb_expire_time'] : null;

@@ -151,7 +151,7 @@ class SharedMemoryForCreateModelServiceInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['shm_size'] = isset($data['shm_size']) ? $data['shm_size'] : null;
         $this->container['shm_size_unit'] = isset($data['shm_size_unit']) ? $data['shm_size_unit'] : null;

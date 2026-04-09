@@ -161,7 +161,7 @@ class ListResourceShareAssociationsRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['association_type'] = isset($data['association_type']) ? $data['association_type'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

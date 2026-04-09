@@ -166,7 +166,7 @@ class StorageInfoForCreateInstanceInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bytestore_info'] = isset($data['bytestore_info']) ? $data['bytestore_info'] : null;
         $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;

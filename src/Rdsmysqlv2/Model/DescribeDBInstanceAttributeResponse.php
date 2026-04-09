@@ -146,7 +146,7 @@ class DescribeDBInstanceAttributeResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_instance_attribute'] = isset($data['db_instance_attribute']) ? $data['db_instance_attribute'] : null;
     }

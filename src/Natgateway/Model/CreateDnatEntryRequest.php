@@ -181,7 +181,7 @@ class CreateDnatEntryRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dnat_entry_name'] = isset($data['dnat_entry_name']) ? $data['dnat_entry_name'] : null;
         $this->container['external_ip'] = isset($data['external_ip']) ? $data['external_ip'] : null;

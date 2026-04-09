@@ -161,7 +161,7 @@ class DeleteDeploymentResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['deployment_id'] = isset($data['deployment_id']) ? $data['deployment_id'] : null;
         $this->container['deployment_version_id'] = isset($data['deployment_version_id']) ? $data['deployment_version_id'] : null;
