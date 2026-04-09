@@ -34,6 +34,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         'asset_type' => 'string',
         'before_status' => 'string',
         'cwpp_id_list' => 'string[]',
+        'is_real_risk_vul' => 'bool',
         'reason' => 'string',
         'top_group_id' => 'string'
     ];
@@ -50,6 +51,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         'asset_type' => null,
         'before_status' => null,
         'cwpp_id_list' => null,
+        'is_real_risk_vul' => null,
         'reason' => null,
         'top_group_id' => null
     ];
@@ -87,6 +89,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         'asset_type' => 'AssetType',
         'before_status' => 'BeforeStatus',
         'cwpp_id_list' => 'CwppIDList',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'reason' => 'Reason',
         'top_group_id' => 'TopGroupID'
     ];
@@ -103,6 +106,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         'asset_type' => 'setAssetType',
         'before_status' => 'setBeforeStatus',
         'cwpp_id_list' => 'setCwppIdList',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'reason' => 'setReason',
         'top_group_id' => 'setTopGroupId'
     ];
@@ -119,6 +123,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         'asset_type' => 'getAssetType',
         'before_status' => 'getBeforeStatus',
         'cwpp_id_list' => 'getCwppIdList',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'reason' => 'getReason',
         'top_group_id' => 'getTopGroupId'
     ];
@@ -164,23 +169,8 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ASSET_TYPE_HOST = 'Host';
-    const ASSET_TYPE_DEV = 'Dev';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAssetTypeAllowableValues()
-    {
-        return [
-            self::ASSET_TYPE_HOST,
-            self::ASSET_TYPE_DEV,
-        ];
-    }
     
 
     /**
@@ -204,6 +194,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
         $this->container['before_status'] = isset($data['before_status']) ? $data['before_status'] : null;
         $this->container['cwpp_id_list'] = isset($data['cwpp_id_list']) ? $data['cwpp_id_list'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
     }
@@ -216,14 +207,6 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($this->container['asset_type']) && !in_array($this->container['asset_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'asset_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -331,15 +314,6 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
      */
     public function setAssetType($asset_type)
     {
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($asset_type) && !in_array($asset_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'asset_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['asset_type'] = $asset_type;
 
         return $this;
@@ -389,6 +363,30 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
     public function setCwppIdList($cwpp_id_list)
     {
         $this->container['cwpp_id_list'] = $cwpp_id_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

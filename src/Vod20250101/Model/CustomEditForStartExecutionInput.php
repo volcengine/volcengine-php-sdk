@@ -29,7 +29,7 @@ class CustomEditForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'canvas' => '\Volcengine\Vod20250101\Model\CanvasForStartExecutionInput',
-        'output' => '\Volcengine\Vod20250101\Model\OutputForStartExecutionInput'
+        'output' => '\Volcengine\Vod20250101\Model\ConvertOutputForStartExecutionInput'
     ];
 
     /**
@@ -208,7 +208,7 @@ class CustomEditForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\OutputForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertOutputForStartExecutionInput
      */
     public function getOutput()
     {
@@ -218,7 +218,7 @@ class CustomEditForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\OutputForStartExecutionInput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertOutputForStartExecutionInput $output output
      *
      * @return $this
      */

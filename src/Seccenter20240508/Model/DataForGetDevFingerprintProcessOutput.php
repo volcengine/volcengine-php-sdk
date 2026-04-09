@@ -39,7 +39,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'pid' => 'string',
         'ppid' => 'string',
         'private_ip' => 'string',
+        'protect_status' => 'string',
         'public_ip' => 'string',
+        'security_enhancement' => 'bool',
         'start_time' => 'int',
         'state' => 'string',
         'status' => 'string',
@@ -65,7 +67,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'pid' => null,
         'ppid' => null,
         'private_ip' => null,
+        'protect_status' => null,
         'public_ip' => null,
+        'security_enhancement' => null,
         'start_time' => 'int64',
         'state' => null,
         'status' => null,
@@ -112,7 +116,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'pid' => 'Pid',
         'ppid' => 'Ppid',
         'private_ip' => 'PrivateIP',
+        'protect_status' => 'ProtectStatus',
         'public_ip' => 'PublicIP',
+        'security_enhancement' => 'SecurityEnhancement',
         'start_time' => 'StartTime',
         'state' => 'State',
         'status' => 'Status',
@@ -138,7 +144,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'pid' => 'setPid',
         'ppid' => 'setPpid',
         'private_ip' => 'setPrivateIp',
+        'protect_status' => 'setProtectStatus',
         'public_ip' => 'setPublicIp',
+        'security_enhancement' => 'setSecurityEnhancement',
         'start_time' => 'setStartTime',
         'state' => 'setState',
         'status' => 'setStatus',
@@ -164,7 +172,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'pid' => 'getPid',
         'ppid' => 'getPpid',
         'private_ip' => 'getPrivateIp',
+        'protect_status' => 'getProtectStatus',
         'public_ip' => 'getPublicIp',
+        'security_enhancement' => 'getSecurityEnhancement',
         'start_time' => 'getStartTime',
         'state' => 'getState',
         'status' => 'getStatus',
@@ -244,7 +254,9 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
         $this->container['ppid'] = isset($data['ppid']) ? $data['ppid'] : null;
         $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -542,6 +554,30 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets public_ip
      *
      * @return string
@@ -561,6 +597,30 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
     public function setPublicIp($public_ip)
     {
         $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }

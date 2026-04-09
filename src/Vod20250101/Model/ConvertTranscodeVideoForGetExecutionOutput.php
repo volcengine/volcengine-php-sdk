@@ -34,7 +34,7 @@ class ConvertTranscodeVideoForGetExecutionOutput implements ModelInterface, Arra
         'dynamic_range' => 'string',
         'encoded_type' => 'string',
         'encrypt' => 'bool',
-        'encryption' => '\Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput',
+        'encryption' => '\Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput',
         'file_id' => 'string',
         'file_type' => 'string',
         'format' => 'string',
@@ -412,7 +412,7 @@ class ConvertTranscodeVideoForGetExecutionOutput implements ModelInterface, Arra
     /**
      * Gets encryption
      *
-     * @return \Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput
      */
     public function getEncryption()
     {
@@ -422,7 +422,7 @@ class ConvertTranscodeVideoForGetExecutionOutput implements ModelInterface, Arra
     /**
      * Sets encryption
      *
-     * @param \Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput $encryption encryption
+     * @param \Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput $encryption encryption
      *
      * @return $this
      */

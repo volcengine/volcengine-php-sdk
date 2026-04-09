@@ -32,11 +32,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         'alarm_id' => 'string',
         'alarm_time' => 'int',
         'alarm_type' => 'string',
+        'alert_desc_en' => 'string',
         'alert_detail' => 'string',
         'cluster_id' => 'string',
         'data_type' => 'string',
         'harm_level' => 'string',
         'name' => 'string',
+        'name_en' => 'string',
         'status' => 'int',
         'trace_id' => 'string'
     ];
@@ -51,11 +53,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         'alarm_id' => null,
         'alarm_time' => 'int64',
         'alarm_type' => null,
+        'alert_desc_en' => null,
         'alert_detail' => null,
         'cluster_id' => null,
         'data_type' => null,
         'harm_level' => null,
         'name' => null,
+        'name_en' => null,
         'status' => 'int64',
         'trace_id' => null
     ];
@@ -91,11 +95,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         'alarm_id' => 'AlarmID',
         'alarm_time' => 'AlarmTime',
         'alarm_type' => 'AlarmType',
+        'alert_desc_en' => 'AlertDescEn',
         'alert_detail' => 'AlertDetail',
         'cluster_id' => 'ClusterID',
         'data_type' => 'DataType',
         'harm_level' => 'HarmLevel',
         'name' => 'Name',
+        'name_en' => 'NameEn',
         'status' => 'Status',
         'trace_id' => 'TraceID'
     ];
@@ -110,11 +116,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         'alarm_id' => 'setAlarmId',
         'alarm_time' => 'setAlarmTime',
         'alarm_type' => 'setAlarmType',
+        'alert_desc_en' => 'setAlertDescEn',
         'alert_detail' => 'setAlertDetail',
         'cluster_id' => 'setClusterId',
         'data_type' => 'setDataType',
         'harm_level' => 'setHarmLevel',
         'name' => 'setName',
+        'name_en' => 'setNameEn',
         'status' => 'setStatus',
         'trace_id' => 'setTraceId'
     ];
@@ -129,11 +137,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         'alarm_id' => 'getAlarmId',
         'alarm_time' => 'getAlarmTime',
         'alarm_type' => 'getAlarmType',
+        'alert_desc_en' => 'getAlertDescEn',
         'alert_detail' => 'getAlertDetail',
         'cluster_id' => 'getClusterId',
         'data_type' => 'getDataType',
         'harm_level' => 'getHarmLevel',
         'name' => 'getName',
+        'name_en' => 'getNameEn',
         'status' => 'getStatus',
         'trace_id' => 'getTraceId'
     ];
@@ -202,11 +212,13 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
         $this->container['alarm_id'] = isset($data['alarm_id']) ? $data['alarm_id'] : null;
         $this->container['alarm_time'] = isset($data['alarm_time']) ? $data['alarm_time'] : null;
         $this->container['alarm_type'] = isset($data['alarm_type']) ? $data['alarm_type'] : null;
+        $this->container['alert_desc_en'] = isset($data['alert_desc_en']) ? $data['alert_desc_en'] : null;
         $this->container['alert_detail'] = isset($data['alert_detail']) ? $data['alert_detail'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['harm_level'] = isset($data['harm_level']) ? $data['harm_level'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['name_en'] = isset($data['name_en']) ? $data['name_en'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['trace_id'] = isset($data['trace_id']) ? $data['trace_id'] : null;
     }
@@ -332,6 +344,30 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets alert_desc_en
+     *
+     * @return string
+     */
+    public function getAlertDescEn()
+    {
+        return $this->container['alert_desc_en'];
+    }
+
+    /**
+     * Sets alert_desc_en
+     *
+     * @param string $alert_desc_en alert_desc_en
+     *
+     * @return $this
+     */
+    public function setAlertDescEn($alert_desc_en)
+    {
+        $this->container['alert_desc_en'] = $alert_desc_en;
+
+        return $this;
+    }
+
+    /**
      * Gets alert_detail
      *
      * @return string
@@ -447,6 +483,30 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_en
+     *
+     * @return string
+     */
+    public function getNameEn()
+    {
+        return $this->container['name_en'];
+    }
+
+    /**
+     * Sets name_en
+     *
+     * @param string $name_en name_en
+     *
+     * @return $this
+     */
+    public function setNameEn($name_en)
+    {
+        $this->container['name_en'] = $name_en;
 
         return $this;
     }

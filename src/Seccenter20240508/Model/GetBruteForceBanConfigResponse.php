@@ -33,11 +33,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         'all_host' => 'bool',
         'ban_scenes' => 'string[]',
         'ban_type' => 'string',
+        'ban_type_list' => 'string[]',
         'cloud_providers' => 'string[]',
         'enable' => 'bool',
         'leaf_group_ids' => 'string[]',
+        'manager_id' => 'string',
         'operator' => 'string',
         'rule_list' => '\Volcengine\Seccenter20240508\Model\RuleListForGetBruteForceBanConfigOutput[]',
+        'single_group_path' => 'string',
+        'single_hostname' => 'string',
         'top_group_id' => 'string'
     ];
 
@@ -52,11 +56,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         'all_host' => null,
         'ban_scenes' => null,
         'ban_type' => null,
+        'ban_type_list' => null,
         'cloud_providers' => null,
         'enable' => null,
         'leaf_group_ids' => null,
+        'manager_id' => null,
         'operator' => null,
         'rule_list' => null,
+        'single_group_path' => null,
+        'single_hostname' => null,
         'top_group_id' => null
     ];
 
@@ -92,11 +100,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         'all_host' => 'AllHost',
         'ban_scenes' => 'BanScenes',
         'ban_type' => 'BanType',
+        'ban_type_list' => 'BanTypeList',
         'cloud_providers' => 'CloudProviders',
         'enable' => 'Enable',
         'leaf_group_ids' => 'LeafGroupIDs',
+        'manager_id' => 'ManagerID',
         'operator' => 'Operator',
         'rule_list' => 'RuleList',
+        'single_group_path' => 'SingleGroupPath',
+        'single_hostname' => 'SingleHostname',
         'top_group_id' => 'TopGroupID'
     ];
 
@@ -111,11 +123,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         'all_host' => 'setAllHost',
         'ban_scenes' => 'setBanScenes',
         'ban_type' => 'setBanType',
+        'ban_type_list' => 'setBanTypeList',
         'cloud_providers' => 'setCloudProviders',
         'enable' => 'setEnable',
         'leaf_group_ids' => 'setLeafGroupIds',
+        'manager_id' => 'setManagerId',
         'operator' => 'setOperator',
         'rule_list' => 'setRuleList',
+        'single_group_path' => 'setSingleGroupPath',
+        'single_hostname' => 'setSingleHostname',
         'top_group_id' => 'setTopGroupId'
     ];
 
@@ -130,11 +146,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         'all_host' => 'getAllHost',
         'ban_scenes' => 'getBanScenes',
         'ban_type' => 'getBanType',
+        'ban_type_list' => 'getBanTypeList',
         'cloud_providers' => 'getCloudProviders',
         'enable' => 'getEnable',
         'leaf_group_ids' => 'getLeafGroupIds',
+        'manager_id' => 'getManagerId',
         'operator' => 'getOperator',
         'rule_list' => 'getRuleList',
+        'single_group_path' => 'getSingleGroupPath',
+        'single_hostname' => 'getSingleHostname',
         'top_group_id' => 'getTopGroupId'
     ];
 
@@ -203,11 +223,15 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         $this->container['all_host'] = isset($data['all_host']) ? $data['all_host'] : null;
         $this->container['ban_scenes'] = isset($data['ban_scenes']) ? $data['ban_scenes'] : null;
         $this->container['ban_type'] = isset($data['ban_type']) ? $data['ban_type'] : null;
+        $this->container['ban_type_list'] = isset($data['ban_type_list']) ? $data['ban_type_list'] : null;
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['manager_id'] = isset($data['manager_id']) ? $data['manager_id'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['rule_list'] = isset($data['rule_list']) ? $data['rule_list'] : null;
+        $this->container['single_group_path'] = isset($data['single_group_path']) ? $data['single_group_path'] : null;
+        $this->container['single_hostname'] = isset($data['single_hostname']) ? $data['single_hostname'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
     }
 
@@ -356,6 +380,30 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ban_type_list
+     *
+     * @return string[]
+     */
+    public function getBanTypeList()
+    {
+        return $this->container['ban_type_list'];
+    }
+
+    /**
+     * Sets ban_type_list
+     *
+     * @param string[] $ban_type_list ban_type_list
+     *
+     * @return $this
+     */
+    public function setBanTypeList($ban_type_list)
+    {
+        $this->container['ban_type_list'] = $ban_type_list;
+
+        return $this;
+    }
+
+    /**
      * Gets cloud_providers
      *
      * @return string[]
@@ -428,6 +476,30 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets manager_id
+     *
+     * @return string
+     */
+    public function getManagerId()
+    {
+        return $this->container['manager_id'];
+    }
+
+    /**
+     * Sets manager_id
+     *
+     * @param string $manager_id manager_id
+     *
+     * @return $this
+     */
+    public function setManagerId($manager_id)
+    {
+        $this->container['manager_id'] = $manager_id;
+
+        return $this;
+    }
+
+    /**
      * Gets operator
      *
      * @return string
@@ -471,6 +543,54 @@ class GetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
     public function setRuleList($rule_list)
     {
         $this->container['rule_list'] = $rule_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_group_path
+     *
+     * @return string
+     */
+    public function getSingleGroupPath()
+    {
+        return $this->container['single_group_path'];
+    }
+
+    /**
+     * Sets single_group_path
+     *
+     * @param string $single_group_path single_group_path
+     *
+     * @return $this
+     */
+    public function setSingleGroupPath($single_group_path)
+    {
+        $this->container['single_group_path'] = $single_group_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_hostname
+     *
+     * @return string
+     */
+    public function getSingleHostname()
+    {
+        return $this->container['single_hostname'];
+    }
+
+    /**
+     * Sets single_hostname
+     *
+     * @param string $single_hostname single_hostname
+     *
+     * @return $this
+     */
+    public function setSingleHostname($single_hostname)
+    {
+        $this->container['single_hostname'] = $single_hostname;
 
         return $this;
     }

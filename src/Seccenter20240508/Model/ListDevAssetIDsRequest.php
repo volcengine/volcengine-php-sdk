@@ -34,8 +34,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         'ip' => 'string',
         'is_all' => 'bool',
         'platforms' => 'string[]',
+        'protect_status' => 'string',
         'regions' => 'string[]',
         'risk' => '\Volcengine\Seccenter20240508\Model\RiskForListDevAssetIDsInput',
+        'security_enhancement' => 'bool',
         'status' => 'string[]'
     ];
 
@@ -51,8 +53,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         'ip' => null,
         'is_all' => null,
         'platforms' => null,
+        'protect_status' => null,
         'regions' => null,
         'risk' => null,
+        'security_enhancement' => null,
         'status' => null
     ];
 
@@ -89,8 +93,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         'ip' => 'IP',
         'is_all' => 'IsAll',
         'platforms' => 'Platforms',
+        'protect_status' => 'ProtectStatus',
         'regions' => 'Regions',
         'risk' => 'Risk',
+        'security_enhancement' => 'SecurityEnhancement',
         'status' => 'Status'
     ];
 
@@ -106,8 +112,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         'ip' => 'setIp',
         'is_all' => 'setIsAll',
         'platforms' => 'setPlatforms',
+        'protect_status' => 'setProtectStatus',
         'regions' => 'setRegions',
         'risk' => 'setRisk',
+        'security_enhancement' => 'setSecurityEnhancement',
         'status' => 'setStatus'
     ];
 
@@ -123,8 +131,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         'ip' => 'getIp',
         'is_all' => 'getIsAll',
         'platforms' => 'getPlatforms',
+        'protect_status' => 'getProtectStatus',
         'regions' => 'getRegions',
         'risk' => 'getRisk',
+        'security_enhancement' => 'getSecurityEnhancement',
         'status' => 'getStatus'
     ];
 
@@ -194,8 +204,10 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['is_all'] = isset($data['is_all']) ? $data['is_all'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -368,6 +380,30 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets regions
      *
      * @return string[]
@@ -411,6 +447,30 @@ class ListDevAssetIDsRequest implements ModelInterface, ArrayAccess
     public function setRisk($risk)
     {
         $this->container['risk'] = $risk;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }

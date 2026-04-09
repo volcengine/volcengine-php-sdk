@@ -40,6 +40,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         'ip_white_list' => 'string',
         'image_id' => 'string',
         'is_preinstall' => 'bool',
+        'is_selinux_on' => 'bool',
         'overlay_persist_property' => '\Volcengine\Acep\Model\OverlayPersistPropertyForCreatePodOneStepInput[]',
         'overlay_property' => '\Volcengine\Acep\Model\OverlayPropertyForCreatePodOneStepInput[]',
         'overlay_settings' => '\Volcengine\Acep\Model\OverlaySettingForCreatePodOneStepInput[]',
@@ -71,6 +72,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         'ip_white_list' => null,
         'image_id' => null,
         'is_preinstall' => null,
+        'is_selinux_on' => null,
         'overlay_persist_property' => null,
         'overlay_property' => null,
         'overlay_settings' => null,
@@ -123,6 +125,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         'ip_white_list' => 'IPWhiteList',
         'image_id' => 'ImageId',
         'is_preinstall' => 'IsPreinstall',
+        'is_selinux_on' => 'IsSelinuxOn',
         'overlay_persist_property' => 'OverlayPersistProperty',
         'overlay_property' => 'OverlayProperty',
         'overlay_settings' => 'OverlaySettings',
@@ -154,6 +157,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         'ip_white_list' => 'setIpWhiteList',
         'image_id' => 'setImageId',
         'is_preinstall' => 'setIsPreinstall',
+        'is_selinux_on' => 'setIsSelinuxOn',
         'overlay_persist_property' => 'setOverlayPersistProperty',
         'overlay_property' => 'setOverlayProperty',
         'overlay_settings' => 'setOverlaySettings',
@@ -185,6 +189,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         'ip_white_list' => 'getIpWhiteList',
         'image_id' => 'getImageId',
         'is_preinstall' => 'getIsPreinstall',
+        'is_selinux_on' => 'getIsSelinuxOn',
         'overlay_persist_property' => 'getOverlayPersistProperty',
         'overlay_property' => 'getOverlayProperty',
         'overlay_settings' => 'getOverlaySettings',
@@ -270,6 +275,7 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
         $this->container['ip_white_list'] = isset($data['ip_white_list']) ? $data['ip_white_list'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['is_preinstall'] = isset($data['is_preinstall']) ? $data['is_preinstall'] : null;
+        $this->container['is_selinux_on'] = isset($data['is_selinux_on']) ? $data['is_selinux_on'] : null;
         $this->container['overlay_persist_property'] = isset($data['overlay_persist_property']) ? $data['overlay_persist_property'] : null;
         $this->container['overlay_property'] = isset($data['overlay_property']) ? $data['overlay_property'] : null;
         $this->container['overlay_settings'] = isset($data['overlay_settings']) ? $data['overlay_settings'] : null;
@@ -600,6 +606,30 @@ class CreatePodOneStepRequest implements ModelInterface, ArrayAccess
     public function setIsPreinstall($is_preinstall)
     {
         $this->container['is_preinstall'] = $is_preinstall;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_selinux_on
+     *
+     * @return bool
+     */
+    public function getIsSelinuxOn()
+    {
+        return $this->container['is_selinux_on'];
+    }
+
+    /**
+     * Sets is_selinux_on
+     *
+     * @param bool $is_selinux_on is_selinux_on
+     *
+     * @return $this
+     */
+    public function setIsSelinuxOn($is_selinux_on)
+    {
+        $this->container['is_selinux_on'] = $is_selinux_on;
 
         return $this;
     }

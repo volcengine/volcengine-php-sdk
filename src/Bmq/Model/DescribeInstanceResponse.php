@@ -48,6 +48,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         'subnet_id_list' => 'string[]',
         'tags' => '\Volcengine\Bmq\Model\TagForDescribeInstanceOutput[]',
         'topic_limit' => 'int',
+        'used_groups' => 'int',
+        'used_partitions' => 'int',
+        'used_topics' => 'int',
         'vpc_id' => 'string',
         'zone_id_list' => 'string[]'
     ];
@@ -78,6 +81,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         'subnet_id_list' => null,
         'tags' => null,
         'topic_limit' => 'int32',
+        'used_groups' => 'int32',
+        'used_partitions' => 'int32',
+        'used_topics' => 'int32',
         'vpc_id' => null,
         'zone_id_list' => null
     ];
@@ -129,6 +135,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         'subnet_id_list' => 'SubnetIdList',
         'tags' => 'Tags',
         'topic_limit' => 'TopicLimit',
+        'used_groups' => 'UsedGroups',
+        'used_partitions' => 'UsedPartitions',
+        'used_topics' => 'UsedTopics',
         'vpc_id' => 'VpcId',
         'zone_id_list' => 'ZoneIdList'
     ];
@@ -159,6 +168,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         'subnet_id_list' => 'setSubnetIdList',
         'tags' => 'setTags',
         'topic_limit' => 'setTopicLimit',
+        'used_groups' => 'setUsedGroups',
+        'used_partitions' => 'setUsedPartitions',
+        'used_topics' => 'setUsedTopics',
         'vpc_id' => 'setVpcId',
         'zone_id_list' => 'setZoneIdList'
     ];
@@ -189,6 +201,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         'subnet_id_list' => 'getSubnetIdList',
         'tags' => 'getTags',
         'topic_limit' => 'getTopicLimit',
+        'used_groups' => 'getUsedGroups',
+        'used_partitions' => 'getUsedPartitions',
+        'used_topics' => 'getUsedTopics',
         'vpc_id' => 'getVpcId',
         'zone_id_list' => 'getZoneIdList'
     ];
@@ -273,6 +288,9 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
         $this->container['subnet_id_list'] = isset($data['subnet_id_list']) ? $data['subnet_id_list'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['topic_limit'] = isset($data['topic_limit']) ? $data['topic_limit'] : null;
+        $this->container['used_groups'] = isset($data['used_groups']) ? $data['used_groups'] : null;
+        $this->container['used_partitions'] = isset($data['used_partitions']) ? $data['used_partitions'] : null;
+        $this->container['used_topics'] = isset($data['used_topics']) ? $data['used_topics'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id_list'] = isset($data['zone_id_list']) ? $data['zone_id_list'] : null;
     }
@@ -777,6 +795,78 @@ class DescribeInstanceResponse implements ModelInterface, ArrayAccess
     public function setTopicLimit($topic_limit)
     {
         $this->container['topic_limit'] = $topic_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_groups
+     *
+     * @return int
+     */
+    public function getUsedGroups()
+    {
+        return $this->container['used_groups'];
+    }
+
+    /**
+     * Sets used_groups
+     *
+     * @param int $used_groups used_groups
+     *
+     * @return $this
+     */
+    public function setUsedGroups($used_groups)
+    {
+        $this->container['used_groups'] = $used_groups;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_partitions
+     *
+     * @return int
+     */
+    public function getUsedPartitions()
+    {
+        return $this->container['used_partitions'];
+    }
+
+    /**
+     * Sets used_partitions
+     *
+     * @param int $used_partitions used_partitions
+     *
+     * @return $this
+     */
+    public function setUsedPartitions($used_partitions)
+    {
+        $this->container['used_partitions'] = $used_partitions;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_topics
+     *
+     * @return int
+     */
+    public function getUsedTopics()
+    {
+        return $this->container['used_topics'];
+    }
+
+    /**
+     * Sets used_topics
+     *
+     * @param int $used_topics used_topics
+     *
+     * @return $this
+     */
+    public function setUsedTopics($used_topics)
+    {
+        $this->container['used_topics'] = $used_topics;
 
         return $this;
     }

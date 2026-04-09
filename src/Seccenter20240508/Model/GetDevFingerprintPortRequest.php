@@ -174,23 +174,8 @@ class GetDevFingerprintPortRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const SORT_ORDER_ASC = 'Asc';
-    const SORT_ORDER_DESC = 'Desc';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSortOrderAllowableValues()
-    {
-        return [
-            self::SORT_ORDER_ASC,
-            self::SORT_ORDER_DESC,
-        ];
-    }
     
 
     /**
@@ -235,14 +220,6 @@ class GetDevFingerprintPortRequest implements ModelInterface, ArrayAccess
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
         }
-        $allowedValues = $this->getSortOrderAllowableValues();
-        if (!is_null($this->container['sort_order']) && !in_array($this->container['sort_order'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sort_order', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -445,15 +422,6 @@ class GetDevFingerprintPortRequest implements ModelInterface, ArrayAccess
      */
     public function setSortOrder($sort_order)
     {
-        $allowedValues = $this->getSortOrderAllowableValues();
-        if (!is_null($sort_order) && !in_array($sort_order, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sort_order', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sort_order'] = $sort_order;
 
         return $this;

@@ -2734,68 +2734,6 @@ class VEFAASApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function runCode($body = null)
-    {
-        list($response) = $this->runCodeWithHttpInfo($body);
-        return $response;
-    }
-
-    public function runCodeWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vefaas\Model\RunCodeResponse';
-        $request = $this->runCodeRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function runCodeAsync($body = null)
-    {
-        return $this->runCodeAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function runCodeAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vefaas\Model\RunCodeResponse';
-        $request = $this->runCodeRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function runCodeRequest($body)
-    {
-        $resourcePath = '/RunCode/2024-06-06/vefaas/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function setSandboxTimeout($body = null)
     {
         list($response) = $this->setSandboxTimeoutWithHttpInfo($body);
@@ -2954,68 +2892,6 @@ class VEFAASApi
     protected function terminateDependencyInstallTaskRequest($body)
     {
         $resourcePath = '/TerminateDependencyInstallTask/2024-06-06/vefaas/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function transitionSandbox($body = null)
-    {
-        list($response) = $this->transitionSandboxWithHttpInfo($body);
-        return $response;
-    }
-
-    public function transitionSandboxWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vefaas\Model\TransitionSandboxResponse';
-        $request = $this->transitionSandboxRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function transitionSandboxAsync($body = null)
-    {
-        return $this->transitionSandboxAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function transitionSandboxAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vefaas\Model\TransitionSandboxResponse';
-        $request = $this->transitionSandboxRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function transitionSandboxRequest($body)
-    {
-        $resourcePath = '/TransitionSandbox/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3388,6 +3264,68 @@ class VEFAASApi
     protected function updateTimerRequest($body)
     {
         $resourcePath = '/UpdateTimer/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upsertSecretToken($body = null)
+    {
+        list($response) = $this->upsertSecretTokenWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upsertSecretTokenWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\UpsertSecretTokenResponse';
+        $request = $this->upsertSecretTokenRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upsertSecretTokenAsync($body = null)
+    {
+        return $this->upsertSecretTokenAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upsertSecretTokenAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\UpsertSecretTokenResponse';
+        $request = $this->upsertSecretTokenRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upsertSecretTokenRequest($body)
+    {
+        $resourcePath = '/UpsertSecretToken/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

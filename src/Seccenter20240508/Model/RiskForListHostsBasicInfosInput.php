@@ -30,6 +30,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'alarm' => 'bool',
         'baseline' => 'bool',
+        'is_real_risk_vul' => 'bool',
         'virus' => 'bool',
         'vuln' => 'bool'
     ];
@@ -42,6 +43,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'alarm' => null,
         'baseline' => null,
+        'is_real_risk_vul' => null,
         'virus' => null,
         'vuln' => null
     ];
@@ -75,6 +77,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'alarm' => 'Alarm',
         'baseline' => 'Baseline',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'virus' => 'Virus',
         'vuln' => 'Vuln'
     ];
@@ -87,6 +90,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'alarm' => 'setAlarm',
         'baseline' => 'setBaseline',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'virus' => 'setVirus',
         'vuln' => 'setVuln'
     ];
@@ -99,6 +103,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'alarm' => 'getAlarm',
         'baseline' => 'getBaseline',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'virus' => 'getVirus',
         'vuln' => 'getVuln'
     ];
@@ -165,6 +170,7 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     {
         $this->container['alarm'] = isset($data['alarm']) ? $data['alarm'] : null;
         $this->container['baseline'] = isset($data['baseline']) ? $data['baseline'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['virus'] = isset($data['virus']) ? $data['virus'] : null;
         $this->container['vuln'] = isset($data['vuln']) ? $data['vuln'] : null;
     }
@@ -237,6 +243,30 @@ class RiskForListHostsBasicInfosInput implements ModelInterface, ArrayAccess
     public function setBaseline($baseline)
     {
         $this->container['baseline'] = $baseline;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

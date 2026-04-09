@@ -35,6 +35,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         'offline' => 'int',
         'protecting' => 'int',
         'protection_exception' => 'int',
+        'real_risk_vul' => 'int',
         'risk' => 'int',
         'unprotected' => 'int',
         'unprotected_cpu' => 'int',
@@ -55,6 +56,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         'offline' => 'int64',
         'protecting' => 'int64',
         'protection_exception' => 'int64',
+        'real_risk_vul' => 'int64',
         'risk' => 'int64',
         'unprotected' => 'int64',
         'unprotected_cpu' => 'int64',
@@ -96,6 +98,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         'offline' => 'Offline',
         'protecting' => 'Protecting',
         'protection_exception' => 'ProtectionException',
+        'real_risk_vul' => 'RealRiskVul',
         'risk' => 'Risk',
         'unprotected' => 'Unprotected',
         'unprotected_cpu' => 'UnprotectedCpu',
@@ -116,6 +119,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         'offline' => 'setOffline',
         'protecting' => 'setProtecting',
         'protection_exception' => 'setProtectionException',
+        'real_risk_vul' => 'setRealRiskVul',
         'risk' => 'setRisk',
         'unprotected' => 'setUnprotected',
         'unprotected_cpu' => 'setUnprotectedCpu',
@@ -136,6 +140,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         'offline' => 'getOffline',
         'protecting' => 'getProtecting',
         'protection_exception' => 'getProtectionException',
+        'real_risk_vul' => 'getRealRiskVul',
         'risk' => 'getRisk',
         'unprotected' => 'getUnprotected',
         'unprotected_cpu' => 'getUnprotectedCpu',
@@ -210,6 +215,7 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
         $this->container['offline'] = isset($data['offline']) ? $data['offline'] : null;
         $this->container['protecting'] = isset($data['protecting']) ? $data['protecting'] : null;
         $this->container['protection_exception'] = isset($data['protection_exception']) ? $data['protection_exception'] : null;
+        $this->container['real_risk_vul'] = isset($data['real_risk_vul']) ? $data['real_risk_vul'] : null;
         $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
         $this->container['unprotected'] = isset($data['unprotected']) ? $data['unprotected'] : null;
         $this->container['unprotected_cpu'] = isset($data['unprotected_cpu']) ? $data['unprotected_cpu'] : null;
@@ -405,6 +411,30 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
     public function setProtectionException($protection_exception)
     {
         $this->container['protection_exception'] = $protection_exception;
+
+        return $this;
+    }
+
+    /**
+     * Gets real_risk_vul
+     *
+     * @return int
+     */
+    public function getRealRiskVul()
+    {
+        return $this->container['real_risk_vul'];
+    }
+
+    /**
+     * Sets real_risk_vul
+     *
+     * @param int $real_risk_vul real_risk_vul
+     *
+     * @return $this
+     */
+    public function setRealRiskVul($real_risk_vul)
+    {
+        $this->container['real_risk_vul'] = $real_risk_vul;
 
         return $this;
     }

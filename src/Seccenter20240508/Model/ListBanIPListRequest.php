@@ -32,9 +32,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         'ban_end_time_end_unix' => 'int',
         'ban_end_time_start_unix' => 'int',
         'ban_ip' => 'string',
+        'ban_port' => 'int',
         'ban_start_time_end_unix' => 'int',
         'ban_start_time_start_unix' => 'int',
         'ban_type' => 'string',
+        'ban_type_list' => 'string[]',
         'cloud_providers' => 'string[]',
         'host_name' => 'string',
         'ip' => 'string',
@@ -58,9 +60,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         'ban_end_time_end_unix' => 'int64',
         'ban_end_time_start_unix' => 'int64',
         'ban_ip' => null,
+        'ban_port' => 'int64',
         'ban_start_time_end_unix' => 'int64',
         'ban_start_time_start_unix' => 'int64',
         'ban_type' => null,
+        'ban_type_list' => null,
         'cloud_providers' => null,
         'host_name' => null,
         'ip' => null,
@@ -105,9 +109,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         'ban_end_time_end_unix' => 'BanEndTimeEndUnix',
         'ban_end_time_start_unix' => 'BanEndTimeStartUnix',
         'ban_ip' => 'BanIP',
+        'ban_port' => 'BanPort',
         'ban_start_time_end_unix' => 'BanStartTimeEndUnix',
         'ban_start_time_start_unix' => 'BanStartTimeStartUnix',
         'ban_type' => 'BanType',
+        'ban_type_list' => 'BanTypeList',
         'cloud_providers' => 'CloudProviders',
         'host_name' => 'HostName',
         'ip' => 'IP',
@@ -131,9 +137,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         'ban_end_time_end_unix' => 'setBanEndTimeEndUnix',
         'ban_end_time_start_unix' => 'setBanEndTimeStartUnix',
         'ban_ip' => 'setBanIp',
+        'ban_port' => 'setBanPort',
         'ban_start_time_end_unix' => 'setBanStartTimeEndUnix',
         'ban_start_time_start_unix' => 'setBanStartTimeStartUnix',
         'ban_type' => 'setBanType',
+        'ban_type_list' => 'setBanTypeList',
         'cloud_providers' => 'setCloudProviders',
         'host_name' => 'setHostName',
         'ip' => 'setIp',
@@ -157,9 +165,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         'ban_end_time_end_unix' => 'getBanEndTimeEndUnix',
         'ban_end_time_start_unix' => 'getBanEndTimeStartUnix',
         'ban_ip' => 'getBanIp',
+        'ban_port' => 'getBanPort',
         'ban_start_time_end_unix' => 'getBanStartTimeEndUnix',
         'ban_start_time_start_unix' => 'getBanStartTimeStartUnix',
         'ban_type' => 'getBanType',
+        'ban_type_list' => 'getBanTypeList',
         'cloud_providers' => 'getCloudProviders',
         'host_name' => 'getHostName',
         'ip' => 'getIp',
@@ -237,9 +247,11 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
         $this->container['ban_end_time_end_unix'] = isset($data['ban_end_time_end_unix']) ? $data['ban_end_time_end_unix'] : null;
         $this->container['ban_end_time_start_unix'] = isset($data['ban_end_time_start_unix']) ? $data['ban_end_time_start_unix'] : null;
         $this->container['ban_ip'] = isset($data['ban_ip']) ? $data['ban_ip'] : null;
+        $this->container['ban_port'] = isset($data['ban_port']) ? $data['ban_port'] : null;
         $this->container['ban_start_time_end_unix'] = isset($data['ban_start_time_end_unix']) ? $data['ban_start_time_end_unix'] : null;
         $this->container['ban_start_time_start_unix'] = isset($data['ban_start_time_start_unix']) ? $data['ban_start_time_start_unix'] : null;
         $this->container['ban_type'] = isset($data['ban_type']) ? $data['ban_type'] : null;
+        $this->container['ban_type_list'] = isset($data['ban_type_list']) ? $data['ban_type_list'] : null;
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
@@ -380,6 +392,30 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ban_port
+     *
+     * @return int
+     */
+    public function getBanPort()
+    {
+        return $this->container['ban_port'];
+    }
+
+    /**
+     * Sets ban_port
+     *
+     * @param int $ban_port ban_port
+     *
+     * @return $this
+     */
+    public function setBanPort($ban_port)
+    {
+        $this->container['ban_port'] = $ban_port;
+
+        return $this;
+    }
+
+    /**
      * Gets ban_start_time_end_unix
      *
      * @return int
@@ -447,6 +483,30 @@ class ListBanIPListRequest implements ModelInterface, ArrayAccess
     public function setBanType($ban_type)
     {
         $this->container['ban_type'] = $ban_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets ban_type_list
+     *
+     * @return string[]
+     */
+    public function getBanTypeList()
+    {
+        return $this->container['ban_type_list'];
+    }
+
+    /**
+     * Sets ban_type_list
+     *
+     * @param string[] $ban_type_list ban_type_list
+     *
+     * @return $this
+     */
+    public function setBanTypeList($ban_type_list)
+    {
+        $this->container['ban_type_list'] = $ban_type_list;
 
         return $this;
     }

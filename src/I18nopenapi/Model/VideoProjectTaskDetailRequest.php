@@ -30,7 +30,7 @@ class VideoProjectTaskDetailRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'project_id' => 'string',
         'subtask_ids' => 'string',
-        'task_id' => 'int'
+        'task_id' => 'string'
     ];
 
     /**
@@ -41,7 +41,7 @@ class VideoProjectTaskDetailRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'project_id' => null,
         'subtask_ids' => null,
-        'task_id' => 'int32'
+        'task_id' => null
     ];
 
     /**
@@ -244,7 +244,7 @@ class VideoProjectTaskDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Gets task_id
      *
-     * @return int
+     * @return string
      */
     public function getTaskId()
     {
@@ -254,7 +254,7 @@ class VideoProjectTaskDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Sets task_id
      *
-     * @param int $task_id task_id
+     * @param string $task_id task_id
      *
      * @return $this
      */

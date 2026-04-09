@@ -30,14 +30,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     protected static $swaggerTypes = [
         'account_expires' => 'string',
         'additional_actions_string' => 'string',
+        'analysis_record_uuid' => 'string',
         'args_array' => 'string[]',
         'argv' => 'string',
+        'backend_alarm_tags' => 'string[]',
         'bruteforce_sip' => 'string',
         'category_name' => 'string',
         'class' => 'string',
         'cmd' => 'string',
         'comm' => 'string',
         'command_line' => 'string',
+        'confidence' => 'string',
         'configuration' => 'string',
         'configuration_file_hash' => 'string',
         'connect_info' => 'string',
@@ -55,6 +58,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'dip' => 'string',
         'dport' => 'string',
         'dst_list' => 'string',
+        'elkeid_save_data' => '\Volcengine\Seccenter20240508\Model\ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput[]',
+        'en_hanced' => 'string',
         'event_type' => 'string',
         'exe' => 'string',
         'exe_hash' => 'string',
@@ -62,6 +67,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'failure_reason' => 'string',
         'fd_name' => 'string',
         'file_downloadable' => 'bool',
+        'file_name' => 'string',
         'file_path' => 'string',
         'flags' => 'string',
         'hash' => 'string',
@@ -70,6 +76,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'hit_argv_list' => 'string[]',
         'hit_data' => 'string',
         'home_directory' => 'string',
+        'ip_intelligence' => 'string',
+        'ip_source' => 'string',
+        'ip_source_us' => 'string',
         'image' => 'string',
         'image_loaded' => 'string',
         'interrupt_number' => 'string',
@@ -78,8 +87,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'ioc_severity' => 'string',
         'ioc_source' => 'string',
         'ip_address' => 'string',
+        'is_inner_account' => 'bool',
         'ko_file' => 'string',
         'ld_preload' => 'string',
+        'login_count' => 'string',
         'logon_type' => 'string',
         'md5_hash' => 'string',
         'mod_info' => 'string',
@@ -114,8 +125,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'query_name' => 'string',
         'query_results' => 'string',
         'query_status' => 'string',
+        'root_pns' => 'string',
         'run_path' => 'string',
         'sam_account_name' => 'string',
+        'security_intelligence_complete' => 'bool',
+        'security_intelligence_result' => 'string',
         'service_account' => 'string',
         'service_file_name' => 'string',
         'service_name' => 'string',
@@ -175,14 +189,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     protected static $swaggerFormats = [
         'account_expires' => null,
         'additional_actions_string' => null,
+        'analysis_record_uuid' => null,
         'args_array' => null,
         'argv' => null,
+        'backend_alarm_tags' => null,
         'bruteforce_sip' => null,
         'category_name' => null,
         'class' => null,
         'cmd' => null,
         'comm' => null,
         'command_line' => null,
+        'confidence' => null,
         'configuration' => null,
         'configuration_file_hash' => null,
         'connect_info' => null,
@@ -200,6 +217,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'dip' => null,
         'dport' => null,
         'dst_list' => null,
+        'elkeid_save_data' => null,
+        'en_hanced' => null,
         'event_type' => null,
         'exe' => null,
         'exe_hash' => null,
@@ -207,6 +226,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'failure_reason' => null,
         'fd_name' => null,
         'file_downloadable' => null,
+        'file_name' => null,
         'file_path' => null,
         'flags' => null,
         'hash' => null,
@@ -215,6 +235,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'hit_argv_list' => null,
         'hit_data' => null,
         'home_directory' => null,
+        'ip_intelligence' => null,
+        'ip_source' => null,
+        'ip_source_us' => null,
         'image' => null,
         'image_loaded' => null,
         'interrupt_number' => null,
@@ -223,8 +246,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'ioc_severity' => null,
         'ioc_source' => null,
         'ip_address' => null,
+        'is_inner_account' => null,
         'ko_file' => null,
         'ld_preload' => null,
+        'login_count' => null,
         'logon_type' => null,
         'md5_hash' => null,
         'mod_info' => null,
@@ -259,8 +284,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'query_name' => null,
         'query_results' => null,
         'query_status' => null,
+        'root_pns' => null,
         'run_path' => null,
         'sam_account_name' => null,
+        'security_intelligence_complete' => null,
+        'security_intelligence_result' => null,
         'service_account' => null,
         'service_file_name' => null,
         'service_name' => null,
@@ -341,14 +369,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     protected static $attributeMap = [
         'account_expires' => 'AccountExpires',
         'additional_actions_string' => 'AdditionalActionsString',
+        'analysis_record_uuid' => 'AnalysisRecordUUID',
         'args_array' => 'ArgsArray',
         'argv' => 'Argv',
+        'backend_alarm_tags' => 'BackendAlarmTags',
         'bruteforce_sip' => 'BruteforceSip',
         'category_name' => 'CategoryName',
         'class' => 'Class',
         'cmd' => 'Cmd',
         'comm' => 'Comm',
         'command_line' => 'CommandLine',
+        'confidence' => 'Confidence',
         'configuration' => 'Configuration',
         'configuration_file_hash' => 'ConfigurationFileHash',
         'connect_info' => 'ConnectInfo',
@@ -366,6 +397,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'dip' => 'Dip',
         'dport' => 'Dport',
         'dst_list' => 'DstList',
+        'elkeid_save_data' => 'ElkeidSaveData',
+        'en_hanced' => 'EnHanced',
         'event_type' => 'EventType',
         'exe' => 'Exe',
         'exe_hash' => 'ExeHash',
@@ -373,6 +406,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'failure_reason' => 'FailureReason',
         'fd_name' => 'FdName',
         'file_downloadable' => 'FileDownloadable',
+        'file_name' => 'FileName',
         'file_path' => 'FilePath',
         'flags' => 'Flags',
         'hash' => 'Hash',
@@ -381,6 +415,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'hit_argv_list' => 'HitArgvList',
         'hit_data' => 'HitData',
         'home_directory' => 'HomeDirectory',
+        'ip_intelligence' => 'IPIntelligence',
+        'ip_source' => 'IPSource',
+        'ip_source_us' => 'IPSourceUs',
         'image' => 'Image',
         'image_loaded' => 'ImageLoaded',
         'interrupt_number' => 'InterruptNumber',
@@ -389,8 +426,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'ioc_severity' => 'IocSeverity',
         'ioc_source' => 'IocSource',
         'ip_address' => 'IpAddress',
+        'is_inner_account' => 'IsInnerAccount',
         'ko_file' => 'KoFile',
         'ld_preload' => 'LdPreload',
+        'login_count' => 'LoginCount',
         'logon_type' => 'LogonType',
         'md5_hash' => 'Md5Hash',
         'mod_info' => 'ModInfo',
@@ -425,8 +464,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'query_name' => 'QueryName',
         'query_results' => 'QueryResults',
         'query_status' => 'QueryStatus',
+        'root_pns' => 'RootPns',
         'run_path' => 'RunPath',
         'sam_account_name' => 'SamAccountName',
+        'security_intelligence_complete' => 'SecurityIntelligenceComplete',
+        'security_intelligence_result' => 'SecurityIntelligenceResult',
         'service_account' => 'ServiceAccount',
         'service_file_name' => 'ServiceFileName',
         'service_name' => 'ServiceName',
@@ -486,14 +528,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     protected static $setters = [
         'account_expires' => 'setAccountExpires',
         'additional_actions_string' => 'setAdditionalActionsString',
+        'analysis_record_uuid' => 'setAnalysisRecordUuid',
         'args_array' => 'setArgsArray',
         'argv' => 'setArgv',
+        'backend_alarm_tags' => 'setBackendAlarmTags',
         'bruteforce_sip' => 'setBruteforceSip',
         'category_name' => 'setCategoryName',
         'class' => 'setClass',
         'cmd' => 'setCmd',
         'comm' => 'setComm',
         'command_line' => 'setCommandLine',
+        'confidence' => 'setConfidence',
         'configuration' => 'setConfiguration',
         'configuration_file_hash' => 'setConfigurationFileHash',
         'connect_info' => 'setConnectInfo',
@@ -511,6 +556,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'dip' => 'setDip',
         'dport' => 'setDport',
         'dst_list' => 'setDstList',
+        'elkeid_save_data' => 'setElkeidSaveData',
+        'en_hanced' => 'setEnHanced',
         'event_type' => 'setEventType',
         'exe' => 'setExe',
         'exe_hash' => 'setExeHash',
@@ -518,6 +565,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'failure_reason' => 'setFailureReason',
         'fd_name' => 'setFdName',
         'file_downloadable' => 'setFileDownloadable',
+        'file_name' => 'setFileName',
         'file_path' => 'setFilePath',
         'flags' => 'setFlags',
         'hash' => 'setHash',
@@ -526,6 +574,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'hit_argv_list' => 'setHitArgvList',
         'hit_data' => 'setHitData',
         'home_directory' => 'setHomeDirectory',
+        'ip_intelligence' => 'setIpIntelligence',
+        'ip_source' => 'setIpSource',
+        'ip_source_us' => 'setIpSourceUs',
         'image' => 'setImage',
         'image_loaded' => 'setImageLoaded',
         'interrupt_number' => 'setInterruptNumber',
@@ -534,8 +585,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'ioc_severity' => 'setIocSeverity',
         'ioc_source' => 'setIocSource',
         'ip_address' => 'setIpAddress',
+        'is_inner_account' => 'setIsInnerAccount',
         'ko_file' => 'setKoFile',
         'ld_preload' => 'setLdPreload',
+        'login_count' => 'setLoginCount',
         'logon_type' => 'setLogonType',
         'md5_hash' => 'setMd5Hash',
         'mod_info' => 'setModInfo',
@@ -570,8 +623,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'query_name' => 'setQueryName',
         'query_results' => 'setQueryResults',
         'query_status' => 'setQueryStatus',
+        'root_pns' => 'setRootPns',
         'run_path' => 'setRunPath',
         'sam_account_name' => 'setSamAccountName',
+        'security_intelligence_complete' => 'setSecurityIntelligenceComplete',
+        'security_intelligence_result' => 'setSecurityIntelligenceResult',
         'service_account' => 'setServiceAccount',
         'service_file_name' => 'setServiceFileName',
         'service_name' => 'setServiceName',
@@ -631,14 +687,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     protected static $getters = [
         'account_expires' => 'getAccountExpires',
         'additional_actions_string' => 'getAdditionalActionsString',
+        'analysis_record_uuid' => 'getAnalysisRecordUuid',
         'args_array' => 'getArgsArray',
         'argv' => 'getArgv',
+        'backend_alarm_tags' => 'getBackendAlarmTags',
         'bruteforce_sip' => 'getBruteforceSip',
         'category_name' => 'getCategoryName',
         'class' => 'getClass',
         'cmd' => 'getCmd',
         'comm' => 'getComm',
         'command_line' => 'getCommandLine',
+        'confidence' => 'getConfidence',
         'configuration' => 'getConfiguration',
         'configuration_file_hash' => 'getConfigurationFileHash',
         'connect_info' => 'getConnectInfo',
@@ -656,6 +715,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'dip' => 'getDip',
         'dport' => 'getDport',
         'dst_list' => 'getDstList',
+        'elkeid_save_data' => 'getElkeidSaveData',
+        'en_hanced' => 'getEnHanced',
         'event_type' => 'getEventType',
         'exe' => 'getExe',
         'exe_hash' => 'getExeHash',
@@ -663,6 +724,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'failure_reason' => 'getFailureReason',
         'fd_name' => 'getFdName',
         'file_downloadable' => 'getFileDownloadable',
+        'file_name' => 'getFileName',
         'file_path' => 'getFilePath',
         'flags' => 'getFlags',
         'hash' => 'getHash',
@@ -671,6 +733,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'hit_argv_list' => 'getHitArgvList',
         'hit_data' => 'getHitData',
         'home_directory' => 'getHomeDirectory',
+        'ip_intelligence' => 'getIpIntelligence',
+        'ip_source' => 'getIpSource',
+        'ip_source_us' => 'getIpSourceUs',
         'image' => 'getImage',
         'image_loaded' => 'getImageLoaded',
         'interrupt_number' => 'getInterruptNumber',
@@ -679,8 +744,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'ioc_severity' => 'getIocSeverity',
         'ioc_source' => 'getIocSource',
         'ip_address' => 'getIpAddress',
+        'is_inner_account' => 'getIsInnerAccount',
         'ko_file' => 'getKoFile',
         'ld_preload' => 'getLdPreload',
+        'login_count' => 'getLoginCount',
         'logon_type' => 'getLogonType',
         'md5_hash' => 'getMd5Hash',
         'mod_info' => 'getModInfo',
@@ -715,8 +782,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'query_name' => 'getQueryName',
         'query_results' => 'getQueryResults',
         'query_status' => 'getQueryStatus',
+        'root_pns' => 'getRootPns',
         'run_path' => 'getRunPath',
         'sam_account_name' => 'getSamAccountName',
+        'security_intelligence_complete' => 'getSecurityIntelligenceComplete',
+        'security_intelligence_result' => 'getSecurityIntelligenceResult',
         'service_account' => 'getServiceAccount',
         'service_file_name' => 'getServiceFileName',
         'service_name' => 'getServiceName',
@@ -830,14 +900,17 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     {
         $this->container['account_expires'] = isset($data['account_expires']) ? $data['account_expires'] : null;
         $this->container['additional_actions_string'] = isset($data['additional_actions_string']) ? $data['additional_actions_string'] : null;
+        $this->container['analysis_record_uuid'] = isset($data['analysis_record_uuid']) ? $data['analysis_record_uuid'] : null;
         $this->container['args_array'] = isset($data['args_array']) ? $data['args_array'] : null;
         $this->container['argv'] = isset($data['argv']) ? $data['argv'] : null;
+        $this->container['backend_alarm_tags'] = isset($data['backend_alarm_tags']) ? $data['backend_alarm_tags'] : null;
         $this->container['bruteforce_sip'] = isset($data['bruteforce_sip']) ? $data['bruteforce_sip'] : null;
         $this->container['category_name'] = isset($data['category_name']) ? $data['category_name'] : null;
         $this->container['class'] = isset($data['class']) ? $data['class'] : null;
         $this->container['cmd'] = isset($data['cmd']) ? $data['cmd'] : null;
         $this->container['comm'] = isset($data['comm']) ? $data['comm'] : null;
         $this->container['command_line'] = isset($data['command_line']) ? $data['command_line'] : null;
+        $this->container['confidence'] = isset($data['confidence']) ? $data['confidence'] : null;
         $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['configuration_file_hash'] = isset($data['configuration_file_hash']) ? $data['configuration_file_hash'] : null;
         $this->container['connect_info'] = isset($data['connect_info']) ? $data['connect_info'] : null;
@@ -855,6 +928,8 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['dip'] = isset($data['dip']) ? $data['dip'] : null;
         $this->container['dport'] = isset($data['dport']) ? $data['dport'] : null;
         $this->container['dst_list'] = isset($data['dst_list']) ? $data['dst_list'] : null;
+        $this->container['elkeid_save_data'] = isset($data['elkeid_save_data']) ? $data['elkeid_save_data'] : null;
+        $this->container['en_hanced'] = isset($data['en_hanced']) ? $data['en_hanced'] : null;
         $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
         $this->container['exe'] = isset($data['exe']) ? $data['exe'] : null;
         $this->container['exe_hash'] = isset($data['exe_hash']) ? $data['exe_hash'] : null;
@@ -862,6 +937,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['failure_reason'] = isset($data['failure_reason']) ? $data['failure_reason'] : null;
         $this->container['fd_name'] = isset($data['fd_name']) ? $data['fd_name'] : null;
         $this->container['file_downloadable'] = isset($data['file_downloadable']) ? $data['file_downloadable'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
         $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
@@ -870,6 +946,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['hit_argv_list'] = isset($data['hit_argv_list']) ? $data['hit_argv_list'] : null;
         $this->container['hit_data'] = isset($data['hit_data']) ? $data['hit_data'] : null;
         $this->container['home_directory'] = isset($data['home_directory']) ? $data['home_directory'] : null;
+        $this->container['ip_intelligence'] = isset($data['ip_intelligence']) ? $data['ip_intelligence'] : null;
+        $this->container['ip_source'] = isset($data['ip_source']) ? $data['ip_source'] : null;
+        $this->container['ip_source_us'] = isset($data['ip_source_us']) ? $data['ip_source_us'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['image_loaded'] = isset($data['image_loaded']) ? $data['image_loaded'] : null;
         $this->container['interrupt_number'] = isset($data['interrupt_number']) ? $data['interrupt_number'] : null;
@@ -878,8 +957,10 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['ioc_severity'] = isset($data['ioc_severity']) ? $data['ioc_severity'] : null;
         $this->container['ioc_source'] = isset($data['ioc_source']) ? $data['ioc_source'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
+        $this->container['is_inner_account'] = isset($data['is_inner_account']) ? $data['is_inner_account'] : null;
         $this->container['ko_file'] = isset($data['ko_file']) ? $data['ko_file'] : null;
         $this->container['ld_preload'] = isset($data['ld_preload']) ? $data['ld_preload'] : null;
+        $this->container['login_count'] = isset($data['login_count']) ? $data['login_count'] : null;
         $this->container['logon_type'] = isset($data['logon_type']) ? $data['logon_type'] : null;
         $this->container['md5_hash'] = isset($data['md5_hash']) ? $data['md5_hash'] : null;
         $this->container['mod_info'] = isset($data['mod_info']) ? $data['mod_info'] : null;
@@ -914,8 +995,11 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['query_name'] = isset($data['query_name']) ? $data['query_name'] : null;
         $this->container['query_results'] = isset($data['query_results']) ? $data['query_results'] : null;
         $this->container['query_status'] = isset($data['query_status']) ? $data['query_status'] : null;
+        $this->container['root_pns'] = isset($data['root_pns']) ? $data['root_pns'] : null;
         $this->container['run_path'] = isset($data['run_path']) ? $data['run_path'] : null;
         $this->container['sam_account_name'] = isset($data['sam_account_name']) ? $data['sam_account_name'] : null;
+        $this->container['security_intelligence_complete'] = isset($data['security_intelligence_complete']) ? $data['security_intelligence_complete'] : null;
+        $this->container['security_intelligence_result'] = isset($data['security_intelligence_result']) ? $data['security_intelligence_result'] : null;
         $this->container['service_account'] = isset($data['service_account']) ? $data['service_account'] : null;
         $this->container['service_file_name'] = isset($data['service_file_name']) ? $data['service_file_name'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
@@ -1040,6 +1124,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets analysis_record_uuid
+     *
+     * @return string
+     */
+    public function getAnalysisRecordUuid()
+    {
+        return $this->container['analysis_record_uuid'];
+    }
+
+    /**
+     * Sets analysis_record_uuid
+     *
+     * @param string $analysis_record_uuid analysis_record_uuid
+     *
+     * @return $this
+     */
+    public function setAnalysisRecordUuid($analysis_record_uuid)
+    {
+        $this->container['analysis_record_uuid'] = $analysis_record_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets args_array
      *
      * @return string[]
@@ -1083,6 +1191,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setArgv($argv)
     {
         $this->container['argv'] = $argv;
+
+        return $this;
+    }
+
+    /**
+     * Gets backend_alarm_tags
+     *
+     * @return string[]
+     */
+    public function getBackendAlarmTags()
+    {
+        return $this->container['backend_alarm_tags'];
+    }
+
+    /**
+     * Sets backend_alarm_tags
+     *
+     * @param string[] $backend_alarm_tags backend_alarm_tags
+     *
+     * @return $this
+     */
+    public function setBackendAlarmTags($backend_alarm_tags)
+    {
+        $this->container['backend_alarm_tags'] = $backend_alarm_tags;
 
         return $this;
     }
@@ -1227,6 +1359,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setCommandLine($command_line)
     {
         $this->container['command_line'] = $command_line;
+
+        return $this;
+    }
+
+    /**
+     * Gets confidence
+     *
+     * @return string
+     */
+    public function getConfidence()
+    {
+        return $this->container['confidence'];
+    }
+
+    /**
+     * Sets confidence
+     *
+     * @param string $confidence confidence
+     *
+     * @return $this
+     */
+    public function setConfidence($confidence)
+    {
+        $this->container['confidence'] = $confidence;
 
         return $this;
     }
@@ -1640,6 +1796,54 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets elkeid_save_data
+     *
+     * @return \Volcengine\Seccenter20240508\Model\ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput[]
+     */
+    public function getElkeidSaveData()
+    {
+        return $this->container['elkeid_save_data'];
+    }
+
+    /**
+     * Sets elkeid_save_data
+     *
+     * @param \Volcengine\Seccenter20240508\Model\ElkeidSaveDataForGetVirusAlarmSummaryInfoOutput[] $elkeid_save_data elkeid_save_data
+     *
+     * @return $this
+     */
+    public function setElkeidSaveData($elkeid_save_data)
+    {
+        $this->container['elkeid_save_data'] = $elkeid_save_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets en_hanced
+     *
+     * @return string
+     */
+    public function getEnHanced()
+    {
+        return $this->container['en_hanced'];
+    }
+
+    /**
+     * Sets en_hanced
+     *
+     * @param string $en_hanced en_hanced
+     *
+     * @return $this
+     */
+    public function setEnHanced($en_hanced)
+    {
+        $this->container['en_hanced'] = $en_hanced;
+
+        return $this;
+    }
+
+    /**
      * Gets event_type
      *
      * @return string
@@ -1803,6 +2007,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setFileDownloadable($file_downloadable)
     {
         $this->container['file_downloadable'] = $file_downloadable;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
@@ -2000,6 +2228,78 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets ip_intelligence
+     *
+     * @return string
+     */
+    public function getIpIntelligence()
+    {
+        return $this->container['ip_intelligence'];
+    }
+
+    /**
+     * Sets ip_intelligence
+     *
+     * @param string $ip_intelligence ip_intelligence
+     *
+     * @return $this
+     */
+    public function setIpIntelligence($ip_intelligence)
+    {
+        $this->container['ip_intelligence'] = $ip_intelligence;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_source
+     *
+     * @return string
+     */
+    public function getIpSource()
+    {
+        return $this->container['ip_source'];
+    }
+
+    /**
+     * Sets ip_source
+     *
+     * @param string $ip_source ip_source
+     *
+     * @return $this
+     */
+    public function setIpSource($ip_source)
+    {
+        $this->container['ip_source'] = $ip_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_source_us
+     *
+     * @return string
+     */
+    public function getIpSourceUs()
+    {
+        return $this->container['ip_source_us'];
+    }
+
+    /**
+     * Sets ip_source_us
+     *
+     * @param string $ip_source_us ip_source_us
+     *
+     * @return $this
+     */
+    public function setIpSourceUs($ip_source_us)
+    {
+        $this->container['ip_source_us'] = $ip_source_us;
+
+        return $this;
+    }
+
+    /**
      * Gets image
      *
      * @return string
@@ -2192,6 +2492,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets is_inner_account
+     *
+     * @return bool
+     */
+    public function getIsInnerAccount()
+    {
+        return $this->container['is_inner_account'];
+    }
+
+    /**
+     * Sets is_inner_account
+     *
+     * @param bool $is_inner_account is_inner_account
+     *
+     * @return $this
+     */
+    public function setIsInnerAccount($is_inner_account)
+    {
+        $this->container['is_inner_account'] = $is_inner_account;
+
+        return $this;
+    }
+
+    /**
      * Gets ko_file
      *
      * @return string
@@ -2235,6 +2559,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setLdPreload($ld_preload)
     {
         $this->container['ld_preload'] = $ld_preload;
+
+        return $this;
+    }
+
+    /**
+     * Gets login_count
+     *
+     * @return string
+     */
+    public function getLoginCount()
+    {
+        return $this->container['login_count'];
+    }
+
+    /**
+     * Sets login_count
+     *
+     * @param string $login_count login_count
+     *
+     * @return $this
+     */
+    public function setLoginCount($login_count)
+    {
+        $this->container['login_count'] = $login_count;
 
         return $this;
     }
@@ -3056,6 +3404,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets root_pns
+     *
+     * @return string
+     */
+    public function getRootPns()
+    {
+        return $this->container['root_pns'];
+    }
+
+    /**
+     * Sets root_pns
+     *
+     * @param string $root_pns root_pns
+     *
+     * @return $this
+     */
+    public function setRootPns($root_pns)
+    {
+        $this->container['root_pns'] = $root_pns;
+
+        return $this;
+    }
+
+    /**
      * Gets run_path
      *
      * @return string
@@ -3099,6 +3471,54 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setSamAccountName($sam_account_name)
     {
         $this->container['sam_account_name'] = $sam_account_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_complete
+     *
+     * @return bool
+     */
+    public function getSecurityIntelligenceComplete()
+    {
+        return $this->container['security_intelligence_complete'];
+    }
+
+    /**
+     * Sets security_intelligence_complete
+     *
+     * @param bool $security_intelligence_complete security_intelligence_complete
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceComplete($security_intelligence_complete)
+    {
+        $this->container['security_intelligence_complete'] = $security_intelligence_complete;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_result
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceResult()
+    {
+        return $this->container['security_intelligence_result'];
+    }
+
+    /**
+     * Sets security_intelligence_result
+     *
+     * @param string $security_intelligence_result security_intelligence_result
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceResult($security_intelligence_result)
+    {
+        $this->container['security_intelligence_result'] = $security_intelligence_result;
 
         return $this;
     }

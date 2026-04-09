@@ -28,7 +28,7 @@ class VideoProjectSerialTaskCreateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'int',
+        'project_id' => 'string',
         'serial_info' => '\Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialTaskCreateInput[]',
         'task_info' => '\Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialTaskCreateInput'
     ];
@@ -39,7 +39,7 @@ class VideoProjectSerialTaskCreateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => 'int64',
+        'project_id' => null,
         'serial_info' => null,
         'task_info' => null
     ];
@@ -193,7 +193,7 @@ class VideoProjectSerialTaskCreateRequest implements ModelInterface, ArrayAccess
     /**
      * Gets project_id
      *
-     * @return int
+     * @return string
      */
     public function getProjectId()
     {
@@ -203,7 +203,7 @@ class VideoProjectSerialTaskCreateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets project_id
      *
-     * @param int $project_id project_id
+     * @param string $project_id project_id
      *
      * @return $this
      */

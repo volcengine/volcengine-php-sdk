@@ -196,6 +196,9 @@ class ListWhiteListsRequest implements ModelInterface, ArrayAccess
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
         }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 

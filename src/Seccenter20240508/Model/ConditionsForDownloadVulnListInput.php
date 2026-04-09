@@ -31,6 +31,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         'cloud_providers' => 'string[]',
         'cve_id' => 'string',
         'if_high_availability' => 'bool',
+        'is_real_risk_vul' => 'bool',
         'leaf_group_ids' => 'string[]',
         'level' => 'string[]',
         'tag' => 'string[]',
@@ -47,6 +48,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         'cloud_providers' => null,
         'cve_id' => null,
         'if_high_availability' => null,
+        'is_real_risk_vul' => null,
         'leaf_group_ids' => null,
         'level' => null,
         'tag' => null,
@@ -84,6 +86,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         'cloud_providers' => 'CloudProviders',
         'cve_id' => 'CveID',
         'if_high_availability' => 'IfHighAvailability',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'leaf_group_ids' => 'LeafGroupIDs',
         'level' => 'Level',
         'tag' => 'Tag',
@@ -100,6 +103,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         'cloud_providers' => 'setCloudProviders',
         'cve_id' => 'setCveId',
         'if_high_availability' => 'setIfHighAvailability',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'leaf_group_ids' => 'setLeafGroupIds',
         'level' => 'setLevel',
         'tag' => 'setTag',
@@ -116,6 +120,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         'cloud_providers' => 'getCloudProviders',
         'cve_id' => 'getCveId',
         'if_high_availability' => 'getIfHighAvailability',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'leaf_group_ids' => 'getLeafGroupIds',
         'level' => 'getLevel',
         'tag' => 'getTag',
@@ -186,6 +191,7 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;
         $this->container['if_high_availability'] = isset($data['if_high_availability']) ? $data['if_high_availability'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
@@ -285,6 +291,30 @@ class ConditionsForDownloadVulnListInput implements ModelInterface, ArrayAccess
     public function setIfHighAvailability($if_high_availability)
     {
         $this->container['if_high_availability'] = $if_high_availability;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

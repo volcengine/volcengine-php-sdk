@@ -33,6 +33,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         'baseline_list' => '\Volcengine\Seccenter20240508\Model\BaselineListForListBaselineCheckConfigOutput[]',
         'config_id' => 'string',
         'config_name' => 'string',
+        'config_name_en' => 'string',
         'enable' => 'bool',
         'end_time' => 'int',
         'if_all_host' => 'bool',
@@ -61,6 +62,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         'baseline_list' => null,
         'config_id' => null,
         'config_name' => null,
+        'config_name_en' => null,
         'enable' => null,
         'end_time' => 'int64',
         'if_all_host' => null,
@@ -110,6 +112,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         'baseline_list' => 'BaselineList',
         'config_id' => 'ConfigID',
         'config_name' => 'ConfigName',
+        'config_name_en' => 'ConfigNameEn',
         'enable' => 'Enable',
         'end_time' => 'EndTime',
         'if_all_host' => 'IfAllHost',
@@ -138,6 +141,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         'baseline_list' => 'setBaselineList',
         'config_id' => 'setConfigId',
         'config_name' => 'setConfigName',
+        'config_name_en' => 'setConfigNameEn',
         'enable' => 'setEnable',
         'end_time' => 'setEndTime',
         'if_all_host' => 'setIfAllHost',
@@ -166,6 +170,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         'baseline_list' => 'getBaselineList',
         'config_id' => 'getConfigId',
         'config_name' => 'getConfigName',
+        'config_name_en' => 'getConfigNameEn',
         'enable' => 'getEnable',
         'end_time' => 'getEndTime',
         'if_all_host' => 'getIfAllHost',
@@ -248,6 +253,7 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
         $this->container['baseline_list'] = isset($data['baseline_list']) ? $data['baseline_list'] : null;
         $this->container['config_id'] = isset($data['config_id']) ? $data['config_id'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
+        $this->container['config_name_en'] = isset($data['config_name_en']) ? $data['config_name_en'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['if_all_host'] = isset($data['if_all_host']) ? $data['if_all_host'] : null;
@@ -405,6 +411,30 @@ class DataForListBaselineCheckConfigOutput implements ModelInterface, ArrayAcces
     public function setConfigName($config_name)
     {
         $this->container['config_name'] = $config_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets config_name_en
+     *
+     * @return string
+     */
+    public function getConfigNameEn()
+    {
+        return $this->container['config_name_en'];
+    }
+
+    /**
+     * Sets config_name_en
+     *
+     * @param string $config_name_en config_name_en
+     *
+     * @return $this
+     */
+    public function setConfigNameEn($config_name_en)
+    {
+        $this->container['config_name_en'] = $config_name_en;
 
         return $this;
     }

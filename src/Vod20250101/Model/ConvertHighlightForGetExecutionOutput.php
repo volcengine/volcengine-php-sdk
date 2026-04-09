@@ -28,7 +28,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clips' => '\Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]',
+        'clips' => '\Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[]',
         'duration' => 'double',
         'edits' => '\Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput[]',
         'highlight_cuts' => '\Volcengine\Vod20250101\Model\ConvertHighlightCutsForGetExecutionOutput',
@@ -202,7 +202,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     /**
      * Gets clips
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[]
      */
     public function getClips()
     {
@@ -212,7 +212,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     /**
      * Sets clips
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[] $clips clips
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[] $clips clips
      *
      * @return $this
      */

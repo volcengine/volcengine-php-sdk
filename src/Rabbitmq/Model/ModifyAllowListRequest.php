@@ -32,7 +32,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_desc' => 'string',
         'allow_list_id' => 'string',
         'allow_list_name' => 'string',
-        'apply_db_instance_num' => 'int',
+        'apply_instance_num' => 'int',
         'modify_mode' => 'string'
     ];
 
@@ -46,7 +46,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_desc' => null,
         'allow_list_id' => null,
         'allow_list_name' => null,
-        'apply_db_instance_num' => 'int32',
+        'apply_instance_num' => 'int32',
         'modify_mode' => null
     ];
 
@@ -81,7 +81,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_desc' => 'AllowListDesc',
         'allow_list_id' => 'AllowListId',
         'allow_list_name' => 'AllowListName',
-        'apply_db_instance_num' => 'ApplyDBInstanceNum',
+        'apply_instance_num' => 'ApplyInstanceNum',
         'modify_mode' => 'ModifyMode'
     ];
 
@@ -95,7 +95,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_desc' => 'setAllowListDesc',
         'allow_list_id' => 'setAllowListId',
         'allow_list_name' => 'setAllowListName',
-        'apply_db_instance_num' => 'setApplyDbInstanceNum',
+        'apply_instance_num' => 'setApplyInstanceNum',
         'modify_mode' => 'setModifyMode'
     ];
 
@@ -109,7 +109,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_desc' => 'getAllowListDesc',
         'allow_list_id' => 'getAllowListId',
         'allow_list_name' => 'getAllowListName',
-        'apply_db_instance_num' => 'getApplyDbInstanceNum',
+        'apply_instance_num' => 'getApplyInstanceNum',
         'modify_mode' => 'getModifyMode'
     ];
 
@@ -177,7 +177,7 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         $this->container['allow_list_desc'] = isset($data['allow_list_desc']) ? $data['allow_list_desc'] : null;
         $this->container['allow_list_id'] = isset($data['allow_list_id']) ? $data['allow_list_id'] : null;
         $this->container['allow_list_name'] = isset($data['allow_list_name']) ? $data['allow_list_name'] : null;
-        $this->container['apply_db_instance_num'] = isset($data['apply_db_instance_num']) ? $data['apply_db_instance_num'] : null;
+        $this->container['apply_instance_num'] = isset($data['apply_instance_num']) ? $data['apply_instance_num'] : null;
         $this->container['modify_mode'] = isset($data['modify_mode']) ? $data['modify_mode'] : null;
     }
 
@@ -195,9 +195,6 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['allow_list_name'] === null) {
             $invalidProperties[] = "'allow_list_name' can't be null";
-        }
-        if ($this->container['apply_db_instance_num'] === null) {
-            $invalidProperties[] = "'apply_db_instance_num' can't be null";
         }
         return $invalidProperties;
     }
@@ -311,25 +308,25 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets apply_db_instance_num
+     * Gets apply_instance_num
      *
      * @return int
      */
-    public function getApplyDbInstanceNum()
+    public function getApplyInstanceNum()
     {
-        return $this->container['apply_db_instance_num'];
+        return $this->container['apply_instance_num'];
     }
 
     /**
-     * Sets apply_db_instance_num
+     * Sets apply_instance_num
      *
-     * @param int $apply_db_instance_num apply_db_instance_num
+     * @param int $apply_instance_num apply_instance_num
      *
      * @return $this
      */
-    public function setApplyDbInstanceNum($apply_db_instance_num)
+    public function setApplyInstanceNum($apply_instance_num)
     {
-        $this->container['apply_db_instance_num'] = $apply_db_instance_num;
+        $this->container['apply_instance_num'] = $apply_instance_num;
 
         return $this;
     }

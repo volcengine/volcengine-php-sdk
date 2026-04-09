@@ -33,6 +33,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int',
         'description' => 'string',
         'enable_apmplus' => 'bool',
+        'enable_zti_token' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]',
         'exclusive_mode' => 'bool',
         'id' => 'string',
@@ -64,6 +65,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int32',
         'description' => null,
         'enable_apmplus' => null,
+        'enable_zti_token' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'id' => null,
@@ -116,6 +118,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
         'enable_apmplus' => 'EnableApmplus',
+        'enable_zti_token' => 'EnableZTIToken',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'id' => 'Id',
@@ -147,6 +150,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
         'enable_apmplus' => 'setEnableApmplus',
+        'enable_zti_token' => 'setEnableZtiToken',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'id' => 'setId',
@@ -178,6 +182,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
         'enable_apmplus' => 'getEnableApmplus',
+        'enable_zti_token' => 'getEnableZtiToken',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'id' => 'getId',
@@ -263,6 +268,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
+        $this->container['enable_zti_token'] = isset($data['enable_zti_token']) ? $data['enable_zti_token'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -426,6 +432,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setEnableApmplus($enable_apmplus)
     {
         $this->container['enable_apmplus'] = $enable_apmplus;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_zti_token
+     *
+     * @return string
+     */
+    public function getEnableZtiToken()
+    {
+        return $this->container['enable_zti_token'];
+    }
+
+    /**
+     * Sets enable_zti_token
+     *
+     * @param string $enable_zti_token enable_zti_token
+     *
+     * @return $this
+     */
+    public function setEnableZtiToken($enable_zti_token)
+    {
+        $this->container['enable_zti_token'] = $enable_zti_token;
 
         return $this;
     }

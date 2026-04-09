@@ -32,6 +32,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         'container_intrusion' => '\Volcengine\Seccenter20240508\Model\ContainerIntrusionForGetSecurityOverviewOutput',
         'host_intrusion' => '\Volcengine\Seccenter20240508\Model\HostIntrusionForGetSecurityOverviewOutput',
         'rasp_intrusion' => '\Volcengine\Seccenter20240508\Model\RaspIntrusionForGetSecurityOverviewOutput',
+        'real_risk_vul' => '\Volcengine\Seccenter20240508\Model\RealRiskVulForGetSecurityOverviewOutput',
         'virus_file' => '\Volcengine\Seccenter20240508\Model\VirusFileForGetSecurityOverviewOutput',
         'vuln_risk' => '\Volcengine\Seccenter20240508\Model\VulnRiskForGetSecurityOverviewOutput'
     ];
@@ -46,6 +47,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         'container_intrusion' => null,
         'host_intrusion' => null,
         'rasp_intrusion' => null,
+        'real_risk_vul' => null,
         'virus_file' => null,
         'vuln_risk' => null
     ];
@@ -81,6 +83,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         'container_intrusion' => 'ContainerIntrusion',
         'host_intrusion' => 'HostIntrusion',
         'rasp_intrusion' => 'RaspIntrusion',
+        'real_risk_vul' => 'RealRiskVul',
         'virus_file' => 'VirusFile',
         'vuln_risk' => 'VulnRisk'
     ];
@@ -95,6 +98,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         'container_intrusion' => 'setContainerIntrusion',
         'host_intrusion' => 'setHostIntrusion',
         'rasp_intrusion' => 'setRaspIntrusion',
+        'real_risk_vul' => 'setRealRiskVul',
         'virus_file' => 'setVirusFile',
         'vuln_risk' => 'setVulnRisk'
     ];
@@ -109,6 +113,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         'container_intrusion' => 'getContainerIntrusion',
         'host_intrusion' => 'getHostIntrusion',
         'rasp_intrusion' => 'getRaspIntrusion',
+        'real_risk_vul' => 'getRealRiskVul',
         'virus_file' => 'getVirusFile',
         'vuln_risk' => 'getVulnRisk'
     ];
@@ -177,6 +182,7 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
         $this->container['container_intrusion'] = isset($data['container_intrusion']) ? $data['container_intrusion'] : null;
         $this->container['host_intrusion'] = isset($data['host_intrusion']) ? $data['host_intrusion'] : null;
         $this->container['rasp_intrusion'] = isset($data['rasp_intrusion']) ? $data['rasp_intrusion'] : null;
+        $this->container['real_risk_vul'] = isset($data['real_risk_vul']) ? $data['real_risk_vul'] : null;
         $this->container['virus_file'] = isset($data['virus_file']) ? $data['virus_file'] : null;
         $this->container['vuln_risk'] = isset($data['vuln_risk']) ? $data['vuln_risk'] : null;
     }
@@ -297,6 +303,30 @@ class GetSecurityOverviewResponse implements ModelInterface, ArrayAccess
     public function setRaspIntrusion($rasp_intrusion)
     {
         $this->container['rasp_intrusion'] = $rasp_intrusion;
+
+        return $this;
+    }
+
+    /**
+     * Gets real_risk_vul
+     *
+     * @return \Volcengine\Seccenter20240508\Model\RealRiskVulForGetSecurityOverviewOutput
+     */
+    public function getRealRiskVul()
+    {
+        return $this->container['real_risk_vul'];
+    }
+
+    /**
+     * Sets real_risk_vul
+     *
+     * @param \Volcengine\Seccenter20240508\Model\RealRiskVulForGetSecurityOverviewOutput $real_risk_vul real_risk_vul
+     *
+     * @return $this
+     */
+    public function setRealRiskVul($real_risk_vul)
+    {
+        $this->container['real_risk_vul'] = $real_risk_vul;
 
         return $this;
     }

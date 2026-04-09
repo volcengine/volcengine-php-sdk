@@ -227,6 +227,8 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
     const SECRET_TYPE_RDS = 'RDS';
     const SECRET_TYPE_REDIS = 'Redis';
     const SECRET_TYPE_ECS = 'ECS';
+    const SECRET_TYPE_PGSQL = 'PGSQL';
+    const SECRET_TYPE_SQL_SERVER = 'SQLServer';
     
 
     
@@ -257,6 +259,8 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
             self::SECRET_TYPE_RDS,
             self::SECRET_TYPE_REDIS,
             self::SECRET_TYPE_ECS,
+            self::SECRET_TYPE_PGSQL,
+            self::SECRET_TYPE_SQL_SERVER,
         ];
     }
     

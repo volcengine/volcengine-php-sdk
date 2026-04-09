@@ -192,6 +192,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function attachTag($body = null)
+    {
+        list($response) = $this->attachTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function attachTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\AttachTagResponse';
+        $request = $this->attachTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function attachTagAsync($body = null)
+    {
+        return $this->attachTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function attachTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\AttachTagResponse';
+        $request = $this->attachTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function attachTagRequest($body)
+    {
+        $resourcePath = '/AttachTag/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function autoInstallApp($body = null)
     {
         list($response) = $this->autoInstallAppWithHttpInfo($body);
@@ -350,6 +412,130 @@ class ACEPApi
     protected function backupPodRequest($body)
     {
         $resourcePath = '/BackupPod/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function banUser($body = null)
+    {
+        list($response) = $this->banUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function banUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BanUserResponse';
+        $request = $this->banUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function banUserAsync($body = null)
+    {
+        return $this->banUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function banUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BanUserResponse';
+        $request = $this->banUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function banUserRequest($body)
+    {
+        $resourcePath = '/BanUser/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchScreenShot($body = null)
+    {
+        list($response) = $this->batchScreenShotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchScreenShotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BatchScreenShotResponse';
+        $request = $this->batchScreenShotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchScreenShotAsync($body = null)
+    {
+        return $this->batchScreenShotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchScreenShotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BatchScreenShotResponse';
+        $request = $this->batchScreenShotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchScreenShotRequest($body)
+    {
+        $resourcePath = '/BatchScreenShot/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1184,6 +1370,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteApp($body = null)
+    {
+        list($response) = $this->deleteAppWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAppWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteAppResponse';
+        $request = $this->deleteAppRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAppAsync($body = null)
+    {
+        return $this->deleteAppAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAppAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteAppResponse';
+        $request = $this->deleteAppRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAppRequest($body)
+    {
+        $resourcePath = '/DeleteApp/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteBackupData($body = null)
     {
         list($response) = $this->deleteBackupDataWithHttpInfo($body);
@@ -1280,6 +1528,254 @@ class ACEPApi
     protected function deleteCustomRouteRequest($body)
     {
         $resourcePath = '/DeleteCustomRoute/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteDNSRule($body = null)
+    {
+        list($response) = $this->deleteDNSRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteDNSRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteDNSRuleResponse';
+        $request = $this->deleteDNSRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteDNSRuleAsync($body = null)
+    {
+        return $this->deleteDNSRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteDNSRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteDNSRuleResponse';
+        $request = $this->deleteDNSRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteDNSRuleRequest($body)
+    {
+        $resourcePath = '/DeleteDNSRule/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteDisplayLayout($body = null)
+    {
+        list($response) = $this->deleteDisplayLayoutWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteDisplayLayoutWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteDisplayLayoutResponse';
+        $request = $this->deleteDisplayLayoutRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteDisplayLayoutAsync($body = null)
+    {
+        return $this->deleteDisplayLayoutAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteDisplayLayoutAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteDisplayLayoutResponse';
+        $request = $this->deleteDisplayLayoutRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteDisplayLayoutRequest($body)
+    {
+        $resourcePath = '/DeleteDisplayLayout/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePod($body = null)
+    {
+        list($response) = $this->deletePodWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePodWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeletePodResponse';
+        $request = $this->deletePodRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePodAsync($body = null)
+    {
+        return $this->deletePodAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePodAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeletePodResponse';
+        $request = $this->deletePodRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePodRequest($body)
+    {
+        $resourcePath = '/DeletePod/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteTag($body = null)
+    {
+        list($response) = $this->deleteTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteTagResponse';
+        $request = $this->deleteTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteTagAsync($body = null)
+    {
+        return $this->deleteTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteTagResponse';
+        $request = $this->deleteTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteTagRequest($body)
+    {
+        $resourcePath = '/DeleteTag/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3106,6 +3602,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function podAdb($body = null)
+    {
+        list($response) = $this->podAdbWithHttpInfo($body);
+        return $response;
+    }
+
+    public function podAdbWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodAdbResponse';
+        $request = $this->podAdbRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function podAdbAsync($body = null)
+    {
+        return $this->podAdbAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function podAdbAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodAdbResponse';
+        $request = $this->podAdbRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function podAdbRequest($body)
+    {
+        $resourcePath = '/PodAdb/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function podDataDelete($body = null)
     {
         list($response) = $this->podDataDeleteWithHttpInfo($body);
@@ -3140,6 +3698,130 @@ class ACEPApi
     protected function podDataDeleteRequest($body)
     {
         $resourcePath = '/PodDataDelete/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function podMute($body = null)
+    {
+        list($response) = $this->podMuteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function podMuteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodMuteResponse';
+        $request = $this->podMuteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function podMuteAsync($body = null)
+    {
+        return $this->podMuteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function podMuteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodMuteResponse';
+        $request = $this->podMuteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function podMuteRequest($body)
+    {
+        $resourcePath = '/PodMute/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function podStop($body = null)
+    {
+        list($response) = $this->podStopWithHttpInfo($body);
+        return $response;
+    }
+
+    public function podStopWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodStopResponse';
+        $request = $this->podStopRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function podStopAsync($body = null)
+    {
+        return $this->podStopAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function podStopAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\PodStopResponse';
+        $request = $this->podStopRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function podStopRequest($body)
+    {
+        $resourcePath = '/PodStop/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3478,6 +4160,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function rebootPod($body = null)
+    {
+        list($response) = $this->rebootPodWithHttpInfo($body);
+        return $response;
+    }
+
+    public function rebootPodWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\RebootPodResponse';
+        $request = $this->rebootPodRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function rebootPodAsync($body = null)
+    {
+        return $this->rebootPodAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function rebootPodAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\RebootPodResponse';
+        $request = $this->rebootPodRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function rebootPodRequest($body)
+    {
+        $resourcePath = '/RebootPod/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function removePhoneTemplate($body = null)
     {
         list($response) = $this->removePhoneTemplateWithHttpInfo($body);
@@ -3512,6 +4256,68 @@ class ACEPApi
     protected function removePhoneTemplateRequest($body)
     {
         $resourcePath = '/RemovePhoneTemplate/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function renewResourceAuto($body = null)
+    {
+        list($response) = $this->renewResourceAutoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function renewResourceAutoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\RenewResourceAutoResponse';
+        $request = $this->renewResourceAutoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function renewResourceAutoAsync($body = null)
+    {
+        return $this->renewResourceAutoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function renewResourceAutoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\RenewResourceAutoResponse';
+        $request = $this->renewResourceAutoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function renewResourceAutoRequest($body)
+    {
+        $resourcePath = '/RenewResourceAuto/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4222,6 +5028,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function subscribeResourceAuto($body = null)
+    {
+        list($response) = $this->subscribeResourceAutoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function subscribeResourceAutoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\SubscribeResourceAutoResponse';
+        $request = $this->subscribeResourceAutoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function subscribeResourceAutoAsync($body = null)
+    {
+        return $this->subscribeResourceAutoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function subscribeResourceAutoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\SubscribeResourceAutoResponse';
+        $request = $this->subscribeResourceAutoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function subscribeResourceAutoRequest($body)
+    {
+        $resourcePath = '/SubscribeResourceAuto/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function unbindPortMappingRule($body = null)
     {
         list($response) = $this->unbindPortMappingRuleWithHttpInfo($body);
@@ -4470,6 +5338,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateApp($body = null)
+    {
+        list($response) = $this->updateAppWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAppWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateAppResponse';
+        $request = $this->updateAppRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAppAsync($body = null)
+    {
+        return $this->updateAppAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAppAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateAppResponse';
+        $request = $this->updateAppRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAppRequest($body)
+    {
+        $resourcePath = '/UpdateApp/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateCustomRoute($body = null)
     {
         list($response) = $this->updateCustomRouteWithHttpInfo($body);
@@ -4504,6 +5434,130 @@ class ACEPApi
     protected function updateCustomRouteRequest($body)
     {
         $resourcePath = '/UpdateCustomRoute/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateDNSRule($body = null)
+    {
+        list($response) = $this->updateDNSRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateDNSRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateDNSRuleResponse';
+        $request = $this->updateDNSRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateDNSRuleAsync($body = null)
+    {
+        return $this->updateDNSRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateDNSRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateDNSRuleResponse';
+        $request = $this->updateDNSRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateDNSRuleRequest($body)
+    {
+        $resourcePath = '/UpdateDNSRule/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateHost($body = null)
+    {
+        list($response) = $this->updateHostWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateHostWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateHostResponse';
+        $request = $this->updateHostRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateHostAsync($body = null)
+    {
+        return $this->updateHostAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateHostAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateHostResponse';
+        $request = $this->updateHostRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateHostRequest($body)
+    {
+        $resourcePath = '/UpdateHost/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4594,6 +5648,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updatePod($body = null)
+    {
+        list($response) = $this->updatePodWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePodWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdatePodResponse';
+        $request = $this->updatePodRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePodAsync($body = null)
+    {
+        return $this->updatePodAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePodAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdatePodResponse';
+        $request = $this->updatePodRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePodRequest($body)
+    {
+        $resourcePath = '/UpdatePod/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updatePodProperty($body = null)
     {
         list($response) = $this->updatePodPropertyWithHttpInfo($body);
@@ -4628,6 +5744,192 @@ class ACEPApi
     protected function updatePodPropertyRequest($body)
     {
         $resourcePath = '/UpdatePodProperty/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePodResourceApplyNum($body = null)
+    {
+        list($response) = $this->updatePodResourceApplyNumWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePodResourceApplyNumWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdatePodResourceApplyNumResponse';
+        $request = $this->updatePodResourceApplyNumRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePodResourceApplyNumAsync($body = null)
+    {
+        return $this->updatePodResourceApplyNumAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePodResourceApplyNumAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdatePodResourceApplyNumResponse';
+        $request = $this->updatePodResourceApplyNumRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePodResourceApplyNumRequest($body)
+    {
+        $resourcePath = '/UpdatePodResourceApplyNum/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateProductResource($body = null)
+    {
+        list($response) = $this->updateProductResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateProductResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateProductResourceResponse';
+        $request = $this->updateProductResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateProductResourceAsync($body = null)
+    {
+        return $this->updateProductResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateProductResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateProductResourceResponse';
+        $request = $this->updateProductResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateProductResourceRequest($body)
+    {
+        $resourcePath = '/UpdateProductResource/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateTag($body = null)
+    {
+        list($response) = $this->updateTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateTagResponse';
+        $request = $this->updateTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateTagAsync($body = null)
+    {
+        return $this->updateTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateTagResponse';
+        $request = $this->updateTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateTagRequest($body)
+    {
+        $resourcePath = '/UpdateTag/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

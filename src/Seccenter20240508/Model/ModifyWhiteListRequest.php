@@ -31,6 +31,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         'desc' => 'string',
         'id' => 'string',
         'name' => 'string',
+        'range' => '\Volcengine\Seccenter20240508\Model\RangeForModifyWhiteListInput',
         'type' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         'desc' => null,
         'id' => null,
         'name' => null,
+        'range' => null,
         'type' => null
     ];
 
@@ -76,6 +78,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         'desc' => 'Desc',
         'id' => 'ID',
         'name' => 'Name',
+        'range' => 'Range',
         'type' => 'Type'
     ];
 
@@ -88,6 +91,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         'desc' => 'setDesc',
         'id' => 'setId',
         'name' => 'setName',
+        'range' => 'setRange',
         'type' => 'setType'
     ];
 
@@ -100,6 +104,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         'desc' => 'getDesc',
         'id' => 'getId',
         'name' => 'getName',
+        'range' => 'getRange',
         'type' => 'getType'
     ];
 
@@ -166,6 +171,7 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['range'] = isset($data['range']) ? $data['range'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -261,6 +267,30 @@ class ModifyWhiteListRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets range
+     *
+     * @return \Volcengine\Seccenter20240508\Model\RangeForModifyWhiteListInput
+     */
+    public function getRange()
+    {
+        return $this->container['range'];
+    }
+
+    /**
+     * Sets range
+     *
+     * @param \Volcengine\Seccenter20240508\Model\RangeForModifyWhiteListInput $range range
+     *
+     * @return $this
+     */
+    public function setRange($range)
+    {
+        $this->container['range'] = $range;
 
         return $this;
     }

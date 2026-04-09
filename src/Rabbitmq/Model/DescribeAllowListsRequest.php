@@ -67,7 +67,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'region_id' => 'RegionID'
+        'region_id' => 'RegionId'
     ];
 
     /**

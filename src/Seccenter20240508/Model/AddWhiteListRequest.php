@@ -32,6 +32,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         'is_killchain' => 'bool',
         'lang' => 'string',
         'match_alarm_name' => 'string',
+        'match_name' => 'string',
         'range' => '\Volcengine\Seccenter20240508\Model\RangeForAddWhiteListInput',
         'rule_list' => '\Volcengine\Seccenter20240508\Model\RuleListForAddWhiteListInput[]',
         'type' => 'string',
@@ -48,6 +49,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         'is_killchain' => null,
         'lang' => null,
         'match_alarm_name' => null,
+        'match_name' => null,
         'range' => null,
         'rule_list' => null,
         'type' => null,
@@ -85,6 +87,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         'is_killchain' => 'IsKillchain',
         'lang' => 'Lang',
         'match_alarm_name' => 'MatchAlarmName',
+        'match_name' => 'MatchName',
         'range' => 'Range',
         'rule_list' => 'RuleList',
         'type' => 'Type',
@@ -101,6 +104,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         'is_killchain' => 'setIsKillchain',
         'lang' => 'setLang',
         'match_alarm_name' => 'setMatchAlarmName',
+        'match_name' => 'setMatchName',
         'range' => 'setRange',
         'rule_list' => 'setRuleList',
         'type' => 'setType',
@@ -117,6 +121,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         'is_killchain' => 'getIsKillchain',
         'lang' => 'getLang',
         'match_alarm_name' => 'getMatchAlarmName',
+        'match_name' => 'getMatchName',
         'range' => 'getRange',
         'rule_list' => 'getRuleList',
         'type' => 'getType',
@@ -187,6 +192,7 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
         $this->container['is_killchain'] = isset($data['is_killchain']) ? $data['is_killchain'] : null;
         $this->container['lang'] = isset($data['lang']) ? $data['lang'] : null;
         $this->container['match_alarm_name'] = isset($data['match_alarm_name']) ? $data['match_alarm_name'] : null;
+        $this->container['match_name'] = isset($data['match_name']) ? $data['match_name'] : null;
         $this->container['range'] = isset($data['range']) ? $data['range'] : null;
         $this->container['rule_list'] = isset($data['rule_list']) ? $data['rule_list'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -202,6 +208,9 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -309,6 +318,30 @@ class AddWhiteListRequest implements ModelInterface, ArrayAccess
     public function setMatchAlarmName($match_alarm_name)
     {
         $this->container['match_alarm_name'] = $match_alarm_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_name
+     *
+     * @return string
+     */
+    public function getMatchName()
+    {
+        return $this->container['match_name'];
+    }
+
+    /**
+     * Sets match_name
+     *
+     * @param string $match_name match_name
+     *
+     * @return $this
+     */
+    public function setMatchName($match_name)
+    {
+        $this->container['match_name'] = $match_name;
 
         return $this;
     }

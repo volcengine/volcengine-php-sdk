@@ -160,9 +160,6 @@ class StopMLPAssetSyncTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['task_id'] === null) {
-            $invalidProperties[] = "'task_id' can't be null";
-        }
         return $invalidProperties;
     }
 

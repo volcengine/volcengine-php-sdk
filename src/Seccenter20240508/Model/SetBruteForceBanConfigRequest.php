@@ -41,6 +41,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         'manager_id' => 'string',
         'operator' => 'string',
         'rule_list' => '\Volcengine\Seccenter20240508\Model\RuleListForSetBruteForceBanConfigInput[]',
+        'single_group_path' => 'string',
+        'single_hostname' => 'string',
         'top_group_id' => 'string'
     ];
 
@@ -63,6 +65,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         'manager_id' => null,
         'operator' => null,
         'rule_list' => null,
+        'single_group_path' => null,
+        'single_hostname' => null,
         'top_group_id' => null
     ];
 
@@ -106,6 +110,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         'manager_id' => 'ManagerID',
         'operator' => 'Operator',
         'rule_list' => 'RuleList',
+        'single_group_path' => 'SingleGroupPath',
+        'single_hostname' => 'SingleHostname',
         'top_group_id' => 'TopGroupID'
     ];
 
@@ -128,6 +134,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         'manager_id' => 'setManagerId',
         'operator' => 'setOperator',
         'rule_list' => 'setRuleList',
+        'single_group_path' => 'setSingleGroupPath',
+        'single_hostname' => 'setSingleHostname',
         'top_group_id' => 'setTopGroupId'
     ];
 
@@ -150,6 +158,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         'manager_id' => 'getManagerId',
         'operator' => 'getOperator',
         'rule_list' => 'getRuleList',
+        'single_group_path' => 'getSingleGroupPath',
+        'single_hostname' => 'getSingleHostname',
         'top_group_id' => 'getTopGroupId'
     ];
 
@@ -226,6 +236,8 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
         $this->container['manager_id'] = isset($data['manager_id']) ? $data['manager_id'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['rule_list'] = isset($data['rule_list']) ? $data['rule_list'] : null;
+        $this->container['single_group_path'] = isset($data['single_group_path']) ? $data['single_group_path'] : null;
+        $this->container['single_hostname'] = isset($data['single_hostname']) ? $data['single_hostname'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
     }
 
@@ -561,6 +573,54 @@ class SetBruteForceBanConfigRequest implements ModelInterface, ArrayAccess
     public function setRuleList($rule_list)
     {
         $this->container['rule_list'] = $rule_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_group_path
+     *
+     * @return string
+     */
+    public function getSingleGroupPath()
+    {
+        return $this->container['single_group_path'];
+    }
+
+    /**
+     * Sets single_group_path
+     *
+     * @param string $single_group_path single_group_path
+     *
+     * @return $this
+     */
+    public function setSingleGroupPath($single_group_path)
+    {
+        $this->container['single_group_path'] = $single_group_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_hostname
+     *
+     * @return string
+     */
+    public function getSingleHostname()
+    {
+        return $this->container['single_hostname'];
+    }
+
+    /**
+     * Sets single_hostname
+     *
+     * @param string $single_hostname single_hostname
+     *
+     * @return $this
+     */
+    public function setSingleHostname($single_hostname)
+    {
+        $this->container['single_hostname'] = $single_hostname;
 
         return $this;
     }

@@ -39,6 +39,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'dr_dts_task_name' => 'string',
         'dr_dts_task_status' => 'string',
         'dr_seconds_behind_master' => 'int',
+        'engine_type' => 'string',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_status' => 'string',
@@ -49,6 +50,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'master_instance_name' => 'string',
         'master_region' => 'string',
         'memory' => 'int',
+        'new_node_spec' => 'string',
         'node_number' => 'string',
         'node_spec' => 'string',
         'project_name' => 'string',
@@ -82,6 +84,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'dr_dts_task_name' => null,
         'dr_dts_task_status' => null,
         'dr_seconds_behind_master' => 'int32',
+        'engine_type' => null,
         'instance_id' => null,
         'instance_name' => null,
         'instance_status' => null,
@@ -92,6 +95,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'master_instance_name' => null,
         'master_region' => null,
         'memory' => 'int32',
+        'new_node_spec' => null,
         'node_number' => null,
         'node_spec' => null,
         'project_name' => null,
@@ -146,6 +150,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'dr_dts_task_name' => 'DrDtsTaskName',
         'dr_dts_task_status' => 'DrDtsTaskStatus',
         'dr_seconds_behind_master' => 'DrSecondsBehindMaster',
+        'engine_type' => 'EngineType',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
@@ -156,6 +161,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'master_instance_name' => 'MasterInstanceName',
         'master_region' => 'MasterRegion',
         'memory' => 'Memory',
+        'new_node_spec' => 'NewNodeSpec',
         'node_number' => 'NodeNumber',
         'node_spec' => 'NodeSpec',
         'project_name' => 'ProjectName',
@@ -189,6 +195,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'dr_dts_task_name' => 'setDrDtsTaskName',
         'dr_dts_task_status' => 'setDrDtsTaskStatus',
         'dr_seconds_behind_master' => 'setDrSecondsBehindMaster',
+        'engine_type' => 'setEngineType',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
@@ -199,6 +206,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'master_instance_name' => 'setMasterInstanceName',
         'master_region' => 'setMasterRegion',
         'memory' => 'setMemory',
+        'new_node_spec' => 'setNewNodeSpec',
         'node_number' => 'setNodeNumber',
         'node_spec' => 'setNodeSpec',
         'project_name' => 'setProjectName',
@@ -232,6 +240,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'dr_dts_task_name' => 'getDrDtsTaskName',
         'dr_dts_task_status' => 'getDrDtsTaskStatus',
         'dr_seconds_behind_master' => 'getDrSecondsBehindMaster',
+        'engine_type' => 'getEngineType',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
@@ -242,6 +251,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'master_instance_name' => 'getMasterInstanceName',
         'master_region' => 'getMasterRegion',
         'memory' => 'getMemory',
+        'new_node_spec' => 'getNewNodeSpec',
         'node_number' => 'getNodeNumber',
         'node_spec' => 'getNodeSpec',
         'project_name' => 'getProjectName',
@@ -329,6 +339,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         $this->container['dr_dts_task_name'] = isset($data['dr_dts_task_name']) ? $data['dr_dts_task_name'] : null;
         $this->container['dr_dts_task_status'] = isset($data['dr_dts_task_status']) ? $data['dr_dts_task_status'] : null;
         $this->container['dr_seconds_behind_master'] = isset($data['dr_seconds_behind_master']) ? $data['dr_seconds_behind_master'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
@@ -339,6 +350,7 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         $this->container['master_instance_name'] = isset($data['master_instance_name']) ? $data['master_instance_name'] : null;
         $this->container['master_region'] = isset($data['master_region']) ? $data['master_region'] : null;
         $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
+        $this->container['new_node_spec'] = isset($data['new_node_spec']) ? $data['new_node_spec'] : null;
         $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
         $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -644,6 +656,30 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
     }
 
     /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -879,6 +915,30 @@ class BasicInfoForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
     public function setMemory($memory)
     {
         $this->container['memory'] = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_node_spec
+     *
+     * @return string
+     */
+    public function getNewNodeSpec()
+    {
+        return $this->container['new_node_spec'];
+    }
+
+    /**
+     * Sets new_node_spec
+     *
+     * @param string $new_node_spec new_node_spec
+     *
+     * @return $this
+     */
+    public function setNewNodeSpec($new_node_spec)
+    {
+        $this->container['new_node_spec'] = $new_node_spec;
 
         return $this;
     }

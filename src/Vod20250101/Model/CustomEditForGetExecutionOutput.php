@@ -29,7 +29,7 @@ class CustomEditForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'canvas' => '\Volcengine\Vod20250101\Model\CanvasForGetExecutionOutput',
-        'output' => '\Volcengine\Vod20250101\Model\OutputForGetExecutionOutput'
+        'output' => '\Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput'
     ];
 
     /**
@@ -208,7 +208,7 @@ class CustomEditForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\OutputForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput
      */
     public function getOutput()
     {
@@ -218,7 +218,7 @@ class CustomEditForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\OutputForGetExecutionOutput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput $output output
      *
      * @return $this
      */

@@ -37,8 +37,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'platform' => 'string',
         'ports' => '\Volcengine\Seccenter20240508\Model\PortForGetDevDetailOutput[]',
         'private_ip' => 'string',
+        'protect_status' => 'string',
         'public_ip' => 'string',
         'region' => 'string',
+        'security_enhancement' => 'bool',
         'status' => 'string',
         'storages' => '\Volcengine\Seccenter20240508\Model\StorageForGetDevDetailOutput[]',
         'volume' => '\Volcengine\Seccenter20240508\Model\VolumeForGetDevDetailOutput',
@@ -60,8 +62,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'platform' => null,
         'ports' => null,
         'private_ip' => null,
+        'protect_status' => null,
         'public_ip' => null,
         'region' => null,
+        'security_enhancement' => null,
         'status' => null,
         'storages' => null,
         'volume' => null,
@@ -104,8 +108,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'platform' => 'Platform',
         'ports' => 'Ports',
         'private_ip' => 'PrivateIP',
+        'protect_status' => 'ProtectStatus',
         'public_ip' => 'PublicIP',
         'region' => 'Region',
+        'security_enhancement' => 'SecurityEnhancement',
         'status' => 'Status',
         'storages' => 'Storages',
         'volume' => 'Volume',
@@ -127,8 +133,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'platform' => 'setPlatform',
         'ports' => 'setPorts',
         'private_ip' => 'setPrivateIp',
+        'protect_status' => 'setProtectStatus',
         'public_ip' => 'setPublicIp',
         'region' => 'setRegion',
+        'security_enhancement' => 'setSecurityEnhancement',
         'status' => 'setStatus',
         'storages' => 'setStorages',
         'volume' => 'setVolume',
@@ -150,8 +158,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'platform' => 'getPlatform',
         'ports' => 'getPorts',
         'private_ip' => 'getPrivateIp',
+        'protect_status' => 'getProtectStatus',
         'public_ip' => 'getPublicIp',
         'region' => 'getRegion',
+        'security_enhancement' => 'getSecurityEnhancement',
         'status' => 'getStatus',
         'storages' => 'getStorages',
         'volume' => 'getVolume',
@@ -227,8 +237,10 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['storages'] = isset($data['storages']) ? $data['storages'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
@@ -476,6 +488,30 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets public_ip
      *
      * @return string
@@ -519,6 +555,30 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }

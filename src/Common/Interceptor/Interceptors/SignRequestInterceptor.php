@@ -40,7 +40,13 @@ class SignRequestInterceptor extends Interceptor
                 $request->sessionToken,
                 $request->host
             );
-            $request->presignedUrl = $request->schema . '://' . $request->host . $signedPath;
+            if ($request->host) {
+                $request->presignedUrl = $request->schema . '://' . $request->host . $signedPath;
+            } else {
+                // No host: return query string only
+                $pos = strpos($signedPath, '?');
+                $request->presignedUrl = $pos !== false ? substr($signedPath, $pos + 1) : $signedPath;
+            }
         } else {
             $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);

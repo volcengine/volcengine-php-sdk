@@ -34,7 +34,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'meta' => '\Volcengine\Vod20250101\Model\MetaForGetExecutionOutput',
         'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]',
         'operation' => '\Volcengine\Vod20250101\Model\ConvertOperationForGetExecutionOutput',
-        'output' => '\Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput',
+        'output' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertOutputForGetExecutionOutput',
         'run_id' => 'string',
         'space_name' => 'string',
         'status' => 'string'
@@ -376,7 +376,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertOutputForGetExecutionOutput
      */
     public function getOutput()
     {
@@ -386,7 +386,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertOutputForGetExecutionOutput $output output
      *
      * @return $this
      */

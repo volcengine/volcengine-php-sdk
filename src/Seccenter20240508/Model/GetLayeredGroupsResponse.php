@@ -28,7 +28,7 @@ class GetLayeredGroupsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => 'string[]'
+        'data' => '\Volcengine\Seccenter20240508\Model\DataForGetLayeredGroupsOutput[]'
     ];
 
     /**
@@ -178,7 +178,7 @@ class GetLayeredGroupsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return string[]
+     * @return \Volcengine\Seccenter20240508\Model\DataForGetLayeredGroupsOutput[]
      */
     public function getData()
     {
@@ -188,7 +188,7 @@ class GetLayeredGroupsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param string[] $data data
+     * @param \Volcengine\Seccenter20240508\Model\DataForGetLayeredGroupsOutput[] $data data
      *
      * @return $this
      */

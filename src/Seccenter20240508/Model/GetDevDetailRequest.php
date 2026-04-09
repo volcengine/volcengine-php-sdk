@@ -160,9 +160,6 @@ class GetDevDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asset_id'] === null) {
-            $invalidProperties[] = "'asset_id' can't be null";
-        }
         return $invalidProperties;
     }
 

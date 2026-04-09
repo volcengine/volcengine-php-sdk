@@ -36,8 +36,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'pid' => 'string',
         'private_ip' => 'string',
+        'protect_status' => 'string',
         'protocol' => 'string',
         'public_ip' => 'string',
+        'security_enhancement' => 'bool',
         'sip' => 'string',
         'sport' => 'string',
         'start_time' => 'int',
@@ -61,8 +63,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'pid' => null,
         'private_ip' => null,
+        'protect_status' => null,
         'protocol' => null,
         'public_ip' => null,
+        'security_enhancement' => null,
         'sip' => null,
         'sport' => null,
         'start_time' => 'int64',
@@ -107,8 +111,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'id' => 'ID',
         'pid' => 'Pid',
         'private_ip' => 'PrivateIP',
+        'protect_status' => 'ProtectStatus',
         'protocol' => 'Protocol',
         'public_ip' => 'PublicIP',
+        'security_enhancement' => 'SecurityEnhancement',
         'sip' => 'Sip',
         'sport' => 'Sport',
         'start_time' => 'StartTime',
@@ -132,8 +138,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'pid' => 'setPid',
         'private_ip' => 'setPrivateIp',
+        'protect_status' => 'setProtectStatus',
         'protocol' => 'setProtocol',
         'public_ip' => 'setPublicIp',
+        'security_enhancement' => 'setSecurityEnhancement',
         'sip' => 'setSip',
         'sport' => 'setSport',
         'start_time' => 'setStartTime',
@@ -157,8 +165,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'pid' => 'getPid',
         'private_ip' => 'getPrivateIp',
+        'protect_status' => 'getProtectStatus',
         'protocol' => 'getProtocol',
         'public_ip' => 'getPublicIp',
+        'security_enhancement' => 'getSecurityEnhancement',
         'sip' => 'getSip',
         'sport' => 'getSport',
         'start_time' => 'getStartTime',
@@ -236,8 +246,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
         $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['sip'] = isset($data['sip']) ? $data['sip'] : null;
         $this->container['sport'] = isset($data['sport']) ? $data['sport'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
@@ -464,6 +476,30 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets protocol
      *
      * @return string
@@ -507,6 +543,30 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
     public function setPublicIp($public_ip)
     {
         $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }
