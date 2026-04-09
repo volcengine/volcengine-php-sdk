@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'textValidateForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_text_validate' => 'bool',
-        'target_text_validate' => 'bool'
+        'built_in_emotion_tags' => '\Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]',
+        'custom_emotion_tags' => '\Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_text_validate' => null,
-        'target_text_validate' => null
+        'built_in_emotion_tags' => null,
+        'custom_emotion_tags' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_text_validate' => 'sourceTextValidate',
-        'target_text_validate' => 'targetTextValidate'
+        'built_in_emotion_tags' => 'builtInEmotionTags',
+        'custom_emotion_tags' => 'customEmotionTags'
     ];
 
     /**
@@ -79,8 +79,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'source_text_validate' => 'setSourceTextValidate',
-        'target_text_validate' => 'setTargetTextValidate'
+        'built_in_emotion_tags' => 'setBuiltInEmotionTags',
+        'custom_emotion_tags' => 'setCustomEmotionTags'
     ];
 
     /**
@@ -89,8 +89,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'source_text_validate' => 'getSourceTextValidate',
-        'target_text_validate' => 'getTargetTextValidate'
+        'built_in_emotion_tags' => 'getBuiltInEmotionTags',
+        'custom_emotion_tags' => 'getCustomEmotionTags'
     ];
 
     /**
@@ -153,8 +153,8 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['source_text_validate'] = isset($data['source_text_validate']) ? $data['source_text_validate'] : null;
-        $this->container['target_text_validate'] = isset($data['target_text_validate']) ? $data['target_text_validate'] : null;
+        $this->container['built_in_emotion_tags'] = isset($data['built_in_emotion_tags']) ? $data['built_in_emotion_tags'] : null;
+        $this->container['custom_emotion_tags'] = isset($data['custom_emotion_tags']) ? $data['custom_emotion_tags'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets source_text_validate
+     * Gets built_in_emotion_tags
      *
-     * @return bool
+     * @return \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]
      */
-    public function getSourceTextValidate()
+    public function getBuiltInEmotionTags()
     {
-        return $this->container['source_text_validate'];
+        return $this->container['built_in_emotion_tags'];
     }
 
     /**
-     * Sets source_text_validate
+     * Sets built_in_emotion_tags
      *
-     * @param bool $source_text_validate source_text_validate
+     * @param \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[] $built_in_emotion_tags built_in_emotion_tags
      *
      * @return $this
      */
-    public function setSourceTextValidate($source_text_validate)
+    public function setBuiltInEmotionTags($built_in_emotion_tags)
     {
-        $this->container['source_text_validate'] = $source_text_validate;
+        $this->container['built_in_emotion_tags'] = $built_in_emotion_tags;
 
         return $this;
     }
 
     /**
-     * Gets target_text_validate
+     * Gets custom_emotion_tags
      *
-     * @return bool
+     * @return \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]
      */
-    public function getTargetTextValidate()
+    public function getCustomEmotionTags()
     {
-        return $this->container['target_text_validate'];
+        return $this->container['custom_emotion_tags'];
     }
 
     /**
-     * Sets target_text_validate
+     * Sets custom_emotion_tags
      *
-     * @param bool $target_text_validate target_text_validate
+     * @param \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[] $custom_emotion_tags custom_emotion_tags
      *
      * @return $this
      */
-    public function setTargetTextValidate($target_text_validate)
+    public function setCustomEmotionTags($custom_emotion_tags)
     {
-        $this->container['target_text_validate'] = $target_text_validate;
+        $this->container['custom_emotion_tags'] = $custom_emotion_tags;
 
         return $this;
     }

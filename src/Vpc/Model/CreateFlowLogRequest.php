@@ -31,6 +31,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'aggregation_interval' => 'int',
         'client_token' => 'string',
         'description' => 'string',
+        'enable_index' => 'bool',
         'flow_log_name' => 'string',
         'log_project_name' => 'string',
         'log_topic_name' => 'string',
@@ -50,6 +51,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'aggregation_interval' => null,
         'client_token' => null,
         'description' => null,
+        'enable_index' => null,
         'flow_log_name' => null,
         'log_project_name' => null,
         'log_topic_name' => null,
@@ -90,6 +92,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'aggregation_interval' => 'AggregationInterval',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'enable_index' => 'EnableIndex',
         'flow_log_name' => 'FlowLogName',
         'log_project_name' => 'LogProjectName',
         'log_topic_name' => 'LogTopicName',
@@ -109,6 +112,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'aggregation_interval' => 'setAggregationInterval',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'enable_index' => 'setEnableIndex',
         'flow_log_name' => 'setFlowLogName',
         'log_project_name' => 'setLogProjectName',
         'log_topic_name' => 'setLogTopicName',
@@ -128,6 +132,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'aggregation_interval' => 'getAggregationInterval',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'enable_index' => 'getEnableIndex',
         'flow_log_name' => 'getFlowLogName',
         'log_project_name' => 'getLogProjectName',
         'log_topic_name' => 'getLogTopicName',
@@ -201,6 +206,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_index'] = isset($data['enable_index']) ? $data['enable_index'] : null;
         $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
         $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
         $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
@@ -324,6 +330,30 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_index
+     *
+     * @return bool
+     */
+    public function getEnableIndex()
+    {
+        return $this->container['enable_index'];
+    }
+
+    /**
+     * Sets enable_index
+     *
+     * @param bool $enable_index enable_index
+     *
+     * @return $this
+     */
+    public function setEnableIndex($enable_index)
+    {
+        $this->container['enable_index'] = $enable_index;
 
         return $this;
     }

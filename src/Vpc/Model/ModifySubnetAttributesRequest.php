@@ -32,7 +32,8 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         'enable_ipv6' => 'bool',
         'ipv6_cidr_block' => 'int',
         'subnet_id' => 'string',
-        'subnet_name' => 'string'
+        'subnet_name' => 'string',
+        'vpc_ipv6_cidr_block' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         'enable_ipv6' => null,
         'ipv6_cidr_block' => null,
         'subnet_id' => null,
-        'subnet_name' => null
+        'subnet_name' => null,
+        'vpc_ipv6_cidr_block' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         'enable_ipv6' => 'EnableIpv6',
         'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'subnet_id' => 'SubnetId',
-        'subnet_name' => 'SubnetName'
+        'subnet_name' => 'SubnetName',
+        'vpc_ipv6_cidr_block' => 'VpcIpv6CidrBlock'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         'enable_ipv6' => 'setEnableIpv6',
         'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'subnet_id' => 'setSubnetId',
-        'subnet_name' => 'setSubnetName'
+        'subnet_name' => 'setSubnetName',
+        'vpc_ipv6_cidr_block' => 'setVpcIpv6CidrBlock'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         'enable_ipv6' => 'getEnableIpv6',
         'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'subnet_id' => 'getSubnetId',
-        'subnet_name' => 'getSubnetName'
+        'subnet_name' => 'getSubnetName',
+        'vpc_ipv6_cidr_block' => 'getVpcIpv6CidrBlock'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
         $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['subnet_name'] = isset($data['subnet_name']) ? $data['subnet_name'] : null;
+        $this->container['vpc_ipv6_cidr_block'] = isset($data['vpc_ipv6_cidr_block']) ? $data['vpc_ipv6_cidr_block'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class ModifySubnetAttributesRequest implements ModelInterface, ArrayAccess
     public function setSubnetName($subnet_name)
     {
         $this->container['subnet_name'] = $subnet_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getVpcIpv6CidrBlock()
+    {
+        return $this->container['vpc_ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets vpc_ipv6_cidr_block
+     *
+     * @param string $vpc_ipv6_cidr_block vpc_ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setVpcIpv6CidrBlock($vpc_ipv6_cidr_block)
+    {
+        $this->container['vpc_ipv6_cidr_block'] = $vpc_ipv6_cidr_block;
 
         return $this;
     }

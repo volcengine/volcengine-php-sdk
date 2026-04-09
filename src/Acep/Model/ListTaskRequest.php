@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class ListTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'extraForVideoProjectListOutput';
+    protected static $swaggerModelName = 'ListTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'setting' => '\Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'product_id' => 'string',
+        'task_action' => 'string',
+        'task_id' => 'string',
+        'task_result' => 'int'
     ];
 
     /**
@@ -37,7 +42,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'setting' => null
+        'max_results' => 'int32',
+        'next_token' => null,
+        'product_id' => null,
+        'task_action' => null,
+        'task_id' => null,
+        'task_result' => 'int64'
     ];
 
     /**
@@ -67,7 +77,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'setting' => 'setting'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'product_id' => 'ProductId',
+        'task_action' => 'TaskAction',
+        'task_id' => 'TaskId',
+        'task_result' => 'TaskResult'
     ];
 
     /**
@@ -76,7 +91,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'setting' => 'setSetting'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'product_id' => 'setProductId',
+        'task_action' => 'setTaskAction',
+        'task_id' => 'setTaskId',
+        'task_result' => 'setTaskResult'
     ];
 
     /**
@@ -85,7 +105,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'setting' => 'getSetting'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'product_id' => 'getProductId',
+        'task_action' => 'getTaskAction',
+        'task_id' => 'getTaskId',
+        'task_result' => 'getTaskResult'
     ];
 
     /**
@@ -148,7 +173,12 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['setting'] = isset($data['setting']) ? $data['setting'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['task_action'] = isset($data['task_action']) ? $data['task_action'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_result'] = isset($data['task_result']) ? $data['task_result'] : null;
     }
 
     /**
@@ -160,6 +190,9 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +209,145 @@ class ExtraForVideoProjectListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets setting
+     * Gets max_results
      *
-     * @return \Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput
+     * @return int
      */
-    public function getSetting()
+    public function getMaxResults()
     {
-        return $this->container['setting'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets setting
+     * Sets max_results
      *
-     * @param \Volcengine\I18nopenapi\Model\SettingForVideoProjectListOutput $setting setting
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setSetting($setting)
+    public function setMaxResults($max_results)
     {
-        $this->container['setting'] = $setting;
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_action
+     *
+     * @return string
+     */
+    public function getTaskAction()
+    {
+        return $this->container['task_action'];
+    }
+
+    /**
+     * Sets task_action
+     *
+     * @param string $task_action task_action
+     *
+     * @return $this
+     */
+    public function setTaskAction($task_action)
+    {
+        $this->container['task_action'] = $task_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_result
+     *
+     * @return int
+     */
+    public function getTaskResult()
+    {
+        return $this->container['task_result'];
+    }
+
+    /**
+     * Sets task_result
+     *
+     * @param int $task_result task_result
+     *
+     * @return $this
+     */
+    public function setTaskResult($task_result)
+    {
+        $this->container['task_result'] = $task_result;
 
         return $this;
     }

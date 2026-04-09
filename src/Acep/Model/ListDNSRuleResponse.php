@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
+class ListDNSRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'extraForProjectsOutput';
+    protected static $swaggerModelName = 'ListDNSRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'setting' => '\Volcengine\I18nopenapi\Model\SettingForProjectsOutput'
+        'row' => '\Volcengine\Acep\Model\RowForListDNSRuleOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'setting' => null
+        'row' => null,
+        'total' => 'int64'
     ];
 
     /**
@@ -67,7 +69,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'setting' => 'setting'
+        'row' => 'Row',
+        'total' => 'Total'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'setting' => 'setSetting'
+        'row' => 'setRow',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'setting' => 'getSetting'
+        'row' => 'getRow',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -148,7 +153,8 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['setting'] = isset($data['setting']) ? $data['setting'] : null;
+        $this->container['row'] = isset($data['row']) ? $data['row'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class ExtraForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets setting
+     * Gets row
      *
-     * @return \Volcengine\I18nopenapi\Model\SettingForProjectsOutput
+     * @return \Volcengine\Acep\Model\RowForListDNSRuleOutput[]
      */
-    public function getSetting()
+    public function getRow()
     {
-        return $this->container['setting'];
+        return $this->container['row'];
     }
 
     /**
-     * Sets setting
+     * Sets row
      *
-     * @param \Volcengine\I18nopenapi\Model\SettingForProjectsOutput $setting setting
+     * @param \Volcengine\Acep\Model\RowForListDNSRuleOutput[] $row row
      *
      * @return $this
      */
-    public function setSetting($setting)
+    public function setRow($row)
     {
-        $this->container['setting'] = $setting;
+        $this->container['row'] = $row;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

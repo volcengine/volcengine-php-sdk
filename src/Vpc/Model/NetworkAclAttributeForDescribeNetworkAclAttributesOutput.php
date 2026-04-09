@@ -28,6 +28,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'account_id' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'egress_acl_entries' => '\Volcengine\Vpc\Model\EgressAclEntryForDescribeNetworkAclAttributesOutput[]',
@@ -48,6 +49,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'account_id' => null,
         'creation_time' => null,
         'description' => null,
         'egress_acl_entries' => null,
@@ -89,6 +91,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'AccountId',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'egress_acl_entries' => 'EgressAclEntries',
@@ -109,6 +112,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'egress_acl_entries' => 'setEgressAclEntries',
@@ -129,6 +133,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'egress_acl_entries' => 'getEgressAclEntries',
@@ -203,6 +208,7 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
      */
     public function __construct($data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['egress_acl_entries'] = isset($data['egress_acl_entries']) ? $data['egress_acl_entries'] : null;
@@ -240,6 +246,30 @@ class NetworkAclAttributeForDescribeNetworkAclAttributesOutput implements ModelI
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
 
     /**
      * Gets creation_time

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Vpc\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
+class AttachmentForDescribeNetworkInterfaceAttributesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'autoFillTargetTextForProjectsOutput';
+    protected static $swaggerModelName = 'AttachmentForDescribeNetworkInterfaceAttributesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'on_create' => 'bool',
-        'on_update' => 'bool'
+        'delete_on_termination' => 'bool',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'on_create' => null,
-        'on_update' => null
+        'delete_on_termination' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'on_create' => 'onCreate',
-        'on_update' => 'onUpdate'
+        'delete_on_termination' => 'DeleteOnTermination',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'on_create' => 'setOnCreate',
-        'on_update' => 'setOnUpdate'
+        'delete_on_termination' => 'setDeleteOnTermination',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'on_create' => 'getOnCreate',
-        'on_update' => 'getOnUpdate'
+        'delete_on_termination' => 'getDeleteOnTermination',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['on_create'] = isset($data['on_create']) ? $data['on_create'] : null;
-        $this->container['on_update'] = isset($data['on_update']) ? $data['on_update'] : null;
+        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AutoFillTargetTextForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets on_create
+     * Gets delete_on_termination
      *
      * @return bool
      */
-    public function getOnCreate()
+    public function getDeleteOnTermination()
     {
-        return $this->container['on_create'];
+        return $this->container['delete_on_termination'];
     }
 
     /**
-     * Sets on_create
+     * Sets delete_on_termination
      *
-     * @param bool $on_create on_create
+     * @param bool $delete_on_termination delete_on_termination
      *
      * @return $this
      */
-    public function setOnCreate($on_create)
+    public function setDeleteOnTermination($delete_on_termination)
     {
-        $this->container['on_create'] = $on_create;
+        $this->container['delete_on_termination'] = $delete_on_termination;
 
         return $this;
     }
 
     /**
-     * Gets on_update
+     * Gets instance_id
      *
-     * @return bool
+     * @return string
      */
-    public function getOnUpdate()
+    public function getInstanceId()
     {
-        return $this->container['on_update'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets on_update
+     * Sets instance_id
      *
-     * @param bool $on_update on_update
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setOnUpdate($on_update)
+    public function setInstanceId($instance_id)
     {
-        $this->container['on_update'] = $on_update;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

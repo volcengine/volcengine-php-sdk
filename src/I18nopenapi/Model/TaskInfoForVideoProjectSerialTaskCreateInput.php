@@ -39,6 +39,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_title' => 'string',
         'dub_or_translation_task_id' => 'string',
         'is_dub' => 'bool',
+        'llm_video_understanding_type' => 'int',
         'need_translate_cover' => 'bool',
         'need_translate_desc' => 'bool',
         'need_translate_title' => 'bool',
@@ -76,6 +77,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_title' => null,
         'dub_or_translation_task_id' => null,
         'is_dub' => null,
+        'llm_video_understanding_type' => 'int32',
         'need_translate_cover' => null,
         'need_translate_desc' => null,
         'need_translate_title' => null,
@@ -134,6 +136,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_title' => 'dramaTitle',
         'dub_or_translation_task_id' => 'dubOrTranslationTaskID',
         'is_dub' => 'isDub',
+        'llm_video_understanding_type' => 'llmVideoUnderstandingType',
         'need_translate_cover' => 'needTranslateCover',
         'need_translate_desc' => 'needTranslateDesc',
         'need_translate_title' => 'needTranslateTitle',
@@ -171,6 +174,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_title' => 'setDramaTitle',
         'dub_or_translation_task_id' => 'setDubOrTranslationTaskId',
         'is_dub' => 'setIsDub',
+        'llm_video_understanding_type' => 'setLlmVideoUnderstandingType',
         'need_translate_cover' => 'setNeedTranslateCover',
         'need_translate_desc' => 'setNeedTranslateDesc',
         'need_translate_title' => 'setNeedTranslateTitle',
@@ -208,6 +212,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_title' => 'getDramaTitle',
         'dub_or_translation_task_id' => 'getDubOrTranslationTaskId',
         'is_dub' => 'getIsDub',
+        'llm_video_understanding_type' => 'getLlmVideoUnderstandingType',
         'need_translate_cover' => 'getNeedTranslateCover',
         'need_translate_desc' => 'getNeedTranslateDesc',
         'need_translate_title' => 'getNeedTranslateTitle',
@@ -299,6 +304,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         $this->container['drama_title'] = isset($data['drama_title']) ? $data['drama_title'] : null;
         $this->container['dub_or_translation_task_id'] = isset($data['dub_or_translation_task_id']) ? $data['dub_or_translation_task_id'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
+        $this->container['llm_video_understanding_type'] = isset($data['llm_video_understanding_type']) ? $data['llm_video_understanding_type'] : null;
         $this->container['need_translate_cover'] = isset($data['need_translate_cover']) ? $data['need_translate_cover'] : null;
         $this->container['need_translate_desc'] = isset($data['need_translate_desc']) ? $data['need_translate_desc'] : null;
         $this->container['need_translate_title'] = isset($data['need_translate_title']) ? $data['need_translate_title'] : null;
@@ -603,6 +609,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setIsDub($is_dub)
     {
         $this->container['is_dub'] = $is_dub;
+
+        return $this;
+    }
+
+    /**
+     * Gets llm_video_understanding_type
+     *
+     * @return int
+     */
+    public function getLlmVideoUnderstandingType()
+    {
+        return $this->container['llm_video_understanding_type'];
+    }
+
+    /**
+     * Sets llm_video_understanding_type
+     *
+     * @param int $llm_video_understanding_type llm_video_understanding_type
+     *
+     * @return $this
+     */
+    public function setLlmVideoUnderstandingType($llm_video_understanding_type)
+    {
+        $this->container['llm_video_understanding_type'] = $llm_video_understanding_type;
 
         return $this;
     }

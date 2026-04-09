@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorUpdateSpeakerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'settingForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorUpdateSpeakerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'approval' => 'bool',
-        'auto_fill_target_text' => '\Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput',
-        'text_validate' => '\Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput'
+        'id' => 'int',
+        'speaker_name' => 'string',
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'approval' => null,
-        'auto_fill_target_text' => null,
-        'text_validate' => null
+        'id' => 'int32',
+        'speaker_name' => null,
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'approval' => 'approval',
-        'auto_fill_target_text' => 'autoFillTargetText',
-        'text_validate' => 'textValidate'
+        'id' => 'id',
+        'speaker_name' => 'speakerName',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'approval' => 'setApproval',
-        'auto_fill_target_text' => 'setAutoFillTargetText',
-        'text_validate' => 'setTextValidate'
+        'id' => 'setId',
+        'speaker_name' => 'setSpeakerName',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'approval' => 'getApproval',
-        'auto_fill_target_text' => 'getAutoFillTargetText',
-        'text_validate' => 'getTextValidate'
+        'id' => 'getId',
+        'speaker_name' => 'getSpeakerName',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['approval'] = isset($data['approval']) ? $data['approval'] : null;
-        $this->container['auto_fill_target_text'] = isset($data['auto_fill_target_text']) ? $data['auto_fill_target_text'] : null;
-        $this->container['text_validate'] = isset($data['text_validate']) ? $data['text_validate'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -172,6 +172,15 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['speaker_name'] === null) {
+            $invalidProperties[] = "'speaker_name' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +197,73 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets approval
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getApproval()
+    public function getId()
     {
-        return $this->container['approval'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets approval
+     * Sets id
      *
-     * @param bool $approval approval
+     * @param int $id id
      *
      * @return $this
      */
-    public function setApproval($approval)
+    public function setId($id)
     {
-        $this->container['approval'] = $approval;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets auto_fill_target_text
+     * Gets speaker_name
      *
-     * @return \Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput
+     * @return string
      */
-    public function getAutoFillTargetText()
+    public function getSpeakerName()
     {
-        return $this->container['auto_fill_target_text'];
+        return $this->container['speaker_name'];
     }
 
     /**
-     * Sets auto_fill_target_text
+     * Sets speaker_name
      *
-     * @param \Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput $auto_fill_target_text auto_fill_target_text
+     * @param string $speaker_name speaker_name
      *
      * @return $this
      */
-    public function setAutoFillTargetText($auto_fill_target_text)
+    public function setSpeakerName($speaker_name)
     {
-        $this->container['auto_fill_target_text'] = $auto_fill_target_text;
+        $this->container['speaker_name'] = $speaker_name;
 
         return $this;
     }
 
     /**
-     * Gets text_validate
+     * Gets subtask_id
      *
-     * @return \Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput
+     * @return int
      */
-    public function getTextValidate()
+    public function getSubtaskId()
     {
-        return $this->container['text_validate'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets text_validate
+     * Sets subtask_id
      *
-     * @param \Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput $text_validate text_validate
+     * @param int $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setTextValidate($text_validate)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['text_validate'] = $text_validate;
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

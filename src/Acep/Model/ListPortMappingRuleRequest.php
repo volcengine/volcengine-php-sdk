@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
+class ListPortMappingRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'textValidateForProjectsOutput';
+    protected static $swaggerModelName = 'ListPortMappingRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_text_validate' => 'bool',
-        'target_text_validate' => 'bool'
+        'count' => 'int',
+        'offset' => 'int',
+        'port_mapping_rule_id' => 'string',
+        'product_id' => 'string',
+        'protocol' => 'string',
+        'volc_region' => 'string'
     ];
 
     /**
@@ -38,8 +42,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_text_validate' => null,
-        'target_text_validate' => null
+        'count' => 'int64',
+        'offset' => 'int64',
+        'port_mapping_rule_id' => null,
+        'product_id' => null,
+        'protocol' => null,
+        'volc_region' => null
     ];
 
     /**
@@ -69,8 +77,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_text_validate' => 'sourceTextValidate',
-        'target_text_validate' => 'targetTextValidate'
+        'count' => 'Count',
+        'offset' => 'Offset',
+        'port_mapping_rule_id' => 'PortMappingRuleId',
+        'product_id' => 'ProductId',
+        'protocol' => 'Protocol',
+        'volc_region' => 'VolcRegion'
     ];
 
     /**
@@ -79,8 +91,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'source_text_validate' => 'setSourceTextValidate',
-        'target_text_validate' => 'setTargetTextValidate'
+        'count' => 'setCount',
+        'offset' => 'setOffset',
+        'port_mapping_rule_id' => 'setPortMappingRuleId',
+        'product_id' => 'setProductId',
+        'protocol' => 'setProtocol',
+        'volc_region' => 'setVolcRegion'
     ];
 
     /**
@@ -89,8 +105,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'source_text_validate' => 'getSourceTextValidate',
-        'target_text_validate' => 'getTargetTextValidate'
+        'count' => 'getCount',
+        'offset' => 'getOffset',
+        'port_mapping_rule_id' => 'getPortMappingRuleId',
+        'product_id' => 'getProductId',
+        'protocol' => 'getProtocol',
+        'volc_region' => 'getVolcRegion'
     ];
 
     /**
@@ -153,8 +173,12 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['source_text_validate'] = isset($data['source_text_validate']) ? $data['source_text_validate'] : null;
-        $this->container['target_text_validate'] = isset($data['target_text_validate']) ? $data['target_text_validate'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
     }
 
     /**
@@ -166,6 +190,9 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +209,145 @@ class TextValidateForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets source_text_validate
+     * Gets count
      *
-     * @return bool
+     * @return int
      */
-    public function getSourceTextValidate()
+    public function getCount()
     {
-        return $this->container['source_text_validate'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets source_text_validate
+     * Sets count
      *
-     * @param bool $source_text_validate source_text_validate
+     * @param int $count count
      *
      * @return $this
      */
-    public function setSourceTextValidate($source_text_validate)
+    public function setCount($count)
     {
-        $this->container['source_text_validate'] = $source_text_validate;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets target_text_validate
+     * Gets offset
      *
-     * @return bool
+     * @return int
      */
-    public function getTargetTextValidate()
+    public function getOffset()
     {
-        return $this->container['target_text_validate'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets target_text_validate
+     * Sets offset
      *
-     * @param bool $target_text_validate target_text_validate
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setTargetTextValidate($target_text_validate)
+    public function setOffset($offset)
     {
-        $this->container['target_text_validate'] = $target_text_validate;
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets port_mapping_rule_id
+     *
+     * @return string
+     */
+    public function getPortMappingRuleId()
+    {
+        return $this->container['port_mapping_rule_id'];
+    }
+
+    /**
+     * Sets port_mapping_rule_id
+     *
+     * @param string $port_mapping_rule_id port_mapping_rule_id
+     *
+     * @return $this
+     */
+    public function setPortMappingRuleId($port_mapping_rule_id)
+    {
+        $this->container['port_mapping_rule_id'] = $port_mapping_rule_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
 
         return $this;
     }

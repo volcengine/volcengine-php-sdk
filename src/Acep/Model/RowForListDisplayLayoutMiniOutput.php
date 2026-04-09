@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SettingForProjectsOutput implements ModelInterface, ArrayAccess
+class RowForListDisplayLayoutMiniOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'settingForProjectsOutput';
+    protected static $swaggerModelName = 'RowForListDisplayLayoutMiniOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'approval' => 'bool',
-        'auto_fill_target_text' => '\Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput',
-        'text_validate' => '\Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput'
+        'create_at' => 'int',
+        'density' => 'int',
+        'display_layout_id' => 'string',
+        'extra' => 'string',
+        'fps' => 'int',
+        'height' => 'int',
+        'is_system_config' => 'bool',
+        'width' => 'int'
     ];
 
     /**
@@ -39,9 +44,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'approval' => null,
-        'auto_fill_target_text' => null,
-        'text_validate' => null
+        'create_at' => 'int64',
+        'density' => 'int32',
+        'display_layout_id' => null,
+        'extra' => null,
+        'fps' => 'int32',
+        'height' => 'int32',
+        'is_system_config' => null,
+        'width' => 'int32'
     ];
 
     /**
@@ -71,9 +81,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'approval' => 'approval',
-        'auto_fill_target_text' => 'autoFillTargetText',
-        'text_validate' => 'textValidate'
+        'create_at' => 'CreateAt',
+        'density' => 'Density',
+        'display_layout_id' => 'DisplayLayoutId',
+        'extra' => 'Extra',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'is_system_config' => 'IsSystemConfig',
+        'width' => 'Width'
     ];
 
     /**
@@ -82,9 +97,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'approval' => 'setApproval',
-        'auto_fill_target_text' => 'setAutoFillTargetText',
-        'text_validate' => 'setTextValidate'
+        'create_at' => 'setCreateAt',
+        'density' => 'setDensity',
+        'display_layout_id' => 'setDisplayLayoutId',
+        'extra' => 'setExtra',
+        'fps' => 'setFps',
+        'height' => 'setHeight',
+        'is_system_config' => 'setIsSystemConfig',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -93,9 +113,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'approval' => 'getApproval',
-        'auto_fill_target_text' => 'getAutoFillTargetText',
-        'text_validate' => 'getTextValidate'
+        'create_at' => 'getCreateAt',
+        'density' => 'getDensity',
+        'display_layout_id' => 'getDisplayLayoutId',
+        'extra' => 'getExtra',
+        'fps' => 'getFps',
+        'height' => 'getHeight',
+        'is_system_config' => 'getIsSystemConfig',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -158,9 +183,14 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['approval'] = isset($data['approval']) ? $data['approval'] : null;
-        $this->container['auto_fill_target_text'] = isset($data['auto_fill_target_text']) ? $data['auto_fill_target_text'] : null;
-        $this->container['text_validate'] = isset($data['text_validate']) ? $data['text_validate'] : null;
+        $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
+        $this->container['density'] = isset($data['density']) ? $data['density'] : null;
+        $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;
+        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
+        $this->container['fps'] = isset($data['fps']) ? $data['fps'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['is_system_config'] = isset($data['is_system_config']) ? $data['is_system_config'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
     /**
@@ -188,73 +218,193 @@ class SettingForProjectsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets approval
+     * Gets create_at
+     *
+     * @return int
+     */
+    public function getCreateAt()
+    {
+        return $this->container['create_at'];
+    }
+
+    /**
+     * Sets create_at
+     *
+     * @param int $create_at create_at
+     *
+     * @return $this
+     */
+    public function setCreateAt($create_at)
+    {
+        $this->container['create_at'] = $create_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets density
+     *
+     * @return int
+     */
+    public function getDensity()
+    {
+        return $this->container['density'];
+    }
+
+    /**
+     * Sets density
+     *
+     * @param int $density density
+     *
+     * @return $this
+     */
+    public function setDensity($density)
+    {
+        $this->container['density'] = $density;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_layout_id
+     *
+     * @return string
+     */
+    public function getDisplayLayoutId()
+    {
+        return $this->container['display_layout_id'];
+    }
+
+    /**
+     * Sets display_layout_id
+     *
+     * @param string $display_layout_id display_layout_id
+     *
+     * @return $this
+     */
+    public function setDisplayLayoutId($display_layout_id)
+    {
+        $this->container['display_layout_id'] = $display_layout_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra
+     *
+     * @return string
+     */
+    public function getExtra()
+    {
+        return $this->container['extra'];
+    }
+
+    /**
+     * Sets extra
+     *
+     * @param string $extra extra
+     *
+     * @return $this
+     */
+    public function setExtra($extra)
+    {
+        $this->container['extra'] = $extra;
+
+        return $this;
+    }
+
+    /**
+     * Gets fps
+     *
+     * @return int
+     */
+    public function getFps()
+    {
+        return $this->container['fps'];
+    }
+
+    /**
+     * Sets fps
+     *
+     * @param int $fps fps
+     *
+     * @return $this
+     */
+    public function setFps($fps)
+    {
+        $this->container['fps'] = $fps;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int $height height
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_system_config
      *
      * @return bool
      */
-    public function getApproval()
+    public function getIsSystemConfig()
     {
-        return $this->container['approval'];
+        return $this->container['is_system_config'];
     }
 
     /**
-     * Sets approval
+     * Sets is_system_config
      *
-     * @param bool $approval approval
+     * @param bool $is_system_config is_system_config
      *
      * @return $this
      */
-    public function setApproval($approval)
+    public function setIsSystemConfig($is_system_config)
     {
-        $this->container['approval'] = $approval;
+        $this->container['is_system_config'] = $is_system_config;
 
         return $this;
     }
 
     /**
-     * Gets auto_fill_target_text
+     * Gets width
      *
-     * @return \Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput
+     * @return int
      */
-    public function getAutoFillTargetText()
+    public function getWidth()
     {
-        return $this->container['auto_fill_target_text'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets auto_fill_target_text
+     * Sets width
      *
-     * @param \Volcengine\I18nopenapi\Model\AutoFillTargetTextForProjectsOutput $auto_fill_target_text auto_fill_target_text
+     * @param int $width width
      *
      * @return $this
      */
-    public function setAutoFillTargetText($auto_fill_target_text)
+    public function setWidth($width)
     {
-        $this->container['auto_fill_target_text'] = $auto_fill_target_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets text_validate
-     *
-     * @return \Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput
-     */
-    public function getTextValidate()
-    {
-        return $this->container['text_validate'];
-    }
-
-    /**
-     * Sets text_validate
-     *
-     * @param \Volcengine\I18nopenapi\Model\TextValidateForProjectsOutput $text_validate text_validate
-     *
-     * @return $this
-     */
-    public function setTextValidate($text_validate)
-    {
-        $this->container['text_validate'] = $text_validate;
+        $this->container['width'] = $width;
 
         return $this;
     }

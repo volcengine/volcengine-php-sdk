@@ -28,6 +28,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'code' => 'int',
+        'message' => 'string',
         'task_id' => 'int'
     ];
 
@@ -37,6 +39,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'code' => 'int32',
+        'message' => null,
         'task_id' => 'int32'
     ];
 
@@ -67,6 +71,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
+        'message' => 'message',
         'task_id' => 'taskId'
     ];
 
@@ -76,6 +82,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
+        'message' => 'setMessage',
         'task_id' => 'setTaskId'
     ];
 
@@ -85,6 +93,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
+        'message' => 'getMessage',
         'task_id' => 'getTaskId'
     ];
 
@@ -148,6 +158,8 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
@@ -174,6 +186,54 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param int $code code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
 
     /**
      * Gets task_id

@@ -36,7 +36,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeTrafficMirrorTargetsOutput[]',
         'traffic_mirror_target_id' => 'string',
-        'traffic_mirror_target_name' => 'string'
+        'traffic_mirror_target_name' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         'status' => null,
         'tags' => null,
         'traffic_mirror_target_id' => null,
-        'traffic_mirror_target_name' => null
+        'traffic_mirror_target_name' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         'status' => 'Status',
         'tags' => 'Tags',
         'traffic_mirror_target_id' => 'TrafficMirrorTargetId',
-        'traffic_mirror_target_name' => 'TrafficMirrorTargetName'
+        'traffic_mirror_target_name' => 'TrafficMirrorTargetName',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -108,7 +111,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         'status' => 'setStatus',
         'tags' => 'setTags',
         'traffic_mirror_target_id' => 'setTrafficMirrorTargetId',
-        'traffic_mirror_target_name' => 'setTrafficMirrorTargetName'
+        'traffic_mirror_target_name' => 'setTrafficMirrorTargetName',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -125,7 +129,8 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         'status' => 'getStatus',
         'tags' => 'getTags',
         'traffic_mirror_target_id' => 'getTrafficMirrorTargetId',
-        'traffic_mirror_target_name' => 'getTrafficMirrorTargetName'
+        'traffic_mirror_target_name' => 'getTrafficMirrorTargetName',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -197,6 +202,7 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['traffic_mirror_target_id'] = isset($data['traffic_mirror_target_id']) ? $data['traffic_mirror_target_id'] : null;
         $this->container['traffic_mirror_target_name'] = isset($data['traffic_mirror_target_name']) ? $data['traffic_mirror_target_name'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -435,6 +441,30 @@ class TrafficMirrorTargetForDescribeTrafficMirrorTargetsOutput implements ModelI
     public function setTrafficMirrorTargetName($traffic_mirror_target_name)
     {
         $this->container['traffic_mirror_target_name'] = $traffic_mirror_target_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

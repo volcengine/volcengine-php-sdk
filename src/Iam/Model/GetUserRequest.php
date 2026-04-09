@@ -30,6 +30,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'access_key_id' => 'string',
         'id' => 'int',
+        'pii_redaction' => 'int',
         'user_name' => 'string'
     ];
 
@@ -41,6 +42,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'access_key_id' => null,
         'id' => 'int64',
+        'pii_redaction' => 'int32',
         'user_name' => null
     ];
 
@@ -73,6 +75,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'access_key_id' => 'AccessKeyID',
         'id' => 'ID',
+        'pii_redaction' => 'PiiRedaction',
         'user_name' => 'UserName'
     ];
 
@@ -84,6 +87,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'access_key_id' => 'setAccessKeyId',
         'id' => 'setId',
+        'pii_redaction' => 'setPiiRedaction',
         'user_name' => 'setUserName'
     ];
 
@@ -95,6 +99,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'access_key_id' => 'getAccessKeyId',
         'id' => 'getId',
+        'pii_redaction' => 'getPiiRedaction',
         'user_name' => 'getUserName'
     ];
 
@@ -160,6 +165,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     {
         $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['pii_redaction'] = isset($data['pii_redaction']) ? $data['pii_redaction'] : null;
         $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
     }
 
@@ -231,6 +237,30 @@ class GetUserRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pii_redaction
+     *
+     * @return int
+     */
+    public function getPiiRedaction()
+    {
+        return $this->container['pii_redaction'];
+    }
+
+    /**
+     * Sets pii_redaction
+     *
+     * @param int $pii_redaction pii_redaction
+     *
+     * @return $this
+     */
+    public function setPiiRedaction($pii_redaction)
+    {
+        $this->container['pii_redaction'] = $pii_redaction;
 
         return $this;
     }

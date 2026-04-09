@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, ArrayAccess
+class VideoEditorDeleteSpeakerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BaseRespForVideoProjectTaskBatchStartAIFlowOutput';
+    protected static $swaggerModelName = 'VideoEditorDeleteSpeakerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status_code' => 'int',
-        'status_message' => 'string'
+        'id' => 'int',
+        'subtask_id' => 'int',
+        'type' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status_code' => 'int32',
-        'status_message' => null
+        'id' => 'int32',
+        'subtask_id' => 'int32',
+        'type' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'status_code' => 'StatusCode',
-        'status_message' => 'StatusMessage'
+        'id' => 'id',
+        'subtask_id' => 'subtaskId',
+        'type' => 'type'
     ];
 
     /**
@@ -79,8 +82,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'status_code' => 'setStatusCode',
-        'status_message' => 'setStatusMessage'
+        'id' => 'setId',
+        'subtask_id' => 'setSubtaskId',
+        'type' => 'setType'
     ];
 
     /**
@@ -89,8 +93,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'status_code' => 'getStatusCode',
-        'status_message' => 'getStatusMessage'
+        'id' => 'getId',
+        'subtask_id' => 'getSubtaskId',
+        'type' => 'getType'
     ];
 
     /**
@@ -153,8 +158,9 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
      */
     public function __construct($data = null)
     {
-        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
-        $this->container['status_message'] = isset($data['status_message']) ? $data['status_message'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +194,73 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
 
 
     /**
-     * Gets status_code
+     * Gets id
      *
      * @return int
      */
-    public function getStatusCode()
+    public function getId()
     {
-        return $this->container['status_code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status_code
+     * Sets id
      *
-     * @param int $status_code status_code
+     * @param int $id id
      *
      * @return $this
      */
-    public function setStatusCode($status_code)
+    public function setId($id)
     {
-        $this->container['status_code'] = $status_code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets status_message
+     * Gets subtask_id
      *
-     * @return string
+     * @return int
      */
-    public function getStatusMessage()
+    public function getSubtaskId()
     {
-        return $this->container['status_message'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets status_message
+     * Sets subtask_id
      *
-     * @param string $status_message status_message
+     * @param int $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setStatusMessage($status_message)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['status_message'] = $status_message;
+        $this->container['subtask_id'] = $subtask_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

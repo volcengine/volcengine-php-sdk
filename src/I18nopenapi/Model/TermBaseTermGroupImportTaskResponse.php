@@ -28,7 +28,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'code' => 'int',
+        'data' => '\Volcengine\I18nopenapi\Model\DataForTermBaseTermGroupImportTaskOutput',
+        'message' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'code' => 'int32',
+        'data' => null,
+        'message' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message'
     ];
 
     /**
@@ -76,7 +82,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'code' => 'setCode',
+        'data' => 'setData',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -85,7 +93,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'code' => 'getCode',
+        'data' => 'getData',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -148,6 +158,9 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -173,6 +186,78 @@ class TermBaseTermGroupImportTaskResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param int $code code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \Volcengine\I18nopenapi\Model\DataForTermBaseTermGroupImportTaskOutput
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Volcengine\I18nopenapi\Model\DataForTermBaseTermGroupImportTaskOutput $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

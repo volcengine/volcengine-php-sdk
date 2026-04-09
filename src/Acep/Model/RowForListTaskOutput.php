@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class RowForListTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'autoFillTargetTextForVideoProjectListOutput';
+    protected static $swaggerModelName = 'RowForListTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'on_create' => 'bool',
-        'on_update' => 'bool'
+        'end_time' => 'int',
+        'start_time' => 'int',
+        'task_action' => 'string',
+        'task_id' => 'string',
+        'task_result' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'on_create' => null,
-        'on_update' => null
+        'end_time' => 'int64',
+        'start_time' => 'int64',
+        'task_action' => null,
+        'task_id' => null,
+        'task_result' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'on_create' => 'onCreate',
-        'on_update' => 'onUpdate'
+        'end_time' => 'EndTime',
+        'start_time' => 'StartTime',
+        'task_action' => 'TaskAction',
+        'task_id' => 'TaskId',
+        'task_result' => 'TaskResult'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'on_create' => 'setOnCreate',
-        'on_update' => 'setOnUpdate'
+        'end_time' => 'setEndTime',
+        'start_time' => 'setStartTime',
+        'task_action' => 'setTaskAction',
+        'task_id' => 'setTaskId',
+        'task_result' => 'setTaskResult'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'on_create' => 'getOnCreate',
-        'on_update' => 'getOnUpdate'
+        'end_time' => 'getEndTime',
+        'start_time' => 'getStartTime',
+        'task_action' => 'getTaskAction',
+        'task_id' => 'getTaskId',
+        'task_result' => 'getTaskResult'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['on_create'] = isset($data['on_create']) ? $data['on_create'] : null;
-        $this->container['on_update'] = isset($data['on_update']) ? $data['on_update'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['task_action'] = isset($data['task_action']) ? $data['task_action'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_result'] = isset($data['task_result']) ? $data['task_result'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class AutoFillTargetTextForVideoProjectListOutput implements ModelInterface, Arr
 
 
     /**
-     * Gets on_create
+     * Gets end_time
      *
-     * @return bool
+     * @return int
      */
-    public function getOnCreate()
+    public function getEndTime()
     {
-        return $this->container['on_create'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets on_create
+     * Sets end_time
      *
-     * @param bool $on_create on_create
+     * @param int $end_time end_time
      *
      * @return $this
      */
-    public function setOnCreate($on_create)
+    public function setEndTime($end_time)
     {
-        $this->container['on_create'] = $on_create;
+        $this->container['end_time'] = $end_time;
 
         return $this;
     }
 
     /**
-     * Gets on_update
+     * Gets start_time
      *
-     * @return bool
+     * @return int
      */
-    public function getOnUpdate()
+    public function getStartTime()
     {
-        return $this->container['on_update'];
+        return $this->container['start_time'];
     }
 
     /**
-     * Sets on_update
+     * Sets start_time
      *
-     * @param bool $on_update on_update
+     * @param int $start_time start_time
      *
      * @return $this
      */
-    public function setOnUpdate($on_update)
+    public function setStartTime($start_time)
     {
-        $this->container['on_update'] = $on_update;
+        $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_action
+     *
+     * @return string
+     */
+    public function getTaskAction()
+    {
+        return $this->container['task_action'];
+    }
+
+    /**
+     * Sets task_action
+     *
+     * @param string $task_action task_action
+     *
+     * @return $this
+     */
+    public function setTaskAction($task_action)
+    {
+        $this->container['task_action'] = $task_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_result
+     *
+     * @return int
+     */
+    public function getTaskResult()
+    {
+        return $this->container['task_result'];
+    }
+
+    /**
+     * Sets task_result
+     *
+     * @param int $task_result task_result
+     *
+     * @return $this
+     */
+    public function setTaskResult($task_result)
+    {
+        $this->container['task_result'] = $task_result;
 
         return $this;
     }

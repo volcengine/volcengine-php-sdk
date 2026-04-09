@@ -36,6 +36,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'dns_servers' => 'string[]',
         'ipv4_gateway_id' => 'string',
         'ipv6_cidr_block' => 'string',
+        'ipv6_cidr_blocks' => '\Volcengine\Vpc\Model\Ipv6CidrBlockForDescribeVpcAttributesOutput[]',
         'is_default' => 'bool',
         'nat_gateway_ids' => 'string[]',
         'network_acl_num' => 'string',
@@ -68,6 +69,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'dns_servers' => null,
         'ipv4_gateway_id' => null,
         'ipv6_cidr_block' => null,
+        'ipv6_cidr_blocks' => null,
         'is_default' => null,
         'nat_gateway_ids' => null,
         'network_acl_num' => null,
@@ -121,6 +123,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'dns_servers' => 'DnsServers',
         'ipv4_gateway_id' => 'Ipv4GatewayId',
         'ipv6_cidr_block' => 'Ipv6CidrBlock',
+        'ipv6_cidr_blocks' => 'Ipv6CidrBlocks',
         'is_default' => 'IsDefault',
         'nat_gateway_ids' => 'NatGatewayIds',
         'network_acl_num' => 'NetworkAclNum',
@@ -153,6 +156,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'dns_servers' => 'setDnsServers',
         'ipv4_gateway_id' => 'setIpv4GatewayId',
         'ipv6_cidr_block' => 'setIpv6CidrBlock',
+        'ipv6_cidr_blocks' => 'setIpv6CidrBlocks',
         'is_default' => 'setIsDefault',
         'nat_gateway_ids' => 'setNatGatewayIds',
         'network_acl_num' => 'setNetworkAclNum',
@@ -185,6 +189,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'dns_servers' => 'getDnsServers',
         'ipv4_gateway_id' => 'getIpv4GatewayId',
         'ipv6_cidr_block' => 'getIpv6CidrBlock',
+        'ipv6_cidr_blocks' => 'getIpv6CidrBlocks',
         'is_default' => 'getIsDefault',
         'nat_gateway_ids' => 'getNatGatewayIds',
         'network_acl_num' => 'getNetworkAclNum',
@@ -271,6 +276,7 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
         $this->container['ipv4_gateway_id'] = isset($data['ipv4_gateway_id']) ? $data['ipv4_gateway_id'] : null;
         $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
+        $this->container['ipv6_cidr_blocks'] = isset($data['ipv6_cidr_blocks']) ? $data['ipv6_cidr_blocks'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['nat_gateway_ids'] = isset($data['nat_gateway_ids']) ? $data['nat_gateway_ids'] : null;
         $this->container['network_acl_num'] = isset($data['network_acl_num']) ? $data['network_acl_num'] : null;
@@ -501,6 +507,30 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
     public function setIpv6CidrBlock($ipv6_cidr_block)
     {
         $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_blocks
+     *
+     * @return \Volcengine\Vpc\Model\Ipv6CidrBlockForDescribeVpcAttributesOutput[]
+     */
+    public function getIpv6CidrBlocks()
+    {
+        return $this->container['ipv6_cidr_blocks'];
+    }
+
+    /**
+     * Sets ipv6_cidr_blocks
+     *
+     * @param \Volcengine\Vpc\Model\Ipv6CidrBlockForDescribeVpcAttributesOutput[] $ipv6_cidr_blocks ipv6_cidr_blocks
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlocks($ipv6_cidr_blocks)
+    {
+        $this->container['ipv6_cidr_blocks'] = $ipv6_cidr_blocks;
 
         return $this;
     }

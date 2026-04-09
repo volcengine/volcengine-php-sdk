@@ -32,6 +32,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'name' => 'string',
         'project_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateIpv6GatewayInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'name' => null,
         'project_name' => null,
+        'tags' => null,
         'vpc_id' => null
     ];
 
@@ -79,6 +81,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'name' => 'Name',
         'project_name' => 'ProjectName',
+        'tags' => 'Tags',
         'vpc_id' => 'VpcId'
     ];
 
@@ -92,6 +95,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'name' => 'setName',
         'project_name' => 'setProjectName',
+        'tags' => 'setTags',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -105,6 +109,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'name' => 'getName',
         'project_name' => 'getProjectName',
+        'tags' => 'getTags',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -172,6 +177,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -294,6 +300,30 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForCreateIpv6GatewayInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForCreateIpv6GatewayInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
