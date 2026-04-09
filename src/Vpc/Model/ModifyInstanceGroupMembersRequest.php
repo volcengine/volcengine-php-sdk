@@ -29,6 +29,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'append_members' => '\Volcengine\Vpc\Model\AppendMemberForModifyInstanceGroupMembersInput[]',
+        'client_token' => 'string',
         'instance_group_id' => 'string',
         'remove_members' => '\Volcengine\Vpc\Model\RemoveMemberForModifyInstanceGroupMembersInput[]'
     ];
@@ -40,6 +41,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'append_members' => null,
+        'client_token' => null,
         'instance_group_id' => null,
         'remove_members' => null
     ];
@@ -72,6 +74,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'append_members' => 'AppendMembers',
+        'client_token' => 'ClientToken',
         'instance_group_id' => 'InstanceGroupId',
         'remove_members' => 'RemoveMembers'
     ];
@@ -83,6 +86,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'append_members' => 'setAppendMembers',
+        'client_token' => 'setClientToken',
         'instance_group_id' => 'setInstanceGroupId',
         'remove_members' => 'setRemoveMembers'
     ];
@@ -94,6 +98,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'append_members' => 'getAppendMembers',
+        'client_token' => 'getClientToken',
         'instance_group_id' => 'getInstanceGroupId',
         'remove_members' => 'getRemoveMembers'
     ];
@@ -159,6 +164,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['append_members'] = isset($data['append_members']) ? $data['append_members'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;
         $this->container['remove_members'] = isset($data['remove_members']) ? $data['remove_members'] : null;
     }
@@ -210,6 +216,30 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
     public function setAppendMembers($append_members)
     {
         $this->container['append_members'] = $append_members;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }

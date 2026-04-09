@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
+class TagForCreateIpv6GatewayInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AssociateVpcCidrBlockResponse';
+    protected static $swaggerModelName = 'TagForCreateIpv6GatewayInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'async_task_id' => 'string',
-        'ipv6_cidr_blocks' => '\Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[]',
-        'request_id' => 'string',
-        'secondary_cidr_blocks' => 'string[]',
-        'vpc_id' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'async_task_id' => null,
-        'ipv6_cidr_blocks' => null,
-        'request_id' => null,
-        'secondary_cidr_blocks' => null,
-        'vpc_id' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'async_task_id' => 'AsyncTaskId',
-        'ipv6_cidr_blocks' => 'Ipv6CidrBlocks',
-        'request_id' => 'RequestId',
-        'secondary_cidr_blocks' => 'SecondaryCidrBlocks',
-        'vpc_id' => 'VpcId'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -88,11 +79,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'async_task_id' => 'setAsyncTaskId',
-        'ipv6_cidr_blocks' => 'setIpv6CidrBlocks',
-        'request_id' => 'setRequestId',
-        'secondary_cidr_blocks' => 'setSecondaryCidrBlocks',
-        'vpc_id' => 'setVpcId'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -101,11 +89,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'async_task_id' => 'getAsyncTaskId',
-        'ipv6_cidr_blocks' => 'getIpv6CidrBlocks',
-        'request_id' => 'getRequestId',
-        'secondary_cidr_blocks' => 'getSecondaryCidrBlocks',
-        'vpc_id' => 'getVpcId'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -168,11 +153,8 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
-        $this->container['ipv6_cidr_blocks'] = isset($data['ipv6_cidr_blocks']) ? $data['ipv6_cidr_blocks'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['secondary_cidr_blocks'] = isset($data['secondary_cidr_blocks']) ? $data['secondary_cidr_blocks'] : null;
-        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets async_task_id
+     * Gets key
      *
      * @return string
      */
-    public function getAsyncTaskId()
+    public function getKey()
     {
-        return $this->container['async_task_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets async_task_id
+     * Sets key
      *
-     * @param string $async_task_id async_task_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAsyncTaskId($async_task_id)
+    public function setKey($key)
     {
-        $this->container['async_task_id'] = $async_task_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_cidr_blocks
-     *
-     * @return \Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[]
-     */
-    public function getIpv6CidrBlocks()
-    {
-        return $this->container['ipv6_cidr_blocks'];
-    }
-
-    /**
-     * Sets ipv6_cidr_blocks
-     *
-     * @param \Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[] $ipv6_cidr_blocks ipv6_cidr_blocks
-     *
-     * @return $this
-     */
-    public function setIpv6CidrBlocks($ipv6_cidr_blocks)
-    {
-        $this->container['ipv6_cidr_blocks'] = $ipv6_cidr_blocks;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
+     * Gets value
      *
      * @return string
      */
-    public function getRequestId()
+    public function getValue()
     {
-        return $this->container['request_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets request_id
+     * Sets value
      *
-     * @param string $request_id request_id
+     * @param string $value value
      *
      * @return $this
      */
-    public function setRequestId($request_id)
+    public function setValue($value)
     {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets secondary_cidr_blocks
-     *
-     * @return string[]
-     */
-    public function getSecondaryCidrBlocks()
-    {
-        return $this->container['secondary_cidr_blocks'];
-    }
-
-    /**
-     * Sets secondary_cidr_blocks
-     *
-     * @param string[] $secondary_cidr_blocks secondary_cidr_blocks
-     *
-     * @return $this
-     */
-    public function setSecondaryCidrBlocks($secondary_cidr_blocks)
-    {
-        $this->container['secondary_cidr_blocks'] = $secondary_cidr_blocks;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_id
-     *
-     * @return string
-     */
-    public function getVpcId()
-    {
-        return $this->container['vpc_id'];
-    }
-
-    /**
-     * Sets vpc_id
-     *
-     * @param string $vpc_id vpc_id
-     *
-     * @return $this
-     */
-    public function setVpcId($vpc_id)
-    {
-        $this->container['vpc_id'] = $vpc_id;
+        $this->container['value'] = $value;
 
         return $this;
     }

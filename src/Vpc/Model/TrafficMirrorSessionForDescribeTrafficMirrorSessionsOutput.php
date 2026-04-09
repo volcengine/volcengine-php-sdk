@@ -42,6 +42,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         'traffic_mirror_session_name' => 'string',
         'traffic_mirror_source_ids' => 'string[]',
         'traffic_mirror_target_id' => 'string',
+        'updated_at' => 'string',
         'virtual_network_id' => 'int'
     ];
 
@@ -65,6 +66,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         'traffic_mirror_session_name' => null,
         'traffic_mirror_source_ids' => null,
         'traffic_mirror_target_id' => null,
+        'updated_at' => null,
         'virtual_network_id' => null
     ];
 
@@ -109,6 +111,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         'traffic_mirror_session_name' => 'TrafficMirrorSessionName',
         'traffic_mirror_source_ids' => 'TrafficMirrorSourceIds',
         'traffic_mirror_target_id' => 'TrafficMirrorTargetId',
+        'updated_at' => 'UpdatedAt',
         'virtual_network_id' => 'VirtualNetworkId'
     ];
 
@@ -132,6 +135,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         'traffic_mirror_session_name' => 'setTrafficMirrorSessionName',
         'traffic_mirror_source_ids' => 'setTrafficMirrorSourceIds',
         'traffic_mirror_target_id' => 'setTrafficMirrorTargetId',
+        'updated_at' => 'setUpdatedAt',
         'virtual_network_id' => 'setVirtualNetworkId'
     ];
 
@@ -155,6 +159,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         'traffic_mirror_session_name' => 'getTrafficMirrorSessionName',
         'traffic_mirror_source_ids' => 'getTrafficMirrorSourceIds',
         'traffic_mirror_target_id' => 'getTrafficMirrorTargetId',
+        'updated_at' => 'getUpdatedAt',
         'virtual_network_id' => 'getVirtualNetworkId'
     ];
 
@@ -232,6 +237,7 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
         $this->container['traffic_mirror_session_name'] = isset($data['traffic_mirror_session_name']) ? $data['traffic_mirror_session_name'] : null;
         $this->container['traffic_mirror_source_ids'] = isset($data['traffic_mirror_source_ids']) ? $data['traffic_mirror_source_ids'] : null;
         $this->container['traffic_mirror_target_id'] = isset($data['traffic_mirror_target_id']) ? $data['traffic_mirror_target_id'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['virtual_network_id'] = isset($data['virtual_network_id']) ? $data['virtual_network_id'] : null;
     }
 
@@ -591,6 +597,30 @@ class TrafficMirrorSessionForDescribeTrafficMirrorSessionsOutput implements Mode
     public function setTrafficMirrorTargetId($traffic_mirror_target_id)
     {
         $this->container['traffic_mirror_target_id'] = $traffic_mirror_target_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

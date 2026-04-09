@@ -32,8 +32,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'dns_servers' => 'string[]',
+        'dry_run' => 'bool',
         'enable_ipv6' => 'bool',
         'ipv6_cidr_block' => 'string',
+        'ipv6_isp' => 'string',
+        'ipv6_mask_len' => 'int',
         'project_name' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateVpcInput[]',
         'vpc_name' => 'string'
@@ -49,8 +52,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'dns_servers' => null,
+        'dry_run' => null,
         'enable_ipv6' => null,
         'ipv6_cidr_block' => null,
+        'ipv6_isp' => null,
+        'ipv6_mask_len' => null,
         'project_name' => null,
         'tags' => null,
         'vpc_name' => null
@@ -87,8 +93,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'dns_servers' => 'DnsServers',
+        'dry_run' => 'DryRun',
         'enable_ipv6' => 'EnableIpv6',
         'ipv6_cidr_block' => 'Ipv6CidrBlock',
+        'ipv6_isp' => 'Ipv6Isp',
+        'ipv6_mask_len' => 'Ipv6MaskLen',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
         'vpc_name' => 'VpcName'
@@ -104,8 +113,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'dns_servers' => 'setDnsServers',
+        'dry_run' => 'setDryRun',
         'enable_ipv6' => 'setEnableIpv6',
         'ipv6_cidr_block' => 'setIpv6CidrBlock',
+        'ipv6_isp' => 'setIpv6Isp',
+        'ipv6_mask_len' => 'setIpv6MaskLen',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
         'vpc_name' => 'setVpcName'
@@ -121,8 +133,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'dns_servers' => 'getDnsServers',
+        'dry_run' => 'getDryRun',
         'enable_ipv6' => 'getEnableIpv6',
         'ipv6_cidr_block' => 'getIpv6CidrBlock',
+        'ipv6_isp' => 'getIpv6Isp',
+        'ipv6_mask_len' => 'getIpv6MaskLen',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
         'vpc_name' => 'getVpcName'
@@ -192,8 +207,11 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['enable_ipv6'] = isset($data['enable_ipv6']) ? $data['enable_ipv6'] : null;
         $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
+        $this->container['ipv6_isp'] = isset($data['ipv6_isp']) ? $data['ipv6_isp'] : null;
+        $this->container['ipv6_mask_len'] = isset($data['ipv6_mask_len']) ? $data['ipv6_mask_len'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
@@ -323,6 +341,30 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets dry_run
+     *
+     * @return bool
+     */
+    public function getDryRun()
+    {
+        return $this->container['dry_run'];
+    }
+
+    /**
+     * Sets dry_run
+     *
+     * @param bool $dry_run dry_run
+     *
+     * @return $this
+     */
+    public function setDryRun($dry_run)
+    {
+        $this->container['dry_run'] = $dry_run;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_ipv6
      *
      * @return bool
@@ -366,6 +408,54 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
     public function setIpv6CidrBlock($ipv6_cidr_block)
     {
         $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_isp
+     *
+     * @return string
+     */
+    public function getIpv6Isp()
+    {
+        return $this->container['ipv6_isp'];
+    }
+
+    /**
+     * Sets ipv6_isp
+     *
+     * @param string $ipv6_isp ipv6_isp
+     *
+     * @return $this
+     */
+    public function setIpv6Isp($ipv6_isp)
+    {
+        $this->container['ipv6_isp'] = $ipv6_isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_mask_len
+     *
+     * @return int
+     */
+    public function getIpv6MaskLen()
+    {
+        return $this->container['ipv6_mask_len'];
+    }
+
+    /**
+     * Sets ipv6_mask_len
+     *
+     * @param int $ipv6_mask_len ipv6_mask_len
+     *
+     * @return $this
+     */
+    public function setIpv6MaskLen($ipv6_mask_len)
+    {
+        $this->container['ipv6_mask_len'] = $ipv6_mask_len;
 
         return $this;
     }

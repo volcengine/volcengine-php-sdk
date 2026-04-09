@@ -30,6 +30,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'associated_elastic_ip' => '\Volcengine\Vpc\Model\AssociatedElasticIpForDescribeNetworkInterfacesOutput',
+        'attachment' => '\Volcengine\Vpc\Model\AttachmentForDescribeNetworkInterfacesOutput',
         'created_at' => 'string',
         'description' => 'string',
         'device_id' => 'string',
@@ -61,6 +62,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     protected static $swaggerFormats = [
         'account_id' => null,
         'associated_elastic_ip' => null,
+        'attachment' => null,
         'created_at' => null,
         'description' => null,
         'device_id' => null,
@@ -113,6 +115,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'associated_elastic_ip' => 'AssociatedElasticIp',
+        'attachment' => 'Attachment',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
         'device_id' => 'DeviceId',
@@ -144,6 +147,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     protected static $setters = [
         'account_id' => 'setAccountId',
         'associated_elastic_ip' => 'setAssociatedElasticIp',
+        'attachment' => 'setAttachment',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
         'device_id' => 'setDeviceId',
@@ -175,6 +179,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     protected static $getters = [
         'account_id' => 'getAccountId',
         'associated_elastic_ip' => 'getAssociatedElasticIp',
+        'attachment' => 'getAttachment',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
         'device_id' => 'getDeviceId',
@@ -260,6 +265,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['associated_elastic_ip'] = isset($data['associated_elastic_ip']) ? $data['associated_elastic_ip'] : null;
+        $this->container['attachment'] = isset($data['attachment']) ? $data['attachment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['device_id'] = isset($data['device_id']) ? $data['device_id'] : null;
@@ -351,6 +357,30 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     public function setAssociatedElasticIp($associated_elastic_ip)
     {
         $this->container['associated_elastic_ip'] = $associated_elastic_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachment
+     *
+     * @return \Volcengine\Vpc\Model\AttachmentForDescribeNetworkInterfacesOutput
+     */
+    public function getAttachment()
+    {
+        return $this->container['attachment'];
+    }
+
+    /**
+     * Sets attachment
+     *
+     * @param \Volcengine\Vpc\Model\AttachmentForDescribeNetworkInterfacesOutput $attachment attachment
+     *
+     * @return $this
+     */
+    public function setAttachment($attachment)
+    {
+        $this->container['attachment'] = $attachment;
 
         return $this;
     }

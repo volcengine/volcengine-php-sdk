@@ -28,6 +28,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'description' => 'string',
         'instance_group_id' => 'string',
         'name' => 'string'
@@ -39,6 +40,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'description' => null,
         'instance_group_id' => null,
         'name' => null
@@ -71,6 +73,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'description' => 'Description',
         'instance_group_id' => 'InstanceGroupId',
         'name' => 'Name'
@@ -82,6 +85,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'instance_group_id' => 'setInstanceGroupId',
         'name' => 'setName'
@@ -93,6 +97,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'instance_group_id' => 'getInstanceGroupId',
         'name' => 'getName'
@@ -158,6 +163,7 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -189,6 +195,30 @@ class ModifyInstanceGroupAttributesRequest implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets description

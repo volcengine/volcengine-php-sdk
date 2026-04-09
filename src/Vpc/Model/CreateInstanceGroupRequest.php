@@ -28,6 +28,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'description' => 'string',
         'name' => 'string',
         'vpc_id' => 'string'
@@ -39,6 +40,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'description' => null,
         'name' => null,
         'vpc_id' => null
@@ -71,6 +73,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'description' => 'Description',
         'name' => 'Name',
         'vpc_id' => 'VpcId'
@@ -82,6 +85,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'name' => 'setName',
         'vpc_id' => 'setVpcId'
@@ -93,6 +97,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'name' => 'getName',
         'vpc_id' => 'getVpcId'
@@ -158,6 +163,7 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -189,6 +195,30 @@ class CreateInstanceGroupRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets description

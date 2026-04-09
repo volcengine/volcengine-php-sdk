@@ -30,7 +30,7 @@ class DescribeIpv6EgressOnlyRulesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'instance_id' => 'string',
         'ipv6_address' => 'string',
-        'ipv6_egress_only_rule_ids' => 'string',
+        'ipv6_egress_only_rule_ids' => 'string[]',
         'ipv6_gateway_id' => 'string',
         'max_results' => 'int',
         'name' => 'string',
@@ -265,7 +265,7 @@ class DescribeIpv6EgressOnlyRulesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets ipv6_egress_only_rule_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getIpv6EgressOnlyRuleIds()
     {
@@ -275,7 +275,7 @@ class DescribeIpv6EgressOnlyRulesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets ipv6_egress_only_rule_ids
      *
-     * @param string $ipv6_egress_only_rule_ids ipv6_egress_only_rule_ids
+     * @param string[] $ipv6_egress_only_rule_ids ipv6_egress_only_rule_ids
      *
      * @return $this
      */
