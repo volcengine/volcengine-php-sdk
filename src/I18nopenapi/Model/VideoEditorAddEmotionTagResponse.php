@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'textValidateForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorAddEmotionTagResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_text_validate' => 'bool',
-        'target_text_validate' => 'bool'
+        'id' => 'int'
     ];
 
     /**
@@ -38,8 +37,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_text_validate' => null,
-        'target_text_validate' => null
+        'id' => 'int32'
     ];
 
     /**
@@ -69,8 +67,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_text_validate' => 'sourceTextValidate',
-        'target_text_validate' => 'targetTextValidate'
+        'id' => 'id'
     ];
 
     /**
@@ -79,8 +76,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'source_text_validate' => 'setSourceTextValidate',
-        'target_text_validate' => 'setTargetTextValidate'
+        'id' => 'setId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'source_text_validate' => 'getSourceTextValidate',
-        'target_text_validate' => 'getTargetTextValidate'
+        'id' => 'getId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['source_text_validate'] = isset($data['source_text_validate']) ? $data['source_text_validate'] : null;
-        $this->container['target_text_validate'] = isset($data['target_text_validate']) ? $data['target_text_validate'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class TextValidateForVideoProjectListOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets source_text_validate
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getSourceTextValidate()
+    public function getId()
     {
-        return $this->container['source_text_validate'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets source_text_validate
+     * Sets id
      *
-     * @param bool $source_text_validate source_text_validate
+     * @param int $id id
      *
      * @return $this
      */
-    public function setSourceTextValidate($source_text_validate)
+    public function setId($id)
     {
-        $this->container['source_text_validate'] = $source_text_validate;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_text_validate
-     *
-     * @return bool
-     */
-    public function getTargetTextValidate()
-    {
-        return $this->container['target_text_validate'];
-    }
-
-    /**
-     * Sets target_text_validate
-     *
-     * @param bool $target_text_validate target_text_validate
-     *
-     * @return $this
-     */
-    public function setTargetTextValidate($target_text_validate)
-    {
-        $this->container['target_text_validate'] = $target_text_validate;
+        $this->container['id'] = $id;
 
         return $this;
     }

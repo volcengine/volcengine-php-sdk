@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
+class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'settingForVideoProjectListOutput';
+    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'approval' => 'bool',
-        'auto_fill_target_text' => '\Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput',
-        'text_validate' => '\Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput'
+        'built_in_emotion_tags' => '\Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]',
+        'custom_emotion_tags' => '\Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'approval' => null,
-        'auto_fill_target_text' => null,
-        'text_validate' => null
+        'built_in_emotion_tags' => null,
+        'custom_emotion_tags' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'approval' => 'approval',
-        'auto_fill_target_text' => 'autoFillTargetText',
-        'text_validate' => 'textValidate'
+        'built_in_emotion_tags' => 'builtInEmotionTags',
+        'custom_emotion_tags' => 'customEmotionTags'
     ];
 
     /**
@@ -82,9 +79,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'approval' => 'setApproval',
-        'auto_fill_target_text' => 'setAutoFillTargetText',
-        'text_validate' => 'setTextValidate'
+        'built_in_emotion_tags' => 'setBuiltInEmotionTags',
+        'custom_emotion_tags' => 'setCustomEmotionTags'
     ];
 
     /**
@@ -93,9 +89,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'approval' => 'getApproval',
-        'auto_fill_target_text' => 'getAutoFillTargetText',
-        'text_validate' => 'getTextValidate'
+        'built_in_emotion_tags' => 'getBuiltInEmotionTags',
+        'custom_emotion_tags' => 'getCustomEmotionTags'
     ];
 
     /**
@@ -158,9 +153,8 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['approval'] = isset($data['approval']) ? $data['approval'] : null;
-        $this->container['auto_fill_target_text'] = isset($data['auto_fill_target_text']) ? $data['auto_fill_target_text'] : null;
-        $this->container['text_validate'] = isset($data['text_validate']) ? $data['text_validate'] : null;
+        $this->container['built_in_emotion_tags'] = isset($data['built_in_emotion_tags']) ? $data['built_in_emotion_tags'] : null;
+        $this->container['custom_emotion_tags'] = isset($data['custom_emotion_tags']) ? $data['custom_emotion_tags'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class SettingForVideoProjectListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets approval
+     * Gets built_in_emotion_tags
      *
-     * @return bool
+     * @return \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]
      */
-    public function getApproval()
+    public function getBuiltInEmotionTags()
     {
-        return $this->container['approval'];
+        return $this->container['built_in_emotion_tags'];
     }
 
     /**
-     * Sets approval
+     * Sets built_in_emotion_tags
      *
-     * @param bool $approval approval
+     * @param \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[] $built_in_emotion_tags built_in_emotion_tags
      *
      * @return $this
      */
-    public function setApproval($approval)
+    public function setBuiltInEmotionTags($built_in_emotion_tags)
     {
-        $this->container['approval'] = $approval;
+        $this->container['built_in_emotion_tags'] = $built_in_emotion_tags;
 
         return $this;
     }
 
     /**
-     * Gets auto_fill_target_text
+     * Gets custom_emotion_tags
      *
-     * @return \Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput
+     * @return \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]
      */
-    public function getAutoFillTargetText()
+    public function getCustomEmotionTags()
     {
-        return $this->container['auto_fill_target_text'];
+        return $this->container['custom_emotion_tags'];
     }
 
     /**
-     * Sets auto_fill_target_text
+     * Sets custom_emotion_tags
      *
-     * @param \Volcengine\I18nopenapi\Model\AutoFillTargetTextForVideoProjectListOutput $auto_fill_target_text auto_fill_target_text
+     * @param \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[] $custom_emotion_tags custom_emotion_tags
      *
      * @return $this
      */
-    public function setAutoFillTargetText($auto_fill_target_text)
+    public function setCustomEmotionTags($custom_emotion_tags)
     {
-        $this->container['auto_fill_target_text'] = $auto_fill_target_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets text_validate
-     *
-     * @return \Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput
-     */
-    public function getTextValidate()
-    {
-        return $this->container['text_validate'];
-    }
-
-    /**
-     * Sets text_validate
-     *
-     * @param \Volcengine\I18nopenapi\Model\TextValidateForVideoProjectListOutput $text_validate text_validate
-     *
-     * @return $this
-     */
-    public function setTextValidate($text_validate)
-    {
-        $this->container['text_validate'] = $text_validate;
+        $this->container['custom_emotion_tags'] = $custom_emotion_tags;
 
         return $this;
     }

@@ -31,7 +31,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'all_source_languages' => 'string[]',
         'all_target_languages' => 'string[]',
         'tasks' => '\Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskListOutput[]',
-        'total' => 'int',
         'total_count' => 'string'
     ];
 
@@ -44,7 +43,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'all_source_languages' => null,
         'all_target_languages' => null,
         'tasks' => null,
-        'total' => 'int32',
         'total_count' => null
     ];
 
@@ -78,7 +76,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'all_source_languages' => 'allSourceLanguages',
         'all_target_languages' => 'allTargetLanguages',
         'tasks' => 'tasks',
-        'total' => 'total',
         'total_count' => 'totalCount'
     ];
 
@@ -91,7 +88,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'all_source_languages' => 'setAllSourceLanguages',
         'all_target_languages' => 'setAllTargetLanguages',
         'tasks' => 'setTasks',
-        'total' => 'setTotal',
         'total_count' => 'setTotalCount'
     ];
 
@@ -104,7 +100,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'all_source_languages' => 'getAllSourceLanguages',
         'all_target_languages' => 'getAllTargetLanguages',
         'tasks' => 'getTasks',
-        'total' => 'getTotal',
         'total_count' => 'getTotalCount'
     ];
 
@@ -171,7 +166,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         $this->container['all_source_languages'] = isset($data['all_source_languages']) ? $data['all_source_languages'] : null;
         $this->container['all_target_languages'] = isset($data['all_target_languages']) ? $data['all_target_languages'] : null;
         $this->container['tasks'] = isset($data['tasks']) ? $data['tasks'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
@@ -267,30 +261,6 @@ class DataForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
     public function setTasks($tasks)
     {
         $this->container['tasks'] = $tasks;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
 
         return $this;
     }

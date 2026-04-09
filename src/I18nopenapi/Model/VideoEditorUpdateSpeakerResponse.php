@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAccess
+class VideoEditorUpdateSpeakerResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportOutput';
+    protected static $swaggerModelName = 'VideoEditorUpdateSpeakerResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'task_id' => 'int'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'message' => null,
-        'task_id' => 'int32'
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'task_id' => 'taskId'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'task_id' => 'setTaskId'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'task_id' => 'getTaskId'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -186,78 +173,6 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets code
-     *
-     * @return int
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_id
-     *
-     * @return int
-     */
-    public function getTaskId()
-    {
-        return $this->container['task_id'];
-    }
-
-    /**
-     * Sets task_id
-     *
-     * @param int $task_id task_id
-     *
-     * @return $this
-     */
-    public function setTaskId($task_id)
-    {
-        $this->container['task_id'] = $task_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -28,11 +28,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'comment' => 'string',
         'created_at' => 'string',
         'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectListOutput',
-        'creator_id' => 'string',
-        'description' => 'string',
-        'extra' => '\Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput',
         'id' => 'string',
         'name' => 'string',
         'source_lang' => 'string',
@@ -48,11 +46,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'comment' => null,
         'created_at' => null,
         'creator' => null,
-        'creator_id' => null,
-        'description' => null,
-        'extra' => null,
         'id' => null,
         'name' => null,
         'source_lang' => null,
@@ -89,11 +85,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'comment' => 'comment',
         'created_at' => 'createdAt',
         'creator' => 'creator',
-        'creator_id' => 'creatorId',
-        'description' => 'description',
-        'extra' => 'extra',
         'id' => 'id',
         'name' => 'name',
         'source_lang' => 'sourceLang',
@@ -109,11 +103,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'comment' => 'setComment',
         'created_at' => 'setCreatedAt',
         'creator' => 'setCreator',
-        'creator_id' => 'setCreatorId',
-        'description' => 'setDescription',
-        'extra' => 'setExtra',
         'id' => 'setId',
         'name' => 'setName',
         'source_lang' => 'setSourceLang',
@@ -129,11 +121,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'comment' => 'getComment',
         'created_at' => 'getCreatedAt',
         'creator' => 'getCreator',
-        'creator_id' => 'getCreatorId',
-        'description' => 'getDescription',
-        'extra' => 'getExtra',
         'id' => 'getId',
         'name' => 'getName',
         'source_lang' => 'getSourceLang',
@@ -203,11 +193,9 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
-        $this->container['creator_id'] = isset($data['creator_id']) ? $data['creator_id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
@@ -240,6 +228,30 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string $comment comment
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
 
     /**
      * Gets created_at
@@ -285,78 +297,6 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     public function setCreator($creator)
     {
         $this->container['creator'] = $creator;
-
-        return $this;
-    }
-
-    /**
-     * Gets creator_id
-     *
-     * @return string
-     */
-    public function getCreatorId()
-    {
-        return $this->container['creator_id'];
-    }
-
-    /**
-     * Sets creator_id
-     *
-     * @param string $creator_id creator_id
-     *
-     * @return $this
-     */
-    public function setCreatorId($creator_id)
-    {
-        $this->container['creator_id'] = $creator_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra
-     *
-     * @return \Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput
-     */
-    public function getExtra()
-    {
-        return $this->container['extra'];
-    }
-
-    /**
-     * Sets extra
-     *
-     * @param \Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput $extra extra
-     *
-     * @return $this
-     */
-    public function setExtra($extra)
-    {
-        $this->container['extra'] = $extra;
 
         return $this;
     }

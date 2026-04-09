@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAccess
+class VideoEditorAddEmotionTagRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForTermBaseTermGroupImportOutput';
+    protected static $swaggerModelName = 'VideoEditorAddEmotionTagRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'task_id' => 'int'
+        'emotion_tag' => 'string',
+        'name' => 'string',
+        'subtask_id' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'message' => null,
-        'task_id' => 'int32'
+        'emotion_tag' => null,
+        'name' => null,
+        'subtask_id' => 'int32'
     ];
 
     /**
@@ -71,9 +71,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'task_id' => 'taskId'
+        'emotion_tag' => 'emotionTag',
+        'name' => 'name',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'task_id' => 'setTaskId'
+        'emotion_tag' => 'setEmotionTag',
+        'name' => 'setName',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'task_id' => 'getTaskId'
+        'emotion_tag' => 'getEmotionTag',
+        'name' => 'getName',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -172,6 +172,15 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['emotion_tag'] === null) {
+            $invalidProperties[] = "'emotion_tag' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +197,73 @@ class DataForTermBaseTermGroupImportOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets code
-     *
-     * @return int
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets emotion_tag
      *
      * @return string
      */
-    public function getMessage()
+    public function getEmotionTag()
     {
-        return $this->container['message'];
+        return $this->container['emotion_tag'];
     }
 
     /**
-     * Sets message
+     * Sets emotion_tag
      *
-     * @param string $message message
+     * @param string $emotion_tag emotion_tag
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setEmotionTag($emotion_tag)
     {
-        $this->container['message'] = $message;
+        $this->container['emotion_tag'] = $emotion_tag;
 
         return $this;
     }
 
     /**
-     * Gets task_id
+     * Gets name
      *
-     * @return int
+     * @return string
      */
-    public function getTaskId()
+    public function getName()
     {
-        return $this->container['task_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets task_id
+     * Sets name
      *
-     * @param int $task_id task_id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setTaskId($task_id)
+    public function setName($name)
     {
-        $this->container['task_id'] = $task_id;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_id
+     *
+     * @return int
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param int $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }
