@@ -156,7 +156,7 @@ class ConvertLogoForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['concats'] = isset($data['concats']) ? $data['concats'] : null;
         $this->container['logo_type'] = isset($data['logo_type']) ? $data['logo_type'] : null;

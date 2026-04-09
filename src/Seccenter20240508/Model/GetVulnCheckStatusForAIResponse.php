@@ -156,7 +156,7 @@ class GetVulnCheckStatusForAIResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['last_check_time'] = isset($data['last_check_time']) ? $data['last_check_time'] : null;
         $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;

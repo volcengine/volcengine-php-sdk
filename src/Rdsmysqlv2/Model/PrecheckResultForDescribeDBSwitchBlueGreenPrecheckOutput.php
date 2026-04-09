@@ -176,7 +176,7 @@ class PrecheckResultForDescribeDBSwitchBlueGreenPrecheckOutput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['check_time'] = isset($data['check_time']) ? $data['check_time'] : null;
         $this->container['effective_time'] = isset($data['effective_time']) ? $data['effective_time'] : null;

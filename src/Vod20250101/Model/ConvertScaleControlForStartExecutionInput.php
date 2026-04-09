@@ -171,7 +171,7 @@ class ConvertScaleControlForStartExecutionInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['scale_height'] = isset($data['scale_height']) ? $data['scale_height'] : null;
         $this->container['scale_long'] = isset($data['scale_long']) ? $data['scale_long'] : null;

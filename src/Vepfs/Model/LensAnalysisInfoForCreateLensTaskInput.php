@@ -201,7 +201,7 @@ class LensAnalysisInfoForCreateLensTaskInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['analysis_attrs'] = isset($data['analysis_attrs']) ? $data['analysis_attrs'] : null;
         $this->container['enable_lens_analysis'] = isset($data['enable_lens_analysis']) ? $data['enable_lens_analysis'] : null;

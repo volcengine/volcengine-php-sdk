@@ -289,7 +289,7 @@ class LensTaskForDescribeLensTasksOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['complete_time'] = isset($data['complete_time']) ? $data['complete_time'] : null;
         $this->container['conflict_task_id'] = isset($data['conflict_task_id']) ? $data['conflict_task_id'] : null;

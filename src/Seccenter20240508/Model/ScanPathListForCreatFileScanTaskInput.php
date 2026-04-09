@@ -151,7 +151,7 @@ class ScanPathListForCreatFileScanTaskInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
         $this->container['max_depth'] = isset($data['max_depth']) ? $data['max_depth'] : null;

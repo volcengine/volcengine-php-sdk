@@ -161,7 +161,7 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_ai_judge_alarm'] = isset($data['auto_ai_judge_alarm']) ? $data['auto_ai_judge_alarm'] : null;
         $this->container['auto_handle'] = isset($data['auto_handle']) ? $data['auto_handle'] : null;

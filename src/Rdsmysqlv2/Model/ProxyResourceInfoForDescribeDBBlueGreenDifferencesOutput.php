@@ -156,7 +156,7 @@ class ProxyResourceInfoForDescribeDBBlueGreenDifferencesOutput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['current_proxy_cpu_num'] = isset($data['current_proxy_cpu_num']) ? $data['current_proxy_cpu_num'] : null;
         $this->container['max_proxy_cpu_num'] = isset($data['max_proxy_cpu_num']) ? $data['max_proxy_cpu_num'] : null;

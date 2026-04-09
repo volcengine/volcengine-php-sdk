@@ -156,7 +156,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['config_type'] = isset($data['config_type']) ? $data['config_type'] : null;
         $this->container['varmor_simple_config'] = isset($data['varmor_simple_config']) ? $data['varmor_simple_config'] : null;

@@ -156,7 +156,7 @@ class BatchUpgradeVarmorAppsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_list'] = isset($data['failed_list']) ? $data['failed_list'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;

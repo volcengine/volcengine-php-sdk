@@ -151,7 +151,7 @@ class TargetInfoForDescribeLensTasksOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['fileset_id'] = isset($data['fileset_id']) ? $data['fileset_id'] : null;
         $this->container['relative_path'] = isset($data['relative_path']) ? $data['relative_path'] : null;

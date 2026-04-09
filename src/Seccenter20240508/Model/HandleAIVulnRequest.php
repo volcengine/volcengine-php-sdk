@@ -171,7 +171,7 @@ class HandleAIVulnRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['after_status'] = isset($data['after_status']) ? $data['after_status'] : null;
         $this->container['before_status'] = isset($data['before_status']) ? $data['before_status'] : null;

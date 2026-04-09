@@ -181,7 +181,7 @@ class NetworkConfigForMSCreateInstanceOneStepInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['https_enabled'] = isset($data['https_enabled']) ? $data['https_enabled'] : null;
         $this->container['inner_endpoint_enabled'] = isset($data['inner_endpoint_enabled']) ? $data['inner_endpoint_enabled'] : null;

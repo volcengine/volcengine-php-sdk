@@ -215,7 +215,7 @@ class RangeValueForUpdateLensPolicyInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_value'] = isset($data['max_value']) ? $data['max_value'] : null;
         $this->container['max_value_unit'] = isset($data['max_value_unit']) ? $data['max_value_unit'] : null;

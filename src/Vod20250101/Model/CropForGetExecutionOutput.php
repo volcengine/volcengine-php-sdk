@@ -161,7 +161,7 @@ class CropForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pos_x'] = isset($data['pos_x']) ? $data['pos_x'] : null;
         $this->container['pos_y'] = isset($data['pos_y']) ? $data['pos_y'] : null;

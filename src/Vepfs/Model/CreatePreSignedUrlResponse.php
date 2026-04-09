@@ -156,7 +156,7 @@ class CreatePreSignedUrlResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['expires'] = isset($data['expires']) ? $data['expires'] : null;
         $this->container['file_key'] = isset($data['file_key']) ? $data['file_key'] : null;

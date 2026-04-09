@@ -161,7 +161,7 @@ class SetFilesetQuotaRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['capacity_limit'] = isset($data['capacity_limit']) ? $data['capacity_limit'] : null;
         $this->container['file_limit'] = isset($data['file_limit']) ? $data['file_limit'] : null;

@@ -151,7 +151,7 @@ class EndpointForSwitchDBBlueGreenInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['origin_endpoint_id'] = isset($data['origin_endpoint_id']) ? $data['origin_endpoint_id'] : null;
         $this->container['target_endpoint_id'] = isset($data['target_endpoint_id']) ? $data['target_endpoint_id'] : null;

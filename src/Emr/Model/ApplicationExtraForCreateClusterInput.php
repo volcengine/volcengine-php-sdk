@@ -166,7 +166,7 @@ class ApplicationExtraForCreateClusterInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['application_component_layouts'] = isset($data['application_component_layouts']) ? $data['application_component_layouts'] : null;
         $this->container['application_configs'] = isset($data['application_configs']) ? $data['application_configs'] : null;

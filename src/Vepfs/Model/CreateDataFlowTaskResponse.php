@@ -146,7 +146,7 @@ class CreateDataFlowTaskResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_flow_task_id'] = isset($data['data_flow_task_id']) ? $data['data_flow_task_id'] : null;
     }

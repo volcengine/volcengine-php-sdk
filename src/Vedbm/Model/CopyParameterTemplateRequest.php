@@ -156,7 +156,7 @@ class CopyParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_template_id'] = isset($data['source_template_id']) ? $data['source_template_id'] : null;
         $this->container['template_description'] = isset($data['template_description']) ? $data['template_description'] : null;

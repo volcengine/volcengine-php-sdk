@@ -171,7 +171,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['forward_ips'] = isset($data['forward_ips']) ? $data['forward_ips'] : null;
         $this->container['line'] = isset($data['line']) ? $data['line'] : null;

@@ -156,7 +156,7 @@ class DataForListClusterVarmorVersionHistoryOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;

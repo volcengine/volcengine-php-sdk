@@ -156,7 +156,7 @@ class BindVPCRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['vpc_trns'] = isset($data['vpc_trns']) ? $data['vpc_trns'] : null;
         $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;

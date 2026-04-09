@@ -206,7 +206,7 @@ class LensExportInfoForCreateLensTaskInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_download'] = isset($data['enable_download']) ? $data['enable_download'] : null;
         $this->container['export_attrs'] = isset($data['export_attrs']) ? $data['export_attrs'] : null;

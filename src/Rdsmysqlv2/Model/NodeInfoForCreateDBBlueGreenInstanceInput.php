@@ -166,7 +166,7 @@ class NodeInfoForCreateDBBlueGreenInstanceInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
         $this->container['node_operate_type'] = isset($data['node_operate_type']) ? $data['node_operate_type'] : null;

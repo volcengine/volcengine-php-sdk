@@ -171,7 +171,7 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['last_seven_change'] = isset($data['last_seven_change']) ? $data['last_seven_change'] : null;
         $this->container['point_info'] = isset($data['point_info']) ? $data['point_info'] : null;

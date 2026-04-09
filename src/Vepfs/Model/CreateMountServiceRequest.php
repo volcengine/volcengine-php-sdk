@@ -171,7 +171,7 @@ class CreateMountServiceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['mount_service_name'] = isset($data['mount_service_name']) ? $data['mount_service_name'] : null;
         $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;

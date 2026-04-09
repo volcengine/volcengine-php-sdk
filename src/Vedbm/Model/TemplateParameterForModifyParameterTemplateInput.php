@@ -151,7 +151,7 @@ class TemplateParameterForModifyParameterTemplateInput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['parameter_name'] = isset($data['parameter_name']) ? $data['parameter_name'] : null;
         $this->container['parameter_value'] = isset($data['parameter_value']) ? $data['parameter_value'] : null;

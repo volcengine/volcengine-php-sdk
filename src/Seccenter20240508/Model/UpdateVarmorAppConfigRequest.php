@@ -161,7 +161,7 @@ class UpdateVarmorAppConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['config_type'] = isset($data['config_type']) ? $data['config_type'] : null;

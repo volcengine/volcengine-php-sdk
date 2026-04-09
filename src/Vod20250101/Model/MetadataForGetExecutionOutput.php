@@ -151,7 +151,7 @@ class MetadataForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['add_tags'] = isset($data['add_tags']) ? $data['add_tags'] : null;
         $this->container['keep_tags'] = isset($data['keep_tags']) ? $data['keep_tags'] : null;

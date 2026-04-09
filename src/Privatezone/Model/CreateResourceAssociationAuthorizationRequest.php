@@ -151,7 +151,7 @@ class CreateResourceAssociationAuthorizationRequest implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;
         $this->container['zid'] = isset($data['zid']) ? $data['zid'] : null;

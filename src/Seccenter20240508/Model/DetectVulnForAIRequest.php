@@ -151,7 +151,7 @@ class DetectVulnForAIRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['if_all_session'] = isset($data['if_all_session']) ? $data['if_all_session'] : null;
         $this->container['session_id_list'] = isset($data['session_id_list']) ? $data['session_id_list'] : null;

@@ -201,7 +201,7 @@ class ListSpanRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['business_carrier'] = isset($data['business_carrier']) ? $data['business_carrier'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;

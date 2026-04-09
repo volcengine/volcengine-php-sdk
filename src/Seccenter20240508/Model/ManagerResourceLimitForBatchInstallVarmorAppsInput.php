@@ -161,7 +161,7 @@ class ManagerResourceLimitForBatchInstallVarmorAppsInput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cpu_limit'] = isset($data['cpu_limit']) ? $data['cpu_limit'] : null;
         $this->container['cpu_request'] = isset($data['cpu_request']) ? $data['cpu_request'] : null;

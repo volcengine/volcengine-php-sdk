@@ -186,7 +186,7 @@ class ListAgentkitSessionIDsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;

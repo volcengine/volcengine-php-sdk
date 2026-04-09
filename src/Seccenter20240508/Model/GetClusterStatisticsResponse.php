@@ -166,7 +166,7 @@ class GetClusterStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_center_url'] = isset($data['billing_center_url']) ? $data['billing_center_url'] : null;
         $this->container['total_hardened_node_count'] = isset($data['total_hardened_node_count']) ? $data['total_hardened_node_count'] : null;

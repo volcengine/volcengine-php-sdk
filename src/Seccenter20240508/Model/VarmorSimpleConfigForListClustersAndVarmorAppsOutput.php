@@ -176,7 +176,7 @@ class VarmorSimpleConfigForListClustersAndVarmorAppsOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_host_network'] = isset($data['agent_host_network']) ? $data['agent_host_network'] : null;
         $this->container['agent_readiness_probe_port'] = isset($data['agent_readiness_probe_port']) ? $data['agent_readiness_probe_port'] : null;
