@@ -2,17 +2,11 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Request;
-use Volcengine\Common\ApiException;
-use Volcengine\Common\Utils;
-
 class OidcCredentialProvider extends Provider
 {
+    use StsCredentialTrait;
+
     const PROVIDER_NAME = 'OidcCredentialProvider';
-    const DEFAULT_STS_ENDPOINT = 'sts.volcengineapi.com';
-    const DEFAULT_REGION = 'cn-north-1';
     const DEFAULT_DURATION_SECONDS = 3600;
     const DEFAULT_EXPIRE_BUFFER_SECONDS = 300;
 
@@ -43,7 +37,7 @@ class OidcCredentialProvider extends Provider
             : 'credentials-php-' . ((int)(microtime(true) * 1000000));
         $this->oidcTokenFile = $oidcTokenFile;
         $this->rolePolicy = $rolePolicy;
-        $this->stsEndpoint = $stsEndpoint ?: self::DEFAULT_STS_ENDPOINT;
+        $this->stsEndpoint = $stsEndpoint ?: StsFormRequest::DEFAULT_STS_ENDPOINT;
         $this->durationSeconds = $durationSeconds;
         $this->expireBufferSeconds = $expireBufferSeconds;
     }
@@ -79,72 +73,45 @@ class OidcCredentialProvider extends Provider
 
     private function refresh()
     {
-        $oidcToken = trim(@file_get_contents($this->oidcTokenFile));
-        if ($oidcToken === false || $oidcToken === '') {
+        $raw = @file_get_contents($this->oidcTokenFile);
+        if ($raw === false || trim($raw) === '') {
             throw new \RuntimeException(
                 self::PROVIDER_NAME . ': failed to read OIDC token file: ' . $this->oidcTokenFile
             );
         }
+        $oidcToken = trim($raw);
 
         $queryParams = [
             'Action' => 'AssumeRoleWithOIDC',
             'Version' => '2018-01-01',
         ];
 
-        $body = [
+        $bodyParams = [
             'DurationSeconds' => $this->durationSeconds,
             'RoleSessionName' => $this->roleSessionName,
             'RoleTrn' => $this->roleTrn,
             'OIDCToken' => $oidcToken,
         ];
 
+        // OIDC puts Policy in query string
         if (!empty($this->rolePolicy)) {
             $queryParams['Policy'] = $this->rolePolicy;
         }
 
-        ksort($queryParams);
-        $query = '';
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-        $httpBody = http_build_query($body);
-        // OIDC AssumeRole is effectively unsigned; use empty AK/SK for signing.
-        $headers = ['Host' => $this->stsEndpoint, 'Content-Type' => 'application/x-www-form-urlencoded'];
-        $headers = Utils::signv4('', '', self::DEFAULT_REGION, 'sts',
-            $httpBody, $query, 'POST', '/', $headers);
+        $formBody = http_build_query($bodyParams);
 
-        $request = new Request('POST',
-            'https://' . $this->stsEndpoint . '/' . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        $responseBody = StsFormRequest::doPostWithRetry(
+            $this->stsEndpoint, $this->schema, $queryParams,
+            $formBody, $this->maxRetries, $this->retryInterval,
+            self::PROVIDER_NAME
+        );
 
-        $client = new Client([
-            'timeout' => 30,
-            'connect_timeout' => 5,
-            'verify' => true,
-        ]);
-
-        try {
-            $response = $client->send($request);
-        } catch (RequestException $e) {
-            $resp = $e->getResponse();
-            $respBody = $resp ? (string)$resp->getBody() : '';
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}{$respBody}",
-                $e->getCode(),
-                $resp ? $resp->getHeaders() : null,
-                $respBody
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-        if ($statusCode < 200 || $statusCode > 299) {
+        $content = json_decode($responseBody, true);
+        if (!is_array($content)) {
             throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC request failed with status ' . $statusCode
+                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned empty response'
             );
         }
-
-        $content = json_decode($response->getBody()->getContents(), true);
 
         if (isset($content['ResponseMetadata']['Error'])) {
             throw new \RuntimeException(

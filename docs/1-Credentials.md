@@ -17,6 +17,7 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
+| `SsoCredentialProvider` | SSO federation via CloudIdentity portal | Yes | CLI SSO login |
 | `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
 ## AK/SK
@@ -45,8 +46,8 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSchema('https');  # optional, default https
 
 $apiInstance = new \Volcengine\Vpc\API\VPCApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\\ClientInterface`.
-    // This is optional, `GuzzleHttp\\Client` will be used as default.
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
@@ -160,17 +161,22 @@ You can either construct the provider explicitly, or build it from environment v
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
+    "trn:iam::1234567890:role/oidc-role",   // roleTrn (required)
+    "/var/run/secrets/oidc/token",           // oidcTokenFile (required)
+    "credentials-php-demo",                  // roleSessionName (optional)
+    null,                                    // rolePolicy (optional)
+    "sts.volcengineapi.com"                  // stsEndpoint (optional)
+);
+
+// Optional: tune retry and transport settings via fluent setters
+// $provider->setSchema('https')       // 'http' or 'https', default 'https'
+//          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
+//          ->setRetryInterval(1);      // seconds between retries, default 1
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
-            "trn:iam::1234567890:role/oidc-role",
-            "/var/run/secrets/oidc/token",
-            "credentials-php-demo",
-            null,
-            "sts.volcengineapi.com"
-        )
-    );
+    ->setCredentialProvider($provider);
 ```
 
 Environment-based example:
@@ -203,18 +209,23 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
+    "YourRoleName",                            // roleName (required)
+    "1234567890",                              // account id (required)
+    "MyIdp",                                   // SAML provider name (required)
+    "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion (required)
+    null,                                      // role policy (optional)
+    "sts.volcengineapi.com"                    // sts endpoint (optional)
+);
+
+// Optional: tune retry and transport settings via fluent setters
+// $provider->setSchema('https')       // 'http' or 'https', default 'https'
+//          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
+//          ->setRetryInterval(1);      // seconds between retries, default 1
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
-            "YourRoleName",
-            "1234567890",                              // account id
-            "MyIdp",                                   // SAML provider name
-            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion
-            null,                                      // role policy (optional)
-            "sts.volcengineapi.com"                    // sts endpoint (optional)
-        )
-    );
+    ->setCredentialProvider($provider);
 ```
 
 ## Environment Variable Credential Provider
@@ -286,11 +297,18 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name");
+
+// Optional: tune retry and timeout settings via fluent setters
+// $provider->setMaxRetries(3)            // extra retry attempts; 0 = no retry, default 3
+//          ->setRetryInterval(1)          // seconds between retries, default 1
+//          ->setConnectTimeout(1)         // seconds, default 1
+//          ->setReadTimeout(1)            // seconds, default 1
+//          ->setExpireBufferSeconds(300); // refresh buffer before expiry, default 300
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name")
-    );
+    ->setCredentialProvider($provider);
 ```
 
 ## Default Credential Provider

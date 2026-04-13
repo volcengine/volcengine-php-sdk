@@ -47,12 +47,92 @@ class EcsRoleCredentialProvider extends Provider
         $retryInterval = self::DEFAULT_RETRY_INTERVAL,
         $expireBufferSeconds = self::DEFAULT_EXPIRE_BUFFER_SECONDS
     ) {
+        if ($connectTimeout < 0) {
+            throw new \InvalidArgumentException('connectTimeout must be >= 0');
+        }
+        if ($readTimeout < 0) {
+            throw new \InvalidArgumentException('readTimeout must be >= 0');
+        }
+        if ($maxRetries < 0) {
+            throw new \InvalidArgumentException('maxRetries must be >= 0');
+        }
+        if ($retryInterval < 0) {
+            throw new \InvalidArgumentException('retryInterval must be >= 0');
+        }
+        if ($expireBufferSeconds < 0) {
+            throw new \InvalidArgumentException('expireBufferSeconds must be >= 0');
+        }
         $this->roleName = $roleName;
         $this->connectTimeout = $connectTimeout;
         $this->readTimeout = $readTimeout;
-        $this->maxRetries = max($maxRetries, 1);
+        $this->maxRetries = $maxRetries;
         $this->retryInterval = $retryInterval;
         $this->expireBufferSeconds = $expireBufferSeconds;
+    }
+
+    /**
+     * @param int $maxRetries extra retry attempts; 0 = no retry
+     * @return $this
+     */
+    public function setMaxRetries($maxRetries)
+    {
+        if ($maxRetries < 0) {
+            throw new \InvalidArgumentException('maxRetries must be >= 0');
+        }
+        $this->maxRetries = $maxRetries;
+        return $this;
+    }
+
+    /**
+     * @param int $retryInterval seconds between retries
+     * @return $this
+     */
+    public function setRetryInterval($retryInterval)
+    {
+        if ($retryInterval < 0) {
+            throw new \InvalidArgumentException('retryInterval must be >= 0');
+        }
+        $this->retryInterval = $retryInterval;
+        return $this;
+    }
+
+    /**
+     * @param int $connectTimeout seconds
+     * @return $this
+     */
+    public function setConnectTimeout($connectTimeout)
+    {
+        if ($connectTimeout < 0) {
+            throw new \InvalidArgumentException('connectTimeout must be >= 0');
+        }
+        $this->connectTimeout = $connectTimeout;
+        return $this;
+    }
+
+    /**
+     * @param int $readTimeout seconds
+     * @return $this
+     */
+    public function setReadTimeout($readTimeout)
+    {
+        if ($readTimeout < 0) {
+            throw new \InvalidArgumentException('readTimeout must be >= 0');
+        }
+        $this->readTimeout = $readTimeout;
+        return $this;
+    }
+
+    /**
+     * @param int $expireBufferSeconds seconds
+     * @return $this
+     */
+    public function setExpireBufferSeconds($expireBufferSeconds)
+    {
+        if ($expireBufferSeconds < 0) {
+            throw new \InvalidArgumentException('expireBufferSeconds must be >= 0');
+        }
+        $this->expireBufferSeconds = $expireBufferSeconds;
+        return $this;
     }
 
     public static function create($roleName = null)
@@ -202,16 +282,15 @@ class EcsRoleCredentialProvider extends Provider
 
     private function doRequestWithRetry($url, $method = 'GET', $headers = [])
     {
-        $retries = max($this->maxRetries, 1);
         $lastError = null;
         $timeout = $this->connectTimeout + $this->readTimeout;
 
-        for ($attempt = 0; $attempt < $retries; $attempt++) {
+        for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             try {
                 return $this->doRequest($url, $method, $headers, $timeout);
             } catch (\RuntimeException $e) {
                 $lastError = $e;
-                if ($attempt < $retries - 1) {
+                if ($attempt < $this->maxRetries) {
                     sleep($this->retryInterval);
                 }
             }

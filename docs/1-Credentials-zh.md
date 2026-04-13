@@ -17,6 +17,7 @@
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 从 `~/.volcengine/config.json` 读取 | 视 mode 而定 | 复用 CLI 登录态或 profile |
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
+| `SsoCredentialProvider` | SSO 联邦，通过 CloudIdentity Portal | 是 | CLI SSO 登录 |
 | `DefaultCredentialProvider` | 默认凭证链封装 | 取决于实际命中的 provider | 业务代码不显式写 AK/SK |
 
 ## AK、SK设置
@@ -173,17 +174,22 @@ try {
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
+    "trn:iam::1234567890:role/oidc-role",   // roleTrn（必填）
+    "/var/run/secrets/oidc/token",           // oidcTokenFile（必填）
+    "credentials-php-demo",                  // roleSessionName（可选）
+    null,                                    // rolePolicy（可选）
+    "sts.volcengineapi.com"                  // stsEndpoint（可选）
+);
+
+// 可选：通过 fluent setter 调整重试和传输参数
+// $provider->setSchema('https')       // 'http' 或 'https'，默认 'https'
+//          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
+//          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
-            "trn:iam::1234567890:role/oidc-role",
-            "/var/run/secrets/oidc/token",
-            "credentials-php-demo",
-            null,
-            "sts.volcengineapi.com"
-        )
-    );
+    ->setCredentialProvider($provider);
 ```
 
 基于环境变量的示例：
@@ -216,18 +222,23 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
+    "YourRoleName",                            // roleName（必填）
+    "1234567890",                              // account id（必填）
+    "MyIdp",                                   // SAML provider 名称（必填）
+    "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion（必填）
+    null,                                      // role policy（可选）
+    "sts.volcengineapi.com"                    // sts endpoint（可选）
+);
+
+// 可选：通过 fluent setter 调整重试和传输参数
+// $provider->setSchema('https')       // 'http' 或 'https'，默认 'https'
+//          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
+//          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
-            "YourRoleName",
-            "1234567890",                              // account id
-            "MyIdp",                                   // SAML provider 名称
-            "BASE64_ENCODED_SAML_RESPONSE_FROM_IDP",   // SAML assertion
-            null,                                      // role policy（可选）
-            "sts.volcengineapi.com"                    // sts endpoint（可选）
-        )
-    );
+    ->setCredentialProvider($provider);
 ```
 
 ## 环境变量凭证提供者
@@ -299,11 +310,18 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$provider = \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name");
+
+// 可选：通过 fluent setter 调整重试和超时参数
+// $provider->setMaxRetries(3)            // 额外重试次数；0 = 不重试，默认 3
+//          ->setRetryInterval(1)          // 重试间隔秒数，默认 1
+//          ->setConnectTimeout(1)         // 连接超时秒数，默认 1
+//          ->setReadTimeout(1)            // 读取超时秒数，默认 1
+//          ->setExpireBufferSeconds(300); // 过期前提前刷新的缓冲秒数，默认 300
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
-    ->setCredentialProvider(
-        \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name")
-    );
+    ->setCredentialProvider($provider);
 ```
 
 ## 默认凭证提供者
