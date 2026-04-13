@@ -37,6 +37,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
         'cost_unit' => 'string',
@@ -58,6 +59,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'string',
         'exchange_rate' => 'string',
         'expand_field' => 'string',
+        'expense_date' => 'string',
         'expense_time' => 'string',
         'factor' => 'string',
         'factor_code' => 'string',
@@ -143,6 +145,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
         'configuration_code' => null,
         'cost_unit' => null,
@@ -164,6 +167,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => null,
         'exchange_rate' => null,
         'expand_field' => null,
+        'expense_date' => null,
         'expense_time' => null,
         'factor' => null,
         'factor_code' => null,
@@ -270,6 +274,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
         'cost_unit' => 'CostUnit',
@@ -291,6 +296,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'ElementCode',
         'exchange_rate' => 'ExchangeRate',
         'expand_field' => 'ExpandField',
+        'expense_date' => 'ExpenseDate',
         'expense_time' => 'ExpenseTime',
         'factor' => 'Factor',
         'factor_code' => 'FactorCode',
@@ -376,6 +382,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
         'cost_unit' => 'setCostUnit',
@@ -397,6 +404,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'setElementCode',
         'exchange_rate' => 'setExchangeRate',
         'expand_field' => 'setExpandField',
+        'expense_date' => 'setExpenseDate',
         'expense_time' => 'setExpenseTime',
         'factor' => 'setFactor',
         'factor_code' => 'setFactorCode',
@@ -482,6 +490,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
         'cost_unit' => 'getCostUnit',
@@ -503,6 +512,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'getElementCode',
         'exchange_rate' => 'getExchangeRate',
         'expand_field' => 'getExpandField',
+        'expense_date' => 'getExpenseDate',
         'expense_time' => 'getExpenseTime',
         'factor' => 'getFactor',
         'factor_code' => 'getFactorCode',
@@ -642,6 +652,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['cost_unit'] = isset($data['cost_unit']) ? $data['cost_unit'] : null;
@@ -663,6 +674,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['element_code'] = isset($data['element_code']) ? $data['element_code'] : null;
         $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['expand_field'] = isset($data['expand_field']) ? $data['expand_field'] : null;
+        $this->container['expense_date'] = isset($data['expense_date']) ? $data['expense_date'] : null;
         $this->container['expense_time'] = isset($data['expense_time']) ? $data['expense_time'] : null;
         $this->container['factor'] = isset($data['factor']) ? $data['factor'] : null;
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
@@ -969,6 +981,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBusinessMode($business_mode)
     {
         $this->container['business_mode'] = $business_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
@@ -1473,6 +1509,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setExpandField($expand_field)
     {
         $this->container['expand_field'] = $expand_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_date
+     *
+     * @return string
+     */
+    public function getExpenseDate()
+    {
+        return $this->container['expense_date'];
+    }
+
+    /**
+     * Sets expense_date
+     *
+     * @param string $expense_date expense_date
+     *
+     * @return $this
+     */
+    public function setExpenseDate($expense_date)
+    {
+        $this->container['expense_date'] = $expense_date;
 
         return $this;
     }

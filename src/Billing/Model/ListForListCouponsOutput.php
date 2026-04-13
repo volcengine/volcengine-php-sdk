@@ -43,7 +43,8 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remark' => 'string',
         'status' => 'int',
         'total_amount' => 'double',
-        'usage_limit' => 'int'
+        'usage_limit' => 'int',
+        'void_reason' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remark' => null,
         'status' => 'int32',
         'total_amount' => 'double',
-        'usage_limit' => 'int32'
+        'usage_limit' => 'int32',
+        'void_reason' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remark' => 'Remark',
         'status' => 'Status',
         'total_amount' => 'TotalAmount',
-        'usage_limit' => 'UsageLimit'
+        'usage_limit' => 'UsageLimit',
+        'void_reason' => 'VoidReason'
     ];
 
     /**
@@ -136,7 +139,8 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remark' => 'setRemark',
         'status' => 'setStatus',
         'total_amount' => 'setTotalAmount',
-        'usage_limit' => 'setUsageLimit'
+        'usage_limit' => 'setUsageLimit',
+        'void_reason' => 'setVoidReason'
     ];
 
     /**
@@ -160,7 +164,8 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remark' => 'getRemark',
         'status' => 'getStatus',
         'total_amount' => 'getTotalAmount',
-        'usage_limit' => 'getUsageLimit'
+        'usage_limit' => 'getUsageLimit',
+        'void_reason' => 'getVoidReason'
     ];
 
     /**
@@ -239,6 +244,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['usage_limit'] = isset($data['usage_limit']) ? $data['usage_limit'] : null;
+        $this->container['void_reason'] = isset($data['void_reason']) ? $data['void_reason'] : null;
     }
 
     /**
@@ -645,6 +651,30 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
     public function setUsageLimit($usage_limit)
     {
         $this->container['usage_limit'] = $usage_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets void_reason
+     *
+     * @return string
+     */
+    public function getVoidReason()
+    {
+        return $this->container['void_reason'];
+    }
+
+    /**
+     * Sets void_reason
+     *
+     * @param string $void_reason void_reason
+     *
+     * @return $this
+     */
+    public function setVoidReason($void_reason)
+    {
+        $this->container['void_reason'] = $void_reason;
 
         return $this;
     }
