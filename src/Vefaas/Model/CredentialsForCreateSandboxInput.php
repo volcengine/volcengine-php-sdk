@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, ArrayAccess
+class CredentialsForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForCreateSandboxInput';
+    protected static $swaggerModelName = 'CredentialsForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]'
+        'access_key_id' => 'string',
+        'secret_access_key' => 'string',
+        'session_token' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'access_key_id' => null,
+        'secret_access_key' => null,
+        'session_token' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'access_key_id' => 'AccessKeyId',
+        'secret_access_key' => 'SecretAccessKey',
+        'session_token' => 'SessionToken'
     ];
 
     /**
@@ -88,11 +82,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'access_key_id' => 'setAccessKeyId',
+        'secret_access_key' => 'setSecretAccessKey',
+        'session_token' => 'setSessionToken'
     ];
 
     /**
@@ -101,11 +93,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'access_key_id' => 'getAccessKeyId',
+        'secret_access_key' => 'getSecretAccessKey',
+        'session_token' => 'getSessionToken'
     ];
 
     /**
@@ -168,11 +158,9 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
+        $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
+        $this->container['session_token'] = isset($data['session_token']) ? $data['session_token'] : null;
     }
 
     /**
@@ -200,121 +188,73 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
 
 
     /**
-     * Gets auth_mode
+     * Gets access_key_id
      *
      * @return string
      */
-    public function getAuthMode()
+    public function getAccessKeyId()
     {
-        return $this->container['auth_mode'];
+        return $this->container['access_key_id'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets access_key_id
      *
-     * @param string $auth_mode auth_mode
+     * @param string $access_key_id access_key_id
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setAccessKeyId($access_key_id)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['access_key_id'] = $access_key_id;
 
         return $this;
     }
 
     /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
+     * Gets secret_access_key
      *
      * @return string
      */
-    public function getMode()
+    public function getSecretAccessKey()
     {
-        return $this->container['mode'];
+        return $this->container['secret_access_key'];
     }
 
     /**
-     * Sets mode
+     * Sets secret_access_key
      *
-     * @param string $mode mode
+     * @param string $secret_access_key secret_access_key
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setSecretAccessKey($secret_access_key)
     {
-        $this->container['mode'] = $mode;
+        $this->container['secret_access_key'] = $secret_access_key;
 
         return $this;
     }
 
     /**
-     * Gets tos_mount_points
+     * Gets session_token
      *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]
+     * @return string
      */
-    public function getTosMountPoints()
+    public function getSessionToken()
     {
-        return $this->container['tos_mount_points'];
+        return $this->container['session_token'];
     }
 
     /**
-     * Sets tos_mount_points
+     * Sets session_token
      *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[] $tos_mount_points tos_mount_points
+     * @param string $session_token session_token
      *
      * @return $this
      */
-    public function setTosMountPoints($tos_mount_points)
+    public function setSessionToken($session_token)
     {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['session_token'] = $session_token;
 
         return $this;
     }

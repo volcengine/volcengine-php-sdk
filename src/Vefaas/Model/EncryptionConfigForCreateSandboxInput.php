@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
+class EncryptionConfigForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TosMountPointForCreateSandboxInput';
+    protected static $swaggerModelName = 'EncryptionConfigForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'bucket_name' => 'string',
-        'bucket_path' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'encryption_config' => '\Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput',
-        'endpoint' => 'string',
-        'local_mount_path' => 'string',
-        'read_only' => 'bool'
+        'enable_sse' => 'bool',
+        'encryption_algorithm' => 'string',
+        'encryption_method' => 'string',
+        'kms_master_key_id' => 'string',
+        'ssec_key' => 'string',
+        'ssecmd5' => 'string'
     ];
 
     /**
@@ -44,14 +42,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'bucket_name' => null,
-        'bucket_path' => null,
-        'credentials' => null,
-        'encryption_config' => null,
-        'endpoint' => null,
-        'local_mount_path' => null,
-        'read_only' => null
+        'enable_sse' => null,
+        'encryption_algorithm' => null,
+        'encryption_method' => null,
+        'kms_master_key_id' => null,
+        'ssec_key' => null,
+        'ssecmd5' => null
     ];
 
     /**
@@ -81,14 +77,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'bucket_name' => 'BucketName',
-        'bucket_path' => 'BucketPath',
-        'credentials' => 'Credentials',
-        'encryption_config' => 'EncryptionConfig',
-        'endpoint' => 'Endpoint',
-        'local_mount_path' => 'LocalMountPath',
-        'read_only' => 'ReadOnly'
+        'enable_sse' => 'EnableSSE',
+        'encryption_algorithm' => 'EncryptionAlgorithm',
+        'encryption_method' => 'EncryptionMethod',
+        'kms_master_key_id' => 'KMSMasterKeyID',
+        'ssec_key' => 'SSECKey',
+        'ssecmd5' => 'SSECMD5'
     ];
 
     /**
@@ -97,14 +91,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'bucket_name' => 'setBucketName',
-        'bucket_path' => 'setBucketPath',
-        'credentials' => 'setCredentials',
-        'encryption_config' => 'setEncryptionConfig',
-        'endpoint' => 'setEndpoint',
-        'local_mount_path' => 'setLocalMountPath',
-        'read_only' => 'setReadOnly'
+        'enable_sse' => 'setEnableSse',
+        'encryption_algorithm' => 'setEncryptionAlgorithm',
+        'encryption_method' => 'setEncryptionMethod',
+        'kms_master_key_id' => 'setKmsMasterKeyId',
+        'ssec_key' => 'setSsecKey',
+        'ssecmd5' => 'setSsecmd5'
     ];
 
     /**
@@ -113,14 +105,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'bucket_name' => 'getBucketName',
-        'bucket_path' => 'getBucketPath',
-        'credentials' => 'getCredentials',
-        'encryption_config' => 'getEncryptionConfig',
-        'endpoint' => 'getEndpoint',
-        'local_mount_path' => 'getLocalMountPath',
-        'read_only' => 'getReadOnly'
+        'enable_sse' => 'getEnableSse',
+        'encryption_algorithm' => 'getEncryptionAlgorithm',
+        'encryption_method' => 'getEncryptionMethod',
+        'kms_master_key_id' => 'getKmsMasterKeyId',
+        'ssec_key' => 'getSsecKey',
+        'ssecmd5' => 'getSsecmd5'
     ];
 
     /**
@@ -183,14 +173,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['enable_sse'] = isset($data['enable_sse']) ? $data['enable_sse'] : null;
+        $this->container['encryption_algorithm'] = isset($data['encryption_algorithm']) ? $data['encryption_algorithm'] : null;
+        $this->container['encryption_method'] = isset($data['encryption_method']) ? $data['encryption_method'] : null;
+        $this->container['kms_master_key_id'] = isset($data['kms_master_key_id']) ? $data['kms_master_key_id'] : null;
+        $this->container['ssec_key'] = isset($data['ssec_key']) ? $data['ssec_key'] : null;
+        $this->container['ssecmd5'] = isset($data['ssecmd5']) ? $data['ssecmd5'] : null;
     }
 
     /**
@@ -218,193 +206,145 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_mode
-     *
-     * @return string
-     */
-    public function getAuthMode()
-    {
-        return $this->container['auth_mode'];
-    }
-
-    /**
-     * Sets auth_mode
-     *
-     * @param string $auth_mode auth_mode
-     *
-     * @return $this
-     */
-    public function setAuthMode($auth_mode)
-    {
-        $this->container['auth_mode'] = $auth_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_name
-     *
-     * @return string
-     */
-    public function getBucketName()
-    {
-        return $this->container['bucket_name'];
-    }
-
-    /**
-     * Sets bucket_name
-     *
-     * @param string $bucket_name bucket_name
-     *
-     * @return $this
-     */
-    public function setBucketName($bucket_name)
-    {
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_path
-     *
-     * @return string
-     */
-    public function getBucketPath()
-    {
-        return $this->container['bucket_path'];
-    }
-
-    /**
-     * Sets bucket_path
-     *
-     * @param string $bucket_path bucket_path
-     *
-     * @return $this
-     */
-    public function setBucketPath($bucket_path)
-    {
-        $this->container['bucket_path'] = $bucket_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets encryption_config
-     *
-     * @return \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput
-     */
-    public function getEncryptionConfig()
-    {
-        return $this->container['encryption_config'];
-    }
-
-    /**
-     * Sets encryption_config
-     *
-     * @param \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput $encryption_config encryption_config
-     *
-     * @return $this
-     */
-    public function setEncryptionConfig($encryption_config)
-    {
-        $this->container['encryption_config'] = $encryption_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets local_mount_path
-     *
-     * @return string
-     */
-    public function getLocalMountPath()
-    {
-        return $this->container['local_mount_path'];
-    }
-
-    /**
-     * Sets local_mount_path
-     *
-     * @param string $local_mount_path local_mount_path
-     *
-     * @return $this
-     */
-    public function setLocalMountPath($local_mount_path)
-    {
-        $this->container['local_mount_path'] = $local_mount_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets read_only
+     * Gets enable_sse
      *
      * @return bool
      */
-    public function getReadOnly()
+    public function getEnableSse()
     {
-        return $this->container['read_only'];
+        return $this->container['enable_sse'];
     }
 
     /**
-     * Sets read_only
+     * Sets enable_sse
      *
-     * @param bool $read_only read_only
+     * @param bool $enable_sse enable_sse
      *
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setEnableSse($enable_sse)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['enable_sse'] = $enable_sse;
+
+        return $this;
+    }
+
+    /**
+     * Gets encryption_algorithm
+     *
+     * @return string
+     */
+    public function getEncryptionAlgorithm()
+    {
+        return $this->container['encryption_algorithm'];
+    }
+
+    /**
+     * Sets encryption_algorithm
+     *
+     * @param string $encryption_algorithm encryption_algorithm
+     *
+     * @return $this
+     */
+    public function setEncryptionAlgorithm($encryption_algorithm)
+    {
+        $this->container['encryption_algorithm'] = $encryption_algorithm;
+
+        return $this;
+    }
+
+    /**
+     * Gets encryption_method
+     *
+     * @return string
+     */
+    public function getEncryptionMethod()
+    {
+        return $this->container['encryption_method'];
+    }
+
+    /**
+     * Sets encryption_method
+     *
+     * @param string $encryption_method encryption_method
+     *
+     * @return $this
+     */
+    public function setEncryptionMethod($encryption_method)
+    {
+        $this->container['encryption_method'] = $encryption_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets kms_master_key_id
+     *
+     * @return string
+     */
+    public function getKmsMasterKeyId()
+    {
+        return $this->container['kms_master_key_id'];
+    }
+
+    /**
+     * Sets kms_master_key_id
+     *
+     * @param string $kms_master_key_id kms_master_key_id
+     *
+     * @return $this
+     */
+    public function setKmsMasterKeyId($kms_master_key_id)
+    {
+        $this->container['kms_master_key_id'] = $kms_master_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssec_key
+     *
+     * @return string
+     */
+    public function getSsecKey()
+    {
+        return $this->container['ssec_key'];
+    }
+
+    /**
+     * Sets ssec_key
+     *
+     * @param string $ssec_key ssec_key
+     *
+     * @return $this
+     */
+    public function setSsecKey($ssec_key)
+    {
+        $this->container['ssec_key'] = $ssec_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssecmd5
+     *
+     * @return string
+     */
+    public function getSsecmd5()
+    {
+        return $this->container['ssecmd5'];
+    }
+
+    /**
+     * Sets ssecmd5
+     *
+     * @param string $ssecmd5 ssecmd5
+     *
+     * @return $this
+     */
+    public function setSsecmd5($ssecmd5)
+    {
+        $this->container['ssecmd5'] = $ssecmd5;
 
         return $this;
     }

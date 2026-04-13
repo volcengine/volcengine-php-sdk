@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
+class ResumeSandboxRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TosMountPointForCreateSandboxInput';
+    protected static $swaggerModelName = 'ResumeSandboxRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'bucket_name' => 'string',
-        'bucket_path' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'encryption_config' => '\Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput',
-        'endpoint' => 'string',
-        'local_mount_path' => 'string',
-        'read_only' => 'bool'
+        'async' => 'bool',
+        'function_id' => 'string',
+        'sandbox_id' => 'string',
+        'timeout' => 'int',
+        'timeout_unit' => 'string'
     ];
 
     /**
@@ -44,14 +41,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'bucket_name' => null,
-        'bucket_path' => null,
-        'credentials' => null,
-        'encryption_config' => null,
-        'endpoint' => null,
-        'local_mount_path' => null,
-        'read_only' => null
+        'async' => null,
+        'function_id' => null,
+        'sandbox_id' => null,
+        'timeout' => 'int32',
+        'timeout_unit' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'bucket_name' => 'BucketName',
-        'bucket_path' => 'BucketPath',
-        'credentials' => 'Credentials',
-        'encryption_config' => 'EncryptionConfig',
-        'endpoint' => 'Endpoint',
-        'local_mount_path' => 'LocalMountPath',
-        'read_only' => 'ReadOnly'
+        'async' => 'Async',
+        'function_id' => 'FunctionId',
+        'sandbox_id' => 'SandboxId',
+        'timeout' => 'Timeout',
+        'timeout_unit' => 'TimeoutUnit'
     ];
 
     /**
@@ -97,14 +88,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'bucket_name' => 'setBucketName',
-        'bucket_path' => 'setBucketPath',
-        'credentials' => 'setCredentials',
-        'encryption_config' => 'setEncryptionConfig',
-        'endpoint' => 'setEndpoint',
-        'local_mount_path' => 'setLocalMountPath',
-        'read_only' => 'setReadOnly'
+        'async' => 'setAsync',
+        'function_id' => 'setFunctionId',
+        'sandbox_id' => 'setSandboxId',
+        'timeout' => 'setTimeout',
+        'timeout_unit' => 'setTimeoutUnit'
     ];
 
     /**
@@ -113,14 +101,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'bucket_name' => 'getBucketName',
-        'bucket_path' => 'getBucketPath',
-        'credentials' => 'getCredentials',
-        'encryption_config' => 'getEncryptionConfig',
-        'endpoint' => 'getEndpoint',
-        'local_mount_path' => 'getLocalMountPath',
-        'read_only' => 'getReadOnly'
+        'async' => 'getAsync',
+        'function_id' => 'getFunctionId',
+        'sandbox_id' => 'getSandboxId',
+        'timeout' => 'getTimeout',
+        'timeout_unit' => 'getTimeoutUnit'
     ];
 
     /**
@@ -183,14 +168,11 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
-        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['async'] = isset($data['async']) ? $data['async'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['timeout_unit'] = isset($data['timeout_unit']) ? $data['timeout_unit'] : null;
     }
 
     /**
@@ -202,6 +184,12 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['sandbox_id'] === null) {
+            $invalidProperties[] = "'sandbox_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,193 +206,121 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_mode
-     *
-     * @return string
-     */
-    public function getAuthMode()
-    {
-        return $this->container['auth_mode'];
-    }
-
-    /**
-     * Sets auth_mode
-     *
-     * @param string $auth_mode auth_mode
-     *
-     * @return $this
-     */
-    public function setAuthMode($auth_mode)
-    {
-        $this->container['auth_mode'] = $auth_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_name
-     *
-     * @return string
-     */
-    public function getBucketName()
-    {
-        return $this->container['bucket_name'];
-    }
-
-    /**
-     * Sets bucket_name
-     *
-     * @param string $bucket_name bucket_name
-     *
-     * @return $this
-     */
-    public function setBucketName($bucket_name)
-    {
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_path
-     *
-     * @return string
-     */
-    public function getBucketPath()
-    {
-        return $this->container['bucket_path'];
-    }
-
-    /**
-     * Sets bucket_path
-     *
-     * @param string $bucket_path bucket_path
-     *
-     * @return $this
-     */
-    public function setBucketPath($bucket_path)
-    {
-        $this->container['bucket_path'] = $bucket_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets encryption_config
-     *
-     * @return \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput
-     */
-    public function getEncryptionConfig()
-    {
-        return $this->container['encryption_config'];
-    }
-
-    /**
-     * Sets encryption_config
-     *
-     * @param \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput $encryption_config encryption_config
-     *
-     * @return $this
-     */
-    public function setEncryptionConfig($encryption_config)
-    {
-        $this->container['encryption_config'] = $encryption_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets local_mount_path
-     *
-     * @return string
-     */
-    public function getLocalMountPath()
-    {
-        return $this->container['local_mount_path'];
-    }
-
-    /**
-     * Sets local_mount_path
-     *
-     * @param string $local_mount_path local_mount_path
-     *
-     * @return $this
-     */
-    public function setLocalMountPath($local_mount_path)
-    {
-        $this->container['local_mount_path'] = $local_mount_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets read_only
+     * Gets async
      *
      * @return bool
      */
-    public function getReadOnly()
+    public function getAsync()
     {
-        return $this->container['read_only'];
+        return $this->container['async'];
     }
 
     /**
-     * Sets read_only
+     * Sets async
      *
-     * @param bool $read_only read_only
+     * @param bool $async async
      *
      * @return $this
      */
-    public function setReadOnly($read_only)
+    public function setAsync($async)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['async'] = $async;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox_id
+     *
+     * @return string
+     */
+    public function getSandboxId()
+    {
+        return $this->container['sandbox_id'];
+    }
+
+    /**
+     * Sets sandbox_id
+     *
+     * @param string $sandbox_id sandbox_id
+     *
+     * @return $this
+     */
+    public function setSandboxId($sandbox_id)
+    {
+        $this->container['sandbox_id'] = $sandbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param int $timeout timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout_unit
+     *
+     * @return string
+     */
+    public function getTimeoutUnit()
+    {
+        return $this->container['timeout_unit'];
+    }
+
+    /**
+     * Sets timeout_unit
+     *
+     * @param string $timeout_unit timeout_unit
+     *
+     * @return $this
+     */
+    public function setTimeoutUnit($timeout_unit)
+    {
+        $this->container['timeout_unit'] = $timeout_unit;
 
         return $this;
     }

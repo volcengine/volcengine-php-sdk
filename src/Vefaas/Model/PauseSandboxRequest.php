@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, ArrayAccess
+class PauseSandboxRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForCreateSandboxInput';
+    protected static $swaggerModelName = 'PauseSandboxRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]'
+        'function_id' => 'string',
+        'sandbox_id' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'function_id' => null,
+        'sandbox_id' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'function_id' => 'FunctionId',
+        'sandbox_id' => 'SandboxId'
     ];
 
     /**
@@ -88,11 +79,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'function_id' => 'setFunctionId',
+        'sandbox_id' => 'setSandboxId'
     ];
 
     /**
@@ -101,11 +89,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'function_id' => 'getFunctionId',
+        'sandbox_id' => 'getSandboxId'
     ];
 
     /**
@@ -168,11 +153,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
     }
 
     /**
@@ -184,6 +166,12 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['sandbox_id'] === null) {
+            $invalidProperties[] = "'sandbox_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +188,49 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
 
 
     /**
-     * Gets auth_mode
+     * Gets function_id
      *
      * @return string
      */
-    public function getAuthMode()
+    public function getFunctionId()
     {
-        return $this->container['auth_mode'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets function_id
      *
-     * @param string $auth_mode auth_mode
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setFunctionId($function_id)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['function_id'] = $function_id;
 
         return $this;
     }
 
     /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
+     * Gets sandbox_id
      *
      * @return string
      */
-    public function getMode()
+    public function getSandboxId()
     {
-        return $this->container['mode'];
+        return $this->container['sandbox_id'];
     }
 
     /**
-     * Sets mode
+     * Sets sandbox_id
      *
-     * @param string $mode mode
+     * @param string $sandbox_id sandbox_id
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setSandboxId($sandbox_id)
     {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_mount_points
-     *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]
-     */
-    public function getTosMountPoints()
-    {
-        return $this->container['tos_mount_points'];
-    }
-
-    /**
-     * Sets tos_mount_points
-     *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[] $tos_mount_points tos_mount_points
-     *
-     * @return $this
-     */
-    public function setTosMountPoints($tos_mount_points)
-    {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['sandbox_id'] = $sandbox_id;
 
         return $this;
     }
