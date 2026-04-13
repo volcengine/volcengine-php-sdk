@@ -2,6 +2,9 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\TransferException;
+
 class SsoCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'SsoCredentialProvider';
@@ -345,70 +348,73 @@ class SsoCredentialProvider extends Provider
 
     private function doPost($url, $body)
     {
-        $ctx = stream_context_create([
-            'http' => [
-                'method' => 'POST',
-                'header' => "Content-Type: application/json\r\n",
-                'content' => $body,
-                'timeout' => self::DEFAULT_HTTP_TIMEOUT,
-                'ignore_errors' => true,
-            ],
+        $client = new Client([
+            'timeout' => self::DEFAULT_HTTP_TIMEOUT,
+            'connect_timeout' => 5,
+            'verify' => true,
+            'http_errors' => false,
         ]);
 
-        $response = @file_get_contents($url, false, $ctx);
-        if ($response === false) {
+        try {
+            $response = $client->post($url, [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ],
+                'body' => $body,
+            ]);
+        } catch (TransferException $e) {
             throw new \RuntimeException(
-                self::PROVIDER_NAME . ': HTTP POST request failed to ' . $url
+                self::PROVIDER_NAME . ': HTTP POST request failed to ' . $url . ' - ' . $e->getMessage()
             );
         }
 
-        if (isset($http_response_header) && is_array($http_response_header)) {
-            $statusLine = $http_response_header[0];
-            if (preg_match('/HTTP\/\S+\s+(\d+)/', $statusLine, $matches)) {
-                $statusCode = (int) $matches[1];
-                if ($statusCode < 200 || $statusCode >= 300) {
-                    throw new \RuntimeException(
-                        self::PROVIDER_NAME . ': HTTP POST request failed with status ' . $statusCode . ': ' . $response
-                    );
-                }
-            }
+        $statusCode = $response->getStatusCode();
+        $responseBody = (string) $response->getBody();
+
+        if ($statusCode < 200 || $statusCode >= 300) {
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': HTTP POST request failed with status ' . $statusCode
+                . ($responseBody !== '' ? ': ' . $responseBody : '')
+            );
         }
 
-        return $response;
+        return $responseBody;
     }
 
     private function doGet($url, $accessToken)
     {
-        $ctx = stream_context_create([
-            'http' => [
-                'method' => 'GET',
-                'header' => "Accept: application/json\r\n"
-                    . self::PORTAL_ACCESS_TOKEN_HEADER . ": {$accessToken}\r\n",
-                'timeout' => self::DEFAULT_HTTP_TIMEOUT,
-                'ignore_errors' => true,
-            ],
+        $client = new Client([
+            'timeout' => self::DEFAULT_HTTP_TIMEOUT,
+            'connect_timeout' => 5,
+            'verify' => true,
+            'http_errors' => false,
         ]);
 
-        $response = @file_get_contents($url, false, $ctx);
-        if ($response === false) {
+        try {
+            $response = $client->get($url, [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    self::PORTAL_ACCESS_TOKEN_HEADER => $accessToken,
+                ],
+            ]);
+        } catch (TransferException $e) {
             throw new \RuntimeException(
-                self::PROVIDER_NAME . ': HTTP GET request failed to ' . $url
+                self::PROVIDER_NAME . ': HTTP GET request failed to ' . $url . ' - ' . $e->getMessage()
             );
         }
 
-        if (isset($http_response_header) && is_array($http_response_header)) {
-            $statusLine = $http_response_header[0];
-            if (preg_match('/HTTP\/\S+\s+(\d+)/', $statusLine, $matches)) {
-                $statusCode = (int) $matches[1];
-                if ($statusCode < 200 || $statusCode >= 300) {
-                    throw new \RuntimeException(
-                        self::PROVIDER_NAME . ': HTTP GET request failed with status ' . $statusCode . ': ' . $response
-                    );
-                }
-            }
+        $statusCode = $response->getStatusCode();
+        $responseBody = (string) $response->getBody();
+
+        if ($statusCode < 200 || $statusCode >= 300) {
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': HTTP GET request failed with status ' . $statusCode
+                . ($responseBody !== '' ? ': ' . $responseBody : '')
+            );
         }
 
-        return $response;
+        return $responseBody;
     }
 
     private function saveTokenCache($tokenPath, $tokenCache)
