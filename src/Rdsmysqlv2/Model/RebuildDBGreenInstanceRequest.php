@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
+class RebuildDBGreenInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteUserUploadBackupRequest';
+    protected static $swaggerModelName = 'RebuildDBGreenInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_id' => 'string',
-        'project_name' => 'string'
+        'instance_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_id' => null,
-        'project_name' => null
+        'instance_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_id' => 'BackupId',
-        'project_name' => 'ProjectName'
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_id' => 'setBackupId',
-        'project_name' => 'setProjectName'
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_id' => 'getBackupId',
-        'project_name' => 'getProjectName'
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -166,11 +160,8 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['backup_id'] === null) {
-            $invalidProperties[] = "'backup_id' can't be null";
-        }
-        if ($this->container['project_name'] === null) {
-            $invalidProperties[] = "'project_name' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,49 +179,25 @@ class DeleteUserUploadBackupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getBackupId()
+    public function getInstanceId()
     {
-        return $this->container['backup_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets backup_id
+     * Sets instance_id
      *
-     * @param string $backup_id backup_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setBackupId($backup_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['backup_id'] = $backup_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements ModelInterface, ArrayAccess
+class ModifyBackupNameRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput';
+    protected static $swaggerModelName = 'ModifyBackupNameRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enable_storage_auto_scale' => 'bool',
-        'scaling_detect_node' => 'string',
-        'storage_threshold' => 'int',
-        'storage_upper_bound' => 'int'
+        'backup_id' => 'string',
+        'backup_name' => 'string',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enable_storage_auto_scale' => null,
-        'scaling_detect_node' => null,
-        'storage_threshold' => 'int32',
-        'storage_upper_bound' => 'int32'
+        'backup_id' => null,
+        'backup_name' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable_storage_auto_scale' => 'EnableStorageAutoScale',
-        'scaling_detect_node' => 'ScalingDetectNode',
-        'storage_threshold' => 'StorageThreshold',
-        'storage_upper_bound' => 'StorageUpperBound'
+        'backup_id' => 'BackupId',
+        'backup_name' => 'BackupName',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -85,10 +82,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
      * @var string[]
      */
     protected static $setters = [
-        'enable_storage_auto_scale' => 'setEnableStorageAutoScale',
-        'scaling_detect_node' => 'setScalingDetectNode',
-        'storage_threshold' => 'setStorageThreshold',
-        'storage_upper_bound' => 'setStorageUpperBound'
+        'backup_id' => 'setBackupId',
+        'backup_name' => 'setBackupName',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -97,10 +93,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
      * @var string[]
      */
     protected static $getters = [
-        'enable_storage_auto_scale' => 'getEnableStorageAutoScale',
-        'scaling_detect_node' => 'getScalingDetectNode',
-        'storage_threshold' => 'getStorageThreshold',
-        'storage_upper_bound' => 'getStorageUpperBound'
+        'backup_id' => 'getBackupId',
+        'backup_name' => 'getBackupName',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -163,10 +158,9 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
      */
     public function __construct($data = null)
     {
-        $this->container['enable_storage_auto_scale'] = isset($data['enable_storage_auto_scale']) ? $data['enable_storage_auto_scale'] : null;
-        $this->container['scaling_detect_node'] = isset($data['scaling_detect_node']) ? $data['scaling_detect_node'] : null;
-        $this->container['storage_threshold'] = isset($data['storage_threshold']) ? $data['storage_threshold'] : null;
-        $this->container['storage_upper_bound'] = isset($data['storage_upper_bound']) ? $data['storage_upper_bound'] : null;
+        $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
+        $this->container['backup_name'] = isset($data['backup_name']) ? $data['backup_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -178,6 +172,15 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
     {
         $invalidProperties = [];
 
+        if ($this->container['backup_id'] === null) {
+            $invalidProperties[] = "'backup_id' can't be null";
+        }
+        if ($this->container['backup_name'] === null) {
+            $invalidProperties[] = "'backup_name' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +197,73 @@ class AutoStorageScalingConfigForRestoreToNewInstanceFromUserTosInput implements
 
 
     /**
-     * Gets enable_storage_auto_scale
-     *
-     * @return bool
-     */
-    public function getEnableStorageAutoScale()
-    {
-        return $this->container['enable_storage_auto_scale'];
-    }
-
-    /**
-     * Sets enable_storage_auto_scale
-     *
-     * @param bool $enable_storage_auto_scale enable_storage_auto_scale
-     *
-     * @return $this
-     */
-    public function setEnableStorageAutoScale($enable_storage_auto_scale)
-    {
-        $this->container['enable_storage_auto_scale'] = $enable_storage_auto_scale;
-
-        return $this;
-    }
-
-    /**
-     * Gets scaling_detect_node
+     * Gets backup_id
      *
      * @return string
      */
-    public function getScalingDetectNode()
+    public function getBackupId()
     {
-        return $this->container['scaling_detect_node'];
+        return $this->container['backup_id'];
     }
 
     /**
-     * Sets scaling_detect_node
+     * Sets backup_id
      *
-     * @param string $scaling_detect_node scaling_detect_node
+     * @param string $backup_id backup_id
      *
      * @return $this
      */
-    public function setScalingDetectNode($scaling_detect_node)
+    public function setBackupId($backup_id)
     {
-        $this->container['scaling_detect_node'] = $scaling_detect_node;
+        $this->container['backup_id'] = $backup_id;
 
         return $this;
     }
 
     /**
-     * Gets storage_threshold
+     * Gets backup_name
      *
-     * @return int
+     * @return string
      */
-    public function getStorageThreshold()
+    public function getBackupName()
     {
-        return $this->container['storage_threshold'];
+        return $this->container['backup_name'];
     }
 
     /**
-     * Sets storage_threshold
+     * Sets backup_name
      *
-     * @param int $storage_threshold storage_threshold
+     * @param string $backup_name backup_name
      *
      * @return $this
      */
-    public function setStorageThreshold($storage_threshold)
+    public function setBackupName($backup_name)
     {
-        $this->container['storage_threshold'] = $storage_threshold;
+        $this->container['backup_name'] = $backup_name;
 
         return $this;
     }
 
     /**
-     * Gets storage_upper_bound
+     * Gets instance_id
      *
-     * @return int
+     * @return string
      */
-    public function getStorageUpperBound()
+    public function getInstanceId()
     {
-        return $this->container['storage_upper_bound'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets storage_upper_bound
+     * Sets instance_id
      *
-     * @param int $storage_upper_bound storage_upper_bound
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setStorageUpperBound($storage_upper_bound)
+    public function setInstanceId($instance_id)
     {
-        $this->container['storage_upper_bound'] = $storage_upper_bound;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

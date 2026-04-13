@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface, ArrayAccess
+class ModifyBackupNameResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NodeInfoForRestoreToNewInstanceFromUserTosInput';
+    protected static $swaggerModelName = 'ModifyBackupNameResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'node_id' => 'string',
-        'node_operate_type' => 'string',
-        'node_spec' => 'string',
-        'node_type' => 'string',
-        'zone_id' => 'string'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'node_id' => null,
-        'node_operate_type' => null,
-        'node_spec' => null,
-        'node_type' => null,
-        'zone_id' => null
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'node_id' => 'NodeId',
-        'node_operate_type' => 'NodeOperateType',
-        'node_spec' => 'NodeSpec',
-        'node_type' => 'NodeType',
-        'zone_id' => 'ZoneId'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'node_id' => 'setNodeId',
-        'node_operate_type' => 'setNodeOperateType',
-        'node_spec' => 'setNodeSpec',
-        'node_type' => 'setNodeType',
-        'zone_id' => 'setZoneId'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'node_id' => 'getNodeId',
-        'node_operate_type' => 'getNodeOperateType',
-        'node_spec' => 'getNodeSpec',
-        'node_type' => 'getNodeType',
-        'zone_id' => 'getZoneId'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
      */
     public function __construct($data = null)
     {
-        $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
-        $this->container['node_operate_type'] = isset($data['node_operate_type']) ? $data['node_operate_type'] : null;
-        $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
-        $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -198,126 +173,6 @@ class NodeInfoForRestoreToNewInstanceFromUserTosInput implements ModelInterface,
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets node_id
-     *
-     * @return string
-     */
-    public function getNodeId()
-    {
-        return $this->container['node_id'];
-    }
-
-    /**
-     * Sets node_id
-     *
-     * @param string $node_id node_id
-     *
-     * @return $this
-     */
-    public function setNodeId($node_id)
-    {
-        $this->container['node_id'] = $node_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_operate_type
-     *
-     * @return string
-     */
-    public function getNodeOperateType()
-    {
-        return $this->container['node_operate_type'];
-    }
-
-    /**
-     * Sets node_operate_type
-     *
-     * @param string $node_operate_type node_operate_type
-     *
-     * @return $this
-     */
-    public function setNodeOperateType($node_operate_type)
-    {
-        $this->container['node_operate_type'] = $node_operate_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_spec
-     *
-     * @return string
-     */
-    public function getNodeSpec()
-    {
-        return $this->container['node_spec'];
-    }
-
-    /**
-     * Sets node_spec
-     *
-     * @param string $node_spec node_spec
-     *
-     * @return $this
-     */
-    public function setNodeSpec($node_spec)
-    {
-        $this->container['node_spec'] = $node_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_type
-     *
-     * @return string
-     */
-    public function getNodeType()
-    {
-        return $this->container['node_type'];
-    }
-
-    /**
-     * Sets node_type
-     *
-     * @param string $node_type node_type
-     *
-     * @return $this
-     */
-    public function setNodeType($node_type)
-    {
-        $this->container['node_type'] = $node_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -28,7 +28,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_storage_scaling_config' => '\Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput',
         'deletion_protection' => 'string',
         'instance_name' => 'string',
         'master_instance_id' => 'string',
@@ -48,7 +47,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_storage_scaling_config' => null,
         'deletion_protection' => null,
         'instance_name' => null,
         'master_instance_id' => null,
@@ -89,7 +87,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_storage_scaling_config' => 'AutoStorageScalingConfig',
         'deletion_protection' => 'DeletionProtection',
         'instance_name' => 'InstanceName',
         'master_instance_id' => 'MasterInstanceId',
@@ -109,7 +106,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auto_storage_scaling_config' => 'setAutoStorageScalingConfig',
         'deletion_protection' => 'setDeletionProtection',
         'instance_name' => 'setInstanceName',
         'master_instance_id' => 'setMasterInstanceId',
@@ -129,7 +125,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auto_storage_scaling_config' => 'getAutoStorageScalingConfig',
         'deletion_protection' => 'getDeletionProtection',
         'instance_name' => 'getInstanceName',
         'master_instance_id' => 'getMasterInstanceId',
@@ -203,7 +198,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auto_storage_scaling_config'] = isset($data['auto_storage_scaling_config']) ? $data['auto_storage_scaling_config'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['master_instance_id'] = isset($data['master_instance_id']) ? $data['master_instance_id'] : null;
@@ -255,30 +249,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets auto_storage_scaling_config
-     *
-     * @return \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput
-     */
-    public function getAutoStorageScalingConfig()
-    {
-        return $this->container['auto_storage_scaling_config'];
-    }
-
-    /**
-     * Sets auto_storage_scaling_config
-     *
-     * @param \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput $auto_storage_scaling_config auto_storage_scaling_config
-     *
-     * @return $this
-     */
-    public function setAutoStorageScalingConfig($auto_storage_scaling_config)
-    {
-        $this->container['auto_storage_scaling_config'] = $auto_storage_scaling_config;
-
-        return $this;
-    }
 
     /**
      * Gets deletion_protection

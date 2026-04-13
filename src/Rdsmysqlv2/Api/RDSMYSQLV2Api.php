@@ -130,68 +130,6 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function addTagFromUserBackupInfo($body = null)
-    {
-        list($response) = $this->addTagFromUserBackupInfoWithHttpInfo($body);
-        return $response;
-    }
-
-    public function addTagFromUserBackupInfoWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\AddTagFromUserBackupInfoResponse';
-        $request = $this->addTagFromUserBackupInfoRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function addTagFromUserBackupInfoAsync($body = null)
-    {
-        return $this->addTagFromUserBackupInfoAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function addTagFromUserBackupInfoAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\AddTagFromUserBackupInfoResponse';
-        $request = $this->addTagFromUserBackupInfoRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function addTagFromUserBackupInfoRequest($body)
-    {
-        $resourcePath = '/AddTagFromUserBackupInfo/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function addTagsToResource($body = null)
     {
         list($response) = $this->addTagsToResourceWithHttpInfo($body);
@@ -288,130 +226,6 @@ class RDSMYSQLV2Api
     protected function associateAllowListRequest($body)
     {
         $resourcePath = '/AssociateAllowList/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function associateUserBackup($body = null)
-    {
-        list($response) = $this->associateUserBackupWithHttpInfo($body);
-        return $response;
-    }
-
-    public function associateUserBackupWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\AssociateUserBackupResponse';
-        $request = $this->associateUserBackupRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function associateUserBackupAsync($body = null)
-    {
-        return $this->associateUserBackupAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function associateUserBackupAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\AssociateUserBackupResponse';
-        $request = $this->associateUserBackupRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function associateUserBackupRequest($body)
-    {
-        $resourcePath = '/AssociateUserBackup/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function checkUserUploadBackup($body = null)
-    {
-        list($response) = $this->checkUserUploadBackupWithHttpInfo($body);
-        return $response;
-    }
-
-    public function checkUserUploadBackupWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\CheckUserUploadBackupResponse';
-        $request = $this->checkUserUploadBackupRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function checkUserUploadBackupAsync($body = null)
-    {
-        return $this->checkUserUploadBackupAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function checkUserUploadBackupAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\CheckUserUploadBackupResponse';
-        $request = $this->checkUserUploadBackupRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function checkUserUploadBackupRequest($body)
-    {
-        $resourcePath = '/CheckUserUploadBackup/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2024,68 +1838,6 @@ class RDSMYSQLV2Api
     protected function deleteParameterTemplateRequest($body)
     {
         $resourcePath = '/DeleteParameterTemplate/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function deleteUserUploadBackup($body = null)
-    {
-        list($response) = $this->deleteUserUploadBackupWithHttpInfo($body);
-        return $response;
-    }
-
-    public function deleteUserUploadBackupWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DeleteUserUploadBackupResponse';
-        $request = $this->deleteUserUploadBackupRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function deleteUserUploadBackupAsync($body = null)
-    {
-        return $this->deleteUserUploadBackupAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function deleteUserUploadBackupAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DeleteUserUploadBackupResponse';
-        $request = $this->deleteUserUploadBackupRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function deleteUserUploadBackupRequest($body)
-    {
-        $resourcePath = '/DeleteUserUploadBackup/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5586,130 +5338,6 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function describeUserTosBackupAssociate($body = null)
-    {
-        list($response) = $this->describeUserTosBackupAssociateWithHttpInfo($body);
-        return $response;
-    }
-
-    public function describeUserTosBackupAssociateWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUserTosBackupAssociateResponse';
-        $request = $this->describeUserTosBackupAssociateRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function describeUserTosBackupAssociateAsync($body = null)
-    {
-        return $this->describeUserTosBackupAssociateAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function describeUserTosBackupAssociateAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUserTosBackupAssociateResponse';
-        $request = $this->describeUserTosBackupAssociateRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function describeUserTosBackupAssociateRequest($body)
-    {
-        $resourcePath = '/DescribeUserTosBackupAssociate/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function describeUserUploadBackups($body = null)
-    {
-        list($response) = $this->describeUserUploadBackupsWithHttpInfo($body);
-        return $response;
-    }
-
-    public function describeUserUploadBackupsWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUserUploadBackupsResponse';
-        $request = $this->describeUserUploadBackupsRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function describeUserUploadBackupsAsync($body = null)
-    {
-        return $this->describeUserUploadBackupsAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function describeUserUploadBackupsAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\DescribeUserUploadBackupsResponse';
-        $request = $this->describeUserUploadBackupsRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function describeUserUploadBackupsRequest($body)
-    {
-        $resourcePath = '/DescribeUserUploadBackups/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function disassociateAllowList($body = null)
     {
         list($response) = $this->disassociateAllowListWithHttpInfo($body);
@@ -6370,6 +5998,68 @@ class RDSMYSQLV2Api
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyBackupName($body = null)
+    {
+        list($response) = $this->modifyBackupNameWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyBackupNameWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\ModifyBackupNameResponse';
+        $request = $this->modifyBackupNameRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyBackupNameAsync($body = null)
+    {
+        return $this->modifyBackupNameAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyBackupNameAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\ModifyBackupNameResponse';
+        $request = $this->modifyBackupNameRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyBackupNameRequest($body)
+    {
+        $resourcePath = '/ModifyBackupName/2022-01-01/rds_mysql/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -8314,6 +8004,68 @@ class RDSMYSQLV2Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function rebuildDBGreenInstance($body = null)
+    {
+        list($response) = $this->rebuildDBGreenInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function rebuildDBGreenInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\RebuildDBGreenInstanceResponse';
+        $request = $this->rebuildDBGreenInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function rebuildDBGreenInstanceAsync($body = null)
+    {
+        return $this->rebuildDBGreenInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function rebuildDBGreenInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmysqlv2\Model\RebuildDBGreenInstanceResponse';
+        $request = $this->rebuildDBGreenInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function rebuildDBGreenInstanceRequest($body)
+    {
+        $resourcePath = '/RebuildDBGreenInstance/2022-01-01/rds_mysql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function rebuildDBInstance($body = null)
     {
         list($response) = $this->rebuildDBInstanceWithHttpInfo($body);
@@ -8472,68 +8224,6 @@ class RDSMYSQLV2Api
     protected function removeDiagnosticsEntityRequest($body)
     {
         $resourcePath = '/RemoveDiagnosticsEntity/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function removeTagFromUserBackupInfo($body = null)
-    {
-        list($response) = $this->removeTagFromUserBackupInfoWithHttpInfo($body);
-        return $response;
-    }
-
-    public function removeTagFromUserBackupInfoWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\RemoveTagFromUserBackupInfoResponse';
-        $request = $this->removeTagFromUserBackupInfoRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function removeTagFromUserBackupInfoAsync($body = null)
-    {
-        return $this->removeTagFromUserBackupInfoAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function removeTagFromUserBackupInfoAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\RemoveTagFromUserBackupInfoResponse';
-        $request = $this->removeTagFromUserBackupInfoRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function removeTagFromUserBackupInfoRequest($body)
-    {
-        $resourcePath = '/RemoveTagFromUserBackupInfo/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -8906,68 +8596,6 @@ class RDSMYSQLV2Api
     protected function restoreToNewInstanceRequest($body)
     {
         $resourcePath = '/RestoreToNewInstance/2022-01-01/rds_mysql/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function restoreToNewInstanceFromUserTos($body = null)
-    {
-        list($response) = $this->restoreToNewInstanceFromUserTosWithHttpInfo($body);
-        return $response;
-    }
-
-    public function restoreToNewInstanceFromUserTosWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\RestoreToNewInstanceFromUserTosResponse';
-        $request = $this->restoreToNewInstanceFromUserTosRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function restoreToNewInstanceFromUserTosAsync($body = null)
-    {
-        return $this->restoreToNewInstanceFromUserTosAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function restoreToNewInstanceFromUserTosAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rdsmysqlv2\Model\RestoreToNewInstanceFromUserTosResponse';
-        $request = $this->restoreToNewInstanceFromUserTosRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function restoreToNewInstanceFromUserTosRequest($body)
-    {
-        $resourcePath = '/RestoreToNewInstanceFromUserTos/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
