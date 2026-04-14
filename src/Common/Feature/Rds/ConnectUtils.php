@@ -97,9 +97,9 @@ class ConnectUtils
         $resolveChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
         $resolveChain->executeRequest($context);
 
-        // Save resolved host for X-Host param, then clear host so it won't be signed
+        // Save resolved host for X-HOST param, then clear host so it won't be signed
         $resolvedHost = $context->getRequest()->host;
-        $context->getRequest()->queryParams['X-Host'] = $context->getRequest()->schema . '://' . $resolvedHost;
+        $context->getRequest()->queryParams['X-HOST'] = $context->getRequest()->schema . '://' . $resolvedHost;
         $context->getRequest()->host = null;
 
         // Sign request (host is null, won't be included in signature)
