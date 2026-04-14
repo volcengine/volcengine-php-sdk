@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SwitchOverRequest implements ModelInterface, ArrayAccess
+class EnableDBInstanceHARequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SwitchOverRequest';
+    protected static $swaggerModelName = 'EnableDBInstanceHARequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'apply_immediately' => 'bool',
         'client_token' => 'string',
+        'configure_nodes' => '\Volcengine\Redis\Model\ConfigureNodeForEnableDBInstanceHAInput[]',
         'instance_id' => 'string',
-        'target_primary_node_id' => 'string',
-        'target_primary_node_ids' => 'string[]'
+        'multi_az' => 'string',
+        'node_number' => 'int',
+        'shard_capacity' => 'int',
+        'shard_number' => 'int',
+        'sharded_cluster' => 'int'
     ];
 
     /**
@@ -40,10 +45,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'apply_immediately' => null,
         'client_token' => null,
+        'configure_nodes' => null,
         'instance_id' => null,
-        'target_primary_node_id' => null,
-        'target_primary_node_ids' => null
+        'multi_az' => null,
+        'node_number' => 'int32',
+        'shard_capacity' => 'int32',
+        'shard_number' => 'int32',
+        'sharded_cluster' => 'int32'
     ];
 
     /**
@@ -73,10 +83,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'apply_immediately' => 'ApplyImmediately',
         'client_token' => 'ClientToken',
+        'configure_nodes' => 'ConfigureNodes',
         'instance_id' => 'InstanceId',
-        'target_primary_node_id' => 'TargetPrimaryNodeId',
-        'target_primary_node_ids' => 'TargetPrimaryNodeIds'
+        'multi_az' => 'MultiAZ',
+        'node_number' => 'NodeNumber',
+        'shard_capacity' => 'ShardCapacity',
+        'shard_number' => 'ShardNumber',
+        'sharded_cluster' => 'ShardedCluster'
     ];
 
     /**
@@ -85,10 +100,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'apply_immediately' => 'setApplyImmediately',
         'client_token' => 'setClientToken',
+        'configure_nodes' => 'setConfigureNodes',
         'instance_id' => 'setInstanceId',
-        'target_primary_node_id' => 'setTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'setTargetPrimaryNodeIds'
+        'multi_az' => 'setMultiAz',
+        'node_number' => 'setNodeNumber',
+        'shard_capacity' => 'setShardCapacity',
+        'shard_number' => 'setShardNumber',
+        'sharded_cluster' => 'setShardedCluster'
     ];
 
     /**
@@ -97,10 +117,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'apply_immediately' => 'getApplyImmediately',
         'client_token' => 'getClientToken',
+        'configure_nodes' => 'getConfigureNodes',
         'instance_id' => 'getInstanceId',
-        'target_primary_node_id' => 'getTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'getTargetPrimaryNodeIds'
+        'multi_az' => 'getMultiAz',
+        'node_number' => 'getNodeNumber',
+        'shard_capacity' => 'getShardCapacity',
+        'shard_number' => 'getShardNumber',
+        'sharded_cluster' => 'getShardedCluster'
     ];
 
     /**
@@ -163,10 +188,15 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['apply_immediately'] = isset($data['apply_immediately']) ? $data['apply_immediately'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['configure_nodes'] = isset($data['configure_nodes']) ? $data['configure_nodes'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['target_primary_node_id'] = isset($data['target_primary_node_id']) ? $data['target_primary_node_id'] : null;
-        $this->container['target_primary_node_ids'] = isset($data['target_primary_node_ids']) ? $data['target_primary_node_ids'] : null;
+        $this->container['multi_az'] = isset($data['multi_az']) ? $data['multi_az'] : null;
+        $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
+        $this->container['shard_capacity'] = isset($data['shard_capacity']) ? $data['shard_capacity'] : null;
+        $this->container['shard_number'] = isset($data['shard_number']) ? $data['shard_number'] : null;
+        $this->container['sharded_cluster'] = isset($data['sharded_cluster']) ? $data['sharded_cluster'] : null;
     }
 
     /**
@@ -178,8 +208,17 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['apply_immediately'] === null) {
+            $invalidProperties[] = "'apply_immediately' can't be null";
+        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['node_number'] === null) {
+            $invalidProperties[] = "'node_number' can't be null";
+        }
+        if ($this->container['sharded_cluster'] === null) {
+            $invalidProperties[] = "'sharded_cluster' can't be null";
         }
         return $invalidProperties;
     }
@@ -195,6 +234,30 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets apply_immediately
+     *
+     * @return bool
+     */
+    public function getApplyImmediately()
+    {
+        return $this->container['apply_immediately'];
+    }
+
+    /**
+     * Sets apply_immediately
+     *
+     * @param bool $apply_immediately apply_immediately
+     *
+     * @return $this
+     */
+    public function setApplyImmediately($apply_immediately)
+    {
+        $this->container['apply_immediately'] = $apply_immediately;
+
+        return $this;
+    }
 
     /**
      * Gets client_token
@@ -216,6 +279,30 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets configure_nodes
+     *
+     * @return \Volcengine\Redis\Model\ConfigureNodeForEnableDBInstanceHAInput[]
+     */
+    public function getConfigureNodes()
+    {
+        return $this->container['configure_nodes'];
+    }
+
+    /**
+     * Sets configure_nodes
+     *
+     * @param \Volcengine\Redis\Model\ConfigureNodeForEnableDBInstanceHAInput[] $configure_nodes configure_nodes
+     *
+     * @return $this
+     */
+    public function setConfigureNodes($configure_nodes)
+    {
+        $this->container['configure_nodes'] = $configure_nodes;
 
         return $this;
     }
@@ -245,49 +332,121 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets target_primary_node_id
+     * Gets multi_az
      *
      * @return string
      */
-    public function getTargetPrimaryNodeId()
+    public function getMultiAz()
     {
-        return $this->container['target_primary_node_id'];
+        return $this->container['multi_az'];
     }
 
     /**
-     * Sets target_primary_node_id
+     * Sets multi_az
      *
-     * @param string $target_primary_node_id target_primary_node_id
+     * @param string $multi_az multi_az
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeId($target_primary_node_id)
+    public function setMultiAz($multi_az)
     {
-        $this->container['target_primary_node_id'] = $target_primary_node_id;
+        $this->container['multi_az'] = $multi_az;
 
         return $this;
     }
 
     /**
-     * Gets target_primary_node_ids
+     * Gets node_number
      *
-     * @return string[]
+     * @return int
      */
-    public function getTargetPrimaryNodeIds()
+    public function getNodeNumber()
     {
-        return $this->container['target_primary_node_ids'];
+        return $this->container['node_number'];
     }
 
     /**
-     * Sets target_primary_node_ids
+     * Sets node_number
      *
-     * @param string[] $target_primary_node_ids target_primary_node_ids
+     * @param int $node_number node_number
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeIds($target_primary_node_ids)
+    public function setNodeNumber($node_number)
     {
-        $this->container['target_primary_node_ids'] = $target_primary_node_ids;
+        $this->container['node_number'] = $node_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets shard_capacity
+     *
+     * @return int
+     */
+    public function getShardCapacity()
+    {
+        return $this->container['shard_capacity'];
+    }
+
+    /**
+     * Sets shard_capacity
+     *
+     * @param int $shard_capacity shard_capacity
+     *
+     * @return $this
+     */
+    public function setShardCapacity($shard_capacity)
+    {
+        $this->container['shard_capacity'] = $shard_capacity;
+
+        return $this;
+    }
+
+    /**
+     * Gets shard_number
+     *
+     * @return int
+     */
+    public function getShardNumber()
+    {
+        return $this->container['shard_number'];
+    }
+
+    /**
+     * Sets shard_number
+     *
+     * @param int $shard_number shard_number
+     *
+     * @return $this
+     */
+    public function setShardNumber($shard_number)
+    {
+        $this->container['shard_number'] = $shard_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets sharded_cluster
+     *
+     * @return int
+     */
+    public function getShardedCluster()
+    {
+        return $this->container['sharded_cluster'];
+    }
+
+    /**
+     * Sets sharded_cluster
+     *
+     * @param int $sharded_cluster sharded_cluster
+     *
+     * @return $this
+     */
+    public function setShardedCluster($sharded_cluster)
+    {
+        $this->container['sharded_cluster'] = $sharded_cluster;
 
         return $this;
     }

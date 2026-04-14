@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SwitchOverRequest implements ModelInterface, ArrayAccess
+class ModifyDBInstanceMinorVersionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SwitchOverRequest';
+    protected static $swaggerModelName = 'ModifyDBInstanceMinorVersionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'target_primary_node_id' => 'string',
-        'target_primary_node_ids' => 'string[]'
+        'db_engine_version' => '\Volcengine\Redis\Model\DBEngineVersionForModifyDBInstanceMinorVersionOutput'
     ];
 
     /**
@@ -40,10 +37,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'instance_id' => null,
-        'target_primary_node_id' => null,
-        'target_primary_node_ids' => null
+        'db_engine_version' => null
     ];
 
     /**
@@ -73,10 +67,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'target_primary_node_id' => 'TargetPrimaryNodeId',
-        'target_primary_node_ids' => 'TargetPrimaryNodeIds'
+        'db_engine_version' => 'DBEngineVersion'
     ];
 
     /**
@@ -85,10 +76,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'target_primary_node_id' => 'setTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'setTargetPrimaryNodeIds'
+        'db_engine_version' => 'setDbEngineVersion'
     ];
 
     /**
@@ -97,10 +85,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'target_primary_node_id' => 'getTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'getTargetPrimaryNodeIds'
+        'db_engine_version' => 'getDbEngineVersion'
     ];
 
     /**
@@ -163,10 +148,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['target_primary_node_id'] = isset($data['target_primary_node_id']) ? $data['target_primary_node_id'] : null;
-        $this->container['target_primary_node_ids'] = isset($data['target_primary_node_ids']) ? $data['target_primary_node_ids'] : null;
+        $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
     }
 
     /**
@@ -178,9 +160,6 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +176,25 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets db_engine_version
      *
-     * @return string
+     * @return \Volcengine\Redis\Model\DBEngineVersionForModifyDBInstanceMinorVersionOutput
      */
-    public function getClientToken()
+    public function getDbEngineVersion()
     {
-        return $this->container['client_token'];
+        return $this->container['db_engine_version'];
     }
 
     /**
-     * Sets client_token
+     * Sets db_engine_version
      *
-     * @param string $client_token client_token
+     * @param \Volcengine\Redis\Model\DBEngineVersionForModifyDBInstanceMinorVersionOutput $db_engine_version db_engine_version
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setDbEngineVersion($db_engine_version)
     {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_primary_node_id
-     *
-     * @return string
-     */
-    public function getTargetPrimaryNodeId()
-    {
-        return $this->container['target_primary_node_id'];
-    }
-
-    /**
-     * Sets target_primary_node_id
-     *
-     * @param string $target_primary_node_id target_primary_node_id
-     *
-     * @return $this
-     */
-    public function setTargetPrimaryNodeId($target_primary_node_id)
-    {
-        $this->container['target_primary_node_id'] = $target_primary_node_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_primary_node_ids
-     *
-     * @return string[]
-     */
-    public function getTargetPrimaryNodeIds()
-    {
-        return $this->container['target_primary_node_ids'];
-    }
-
-    /**
-     * Sets target_primary_node_ids
-     *
-     * @param string[] $target_primary_node_ids target_primary_node_ids
-     *
-     * @return $this
-     */
-    public function setTargetPrimaryNodeIds($target_primary_node_ids)
-    {
-        $this->container['target_primary_node_ids'] = $target_primary_node_ids;
+        $this->container['db_engine_version'] = $db_engine_version;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SwitchOverRequest implements ModelInterface, ArrayAccess
+class DBEngineVersionForModifyDBInstanceMinorVersionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SwitchOverRequest';
+    protected static $swaggerModelName = 'DBEngineVersionForModifyDBInstanceMinorVersionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'target_primary_node_id' => 'string',
-        'target_primary_node_ids' => 'string[]'
+        'engine' => 'string',
+        'engine_version' => 'string',
+        'proxy_version' => '\Volcengine\Redis\Model\ProxyVersionForModifyDBInstanceMinorVersionOutput',
+        'server_version' => '\Volcengine\Redis\Model\ServerVersionForModifyDBInstanceMinorVersionOutput'
     ];
 
     /**
@@ -40,10 +40,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'instance_id' => null,
-        'target_primary_node_id' => null,
-        'target_primary_node_ids' => null
+        'engine' => null,
+        'engine_version' => null,
+        'proxy_version' => null,
+        'server_version' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'target_primary_node_id' => 'TargetPrimaryNodeId',
-        'target_primary_node_ids' => 'TargetPrimaryNodeIds'
+        'engine' => 'Engine',
+        'engine_version' => 'EngineVersion',
+        'proxy_version' => 'ProxyVersion',
+        'server_version' => 'ServerVersion'
     ];
 
     /**
@@ -85,10 +85,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'target_primary_node_id' => 'setTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'setTargetPrimaryNodeIds'
+        'engine' => 'setEngine',
+        'engine_version' => 'setEngineVersion',
+        'proxy_version' => 'setProxyVersion',
+        'server_version' => 'setServerVersion'
     ];
 
     /**
@@ -97,10 +97,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'target_primary_node_id' => 'getTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'getTargetPrimaryNodeIds'
+        'engine' => 'getEngine',
+        'engine_version' => 'getEngineVersion',
+        'proxy_version' => 'getProxyVersion',
+        'server_version' => 'getServerVersion'
     ];
 
     /**
@@ -163,10 +163,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['target_primary_node_id'] = isset($data['target_primary_node_id']) ? $data['target_primary_node_id'] : null;
-        $this->container['target_primary_node_ids'] = isset($data['target_primary_node_ids']) ? $data['target_primary_node_ids'] : null;
+        $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
+        $this->container['engine_version'] = isset($data['engine_version']) ? $data['engine_version'] : null;
+        $this->container['proxy_version'] = isset($data['proxy_version']) ? $data['proxy_version'] : null;
+        $this->container['server_version'] = isset($data['server_version']) ? $data['server_version'] : null;
     }
 
     /**
@@ -178,9 +178,6 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +194,97 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets engine
      *
      * @return string
      */
-    public function getClientToken()
+    public function getEngine()
     {
-        return $this->container['client_token'];
+        return $this->container['engine'];
     }
 
     /**
-     * Sets client_token
+     * Sets engine
      *
-     * @param string $client_token client_token
+     * @param string $engine engine
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setEngine($engine)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['engine'] = $engine;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets engine_version
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getEngineVersion()
     {
-        return $this->container['instance_id'];
+        return $this->container['engine_version'];
     }
 
     /**
-     * Sets instance_id
+     * Sets engine_version
      *
-     * @param string $instance_id instance_id
+     * @param string $engine_version engine_version
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setEngineVersion($engine_version)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['engine_version'] = $engine_version;
 
         return $this;
     }
 
     /**
-     * Gets target_primary_node_id
+     * Gets proxy_version
      *
-     * @return string
+     * @return \Volcengine\Redis\Model\ProxyVersionForModifyDBInstanceMinorVersionOutput
      */
-    public function getTargetPrimaryNodeId()
+    public function getProxyVersion()
     {
-        return $this->container['target_primary_node_id'];
+        return $this->container['proxy_version'];
     }
 
     /**
-     * Sets target_primary_node_id
+     * Sets proxy_version
      *
-     * @param string $target_primary_node_id target_primary_node_id
+     * @param \Volcengine\Redis\Model\ProxyVersionForModifyDBInstanceMinorVersionOutput $proxy_version proxy_version
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeId($target_primary_node_id)
+    public function setProxyVersion($proxy_version)
     {
-        $this->container['target_primary_node_id'] = $target_primary_node_id;
+        $this->container['proxy_version'] = $proxy_version;
 
         return $this;
     }
 
     /**
-     * Gets target_primary_node_ids
+     * Gets server_version
      *
-     * @return string[]
+     * @return \Volcengine\Redis\Model\ServerVersionForModifyDBInstanceMinorVersionOutput
      */
-    public function getTargetPrimaryNodeIds()
+    public function getServerVersion()
     {
-        return $this->container['target_primary_node_ids'];
+        return $this->container['server_version'];
     }
 
     /**
-     * Sets target_primary_node_ids
+     * Sets server_version
      *
-     * @param string[] $target_primary_node_ids target_primary_node_ids
+     * @param \Volcengine\Redis\Model\ServerVersionForModifyDBInstanceMinorVersionOutput $server_version server_version
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeIds($target_primary_node_ids)
+    public function setServerVersion($server_version)
     {
-        $this->container['target_primary_node_ids'] = $target_primary_node_ids;
+        $this->container['server_version'] = $server_version;
 
         return $this;
     }

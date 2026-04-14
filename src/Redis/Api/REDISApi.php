@@ -2052,6 +2052,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeDBEngineVersions($body = null)
+    {
+        list($response) = $this->describeDBEngineVersionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBEngineVersionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBEngineVersionsResponse';
+        $request = $this->describeDBEngineVersionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBEngineVersionsAsync($body = null)
+    {
+        return $this->describeDBEngineVersionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBEngineVersionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBEngineVersionsResponse';
+        $request = $this->describeDBEngineVersionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBEngineVersionsRequest($body)
+    {
+        $resourcePath = '/DescribeDBEngineVersions/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeDBInstanceAclCategories($body = null)
     {
         list($response) = $this->describeDBInstanceAclCategoriesWithHttpInfo($body);
@@ -3540,6 +3602,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function enableDBInstanceHA($body = null)
+    {
+        list($response) = $this->enableDBInstanceHAWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enableDBInstanceHAWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\EnableDBInstanceHAResponse';
+        $request = $this->enableDBInstanceHARequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enableDBInstanceHAAsync($body = null)
+    {
+        return $this->enableDBInstanceHAAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enableDBInstanceHAAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\EnableDBInstanceHAResponse';
+        $request = $this->enableDBInstanceHARequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enableDBInstanceHARequest($body)
+    {
+        $resourcePath = '/EnableDBInstanceHA/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function enableShardedCluster($body = null)
     {
         list($response) = $this->enableShardedClusterWithHttpInfo($body);
@@ -4504,6 +4628,68 @@ class REDISApi
     protected function modifyDBInstanceMaxConnRequest($body)
     {
         $resourcePath = '/ModifyDBInstanceMaxConn/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyDBInstanceMinorVersion($body = null)
+    {
+        list($response) = $this->modifyDBInstanceMinorVersionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyDBInstanceMinorVersionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ModifyDBInstanceMinorVersionResponse';
+        $request = $this->modifyDBInstanceMinorVersionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyDBInstanceMinorVersionAsync($body = null)
+    {
+        return $this->modifyDBInstanceMinorVersionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyDBInstanceMinorVersionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ModifyDBInstanceMinorVersionResponse';
+        $request = $this->modifyDBInstanceMinorVersionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyDBInstanceMinorVersionRequest($body)
+    {
+        $resourcePath = '/ModifyDBInstanceMinorVersion/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

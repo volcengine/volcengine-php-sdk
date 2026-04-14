@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SwitchOverRequest implements ModelInterface, ArrayAccess
+class ModifyDBInstanceMinorVersionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SwitchOverRequest';
+    protected static $swaggerModelName = 'ModifyDBInstanceMinorVersionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
         'instance_id' => 'string',
-        'target_primary_node_id' => 'string',
-        'target_primary_node_ids' => 'string[]'
+        'proxy_version' => 'string',
+        'server_version' => 'string',
+        'switchover_immediately' => 'bool'
     ];
 
     /**
@@ -40,10 +40,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
         'instance_id' => null,
-        'target_primary_node_id' => null,
-        'target_primary_node_ids' => null
+        'proxy_version' => null,
+        'server_version' => null,
+        'switchover_immediately' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
         'instance_id' => 'InstanceId',
-        'target_primary_node_id' => 'TargetPrimaryNodeId',
-        'target_primary_node_ids' => 'TargetPrimaryNodeIds'
+        'proxy_version' => 'ProxyVersion',
+        'server_version' => 'ServerVersion',
+        'switchover_immediately' => 'SwitchoverImmediately'
     ];
 
     /**
@@ -85,10 +85,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
         'instance_id' => 'setInstanceId',
-        'target_primary_node_id' => 'setTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'setTargetPrimaryNodeIds'
+        'proxy_version' => 'setProxyVersion',
+        'server_version' => 'setServerVersion',
+        'switchover_immediately' => 'setSwitchoverImmediately'
     ];
 
     /**
@@ -97,10 +97,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
         'instance_id' => 'getInstanceId',
-        'target_primary_node_id' => 'getTargetPrimaryNodeId',
-        'target_primary_node_ids' => 'getTargetPrimaryNodeIds'
+        'proxy_version' => 'getProxyVersion',
+        'server_version' => 'getServerVersion',
+        'switchover_immediately' => 'getSwitchoverImmediately'
     ];
 
     /**
@@ -163,10 +163,10 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['target_primary_node_id'] = isset($data['target_primary_node_id']) ? $data['target_primary_node_id'] : null;
-        $this->container['target_primary_node_ids'] = isset($data['target_primary_node_ids']) ? $data['target_primary_node_ids'] : null;
+        $this->container['proxy_version'] = isset($data['proxy_version']) ? $data['proxy_version'] : null;
+        $this->container['server_version'] = isset($data['server_version']) ? $data['server_version'] : null;
+        $this->container['switchover_immediately'] = isset($data['switchover_immediately']) ? $data['switchover_immediately'] : null;
     }
 
     /**
@@ -180,6 +180,9 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['switchover_immediately'] === null) {
+            $invalidProperties[] = "'switchover_immediately' can't be null";
         }
         return $invalidProperties;
     }
@@ -195,30 +198,6 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
 
     /**
      * Gets instance_id
@@ -245,49 +224,73 @@ class SwitchOverRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets target_primary_node_id
+     * Gets proxy_version
      *
      * @return string
      */
-    public function getTargetPrimaryNodeId()
+    public function getProxyVersion()
     {
-        return $this->container['target_primary_node_id'];
+        return $this->container['proxy_version'];
     }
 
     /**
-     * Sets target_primary_node_id
+     * Sets proxy_version
      *
-     * @param string $target_primary_node_id target_primary_node_id
+     * @param string $proxy_version proxy_version
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeId($target_primary_node_id)
+    public function setProxyVersion($proxy_version)
     {
-        $this->container['target_primary_node_id'] = $target_primary_node_id;
+        $this->container['proxy_version'] = $proxy_version;
 
         return $this;
     }
 
     /**
-     * Gets target_primary_node_ids
+     * Gets server_version
      *
-     * @return string[]
+     * @return string
      */
-    public function getTargetPrimaryNodeIds()
+    public function getServerVersion()
     {
-        return $this->container['target_primary_node_ids'];
+        return $this->container['server_version'];
     }
 
     /**
-     * Sets target_primary_node_ids
+     * Sets server_version
      *
-     * @param string[] $target_primary_node_ids target_primary_node_ids
+     * @param string $server_version server_version
      *
      * @return $this
      */
-    public function setTargetPrimaryNodeIds($target_primary_node_ids)
+    public function setServerVersion($server_version)
     {
-        $this->container['target_primary_node_ids'] = $target_primary_node_ids;
+        $this->container['server_version'] = $server_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets switchover_immediately
+     *
+     * @return bool
+     */
+    public function getSwitchoverImmediately()
+    {
+        return $this->container['switchover_immediately'];
+    }
+
+    /**
+     * Sets switchover_immediately
+     *
+     * @param bool $switchover_immediately switchover_immediately
+     *
+     * @return $this
+     */
+    public function setSwitchoverImmediately($switchover_immediately)
+    {
+        $this->container['switchover_immediately'] = $switchover_immediately;
 
         return $this;
     }
