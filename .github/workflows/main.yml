@@ -3,7 +3,7 @@ name: Release PHP SDK
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths-ignore: ['**.md', '.gitignore', 'LICENSE']
 
 jobs:
