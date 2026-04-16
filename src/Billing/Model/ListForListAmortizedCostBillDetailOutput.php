@@ -41,7 +41,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
+        'configuration_code' => 'string',
         'cost_id' => 'string',
         'count' => 'string',
         'country_area' => 'string',
@@ -161,7 +163,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
+        'configuration_code' => null,
         'cost_id' => null,
         'count' => null,
         'country_area' => null,
@@ -302,7 +306,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
+        'configuration_code' => 'ConfigurationCode',
         'cost_id' => 'CostID',
         'count' => 'Count',
         'country_area' => 'CountryArea',
@@ -422,7 +428,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
+        'configuration_code' => 'setConfigurationCode',
         'cost_id' => 'setCostId',
         'count' => 'setCount',
         'country_area' => 'setCountryArea',
@@ -542,7 +550,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
+        'configuration_code' => 'getConfigurationCode',
         'cost_id' => 'getCostId',
         'count' => 'getCount',
         'country_area' => 'getCountryArea',
@@ -716,7 +726,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['cost_id'] = isset($data['cost_id']) ? $data['cost_id'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['country_area'] = isset($data['country_area']) ? $data['country_area'] : null;
@@ -1154,6 +1166,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
+
+        return $this;
+    }
+
+    /**
      * Gets config_name
      *
      * @return string
@@ -1173,6 +1209,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setConfigName($config_name)
     {
         $this->container['config_name'] = $config_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_code
+     *
+     * @return string
+     */
+    public function getConfigurationCode()
+    {
+        return $this->container['configuration_code'];
+    }
+
+    /**
+     * Sets configuration_code
+     *
+     * @param string $configuration_code configuration_code
+     *
+     * @return $this
+     */
+    public function setConfigurationCode($configuration_code)
+    {
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }

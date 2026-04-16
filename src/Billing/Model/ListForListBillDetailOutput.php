@@ -37,6 +37,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
         'count' => 'string',
@@ -141,6 +142,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
         'configuration_code' => null,
         'count' => null,
@@ -266,6 +268,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
         'count' => 'Count',
@@ -370,6 +373,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
         'count' => 'setCount',
@@ -474,6 +478,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
         'count' => 'getCount',
@@ -632,6 +637,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
@@ -957,6 +963,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBusinessMode($business_mode)
     {
         $this->container['business_mode'] = $business_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
