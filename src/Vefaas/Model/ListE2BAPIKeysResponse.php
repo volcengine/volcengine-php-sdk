@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, ArrayAccess
+class ListE2BAPIKeysResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForCreateSandboxInput';
+    protected static $swaggerModelName = 'ListE2BAPIKeysResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]'
+        'items' => '\Volcengine\Vefaas\Model\ItemForListE2BAPIKeysOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -41,11 +38,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'items' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -75,11 +69,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'items' => 'Items',
+        'total' => 'Total'
     ];
 
     /**
@@ -88,11 +79,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'items' => 'setItems',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -101,11 +89,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'items' => 'getItems',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -168,11 +153,8 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
 
 
     /**
-     * Gets auth_mode
+     * Gets items
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\ItemForListE2BAPIKeysOutput[]
      */
-    public function getAuthMode()
+    public function getItems()
     {
-        return $this->container['auth_mode'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets items
      *
-     * @param string $auth_mode auth_mode
+     * @param \Volcengine\Vefaas\Model\ItemForListE2BAPIKeysOutput[] $items items
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setItems($items)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets credentials
+     * Gets total
      *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
+     * @return int
      */
-    public function getCredentials()
+    public function getTotal()
     {
-        return $this->container['credentials'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets credentials
+     * Sets total
      *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
+     * @param int $total total
      *
      * @return $this
      */
-    public function setCredentials($credentials)
+    public function setTotal($total)
     {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return string
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param string $mode mode
-     *
-     * @return $this
-     */
-    public function setMode($mode)
-    {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_mount_points
-     *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]
-     */
-    public function getTosMountPoints()
-    {
-        return $this->container['tos_mount_points'];
-    }
-
-    /**
-     * Sets tos_mount_points
-     *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[] $tos_mount_points tos_mount_points
-     *
-     * @return $this
-     */
-    public function setTosMountPoints($tos_mount_points)
-    {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['total'] = $total;
 
         return $this;
     }

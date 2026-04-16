@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
+class EmptyDirVolumeForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TosMountPointForCreateSandboxInput';
+    protected static $swaggerModelName = 'EmptyDirVolumeForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'bucket_name' => 'string',
-        'bucket_path' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
-        'encryption_config' => '\Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput',
-        'endpoint' => 'string',
-        'local_mount_path' => 'string',
+        'mount_path' => 'string',
+        'name' => 'string',
         'read_only' => 'bool'
     ];
 
@@ -44,13 +39,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'bucket_name' => null,
-        'bucket_path' => null,
-        'credentials' => null,
-        'encryption_config' => null,
-        'endpoint' => null,
-        'local_mount_path' => null,
+        'mount_path' => null,
+        'name' => null,
         'read_only' => null
     ];
 
@@ -81,13 +71,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'bucket_name' => 'BucketName',
-        'bucket_path' => 'BucketPath',
-        'credentials' => 'Credentials',
-        'encryption_config' => 'EncryptionConfig',
-        'endpoint' => 'Endpoint',
-        'local_mount_path' => 'LocalMountPath',
+        'mount_path' => 'MountPath',
+        'name' => 'Name',
         'read_only' => 'ReadOnly'
     ];
 
@@ -97,13 +82,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'bucket_name' => 'setBucketName',
-        'bucket_path' => 'setBucketPath',
-        'credentials' => 'setCredentials',
-        'encryption_config' => 'setEncryptionConfig',
-        'endpoint' => 'setEndpoint',
-        'local_mount_path' => 'setLocalMountPath',
+        'mount_path' => 'setMountPath',
+        'name' => 'setName',
         'read_only' => 'setReadOnly'
     ];
 
@@ -113,13 +93,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'bucket_name' => 'getBucketName',
-        'bucket_path' => 'getBucketPath',
-        'credentials' => 'getCredentials',
-        'encryption_config' => 'getEncryptionConfig',
-        'endpoint' => 'getEndpoint',
-        'local_mount_path' => 'getLocalMountPath',
+        'mount_path' => 'getMountPath',
+        'name' => 'getName',
         'read_only' => 'getReadOnly'
     ];
 
@@ -183,13 +158,8 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
+        $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
     }
 
@@ -218,169 +188,49 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_mode
+     * Gets mount_path
      *
      * @return string
      */
-    public function getAuthMode()
+    public function getMountPath()
     {
-        return $this->container['auth_mode'];
+        return $this->container['mount_path'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets mount_path
      *
-     * @param string $auth_mode auth_mode
+     * @param string $mount_path mount_path
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setMountPath($mount_path)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['mount_path'] = $mount_path;
 
         return $this;
     }
 
     /**
-     * Gets bucket_name
+     * Gets name
      *
      * @return string
      */
-    public function getBucketName()
+    public function getName()
     {
-        return $this->container['bucket_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets bucket_name
+     * Sets name
      *
-     * @param string $bucket_name bucket_name
+     * @param string $name name
      *
      * @return $this
      */
-    public function setBucketName($bucket_name)
+    public function setName($name)
     {
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_path
-     *
-     * @return string
-     */
-    public function getBucketPath()
-    {
-        return $this->container['bucket_path'];
-    }
-
-    /**
-     * Sets bucket_path
-     *
-     * @param string $bucket_path bucket_path
-     *
-     * @return $this
-     */
-    public function setBucketPath($bucket_path)
-    {
-        $this->container['bucket_path'] = $bucket_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets encryption_config
-     *
-     * @return \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput
-     */
-    public function getEncryptionConfig()
-    {
-        return $this->container['encryption_config'];
-    }
-
-    /**
-     * Sets encryption_config
-     *
-     * @param \Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput $encryption_config encryption_config
-     *
-     * @return $this
-     */
-    public function setEncryptionConfig($encryption_config)
-    {
-        $this->container['encryption_config'] = $encryption_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets local_mount_path
-     *
-     * @return string
-     */
-    public function getLocalMountPath()
-    {
-        return $this->container['local_mount_path'];
-    }
-
-    /**
-     * Sets local_mount_path
-     *
-     * @param string $local_mount_path local_mount_path
-     *
-     * @return $this
-     */
-    public function setLocalMountPath($local_mount_path)
-    {
-        $this->container['local_mount_path'] = $local_mount_path;
+        $this->container['name'] = $name;
 
         return $this;
     }
