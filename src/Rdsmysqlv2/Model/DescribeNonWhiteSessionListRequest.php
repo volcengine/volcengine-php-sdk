@@ -29,7 +29,7 @@ class DescribeNonWhiteSessionListRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'disassociate_allow_list_infos' => '\Volcengine\Rdsmysqlv2\Model\DisassociateAllowListInfoForDescribeNonWhiteSessionListInput[]',
-        'instance_ids' => 'string'
+        'instance_ids' => 'string[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class DescribeNonWhiteSessionListRequest implements ModelInterface, ArrayAccess
     /**
      * Gets instance_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getInstanceIds()
     {
@@ -218,7 +218,7 @@ class DescribeNonWhiteSessionListRequest implements ModelInterface, ArrayAccess
     /**
      * Sets instance_ids
      *
-     * @param string $instance_ids instance_ids
+     * @param string[] $instance_ids instance_ids
      *
      * @return $this
      */

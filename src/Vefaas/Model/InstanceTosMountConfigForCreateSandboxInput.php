@@ -28,7 +28,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auth_mode' => 'string',
+        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput',
         'enable' => 'bool',
+        'mode' => 'string',
         'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForCreateSandboxInput[]'
     ];
 
@@ -38,7 +41,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auth_mode' => null,
+        'credentials' => null,
         'enable' => null,
+        'mode' => null,
         'tos_mount_points' => null
     ];
 
@@ -69,7 +75,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
+        'auth_mode' => 'AuthMode',
+        'credentials' => 'Credentials',
         'enable' => 'Enable',
+        'mode' => 'Mode',
         'tos_mount_points' => 'TosMountPoints'
     ];
 
@@ -79,7 +88,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
+        'auth_mode' => 'setAuthMode',
+        'credentials' => 'setCredentials',
         'enable' => 'setEnable',
+        'mode' => 'setMode',
         'tos_mount_points' => 'setTosMountPoints'
     ];
 
@@ -89,7 +101,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
+        'auth_mode' => 'getAuthMode',
+        'credentials' => 'getCredentials',
         'enable' => 'getEnable',
+        'mode' => 'getMode',
         'tos_mount_points' => 'getTosMountPoints'
     ];
 
@@ -153,7 +168,10 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
+        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
+        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
     }
 
@@ -182,6 +200,54 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
 
 
     /**
+     * Gets auth_mode
+     *
+     * @return string
+     */
+    public function getAuthMode()
+    {
+        return $this->container['auth_mode'];
+    }
+
+    /**
+     * Sets auth_mode
+     *
+     * @param string $auth_mode auth_mode
+     *
+     * @return $this
+     */
+    public function setAuthMode($auth_mode)
+    {
+        $this->container['auth_mode'] = $auth_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets credentials
+     *
+     * @return \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput
+     */
+    public function getCredentials()
+    {
+        return $this->container['credentials'];
+    }
+
+    /**
+     * Sets credentials
+     *
+     * @param \Volcengine\Vefaas\Model\CredentialsForCreateSandboxInput $credentials credentials
+     *
+     * @return $this
+     */
+    public function setCredentials($credentials)
+    {
+        $this->container['credentials'] = $credentials;
+
+        return $this;
+    }
+
+    /**
      * Gets enable
      *
      * @return bool
@@ -201,6 +267,30 @@ class InstanceTosMountConfigForCreateSandboxInput implements ModelInterface, Arr
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
 
         return $this;
     }
