@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
+class RebuildDBGreenInstanceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeUserUploadBackupsResponse';
+    protected static $swaggerModelName = 'RebuildDBGreenInstanceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backups_infos' => '\Volcengine\Rdsmysqlv2\Model\BackupsInfoForDescribeUserUploadBackupsOutput[]',
-        'total' => 'int'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backups_infos' => null,
-        'total' => 'int32'
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backups_infos' => 'BackupsInfos',
-        'total' => 'Total'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backups_infos' => 'setBackupsInfos',
-        'total' => 'setTotal'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backups_infos' => 'getBackupsInfos',
-        'total' => 'getTotal'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['backups_infos'] = isset($data['backups_infos']) ? $data['backups_infos'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets backups_infos
-     *
-     * @return \Volcengine\Rdsmysqlv2\Model\BackupsInfoForDescribeUserUploadBackupsOutput[]
-     */
-    public function getBackupsInfos()
-    {
-        return $this->container['backups_infos'];
-    }
-
-    /**
-     * Sets backups_infos
-     *
-     * @param \Volcengine\Rdsmysqlv2\Model\BackupsInfoForDescribeUserUploadBackupsOutput[] $backups_infos backups_infos
-     *
-     * @return $this
-     */
-    public function setBackupsInfos($backups_infos)
-    {
-        $this->container['backups_infos'] = $backups_infos;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

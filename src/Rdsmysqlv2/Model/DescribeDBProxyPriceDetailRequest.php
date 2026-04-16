@@ -29,7 +29,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_id' => 'string',
-        'project_name' => 'string',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForDescribeDBProxyPriceDetailInput'
     ];
 
@@ -40,7 +39,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_id' => null,
-        'project_name' => null,
         'proxy_node_custom' => null
     ];
 
@@ -72,7 +70,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
-        'project_name' => 'ProjectName',
         'proxy_node_custom' => 'ProxyNodeCustom'
     ];
 
@@ -83,7 +80,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_id' => 'setInstanceId',
-        'project_name' => 'setProjectName',
         'proxy_node_custom' => 'setProxyNodeCustom'
     ];
 
@@ -94,7 +90,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_id' => 'getInstanceId',
-        'project_name' => 'getProjectName',
         'proxy_node_custom' => 'getProxyNodeCustom'
     ];
 
@@ -159,7 +154,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
     }
 
@@ -210,30 +204,6 @@ class DescribeDBProxyPriceDetailRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
 
         return $this;
     }
