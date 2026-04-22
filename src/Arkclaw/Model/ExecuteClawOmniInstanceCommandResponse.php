@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, ArrayAccess
+class ExecuteClawOmniInstanceCommandResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModelConfigForCreateClawOmniInstanceInput';
+    protected static $swaggerModelName = 'ExecuteClawOmniInstanceCommandResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model_id' => 'string',
-        'model_source' => 'string'
+        'error_output' => 'string',
+        'exit_code' => 'int',
+        'output' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model_id' => null,
-        'model_source' => null
+        'error_output' => null,
+        'exit_code' => 'int32',
+        'output' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'model_id' => 'ModelId',
-        'model_source' => 'ModelSource'
+        'error_output' => 'ErrorOutput',
+        'exit_code' => 'ExitCode',
+        'output' => 'Output'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'model_id' => 'setModelId',
-        'model_source' => 'setModelSource'
+        'error_output' => 'setErrorOutput',
+        'exit_code' => 'setExitCode',
+        'output' => 'setOutput'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'model_id' => 'getModelId',
-        'model_source' => 'getModelSource'
+        'error_output' => 'getErrorOutput',
+        'exit_code' => 'getExitCode',
+        'output' => 'getOutput'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
-        $this->container['model_source'] = isset($data['model_source']) ? $data['model_source'] : null;
+        $this->container['error_output'] = isset($data['error_output']) ? $data['error_output'] : null;
+        $this->container['exit_code'] = isset($data['exit_code']) ? $data['exit_code'] : null;
+        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
 
 
     /**
-     * Gets model_id
+     * Gets error_output
      *
      * @return string
      */
-    public function getModelId()
+    public function getErrorOutput()
     {
-        return $this->container['model_id'];
+        return $this->container['error_output'];
     }
 
     /**
-     * Sets model_id
+     * Sets error_output
      *
-     * @param string $model_id model_id
+     * @param string $error_output error_output
      *
      * @return $this
      */
-    public function setModelId($model_id)
+    public function setErrorOutput($error_output)
     {
-        $this->container['model_id'] = $model_id;
+        $this->container['error_output'] = $error_output;
 
         return $this;
     }
 
     /**
-     * Gets model_source
+     * Gets exit_code
      *
-     * @return string
+     * @return int
      */
-    public function getModelSource()
+    public function getExitCode()
     {
-        return $this->container['model_source'];
+        return $this->container['exit_code'];
     }
 
     /**
-     * Sets model_source
+     * Sets exit_code
      *
-     * @param string $model_source model_source
+     * @param int $exit_code exit_code
      *
      * @return $this
      */
-    public function setModelSource($model_source)
+    public function setExitCode($exit_code)
     {
-        $this->container['model_source'] = $model_source;
+        $this->container['exit_code'] = $exit_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets output
+     *
+     * @return string
+     */
+    public function getOutput()
+    {
+        return $this->container['output'];
+    }
+
+    /**
+     * Sets output
+     *
+     * @param string $output output
+     *
+     * @return $this
+     */
+    public function setOutput($output)
+    {
+        $this->container['output'] = $output;
 
         return $this;
     }

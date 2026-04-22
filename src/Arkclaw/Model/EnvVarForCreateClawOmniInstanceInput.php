@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, ArrayAccess
+class EnvVarForCreateClawOmniInstanceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModelConfigForCreateClawOmniInstanceInput';
+    protected static $swaggerModelName = 'EnvVarForCreateClawOmniInstanceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model_id' => 'string',
-        'model_source' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model_id' => null,
-        'model_source' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'model_id' => 'ModelId',
-        'model_source' => 'ModelSource'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'model_id' => 'setModelId',
-        'model_source' => 'setModelSource'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'model_id' => 'getModelId',
-        'model_source' => 'getModelSource'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
-        $this->container['model_source'] = isset($data['model_source']) ? $data['model_source'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -166,6 +166,9 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +185,49 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
 
 
     /**
-     * Gets model_id
+     * Gets key
      *
      * @return string
      */
-    public function getModelId()
+    public function getKey()
     {
-        return $this->container['model_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets model_id
+     * Sets key
      *
-     * @param string $model_id model_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setModelId($model_id)
+    public function setKey($key)
     {
-        $this->container['model_id'] = $model_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets model_source
+     * Gets value
      *
      * @return string
      */
-    public function getModelSource()
+    public function getValue()
     {
-        return $this->container['model_source'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets model_source
+     * Sets value
      *
-     * @param string $model_source model_source
+     * @param string $value value
      *
      * @return $this
      */
-    public function setModelSource($model_source)
+    public function setValue($value)
     {
-        $this->container['model_source'] = $model_source;
+        $this->container['value'] = $value;
 
         return $this;
     }
