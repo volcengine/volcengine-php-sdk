@@ -17,7 +17,6 @@
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 从 `~/.volcengine/config.json` 读取 | 视 mode 而定 | 复用 CLI 登录态或 profile |
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
-| `SsoCredentialProvider` | SSO 联邦，通过 CloudIdentity Portal | 是 | CLI SSO 登录 |
 | `DefaultCredentialProvider` | 默认凭证链封装 | 取决于实际命中的 provider | 业务代码不显式写 AK/SK |
 
 ## AK、SK设置

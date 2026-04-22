@@ -5,6 +5,14 @@ namespace Volcengine\Common\Auth\Providers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 
+/**
+ * @internal
+ *
+ * This class is only used as an internal delegate from {@see CLIConfigCredentialProvider}
+ * when the CLI config profile `mode` is `sso`. It is not part of the public credential
+ * provider API and its constructor signature, behavior, and stability are subject to
+ * change without notice. Do not instantiate this class directly.
+ */
 class SsoCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'SsoCredentialProvider';

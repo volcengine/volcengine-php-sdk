@@ -17,7 +17,6 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
-| `SsoCredentialProvider` | SSO federation via CloudIdentity portal | Yes | CLI SSO login |
 | `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
 ## AK/SK
