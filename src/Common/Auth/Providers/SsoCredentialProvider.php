@@ -333,7 +333,7 @@ class SsoCredentialProvider extends Provider
 
         $ak = isset($roleCreds['AccessKeyId']) ? trim($roleCreds['AccessKeyId']) : '';
         $sk = isset($roleCreds['SecretAccessKey']) ? trim($roleCreds['SecretAccessKey']) : '';
-        $sessionToken = isset($roleCreds['sessionToken']) ? trim($roleCreds['sessionToken']) : '';
+        $sessionToken = isset($roleCreds['SessionToken']) ? trim($roleCreds['SessionToken']) : '';
         $expiration = isset($roleCreds['Expiration']) ? (int) $roleCreds['Expiration'] : 0;
 
         if ($ak === '' || $sk === '') {
