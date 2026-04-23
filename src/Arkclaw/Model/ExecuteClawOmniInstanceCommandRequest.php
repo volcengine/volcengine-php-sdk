@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, ArrayAccess
+class ExecuteClawOmniInstanceCommandRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModelConfigForCreateClawOmniInstanceInput';
+    protected static $swaggerModelName = 'ExecuteClawOmniInstanceCommandRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model_id' => 'string',
-        'model_source' => 'string'
+        'command' => 'string',
+        'env_vars' => '\Volcengine\Arkclaw\Model\EnvVarForExecuteClawOmniInstanceCommandInput[]',
+        'id' => 'string',
+        'timeout' => 'int',
+        'working_dir' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model_id' => null,
-        'model_source' => null
+        'command' => null,
+        'env_vars' => null,
+        'id' => null,
+        'timeout' => 'int32',
+        'working_dir' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'model_id' => 'ModelId',
-        'model_source' => 'ModelSource'
+        'command' => 'Command',
+        'env_vars' => 'EnvVars',
+        'id' => 'Id',
+        'timeout' => 'Timeout',
+        'working_dir' => 'WorkingDir'
     ];
 
     /**
@@ -79,8 +88,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'model_id' => 'setModelId',
-        'model_source' => 'setModelSource'
+        'command' => 'setCommand',
+        'env_vars' => 'setEnvVars',
+        'id' => 'setId',
+        'timeout' => 'setTimeout',
+        'working_dir' => 'setWorkingDir'
     ];
 
     /**
@@ -89,8 +101,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'model_id' => 'getModelId',
-        'model_source' => 'getModelSource'
+        'command' => 'getCommand',
+        'env_vars' => 'getEnvVars',
+        'id' => 'getId',
+        'timeout' => 'getTimeout',
+        'working_dir' => 'getWorkingDir'
     ];
 
     /**
@@ -153,8 +168,11 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
-        $this->container['model_source'] = isset($data['model_source']) ? $data['model_source'] : null;
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['env_vars'] = isset($data['env_vars']) ? $data['env_vars'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['working_dir'] = isset($data['working_dir']) ? $data['working_dir'] : null;
     }
 
     /**
@@ -166,6 +184,12 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if ($this->container['command'] === null) {
+            $invalidProperties[] = "'command' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +206,121 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
 
 
     /**
-     * Gets model_id
+     * Gets command
      *
      * @return string
      */
-    public function getModelId()
+    public function getCommand()
     {
-        return $this->container['model_id'];
+        return $this->container['command'];
     }
 
     /**
-     * Sets model_id
+     * Sets command
      *
-     * @param string $model_id model_id
+     * @param string $command command
      *
      * @return $this
      */
-    public function setModelId($model_id)
+    public function setCommand($command)
     {
-        $this->container['model_id'] = $model_id;
+        $this->container['command'] = $command;
 
         return $this;
     }
 
     /**
-     * Gets model_source
+     * Gets env_vars
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\EnvVarForExecuteClawOmniInstanceCommandInput[]
      */
-    public function getModelSource()
+    public function getEnvVars()
     {
-        return $this->container['model_source'];
+        return $this->container['env_vars'];
     }
 
     /**
-     * Sets model_source
+     * Sets env_vars
      *
-     * @param string $model_source model_source
+     * @param \Volcengine\Arkclaw\Model\EnvVarForExecuteClawOmniInstanceCommandInput[] $env_vars env_vars
      *
      * @return $this
      */
-    public function setModelSource($model_source)
+    public function setEnvVars($env_vars)
     {
-        $this->container['model_source'] = $model_source;
+        $this->container['env_vars'] = $env_vars;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param int $timeout timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets working_dir
+     *
+     * @return string
+     */
+    public function getWorkingDir()
+    {
+        return $this->container['working_dir'];
+    }
+
+    /**
+     * Sets working_dir
+     *
+     * @param string $working_dir working_dir
+     *
+     * @return $this
+     */
+    public function setWorkingDir($working_dir)
+    {
+        $this->container['working_dir'] = $working_dir;
 
         return $this;
     }

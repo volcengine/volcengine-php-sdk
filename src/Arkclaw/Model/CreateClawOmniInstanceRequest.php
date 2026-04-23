@@ -30,6 +30,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cpu_milli' => 'int',
         'description' => 'string',
+        'env_vars' => '\Volcengine\Arkclaw\Model\EnvVarForCreateClawOmniInstanceInput[]',
         'expired_action' => 'string',
         'image' => 'string',
         'memory_mb' => 'int',
@@ -50,6 +51,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cpu_milli' => 'int32',
         'description' => null,
+        'env_vars' => null,
         'expired_action' => null,
         'image' => null,
         'memory_mb' => 'int32',
@@ -91,6 +93,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
+        'env_vars' => 'EnvVars',
         'expired_action' => 'ExpiredAction',
         'image' => 'Image',
         'memory_mb' => 'MemoryMb',
@@ -111,6 +114,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
+        'env_vars' => 'setEnvVars',
         'expired_action' => 'setExpiredAction',
         'image' => 'setImage',
         'memory_mb' => 'setMemoryMb',
@@ -131,6 +135,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
+        'env_vars' => 'getEnvVars',
         'expired_action' => 'getExpiredAction',
         'image' => 'getImage',
         'memory_mb' => 'getMemoryMb',
@@ -205,6 +210,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['env_vars'] = isset($data['env_vars']) ? $data['env_vars'] : null;
         $this->container['expired_action'] = isset($data['expired_action']) ? $data['expired_action'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
@@ -300,6 +306,30 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets env_vars
+     *
+     * @return \Volcengine\Arkclaw\Model\EnvVarForCreateClawOmniInstanceInput[]
+     */
+    public function getEnvVars()
+    {
+        return $this->container['env_vars'];
+    }
+
+    /**
+     * Sets env_vars
+     *
+     * @param \Volcengine\Arkclaw\Model\EnvVarForCreateClawOmniInstanceInput[] $env_vars env_vars
+     *
+     * @return $this
+     */
+    public function setEnvVars($env_vars)
+    {
+        $this->container['env_vars'] = $env_vars;
 
         return $this;
     }
