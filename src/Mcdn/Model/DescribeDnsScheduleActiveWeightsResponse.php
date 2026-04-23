@@ -151,7 +151,7 @@ class DescribeDnsScheduleActiveWeightsResponse implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['active_weights'] = isset($data['active_weights']) ? $data['active_weights'] : null;
         $this->container['time_at'] = isset($data['time_at']) ? $data['time_at'] : null;

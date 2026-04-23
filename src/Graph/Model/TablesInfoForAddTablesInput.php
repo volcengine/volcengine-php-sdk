@@ -171,7 +171,7 @@ class TablesInfoForAddTablesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['io_qos_options'] = isset($data['io_qos_options']) ? $data['io_qos_options'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

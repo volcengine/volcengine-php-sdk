@@ -161,7 +161,7 @@ class CreateAITranslationUtteranceResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_clip'] = isset($data['source_clip']) ? $data['source_clip'] : null;
         $this->container['source_utterance'] = isset($data['source_utterance']) ? $data['source_utterance'] : null;

@@ -146,7 +146,7 @@ class CreateLaunchTemplateVersionResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['launch_template_version_number'] = isset($data['launch_template_version_number']) ? $data['launch_template_version_number'] : null;
     }

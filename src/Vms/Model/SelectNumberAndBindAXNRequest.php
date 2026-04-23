@@ -206,7 +206,7 @@ class SelectNumberAndBindAXNRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_record_flag'] = isset($data['audio_record_flag']) ? $data['audio_record_flag'] : null;
         $this->container['city_code'] = isset($data['city_code']) ? $data['city_code'] : null;

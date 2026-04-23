@@ -151,7 +151,7 @@ class DescribeTagsByResourceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['tag_resources'] = isset($data['tag_resources']) ? $data['tag_resources'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

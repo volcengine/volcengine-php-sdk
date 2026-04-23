@@ -151,7 +151,7 @@ class ConditionGroupForDescribeCdnConfigOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['is_group'] = isset($data['is_group']) ? $data['is_group'] : null;

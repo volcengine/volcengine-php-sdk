@@ -151,7 +151,7 @@ class AddProhibitionWhiteResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ip_failed'] = isset($data['ip_failed']) ? $data['ip_failed'] : null;
         $this->container['ip_success'] = isset($data['ip_success']) ? $data['ip_success'] : null;

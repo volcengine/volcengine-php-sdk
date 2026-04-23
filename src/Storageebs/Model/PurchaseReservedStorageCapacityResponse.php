@@ -151,7 +151,7 @@ class PurchaseReservedStorageCapacityResponse implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['order_number'] = isset($data['order_number']) ? $data['order_number'] : null;
         $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;

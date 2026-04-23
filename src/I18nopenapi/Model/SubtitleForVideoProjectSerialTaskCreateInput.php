@@ -156,7 +156,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

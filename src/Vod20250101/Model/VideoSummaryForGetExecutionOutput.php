@@ -156,7 +156,7 @@ class VideoSummaryForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['best_segment_duration'] = isset($data['best_segment_duration']) ? $data['best_segment_duration'] : null;
         $this->container['extra_description'] = isset($data['extra_description']) ? $data['extra_description'] : null;

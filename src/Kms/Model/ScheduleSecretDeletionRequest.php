@@ -156,7 +156,7 @@ class ScheduleSecretDeletionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['force_delete'] = isset($data['force_delete']) ? $data['force_delete'] : null;
         $this->container['pending_window_in_days'] = isset($data['pending_window_in_days']) ? $data['pending_window_in_days'] : null;

@@ -52,6 +52,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'string',
         'keep_cross_backup_enable_after_released' => 'bool',
         'lock_ddl_time' => 'int',
+        'lock_ddl_time_second' => 'int',
         'log_backup_retention_day' => 'int',
         'public_download_enable' => 'bool',
         'retention_policy_synced' => 'bool'
@@ -87,6 +88,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         'instance_id' => null,
         'keep_cross_backup_enable_after_released' => null,
         'lock_ddl_time' => 'int32',
+        'lock_ddl_time_second' => 'int32',
         'log_backup_retention_day' => 'int32',
         'public_download_enable' => null,
         'retention_policy_synced' => null
@@ -143,6 +145,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'InstanceId',
         'keep_cross_backup_enable_after_released' => 'KeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'LockDDLTime',
+        'lock_ddl_time_second' => 'LockDDLTimeSecond',
         'log_backup_retention_day' => 'LogBackupRetentionDay',
         'public_download_enable' => 'PublicDownloadEnable',
         'retention_policy_synced' => 'RetentionPolicySynced'
@@ -178,6 +181,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'setInstanceId',
         'keep_cross_backup_enable_after_released' => 'setKeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'setLockDdlTime',
+        'lock_ddl_time_second' => 'setLockDdlTimeSecond',
         'log_backup_retention_day' => 'setLogBackupRetentionDay',
         'public_download_enable' => 'setPublicDownloadEnable',
         'retention_policy_synced' => 'setRetentionPolicySynced'
@@ -213,6 +217,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'getInstanceId',
         'keep_cross_backup_enable_after_released' => 'getKeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'getLockDdlTime',
+        'lock_ddl_time_second' => 'getLockDdlTimeSecond',
         'log_backup_retention_day' => 'getLogBackupRetentionDay',
         'public_download_enable' => 'getPublicDownloadEnable',
         'retention_policy_synced' => 'getRetentionPolicySynced'
@@ -276,7 +281,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binlog_backup_all_retention'] = isset($data['binlog_backup_all_retention']) ? $data['binlog_backup_all_retention'] : null;
         $this->container['binlog_backup_enabled'] = isset($data['binlog_backup_enabled']) ? $data['binlog_backup_enabled'] : null;
@@ -302,6 +307,7 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['keep_cross_backup_enable_after_released'] = isset($data['keep_cross_backup_enable_after_released']) ? $data['keep_cross_backup_enable_after_released'] : null;
         $this->container['lock_ddl_time'] = isset($data['lock_ddl_time']) ? $data['lock_ddl_time'] : null;
+        $this->container['lock_ddl_time_second'] = isset($data['lock_ddl_time_second']) ? $data['lock_ddl_time_second'] : null;
         $this->container['log_backup_retention_day'] = isset($data['log_backup_retention_day']) ? $data['log_backup_retention_day'] : null;
         $this->container['public_download_enable'] = isset($data['public_download_enable']) ? $data['public_download_enable'] : null;
         $this->container['retention_policy_synced'] = isset($data['retention_policy_synced']) ? $data['retention_policy_synced'] : null;
@@ -903,6 +909,30 @@ class DescribeBackupPolicyResponse implements ModelInterface, ArrayAccess
     public function setLockDdlTime($lock_ddl_time)
     {
         $this->container['lock_ddl_time'] = $lock_ddl_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets lock_ddl_time_second
+     *
+     * @return int
+     */
+    public function getLockDdlTimeSecond()
+    {
+        return $this->container['lock_ddl_time_second'];
+    }
+
+    /**
+     * Sets lock_ddl_time_second
+     *
+     * @param int $lock_ddl_time_second lock_ddl_time_second
+     *
+     * @return $this
+     */
+    public function setLockDdlTimeSecond($lock_ddl_time_second)
+    {
+        $this->container['lock_ddl_time_second'] = $lock_ddl_time_second;
 
         return $this;
     }

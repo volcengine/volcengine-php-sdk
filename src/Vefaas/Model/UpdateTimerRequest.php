@@ -181,7 +181,7 @@ class UpdateTimerRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['crontab'] = isset($data['crontab']) ? $data['crontab'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

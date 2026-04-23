@@ -151,7 +151,7 @@ class SupportedImageForListSupportedImagesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;

@@ -151,7 +151,7 @@ class DataForTagResourcesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_resources'] = isset($data['failed_resources']) ? $data['failed_resources'] : null;
         $this->container['succeed_resources'] = isset($data['succeed_resources']) ? $data['succeed_resources'] : null;

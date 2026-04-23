@@ -156,7 +156,7 @@ class ModifyDomainExtensionForModifyListenerDomainExtensionsInput implements Mod
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cert_center_certificate_id'] = isset($data['cert_center_certificate_id']) ? $data['cert_center_certificate_id'] : null;
         $this->container['certificate_source'] = isset($data['certificate_source']) ? $data['certificate_source'] : null;

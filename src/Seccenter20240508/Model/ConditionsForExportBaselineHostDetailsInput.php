@@ -35,7 +35,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
         'hostname' => 'string',
         'ip' => 'string',
         'leaf_group_ids' => 'string[]',
-        'tag' => 'string',
+        'tag' => 'string[]',
         'top_group_id' => 'string'
     ];
 
@@ -186,7 +186,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
@@ -394,7 +394,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
     /**
      * Gets tag
      *
-     * @return string
+     * @return string[]
      */
     public function getTag()
     {
@@ -404,7 +404,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
     /**
      * Sets tag
      *
-     * @param string $tag tag
+     * @param string[] $tag tag
      *
      * @return $this
      */

@@ -166,7 +166,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['backup_hour'] = isset($data['backup_hour']) ? $data['backup_hour'] : null;

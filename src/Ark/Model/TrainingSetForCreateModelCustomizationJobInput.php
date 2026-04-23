@@ -171,7 +171,7 @@ class TrainingSetForCreateModelCustomizationJobInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['datasets'] = isset($data['datasets']) ? $data['datasets'] : null;
         $this->container['preset_data'] = isset($data['preset_data']) ? $data['preset_data'] : null;

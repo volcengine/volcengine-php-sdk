@@ -28,23 +28,34 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_remove_type' => 'string',
+        'ai_remove_type' => 'int',
         'asr_model' => 'int',
         'bgm_policy' => 'int',
         'comment' => 'string',
-        'deadline' => 'int',
+        'created_at' => 'string',
+        'deadline' => 'string',
         'drama_cover_url' => 'string',
         'drama_description' => 'string',
         'drama_title' => 'string',
+        'dub_or_translation_task_id' => 'string',
         'is_dub' => 'bool',
+        'llm_video_understanding_type' => 'int',
         'need_translate_cover' => 'bool',
         'need_translate_desc' => 'bool',
         'need_translate_title' => 'bool',
         'need_translate_title_and_desc' => 'bool',
+        'need_video_speed' => 'bool',
+        'procedures' => 'int',
+        'reference_doc' => '\Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialTaskCreateInput',
         'serial_number' => 'int',
         'source_lang' => 'string',
+        'source_locale' => 'string',
+        'state' => 'int',
+        'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialTaskCreateInput',
         'target_langs' => 'string[]',
+        'target_locale' => 'string[]',
         'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialTaskCreateInput',
+        'task_id' => 'int',
         'task_name' => 'string',
         'use_mt' => 'bool'
     ];
@@ -55,23 +66,34 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_remove_type' => null,
+        'ai_remove_type' => 'int32',
         'asr_model' => 'int32',
         'bgm_policy' => 'int32',
         'comment' => null,
-        'deadline' => 'int32',
+        'created_at' => null,
+        'deadline' => null,
         'drama_cover_url' => null,
         'drama_description' => null,
         'drama_title' => null,
+        'dub_or_translation_task_id' => null,
         'is_dub' => null,
+        'llm_video_understanding_type' => 'int32',
         'need_translate_cover' => null,
         'need_translate_desc' => null,
         'need_translate_title' => null,
         'need_translate_title_and_desc' => null,
+        'need_video_speed' => null,
+        'procedures' => 'int32',
+        'reference_doc' => null,
         'serial_number' => 'int32',
         'source_lang' => null,
+        'source_locale' => null,
+        'state' => 'int32',
+        'suppression_params' => null,
         'target_langs' => null,
+        'target_locale' => null,
         'target_style_map' => null,
+        'task_id' => 'int32',
         'task_name' => null,
         'use_mt' => null
     ];
@@ -107,19 +129,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'asr_model' => 'asrModel',
         'bgm_policy' => 'bgmPolicy',
         'comment' => 'comment',
+        'created_at' => 'createdAt',
         'deadline' => 'deadline',
         'drama_cover_url' => 'dramaCoverUrl',
         'drama_description' => 'dramaDescription',
         'drama_title' => 'dramaTitle',
+        'dub_or_translation_task_id' => 'dubOrTranslationTaskID',
         'is_dub' => 'isDub',
+        'llm_video_understanding_type' => 'llmVideoUnderstandingType',
         'need_translate_cover' => 'needTranslateCover',
         'need_translate_desc' => 'needTranslateDesc',
         'need_translate_title' => 'needTranslateTitle',
         'need_translate_title_and_desc' => 'needTranslateTitleAndDesc',
+        'need_video_speed' => 'needVideoSpeed',
+        'procedures' => 'procedures',
+        'reference_doc' => 'referenceDoc',
         'serial_number' => 'serialNumber',
         'source_lang' => 'sourceLang',
+        'source_locale' => 'sourceLocale',
+        'state' => 'state',
+        'suppression_params' => 'suppressionParams',
         'target_langs' => 'targetLangs',
+        'target_locale' => 'targetLocale',
         'target_style_map' => 'targetStyleMap',
+        'task_id' => 'taskId',
         'task_name' => 'taskName',
         'use_mt' => 'useMT'
     ];
@@ -134,19 +167,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'asr_model' => 'setAsrModel',
         'bgm_policy' => 'setBgmPolicy',
         'comment' => 'setComment',
+        'created_at' => 'setCreatedAt',
         'deadline' => 'setDeadline',
         'drama_cover_url' => 'setDramaCoverUrl',
         'drama_description' => 'setDramaDescription',
         'drama_title' => 'setDramaTitle',
+        'dub_or_translation_task_id' => 'setDubOrTranslationTaskId',
         'is_dub' => 'setIsDub',
+        'llm_video_understanding_type' => 'setLlmVideoUnderstandingType',
         'need_translate_cover' => 'setNeedTranslateCover',
         'need_translate_desc' => 'setNeedTranslateDesc',
         'need_translate_title' => 'setNeedTranslateTitle',
         'need_translate_title_and_desc' => 'setNeedTranslateTitleAndDesc',
+        'need_video_speed' => 'setNeedVideoSpeed',
+        'procedures' => 'setProcedures',
+        'reference_doc' => 'setReferenceDoc',
         'serial_number' => 'setSerialNumber',
         'source_lang' => 'setSourceLang',
+        'source_locale' => 'setSourceLocale',
+        'state' => 'setState',
+        'suppression_params' => 'setSuppressionParams',
         'target_langs' => 'setTargetLangs',
+        'target_locale' => 'setTargetLocale',
         'target_style_map' => 'setTargetStyleMap',
+        'task_id' => 'setTaskId',
         'task_name' => 'setTaskName',
         'use_mt' => 'setUseMt'
     ];
@@ -161,19 +205,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'asr_model' => 'getAsrModel',
         'bgm_policy' => 'getBgmPolicy',
         'comment' => 'getComment',
+        'created_at' => 'getCreatedAt',
         'deadline' => 'getDeadline',
         'drama_cover_url' => 'getDramaCoverUrl',
         'drama_description' => 'getDramaDescription',
         'drama_title' => 'getDramaTitle',
+        'dub_or_translation_task_id' => 'getDubOrTranslationTaskId',
         'is_dub' => 'getIsDub',
+        'llm_video_understanding_type' => 'getLlmVideoUnderstandingType',
         'need_translate_cover' => 'getNeedTranslateCover',
         'need_translate_desc' => 'getNeedTranslateDesc',
         'need_translate_title' => 'getNeedTranslateTitle',
         'need_translate_title_and_desc' => 'getNeedTranslateTitleAndDesc',
+        'need_video_speed' => 'getNeedVideoSpeed',
+        'procedures' => 'getProcedures',
+        'reference_doc' => 'getReferenceDoc',
         'serial_number' => 'getSerialNumber',
         'source_lang' => 'getSourceLang',
+        'source_locale' => 'getSourceLocale',
+        'state' => 'getState',
+        'suppression_params' => 'getSuppressionParams',
         'target_langs' => 'getTargetLangs',
+        'target_locale' => 'getTargetLocale',
         'target_style_map' => 'getTargetStyleMap',
+        'task_id' => 'getTaskId',
         'task_name' => 'getTaskName',
         'use_mt' => 'getUseMt'
     ];
@@ -236,25 +291,36 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;
         $this->container['bgm_policy'] = isset($data['bgm_policy']) ? $data['bgm_policy'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
         $this->container['drama_cover_url'] = isset($data['drama_cover_url']) ? $data['drama_cover_url'] : null;
         $this->container['drama_description'] = isset($data['drama_description']) ? $data['drama_description'] : null;
         $this->container['drama_title'] = isset($data['drama_title']) ? $data['drama_title'] : null;
+        $this->container['dub_or_translation_task_id'] = isset($data['dub_or_translation_task_id']) ? $data['dub_or_translation_task_id'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
+        $this->container['llm_video_understanding_type'] = isset($data['llm_video_understanding_type']) ? $data['llm_video_understanding_type'] : null;
         $this->container['need_translate_cover'] = isset($data['need_translate_cover']) ? $data['need_translate_cover'] : null;
         $this->container['need_translate_desc'] = isset($data['need_translate_desc']) ? $data['need_translate_desc'] : null;
         $this->container['need_translate_title'] = isset($data['need_translate_title']) ? $data['need_translate_title'] : null;
         $this->container['need_translate_title_and_desc'] = isset($data['need_translate_title_and_desc']) ? $data['need_translate_title_and_desc'] : null;
+        $this->container['need_video_speed'] = isset($data['need_video_speed']) ? $data['need_video_speed'] : null;
+        $this->container['procedures'] = isset($data['procedures']) ? $data['procedures'] : null;
+        $this->container['reference_doc'] = isset($data['reference_doc']) ? $data['reference_doc'] : null;
         $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
+        $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['suppression_params'] = isset($data['suppression_params']) ? $data['suppression_params'] : null;
         $this->container['target_langs'] = isset($data['target_langs']) ? $data['target_langs'] : null;
+        $this->container['target_locale'] = isset($data['target_locale']) ? $data['target_locale'] : null;
         $this->container['target_style_map'] = isset($data['target_style_map']) ? $data['target_style_map'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
         $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
         $this->container['use_mt'] = isset($data['use_mt']) ? $data['use_mt'] : null;
     }
@@ -286,7 +352,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     /**
      * Gets ai_remove_type
      *
-     * @return string
+     * @return int
      */
     public function getAiRemoveType()
     {
@@ -296,7 +362,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     /**
      * Sets ai_remove_type
      *
-     * @param string $ai_remove_type ai_remove_type
+     * @param int $ai_remove_type ai_remove_type
      *
      * @return $this
      */
@@ -380,9 +446,33 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     }
 
     /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
      * Gets deadline
      *
-     * @return int
+     * @return string
      */
     public function getDeadline()
     {
@@ -392,7 +482,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     /**
      * Sets deadline
      *
-     * @param int $deadline deadline
+     * @param string $deadline deadline
      *
      * @return $this
      */
@@ -476,6 +566,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     }
 
     /**
+     * Gets dub_or_translation_task_id
+     *
+     * @return string
+     */
+    public function getDubOrTranslationTaskId()
+    {
+        return $this->container['dub_or_translation_task_id'];
+    }
+
+    /**
+     * Sets dub_or_translation_task_id
+     *
+     * @param string $dub_or_translation_task_id dub_or_translation_task_id
+     *
+     * @return $this
+     */
+    public function setDubOrTranslationTaskId($dub_or_translation_task_id)
+    {
+        $this->container['dub_or_translation_task_id'] = $dub_or_translation_task_id;
+
+        return $this;
+    }
+
+    /**
      * Gets is_dub
      *
      * @return bool
@@ -495,6 +609,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setIsDub($is_dub)
     {
         $this->container['is_dub'] = $is_dub;
+
+        return $this;
+    }
+
+    /**
+     * Gets llm_video_understanding_type
+     *
+     * @return int
+     */
+    public function getLlmVideoUnderstandingType()
+    {
+        return $this->container['llm_video_understanding_type'];
+    }
+
+    /**
+     * Sets llm_video_understanding_type
+     *
+     * @param int $llm_video_understanding_type llm_video_understanding_type
+     *
+     * @return $this
+     */
+    public function setLlmVideoUnderstandingType($llm_video_understanding_type)
+    {
+        $this->container['llm_video_understanding_type'] = $llm_video_understanding_type;
 
         return $this;
     }
@@ -596,6 +734,78 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     }
 
     /**
+     * Gets need_video_speed
+     *
+     * @return bool
+     */
+    public function getNeedVideoSpeed()
+    {
+        return $this->container['need_video_speed'];
+    }
+
+    /**
+     * Sets need_video_speed
+     *
+     * @param bool $need_video_speed need_video_speed
+     *
+     * @return $this
+     */
+    public function setNeedVideoSpeed($need_video_speed)
+    {
+        $this->container['need_video_speed'] = $need_video_speed;
+
+        return $this;
+    }
+
+    /**
+     * Gets procedures
+     *
+     * @return int
+     */
+    public function getProcedures()
+    {
+        return $this->container['procedures'];
+    }
+
+    /**
+     * Sets procedures
+     *
+     * @param int $procedures procedures
+     *
+     * @return $this
+     */
+    public function setProcedures($procedures)
+    {
+        $this->container['procedures'] = $procedures;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_doc
+     *
+     * @return \Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialTaskCreateInput
+     */
+    public function getReferenceDoc()
+    {
+        return $this->container['reference_doc'];
+    }
+
+    /**
+     * Sets reference_doc
+     *
+     * @param \Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialTaskCreateInput $reference_doc reference_doc
+     *
+     * @return $this
+     */
+    public function setReferenceDoc($reference_doc)
+    {
+        $this->container['reference_doc'] = $reference_doc;
+
+        return $this;
+    }
+
+    /**
      * Gets serial_number
      *
      * @return int
@@ -644,6 +854,78 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     }
 
     /**
+     * Gets source_locale
+     *
+     * @return string
+     */
+    public function getSourceLocale()
+    {
+        return $this->container['source_locale'];
+    }
+
+    /**
+     * Sets source_locale
+     *
+     * @param string $source_locale source_locale
+     *
+     * @return $this
+     */
+    public function setSourceLocale($source_locale)
+    {
+        $this->container['source_locale'] = $source_locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return int
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param int $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_params
+     *
+     * @return \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialTaskCreateInput
+     */
+    public function getSuppressionParams()
+    {
+        return $this->container['suppression_params'];
+    }
+
+    /**
+     * Sets suppression_params
+     *
+     * @param \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialTaskCreateInput $suppression_params suppression_params
+     *
+     * @return $this
+     */
+    public function setSuppressionParams($suppression_params)
+    {
+        $this->container['suppression_params'] = $suppression_params;
+
+        return $this;
+    }
+
+    /**
      * Gets target_langs
      *
      * @return string[]
@@ -668,6 +950,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     }
 
     /**
+     * Gets target_locale
+     *
+     * @return string[]
+     */
+    public function getTargetLocale()
+    {
+        return $this->container['target_locale'];
+    }
+
+    /**
+     * Sets target_locale
+     *
+     * @param string[] $target_locale target_locale
+     *
+     * @return $this
+     */
+    public function setTargetLocale($target_locale)
+    {
+        $this->container['target_locale'] = $target_locale;
+
+        return $this;
+    }
+
+    /**
      * Gets target_style_map
      *
      * @return \Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialTaskCreateInput
@@ -687,6 +993,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setTargetStyleMap($target_style_map)
     {
         $this->container['target_style_map'] = $target_style_map;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

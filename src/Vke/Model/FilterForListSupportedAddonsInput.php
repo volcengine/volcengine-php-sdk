@@ -267,7 +267,7 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['deploy_modes'] = isset($data['deploy_modes']) ? $data['deploy_modes'] : null;

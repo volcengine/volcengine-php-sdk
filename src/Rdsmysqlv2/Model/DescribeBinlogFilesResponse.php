@@ -156,7 +156,7 @@ class DescribeBinlogFilesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binlog_files'] = isset($data['binlog_files']) ? $data['binlog_files'] : null;
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;

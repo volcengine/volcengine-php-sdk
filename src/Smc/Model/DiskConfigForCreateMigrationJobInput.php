@@ -161,7 +161,7 @@ class DiskConfigForCreateMigrationJobInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['destination_disk_size'] = isset($data['destination_disk_size']) ? $data['destination_disk_size'] : null;
         $this->container['disk_index'] = isset($data['disk_index']) ? $data['disk_index'] : null;

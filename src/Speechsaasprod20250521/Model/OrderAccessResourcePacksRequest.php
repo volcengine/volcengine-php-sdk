@@ -181,7 +181,7 @@ class OrderAccessResourcePacksRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_use_coupon'] = isset($data['auto_use_coupon']) ? $data['auto_use_coupon'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;

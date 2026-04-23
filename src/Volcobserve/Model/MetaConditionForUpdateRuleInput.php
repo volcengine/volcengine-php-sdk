@@ -156,7 +156,7 @@ class MetaConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_dimensions'] = isset($data['all_dimensions']) ? $data['all_dimensions'] : null;
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;

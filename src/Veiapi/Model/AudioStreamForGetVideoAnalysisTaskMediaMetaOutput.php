@@ -196,7 +196,7 @@ class AudioStreamForGetVideoAnalysisTaskMediaMetaOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bits_per_sample'] = isset($data['bits_per_sample']) ? $data['bits_per_sample'] : null;
         $this->container['channel_layout'] = isset($data['channel_layout']) ? $data['channel_layout'] : null;

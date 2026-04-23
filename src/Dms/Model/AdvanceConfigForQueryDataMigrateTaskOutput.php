@@ -161,7 +161,7 @@ class AdvanceConfigForQueryDataMigrateTaskOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['increase_setting'] = isset($data['increase_setting']) ? $data['increase_setting'] : null;
         $this->container['private_link'] = isset($data['private_link']) ? $data['private_link'] : null;

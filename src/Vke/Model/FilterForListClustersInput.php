@@ -166,6 +166,14 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
 
     const PODS_CONFIG_POD_NETWORK_MODE_FLANNEL = 'Flannel';
     const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
+    const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';
+    const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_HYBRID = 'VpcCniHybrid';
+    const PODS_CONFIG_POD_NETWORK_MODE_CARMA = 'Carma';
+    const PODS_CONFIG_POD_NETWORK_MODE__DEFAULT = 'Default';
+    const PODS_CONFIG_POD_NETWORK_MODE_CALICO_VXLAN = 'CalicoVxlan';
+    const PODS_CONFIG_POD_NETWORK_MODE_CALICO_BGP = 'CalicoBgp';
+    const PODS_CONFIG_POD_NETWORK_MODE_CILIUM = 'Cilium';
+    const PODS_CONFIG_POD_NETWORK_MODE_KUBE_OVN = 'KubeOvn';
     const TYPES_MANAGED = 'Managed';
     const TYPES_STANDARD = 'Standard';
     const TYPES_REGISTERED = 'Registered';
@@ -183,6 +191,14 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         return [
             self::PODS_CONFIG_POD_NETWORK_MODE_FLANNEL,
             self::PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_SHARED,
+            self::PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_DEDICATED,
+            self::PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_HYBRID,
+            self::PODS_CONFIG_POD_NETWORK_MODE_CARMA,
+            self::PODS_CONFIG_POD_NETWORK_MODE__DEFAULT,
+            self::PODS_CONFIG_POD_NETWORK_MODE_CALICO_VXLAN,
+            self::PODS_CONFIG_POD_NETWORK_MODE_CALICO_BGP,
+            self::PODS_CONFIG_POD_NETWORK_MODE_CILIUM,
+            self::PODS_CONFIG_POD_NETWORK_MODE_KUBE_OVN,
         ];
     }
     
@@ -215,7 +231,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;

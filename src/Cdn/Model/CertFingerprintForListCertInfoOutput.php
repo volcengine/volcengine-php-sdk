@@ -151,7 +151,7 @@ class CertFingerprintForListCertInfoOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['sha1'] = isset($data['sha1']) ? $data['sha1'] : null;
         $this->container['sha256'] = isset($data['sha256']) ? $data['sha256'] : null;

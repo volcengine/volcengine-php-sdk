@@ -186,7 +186,7 @@ class ChargeDetailForDescribeDBInstanceDetailOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['charge_end_time'] = isset($data['charge_end_time']) ? $data['charge_end_time'] : null;

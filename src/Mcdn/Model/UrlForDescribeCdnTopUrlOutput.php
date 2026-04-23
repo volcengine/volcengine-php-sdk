@@ -156,7 +156,7 @@ class UrlForDescribeCdnTopUrlOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['flux'] = isset($data['flux']) ? $data['flux'] : null;
         $this->container['request'] = isset($data['request']) ? $data['request'] : null;

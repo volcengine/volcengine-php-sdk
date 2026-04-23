@@ -32,7 +32,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
         'need_asr_speaker' => 'bool',
         'prompt' => 'string',
         'response_format_type' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForStartExecutionInput',
         'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForStartExecutionInput'
     ];
 
@@ -171,7 +171,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['need_asr_speaker'] = isset($data['need_asr_speaker']) ? $data['need_asr_speaker'] : null;
@@ -304,7 +304,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForStartExecutionInput
      */
     public function getSegment()
     {
@@ -314,7 +314,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForStartExecutionInput $segment segment
      *
      * @return $this
      */

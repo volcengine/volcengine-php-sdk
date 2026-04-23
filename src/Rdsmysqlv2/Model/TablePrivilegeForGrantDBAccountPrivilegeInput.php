@@ -151,7 +151,7 @@ class TablePrivilegeForGrantDBAccountPrivilegeInput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_privilege_detail'] = isset($data['account_privilege_detail']) ? $data['account_privilege_detail'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;

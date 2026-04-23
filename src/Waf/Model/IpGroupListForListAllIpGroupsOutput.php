@@ -166,7 +166,7 @@ class IpGroupListForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ip_count'] = isset($data['ip_count']) ? $data['ip_count'] : null;
         $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;

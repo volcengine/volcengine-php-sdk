@@ -28,7 +28,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimension_conditions' => 'string',
+        'dimension_conditions' => '\Volcengine\Cloudmonitor\Model\DimensionConditionsForListObjectGroupsOutput',
         'dimensions' => 'map[string,string[]]',
         'id' => 'string',
         'namespace' => 'string',
@@ -176,7 +176,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
@@ -214,7 +214,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets dimension_conditions
      *
-     * @return string
+     * @return \Volcengine\Cloudmonitor\Model\DimensionConditionsForListObjectGroupsOutput
      */
     public function getDimensionConditions()
     {
@@ -224,7 +224,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets dimension_conditions
      *
-     * @param string $dimension_conditions dimension_conditions
+     * @param \Volcengine\Cloudmonitor\Model\DimensionConditionsForListObjectGroupsOutput $dimension_conditions dimension_conditions
      *
      * @return $this
      */

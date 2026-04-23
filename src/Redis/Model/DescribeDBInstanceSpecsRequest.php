@@ -151,7 +151,7 @@ class DescribeDBInstanceSpecsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['arch_type'] = isset($data['arch_type']) ? $data['arch_type'] : null;
         $this->container['instance_class'] = isset($data['instance_class']) ? $data['instance_class'] : null;

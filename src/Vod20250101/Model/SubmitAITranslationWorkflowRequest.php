@@ -171,7 +171,7 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
         $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;

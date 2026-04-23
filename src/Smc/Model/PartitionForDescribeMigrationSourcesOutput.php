@@ -171,7 +171,7 @@ class PartitionForDescribeMigrationSourcesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_system_format'] = isset($data['file_system_format']) ? $data['file_system_format'] : null;
         $this->container['mountpoint'] = isset($data['mountpoint']) ? $data['mountpoint'] : null;

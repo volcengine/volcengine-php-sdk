@@ -193,7 +193,7 @@ class TransferInfoForDescribeInstancesOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['forbid_stop'] = isset($data['forbid_stop']) ? $data['forbid_stop'] : null;
         $this->container['reduce_spec_config'] = isset($data['reduce_spec_config']) ? $data['reduce_spec_config'] : null;

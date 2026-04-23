@@ -151,7 +151,7 @@ class DeviceInfoListForGetQuotaInfoOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['field_name'] = isset($data['field_name']) ? $data['field_name'] : null;
         $this->container['field_value'] = isset($data['field_value']) ? $data['field_value'] : null;

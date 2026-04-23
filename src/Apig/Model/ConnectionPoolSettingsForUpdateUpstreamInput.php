@@ -161,7 +161,7 @@ class ConnectionPoolSettingsForUpdateUpstreamInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['http1_max_pending_requests'] = isset($data['http1_max_pending_requests']) ? $data['http1_max_pending_requests'] : null;

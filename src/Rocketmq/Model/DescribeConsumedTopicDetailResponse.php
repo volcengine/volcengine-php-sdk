@@ -151,7 +151,7 @@ class DescribeConsumedTopicDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consumed_queue_info'] = isset($data['consumed_queue_info']) ? $data['consumed_queue_info'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

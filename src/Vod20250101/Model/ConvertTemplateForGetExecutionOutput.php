@@ -29,7 +29,7 @@ class ConvertTemplateForGetExecutionOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'byte_hd' => '\Volcengine\Vod20250101\Model\ConvertByteHDForGetExecutionOutput',
-        'enhance' => '\Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput',
+        'enhance' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertEnhanceForGetExecutionOutput',
         'transcode_audio' => '\Volcengine\Vod20250101\Model\ConvertTranscodeAudioForGetExecutionOutput',
         'transcode_video' => '\Volcengine\Vod20250101\Model\ConvertTranscodeVideoForGetExecutionOutput',
         'type' => 'string'
@@ -166,7 +166,7 @@ class ConvertTemplateForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['byte_hd'] = isset($data['byte_hd']) ? $data['byte_hd'] : null;
         $this->container['enhance'] = isset($data['enhance']) ? $data['enhance'] : null;
@@ -226,7 +226,7 @@ class ConvertTemplateForGetExecutionOutput implements ModelInterface, ArrayAcces
     /**
      * Gets enhance
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertEnhanceForGetExecutionOutput
      */
     public function getEnhance()
     {
@@ -236,7 +236,7 @@ class ConvertTemplateForGetExecutionOutput implements ModelInterface, ArrayAcces
     /**
      * Sets enhance
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput $enhance enhance
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertEnhanceForGetExecutionOutput $enhance enhance
      *
      * @return $this
      */

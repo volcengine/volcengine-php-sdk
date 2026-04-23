@@ -161,7 +161,7 @@ class ConcurrConnFlowForDescribeBizFlowAndConnCountOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['avg_flows'] = isset($data['avg_flows']) ? $data['avg_flows'] : null;
         $this->container['max_avg_value'] = isset($data['max_avg_value']) ? $data['max_avg_value'] : null;

@@ -156,7 +156,7 @@ class ApplyObjectGroupsByAlertTemplateRequest implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_template_id'] = isset($data['alert_template_id']) ? $data['alert_template_id'] : null;
         $this->container['apply_objects'] = isset($data['apply_objects']) ? $data['apply_objects'] : null;

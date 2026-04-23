@@ -161,7 +161,7 @@ class BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput implements 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['private_download_url'] = isset($data['private_download_url']) ? $data['private_download_url'] : null;
         $this->container['public_download_url'] = isset($data['public_download_url']) ? $data['public_download_url'] : null;

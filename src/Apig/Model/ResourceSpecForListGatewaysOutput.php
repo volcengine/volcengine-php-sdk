@@ -171,7 +171,7 @@ class ResourceSpecForListGatewaysOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['clb_spec_code'] = isset($data['clb_spec_code']) ? $data['clb_spec_code'] : null;
         $this->container['instance_spec_code'] = isset($data['instance_spec_code']) ? $data['instance_spec_code'] : null;

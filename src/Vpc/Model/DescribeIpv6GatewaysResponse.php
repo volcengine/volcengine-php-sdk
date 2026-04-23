@@ -156,7 +156,7 @@ class DescribeIpv6GatewaysResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ipv6_gateways'] = isset($data['ipv6_gateways']) ? $data['ipv6_gateways'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

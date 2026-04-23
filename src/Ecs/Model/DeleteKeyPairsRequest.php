@@ -151,7 +151,7 @@ class DeleteKeyPairsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['key_pair_names'] = isset($data['key_pair_names']) ? $data['key_pair_names'] : null;

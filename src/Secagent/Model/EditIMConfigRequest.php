@@ -171,7 +171,7 @@ class EditIMConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['im_config_uid'] = isset($data['im_config_uid']) ? $data['im_config_uid'] : null;
         $this->container['notify_platform'] = isset($data['notify_platform']) ? $data['notify_platform'] : null;

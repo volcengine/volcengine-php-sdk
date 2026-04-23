@@ -166,7 +166,7 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;

@@ -151,7 +151,7 @@ class GetNeighboringAlarmResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['next'] = isset($data['next']) ? $data['next'] : null;
         $this->container['prev'] = isset($data['prev']) ? $data['prev'] : null;

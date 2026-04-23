@@ -196,7 +196,7 @@ class StatusForListMegaTTSTrainStatusOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
         $this->container['available_training_times'] = isset($data['available_training_times']) ? $data['available_training_times'] : null;

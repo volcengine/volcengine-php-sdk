@@ -161,7 +161,7 @@ class DescribeCommandsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['commands'] = isset($data['commands']) ? $data['commands'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

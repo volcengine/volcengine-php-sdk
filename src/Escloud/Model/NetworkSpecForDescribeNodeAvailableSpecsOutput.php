@@ -181,7 +181,7 @@ class NetworkSpecForDescribeNodeAvailableSpecsOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['network_role'] = isset($data['network_role']) ? $data['network_role'] : null;
         $this->container['spec_name'] = isset($data['spec_name']) ? $data['spec_name'] : null;

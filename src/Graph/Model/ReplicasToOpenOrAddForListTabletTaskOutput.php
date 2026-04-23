@@ -166,7 +166,7 @@ class ReplicasToOpenOrAddForListTabletTaskOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_version'] = isset($data['data_version']) ? $data['data_version'] : null;
         $this->container['info'] = isset($data['info']) ? $data['info'] : null;

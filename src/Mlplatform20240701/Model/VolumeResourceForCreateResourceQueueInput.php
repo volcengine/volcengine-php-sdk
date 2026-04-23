@@ -156,7 +156,7 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['volume_type_id'] = isset($data['volume_type_id']) ? $data['volume_type_id'] : null;

@@ -166,7 +166,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
         $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;

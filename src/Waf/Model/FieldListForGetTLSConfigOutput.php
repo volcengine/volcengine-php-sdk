@@ -161,7 +161,7 @@ class FieldListForGetTLSConfigOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cookie'] = isset($data['cookie']) ? $data['cookie'] : null;
         $this->container['request_body'] = isset($data['request_body']) ? $data['request_body'] : null;

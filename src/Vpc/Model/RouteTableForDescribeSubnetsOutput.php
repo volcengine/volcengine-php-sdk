@@ -151,7 +151,7 @@ class RouteTableForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['route_table_type'] = isset($data['route_table_type']) ? $data['route_table_type'] : null;

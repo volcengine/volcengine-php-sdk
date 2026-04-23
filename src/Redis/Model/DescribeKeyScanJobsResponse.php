@@ -151,7 +151,7 @@ class DescribeKeyScanJobsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['job_list'] = isset($data['job_list']) ? $data['job_list'] : null;
         $this->container['total_jobs_number'] = isset($data['total_jobs_number']) ? $data['total_jobs_number'] : null;

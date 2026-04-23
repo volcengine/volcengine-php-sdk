@@ -151,7 +151,7 @@ class LifecycleCommandForCreateLifecycleHookInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['command_id'] = isset($data['command_id']) ? $data['command_id'] : null;
         $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;

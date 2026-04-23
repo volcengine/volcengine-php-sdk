@@ -161,7 +161,7 @@ class RenewAccessResourcePacksRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_use_coupon'] = isset($data['auto_use_coupon']) ? $data['auto_use_coupon'] : null;
         $this->container['coupon_id'] = isset($data['coupon_id']) ? $data['coupon_id'] : null;

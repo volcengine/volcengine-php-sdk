@@ -134,8 +134,23 @@ class LoginForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_PASSWORD = 'Password';
+    const TYPE_SSH_KEY_PAIR = 'SshKeyPair';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PASSWORD,
+            self::TYPE_SSH_KEY_PAIR,
+        ];
+    }
     
 
     /**
@@ -151,7 +166,7 @@ class LoginForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ssh_key_pair_name'] = isset($data['ssh_key_pair_name']) ? $data['ssh_key_pair_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -165,6 +180,14 @@ class LoginForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -224,6 +247,15 @@ class LoginForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

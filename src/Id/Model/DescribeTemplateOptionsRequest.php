@@ -28,6 +28,7 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'backend_type' => 'string',
         'keyword' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'backend_type' => null,
         'keyword' => null
     ];
 
@@ -67,6 +69,7 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'backend_type' => 'BackendType',
         'keyword' => 'Keyword'
     ];
 
@@ -76,6 +79,7 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'backend_type' => 'setBackendType',
         'keyword' => 'setKeyword'
     ];
 
@@ -85,6 +89,7 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'backend_type' => 'getBackendType',
         'keyword' => 'getKeyword'
     ];
 
@@ -146,8 +151,9 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['backend_type'] = isset($data['backend_type']) ? $data['backend_type'] : null;
         $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
     }
 
@@ -174,6 +180,30 @@ class DescribeTemplateOptionsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets backend_type
+     *
+     * @return string
+     */
+    public function getBackendType()
+    {
+        return $this->container['backend_type'];
+    }
+
+    /**
+     * Sets backend_type
+     *
+     * @param string $backend_type backend_type
+     *
+     * @return $this
+     */
+    public function setBackendType($backend_type)
+    {
+        $this->container['backend_type'] = $backend_type;
+
+        return $this;
+    }
 
     /**
      * Gets keyword

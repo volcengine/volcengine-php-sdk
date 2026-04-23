@@ -151,7 +151,7 @@ class ConditionForAddCdnDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition_rule'] = isset($data['condition_rule']) ? $data['condition_rule'] : null;
         $this->container['connective'] = isset($data['connective']) ? $data['connective'] : null;

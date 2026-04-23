@@ -206,7 +206,7 @@ class QualificationMainInfoFormDOForUpdateQualificationInput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['business_license_photo_file_code'] = isset($data['business_license_photo_file_code']) ? $data['business_license_photo_file_code'] : null;
         $this->container['certificate_of_taxation_registration_photo_file_code'] = isset($data['certificate_of_taxation_registration_photo_file_code']) ? $data['certificate_of_taxation_registration_photo_file_code'] : null;

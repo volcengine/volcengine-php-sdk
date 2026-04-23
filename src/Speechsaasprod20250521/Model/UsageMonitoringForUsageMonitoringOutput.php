@@ -156,7 +156,7 @@ class UsageMonitoringForUsageMonitoringOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['day'] = isset($data['day']) ? $data['day'] : null;
         $this->container['usage_type'] = isset($data['usage_type']) ? $data['usage_type'] : null;

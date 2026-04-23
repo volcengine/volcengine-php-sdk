@@ -151,7 +151,7 @@ class ConvertCredentialForCreateDevInstanceInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['registry_token'] = isset($data['registry_token']) ? $data['registry_token'] : null;
         $this->container['registry_username'] = isset($data['registry_username']) ? $data['registry_username'] : null;

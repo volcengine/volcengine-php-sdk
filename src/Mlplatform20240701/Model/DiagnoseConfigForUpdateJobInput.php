@@ -197,7 +197,7 @@ class DiagnoseConfigForUpdateJobInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['detection_interval_seconds'] = isset($data['detection_interval_seconds']) ? $data['detection_interval_seconds'] : null;
         $this->container['first_detection_wait_seconds'] = isset($data['first_detection_wait_seconds']) ? $data['first_detection_wait_seconds'] : null;

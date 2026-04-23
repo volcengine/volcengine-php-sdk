@@ -28,7 +28,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'string',
+        'namespace_id' => 'int',
         'project_id' => 'int'
     ];
 
@@ -38,7 +38,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => null,
+        'namespace_id' => 'int32',
         'project_id' => 'int32'
     ];
 
@@ -151,7 +151,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -190,7 +190,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Gets namespace_id
      *
-     * @return string
+     * @return int
      */
     public function getNamespaceId()
     {
@@ -200,7 +200,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Sets namespace_id
      *
-     * @param string $namespace_id namespace_id
+     * @param int $namespace_id namespace_id
      *
      * @return $this
      */

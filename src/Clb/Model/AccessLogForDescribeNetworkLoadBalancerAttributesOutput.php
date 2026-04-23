@@ -156,7 +156,7 @@ class AccessLogForDescribeNetworkLoadBalancerAttributesOutput implements ModelIn
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_log_enabled'] = isset($data['access_log_enabled']) ? $data['access_log_enabled'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;

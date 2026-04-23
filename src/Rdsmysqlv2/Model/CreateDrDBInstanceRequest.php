@@ -28,12 +28,12 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_storage_scaling_config' => '\Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput',
         'deletion_protection' => 'string',
         'instance_name' => 'string',
         'master_instance_id' => 'string',
         'master_region' => 'string',
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForCreateDrDBInstanceInput[]',
+        'private_ip_address' => 'string',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForCreateDrDBInstanceInput',
         'storage_space' => 'int',
         'storage_type' => 'string',
@@ -47,12 +47,12 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_storage_scaling_config' => null,
         'deletion_protection' => null,
         'instance_name' => null,
         'master_instance_id' => null,
         'master_region' => null,
         'node_info' => null,
+        'private_ip_address' => null,
         'proxy_node_custom' => null,
         'storage_space' => 'int32',
         'storage_type' => null,
@@ -87,12 +87,12 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_storage_scaling_config' => 'AutoStorageScalingConfig',
         'deletion_protection' => 'DeletionProtection',
         'instance_name' => 'InstanceName',
         'master_instance_id' => 'MasterInstanceId',
         'master_region' => 'MasterRegion',
         'node_info' => 'NodeInfo',
+        'private_ip_address' => 'PrivateIpAddress',
         'proxy_node_custom' => 'ProxyNodeCustom',
         'storage_space' => 'StorageSpace',
         'storage_type' => 'StorageType',
@@ -106,12 +106,12 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auto_storage_scaling_config' => 'setAutoStorageScalingConfig',
         'deletion_protection' => 'setDeletionProtection',
         'instance_name' => 'setInstanceName',
         'master_instance_id' => 'setMasterInstanceId',
         'master_region' => 'setMasterRegion',
         'node_info' => 'setNodeInfo',
+        'private_ip_address' => 'setPrivateIpAddress',
         'proxy_node_custom' => 'setProxyNodeCustom',
         'storage_space' => 'setStorageSpace',
         'storage_type' => 'setStorageType',
@@ -125,12 +125,12 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auto_storage_scaling_config' => 'getAutoStorageScalingConfig',
         'deletion_protection' => 'getDeletionProtection',
         'instance_name' => 'getInstanceName',
         'master_instance_id' => 'getMasterInstanceId',
         'master_region' => 'getMasterRegion',
         'node_info' => 'getNodeInfo',
+        'private_ip_address' => 'getPrivateIpAddress',
         'proxy_node_custom' => 'getProxyNodeCustom',
         'storage_space' => 'getStorageSpace',
         'storage_type' => 'getStorageType',
@@ -196,14 +196,14 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
-        $this->container['auto_storage_scaling_config'] = isset($data['auto_storage_scaling_config']) ? $data['auto_storage_scaling_config'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['master_instance_id'] = isset($data['master_instance_id']) ? $data['master_instance_id'] : null;
         $this->container['master_region'] = isset($data['master_region']) ? $data['master_region'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
+        $this->container['private_ip_address'] = isset($data['private_ip_address']) ? $data['private_ip_address'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
         $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
@@ -249,30 +249,6 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets auto_storage_scaling_config
-     *
-     * @return \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput
-     */
-    public function getAutoStorageScalingConfig()
-    {
-        return $this->container['auto_storage_scaling_config'];
-    }
-
-    /**
-     * Sets auto_storage_scaling_config
-     *
-     * @param \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForCreateDrDBInstanceInput $auto_storage_scaling_config auto_storage_scaling_config
-     *
-     * @return $this
-     */
-    public function setAutoStorageScalingConfig($auto_storage_scaling_config)
-    {
-        $this->container['auto_storage_scaling_config'] = $auto_storage_scaling_config;
-
-        return $this;
-    }
 
     /**
      * Gets deletion_protection
@@ -390,6 +366,30 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setNodeInfo($node_info)
     {
         $this->container['node_info'] = $node_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_ip_address
+     *
+     * @return string
+     */
+    public function getPrivateIpAddress()
+    {
+        return $this->container['private_ip_address'];
+    }
+
+    /**
+     * Sets private_ip_address
+     *
+     * @param string $private_ip_address private_ip_address
+     *
+     * @return $this
+     */
+    public function setPrivateIpAddress($private_ip_address)
+    {
+        $this->container['private_ip_address'] = $private_ip_address;
 
         return $this;
     }

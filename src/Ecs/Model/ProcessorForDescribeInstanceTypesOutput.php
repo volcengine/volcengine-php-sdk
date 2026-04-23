@@ -161,7 +161,7 @@ class ProcessorForDescribeInstanceTypesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['base_frequency'] = isset($data['base_frequency']) ? $data['base_frequency'] : null;
         $this->container['cpus'] = isset($data['cpus']) ? $data['cpus'] : null;

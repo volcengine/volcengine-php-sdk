@@ -176,7 +176,7 @@ class ConditionForDescribeAlertStrategyOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['metric_id'] = isset($data['metric_id']) ? $data['metric_id'] : null;

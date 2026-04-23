@@ -28,6 +28,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'account_id' => 'string',
+        'available_ip_count' => 'int',
+        'available_network_interface_count' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
         'project_name' => 'string',
@@ -37,6 +40,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeSecurityGroupsOutput[]',
         'type' => 'string',
+        'used_ip_count' => 'int',
+        'used_network_interface_count' => 'int',
         'vpc_id' => 'string'
     ];
 
@@ -46,6 +51,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'account_id' => null,
+        'available_ip_count' => null,
+        'available_network_interface_count' => null,
         'creation_time' => null,
         'description' => null,
         'project_name' => null,
@@ -55,6 +63,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         'status' => null,
         'tags' => null,
         'type' => null,
+        'used_ip_count' => null,
+        'used_network_interface_count' => null,
         'vpc_id' => null
     ];
 
@@ -85,6 +95,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'AccountId',
+        'available_ip_count' => 'AvailableIpCount',
+        'available_network_interface_count' => 'AvailableNetworkInterfaceCount',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'project_name' => 'ProjectName',
@@ -94,6 +107,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         'status' => 'Status',
         'tags' => 'Tags',
         'type' => 'Type',
+        'used_ip_count' => 'UsedIpCount',
+        'used_network_interface_count' => 'UsedNetworkInterfaceCount',
         'vpc_id' => 'VpcId'
     ];
 
@@ -103,6 +118,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
+        'available_ip_count' => 'setAvailableIpCount',
+        'available_network_interface_count' => 'setAvailableNetworkInterfaceCount',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'project_name' => 'setProjectName',
@@ -112,6 +130,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         'status' => 'setStatus',
         'tags' => 'setTags',
         'type' => 'setType',
+        'used_ip_count' => 'setUsedIpCount',
+        'used_network_interface_count' => 'setUsedNetworkInterfaceCount',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -121,6 +141,9 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
+        'available_ip_count' => 'getAvailableIpCount',
+        'available_network_interface_count' => 'getAvailableNetworkInterfaceCount',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'project_name' => 'getProjectName',
@@ -130,6 +153,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         'status' => 'getStatus',
         'tags' => 'getTags',
         'type' => 'getType',
+        'used_ip_count' => 'getUsedIpCount',
+        'used_network_interface_count' => 'getUsedNetworkInterfaceCount',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -191,8 +216,11 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['available_ip_count'] = isset($data['available_ip_count']) ? $data['available_ip_count'] : null;
+        $this->container['available_network_interface_count'] = isset($data['available_network_interface_count']) ? $data['available_network_interface_count'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -202,6 +230,8 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['used_ip_count'] = isset($data['used_ip_count']) ? $data['used_ip_count'] : null;
+        $this->container['used_network_interface_count'] = isset($data['used_network_interface_count']) ? $data['used_network_interface_count'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -228,6 +258,78 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_ip_count
+     *
+     * @return int
+     */
+    public function getAvailableIpCount()
+    {
+        return $this->container['available_ip_count'];
+    }
+
+    /**
+     * Sets available_ip_count
+     *
+     * @param int $available_ip_count available_ip_count
+     *
+     * @return $this
+     */
+    public function setAvailableIpCount($available_ip_count)
+    {
+        $this->container['available_ip_count'] = $available_ip_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_network_interface_count
+     *
+     * @return int
+     */
+    public function getAvailableNetworkInterfaceCount()
+    {
+        return $this->container['available_network_interface_count'];
+    }
+
+    /**
+     * Sets available_network_interface_count
+     *
+     * @param int $available_network_interface_count available_network_interface_count
+     *
+     * @return $this
+     */
+    public function setAvailableNetworkInterfaceCount($available_network_interface_count)
+    {
+        $this->container['available_network_interface_count'] = $available_network_interface_count;
+
+        return $this;
+    }
 
     /**
      * Gets creation_time
@@ -441,6 +543,54 @@ class SecurityGroupForDescribeSecurityGroupsOutput implements ModelInterface, Ar
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_ip_count
+     *
+     * @return int
+     */
+    public function getUsedIpCount()
+    {
+        return $this->container['used_ip_count'];
+    }
+
+    /**
+     * Sets used_ip_count
+     *
+     * @param int $used_ip_count used_ip_count
+     *
+     * @return $this
+     */
+    public function setUsedIpCount($used_ip_count)
+    {
+        $this->container['used_ip_count'] = $used_ip_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_network_interface_count
+     *
+     * @return int
+     */
+    public function getUsedNetworkInterfaceCount()
+    {
+        return $this->container['used_network_interface_count'];
+    }
+
+    /**
+     * Sets used_network_interface_count
+     *
+     * @param int $used_network_interface_count used_network_interface_count
+     *
+     * @return $this
+     */
+    public function setUsedNetworkInterfaceCount($used_network_interface_count)
+    {
+        $this->container['used_network_interface_count'] = $used_network_interface_count;
 
         return $this;
     }

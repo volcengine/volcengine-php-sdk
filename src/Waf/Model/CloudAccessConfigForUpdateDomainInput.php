@@ -181,7 +181,7 @@ class CloudAccessConfigForUpdateDomainInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_protocol'] = isset($data['access_protocol']) ? $data['access_protocol'] : null;
         $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;

@@ -166,7 +166,7 @@ class DetachInstancesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['decrease_desired_capacity'] = isset($data['decrease_desired_capacity']) ? $data['decrease_desired_capacity'] : null;
         $this->container['detach_option'] = isset($data['detach_option']) ? $data['detach_option'] : null;

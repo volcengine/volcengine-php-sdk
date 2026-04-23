@@ -41,7 +41,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
+        'configuration_code' => 'string',
         'cost_id' => 'string',
         'count' => 'string',
         'country_area' => 'string',
@@ -113,6 +115,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'string',
         'real_value' => 'string',
         'region' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'string',
         'saving_plan_deduction_discount_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
@@ -160,7 +163,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
+        'configuration_code' => null,
         'cost_id' => null,
         'count' => null,
         'country_area' => null,
@@ -232,6 +237,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => null,
         'real_value' => null,
         'region' => null,
+        'resource_id' => null,
         'round_amount' => null,
         'saving_plan_deduction_discount_amount' => null,
         'saving_plan_deduction_sp_id' => null,
@@ -300,7 +306,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
+        'configuration_code' => 'ConfigurationCode',
         'cost_id' => 'CostID',
         'count' => 'Count',
         'country_area' => 'CountryArea',
@@ -372,6 +380,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'ProjectDisplayName',
         'real_value' => 'RealValue',
         'region' => 'Region',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
@@ -419,7 +428,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
+        'configuration_code' => 'setConfigurationCode',
         'cost_id' => 'setCostId',
         'count' => 'setCount',
         'country_area' => 'setCountryArea',
@@ -491,6 +502,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'setProjectDisplayName',
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
@@ -538,7 +550,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
+        'configuration_code' => 'getConfigurationCode',
         'cost_id' => 'getCostId',
         'count' => 'getCount',
         'country_area' => 'getCountryArea',
@@ -610,6 +624,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'getProjectDisplayName',
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
@@ -696,7 +711,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['amortized_begin_time'] = isset($data['amortized_begin_time']) ? $data['amortized_begin_time'] : null;
         $this->container['amortized_day'] = isset($data['amortized_day']) ? $data['amortized_day'] : null;
@@ -711,7 +726,9 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['cost_id'] = isset($data['cost_id']) ? $data['cost_id'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['country_area'] = isset($data['country_area']) ? $data['country_area'] : null;
@@ -783,6 +800,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
@@ -1148,6 +1166,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
+
+        return $this;
+    }
+
+    /**
      * Gets config_name
      *
      * @return string
@@ -1167,6 +1209,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setConfigName($config_name)
     {
         $this->container['config_name'] = $config_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_code
+     *
+     * @return string
+     */
+    public function getConfigurationCode()
+    {
+        return $this->container['configuration_code'];
+    }
+
+    /**
+     * Sets configuration_code
+     *
+     * @param string $configuration_code configuration_code
+     *
+     * @return $this
+     */
+    public function setConfigurationCode($configuration_code)
+    {
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }
@@ -2871,6 +2937,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }

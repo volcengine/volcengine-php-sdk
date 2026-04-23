@@ -151,7 +151,7 @@ class SystemConfigForDescribeMigrationJobsOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_image_info'] = isset($data['source_image_info']) ? $data['source_image_info'] : null;
         $this->container['target_image_info'] = isset($data['target_image_info']) ? $data['target_image_info'] : null;

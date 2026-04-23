@@ -171,7 +171,7 @@ class SubtitleRecognitionConfigForSubmitAITranslationWorkflowInput implements Mo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
         $this->container['is_vision'] = isset($data['is_vision']) ? $data['is_vision'] : null;

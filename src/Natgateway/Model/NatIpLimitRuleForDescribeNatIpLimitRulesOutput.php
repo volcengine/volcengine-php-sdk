@@ -166,7 +166,7 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['inbound_mbps_limit'] = isset($data['inbound_mbps_limit']) ? $data['inbound_mbps_limit'] : null;
         $this->container['internal_ip'] = isset($data['internal_ip']) ? $data['internal_ip'] : null;

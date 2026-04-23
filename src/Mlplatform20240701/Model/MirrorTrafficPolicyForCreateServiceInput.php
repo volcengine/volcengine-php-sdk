@@ -156,7 +156,7 @@ class MirrorTrafficPolicyForCreateServiceInput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['percent'] = isset($data['percent']) ? $data['percent'] : null;
         $this->container['source_deployment_id'] = isset($data['source_deployment_id']) ? $data['source_deployment_id'] : null;

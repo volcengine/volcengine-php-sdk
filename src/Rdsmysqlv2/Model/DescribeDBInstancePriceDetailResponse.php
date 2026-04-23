@@ -151,7 +151,7 @@ class DescribeDBInstancePriceDetailResponse implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['describe_db_instance_price_detail_str'] = isset($data['describe_db_instance_price_detail_str']) ? $data['describe_db_instance_price_detail_str'] : null;
         $this->container['hide_price_info'] = isset($data['hide_price_info']) ? $data['hide_price_info'] : null;

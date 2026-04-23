@@ -151,7 +151,7 @@ class UpdateO11yAgentECSProcessConfigRequest implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['processes'] = isset($data['processes']) ? $data['processes'] : null;

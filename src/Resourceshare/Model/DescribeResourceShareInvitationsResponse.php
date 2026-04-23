@@ -151,7 +151,7 @@ class DescribeResourceShareInvitationsResponse implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['resource_share_invitations'] = isset($data['resource_share_invitations']) ? $data['resource_share_invitations'] : null;

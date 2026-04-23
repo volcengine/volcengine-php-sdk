@@ -186,7 +186,7 @@ class UsageForListIotModelsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cached_completion_usage'] = isset($data['cached_completion_usage']) ? $data['cached_completion_usage'] : null;
         $this->container['cached_prompt_usage'] = isset($data['cached_prompt_usage']) ? $data['cached_prompt_usage'] : null;

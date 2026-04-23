@@ -196,7 +196,7 @@ class BackupsInfoForDescribeBackupDetailOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_database_detail'] = isset($data['backup_database_detail']) ? $data['backup_database_detail'] : null;
         $this->container['backup_end_time'] = isset($data['backup_end_time']) ? $data['backup_end_time'] : null;

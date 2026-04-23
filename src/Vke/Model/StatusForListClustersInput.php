@@ -150,6 +150,10 @@ class StatusForListClustersInput implements ModelInterface, ArrayAccess
     const CONDITIONS_TYPE_WAITING = 'Waiting';
     const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
+    const CONDITIONS_TYPE_UPDATING_CLUSTER = 'UpdatingCluster';
+    const CONDITIONS_TYPE_SYNCING_ADDON = 'SyncingAddon';
+    const CONDITIONS_TYPE_SYNCING_NODE = 'SyncingNode';
+    const CONDITIONS_TYPE_SYNCING_NODE_POOL = 'SyncingNodePool';
     const PHASE_RUNNING = 'Running';
     const PHASE_STARTING = 'Starting';
     const PHASE_STOPPED = 'Stopped';
@@ -184,6 +188,10 @@ class StatusForListClustersInput implements ModelInterface, ArrayAccess
             self::CONDITIONS_TYPE_WAITING,
             self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
             self::CONDITIONS_TYPE_UNKNOWN,
+            self::CONDITIONS_TYPE_UPDATING_CLUSTER,
+            self::CONDITIONS_TYPE_SYNCING_ADDON,
+            self::CONDITIONS_TYPE_SYNCING_NODE,
+            self::CONDITIONS_TYPE_SYNCING_NODE_POOL,
         ];
     }
     
@@ -219,7 +227,7 @@ class StatusForListClustersInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['conditions_type'] = isset($data['conditions_type']) ? $data['conditions_type'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;

@@ -156,7 +156,7 @@ class ShardNumberSpecForDescribeEnterpriseDBInstanceSpecsOutput implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_bandwidth'] = isset($data['default_bandwidth']) ? $data['default_bandwidth'] : null;
         $this->container['default_max_connections'] = isset($data['default_max_connections']) ? $data['default_max_connections'] : null;

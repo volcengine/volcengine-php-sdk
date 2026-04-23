@@ -161,7 +161,7 @@ class SfcsForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cache_policy_id'] = isset($data['cache_policy_id']) ? $data['cache_policy_id'] : null;
         $this->container['file_system_name'] = isset($data['file_system_name']) ? $data['file_system_name'] : null;

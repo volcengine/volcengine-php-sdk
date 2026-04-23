@@ -236,7 +236,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['command_content'] = isset($data['command_content']) ? $data['command_content'] : null;
         $this->container['content_encoding'] = isset($data['content_encoding']) ? $data['content_encoding'] : null;

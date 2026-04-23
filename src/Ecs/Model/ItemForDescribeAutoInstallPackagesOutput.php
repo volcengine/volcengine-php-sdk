@@ -151,7 +151,7 @@ class ItemForDescribeAutoInstallPackagesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bin'] = isset($data['bin']) ? $data['bin'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;

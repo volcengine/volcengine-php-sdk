@@ -223,7 +223,7 @@ class ParameterForDescribeModifiableParametersOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['checking_code'] = isset($data['checking_code']) ? $data['checking_code'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;

@@ -156,7 +156,7 @@ class CronConfForUpdateCCRuleInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['crontab'] = isset($data['crontab']) ? $data['crontab'] : null;
         $this->container['path_threshold'] = isset($data['path_threshold']) ? $data['path_threshold'] : null;

@@ -146,7 +146,7 @@ class GetGeoLocationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['geoname_id'] = isset($data['geoname_id']) ? $data['geoname_id'] : null;
     }

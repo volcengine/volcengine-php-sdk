@@ -156,7 +156,7 @@ class FilterForListRepoImageComplInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['check_type_id'] = isset($data['check_type_id']) ? $data['check_type_id'] : null;
         $this->container['section_desc'] = isset($data['section_desc']) ? $data['section_desc'] : null;

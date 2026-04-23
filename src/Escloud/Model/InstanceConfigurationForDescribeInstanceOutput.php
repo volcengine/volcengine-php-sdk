@@ -322,7 +322,7 @@ class InstanceConfigurationForDescribeInstanceOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['admin_user_name'] = isset($data['admin_user_name']) ? $data['admin_user_name'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;

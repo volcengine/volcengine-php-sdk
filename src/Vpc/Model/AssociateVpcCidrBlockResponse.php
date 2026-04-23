@@ -29,6 +29,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'async_task_id' => 'string',
+        'ipv6_cidr_blocks' => '\Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[]',
         'request_id' => 'string',
         'secondary_cidr_blocks' => 'string[]',
         'vpc_id' => 'string'
@@ -41,6 +42,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'async_task_id' => null,
+        'ipv6_cidr_blocks' => null,
         'request_id' => null,
         'secondary_cidr_blocks' => null,
         'vpc_id' => null
@@ -74,6 +76,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'async_task_id' => 'AsyncTaskId',
+        'ipv6_cidr_blocks' => 'Ipv6CidrBlocks',
         'request_id' => 'RequestId',
         'secondary_cidr_blocks' => 'SecondaryCidrBlocks',
         'vpc_id' => 'VpcId'
@@ -86,6 +89,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'async_task_id' => 'setAsyncTaskId',
+        'ipv6_cidr_blocks' => 'setIpv6CidrBlocks',
         'request_id' => 'setRequestId',
         'secondary_cidr_blocks' => 'setSecondaryCidrBlocks',
         'vpc_id' => 'setVpcId'
@@ -98,6 +102,7 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'async_task_id' => 'getAsyncTaskId',
+        'ipv6_cidr_blocks' => 'getIpv6CidrBlocks',
         'request_id' => 'getRequestId',
         'secondary_cidr_blocks' => 'getSecondaryCidrBlocks',
         'vpc_id' => 'getVpcId'
@@ -161,9 +166,10 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
+        $this->container['ipv6_cidr_blocks'] = isset($data['ipv6_cidr_blocks']) ? $data['ipv6_cidr_blocks'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['secondary_cidr_blocks'] = isset($data['secondary_cidr_blocks']) ? $data['secondary_cidr_blocks'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -213,6 +219,30 @@ class AssociateVpcCidrBlockResponse implements ModelInterface, ArrayAccess
     public function setAsyncTaskId($async_task_id)
     {
         $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_blocks
+     *
+     * @return \Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[]
+     */
+    public function getIpv6CidrBlocks()
+    {
+        return $this->container['ipv6_cidr_blocks'];
+    }
+
+    /**
+     * Sets ipv6_cidr_blocks
+     *
+     * @param \Volcengine\Vpc\Model\Ipv6CidrBlockForAssociateVpcCidrBlockOutput[] $ipv6_cidr_blocks ipv6_cidr_blocks
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlocks($ipv6_cidr_blocks)
+    {
+        $this->container['ipv6_cidr_blocks'] = $ipv6_cidr_blocks;
 
         return $this;
     }

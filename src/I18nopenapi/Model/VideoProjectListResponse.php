@@ -28,7 +28,9 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectListOutput[]'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectListOutput[]',
+        'pagination' => '\Volcengine\I18nopenapi\Model\PaginationForVideoProjectListOutput',
+        'total' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'data' => null,
+        'pagination' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -67,7 +71,9 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'data' => 'data',
+        'pagination' => 'pagination',
+        'total' => 'total'
     ];
 
     /**
@@ -76,7 +82,9 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'data' => 'setData',
+        'pagination' => 'setPagination',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -85,7 +93,9 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'data' => 'getData',
+        'pagination' => 'getPagination',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -146,9 +156,11 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -195,6 +207,54 @@ class VideoProjectListResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets pagination
+     *
+     * @return \Volcengine\I18nopenapi\Model\PaginationForVideoProjectListOutput
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \Volcengine\I18nopenapi\Model\PaginationForVideoProjectListOutput $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

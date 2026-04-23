@@ -211,7 +211,7 @@ class ModifyNLBListenerAttributesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ca_certificate_id'] = isset($data['ca_certificate_id']) ? $data['ca_certificate_id'] : null;
         $this->container['ca_certificate_source'] = isset($data['ca_certificate_source']) ? $data['ca_certificate_source'] : null;

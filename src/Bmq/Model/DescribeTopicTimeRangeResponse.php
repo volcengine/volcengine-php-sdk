@@ -156,7 +156,7 @@ class DescribeTopicTimeRangeResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['has_record'] = isset($data['has_record']) ? $data['has_record'] : null;

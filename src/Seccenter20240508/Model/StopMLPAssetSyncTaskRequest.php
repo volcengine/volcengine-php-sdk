@@ -146,7 +146,7 @@ class StopMLPAssetSyncTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
@@ -160,9 +160,6 @@ class StopMLPAssetSyncTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['task_id'] === null) {
-            $invalidProperties[] = "'task_id' can't be null";
-        }
         return $invalidProperties;
     }
 

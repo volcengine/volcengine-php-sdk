@@ -151,7 +151,7 @@ class DeleteAgentProxyServerRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['proxy_name'] = isset($data['proxy_name']) ? $data['proxy_name'] : null;
         $this->container['proxy_server_name'] = isset($data['proxy_server_name']) ? $data['proxy_server_name'] : null;

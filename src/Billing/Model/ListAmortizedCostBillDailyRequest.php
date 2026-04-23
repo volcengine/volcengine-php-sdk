@@ -211,7 +211,7 @@ class ListAmortizedCostBillDailyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['amortized_day'] = isset($data['amortized_day']) ? $data['amortized_day'] : null;
         $this->container['amortized_month'] = isset($data['amortized_month']) ? $data['amortized_month'] : null;

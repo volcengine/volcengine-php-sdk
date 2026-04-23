@@ -211,7 +211,7 @@ class ItemForListHCINewOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['activated_at'] = isset($data['activated_at']) ? $data['activated_at'] : null;
         $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;

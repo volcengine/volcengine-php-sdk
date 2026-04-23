@@ -216,7 +216,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
@@ -249,9 +249,6 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['limit'] === null) {
             $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['split_dimension'] === null) {
-            $invalidProperties[] = "'split_dimension' can't be null";
         }
         return $invalidProperties;
     }

@@ -271,7 +271,7 @@ class ModifyBackupPolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binlog_backup_all_retention'] = isset($data['binlog_backup_all_retention']) ? $data['binlog_backup_all_retention'] : null;
         $this->container['binlog_backup_enabled'] = isset($data['binlog_backup_enabled']) ? $data['binlog_backup_enabled'] : null;

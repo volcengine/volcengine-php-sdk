@@ -166,7 +166,7 @@ class HarvestForAliasResourcePackOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['crop_type'] = isset($data['crop_type']) ? $data['crop_type'] : null;
         $this->container['current_usage'] = isset($data['current_usage']) ? $data['current_usage'] : null;

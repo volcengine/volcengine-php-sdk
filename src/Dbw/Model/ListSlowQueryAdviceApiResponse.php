@@ -156,7 +156,7 @@ class ListSlowQueryAdviceApiResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['advices'] = isset($data['advices']) ? $data['advices'] : null;
         $this->container['advices_by_group'] = isset($data['advices_by_group']) ? $data['advices_by_group'] : null;

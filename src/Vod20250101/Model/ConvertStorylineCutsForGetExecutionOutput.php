@@ -29,7 +29,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'cut_segments' => '\Volcengine\Vod20250101\Model\CutSegmentForGetExecutionOutput[]',
-        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]',
+        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput[]',
         'storylines' => '\Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]'
     ];
 
@@ -156,7 +156,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cut_segments'] = isset($data['cut_segments']) ? $data['cut_segments'] : null;
         $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
@@ -214,7 +214,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Gets segments
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput[]
      */
     public function getSegments()
     {
@@ -224,7 +224,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Sets segments
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
      *
      * @return $this
      */

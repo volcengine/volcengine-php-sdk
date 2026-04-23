@@ -30,7 +30,7 @@ class ConvertVideoMattingForGetExecutionOutput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'duration' => 'double',
         'model' => 'string',
-        'video' => '\Volcengine\Vod20250101\Model\VideoForGetExecutionOutput'
+        'video' => '\Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput'
     ];
 
     /**
@@ -156,7 +156,7 @@ class ConvertVideoMattingForGetExecutionOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
@@ -238,7 +238,7 @@ class ConvertVideoMattingForGetExecutionOutput implements ModelInterface, ArrayA
     /**
      * Gets video
      *
-     * @return \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput
      */
     public function getVideo()
     {
@@ -248,7 +248,7 @@ class ConvertVideoMattingForGetExecutionOutput implements ModelInterface, ArrayA
     /**
      * Sets video
      *
-     * @param \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput $video video
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput $video video
      *
      * @return $this
      */

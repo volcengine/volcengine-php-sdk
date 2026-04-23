@@ -151,7 +151,7 @@ class DataForListWeakPasswordCheckDetailOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['detect_status'] = isset($data['detect_status']) ? $data['detect_status'] : null;
         $this->container['weak_password'] = isset($data['weak_password']) ? $data['weak_password'] : null;

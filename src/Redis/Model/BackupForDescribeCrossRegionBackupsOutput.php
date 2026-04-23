@@ -268,7 +268,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
         $this->container['backup_point_name'] = isset($data['backup_point_name']) ? $data['backup_point_name'] : null;

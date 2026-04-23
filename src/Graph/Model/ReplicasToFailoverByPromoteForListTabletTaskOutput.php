@@ -151,7 +151,7 @@ class ReplicasToFailoverByPromoteForListTabletTaskOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['first'] = isset($data['first']) ? $data['first'] : null;
         $this->container['second'] = isset($data['second']) ? $data['second'] : null;

@@ -171,7 +171,7 @@ class CodecForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_bitrate'] = isset($data['audio_bitrate']) ? $data['audio_bitrate'] : null;
         $this->container['audio_codec'] = isset($data['audio_codec']) ? $data['audio_codec'] : null;

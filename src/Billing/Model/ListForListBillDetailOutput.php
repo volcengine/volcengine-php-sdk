@@ -37,6 +37,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
         'count' => 'string',
@@ -95,6 +96,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
@@ -140,6 +142,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
         'configuration_code' => null,
         'count' => null,
@@ -198,6 +201,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
+        'resource_id' => null,
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => null,
         'saving_plan_deduction_sp_id' => null,
@@ -264,6 +268,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
         'count' => 'Count',
@@ -322,6 +327,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
@@ -367,6 +373,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
         'count' => 'setCount',
@@ -425,6 +432,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
@@ -470,6 +478,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
         'count' => 'getCount',
@@ -528,6 +537,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
@@ -616,7 +626,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_detail_id'] = isset($data['bill_detail_id']) ? $data['bill_detail_id'] : null;
@@ -627,6 +637,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
@@ -685,6 +696,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
@@ -951,6 +963,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBusinessMode($business_mode)
     {
         $this->container['business_mode'] = $business_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
@@ -2343,6 +2379,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setReservationInstance($reservation_instance)
     {
         $this->container['reservation_instance'] = $reservation_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }

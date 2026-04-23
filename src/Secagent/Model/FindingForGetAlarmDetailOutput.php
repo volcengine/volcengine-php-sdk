@@ -151,7 +151,7 @@ class FindingForGetAlarmDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adopt_reason'] = isset($data['adopt_reason']) ? $data['adopt_reason'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

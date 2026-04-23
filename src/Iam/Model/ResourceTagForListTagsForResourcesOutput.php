@@ -176,7 +176,7 @@ class ResourceTagForListTagsForResourcesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;

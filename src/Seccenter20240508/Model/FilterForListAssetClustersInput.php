@@ -171,7 +171,7 @@ class FilterForListAssetClustersInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['external_cluster_id'] = isset($data['external_cluster_id']) ? $data['external_cluster_id'] : null;
         $this->container['has_audit_risk_list'] = isset($data['has_audit_risk_list']) ? $data['has_audit_risk_list'] : null;

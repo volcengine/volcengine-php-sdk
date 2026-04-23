@@ -161,7 +161,7 @@ class ModifyDBEndpointConnectionModeRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection_mode'] = isset($data['connection_mode']) ? $data['connection_mode'] : null;
         $this->container['create_db_endpoint_req'] = isset($data['create_db_endpoint_req']) ? $data['create_db_endpoint_req'] : null;

@@ -205,7 +205,7 @@ class EvaluationDatasetForCreateEvaluationJobInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['admin_evaluation_dataset_id'] = isset($data['admin_evaluation_dataset_id']) ? $data['admin_evaluation_dataset_id'] : null;
         $this->container['dataset_type'] = isset($data['dataset_type']) ? $data['dataset_type'] : null;

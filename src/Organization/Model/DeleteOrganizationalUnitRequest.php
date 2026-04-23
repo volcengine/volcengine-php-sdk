@@ -146,7 +146,7 @@ class DeleteOrganizationalUnitRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['org_unit_id'] = isset($data['org_unit_id']) ? $data['org_unit_id'] : null;
     }

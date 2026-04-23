@@ -151,7 +151,7 @@ class APIForCreateDomainOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api_enable'] = isset($data['api_enable']) ? $data['api_enable'] : null;
         $this->container['enable_auto_learning'] = isset($data['enable_auto_learning']) ? $data['enable_auto_learning'] : null;

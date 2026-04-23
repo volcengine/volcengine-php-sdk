@@ -28,13 +28,14 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'comment' => 'string',
         'created_at' => 'string',
-        'creator_id' => 'string',
-        'description' => 'string',
-        'extra' => '\Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput',
-        'id' => 'int',
+        'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectListOutput',
+        'id' => 'string',
         'name' => 'string',
+        'source_lang' => 'string',
         'source_locale' => 'string',
+        'target_langs' => 'string[]',
         'target_locales' => 'string[]',
         'updated_at' => 'string'
     ];
@@ -45,13 +46,14 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'comment' => null,
         'created_at' => null,
-        'creator_id' => null,
-        'description' => null,
-        'extra' => null,
-        'id' => 'int32',
+        'creator' => null,
+        'id' => null,
         'name' => null,
+        'source_lang' => null,
         'source_locale' => null,
+        'target_langs' => null,
         'target_locales' => null,
         'updated_at' => null
     ];
@@ -83,13 +85,14 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'comment' => 'comment',
         'created_at' => 'createdAt',
-        'creator_id' => 'creatorId',
-        'description' => 'description',
-        'extra' => 'extra',
+        'creator' => 'creator',
         'id' => 'id',
         'name' => 'name',
+        'source_lang' => 'sourceLang',
         'source_locale' => 'sourceLocale',
+        'target_langs' => 'targetLangs',
         'target_locales' => 'targetLocales',
         'updated_at' => 'updatedAt'
     ];
@@ -100,13 +103,14 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'comment' => 'setComment',
         'created_at' => 'setCreatedAt',
-        'creator_id' => 'setCreatorId',
-        'description' => 'setDescription',
-        'extra' => 'setExtra',
+        'creator' => 'setCreator',
         'id' => 'setId',
         'name' => 'setName',
+        'source_lang' => 'setSourceLang',
         'source_locale' => 'setSourceLocale',
+        'target_langs' => 'setTargetLangs',
         'target_locales' => 'setTargetLocales',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -117,13 +121,14 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'comment' => 'getComment',
         'created_at' => 'getCreatedAt',
-        'creator_id' => 'getCreatorId',
-        'description' => 'getDescription',
-        'extra' => 'getExtra',
+        'creator' => 'getCreator',
         'id' => 'getId',
         'name' => 'getName',
+        'source_lang' => 'getSourceLang',
         'source_locale' => 'getSourceLocale',
+        'target_langs' => 'getTargetLangs',
         'target_locales' => 'getTargetLocales',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -186,15 +191,16 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['creator_id'] = isset($data['creator_id']) ? $data['creator_id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
+        $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
+        $this->container['target_langs'] = isset($data['target_langs']) ? $data['target_langs'] : null;
         $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -224,6 +230,30 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string $comment comment
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return string
@@ -248,73 +278,25 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets creator_id
+     * Gets creator
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\CreatorForVideoProjectListOutput
      */
-    public function getCreatorId()
+    public function getCreator()
     {
-        return $this->container['creator_id'];
+        return $this->container['creator'];
     }
 
     /**
-     * Sets creator_id
+     * Sets creator
      *
-     * @param string $creator_id creator_id
+     * @param \Volcengine\I18nopenapi\Model\CreatorForVideoProjectListOutput $creator creator
      *
      * @return $this
      */
-    public function setCreatorId($creator_id)
+    public function setCreator($creator)
     {
-        $this->container['creator_id'] = $creator_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra
-     *
-     * @return \Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput
-     */
-    public function getExtra()
-    {
-        return $this->container['extra'];
-    }
-
-    /**
-     * Sets extra
-     *
-     * @param \Volcengine\I18nopenapi\Model\ExtraForVideoProjectListOutput $extra extra
-     *
-     * @return $this
-     */
-    public function setExtra($extra)
-    {
-        $this->container['extra'] = $extra;
+        $this->container['creator'] = $creator;
 
         return $this;
     }
@@ -322,7 +304,7 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -332,7 +314,7 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param string $id id
      *
      * @return $this
      */
@@ -368,6 +350,30 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets source_lang
+     *
+     * @return string
+     */
+    public function getSourceLang()
+    {
+        return $this->container['source_lang'];
+    }
+
+    /**
+     * Sets source_lang
+     *
+     * @param string $source_lang source_lang
+     *
+     * @return $this
+     */
+    public function setSourceLang($source_lang)
+    {
+        $this->container['source_lang'] = $source_lang;
+
+        return $this;
+    }
+
+    /**
      * Gets source_locale
      *
      * @return string
@@ -387,6 +393,30 @@ class DataForVideoProjectListOutput implements ModelInterface, ArrayAccess
     public function setSourceLocale($source_locale)
     {
         $this->container['source_locale'] = $source_locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_langs
+     *
+     * @return string[]
+     */
+    public function getTargetLangs()
+    {
+        return $this->container['target_langs'];
+    }
+
+    /**
+     * Sets target_langs
+     *
+     * @param string[] $target_langs target_langs
+     *
+     * @return $this
+     */
+    public function setTargetLangs($target_langs)
+    {
+        $this->container['target_langs'] = $target_langs;
 
         return $this;
     }

@@ -448,6 +448,12 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+                'livesaas' => new ServiceEndpointInfo(
+                    'livesaas',
+                    true,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;

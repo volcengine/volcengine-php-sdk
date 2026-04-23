@@ -191,7 +191,7 @@ class ItemForListLLModelsV2Output implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['added_at'] = isset($data['added_at']) ? $data['added_at'] : null;
         $this->container['bill_type'] = isset($data['bill_type']) ? $data['bill_type'] : null;

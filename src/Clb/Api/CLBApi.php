@@ -49,10 +49,10 @@ class CLBApi
      * @param ApiClient|null $apiClient
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
-        ApiClient $apiClient = null
+        $client = null,
+        $config = null,
+        $selector = null,
+        $apiClient = null
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -2272,6 +2272,68 @@ class CLBApi
     protected function describeLoadBalancerSpecsRequest($body)
     {
         $resourcePath = '/DescribeLoadBalancerSpecs/2020-04-01/clb/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeLoadBalancerStatus($body = null)
+    {
+        list($response) = $this->describeLoadBalancerStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeLoadBalancerStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\DescribeLoadBalancerStatusResponse';
+        $request = $this->describeLoadBalancerStatusRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeLoadBalancerStatusAsync($body = null)
+    {
+        return $this->describeLoadBalancerStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeLoadBalancerStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\DescribeLoadBalancerStatusResponse';
+        $request = $this->describeLoadBalancerStatusRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeLoadBalancerStatusRequest($body)
+    {
+        $resourcePath = '/DescribeLoadBalancerStatus/2020-04-01/clb/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

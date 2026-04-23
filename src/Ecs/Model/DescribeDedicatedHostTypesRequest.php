@@ -161,7 +161,7 @@ class DescribeDedicatedHostTypesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dedicated_host_type_ids'] = isset($data['dedicated_host_type_ids']) ? $data['dedicated_host_type_ids'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

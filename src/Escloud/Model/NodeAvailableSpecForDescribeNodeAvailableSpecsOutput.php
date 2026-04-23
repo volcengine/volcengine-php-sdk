@@ -156,7 +156,7 @@ class NodeAvailableSpecForDescribeNodeAvailableSpecsOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_spec_names'] = isset($data['resource_spec_names']) ? $data['resource_spec_names'] : null;
         $this->container['storage_spec_names'] = isset($data['storage_spec_names']) ? $data['storage_spec_names'] : null;

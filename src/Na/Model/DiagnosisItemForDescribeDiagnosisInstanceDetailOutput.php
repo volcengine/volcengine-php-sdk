@@ -161,7 +161,7 @@ class DiagnosisItemForDescribeDiagnosisInstanceDetailOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['abnormal_result'] = isset($data['abnormal_result']) ? $data['abnormal_result'] : null;
         $this->container['item_name'] = isset($data['item_name']) ? $data['item_name'] : null;

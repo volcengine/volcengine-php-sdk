@@ -146,7 +146,7 @@ class CreateMLPAssetSyncTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
     }
@@ -160,9 +160,6 @@ class CreateMLPAssetSyncTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asset_type'] === null) {
-            $invalidProperties[] = "'asset_type' can't be null";
-        }
         return $invalidProperties;
     }
 

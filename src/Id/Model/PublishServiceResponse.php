@@ -161,7 +161,7 @@ class PublishServiceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['apig_service_id'] = isset($data['apig_service_id']) ? $data['apig_service_id'] : null;
         $this->container['private_domain'] = isset($data['private_domain']) ? $data['private_domain'] : null;

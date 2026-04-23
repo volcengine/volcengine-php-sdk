@@ -226,7 +226,7 @@ class CreateServiceFromTemplateResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backend'] = isset($data['backend']) ? $data['backend'] : null;
         $this->container['backend_type'] = isset($data['backend_type']) ? $data['backend_type'] : null;

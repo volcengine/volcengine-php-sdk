@@ -151,7 +151,7 @@ class ColumnInfoForDescribeDbAccountTableColumnInfoOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_privileges'] = isset($data['account_privileges']) ? $data['account_privileges'] : null;
         $this->container['column_name'] = isset($data['column_name']) ? $data['column_name'] : null;

@@ -151,7 +151,7 @@ class QueryStringRulesForUpdateCdnConfigInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['query_string_components'] = isset($data['query_string_components']) ? $data['query_string_components'] : null;
         $this->container['query_string_instances'] = isset($data['query_string_instances']) ? $data['query_string_instances'] : null;

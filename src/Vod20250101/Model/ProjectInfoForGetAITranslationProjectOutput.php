@@ -306,7 +306,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['background_audio'] = isset($data['background_audio']) ? $data['background_audio'] : null;
         $this->container['background_clip'] = isset($data['background_clip']) ? $data['background_clip'] : null;

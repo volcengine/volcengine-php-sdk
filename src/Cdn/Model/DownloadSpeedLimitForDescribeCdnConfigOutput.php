@@ -151,7 +151,7 @@ class DownloadSpeedLimitForDescribeCdnConfigOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['download_speed_limit_rules'] = isset($data['download_speed_limit_rules']) ? $data['download_speed_limit_rules'] : null;
         $this->container['switch'] = isset($data['switch']) ? $data['switch'] : null;

@@ -196,7 +196,7 @@ class DescribeServerGroupAttributesResponse implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address_ip_version'] = isset($data['address_ip_version']) ? $data['address_ip_version'] : null;
         $this->container['any_port_enabled'] = isset($data['any_port_enabled']) ? $data['any_port_enabled'] : null;

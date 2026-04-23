@@ -151,7 +151,7 @@ class ReferenceForCheckPermissionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
         $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;

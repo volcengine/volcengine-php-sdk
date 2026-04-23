@@ -33,7 +33,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
         'number' => 'int',
         'period' => 'int',
         'period_unit' => 'string',
-        'project_name' => 'string',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForDescribeDBInstancePriceDetailInput',
         'storage_space' => 'int',
         'storage_type' => 'string'
@@ -50,7 +49,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
         'number' => 'int32',
         'period' => 'int32',
         'period_unit' => null,
-        'project_name' => null,
         'proxy_node_custom' => null,
         'storage_space' => 'int32',
         'storage_type' => null
@@ -88,7 +86,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
         'number' => 'Number',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
-        'project_name' => 'ProjectName',
         'proxy_node_custom' => 'ProxyNodeCustom',
         'storage_space' => 'StorageSpace',
         'storage_type' => 'StorageType'
@@ -105,7 +102,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
         'number' => 'setNumber',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
-        'project_name' => 'setProjectName',
         'proxy_node_custom' => 'setProxyNodeCustom',
         'storage_space' => 'setStorageSpace',
         'storage_type' => 'setStorageType'
@@ -122,7 +118,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
         'number' => 'getNumber',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
-        'project_name' => 'getProjectName',
         'proxy_node_custom' => 'getProxyNodeCustom',
         'storage_space' => 'getStorageSpace',
         'storage_type' => 'getStorageType'
@@ -186,14 +181,13 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
         $this->container['number'] = isset($data['number']) ? $data['number'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
         $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
@@ -348,30 +342,6 @@ class DescribeDBInstancePriceDetailRequest implements ModelInterface, ArrayAcces
     public function setPeriodUnit($period_unit)
     {
         $this->container['period_unit'] = $period_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
 
         return $this;
     }

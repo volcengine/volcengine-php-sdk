@@ -176,7 +176,7 @@ class SwitchForEditRaspConfigInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['classupload'] = isset($data['classupload']) ? $data['classupload'] : null;
         $this->container['file'] = isset($data['file']) ? $data['file'] : null;

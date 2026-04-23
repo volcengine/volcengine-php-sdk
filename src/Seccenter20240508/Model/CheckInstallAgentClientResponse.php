@@ -191,7 +191,7 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_agent_ids'] = isset($data['auto_agent_ids']) ? $data['auto_agent_ids'] : null;
         $this->container['auto_count'] = isset($data['auto_count']) ? $data['auto_count'] : null;

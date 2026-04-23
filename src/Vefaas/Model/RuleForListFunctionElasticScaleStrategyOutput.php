@@ -171,7 +171,7 @@ class RuleForListFunctionElasticScaleStrategyOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['aggregate_seconds'] = isset($data['aggregate_seconds']) ? $data['aggregate_seconds'] : null;
         $this->container['aggregate_type'] = isset($data['aggregate_type']) ? $data['aggregate_type'] : null;

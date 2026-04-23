@@ -151,7 +151,7 @@ class TlsSettingsForCreateUpstreamInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['sni'] = isset($data['sni']) ? $data['sni'] : null;
         $this->container['tls_mode'] = isset($data['tls_mode']) ? $data['tls_mode'] : null;

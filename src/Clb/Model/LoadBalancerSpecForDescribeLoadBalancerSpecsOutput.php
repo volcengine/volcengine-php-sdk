@@ -171,7 +171,7 @@ class LoadBalancerSpecForDescribeLoadBalancerSpecsOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['chinese_spec'] = isset($data['chinese_spec']) ? $data['chinese_spec'] : null;

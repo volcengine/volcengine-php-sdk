@@ -241,7 +241,7 @@ class SourceForDescribeMigrationSourcesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_version'] = isset($data['agent_version']) ? $data['agent_version'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;

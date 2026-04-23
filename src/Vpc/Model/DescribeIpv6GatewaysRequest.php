@@ -176,7 +176,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ipv6_gateway_ids'] = isset($data['ipv6_gateway_ids']) ? $data['ipv6_gateway_ids'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

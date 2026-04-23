@@ -166,7 +166,7 @@ class AuthModeConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_remote_addr'] = isset($data['backup_remote_addr']) ? $data['backup_remote_addr'] : null;
         $this->container['master_remote_addr'] = isset($data['master_remote_addr']) ? $data['master_remote_addr'] : null;

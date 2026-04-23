@@ -28,6 +28,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'ipv6_address' => 'string[]',
         'network_interface_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'ipv6_address' => null,
         'network_interface_id' => null
     ];
@@ -69,6 +71,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'ipv6_address' => 'Ipv6Address',
         'network_interface_id' => 'NetworkInterfaceId'
     ];
@@ -79,6 +82,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'ipv6_address' => 'setIpv6Address',
         'network_interface_id' => 'setNetworkInterfaceId'
     ];
@@ -89,6 +93,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'ipv6_address' => 'getIpv6Address',
         'network_interface_id' => 'getNetworkInterfaceId'
     ];
@@ -151,8 +156,9 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
     }
@@ -183,6 +189,30 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets ipv6_address

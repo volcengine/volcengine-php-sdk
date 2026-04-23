@@ -191,7 +191,7 @@ class DataForListAlertStrategiesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_rule'] = isset($data['alert_rule']) ? $data['alert_rule'] : null;
         $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;

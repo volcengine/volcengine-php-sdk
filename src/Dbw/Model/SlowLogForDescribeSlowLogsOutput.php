@@ -211,7 +211,7 @@ class SlowLogForDescribeSlowLogsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection_id'] = isset($data['connection_id']) ? $data['connection_id'] : null;
         $this->container['db'] = isset($data['db']) ? $data['db'] : null;

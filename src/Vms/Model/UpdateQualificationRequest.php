@@ -156,7 +156,7 @@ class UpdateQualificationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['qualification_admin_info_form_do'] = isset($data['qualification_admin_info_form_do']) ? $data['qualification_admin_info_form_do'] : null;
         $this->container['qualification_main_info_form_do'] = isset($data['qualification_main_info_form_do']) ? $data['qualification_main_info_form_do'] : null;

@@ -151,7 +151,7 @@ class HostNumForGetBaselineDetectProgressDetailOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['finished'] = isset($data['finished']) ? $data['finished'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

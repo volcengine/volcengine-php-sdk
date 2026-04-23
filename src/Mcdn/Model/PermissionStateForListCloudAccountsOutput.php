@@ -146,7 +146,7 @@ class PermissionStateForListCloudAccountsOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['list_api_status'] = isset($data['list_api_status']) ? $data['list_api_status'] : null;
     }

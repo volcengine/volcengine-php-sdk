@@ -161,7 +161,7 @@ class SetTransitRouterBandwidthPackageRenewalRequest implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['remain_renew_times'] = isset($data['remain_renew_times']) ? $data['remain_renew_times'] : null;
         $this->container['renew_period'] = isset($data['renew_period']) ? $data['renew_period'] : null;

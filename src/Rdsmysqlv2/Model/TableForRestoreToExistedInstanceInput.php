@@ -151,7 +151,7 @@ class TableForRestoreToExistedInstanceInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['new_table_name'] = isset($data['new_table_name']) ? $data['new_table_name'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;

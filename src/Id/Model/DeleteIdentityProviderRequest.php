@@ -69,8 +69,8 @@ class DeleteIdentityProviderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection_uid' => 'ConnectionUID',
-        'user_pool_uid' => 'UserPoolUID'
+        'connection_uid' => 'ConnectionUid',
+        'user_pool_uid' => 'UserPoolUid'
     ];
 
     /**
@@ -151,7 +151,7 @@ class DeleteIdentityProviderRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection_uid'] = isset($data['connection_uid']) ? $data['connection_uid'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;

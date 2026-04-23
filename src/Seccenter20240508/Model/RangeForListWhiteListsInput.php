@@ -166,7 +166,7 @@ class RangeForListWhiteListsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_area'] = isset($data['cluster_area']) ? $data['cluster_area'] : null;
         $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;

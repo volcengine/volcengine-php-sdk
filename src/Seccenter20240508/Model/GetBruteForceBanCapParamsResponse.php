@@ -146,7 +146,7 @@ class GetBruteForceBanCapParamsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_brute_force_ban_permission'] = isset($data['client_brute_force_ban_permission']) ? $data['client_brute_force_ban_permission'] : null;
     }

@@ -161,7 +161,7 @@ class GetDownloadStatusResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['export_count'] = isset($data['export_count']) ? $data['export_count'] : null;
         $this->container['export_total'] = isset($data['export_total']) ? $data['export_total'] : null;

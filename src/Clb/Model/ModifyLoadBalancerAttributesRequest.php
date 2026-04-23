@@ -196,7 +196,7 @@ class ModifyLoadBalancerAttributesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address_ip_version'] = isset($data['address_ip_version']) ? $data['address_ip_version'] : null;
         $this->container['allowed_ports'] = isset($data['allowed_ports']) ? $data['allowed_ports'] : null;

@@ -171,7 +171,7 @@ class ListWhiteListsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -195,6 +195,9 @@ class ListWhiteListsRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }

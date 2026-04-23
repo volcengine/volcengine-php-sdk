@@ -161,7 +161,7 @@ class CustomComputeResourceForGetResourceReservationPlanOutput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['gpu_count'] = isset($data['gpu_count']) ? $data['gpu_count'] : null;
         $this->container['gpu_type'] = isset($data['gpu_type']) ? $data['gpu_type'] : null;

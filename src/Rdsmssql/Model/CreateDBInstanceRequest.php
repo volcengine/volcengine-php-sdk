@@ -221,7 +221,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allow_list_ids'] = isset($data['allow_list_ids']) ? $data['allow_list_ids'] : null;
         $this->container['charge_info'] = isset($data['charge_info']) ? $data['charge_info'] : null;

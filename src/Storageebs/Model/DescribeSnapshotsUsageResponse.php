@@ -151,7 +151,7 @@ class DescribeSnapshotsUsageResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['snapshot_count'] = isset($data['snapshot_count']) ? $data['snapshot_count'] : null;
         $this->container['snapshot_size'] = isset($data['snapshot_size']) ? $data['snapshot_size'] : null;

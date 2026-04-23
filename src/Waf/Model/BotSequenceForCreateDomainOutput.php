@@ -151,7 +151,7 @@ class BotSequenceForCreateDomainOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bot_sequence_default_action'] = isset($data['bot_sequence_default_action']) ? $data['bot_sequence_default_action'] : null;
         $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;

@@ -156,7 +156,7 @@ class CapacityForDescribeDeploymentSetsOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_count'] = isset($data['available_count']) ? $data['available_count'] : null;
         $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;

@@ -171,7 +171,7 @@ class VgInfoForDescribeMigrationSourcesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['lv_infos'] = isset($data['lv_infos']) ? $data['lv_infos'] : null;

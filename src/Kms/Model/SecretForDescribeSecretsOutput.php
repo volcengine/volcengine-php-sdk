@@ -227,6 +227,8 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
     const SECRET_TYPE_RDS = 'RDS';
     const SECRET_TYPE_REDIS = 'Redis';
     const SECRET_TYPE_ECS = 'ECS';
+    const SECRET_TYPE_PGSQL = 'PGSQL';
+    const SECRET_TYPE_SQL_SERVER = 'SQLServer';
     
 
     
@@ -257,6 +259,8 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
             self::SECRET_TYPE_RDS,
             self::SECRET_TYPE_REDIS,
             self::SECRET_TYPE_ECS,
+            self::SECRET_TYPE_PGSQL,
+            self::SECRET_TYPE_SQL_SERVER,
         ];
     }
     
@@ -274,7 +278,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

@@ -156,7 +156,7 @@ class StatusCodeActionForBatchUpdateCdnConfigInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_action'] = isset($data['default_action']) ? $data['default_action'] : null;
         $this->container['fail_code'] = isset($data['fail_code']) ? $data['fail_code'] : null;

@@ -176,7 +176,7 @@ class DeleteDBNodesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_node_ids'] = isset($data['db_node_ids']) ? $data['db_node_ids'] : null;
         $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;

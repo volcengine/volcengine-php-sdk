@@ -151,7 +151,7 @@ class DescribeLaunchTemplatesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['launch_templates'] = isset($data['launch_templates']) ? $data['launch_templates'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

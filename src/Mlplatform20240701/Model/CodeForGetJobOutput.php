@@ -156,7 +156,7 @@ class CodeForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['local_path'] = isset($data['local_path']) ? $data['local_path'] : null;
         $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;

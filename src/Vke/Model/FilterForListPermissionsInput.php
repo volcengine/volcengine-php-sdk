@@ -212,7 +212,7 @@ class FilterForListPermissionsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
         $this->container['grantee_ids'] = isset($data['grantee_ids']) ? $data['grantee_ids'] : null;

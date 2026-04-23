@@ -156,7 +156,7 @@ class AttributesForListRegistriesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
         $this->container['volc_status'] = isset($data['volc_status']) ? $data['volc_status'] : null;

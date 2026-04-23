@@ -161,7 +161,7 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;

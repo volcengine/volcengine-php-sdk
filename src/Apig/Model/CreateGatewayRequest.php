@@ -191,7 +191,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['log_spec'] = isset($data['log_spec']) ? $data['log_spec'] : null;

@@ -151,7 +151,7 @@ class PlusAlarmInfo703ForGetHidsAlarmInfoOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['interrupt_number'] = isset($data['interrupt_number']) ? $data['interrupt_number'] : null;
         $this->container['module_name'] = isset($data['module_name']) ? $data['module_name'] : null;

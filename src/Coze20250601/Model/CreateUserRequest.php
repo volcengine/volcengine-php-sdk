@@ -156,7 +156,7 @@ class CreateUserRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['secure_email'] = isset($data['secure_email']) ? $data['secure_email'] : null;
         $this->container['secure_phone'] = isset($data['secure_phone']) ? $data['secure_phone'] : null;

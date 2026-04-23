@@ -156,7 +156,7 @@ class BlockRuleForBatchUpdateCdnConfigInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['block_action'] = isset($data['block_action']) ? $data['block_action'] : null;
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;

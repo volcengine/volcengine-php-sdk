@@ -151,7 +151,7 @@ class GetSecurityOverviewScoreStatsResponse implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;
         $this->container['scores'] = isset($data['scores']) ? $data['scores'] : null;

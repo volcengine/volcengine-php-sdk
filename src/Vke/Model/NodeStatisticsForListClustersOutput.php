@@ -171,7 +171,7 @@ class NodeStatisticsForListClustersOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['creating_count'] = isset($data['creating_count']) ? $data['creating_count'] : null;
         $this->container['deleting_count'] = isset($data['deleting_count']) ? $data['deleting_count'] : null;

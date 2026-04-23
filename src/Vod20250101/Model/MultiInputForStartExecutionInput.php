@@ -171,7 +171,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['direct_url'] = isset($data['direct_url']) ? $data['direct_url'] : null;
         $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;

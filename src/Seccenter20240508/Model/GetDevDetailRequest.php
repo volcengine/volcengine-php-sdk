@@ -146,7 +146,7 @@ class GetDevDetailRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
     }
@@ -160,9 +160,6 @@ class GetDevDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asset_id'] === null) {
-            $invalidProperties[] = "'asset_id' can't be null";
-        }
         return $invalidProperties;
     }
 

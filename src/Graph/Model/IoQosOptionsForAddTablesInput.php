@@ -161,7 +161,7 @@ class IoQosOptionsForAddTablesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['iops_limit'] = isset($data['iops_limit']) ? $data['iops_limit'] : null;
         $this->container['read_bandwidth_limit_in_bytes'] = isset($data['read_bandwidth_limit_in_bytes']) ? $data['read_bandwidth_limit_in_bytes'] : null;

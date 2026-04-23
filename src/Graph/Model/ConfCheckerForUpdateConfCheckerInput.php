@@ -201,7 +201,7 @@ class ConfCheckerForUpdateConfCheckerInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bpm_id'] = isset($data['bpm_id']) ? $data['bpm_id'] : null;
         $this->container['conf_checker_python_script'] = isset($data['conf_checker_python_script']) ? $data['conf_checker_python_script'] : null;

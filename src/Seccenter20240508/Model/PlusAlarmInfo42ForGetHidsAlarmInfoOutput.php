@@ -151,7 +151,7 @@ class PlusAlarmInfo42ForGetHidsAlarmInfoOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pid_tree'] = isset($data['pid_tree']) ? $data['pid_tree'] : null;
         $this->container['ssh_info'] = isset($data['ssh_info']) ? $data['ssh_info'] : null;

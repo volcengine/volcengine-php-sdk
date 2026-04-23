@@ -151,7 +151,7 @@ class VepfsForListResourceReservationPlansOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['file_system_ids'] = isset($data['file_system_ids']) ? $data['file_system_ids'] : null;
         $this->container['prefetch_enabled'] = isset($data['prefetch_enabled']) ? $data['prefetch_enabled'] : null;

@@ -181,7 +181,7 @@ class ItemForListAvailableSubnetsForBMQOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_ip_address_count'] = isset($data['available_ip_address_count']) ? $data['available_ip_address_count'] : null;
         $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;

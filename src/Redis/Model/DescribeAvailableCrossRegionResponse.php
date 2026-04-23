@@ -146,7 +146,7 @@ class DescribeAvailableCrossRegionResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['target_region_ids'] = isset($data['target_region_ids']) ? $data['target_region_ids'] : null;
     }

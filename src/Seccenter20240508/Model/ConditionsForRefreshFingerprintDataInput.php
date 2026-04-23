@@ -156,7 +156,7 @@ class ConditionsForRefreshFingerprintDataInput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_id_list'] = isset($data['agent_id_list']) ? $data['agent_id_list'] : null;
         $this->container['if_all_host'] = isset($data['if_all_host']) ? $data['if_all_host'] : null;

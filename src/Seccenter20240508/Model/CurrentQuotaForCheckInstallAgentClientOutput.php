@@ -151,7 +151,7 @@ class CurrentQuotaForCheckInstallAgentClientOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['core'] = isset($data['core']) ? $data['core'] : null;
         $this->container['hosts_count'] = isset($data['hosts_count']) ? $data['hosts_count'] : null;

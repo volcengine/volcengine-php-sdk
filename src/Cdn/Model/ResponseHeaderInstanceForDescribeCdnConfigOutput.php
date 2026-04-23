@@ -166,7 +166,7 @@ class ResponseHeaderInstanceForDescribeCdnConfigOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_origin_control'] = isset($data['access_origin_control']) ? $data['access_origin_control'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;

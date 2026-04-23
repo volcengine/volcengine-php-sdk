@@ -156,7 +156,7 @@ class StyleReferenceArgsForImg2ImgXLSftInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binary_data_index'] = isset($data['binary_data_index']) ? $data['binary_data_index'] : null;
         $this->container['id_weight'] = isset($data['id_weight']) ? $data['id_weight'] : null;

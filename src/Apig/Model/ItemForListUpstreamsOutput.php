@@ -216,7 +216,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backend_target_list'] = isset($data['backend_target_list']) ? $data['backend_target_list'] : null;
         $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;

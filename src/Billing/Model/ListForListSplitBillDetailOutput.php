@@ -37,9 +37,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'string',
         'busi_period' => 'string',
         'business_mode' => 'string',
+        'charge_item_code' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
         'cost_unit' => 'string',
+        'count' => 'string',
         'country_region' => 'string',
         'coupon_deduction_amount' => 'string',
         'credit_carried_amount' => 'string',
@@ -57,6 +59,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'string',
         'exchange_rate' => 'string',
         'expand_field' => 'string',
+        'expense_date' => 'string',
         'expense_time' => 'string',
         'factor' => 'string',
         'factor_code' => 'string',
@@ -91,6 +94,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'string',
         'saving_plan_deduction_discount_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
@@ -141,9 +145,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => null,
         'busi_period' => null,
         'business_mode' => null,
+        'charge_item_code' => null,
         'config_name' => null,
         'configuration_code' => null,
         'cost_unit' => null,
+        'count' => null,
         'country_region' => null,
         'coupon_deduction_amount' => null,
         'credit_carried_amount' => null,
@@ -161,6 +167,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => null,
         'exchange_rate' => null,
         'expand_field' => null,
+        'expense_date' => null,
         'expense_time' => null,
         'factor' => null,
         'factor_code' => null,
@@ -195,6 +202,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
+        'resource_id' => null,
         'round_amount' => null,
         'saving_plan_deduction_discount_amount' => null,
         'saving_plan_deduction_sp_id' => null,
@@ -266,9 +274,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'BillingMode',
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
+        'charge_item_code' => 'ChargeItemCode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
         'cost_unit' => 'CostUnit',
+        'count' => 'Count',
         'country_region' => 'CountryRegion',
         'coupon_deduction_amount' => 'CouponDeductionAmount',
         'credit_carried_amount' => 'CreditCarriedAmount',
@@ -286,6 +296,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'ElementCode',
         'exchange_rate' => 'ExchangeRate',
         'expand_field' => 'ExpandField',
+        'expense_date' => 'ExpenseDate',
         'expense_time' => 'ExpenseTime',
         'factor' => 'Factor',
         'factor_code' => 'FactorCode',
@@ -320,6 +331,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
@@ -370,9 +382,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'setBillingMode',
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
+        'charge_item_code' => 'setChargeItemCode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
         'cost_unit' => 'setCostUnit',
+        'count' => 'setCount',
         'country_region' => 'setCountryRegion',
         'coupon_deduction_amount' => 'setCouponDeductionAmount',
         'credit_carried_amount' => 'setCreditCarriedAmount',
@@ -390,6 +404,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'setElementCode',
         'exchange_rate' => 'setExchangeRate',
         'expand_field' => 'setExpandField',
+        'expense_date' => 'setExpenseDate',
         'expense_time' => 'setExpenseTime',
         'factor' => 'setFactor',
         'factor_code' => 'setFactorCode',
@@ -424,6 +439,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
@@ -474,9 +490,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_mode' => 'getBillingMode',
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
+        'charge_item_code' => 'getChargeItemCode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
         'cost_unit' => 'getCostUnit',
+        'count' => 'getCount',
         'country_region' => 'getCountryRegion',
         'coupon_deduction_amount' => 'getCouponDeductionAmount',
         'credit_carried_amount' => 'getCreditCarriedAmount',
@@ -494,6 +512,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'element_code' => 'getElementCode',
         'exchange_rate' => 'getExchangeRate',
         'expand_field' => 'getExpandField',
+        'expense_date' => 'getExpenseDate',
         'expense_time' => 'getExpenseTime',
         'factor' => 'getFactor',
         'factor_code' => 'getFactorCode',
@@ -528,6 +547,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
@@ -621,7 +641,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_detail_id'] = isset($data['bill_detail_id']) ? $data['bill_detail_id'] : null;
@@ -632,9 +652,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['cost_unit'] = isset($data['cost_unit']) ? $data['cost_unit'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_deduction_amount'] = isset($data['coupon_deduction_amount']) ? $data['coupon_deduction_amount'] : null;
         $this->container['credit_carried_amount'] = isset($data['credit_carried_amount']) ? $data['credit_carried_amount'] : null;
@@ -652,6 +674,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['element_code'] = isset($data['element_code']) ? $data['element_code'] : null;
         $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['expand_field'] = isset($data['expand_field']) ? $data['expand_field'] : null;
+        $this->container['expense_date'] = isset($data['expense_date']) ? $data['expense_date'] : null;
         $this->container['expense_time'] = isset($data['expense_time']) ? $data['expense_time'] : null;
         $this->container['factor'] = isset($data['factor']) ? $data['factor'] : null;
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
@@ -686,6 +709,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
@@ -962,6 +986,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets charge_item_code
+     *
+     * @return string
+     */
+    public function getChargeItemCode()
+    {
+        return $this->container['charge_item_code'];
+    }
+
+    /**
+     * Sets charge_item_code
+     *
+     * @param string $charge_item_code charge_item_code
+     *
+     * @return $this
+     */
+    public function setChargeItemCode($charge_item_code)
+    {
+        $this->container['charge_item_code'] = $charge_item_code;
+
+        return $this;
+    }
+
+    /**
      * Gets config_name
      *
      * @return string
@@ -1029,6 +1077,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setCostUnit($cost_unit)
     {
         $this->container['cost_unit'] = $cost_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets count
+     *
+     * @return string
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param string $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
 
         return $this;
     }
@@ -1437,6 +1509,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setExpandField($expand_field)
     {
         $this->container['expand_field'] = $expand_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_date
+     *
+     * @return string
+     */
+    public function getExpenseDate()
+    {
+        return $this->container['expense_date'];
+    }
+
+    /**
+     * Sets expense_date
+     *
+     * @param string $expense_date expense_date
+     *
+     * @return $this
+     */
+    public function setExpenseDate($expense_date)
+    {
+        $this->container['expense_date'] = $expense_date;
 
         return $this;
     }
@@ -2253,6 +2349,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setReservationInstance($reservation_instance)
     {
         $this->container['reservation_instance'] = $reservation_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }

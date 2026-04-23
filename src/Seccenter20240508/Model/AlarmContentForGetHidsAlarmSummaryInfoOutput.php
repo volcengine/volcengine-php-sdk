@@ -176,7 +176,7 @@ class AlarmContentForGetHidsAlarmSummaryInfoOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_node'] = isset($data['alarm_node']) ? $data['alarm_node'] : null;
         $this->container['audit_log_alarm'] = isset($data['audit_log_alarm']) ? $data['audit_log_alarm'] : null;

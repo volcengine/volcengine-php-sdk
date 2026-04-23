@@ -146,7 +146,7 @@ class UpdateInstanceNameRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['new_name'] = isset($data['new_name']) ? $data['new_name'] : null;
     }

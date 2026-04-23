@@ -176,7 +176,7 @@ class QuotaForUpdateWorkspaceInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['active_series'] = isset($data['active_series']) ? $data['active_series'] : null;
         $this->container['ingest_samples_per_second'] = isset($data['ingest_samples_per_second']) ? $data['ingest_samples_per_second'] : null;

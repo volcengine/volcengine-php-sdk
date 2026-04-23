@@ -156,7 +156,7 @@ class DescribeFlowLogsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['flow_logs'] = isset($data['flow_logs']) ? $data['flow_logs'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

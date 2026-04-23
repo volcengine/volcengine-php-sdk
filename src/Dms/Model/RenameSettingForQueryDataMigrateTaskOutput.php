@@ -151,7 +151,7 @@ class RenameSettingForQueryDataMigrateTaskOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pattern'] = isset($data['pattern']) ? $data['pattern'] : null;
         $this->container['replace_str'] = isset($data['replace_str']) ? $data['replace_str'] : null;

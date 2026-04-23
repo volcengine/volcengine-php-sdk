@@ -156,7 +156,7 @@ class RegisterMonitoringConfigForUpdateClusterConfigInput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['query_url'] = isset($data['query_url']) ? $data['query_url'] : null;
         $this->container['remote_write_url'] = isset($data['remote_write_url']) ? $data['remote_write_url'] : null;

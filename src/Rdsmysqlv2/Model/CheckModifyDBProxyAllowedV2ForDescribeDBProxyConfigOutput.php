@@ -156,7 +156,7 @@ class CheckModifyDBProxyAllowedV2ForDescribeDBProxyConfigOutput implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allowed'] = isset($data['allowed']) ? $data['allowed'] : null;
         $this->container['check_item'] = isset($data['check_item']) ? $data['check_item'] : null;

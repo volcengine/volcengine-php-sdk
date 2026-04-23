@@ -191,7 +191,7 @@ class PortForGetDevInstanceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['apig_private_url'] = isset($data['apig_private_url']) ? $data['apig_private_url'] : null;
         $this->container['apig_public_url'] = isset($data['apig_public_url']) ? $data['apig_public_url'] : null;

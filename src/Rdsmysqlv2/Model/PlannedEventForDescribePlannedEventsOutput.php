@@ -231,7 +231,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['business_impact'] = isset($data['business_impact']) ? $data['business_impact'] : null;
         $this->container['db_engine'] = isset($data['db_engine']) ? $data['db_engine'] : null;

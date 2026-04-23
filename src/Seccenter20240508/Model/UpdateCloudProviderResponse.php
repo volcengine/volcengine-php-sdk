@@ -161,7 +161,7 @@ class UpdateCloudProviderResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failure_count'] = isset($data['failure_count']) ? $data['failure_count'] : null;
         $this->container['failure_ids'] = isset($data['failure_ids']) ? $data['failure_ids'] : null;

@@ -211,7 +211,7 @@ class DescribeImagesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['image_ids'] = isset($data['image_ids']) ? $data['image_ids'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;

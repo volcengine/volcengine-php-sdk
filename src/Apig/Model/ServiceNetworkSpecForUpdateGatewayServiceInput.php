@@ -156,7 +156,7 @@ class ServiceNetworkSpecForUpdateGatewayServiceInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_private_network'] = isset($data['enable_private_network']) ? $data['enable_private_network'] : null;
         $this->container['enable_public_network'] = isset($data['enable_public_network']) ? $data['enable_public_network'] : null;

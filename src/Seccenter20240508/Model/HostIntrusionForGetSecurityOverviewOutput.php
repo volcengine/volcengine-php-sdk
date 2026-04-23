@@ -151,7 +151,7 @@ class HostIntrusionForGetSecurityOverviewOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['risk_count'] = isset($data['risk_count']) ? $data['risk_count'] : null;
         $this->container['subject_count'] = isset($data['subject_count']) ? $data['subject_count'] : null;

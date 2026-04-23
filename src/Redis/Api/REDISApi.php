@@ -49,10 +49,10 @@ class REDISApi
      * @param ApiClient|null $apiClient
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
-        ApiClient $apiClient = null
+        $client = null,
+        $config = null,
+        $selector = null,
+        $apiClient = null
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -288,6 +288,68 @@ class REDISApi
     protected function createBackupRequest($body)
     {
         $resourcePath = '/CreateBackup/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createBlueGreenDeployment($body = null)
+    {
+        list($response) = $this->createBlueGreenDeploymentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createBlueGreenDeploymentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\CreateBlueGreenDeploymentResponse';
+        $request = $this->createBlueGreenDeploymentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createBlueGreenDeploymentAsync($body = null)
+    {
+        return $this->createBlueGreenDeploymentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createBlueGreenDeploymentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\CreateBlueGreenDeploymentResponse';
+        $request = $this->createBlueGreenDeploymentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createBlueGreenDeploymentRequest($body)
+    {
+        $resourcePath = '/CreateBlueGreenDeployment/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -812,6 +874,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteAllClientSession($body = null)
+    {
+        list($response) = $this->deleteAllClientSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAllClientSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DeleteAllClientSessionResponse';
+        $request = $this->deleteAllClientSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAllClientSessionAsync($body = null)
+    {
+        return $this->deleteAllClientSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAllClientSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DeleteAllClientSessionResponse';
+        $request = $this->deleteAllClientSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAllClientSessionRequest($body)
+    {
+        $resourcePath = '/DeleteAllClientSession/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteAllowList($body = null)
     {
         list($response) = $this->deleteAllowListWithHttpInfo($body);
@@ -846,6 +970,68 @@ class REDISApi
     protected function deleteAllowListRequest($body)
     {
         $resourcePath = '/DeleteAllowList/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteBlueGreenDeployment($body = null)
+    {
+        list($response) = $this->deleteBlueGreenDeploymentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteBlueGreenDeploymentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DeleteBlueGreenDeploymentResponse';
+        $request = $this->deleteBlueGreenDeploymentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteBlueGreenDeploymentAsync($body = null)
+    {
+        return $this->deleteBlueGreenDeploymentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteBlueGreenDeploymentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DeleteBlueGreenDeploymentResponse';
+        $request = $this->deleteBlueGreenDeploymentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteBlueGreenDeploymentRequest($body)
+    {
+        $resourcePath = '/DeleteBlueGreenDeployment/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1680,6 +1866,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeBlueGreenDeployments($body = null)
+    {
+        list($response) = $this->describeBlueGreenDeploymentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeBlueGreenDeploymentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeBlueGreenDeploymentsResponse';
+        $request = $this->describeBlueGreenDeploymentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeBlueGreenDeploymentsAsync($body = null)
+    {
+        return $this->describeBlueGreenDeploymentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeBlueGreenDeploymentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeBlueGreenDeploymentsResponse';
+        $request = $this->describeBlueGreenDeploymentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeBlueGreenDeploymentsRequest($body)
+    {
+        $resourcePath = '/DescribeBlueGreenDeployments/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeCrossRegionBackupPolicy($body = null)
     {
         list($response) = $this->describeCrossRegionBackupPolicyWithHttpInfo($body);
@@ -1776,6 +2024,68 @@ class REDISApi
     protected function describeCrossRegionBackupsRequest($body)
     {
         $resourcePath = '/DescribeCrossRegionBackups/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeDBEngineVersions($body = null)
+    {
+        list($response) = $this->describeDBEngineVersionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBEngineVersionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBEngineVersionsResponse';
+        $request = $this->describeDBEngineVersionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBEngineVersionsAsync($body = null)
+    {
+        return $this->describeDBEngineVersionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBEngineVersionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBEngineVersionsResponse';
+        $request = $this->describeDBEngineVersionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBEngineVersionsRequest($body)
+    {
+        $resourcePath = '/DescribeDBEngineVersions/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3292,6 +3602,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function enableDBInstanceHA($body = null)
+    {
+        list($response) = $this->enableDBInstanceHAWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enableDBInstanceHAWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\EnableDBInstanceHAResponse';
+        $request = $this->enableDBInstanceHARequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enableDBInstanceHAAsync($body = null)
+    {
+        return $this->enableDBInstanceHAAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enableDBInstanceHAAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\EnableDBInstanceHAResponse';
+        $request = $this->enableDBInstanceHARequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enableDBInstanceHARequest($body)
+    {
+        $resourcePath = '/EnableDBInstanceHA/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function enableShardedCluster($body = null)
     {
         list($response) = $this->enableShardedClusterWithHttpInfo($body);
@@ -4256,6 +4628,68 @@ class REDISApi
     protected function modifyDBInstanceMaxConnRequest($body)
     {
         $resourcePath = '/ModifyDBInstanceMaxConn/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyDBInstanceMinorVersion($body = null)
+    {
+        list($response) = $this->modifyDBInstanceMinorVersionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyDBInstanceMinorVersionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ModifyDBInstanceMinorVersionResponse';
+        $request = $this->modifyDBInstanceMinorVersionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyDBInstanceMinorVersionAsync($body = null)
+    {
+        return $this->modifyDBInstanceMinorVersionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyDBInstanceMinorVersionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ModifyDBInstanceMinorVersionResponse';
+        $request = $this->modifyDBInstanceMinorVersionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyDBInstanceMinorVersionRequest($body)
+    {
+        $resourcePath = '/ModifyDBInstanceMinorVersion/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5496,6 +5930,68 @@ class REDISApi
     protected function switchOverRequest($body)
     {
         $resourcePath = '/SwitchOver/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function switchoverBlueGreenDeployment($body = null)
+    {
+        list($response) = $this->switchoverBlueGreenDeploymentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function switchoverBlueGreenDeploymentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\SwitchoverBlueGreenDeploymentResponse';
+        $request = $this->switchoverBlueGreenDeploymentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function switchoverBlueGreenDeploymentAsync($body = null)
+    {
+        return $this->switchoverBlueGreenDeploymentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function switchoverBlueGreenDeploymentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\SwitchoverBlueGreenDeploymentResponse';
+        $request = $this->switchoverBlueGreenDeploymentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function switchoverBlueGreenDeploymentRequest($body)
+    {
+        $resourcePath = '/SwitchoverBlueGreenDeployment/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

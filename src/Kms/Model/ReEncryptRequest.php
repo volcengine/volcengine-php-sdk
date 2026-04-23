@@ -171,7 +171,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ciphertext_blob'] = isset($data['ciphertext_blob']) ? $data['ciphertext_blob'] : null;
         $this->container['new_encryption_context'] = isset($data['new_encryption_context']) ? $data['new_encryption_context'] : null;

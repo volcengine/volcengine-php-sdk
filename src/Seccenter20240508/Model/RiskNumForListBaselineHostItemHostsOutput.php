@@ -156,7 +156,7 @@ class RiskNumForListBaselineHostItemHostsOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['high_num'] = isset($data['high_num']) ? $data['high_num'] : null;
         $this->container['low_num'] = isset($data['low_num']) ? $data['low_num'] : null;

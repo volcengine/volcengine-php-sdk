@@ -151,7 +151,7 @@ class FlannelConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_pods_per_node'] = isset($data['max_pods_per_node']) ? $data['max_pods_per_node'] : null;
         $this->container['pod_cidrs'] = isset($data['pod_cidrs']) ? $data['pod_cidrs'] : null;

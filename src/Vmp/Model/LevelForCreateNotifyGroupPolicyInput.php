@@ -166,7 +166,7 @@ class LevelForCreateNotifyGroupPolicyInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group_by'] = isset($data['group_by']) ? $data['group_by'] : null;
         $this->container['group_interval'] = isset($data['group_interval']) ? $data['group_interval'] : null;

@@ -171,7 +171,7 @@ class UpgradeAXToAXBRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['call_display_type'] = isset($data['call_display_type']) ? $data['call_display_type'] : null;
         $this->container['number_pool_no'] = isset($data['number_pool_no']) ? $data['number_pool_no'] : null;

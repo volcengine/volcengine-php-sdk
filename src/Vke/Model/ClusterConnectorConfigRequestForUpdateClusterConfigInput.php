@@ -144,15 +144,18 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput implements ModelI
         return self::$swaggerModelName;
     }
 
+    const PROVIDER_VE_STACK = 'VeStack';
+    const PROVIDER_VKE = 'Vke';
     const PROVIDER_ACK = 'Ack';
     const PROVIDER_TKE = 'Tke';
     const PROVIDER_CCE = 'Cce';
+    const PROVIDER_NONE = 'None';
+    const PROVIDER_BAIDU_CCE = 'BaiduCce';
     const PROVIDER_GKE = 'Gke';
     const PROVIDER_EKS = 'Eks';
-    const PROVIDER_BAIDU_CCE = 'BaiduCce';
-    const PROVIDER_NONE = 'None';
     const TYPE_DIRECT = 'Direct';
     const TYPE_PROXY = 'Proxy';
+    const TYPE_AGENT = 'Agent';
     
 
     
@@ -164,13 +167,15 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput implements ModelI
     public function getProviderAllowableValues()
     {
         return [
+            self::PROVIDER_VE_STACK,
+            self::PROVIDER_VKE,
             self::PROVIDER_ACK,
             self::PROVIDER_TKE,
             self::PROVIDER_CCE,
+            self::PROVIDER_NONE,
+            self::PROVIDER_BAIDU_CCE,
             self::PROVIDER_GKE,
             self::PROVIDER_EKS,
-            self::PROVIDER_BAIDU_CCE,
-            self::PROVIDER_NONE,
         ];
     }
     
@@ -184,6 +189,7 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput implements ModelI
         return [
             self::TYPE_DIRECT,
             self::TYPE_PROXY,
+            self::TYPE_AGENT,
         ];
     }
     
@@ -201,7 +207,7 @@ class ClusterConnectorConfigRequestForUpdateClusterConfigInput implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['proxy_config'] = isset($data['proxy_config']) ? $data['proxy_config'] : null;

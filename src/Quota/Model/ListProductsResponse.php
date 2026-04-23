@@ -151,7 +151,7 @@ class ListProductsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['product_info'] = isset($data['product_info']) ? $data['product_info'] : null;
         $this->container['results_num'] = isset($data['results_num']) ? $data['results_num'] : null;

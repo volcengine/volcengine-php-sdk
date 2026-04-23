@@ -134,8 +134,23 @@ class SystemReservedForCreateDefaultNodePoolInput implements ModelInterface, Arr
         return self::$swaggerModelName;
     }
 
+    const NAME_CPU = 'cpu';
+    const NAME_MEMORY = 'memory';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNameAllowableValues()
+    {
+        return [
+            self::NAME_CPU,
+            self::NAME_MEMORY,
+        ];
+    }
     
 
     /**
@@ -151,7 +166,7 @@ class SystemReservedForCreateDefaultNodePoolInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
@@ -165,6 +180,14 @@ class SystemReservedForCreateDefaultNodePoolInput implements ModelInterface, Arr
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'name', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,6 +223,15 @@ class SystemReservedForCreateDefaultNodePoolInput implements ModelInterface, Arr
      */
     public function setName($name)
     {
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($name) && !in_array($name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'name', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['name'] = $name;
 
         return $this;

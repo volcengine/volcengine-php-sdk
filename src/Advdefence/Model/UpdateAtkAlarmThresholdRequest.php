@@ -161,7 +161,7 @@ class UpdateAtkAlarmThresholdRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['band_width'] = isset($data['band_width']) ? $data['band_width'] : null;
         $this->container['instance_ip'] = isset($data['instance_ip']) ? $data['instance_ip'] : null;

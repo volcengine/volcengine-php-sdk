@@ -156,7 +156,7 @@ class StorageConfigForCreateJobInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
         $this->container['sidecar_memory_ratio'] = isset($data['sidecar_memory_ratio']) ? $data['sidecar_memory_ratio'] : null;

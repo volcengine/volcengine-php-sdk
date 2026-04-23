@@ -151,7 +151,7 @@ class ReplaceDetailForCheckLLMResponseStreamOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;

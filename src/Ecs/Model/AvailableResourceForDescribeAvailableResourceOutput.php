@@ -151,7 +151,7 @@ class AvailableResourceForDescribeAvailableResourceOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['supported_resources'] = isset($data['supported_resources']) ? $data['supported_resources'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;

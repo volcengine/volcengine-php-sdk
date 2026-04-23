@@ -156,7 +156,7 @@ class DeleteConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consumer_id'] = isset($data['consumer_id']) ? $data['consumer_id'] : null;
         $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;

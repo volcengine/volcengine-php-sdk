@@ -34,7 +34,7 @@ class ConvertTranscodeAudioForGetExecutionOutput implements ModelInterface, Arra
         'dynamic_range' => 'string',
         'encoded_type' => 'string',
         'encrypt' => 'bool',
-        'encryption' => '\Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput',
+        'encryption' => '\Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput',
         'file_id' => 'string',
         'file_type' => 'string',
         'format' => 'string',
@@ -221,7 +221,7 @@ class ConvertTranscodeAudioForGetExecutionOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_stream_meta'] = isset($data['audio_stream_meta']) ? $data['audio_stream_meta'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
@@ -412,7 +412,7 @@ class ConvertTranscodeAudioForGetExecutionOutput implements ModelInterface, Arra
     /**
      * Gets encryption
      *
-     * @return \Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput
      */
     public function getEncryption()
     {
@@ -422,7 +422,7 @@ class ConvertTranscodeAudioForGetExecutionOutput implements ModelInterface, Arra
     /**
      * Sets encryption
      *
-     * @param \Volcengine\Vod20250101\Model\EncryptionForGetExecutionOutput $encryption encryption
+     * @param \Volcengine\Vod20250101\Model\ConvertEncryptionForGetExecutionOutput $encryption encryption
      *
      * @return $this
      */

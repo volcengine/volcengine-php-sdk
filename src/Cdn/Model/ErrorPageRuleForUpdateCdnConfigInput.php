@@ -146,7 +146,7 @@ class ErrorPageRuleForUpdateCdnConfigInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['error_page_action'] = isset($data['error_page_action']) ? $data['error_page_action'] : null;
     }

@@ -151,7 +151,7 @@ class IpsForListJobInstancesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['host_ip'] = isset($data['host_ip']) ? $data['host_ip'] : null;
         $this->container['primary_ip'] = isset($data['primary_ip']) ? $data['primary_ip'] : null;

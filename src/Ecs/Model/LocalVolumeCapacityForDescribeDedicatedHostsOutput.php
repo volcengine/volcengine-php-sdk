@@ -156,7 +156,7 @@ class LocalVolumeCapacityForDescribeDedicatedHostsOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_size'] = isset($data['available_size']) ? $data['available_size'] : null;
         $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;

@@ -156,7 +156,7 @@ class AttributeForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['confidence'] = isset($data['confidence']) ? $data['confidence'] : null;
         $this->container['event'] = isset($data['event']) ? $data['event'] : null;

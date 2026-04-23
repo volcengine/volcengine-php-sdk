@@ -151,7 +151,7 @@ class DescribeAttackFlowResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instance_result'] = isset($data['instance_result']) ? $data['instance_result'] : null;
         $this->container['overall_result'] = isset($data['overall_result']) ? $data['overall_result'] : null;

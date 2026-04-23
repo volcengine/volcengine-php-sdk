@@ -196,7 +196,7 @@ class FaceFusionMovieSubmitTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dermabrasion'] = isset($data['dermabrasion']) ? $data['dermabrasion'] : null;
         $this->container['enable_face_beautify'] = isset($data['enable_face_beautify']) ? $data['enable_face_beautify'] : null;

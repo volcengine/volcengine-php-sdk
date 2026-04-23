@@ -151,7 +151,7 @@ class BackSrcQpsFlowForDescWebQpsFlowOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['qps'] = isset($data['qps']) ? $data['qps'] : null;
         $this->container['time_stamp'] = isset($data['time_stamp']) ? $data['time_stamp'] : null;

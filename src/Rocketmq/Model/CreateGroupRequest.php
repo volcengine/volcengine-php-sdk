@@ -171,7 +171,7 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consume_message_orderly'] = isset($data['consume_message_orderly']) ? $data['consume_message_orderly'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

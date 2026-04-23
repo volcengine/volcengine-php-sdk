@@ -151,7 +151,7 @@ class GetNamespaceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;

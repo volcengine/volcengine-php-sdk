@@ -186,7 +186,7 @@ class KeyUsagesForCreateLeafInstanceInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['crl_sign'] = isset($data['crl_sign']) ? $data['crl_sign'] : null;
         $this->container['data_encipherment'] = isset($data['data_encipherment']) ? $data['data_encipherment'] : null;

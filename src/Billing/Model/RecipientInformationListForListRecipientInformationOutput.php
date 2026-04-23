@@ -161,7 +161,7 @@ class RecipientInformationListForListRecipientInformationOutput implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['recipient_email'] = isset($data['recipient_email']) ? $data['recipient_email'] : null;
         $this->container['recipient_id'] = isset($data['recipient_id']) ? $data['recipient_id'] : null;

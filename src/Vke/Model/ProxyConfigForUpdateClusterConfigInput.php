@@ -166,7 +166,7 @@ class ProxyConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['acl_enabled'] = isset($data['acl_enabled']) ? $data['acl_enabled'] : null;
         $this->container['acl_ip_whitelist'] = isset($data['acl_ip_whitelist']) ? $data['acl_ip_whitelist'] : null;

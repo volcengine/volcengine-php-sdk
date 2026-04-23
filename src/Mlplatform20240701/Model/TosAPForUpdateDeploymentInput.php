@@ -171,7 +171,7 @@ class TosAPForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['accelerator_id'] = isset($data['accelerator_id']) ? $data['accelerator_id'] : null;
         $this->container['accelerator_name'] = isset($data['accelerator_name']) ? $data['accelerator_name'] : null;

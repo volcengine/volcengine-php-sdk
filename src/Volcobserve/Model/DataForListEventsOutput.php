@@ -176,7 +176,7 @@ class DataForListEventsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['detail'] = isset($data['detail']) ? $data['detail'] : null;
         $this->container['event_bus_name'] = isset($data['event_bus_name']) ? $data['event_bus_name'] : null;

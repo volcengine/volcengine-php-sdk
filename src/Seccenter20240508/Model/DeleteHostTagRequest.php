@@ -161,7 +161,7 @@ class DeleteHostTagRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['before_tag'] = isset($data['before_tag']) ? $data['before_tag'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;

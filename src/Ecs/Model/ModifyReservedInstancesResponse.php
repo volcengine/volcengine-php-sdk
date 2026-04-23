@@ -146,7 +146,7 @@ class ModifyReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['reserved_instance_ids'] = isset($data['reserved_instance_ids']) ? $data['reserved_instance_ids'] : null;
     }

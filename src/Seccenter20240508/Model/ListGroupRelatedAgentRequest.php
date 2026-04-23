@@ -146,7 +146,7 @@ class ListGroupRelatedAgentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
     }
@@ -160,9 +160,6 @@ class ListGroupRelatedAgentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['group'] === null) {
-            $invalidProperties[] = "'group' can't be null";
-        }
         return $invalidProperties;
     }
 

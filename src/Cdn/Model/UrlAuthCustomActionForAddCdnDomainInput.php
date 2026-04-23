@@ -166,7 +166,7 @@ class UrlAuthCustomActionForAddCdnDomainInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['exp_time_cap_rule'] = isset($data['exp_time_cap_rule']) ? $data['exp_time_cap_rule'] : null;
         $this->container['param_cal_rules'] = isset($data['param_cal_rules']) ? $data['param_cal_rules'] : null;

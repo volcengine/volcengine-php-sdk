@@ -166,7 +166,7 @@ class SecurityGroupBindInfoForCreateAllowListInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bind_mode'] = isset($data['bind_mode']) ? $data['bind_mode'] : null;
         $this->container['security_group_id'] = isset($data['security_group_id']) ? $data['security_group_id'] : null;

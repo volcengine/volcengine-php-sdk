@@ -151,7 +151,7 @@ class VulnListForGetMlpAlarmSummaryInfoOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cve'] = isset($data['cve']) ? $data['cve'] : null;
         $this->container['title_cn'] = isset($data['title_cn']) ? $data['title_cn'] : null;

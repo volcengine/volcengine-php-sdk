@@ -146,7 +146,7 @@ class DescribeDBNodeParameterDifferencesResponse implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_different_parameters'] = isset($data['node_different_parameters']) ? $data['node_different_parameters'] : null;
     }

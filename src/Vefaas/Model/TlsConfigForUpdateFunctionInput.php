@@ -156,7 +156,7 @@ class TlsConfigForUpdateFunctionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_log'] = isset($data['enable_log']) ? $data['enable_log'] : null;
         $this->container['tls_project_id'] = isset($data['tls_project_id']) ? $data['tls_project_id'] : null;

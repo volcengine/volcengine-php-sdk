@@ -226,7 +226,7 @@ class EvidenceChainDetailForGetAlarmDetailOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action_advice'] = isset($data['action_advice']) ? $data['action_advice'] : null;
         $this->container['alarm_raw_data'] = isset($data['alarm_raw_data']) ? $data['alarm_raw_data'] : null;

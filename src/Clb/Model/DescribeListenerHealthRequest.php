@@ -161,7 +161,7 @@ class DescribeListenerHealthRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;
         $this->container['only_un_healthy'] = isset($data['only_un_healthy']) ? $data['only_un_healthy'] : null;

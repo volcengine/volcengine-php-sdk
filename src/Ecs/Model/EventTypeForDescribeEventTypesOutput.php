@@ -171,7 +171,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;

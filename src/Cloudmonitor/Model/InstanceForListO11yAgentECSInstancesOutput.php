@@ -181,7 +181,7 @@ class InstanceForListO11yAgentECSInstancesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['agent_error'] = isset($data['agent_error']) ? $data['agent_error'] : null;
         $this->container['agent_status'] = isset($data['agent_status']) ? $data['agent_status'] : null;

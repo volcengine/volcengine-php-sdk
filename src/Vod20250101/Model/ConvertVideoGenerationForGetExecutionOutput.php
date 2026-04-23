@@ -31,7 +31,7 @@ class ConvertVideoGenerationForGetExecutionOutput implements ModelInterface, Arr
         'duration' => 'double',
         'model' => 'string',
         'resolution' => 'string',
-        'video' => '\Volcengine\Vod20250101\Model\VideoForGetExecutionOutput'
+        'video' => '\Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput'
     ];
 
     /**
@@ -161,7 +161,7 @@ class ConvertVideoGenerationForGetExecutionOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
@@ -268,7 +268,7 @@ class ConvertVideoGenerationForGetExecutionOutput implements ModelInterface, Arr
     /**
      * Gets video
      *
-     * @return \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput
      */
     public function getVideo()
     {
@@ -278,7 +278,7 @@ class ConvertVideoGenerationForGetExecutionOutput implements ModelInterface, Arr
     /**
      * Sets video
      *
-     * @param \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput $video video
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertVideoForGetExecutionOutput $video video
      *
      * @return $this
      */

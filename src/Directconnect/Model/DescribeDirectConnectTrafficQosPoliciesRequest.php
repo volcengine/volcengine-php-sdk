@@ -161,7 +161,7 @@ class DescribeDirectConnectTrafficQosPoliciesRequest implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['direct_connect_traffic_qos_policy_ids'] = isset($data['direct_connect_traffic_qos_policy_ids']) ? $data['direct_connect_traffic_qos_policy_ids'] : null;
         $this->container['direct_connect_traffic_qos_policy_name'] = isset($data['direct_connect_traffic_qos_policy_name']) ? $data['direct_connect_traffic_qos_policy_name'] : null;

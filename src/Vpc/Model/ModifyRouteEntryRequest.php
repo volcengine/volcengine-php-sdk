@@ -29,6 +29,8 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'next_hop_id' => 'string',
+        'next_hop_type' => 'string',
         'route_entry_id' => 'string',
         'route_entry_name' => 'string'
     ];
@@ -40,6 +42,8 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'next_hop_id' => null,
+        'next_hop_type' => null,
         'route_entry_id' => null,
         'route_entry_name' => null
     ];
@@ -72,6 +76,8 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'next_hop_id' => 'NextHopId',
+        'next_hop_type' => 'NextHopType',
         'route_entry_id' => 'RouteEntryId',
         'route_entry_name' => 'RouteEntryName'
     ];
@@ -83,6 +89,8 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'next_hop_id' => 'setNextHopId',
+        'next_hop_type' => 'setNextHopType',
         'route_entry_id' => 'setRouteEntryId',
         'route_entry_name' => 'setRouteEntryName'
     ];
@@ -94,6 +102,8 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'next_hop_id' => 'getNextHopId',
+        'next_hop_type' => 'getNextHopType',
         'route_entry_id' => 'getRouteEntryId',
         'route_entry_name' => 'getRouteEntryName'
     ];
@@ -156,9 +166,11 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
+        $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
         $this->container['route_entry_id'] = isset($data['route_entry_id']) ? $data['route_entry_id'] : null;
         $this->container['route_entry_name'] = isset($data['route_entry_name']) ? $data['route_entry_name'] : null;
     }
@@ -210,6 +222,54 @@ class ModifyRouteEntryRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_hop_id
+     *
+     * @return string
+     */
+    public function getNextHopId()
+    {
+        return $this->container['next_hop_id'];
+    }
+
+    /**
+     * Sets next_hop_id
+     *
+     * @param string $next_hop_id next_hop_id
+     *
+     * @return $this
+     */
+    public function setNextHopId($next_hop_id)
+    {
+        $this->container['next_hop_id'] = $next_hop_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_hop_type
+     *
+     * @return string
+     */
+    public function getNextHopType()
+    {
+        return $this->container['next_hop_type'];
+    }
+
+    /**
+     * Sets next_hop_type
+     *
+     * @param string $next_hop_type next_hop_type
+     *
+     * @return $this
+     */
+    public function setNextHopType($next_hop_type)
+    {
+        $this->container['next_hop_type'] = $next_hop_type;
 
         return $this;
     }

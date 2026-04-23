@@ -146,7 +146,7 @@ class GetUserProvisioningRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['user_provisioning_id'] = isset($data['user_provisioning_id']) ? $data['user_provisioning_id'] : null;
     }

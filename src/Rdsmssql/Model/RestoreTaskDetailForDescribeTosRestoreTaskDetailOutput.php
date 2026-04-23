@@ -181,7 +181,7 @@ class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;

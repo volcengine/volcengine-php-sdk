@@ -28,6 +28,7 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'network_interface_id' => 'string',
         'private_ip_address' => 'string[]'
     ];
@@ -38,6 +39,7 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'network_interface_id' => null,
         'private_ip_address' => null
     ];
@@ -69,6 +71,7 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'network_interface_id' => 'NetworkInterfaceId',
         'private_ip_address' => 'PrivateIpAddress'
     ];
@@ -79,6 +82,7 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'network_interface_id' => 'setNetworkInterfaceId',
         'private_ip_address' => 'setPrivateIpAddress'
     ];
@@ -89,6 +93,7 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'network_interface_id' => 'getNetworkInterfaceId',
         'private_ip_address' => 'getPrivateIpAddress'
     ];
@@ -151,8 +156,9 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['private_ip_address'] = isset($data['private_ip_address']) ? $data['private_ip_address'] : null;
     }
@@ -183,6 +189,30 @@ class UnassignPrivateIpAddressesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets network_interface_id

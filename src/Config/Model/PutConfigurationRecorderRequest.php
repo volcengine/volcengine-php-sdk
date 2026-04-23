@@ -156,7 +156,7 @@ class PutConfigurationRecorderRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['include_all_resource_types'] = isset($data['include_all_resource_types']) ? $data['include_all_resource_types'] : null;
         $this->container['include_resource_types'] = isset($data['include_resource_types']) ? $data['include_resource_types'] : null;

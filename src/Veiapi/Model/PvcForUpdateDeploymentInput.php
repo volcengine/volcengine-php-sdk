@@ -146,7 +146,7 @@ class PvcForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pvc_name'] = isset($data['pvc_name']) ? $data['pvc_name'] : null;
     }

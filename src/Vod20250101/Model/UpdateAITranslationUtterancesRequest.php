@@ -176,7 +176,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
         $this->container['input_subtitle_file_name'] = isset($data['input_subtitle_file_name']) ? $data['input_subtitle_file_name'] : null;

@@ -161,7 +161,7 @@ class ModifyNLBListenerAdditionalCertificatesRequest implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['associate_certificate_ids'] = isset($data['associate_certificate_ids']) ? $data['associate_certificate_ids'] : null;
         $this->container['associate_certificate_source'] = isset($data['associate_certificate_source']) ? $data['associate_certificate_source'] : null;

@@ -156,7 +156,7 @@ class ModifyTemplateDefaultVersionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_version_number'] = isset($data['default_version_number']) ? $data['default_version_number'] : null;
         $this->container['launch_template_id'] = isset($data['launch_template_id']) ? $data['launch_template_id'] : null;

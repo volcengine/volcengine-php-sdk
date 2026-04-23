@@ -151,7 +151,7 @@ class ResponseHeaderForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['aliases_in_log'] = isset($data['aliases_in_log']) ? $data['aliases_in_log'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;

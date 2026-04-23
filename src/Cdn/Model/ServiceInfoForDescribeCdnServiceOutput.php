@@ -206,7 +206,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
         $this->container['billing_code'] = isset($data['billing_code']) ? $data['billing_code'] : null;

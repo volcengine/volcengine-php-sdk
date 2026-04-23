@@ -171,7 +171,7 @@ class ChannelInfoForUpdateChannelInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;

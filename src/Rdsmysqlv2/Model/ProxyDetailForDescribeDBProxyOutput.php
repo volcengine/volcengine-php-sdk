@@ -151,7 +151,7 @@ class ProxyDetailForDescribeDBProxyOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_proxy_status'] = isset($data['db_proxy_status']) ? $data['db_proxy_status'] : null;
         $this->container['proxy_resource_info'] = isset($data['proxy_resource_info']) ? $data['proxy_resource_info'] : null;

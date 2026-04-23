@@ -161,7 +161,7 @@ class ErrorPageActionForAddCdnDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['redirect_code'] = isset($data['redirect_code']) ? $data['redirect_code'] : null;

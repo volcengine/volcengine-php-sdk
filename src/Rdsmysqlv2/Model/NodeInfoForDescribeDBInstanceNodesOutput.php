@@ -201,7 +201,7 @@ class NodeInfoForDescribeDBInstanceNodesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cpu_used_percentage'] = isset($data['cpu_used_percentage']) ? $data['cpu_used_percentage'] : null;
         $this->container['last_io_error'] = isset($data['last_io_error']) ? $data['last_io_error'] : null;

@@ -156,7 +156,7 @@ class MultiLevelManagementForGetTenantQuotaOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['app_sec'] = isset($data['app_sec']) ? $data['app_sec'] : null;
         $this->container['cluster_sec'] = isset($data['cluster_sec']) ? $data['cluster_sec'] : null;

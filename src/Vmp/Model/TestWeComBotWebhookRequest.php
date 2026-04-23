@@ -151,7 +151,7 @@ class TestWeComBotWebhookRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['at_user_ids'] = isset($data['at_user_ids']) ? $data['at_user_ids'] : null;

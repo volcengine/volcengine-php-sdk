@@ -253,7 +253,7 @@ class ListServicesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_time_after'] = isset($data['create_time_after']) ? $data['create_time_after'] : null;
         $this->container['create_time_before'] = isset($data['create_time_before']) ? $data['create_time_before'] : null;

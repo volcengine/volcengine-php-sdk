@@ -256,7 +256,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
         $this->container['allocation_time'] = isset($data['allocation_time']) ? $data['allocation_time'] : null;

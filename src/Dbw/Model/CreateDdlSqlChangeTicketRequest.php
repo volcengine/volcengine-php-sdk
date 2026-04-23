@@ -186,7 +186,7 @@ class CreateDdlSqlChangeTicketRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['database_name'] = isset($data['database_name']) ? $data['database_name'] : null;
         $this->container['exec_end_time'] = isset($data['exec_end_time']) ? $data['exec_end_time'] : null;

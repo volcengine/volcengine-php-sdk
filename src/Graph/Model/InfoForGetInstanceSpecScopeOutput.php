@@ -156,7 +156,7 @@ class InfoForGetInstanceSpecScopeOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['disk_space_scope'] = isset($data['disk_space_scope']) ? $data['disk_space_scope'] : null;
         $this->container['inst_spec_list'] = isset($data['inst_spec_list']) ? $data['inst_spec_list'] : null;

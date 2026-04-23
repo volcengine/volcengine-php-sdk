@@ -161,7 +161,7 @@ class DescribeCenAttachedInstanceAttributesRequest implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cen_id'] = isset($data['cen_id']) ? $data['cen_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

@@ -151,7 +151,7 @@ class DescribeKeysResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
         $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;

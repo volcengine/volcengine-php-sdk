@@ -151,7 +151,7 @@ class ListProductQuotaDimensionsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['provider_code'] = isset($data['provider_code']) ? $data['provider_code'] : null;
         $this->container['quota_type'] = isset($data['quota_type']) ? $data['quota_type'] : null;

@@ -161,7 +161,7 @@ class LevelForGetNotifyPolicyOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
         $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;

@@ -199,7 +199,7 @@ class ListPublicImageReposRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;

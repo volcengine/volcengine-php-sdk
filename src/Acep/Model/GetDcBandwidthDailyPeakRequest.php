@@ -161,7 +161,7 @@ class GetDcBandwidthDailyPeakRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dc_id_list'] = isset($data['dc_id_list']) ? $data['dc_id_list'] : null;
         $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;

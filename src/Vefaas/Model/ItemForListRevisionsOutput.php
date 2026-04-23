@@ -286,7 +286,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['async_task_config'] = isset($data['async_task_config']) ? $data['async_task_config'] : null;
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;

@@ -151,7 +151,7 @@ class Oauth2DiscoveryForGetOauth2CredentialProviderOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorization_server_metadata'] = isset($data['authorization_server_metadata']) ? $data['authorization_server_metadata'] : null;
         $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;

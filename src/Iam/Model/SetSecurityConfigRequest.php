@@ -156,7 +156,7 @@ class SetSecurityConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['safe_auth_exempt_duration'] = isset($data['safe_auth_exempt_duration']) ? $data['safe_auth_exempt_duration'] : null;
         $this->container['safe_auth_type'] = isset($data['safe_auth_type']) ? $data['safe_auth_type'] : null;

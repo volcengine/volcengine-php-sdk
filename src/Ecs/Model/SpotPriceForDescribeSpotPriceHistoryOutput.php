@@ -161,7 +161,7 @@ class SpotPriceForDescribeSpotPriceHistoryOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['spot_price'] = isset($data['spot_price']) ? $data['spot_price'] : null;

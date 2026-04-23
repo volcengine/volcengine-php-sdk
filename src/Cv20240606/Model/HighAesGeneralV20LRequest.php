@@ -201,7 +201,7 @@ class HighAesGeneralV20LRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ddim_steps'] = isset($data['ddim_steps']) ? $data['ddim_steps'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;

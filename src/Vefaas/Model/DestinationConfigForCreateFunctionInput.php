@@ -151,7 +151,7 @@ class DestinationConfigForCreateFunctionInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['on_failure'] = isset($data['on_failure']) ? $data['on_failure'] : null;
         $this->container['on_success'] = isset($data['on_success']) ? $data['on_success'] : null;

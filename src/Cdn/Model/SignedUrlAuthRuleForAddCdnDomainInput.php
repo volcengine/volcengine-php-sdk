@@ -151,7 +151,7 @@ class SignedUrlAuthRuleForAddCdnDomainInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['signed_url_auth_action'] = isset($data['signed_url_auth_action']) ? $data['signed_url_auth_action'] : null;

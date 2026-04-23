@@ -176,7 +176,7 @@ class ModifyScalingPolicyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adjustment_type'] = isset($data['adjustment_type']) ? $data['adjustment_type'] : null;
         $this->container['adjustment_value'] = isset($data['adjustment_value']) ? $data['adjustment_value'] : null;

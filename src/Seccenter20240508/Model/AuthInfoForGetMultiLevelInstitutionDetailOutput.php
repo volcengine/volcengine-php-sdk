@@ -166,7 +166,7 @@ class AuthInfoForGetMultiLevelInstitutionDetailOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['app_sec_open'] = isset($data['app_sec_open']) ? $data['app_sec_open'] : null;
         $this->container['cluster_sec_open'] = isset($data['cluster_sec_open']) ? $data['cluster_sec_open'] : null;

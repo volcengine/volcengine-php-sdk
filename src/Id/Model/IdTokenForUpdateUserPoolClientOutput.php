@@ -146,7 +146,7 @@ class IdTokenForUpdateUserPoolClientOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lifetime_seconds'] = isset($data['lifetime_seconds']) ? $data['lifetime_seconds'] : null;
     }

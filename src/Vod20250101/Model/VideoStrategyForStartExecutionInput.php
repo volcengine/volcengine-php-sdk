@@ -151,7 +151,7 @@ class VideoStrategyForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['repair_strength'] = isset($data['repair_strength']) ? $data['repair_strength'] : null;
         $this->container['repair_style'] = isset($data['repair_style']) ? $data['repair_style'] : null;

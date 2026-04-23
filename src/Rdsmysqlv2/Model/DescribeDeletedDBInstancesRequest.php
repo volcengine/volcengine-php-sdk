@@ -181,7 +181,7 @@ class DescribeDeletedDBInstancesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['deletion_after_time'] = isset($data['deletion_after_time']) ? $data['deletion_after_time'] : null;
         $this->container['deletion_before_time'] = isset($data['deletion_before_time']) ? $data['deletion_before_time'] : null;

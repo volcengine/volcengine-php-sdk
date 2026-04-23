@@ -161,7 +161,7 @@ class ModifyCrossBackupPolicyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_enabled'] = isset($data['backup_enabled']) ? $data['backup_enabled'] : null;
         $this->container['cross_backup_region'] = isset($data['cross_backup_region']) ? $data['cross_backup_region'] : null;

@@ -171,7 +171,7 @@ class ImageInfoForDescribeMigrationSourcesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['boot_mode'] = isset($data['boot_mode']) ? $data['boot_mode'] : null;
         $this->container['kernel_version'] = isset($data['kernel_version']) ? $data['kernel_version'] : null;

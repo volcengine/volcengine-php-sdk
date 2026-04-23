@@ -151,7 +151,7 @@ class UninstallCloudAssistantsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_instances'] = isset($data['failed_instances']) ? $data['failed_instances'] : null;
         $this->container['uninstalling_instance_ids'] = isset($data['uninstalling_instance_ids']) ? $data['uninstalling_instance_ids'] : null;

@@ -151,7 +151,7 @@ class RecordForQueryAudioRecordToTextFileUrlV2Output implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_record_to_text_file_url'] = isset($data['audio_record_to_text_file_url']) ? $data['audio_record_to_text_file_url'] : null;
         $this->container['call_id'] = isset($data['call_id']) ? $data['call_id'] : null;

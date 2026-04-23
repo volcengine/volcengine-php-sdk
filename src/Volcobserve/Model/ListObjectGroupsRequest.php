@@ -28,6 +28,7 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alert_template_ids' => 'string[]',
         'ids' => 'string[]',
         'name' => 'string',
         'page_number' => 'int',
@@ -40,6 +41,7 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alert_template_ids' => null,
         'ids' => null,
         'name' => null,
         'page_number' => null,
@@ -73,6 +75,7 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'alert_template_ids' => 'AlertTemplateIds',
         'ids' => 'Ids',
         'name' => 'Name',
         'page_number' => 'PageNumber',
@@ -85,6 +88,7 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'alert_template_ids' => 'setAlertTemplateIds',
         'ids' => 'setIds',
         'name' => 'setName',
         'page_number' => 'setPageNumber',
@@ -97,6 +101,7 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'alert_template_ids' => 'getAlertTemplateIds',
         'ids' => 'getIds',
         'name' => 'getName',
         'page_number' => 'getPageNumber',
@@ -161,8 +166,9 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
+        $this->container['alert_template_ids'] = isset($data['alert_template_ids']) ? $data['alert_template_ids'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -192,6 +198,30 @@ class ListObjectGroupsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets alert_template_ids
+     *
+     * @return string[]
+     */
+    public function getAlertTemplateIds()
+    {
+        return $this->container['alert_template_ids'];
+    }
+
+    /**
+     * Sets alert_template_ids
+     *
+     * @param string[] $alert_template_ids alert_template_ids
+     *
+     * @return $this
+     */
+    public function setAlertTemplateIds($alert_template_ids)
+    {
+        $this->container['alert_template_ids'] = $alert_template_ids;
+
+        return $this;
+    }
 
     /**
      * Gets ids

@@ -306,7 +306,7 @@ class StatusForListJobsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consume_retried_times'] = isset($data['consume_retried_times']) ? $data['consume_retried_times'] : null;
         $this->container['diagnose_message'] = isset($data['diagnose_message']) ? $data['diagnose_message'] : null;

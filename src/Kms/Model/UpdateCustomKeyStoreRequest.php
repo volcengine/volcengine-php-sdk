@@ -201,7 +201,7 @@ class UpdateCustomKeyStoreRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_key_store_id'] = isset($data['custom_key_store_id']) ? $data['custom_key_store_id'] : null;
         $this->container['new_custom_key_store_name'] = isset($data['new_custom_key_store_name']) ? $data['new_custom_key_store_name'] : null;

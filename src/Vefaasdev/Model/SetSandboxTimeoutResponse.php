@@ -156,7 +156,7 @@ class SetSandboxTimeoutResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;

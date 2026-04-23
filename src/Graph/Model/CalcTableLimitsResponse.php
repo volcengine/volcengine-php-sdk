@@ -146,7 +146,7 @@ class CalcTableLimitsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['table_limits'] = isset($data['table_limits']) ? $data['table_limits'] : null;
     }

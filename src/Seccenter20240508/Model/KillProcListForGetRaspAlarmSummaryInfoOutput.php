@@ -151,7 +151,7 @@ class KillProcListForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cmdline'] = isset($data['cmdline']) ? $data['cmdline'] : null;
         $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;

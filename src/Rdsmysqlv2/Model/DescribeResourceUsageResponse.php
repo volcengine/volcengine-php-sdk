@@ -231,7 +231,7 @@ class DescribeResourceUsageResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_audit_log_size'] = isset($data['backup_audit_log_size']) ? $data['backup_audit_log_size'] : null;
         $this->container['backup_bin_log_size'] = isset($data['backup_bin_log_size']) ? $data['backup_bin_log_size'] : null;

@@ -156,7 +156,7 @@ class TableColumnPrivilegeForCreateDBAccountInput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['column_privileges'] = isset($data['column_privileges']) ? $data['column_privileges'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;

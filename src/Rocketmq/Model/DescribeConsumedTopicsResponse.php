@@ -156,7 +156,7 @@ class DescribeConsumedTopicsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['accumulation'] = isset($data['accumulation']) ? $data['accumulation'] : null;
         $this->container['consumed_topics_info'] = isset($data['consumed_topics_info']) ? $data['consumed_topics_info'] : null;

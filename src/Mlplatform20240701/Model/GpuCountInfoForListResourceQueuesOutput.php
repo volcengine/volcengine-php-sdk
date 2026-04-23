@@ -151,7 +151,7 @@ class GpuCountInfoForListResourceQueuesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['gpu_type'] = isset($data['gpu_type']) ? $data['gpu_type'] : null;

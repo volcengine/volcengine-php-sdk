@@ -307,7 +307,7 @@ class NatGatewayForDescribeNatGatewaysOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['business_status'] = isset($data['business_status']) ? $data['business_status'] : null;

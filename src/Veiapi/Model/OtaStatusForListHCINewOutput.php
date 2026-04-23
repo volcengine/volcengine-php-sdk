@@ -166,7 +166,7 @@ class OtaStatusForListHCINewOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['fail_message'] = isset($data['fail_message']) ? $data['fail_message'] : null;
         $this->container['need_manual_upgrade'] = isset($data['need_manual_upgrade']) ? $data['need_manual_upgrade'] : null;

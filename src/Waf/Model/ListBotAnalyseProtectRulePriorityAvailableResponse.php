@@ -146,7 +146,7 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['rule_priority'] = isset($data['rule_priority']) ? $data['rule_priority'] : null;
     }

@@ -156,7 +156,7 @@ class RenewLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;

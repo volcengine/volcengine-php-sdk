@@ -246,7 +246,7 @@ class ModifyScalingConfigurationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['eip'] = isset($data['eip']) ? $data['eip'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;

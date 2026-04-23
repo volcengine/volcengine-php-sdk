@@ -146,7 +146,7 @@ class DeleteResourceShareRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['resource_share_trn'] = isset($data['resource_share_trn']) ? $data['resource_share_trn'] : null;
     }
