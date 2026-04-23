@@ -32,6 +32,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => 'string',
         'cover_url' => 'string',
         'dedup_id' => 'string',
+        'doc_status' => 'string',
         'emotion' => 'string',
         'fans_count' => 'int',
         'is_follow' => 'bool',
@@ -59,6 +60,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => null,
         'cover_url' => null,
         'dedup_id' => null,
+        'doc_status' => null,
         'emotion' => null,
         'fans_count' => 'int32',
         'is_follow' => null,
@@ -107,6 +109,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => 'Content',
         'cover_url' => 'CoverUrl',
         'dedup_id' => 'DedupID',
+        'doc_status' => 'DocStatus',
         'emotion' => 'Emotion',
         'fans_count' => 'FansCount',
         'is_follow' => 'IsFollow',
@@ -134,6 +137,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => 'setContent',
         'cover_url' => 'setCoverUrl',
         'dedup_id' => 'setDedupId',
+        'doc_status' => 'setDocStatus',
         'emotion' => 'setEmotion',
         'fans_count' => 'setFansCount',
         'is_follow' => 'setIsFollow',
@@ -161,6 +165,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => 'getContent',
         'cover_url' => 'getCoverUrl',
         'dedup_id' => 'getDedupId',
+        'doc_status' => 'getDocStatus',
         'emotion' => 'getEmotion',
         'fans_count' => 'getFansCount',
         'is_follow' => 'getIsFollow',
@@ -242,6 +247,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['cover_url'] = isset($data['cover_url']) ? $data['cover_url'] : null;
         $this->container['dedup_id'] = isset($data['dedup_id']) ? $data['dedup_id'] : null;
+        $this->container['doc_status'] = isset($data['doc_status']) ? $data['doc_status'] : null;
         $this->container['emotion'] = isset($data['emotion']) ? $data['emotion'] : null;
         $this->container['fans_count'] = isset($data['fans_count']) ? $data['fans_count'] : null;
         $this->container['is_follow'] = isset($data['is_follow']) ? $data['is_follow'] : null;
@@ -375,6 +381,30 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     public function setDedupId($dedup_id)
     {
         $this->container['dedup_id'] = $dedup_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets doc_status
+     *
+     * @return string
+     */
+    public function getDocStatus()
+    {
+        return $this->container['doc_status'];
+    }
+
+    /**
+     * Sets doc_status
+     *
+     * @param string $doc_status doc_status
+     *
+     * @return $this
+     */
+    public function setDocStatus($doc_status)
+    {
+        $this->container['doc_status'] = $doc_status;
 
         return $this;
     }
