@@ -29,7 +29,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'model_id' => 'string',
-        'model_name' => 'string',
         'model_source' => 'string'
     ];
 
@@ -40,7 +39,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'model_id' => null,
-        'model_name' => null,
         'model_source' => null
     ];
 
@@ -72,7 +70,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'model_id' => 'ModelId',
-        'model_name' => 'ModelName',
         'model_source' => 'ModelSource'
     ];
 
@@ -83,7 +80,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     protected static $setters = [
         'model_id' => 'setModelId',
-        'model_name' => 'setModelName',
         'model_source' => 'setModelSource'
     ];
 
@@ -94,7 +90,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
      */
     protected static $getters = [
         'model_id' => 'getModelId',
-        'model_name' => 'getModelName',
         'model_source' => 'getModelSource'
     ];
 
@@ -159,7 +154,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
-        $this->container['model_name'] = isset($data['model_name']) ? $data['model_name'] : null;
         $this->container['model_source'] = isset($data['model_source']) ? $data['model_source'] : null;
     }
 
@@ -207,30 +201,6 @@ class ModelConfigForCreateClawOmniInstanceInput implements ModelInterface, Array
     public function setModelId($model_id)
     {
         $this->container['model_id'] = $model_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets model_name
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return $this->container['model_name'];
-    }
-
-    /**
-     * Sets model_name
-     *
-     * @param string $model_name model_name
-     *
-     * @return $this
-     */
-    public function setModelName($model_name)
-    {
-        $this->container['model_name'] = $model_name;
 
         return $this;
     }

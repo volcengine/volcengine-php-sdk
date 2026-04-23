@@ -192,6 +192,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function executeClawOmniInstanceCommand($body = null)
+    {
+        list($response) = $this->executeClawOmniInstanceCommandWithHttpInfo($body);
+        return $response;
+    }
+
+    public function executeClawOmniInstanceCommandWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ExecuteClawOmniInstanceCommandResponse';
+        $request = $this->executeClawOmniInstanceCommandRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function executeClawOmniInstanceCommandAsync($body = null)
+    {
+        return $this->executeClawOmniInstanceCommandAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function executeClawOmniInstanceCommandAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ExecuteClawOmniInstanceCommandResponse';
+        $request = $this->executeClawOmniInstanceCommandRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function executeClawOmniInstanceCommandRequest($body)
+    {
+        $resourcePath = '/ExecuteClawOmniInstanceCommand/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getClawOmniInstance($body = null)
     {
         list($response) = $this->getClawOmniInstanceWithHttpInfo($body);
