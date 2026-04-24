@@ -150,6 +150,6 @@ class StsFormRequest
         }
         $query = rtrim($query, '&');
 
-        return $base . ($query ? '/?' . $query : '');
+        return $base . ($query ? '?' . $query : '');
     }
 }

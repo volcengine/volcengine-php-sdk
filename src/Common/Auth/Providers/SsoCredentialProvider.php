@@ -176,7 +176,7 @@ class SsoCredentialProvider extends Provider
         $payload = json_encode([
             'start_url' => $startURL,
             'session_name' => $sessionName,
-        ]);
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         return sha1($payload) . '.json';
     }
 

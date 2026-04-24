@@ -27,12 +27,13 @@ class CLIConfigCredentialProvider extends Provider
             return $this->cachedCredentials;
         }
 
-        $this->cachedCredentials = $this->loadFromConfig();
+        $loaded = $this->loadFromConfig();
 
         if ($this->delegate !== null) {
             return $this->delegate->getCredentials();
         }
 
+        $this->cachedCredentials = $loaded;
         return $this->cachedCredentials;
     }
 

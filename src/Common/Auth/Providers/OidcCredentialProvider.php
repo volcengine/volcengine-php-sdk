@@ -127,10 +127,22 @@ class OidcCredentialProvider extends Provider
         }
 
         $creds = $content['Result']['Credentials'];
+        if (empty($creds['AccessKeyId']) || empty($creds['SecretAccessKey']) || empty($creds['SessionToken'])) {
+            if (empty($creds['AccessKeyId'])) {
+                $missing = 'AccessKeyId';
+            } elseif (empty($creds['SecretAccessKey'])) {
+                $missing = 'SecretAccessKey';
+            } else {
+                $missing = 'SessionToken';
+            }
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': AssumeRoleWithOIDC credentials missing field: ' . $missing
+            );
+        }
         $this->cachedCredentials = [
             'AccessKeyId' => $creds['AccessKeyId'],
             'SecretAccessKey' => $creds['SecretAccessKey'],
-            'SessionToken' => isset($creds['SessionToken']) ? $creds['SessionToken'] : '',
+            'SessionToken' => $creds['SessionToken'],
             'ProviderName' => self::PROVIDER_NAME,
         ];
         // Prefer server-side Expiration; fallback to local duration estimate
