@@ -4,6 +4,7 @@ namespace Volcengine\Common\Auth\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
+use Volcengine\Common\ApiException;
 
 /**
  * @internal
@@ -66,7 +67,7 @@ class SsoCredentialProvider extends Provider
 
         $accessToken = isset($tokenCache['access_token']) ? trim($tokenCache['access_token']) : '';
         if ($accessToken === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain access_token"
             );
         }
@@ -117,20 +118,20 @@ class SsoCredentialProvider extends Provider
     {
         $sessionName = isset($this->profileData['sso-session-name']) ? trim($this->profileData['sso-session-name']) : '';
         if ($sessionName === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": profile '{$this->profileName}' did not contain sso-session-name"
             );
         }
 
         $ssoSessions = isset($this->config['sso-session']) ? $this->config['sso-session'] : null;
         if (!is_array($ssoSessions) || empty($ssoSessions)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': config did not contain any sso-session sections'
             );
         }
 
         if (!isset($ssoSessions[$sessionName])) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso-session '{$sessionName}' not found in config"
             );
         }
@@ -138,7 +139,7 @@ class SsoCredentialProvider extends Provider
         $session = $ssoSessions[$sessionName];
         $startURL = isset($session['start-url']) ? trim($session['start-url']) : '';
         if ($startURL === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso-session '{$sessionName}' did not contain start-url"
             );
         }
@@ -154,7 +155,7 @@ class SsoCredentialProvider extends Provider
     private function resolveTokenCachePath($startURL, $sessionName)
     {
         if ($this->cacheDir === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': could not resolve SSO cache directory'
             );
         }
@@ -163,7 +164,7 @@ class SsoCredentialProvider extends Provider
         $tokenPath = $this->cacheDir . DIRECTORY_SEPARATOR . $fileName;
 
         if (!file_exists($tokenPath)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso token cache file {$tokenPath} does not exist"
             );
         }
@@ -184,20 +185,20 @@ class SsoCredentialProvider extends Provider
     {
         $content = @file_get_contents($tokenPath);
         if ($content === false) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": failed to read sso token cache file {$tokenPath}"
             );
         }
 
         if (trim($content) === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso token cache file {$tokenPath} was empty"
             );
         }
 
         $data = json_decode($content, true);
         if (!is_array($data)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": failed to parse sso token cache file {$tokenPath}"
             );
         }
@@ -214,7 +215,7 @@ class SsoCredentialProvider extends Provider
 
         $ts = strtotime($expiresAt);
         if ($ts === false) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": failed to parse expires_at: {$expiresAt}"
             );
         }
@@ -226,7 +227,7 @@ class SsoCredentialProvider extends Provider
     {
         $refreshToken = isset($tokenCache['refresh_token']) ? trim($tokenCache['refresh_token']) : '';
         if ($refreshToken === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain refresh_token"
             );
         }
@@ -234,13 +235,13 @@ class SsoCredentialProvider extends Provider
         // Check if refresh token (client_secret) is expired
         $clientSecretExpiresAt = isset($tokenCache['client_secret_expires_at']) ? (int) $tokenCache['client_secret_expires_at'] : 0;
         if ($clientSecretExpiresAt <= 0) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": refresh token expiration is missing in {$tokenPath}"
             );
         }
         $refreshExpTime = $this->unixTimestampToSeconds($clientSecretExpiresAt);
         if (time() >= $refreshExpTime) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": refresh token in {$tokenPath} has expired"
             );
         }
@@ -248,7 +249,7 @@ class SsoCredentialProvider extends Provider
         $clientId = isset($tokenCache['client_id']) ? trim($tokenCache['client_id']) : '';
         $clientSecret = isset($tokenCache['client_secret']) ? trim($tokenCache['client_secret']) : '';
         if ($clientId === '' || $clientSecret === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain client_id/client_secret"
             );
         }
@@ -264,21 +265,21 @@ class SsoCredentialProvider extends Provider
         $responseBody = $this->doPost($oauthURL, $requestBody);
         $response = json_decode($responseBody, true);
         if (!is_array($response)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to parse OAuth token refresh response'
             );
         }
 
         $newAccessToken = isset($response['access_token']) ? trim($response['access_token']) : '';
         if ($newAccessToken === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': OAuth token refresh response did not include access_token'
             );
         }
 
         $expiresIn = isset($response['expires_in']) ? (int) $response['expires_in'] : 0;
         if ($expiresIn <= 0) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': OAuth token refresh response did not include expires_in'
             );
         }
@@ -299,14 +300,14 @@ class SsoCredentialProvider extends Provider
     {
         $accountId = isset($this->profileData['account-id']) ? trim($this->profileData['account-id']) : '';
         if ($accountId === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": profile '{$this->profileName}' did not contain account-id"
             );
         }
 
         $roleName = isset($this->profileData['role-name']) ? trim($this->profileData['role-name']) : '';
         if ($roleName === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": profile '{$this->profileName}' did not contain role-name"
             );
         }
@@ -319,14 +320,14 @@ class SsoCredentialProvider extends Provider
         $responseBody = $this->doGet($portalURL, $accessToken);
         $response = json_decode($responseBody, true);
         if (!is_array($response)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to parse portal credentials response'
             );
         }
 
         $roleCreds = isset($response['Result']['RoleCredentials']) ? $response['Result']['RoleCredentials'] : null;
         if (!is_array($roleCreds)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': portal response did not contain Result.RoleCredentials'
             );
         }
@@ -337,7 +338,7 @@ class SsoCredentialProvider extends Provider
         $expiration = isset($roleCreds['Expiration']) ? (int) $roleCreds['Expiration'] : 0;
 
         if ($ak === '' || $sk === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': portal credentials response did not include AccessKeyId or SecretAccessKey'
             );
         }
@@ -372,7 +373,7 @@ class SsoCredentialProvider extends Provider
                 'body' => $body,
             ]);
         } catch (TransferException $e) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP POST request failed to ' . $url . ' - ' . $e->getMessage()
             );
         }
@@ -381,9 +382,12 @@ class SsoCredentialProvider extends Provider
         $responseBody = (string) $response->getBody();
 
         if ($statusCode < 200 || $statusCode >= 300) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP POST request failed with status ' . $statusCode
-                . ($responseBody !== '' ? ': ' . $responseBody : '')
+                . ($responseBody !== '' ? ': ' . $responseBody : ''),
+                $statusCode,
+                $response->getHeaders(),
+                $responseBody
             );
         }
 
@@ -407,7 +411,7 @@ class SsoCredentialProvider extends Provider
                 ],
             ]);
         } catch (TransferException $e) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP GET request failed to ' . $url . ' - ' . $e->getMessage()
             );
         }
@@ -416,9 +420,12 @@ class SsoCredentialProvider extends Provider
         $responseBody = (string) $response->getBody();
 
         if ($statusCode < 200 || $statusCode >= 300) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP GET request failed with status ' . $statusCode
-                . ($responseBody !== '' ? ': ' . $responseBody : '')
+                . ($responseBody !== '' ? ': ' . $responseBody : ''),
+                $statusCode,
+                $response->getHeaders(),
+                $responseBody
             );
         }
 
@@ -436,7 +443,7 @@ class SsoCredentialProvider extends Provider
         $tmpFile = $tokenPath . '.tmp.' . getmypid();
 
         if (@file_put_contents($tmpFile, $json) === false) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": failed to write sso token cache file {$tokenPath}"
             );
         }
@@ -445,7 +452,7 @@ class SsoCredentialProvider extends Provider
 
         if (!@rename($tmpFile, $tokenPath)) {
             @unlink($tmpFile);
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": failed to update sso token cache file {$tokenPath}"
             );
         }

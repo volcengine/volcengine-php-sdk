@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 /**
  * 4-step default credential chain:
  *
@@ -65,7 +67,7 @@ class DefaultCredentialProvider extends Provider
         }
 
         $errorDetails = empty($errors) ? 'no providers configured' : implode("\n  ", $errors);
-        throw new \RuntimeException(
+        throw new ApiException(
             self::PROVIDER_NAME . ": unable to resolve credentials from any provider in the chain.\n"
             . "Attempted providers:\n  " . $errorDetails
         );
@@ -124,7 +126,7 @@ class LazyProvider extends Provider
         }
 
         if ($this->delegate === null) {
-            throw new \RuntimeException($this->initError ?: 'Provider initialization failed');
+            throw new ApiException($this->initError ?: 'Provider initialization failed');
         }
 
         return $this->delegate->getCredentials();

@@ -264,12 +264,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 Supported profile modes:
 
-- `AK` or empty
-- `StsToken`
-- `RamRoleArn` (delegates to `StsProvider`)
-- `OIDC` (delegates to `OidcCredentialProvider`)
-- `EcsRole` (delegates to `EcsRoleCredentialProvider`)
-- `SSO` (delegates to `SsoCredentialProvider`)
+- `ak` or empty (also accepts `session-token` for static STS credentials)
+- `ramrolearn` (delegates to `StsProvider`)
+- `oidc` (delegates to `OidcCredentialProvider`)
+- `ecsrole` (delegates to `EcsRoleCredentialProvider`)
+- `sso` (delegates to `SsoCredentialProvider`)
 
 ```php
 <?php

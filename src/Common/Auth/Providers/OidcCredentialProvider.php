@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 class OidcCredentialProvider extends Provider
 {
     use StsCredentialTrait;
@@ -51,7 +53,7 @@ class OidcCredentialProvider extends Provider
         $stsEndpoint = getenv('VOLCENGINE_OIDC_STS_ENDPOINT') ?: null;
 
         if (empty($roleTrn) || empty($oidcTokenFile)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': required environment variables '
                 . 'VOLCENGINE_OIDC_ROLE_TRN and '
                 . 'VOLCENGINE_OIDC_TOKEN_FILE are not all set'
@@ -75,7 +77,7 @@ class OidcCredentialProvider extends Provider
     {
         $raw = @file_get_contents($this->oidcTokenFile);
         if ($raw === false || trim($raw) === '') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to read OIDC token file: ' . $this->oidcTokenFile
             );
         }
@@ -108,21 +110,24 @@ class OidcCredentialProvider extends Provider
 
         $content = json_decode($responseBody, true);
         if (!is_array($content)) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned empty response'
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned empty response',
+                0, [], $responseBody
             );
         }
 
         if (isset($content['ResponseMetadata']['Error'])) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned error: '
-                . json_encode($content['ResponseMetadata']['Error'])
+                . json_encode($content['ResponseMetadata']['Error']),
+                0, [], $responseBody
             );
         }
 
         if (!isset($content['Result']['Credentials'])) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned no credentials'
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned no credentials',
+                0, [], $responseBody
             );
         }
 
@@ -135,8 +140,9 @@ class OidcCredentialProvider extends Provider
             } else {
                 $missing = 'SessionToken';
             }
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC credentials missing field: ' . $missing
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithOIDC credentials missing field: ' . $missing,
+                0, [], $responseBody
             );
         }
         $this->cachedCredentials = [

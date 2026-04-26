@@ -277,12 +277,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 支持的 profile mode：
 
-- `AK` 或空
-- `StsToken`
-- `RamRoleArn`，内部委托给 `StsProvider`
-- `OIDC`，内部委托给 `OidcCredentialProvider`
-- `EcsRole`，内部委托给 `EcsRoleCredentialProvider`
-- `SSO`，内部委托给 `SsoCredentialProvider`
+- `ak` 或空（同时支持 `session-token` 字段以承载静态 STS 凭证）
+- `ramrolearn`，内部委托给 `StsProvider`
+- `oidc`，内部委托给 `OidcCredentialProvider`
+- `ecsrole`，内部委托给 `EcsRoleCredentialProvider`
+- `sso`，内部委托给 `SsoCredentialProvider`
 
 ```php
 <?php

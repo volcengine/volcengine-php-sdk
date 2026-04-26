@@ -12,10 +12,6 @@ class Utils
             return $result;
         }
 
-        if (!is_object($data) || !method_exists($data, 'swaggerTypes')) {
-            return $result;
-        }
-
         foreach ($data::swaggerTypes() as $property => $swaggerType) {
             $getter = $data::getters()[$property];
             $value = $data->$getter();

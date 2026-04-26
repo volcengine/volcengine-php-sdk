@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 class EnvironmentVariableCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'EnvironmentVariableCredentialProvider';
@@ -13,7 +15,7 @@ class EnvironmentVariableCredentialProvider extends Provider
         $token = $this->getEnvWithFallback('VOLCENGINE_SESSION_TOKEN', 'VOLCSTACK_SESSION_TOKEN');
 
         if (empty($ak) || empty($sk)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': required environment variables VOLCENGINE_ACCESS_KEY and '
                 . 'VOLCENGINE_SECRET_KEY are not set'
             );

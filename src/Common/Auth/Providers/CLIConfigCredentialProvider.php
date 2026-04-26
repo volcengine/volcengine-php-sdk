@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 class CLIConfigCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'CLIConfigCredentialProvider';
@@ -42,21 +44,21 @@ class CLIConfigCredentialProvider extends Provider
         $configPath = $this->resolveConfigPath();
 
         if (!file_exists($configPath)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': config file not found: ' . $configPath
             );
         }
 
         $content = @file_get_contents($configPath);
         if ($content === false) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to read config file: ' . $configPath
             );
         }
 
         $config = json_decode($content, true);
         if (!is_array($config)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to parse config JSON: ' . $configPath
             );
         }
@@ -64,13 +66,13 @@ class CLIConfigCredentialProvider extends Provider
         $profile = $this->resolveProfile($config);
 
         if (!isset($config['profiles']) || !is_array($config['profiles'])) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": 'profiles' section not found in config"
             );
         }
 
         if (!isset($config['profiles'][$profile])) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ": profile '{$profile}' not found in config"
             );
         }
@@ -92,7 +94,7 @@ class CLIConfigCredentialProvider extends Provider
                 $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
 
                 if (empty($ak) || empty($sk)) {
-                    throw new \RuntimeException(
+                    throw new ApiException(
                         self::PROVIDER_NAME . ": access-key and secret-key not found in profile '{$profile}'"
                     );
                 }
@@ -111,7 +113,7 @@ class CLIConfigCredentialProvider extends Provider
                 $accountId = isset($profileData['account-id']) ? trim($profileData['account-id']) : '';
 
                 if (empty($ak) || empty($sk) || empty($roleName) || empty($accountId)) {
-                    throw new \RuntimeException(
+                    throw new ApiException(
                         self::PROVIDER_NAME . ": access-key, secret-key, role-name, and account-id are all required for RamRoleArn mode in profile '{$profile}'"
                     );
                 }
@@ -124,7 +126,7 @@ class CLIConfigCredentialProvider extends Provider
                 $roleTrn = isset($profileData['role-trn']) ? trim($profileData['role-trn']) : '';
 
                 if (empty($oidcTokenFile) || empty($roleTrn)) {
-                    throw new \RuntimeException(
+                    throw new ApiException(
                         self::PROVIDER_NAME . ": oidc-token-file and role-trn are required for OIDC mode in profile '{$profile}'"
                     );
                 }
@@ -136,7 +138,7 @@ class CLIConfigCredentialProvider extends Provider
                 $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
 
                 if (empty($roleName)) {
-                    throw new \RuntimeException(
+                    throw new ApiException(
                         self::PROVIDER_NAME . ": role-name is required for EcsRole mode in profile '{$profile}'"
                     );
                 }
@@ -150,7 +152,7 @@ class CLIConfigCredentialProvider extends Provider
                 return null;
 
             default:
-                throw new \RuntimeException(
+                throw new ApiException(
                     self::PROVIDER_NAME . ': unsupported mode: ' . $mode
                 );
         }

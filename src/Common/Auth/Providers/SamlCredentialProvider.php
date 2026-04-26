@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 class SamlCredentialProvider extends Provider
 {
     use StsCredentialTrait;
@@ -94,21 +96,24 @@ class SamlCredentialProvider extends Provider
 
         $content = json_decode($responseBody, true);
         if (!is_array($content)) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithSAML returned empty response'
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithSAML returned empty response',
+                0, [], $responseBody
             );
         }
 
         if (isset($content['ResponseMetadata']['Error'])) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': AssumeRoleWithSAML returned error: '
-                . json_encode($content['ResponseMetadata']['Error'])
+                . json_encode($content['ResponseMetadata']['Error']),
+                0, [], $responseBody
             );
         }
 
         if (!isset($content['Result']['Credentials'])) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithSAML returned no credentials'
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithSAML returned no credentials',
+                0, [], $responseBody
             );
         }
 
@@ -121,8 +126,9 @@ class SamlCredentialProvider extends Provider
             } else {
                 $missing = 'SessionToken';
             }
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': AssumeRoleWithSAML credentials missing field: ' . $missing
+            throw new ApiException(
+                self::PROVIDER_NAME . ': AssumeRoleWithSAML credentials missing field: ' . $missing,
+                0, [], $responseBody
             );
         }
         $this->cachedCredentials = [

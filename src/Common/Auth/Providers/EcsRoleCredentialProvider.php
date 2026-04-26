@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Auth\Providers;
 
+use Volcengine\Common\ApiException;
+
 class EcsRoleCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'EcsRoleCredentialProvider';
@@ -16,6 +18,7 @@ class EcsRoleCredentialProvider extends Provider
     const IMDS_TOKEN_TTL_HEADER = 'X-volc-ecs-metadata-token-ttl-seconds';
     const IMDS_TOKEN_HEADER = 'X-volc-ecs-metadata-token';
     const IMDS_TOKEN_TTL_SECONDS = '21600'; // 6 hours
+    const IMDS_TOKEN_REFRESH_BUFFER_SECONDS = 300; // refresh 5 min before TTL ends
 
     // Response field names
     const FIELD_ACCESS_KEY_ID = 'AccessKeyId';
@@ -38,6 +41,10 @@ class EcsRoleCredentialProvider extends Provider
 
     private $cachedCredentials;
     private $expirationTime = 0;
+
+    // In-memory IMDSv2 token cache.
+    private $cachedImdsToken;
+    private $imdsTokenExpirationTime = 0;
 
     public function __construct(
         $roleName = null,
@@ -139,7 +146,7 @@ class EcsRoleCredentialProvider extends Provider
     {
         $disabled = getenv('VOLCENGINE_ECS_METADATA_DISABLED');
         if (strtolower($disabled) === 'true') {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': IMDS is disabled via VOLCENGINE_ECS_METADATA_DISABLED=true'
             );
         }
@@ -168,7 +175,7 @@ class EcsRoleCredentialProvider extends Provider
 
     private function refresh()
     {
-        // Step 1: Get IMDSv2 token (fresh every time)
+        // Step 1: Get IMDSv2 token (cached in-memory until near TTL)
         $imdsToken = $this->getIMDSv2Token();
 
         // Step 2: Resolve role name
@@ -180,7 +187,7 @@ class EcsRoleCredentialProvider extends Provider
 
         $data = json_decode($body, true);
         if (!is_array($data)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': failed to parse IMDS response'
             );
         }
@@ -191,7 +198,7 @@ class EcsRoleCredentialProvider extends Provider
         $expirationStr = isset($data[self::FIELD_EXPIRATION]) ? $data[self::FIELD_EXPIRATION] : null;
 
         if (empty($ak) || empty($sk)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': IMDS response missing AccessKeyId or SecretAccessKey'
             );
         }
@@ -217,16 +224,27 @@ class EcsRoleCredentialProvider extends Provider
 
     private function getIMDSv2Token()
     {
+        // Fast path: reuse cached token until it nears its TTL.
+        if ($this->cachedImdsToken !== null && time() < $this->imdsTokenExpirationTime) {
+            return $this->cachedImdsToken;
+        }
+
         $url = self::IMDS_ENDPOINT . self::IMDS_TOKEN_PATH;
         $body = $this->doRequestWithRetry($url, 'GET', [
             self::IMDS_TOKEN_TTL_HEADER => self::IMDS_TOKEN_TTL_SECONDS,
         ]);
         $token = trim($body);
         if (empty($token)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': IMDSv2 token endpoint returned empty response'
             );
         }
+
+        $this->cachedImdsToken = $token;
+        $this->imdsTokenExpirationTime = time()
+            + (int) self::IMDS_TOKEN_TTL_SECONDS
+            - self::IMDS_TOKEN_REFRESH_BUFFER_SECONDS;
+
         return $token;
     }
 
@@ -262,7 +280,7 @@ class EcsRoleCredentialProvider extends Provider
 
         $roles = array_values($roles);
         if (empty($roles)) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': no IAM roles found via IMDS'
             );
         }
@@ -288,7 +306,7 @@ class EcsRoleCredentialProvider extends Provider
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             try {
                 return $this->doRequest($url, $method, $headers, $timeout);
-            } catch (\RuntimeException $e) {
+            } catch (ApiException $e) {
                 $lastError = $e;
                 if ($attempt < $this->maxRetries) {
                     sleep($this->retryInterval);
@@ -318,7 +336,7 @@ class EcsRoleCredentialProvider extends Provider
 
         $body = @file_get_contents($url, false, $ctx);
         if ($body === false) {
-            throw new \RuntimeException(
+            throw new ApiException(
                 self::PROVIDER_NAME . ': IMDS request failed to ' . $url
             );
         }
@@ -329,8 +347,11 @@ class EcsRoleCredentialProvider extends Provider
             if (preg_match('/HTTP\/\S+\s+(\d+)/', $statusLine, $matches)) {
                 $statusCode = (int) $matches[1];
                 if ($statusCode !== 200) {
-                    throw new \RuntimeException(
-                        self::PROVIDER_NAME . ': IMDS request failed with status ' . $statusCode
+                    throw new ApiException(
+                        self::PROVIDER_NAME . ': IMDS request failed with status ' . $statusCode,
+                        $statusCode,
+                        [],
+                        $body
                     );
                 }
             }
