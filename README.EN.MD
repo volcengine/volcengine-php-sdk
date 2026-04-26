@@ -80,3 +80,5 @@ try {
 
 ?>
 ```
+
+For more examples, see: [SDK Integration Guide](./docs/0-Overview.md)
