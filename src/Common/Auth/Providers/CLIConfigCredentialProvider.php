@@ -104,24 +104,6 @@ class CLIConfigCredentialProvider extends Provider
                     'ProviderName' => self::PROVIDER_NAME,
                 ];
 
-            case 'ststoken':
-                $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
-                $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
-                $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
-
-                if (empty($ak) || empty($sk) || empty($sessionToken)) {
-                    throw new \RuntimeException(
-                        self::PROVIDER_NAME . ": access-key, secret-key, and session-token are all required for StsToken mode in profile '{$profile}'"
-                    );
-                }
-
-                return [
-                    'AccessKeyId' => $ak,
-                    'SecretAccessKey' => $sk,
-                    'SessionToken' => $sessionToken,
-                    'ProviderName' => self::PROVIDER_NAME,
-                ];
-
             case 'ramrolearn':
                 $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
                 $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
