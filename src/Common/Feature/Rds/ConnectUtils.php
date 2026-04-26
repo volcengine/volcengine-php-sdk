@@ -39,6 +39,11 @@ class ConnectUtils
     {
         $config = $apiClient->getConfig();
 
+        // Validate credentials
+        if (empty($config->getAk()) || empty($config->getSk())) {
+            throw new \InvalidArgumentException('Access key ID and secret access key must not be empty');
+        }
+
         // Validate region
         if (empty($config->getRegion())) {
             throw new \InvalidArgumentException('Region must not be empty');
@@ -57,23 +62,12 @@ class ConnectUtils
         if (!is_int($expires) || $expires <= 0) {
             $expires = self::DEFAULT_EXPIRES;
         }
+
         // Build request
         $request = new Request();
         $request->ak = $config->getAk();
         $request->sk = $config->getSk();
         $request->sessionToken = $config->getSessionToken();
-        if (empty($request->ak) && empty($request->sk)) {
-            $credentialProvider = $config->getCredentialProvider();
-            if ($credentialProvider === null) {
-                $credentialProvider = new \Volcengine\Common\Auth\Providers\DefaultCredentialProvider();
-                $config->setCredentialProvider($credentialProvider);
-            }
-            $creds = $credentialProvider->getCredentials();
-            $request->ak = $creds['AccessKeyId'];
-            $request->sk = $creds['SecretAccessKey'];
-            $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
-        }
-
         $request->region = $config->getRegion();
         $request->schema = $config->getSchema();
         $request->service = self::SERVICE;
