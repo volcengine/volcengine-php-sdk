@@ -11,14 +11,13 @@ class EcsRoleCredentialProvider extends Provider
     // IMDSv2 endpoint and paths
     const IMDS_ENDPOINT = 'http://100.96.0.96';
     const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/'; // GET
-    const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?type=user'; // GET
-    const IMDS_TOKEN_PATH = '/latest/api/token'; // GET
+    const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?fetchuserrole=true'; // GET
+    const IMDS_TOKEN_PATH = '/latest/api/token'; // PUT
 
     // IMDSv2 headers
     const IMDS_TOKEN_TTL_HEADER = 'X-volc-ecs-metadata-token-ttl-seconds';
     const IMDS_TOKEN_HEADER = 'X-volc-ecs-metadata-token';
     const IMDS_TOKEN_TTL_SECONDS = '21600'; // 6 hours
-    const IMDS_TOKEN_REFRESH_BUFFER_SECONDS = 300; // refresh 5 min before TTL ends
 
     // Response field names
     const FIELD_ACCESS_KEY_ID = 'AccessKeyId';
@@ -41,10 +40,6 @@ class EcsRoleCredentialProvider extends Provider
 
     private $cachedCredentials;
     private $expirationTime = 0;
-
-    // In-memory IMDSv2 token cache.
-    private $cachedImdsToken;
-    private $imdsTokenExpirationTime = 0;
 
     public function __construct(
         $roleName = null,
@@ -175,7 +170,7 @@ class EcsRoleCredentialProvider extends Provider
 
     private function refresh()
     {
-        // Step 1: Get IMDSv2 token (cached in-memory until near TTL)
+        // Step 1: Get IMDSv2 token (fresh every time)
         $imdsToken = $this->getIMDSv2Token();
 
         // Step 2: Resolve role name
@@ -224,13 +219,8 @@ class EcsRoleCredentialProvider extends Provider
 
     private function getIMDSv2Token()
     {
-        // Fast path: reuse cached token until it nears its TTL.
-        if ($this->cachedImdsToken !== null && time() < $this->imdsTokenExpirationTime) {
-            return $this->cachedImdsToken;
-        }
-
         $url = self::IMDS_ENDPOINT . self::IMDS_TOKEN_PATH;
-        $body = $this->doRequestWithRetry($url, 'GET', [
+        $body = $this->doRequestWithRetry($url, 'PUT', [
             self::IMDS_TOKEN_TTL_HEADER => self::IMDS_TOKEN_TTL_SECONDS,
         ]);
         $token = trim($body);
@@ -239,11 +229,6 @@ class EcsRoleCredentialProvider extends Provider
                 self::PROVIDER_NAME . ': IMDSv2 token endpoint returned empty response'
             );
         }
-
-        $this->cachedImdsToken = $token;
-        $this->imdsTokenExpirationTime = time()
-            + (int) self::IMDS_TOKEN_TTL_SECONDS
-            - self::IMDS_TOKEN_REFRESH_BUFFER_SECONDS;
 
         return $token;
     }
