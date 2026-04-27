@@ -10,7 +10,7 @@ class EcsRoleCredentialProvider extends Provider
 
     // IMDSv2 endpoint and paths
     const IMDS_ENDPOINT = 'http://100.96.0.96';
-    const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/'; // POST
+    const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/'; // GET
     const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?type=user'; // GET
     const IMDS_TOKEN_PATH = '/latest/api/token'; // GET
 
@@ -181,9 +181,9 @@ class EcsRoleCredentialProvider extends Provider
         // Step 2: Resolve role name
         $roleName = $this->resolveRoleName($imdsToken);
 
-        // Step 3: POST to get credentials
+        // Step 3: GET to get credentials
         $url = self::IMDS_ENDPOINT . self::IMDS_CREDENTIALS_PATH . $roleName;
-        $body = $this->doRequestWithRetry($url, 'POST', [self::IMDS_TOKEN_HEADER => $imdsToken]);
+        $body = $this->doRequestWithRetry($url, 'GET', [self::IMDS_TOKEN_HEADER => $imdsToken]);
 
         $data = json_decode($body, true);
         if (!is_array($data)) {
