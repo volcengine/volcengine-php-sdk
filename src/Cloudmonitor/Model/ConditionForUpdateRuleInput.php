@@ -33,6 +33,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         'metric_unit' => 'string',
         'period' => 'string',
         'statistics' => 'string',
+        'sub_namespace' => 'string',
         'threshold' => 'string'
     ];
 
@@ -47,6 +48,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         'metric_unit' => null,
         'period' => null,
         'statistics' => null,
+        'sub_namespace' => null,
         'threshold' => null
     ];
 
@@ -82,6 +84,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         'metric_unit' => 'MetricUnit',
         'period' => 'Period',
         'statistics' => 'Statistics',
+        'sub_namespace' => 'SubNamespace',
         'threshold' => 'Threshold'
     ];
 
@@ -96,6 +99,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         'metric_unit' => 'setMetricUnit',
         'period' => 'setPeriod',
         'statistics' => 'setStatistics',
+        'sub_namespace' => 'setSubNamespace',
         'threshold' => 'setThreshold'
     ];
 
@@ -110,6 +114,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         'metric_unit' => 'getMetricUnit',
         'period' => 'getPeriod',
         'statistics' => 'getStatistics',
+        'sub_namespace' => 'getSubNamespace',
         'threshold' => 'getThreshold'
     ];
 
@@ -178,6 +183,7 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
         $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
+        $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
 
@@ -321,6 +327,30 @@ class ConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
     public function setStatistics($statistics)
     {
         $this->container['statistics'] = $statistics;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_namespace
+     *
+     * @return string
+     */
+    public function getSubNamespace()
+    {
+        return $this->container['sub_namespace'];
+    }
+
+    /**
+     * Sets sub_namespace
+     *
+     * @param string $sub_namespace sub_namespace
+     *
+     * @return $this
+     */
+    public function setSubNamespace($sub_namespace)
+    {
+        $this->container['sub_namespace'] = $sub_namespace;
 
         return $this;
     }

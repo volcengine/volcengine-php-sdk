@@ -39,6 +39,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'map[string,object]',
         'level' => 'string',
         'message_queue' => '\Volcengine\Cloudmonitor\Model\MessageQueueForUpdateEventRuleInput[]',
+        'notification_id' => 'string',
         'notify_templates' => '\Volcengine\Cloudmonitor\Model\NotifyTemplateForUpdateEventRuleInput[]',
         'rule_id' => 'string',
         'rule_name' => 'string',
@@ -64,6 +65,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => null,
         'level' => null,
         'message_queue' => null,
+        'notification_id' => null,
         'notify_templates' => null,
         'rule_id' => null,
         'rule_name' => null,
@@ -110,6 +112,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'FilterPattern',
         'level' => 'Level',
         'message_queue' => 'MessageQueue',
+        'notification_id' => 'NotificationId',
         'notify_templates' => 'NotifyTemplates',
         'rule_id' => 'RuleId',
         'rule_name' => 'RuleName',
@@ -135,6 +138,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'setFilterPattern',
         'level' => 'setLevel',
         'message_queue' => 'setMessageQueue',
+        'notification_id' => 'setNotificationId',
         'notify_templates' => 'setNotifyTemplates',
         'rule_id' => 'setRuleId',
         'rule_name' => 'setRuleName',
@@ -160,6 +164,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'getFilterPattern',
         'level' => 'getLevel',
         'message_queue' => 'getMessageQueue',
+        'notification_id' => 'getNotificationId',
         'notify_templates' => 'getNotifyTemplates',
         'rule_id' => 'getRuleId',
         'rule_name' => 'getRuleName',
@@ -267,6 +272,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         $this->container['filter_pattern'] = isset($data['filter_pattern']) ? $data['filter_pattern'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['message_queue'] = isset($data['message_queue']) ? $data['message_queue'] : null;
+        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
@@ -599,6 +605,30 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
     public function setMessageQueue($message_queue)
     {
         $this->container['message_queue'] = $message_queue;
+
+        return $this;
+    }
+
+    /**
+     * Gets notification_id
+     *
+     * @return string
+     */
+    public function getNotificationId()
+    {
+        return $this->container['notification_id'];
+    }
+
+    /**
+     * Sets notification_id
+     *
+     * @param string $notification_id notification_id
+     *
+     * @return $this
+     */
+    public function setNotificationId($notification_id)
+    {
+        $this->container['notification_id'] = $notification_id;
 
         return $this;
     }

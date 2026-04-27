@@ -454,6 +454,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'cloudmonitor' => new ServiceEndpointInfo(
+                    'cloudmonitor',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
