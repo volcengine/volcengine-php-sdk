@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
+class GetFingerprintAIAppRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAutoDefenseRulesRequest';
+    protected static $swaggerModelName = 'GetFingerprintAIAppRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'agent_id' => 'string',
+        'app_id' => 'string',
+        'cloud_providers' => 'string[]',
+        'hostname' => 'string',
+        'ip' => 'string',
+        'leaf_group_ids' => 'string[]',
+        'name' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'rule_scope' => 'string',
         'sort_by' => 'string',
         'sort_order' => 'string',
-        'top_group_id' => 'string'
+        'tags' => 'string[]',
+        'top_group_id' => 'string',
+        'version' => 'string'
     ];
 
     /**
@@ -42,12 +50,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'agent_id' => null,
+        'app_id' => null,
+        'cloud_providers' => null,
+        'hostname' => null,
+        'ip' => null,
+        'leaf_group_ids' => null,
+        'name' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
-        'rule_scope' => null,
         'sort_by' => null,
         'sort_order' => null,
-        'top_group_id' => null
+        'tags' => null,
+        'top_group_id' => null,
+        'version' => null
     ];
 
     /**
@@ -77,12 +93,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'agent_id' => 'AgentId',
+        'app_id' => 'AppID',
+        'cloud_providers' => 'CloudProviders',
+        'hostname' => 'Hostname',
+        'ip' => 'Ip',
+        'leaf_group_ids' => 'LeafGroupIDs',
+        'name' => 'Name',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'rule_scope' => 'RuleScope',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
-        'top_group_id' => 'TopGroupID'
+        'tags' => 'Tags',
+        'top_group_id' => 'TopGroupID',
+        'version' => 'Version'
     ];
 
     /**
@@ -91,12 +115,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'agent_id' => 'setAgentId',
+        'app_id' => 'setAppId',
+        'cloud_providers' => 'setCloudProviders',
+        'hostname' => 'setHostname',
+        'ip' => 'setIp',
+        'leaf_group_ids' => 'setLeafGroupIds',
+        'name' => 'setName',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'rule_scope' => 'setRuleScope',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
-        'top_group_id' => 'setTopGroupId'
+        'tags' => 'setTags',
+        'top_group_id' => 'setTopGroupId',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -105,12 +137,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'agent_id' => 'getAgentId',
+        'app_id' => 'getAppId',
+        'cloud_providers' => 'getCloudProviders',
+        'hostname' => 'getHostname',
+        'ip' => 'getIp',
+        'leaf_group_ids' => 'getLeafGroupIds',
+        'name' => 'getName',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'rule_scope' => 'getRuleScope',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
-        'top_group_id' => 'getTopGroupId'
+        'tags' => 'getTags',
+        'top_group_id' => 'getTopGroupId',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -173,12 +213,20 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
+        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
+        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['rule_scope'] = isset($data['rule_scope']) ? $data['rule_scope'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -210,6 +258,174 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets agent_id
+     *
+     * @return string
+     */
+    public function getAgentId()
+    {
+        return $this->container['agent_id'];
+    }
+
+    /**
+     * Sets agent_id
+     *
+     * @param string $agent_id agent_id
+     *
+     * @return $this
+     */
+    public function setAgentId($agent_id)
+    {
+        $this->container['agent_id'] = $agent_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_id
+     *
+     * @return string
+     */
+    public function getAppId()
+    {
+        return $this->container['app_id'];
+    }
+
+    /**
+     * Sets app_id
+     *
+     * @param string $app_id app_id
+     *
+     * @return $this
+     */
+    public function setAppId($app_id)
+    {
+        $this->container['app_id'] = $app_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloud_providers
+     *
+     * @return string[]
+     */
+    public function getCloudProviders()
+    {
+        return $this->container['cloud_providers'];
+    }
+
+    /**
+     * Sets cloud_providers
+     *
+     * @param string[] $cloud_providers cloud_providers
+     *
+     * @return $this
+     */
+    public function setCloudProviders($cloud_providers)
+    {
+        $this->container['cloud_providers'] = $cloud_providers;
+
+        return $this;
+    }
+
+    /**
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string $hostname hostname
+     *
+     * @return $this
+     */
+    public function setHostname($hostname)
+    {
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string $ip ip
+     *
+     * @return $this
+     */
+    public function setIp($ip)
+    {
+        $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets leaf_group_ids
+     *
+     * @return string[]
+     */
+    public function getLeafGroupIds()
+    {
+        return $this->container['leaf_group_ids'];
+    }
+
+    /**
+     * Sets leaf_group_ids
+     *
+     * @param string[] $leaf_group_ids leaf_group_ids
+     *
+     * @return $this
+     */
+    public function setLeafGroupIds($leaf_group_ids)
+    {
+        $this->container['leaf_group_ids'] = $leaf_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
 
     /**
      * Gets page_number
@@ -255,30 +471,6 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_scope
-     *
-     * @return string
-     */
-    public function getRuleScope()
-    {
-        return $this->container['rule_scope'];
-    }
-
-    /**
-     * Sets rule_scope
-     *
-     * @param string $rule_scope rule_scope
-     *
-     * @return $this
-     */
-    public function setRuleScope($rule_scope)
-    {
-        $this->container['rule_scope'] = $rule_scope;
 
         return $this;
     }
@@ -332,6 +524,30 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tags
+     *
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
      * Gets top_group_id
      *
      * @return string
@@ -351,6 +567,30 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     public function setTopGroupId($top_group_id)
     {
         $this->container['top_group_id'] = $top_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

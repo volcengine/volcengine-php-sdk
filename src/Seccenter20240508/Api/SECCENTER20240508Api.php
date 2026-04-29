@@ -502,6 +502,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function addUserAutoDefenseRule($body = null)
+    {
+        list($response) = $this->addUserAutoDefenseRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addUserAutoDefenseRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\AddUserAutoDefenseRuleResponse';
+        $request = $this->addUserAutoDefenseRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addUserAutoDefenseRuleAsync($body = null)
+    {
+        return $this->addUserAutoDefenseRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addUserAutoDefenseRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\AddUserAutoDefenseRuleResponse';
+        $request = $this->addUserAutoDefenseRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addUserAutoDefenseRuleRequest($body)
+    {
+        $resourcePath = '/AddUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function addWhiteList($body = null)
     {
         list($response) = $this->addWhiteListWithHttpInfo($body);
@@ -1094,6 +1156,68 @@ class SECCENTER20240508Api
     protected function batchInstallVarmorAppsRequest($body)
     {
         $resourcePath = '/BatchInstallVarmorApps/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchUnBanIPItem($body = null)
+    {
+        list($response) = $this->batchUnBanIPItemWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchUnBanIPItemWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\BatchUnBanIPItemResponse';
+        $request = $this->batchUnBanIPItemRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchUnBanIPItemAsync($body = null)
+    {
+        return $this->batchUnBanIPItemAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchUnBanIPItemAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\BatchUnBanIPItemResponse';
+        $request = $this->batchUnBanIPItemRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchUnBanIPItemRequest($body)
+    {
+        $resourcePath = '/BatchUnBanIPItem/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2892,6 +3016,68 @@ class SECCENTER20240508Api
     protected function deleteRaspConfigRequest($body)
     {
         $resourcePath = '/DeleteRaspConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteUserAutoDefenseRule($body = null)
+    {
+        list($response) = $this->deleteUserAutoDefenseRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteUserAutoDefenseRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteUserAutoDefenseRuleResponse';
+        $request = $this->deleteUserAutoDefenseRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteUserAutoDefenseRuleAsync($body = null)
+    {
+        return $this->deleteUserAutoDefenseRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteUserAutoDefenseRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteUserAutoDefenseRuleResponse';
+        $request = $this->deleteUserAutoDefenseRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteUserAutoDefenseRuleRequest($body)
+    {
+        $resourcePath = '/DeleteUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -7818,6 +8004,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getFingerprintAIApp($body = null)
+    {
+        list($response) = $this->getFingerprintAIAppWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getFingerprintAIAppWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetFingerprintAIAppResponse';
+        $request = $this->getFingerprintAIAppRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getFingerprintAIAppAsync($body = null)
+    {
+        return $this->getFingerprintAIAppAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getFingerprintAIAppAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetFingerprintAIAppResponse';
+        $request = $this->getFingerprintAIAppRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getFingerprintAIAppRequest($body)
+    {
+        $resourcePath = '/GetFingerprintAIApp/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getFingerprintApp($body = null)
     {
         list($response) = $this->getFingerprintAppWithHttpInfo($body);
@@ -12316,6 +12564,68 @@ class SECCENTER20240508Api
     protected function getUserBatchScanStatusRequest($body)
     {
         $resourcePath = '/GetUserBatchScanStatus/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getVarmorAuthInfo($body = null)
+    {
+        list($response) = $this->getVarmorAuthInfoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getVarmorAuthInfoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetVarmorAuthInfoResponse';
+        $request = $this->getVarmorAuthInfoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getVarmorAuthInfoAsync($body = null)
+    {
+        return $this->getVarmorAuthInfoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getVarmorAuthInfoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetVarmorAuthInfoResponse';
+        $request = $this->getVarmorAuthInfoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getVarmorAuthInfoRequest($body)
+    {
+        $resourcePath = '/GetVarmorAuthInfo/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -20252,6 +20562,68 @@ class SECCENTER20240508Api
     protected function modifyTLSConfigRequest($body)
     {
         $resourcePath = '/ModifyTLSConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyUserAutoDefenseRule($body = null)
+    {
+        list($response) = $this->modifyUserAutoDefenseRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyUserAutoDefenseRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ModifyUserAutoDefenseRuleResponse';
+        $request = $this->modifyUserAutoDefenseRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyUserAutoDefenseRuleAsync($body = null)
+    {
+        return $this->modifyUserAutoDefenseRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyUserAutoDefenseRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ModifyUserAutoDefenseRuleResponse';
+        $request = $this->modifyUserAutoDefenseRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyUserAutoDefenseRuleRequest($body)
+    {
+        $resourcePath = '/ModifyUserAutoDefenseRule/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

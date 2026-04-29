@@ -28,6 +28,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai_app' => 'int',
         'app' => 'int',
         'container' => 'int',
         'cron' => 'int',
@@ -48,6 +49,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai_app' => 'int64',
         'app' => 'int64',
         'container' => 'int64',
         'cron' => 'int64',
@@ -89,6 +91,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_app' => 'AIApp',
         'app' => 'App',
         'container' => 'Container',
         'cron' => 'Cron',
@@ -109,6 +112,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai_app' => 'setAiApp',
         'app' => 'setApp',
         'container' => 'setContainer',
         'cron' => 'setCron',
@@ -129,6 +133,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai_app' => 'getAiApp',
         'app' => 'getApp',
         'container' => 'getContainer',
         'cron' => 'getCron',
@@ -203,6 +208,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
         $this->container['app'] = isset($data['app']) ? $data['app'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['cron'] = isset($data['cron']) ? $data['cron'] : null;
@@ -240,6 +246,30 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_app
+     *
+     * @return int
+     */
+    public function getAiApp()
+    {
+        return $this->container['ai_app'];
+    }
+
+    /**
+     * Sets ai_app
+     *
+     * @param int $ai_app ai_app
+     *
+     * @return $this
+     */
+    public function setAiApp($ai_app)
+    {
+        $this->container['ai_app'] = $ai_app;
+
+        return $this;
+    }
 
     /**
      * Gets app

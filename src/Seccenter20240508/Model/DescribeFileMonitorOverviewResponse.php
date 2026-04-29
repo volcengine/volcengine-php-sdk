@@ -29,8 +29,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'monitor_agent_count' => 'int',
-        'monitor_directory_count' => 'int',
-        'monitor_agent_count' => 'int',
         'monitor_directory_count' => 'int'
     ];
 
@@ -40,8 +38,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'monitor_agent_count' => 'int64',
-        'monitor_directory_count' => 'int64',
         'monitor_agent_count' => 'int64',
         'monitor_directory_count' => 'int64'
     ];
@@ -74,9 +70,7 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'monitor_agent_count' => 'MonitorAgentCount',
-        'monitor_directory_count' => 'MonitorDirectoryCount',
-        'monitor_agent_count' => 'monitor_agent_count',
-        'monitor_directory_count' => 'monitor_directory_count'
+        'monitor_directory_count' => 'MonitorDirectoryCount'
     ];
 
     /**
@@ -85,8 +79,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'monitor_agent_count' => 'setMonitorAgentCount',
-        'monitor_directory_count' => 'setMonitorDirectoryCount',
         'monitor_agent_count' => 'setMonitorAgentCount',
         'monitor_directory_count' => 'setMonitorDirectoryCount'
     ];
@@ -97,8 +89,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'monitor_agent_count' => 'getMonitorAgentCount',
-        'monitor_directory_count' => 'getMonitorDirectoryCount',
         'monitor_agent_count' => 'getMonitorAgentCount',
         'monitor_directory_count' => 'getMonitorDirectoryCount'
     ];
@@ -165,8 +155,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
     {
         $this->container['monitor_agent_count'] = isset($data['monitor_agent_count']) ? $data['monitor_agent_count'] : null;
         $this->container['monitor_directory_count'] = isset($data['monitor_directory_count']) ? $data['monitor_directory_count'] : null;
-        $this->container['monitor_agent_count'] = isset($data['monitor_agent_count']) ? $data['monitor_agent_count'] : null;
-        $this->container['monitor_directory_count'] = isset($data['monitor_directory_count']) ? $data['monitor_directory_count'] : null;
     }
 
     /**
@@ -192,54 +180,6 @@ class DescribeFileMonitorOverviewResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets monitor_agent_count
-     *
-     * @return int
-     */
-    public function getMonitorAgentCount()
-    {
-        return $this->container['monitor_agent_count'];
-    }
-
-    /**
-     * Sets monitor_agent_count
-     *
-     * @param int $monitor_agent_count monitor_agent_count
-     *
-     * @return $this
-     */
-    public function setMonitorAgentCount($monitor_agent_count)
-    {
-        $this->container['monitor_agent_count'] = $monitor_agent_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets monitor_directory_count
-     *
-     * @return int
-     */
-    public function getMonitorDirectoryCount()
-    {
-        return $this->container['monitor_directory_count'];
-    }
-
-    /**
-     * Sets monitor_directory_count
-     *
-     * @param int $monitor_directory_count monitor_directory_count
-     *
-     * @return $this
-     */
-    public function setMonitorDirectoryCount($monitor_directory_count)
-    {
-        $this->container['monitor_directory_count'] = $monitor_directory_count;
-
-        return $this;
-    }
 
     /**
      * Gets monitor_agent_count
