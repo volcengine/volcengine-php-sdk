@@ -26,6 +26,8 @@ Then run `composer install`
 
 Please follow the [installation procedure](#installation--usage)
 
+SDK 详细使用文档（凭证配置、Endpoint、Transport、超时、重试、异常处理、Debug）请参考：[SDK 接入文档](./docs/0-Overview-zh.md)
+
 ##### Endpoint 设置 #####
 
 如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
@@ -81,4 +83,3 @@ try {
 ?>
 ```
 
-更多代码示例请参考：[SDK接入文档](./docs/0-Overview-zh.md)

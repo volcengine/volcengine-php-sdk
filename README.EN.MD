@@ -26,6 +26,8 @@ Then run `composer install`.
 
 Please follow the [installation procedure](#installation--usage).
 
+For detailed SDK documentation (credentials, endpoint, transport, timeout, retry, error handling, debugging), see: [SDK Integration Guide](./docs/0-Overview.md)
+
 ##### Endpoint Configuration
 
 If you want to customize the SDK endpoint, use the following example:
@@ -81,4 +83,3 @@ try {
 ?>
 ```
 
-For more examples, see: [SDK Integration Guide](./docs/0-Overview.md)
