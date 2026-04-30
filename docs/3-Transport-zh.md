@@ -54,8 +54,8 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSk("Your sk")
     ->setRegion('cn-beijing');
 $apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client([
         'curl' => [
             CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2, // 指定 TLS 1.2
@@ -91,10 +91,10 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSk("Your sk")
     ->setRegion('cn-beijing');
 $apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client([
-         'proxy' => [
+        'proxy' => [
             'http'  => 'http://127.0.0.1:8888',  // HTTP 请求用此代理
             'https' => 'http://127.0.0.1:8889'   // HTTPS 请求用此代理
         ],

@@ -84,7 +84,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 $apiInstance = new \Volcengine\Vpc\Api\VPCApi(
     new GuzzleHttp\Client([
-         'proxy' => [
+        'proxy' => [
             'http'  => 'http://127.0.0.1:8888',   // proxy for HTTP requests
             'https' => 'http://127.0.0.1:8889'    // proxy for HTTPS requests
         ],

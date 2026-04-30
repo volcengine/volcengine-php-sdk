@@ -88,8 +88,8 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing");
 
 $apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new \GuzzleHttp\Client(),
     $config
 );
@@ -139,16 +139,16 @@ try {
     $result = $sts->getCredentials();
     print_r($result);
     /**
-     * $result返回结果如下
-     * Array
-     * (
-     * [ExpiredTime] => 2025-10-27T12:08:12+08:00   # 临时凭证的过期时间
-     * [CurrentTime] => 2025-10-27T11:08:12+08:00   # 临时凭证的生成时间
-     * [AccessKeyId] => ************  # 临时凭证的ak
-     * [SecretAccessKey] => ************  #临时凭证的sk
-     * [SessionToken] => ***************  #临时凭证的token
-     * )*
-     */
+    * $result返回结果如下
+    * Array
+    * (
+    * [ExpiredTime] => 2025-10-27T12:08:12+08:00   # 临时凭证的过期时间
+    * [CurrentTime] => 2025-10-27T11:08:12+08:00   # 临时凭证的生成时间
+    * [AccessKeyId] => ************  # 临时凭证的ak
+    * [SecretAccessKey] => ************  #临时凭证的sk
+    * [SessionToken] => ***************  #临时凭证的token
+    * )*
+    */
 } catch (Exception $e) {
     echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
 }
