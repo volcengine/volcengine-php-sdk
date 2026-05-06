@@ -28,7 +28,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoTermBasesOutput[]',
+        'pagination' => '\Volcengine\I18nopenapi\Model\PaginationForVideoTermBasesOutput',
+        'total' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'data' => null,
+        'pagination' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -67,7 +71,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'data' => 'data',
+        'pagination' => 'pagination',
+        'total' => 'total'
     ];
 
     /**
@@ -76,7 +82,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'data' => 'setData',
+        'pagination' => 'setPagination',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -85,7 +93,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'data' => 'getData',
+        'pagination' => 'getPagination',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -148,6 +158,9 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -173,6 +186,78 @@ class VideoTermBasesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets data
+     *
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoTermBasesOutput[]
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoTermBasesOutput[] $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets pagination
+     *
+     * @return \Volcengine\I18nopenapi\Model\PaginationForVideoTermBasesOutput
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \Volcengine\I18nopenapi\Model\PaginationForVideoTermBasesOutput $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -28,8 +28,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'built_in_emotion_tags' => '\Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]',
-        'custom_emotion_tags' => '\Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoEditorGetEmotionTagsOutput'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'built_in_emotion_tags' => null,
-        'custom_emotion_tags' => null
+        'data' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'built_in_emotion_tags' => 'builtInEmotionTags',
-        'custom_emotion_tags' => 'customEmotionTags'
+        'data' => 'data'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'built_in_emotion_tags' => 'setBuiltInEmotionTags',
-        'custom_emotion_tags' => 'setCustomEmotionTags'
+        'data' => 'setData'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'built_in_emotion_tags' => 'getBuiltInEmotionTags',
-        'custom_emotion_tags' => 'getCustomEmotionTags'
+        'data' => 'getData'
     ];
 
     /**
@@ -153,8 +148,7 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['built_in_emotion_tags'] = isset($data['built_in_emotion_tags']) ? $data['built_in_emotion_tags'] : null;
-        $this->container['custom_emotion_tags'] = isset($data['custom_emotion_tags']) ? $data['custom_emotion_tags'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class VideoEditorGetEmotionTagsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets built_in_emotion_tags
+     * Gets data
      *
-     * @return \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[]
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoEditorGetEmotionTagsOutput
      */
-    public function getBuiltInEmotionTags()
+    public function getData()
     {
-        return $this->container['built_in_emotion_tags'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets built_in_emotion_tags
+     * Sets data
      *
-     * @param \Volcengine\I18nopenapi\Model\BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput[] $built_in_emotion_tags built_in_emotion_tags
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoEditorGetEmotionTagsOutput $data data
      *
      * @return $this
      */
-    public function setBuiltInEmotionTags($built_in_emotion_tags)
+    public function setData($data)
     {
-        $this->container['built_in_emotion_tags'] = $built_in_emotion_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_emotion_tags
-     *
-     * @return \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[]
-     */
-    public function getCustomEmotionTags()
-    {
-        return $this->container['custom_emotion_tags'];
-    }
-
-    /**
-     * Sets custom_emotion_tags
-     *
-     * @param \Volcengine\I18nopenapi\Model\CustomEmotionTagForVideoEditorGetEmotionTagsOutput[] $custom_emotion_tags custom_emotion_tags
-     *
-     * @return $this
-     */
-    public function setCustomEmotionTags($custom_emotion_tags)
-    {
-        $this->container['custom_emotion_tags'] = $custom_emotion_tags;
+        $this->container['data'] = $data;
 
         return $this;
     }

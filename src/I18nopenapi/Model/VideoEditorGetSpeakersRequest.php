@@ -28,7 +28,7 @@ class VideoEditorGetSpeakersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'int'
+        'subtask_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoEditorGetSpeakersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => 'int32'
+        'subtask_id' => null
     ];
 
     /**
@@ -181,7 +181,7 @@ class VideoEditorGetSpeakersRequest implements ModelInterface, ArrayAccess
     /**
      * Gets subtask_id
      *
-     * @return int
+     * @return string
      */
     public function getSubtaskId()
     {
@@ -191,7 +191,7 @@ class VideoEditorGetSpeakersRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subtask_id
      *
-     * @param int $subtask_id subtask_id
+     * @param string $subtask_id subtask_id
      *
      * @return $this
      */
