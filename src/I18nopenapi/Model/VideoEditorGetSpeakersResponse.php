@@ -28,8 +28,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_task_speakers' => '\Volcengine\I18nopenapi\Model\SubTaskSpeakerForVideoEditorGetSpeakersOutput[]',
-        'task_speakers' => '\Volcengine\I18nopenapi\Model\TaskSpeakerForVideoEditorGetSpeakersOutput[]'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoEditorGetSpeakersOutput'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_task_speakers' => null,
-        'task_speakers' => null
+        'data' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_task_speakers' => 'subTaskSpeakers',
-        'task_speakers' => 'taskSpeakers'
+        'data' => 'data'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sub_task_speakers' => 'setSubTaskSpeakers',
-        'task_speakers' => 'setTaskSpeakers'
+        'data' => 'setData'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sub_task_speakers' => 'getSubTaskSpeakers',
-        'task_speakers' => 'getTaskSpeakers'
+        'data' => 'getData'
     ];
 
     /**
@@ -153,8 +148,7 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['sub_task_speakers'] = isset($data['sub_task_speakers']) ? $data['sub_task_speakers'] : null;
-        $this->container['task_speakers'] = isset($data['task_speakers']) ? $data['task_speakers'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class VideoEditorGetSpeakersResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sub_task_speakers
+     * Gets data
      *
-     * @return \Volcengine\I18nopenapi\Model\SubTaskSpeakerForVideoEditorGetSpeakersOutput[]
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoEditorGetSpeakersOutput
      */
-    public function getSubTaskSpeakers()
+    public function getData()
     {
-        return $this->container['sub_task_speakers'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets sub_task_speakers
+     * Sets data
      *
-     * @param \Volcengine\I18nopenapi\Model\SubTaskSpeakerForVideoEditorGetSpeakersOutput[] $sub_task_speakers sub_task_speakers
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoEditorGetSpeakersOutput $data data
      *
      * @return $this
      */
-    public function setSubTaskSpeakers($sub_task_speakers)
+    public function setData($data)
     {
-        $this->container['sub_task_speakers'] = $sub_task_speakers;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_speakers
-     *
-     * @return \Volcengine\I18nopenapi\Model\TaskSpeakerForVideoEditorGetSpeakersOutput[]
-     */
-    public function getTaskSpeakers()
-    {
-        return $this->container['task_speakers'];
-    }
-
-    /**
-     * Sets task_speakers
-     *
-     * @param \Volcengine\I18nopenapi\Model\TaskSpeakerForVideoEditorGetSpeakersOutput[] $task_speakers task_speakers
-     *
-     * @return $this
-     */
-    public function setTaskSpeakers($task_speakers)
-    {
-        $this->container['task_speakers'] = $task_speakers;
+        $this->container['data'] = $data;
 
         return $this;
     }

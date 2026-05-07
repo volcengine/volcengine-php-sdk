@@ -28,10 +28,12 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'avatar' => 'string',
         'create_at' => 'string',
+        'name' => 'string',
         'role' => 'int',
         'updated_at' => 'string',
-        'user_id' => 'int'
+        'user_id' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'avatar' => null,
         'create_at' => null,
+        'name' => null,
         'role' => 'int32',
         'updated_at' => null,
-        'user_id' => 'int32'
+        'user_id' => null
     ];
 
     /**
@@ -73,7 +77,9 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'avatar' => 'avatar',
         'create_at' => 'createAt',
+        'name' => 'name',
         'role' => 'role',
         'updated_at' => 'updatedAt',
         'user_id' => 'userId'
@@ -85,7 +91,9 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'avatar' => 'setAvatar',
         'create_at' => 'setCreateAt',
+        'name' => 'setName',
         'role' => 'setRole',
         'updated_at' => 'setUpdatedAt',
         'user_id' => 'setUserId'
@@ -97,7 +105,9 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'avatar' => 'getAvatar',
         'create_at' => 'getCreateAt',
+        'name' => 'getName',
         'role' => 'getRole',
         'updated_at' => 'getUpdatedAt',
         'user_id' => 'getUserId'
@@ -163,7 +173,9 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['avatar'] = isset($data['avatar']) ? $data['avatar'] : null;
         $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
@@ -194,6 +206,30 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->container['avatar'];
+    }
+
+    /**
+     * Sets avatar
+     *
+     * @param string $avatar avatar
+     *
+     * @return $this
+     */
+    public function setAvatar($avatar)
+    {
+        $this->container['avatar'] = $avatar;
+
+        return $this;
+    }
+
+    /**
      * Gets create_at
      *
      * @return string
@@ -213,6 +249,30 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
     public function setCreateAt($create_at)
     {
         $this->container['create_at'] = $create_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -268,7 +328,7 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return string
      */
     public function getUserId()
     {
@@ -278,7 +338,7 @@ class DataForProjectUsersOutput implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param string $user_id user_id
      *
      * @return $this
      */

@@ -454,6 +454,41 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'cloudmonitor' => new ServiceEndpointInfo(
+                    'cloudmonitor',
+                    false,
+                    '',
+                    []
+                ),
+                
+                'i18n_openapi' => new ServiceEndpointInfo(
+                    'i18n_openapi',
+                    true,
+                    '',
+                    []
+                ),
+                
+                'arkclaw' => new ServiceEndpointInfo(
+                    'arkclaw',
+                    true,
+                    '',
+                    []
+                ),
+                
+                'insight' => new ServiceEndpointInfo(
+                    'insight',
+                    true,
+                    '',
+                    []
+                ),
+                
+                'cbr' => new ServiceEndpointInfo(
+                    'cbr',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;

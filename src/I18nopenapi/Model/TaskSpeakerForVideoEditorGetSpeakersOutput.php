@@ -28,15 +28,13 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_at' => 'int',
-        'id' => 'int',
+        'create_at' => 'string',
+        'id' => 'string',
         'speaker_desc' => 'string',
-        'speaker_id' => 'int',
+        'speaker_id' => 'string',
         'speaker_name' => 'string',
         'speaker_type' => 'int',
-        'status' => 'int',
-        'update_at' => 'int',
-        'voices' => '\Volcengine\I18nopenapi\Model\VoiceForVideoEditorGetSpeakersOutput[]'
+        'update_at' => 'string'
     ];
 
     /**
@@ -45,15 +43,13 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_at' => 'int32',
-        'id' => 'int32',
+        'create_at' => null,
+        'id' => null,
         'speaker_desc' => null,
-        'speaker_id' => 'int32',
+        'speaker_id' => null,
         'speaker_name' => null,
         'speaker_type' => 'int32',
-        'status' => 'int32',
-        'update_at' => 'int32',
-        'voices' => null
+        'update_at' => null
     ];
 
     /**
@@ -89,9 +85,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
         'speaker_id' => 'speakerId',
         'speaker_name' => 'speakerName',
         'speaker_type' => 'speakerType',
-        'status' => 'status',
-        'update_at' => 'updateAt',
-        'voices' => 'voices'
+        'update_at' => 'updateAt'
     ];
 
     /**
@@ -106,9 +100,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
         'speaker_id' => 'setSpeakerId',
         'speaker_name' => 'setSpeakerName',
         'speaker_type' => 'setSpeakerType',
-        'status' => 'setStatus',
-        'update_at' => 'setUpdateAt',
-        'voices' => 'setVoices'
+        'update_at' => 'setUpdateAt'
     ];
 
     /**
@@ -123,9 +115,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
         'speaker_id' => 'getSpeakerId',
         'speaker_name' => 'getSpeakerName',
         'speaker_type' => 'getSpeakerType',
-        'status' => 'getStatus',
-        'update_at' => 'getUpdateAt',
-        'voices' => 'getVoices'
+        'update_at' => 'getUpdateAt'
     ];
 
     /**
@@ -194,9 +184,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
         $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
         $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
         $this->container['speaker_type'] = isset($data['speaker_type']) ? $data['speaker_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_at'] = isset($data['update_at']) ? $data['update_at'] : null;
-        $this->container['voices'] = isset($data['voices']) ? $data['voices'] : null;
     }
 
     /**
@@ -226,7 +214,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Gets create_at
      *
-     * @return int
+     * @return string
      */
     public function getCreateAt()
     {
@@ -236,7 +224,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Sets create_at
      *
-     * @param int $create_at create_at
+     * @param string $create_at create_at
      *
      * @return $this
      */
@@ -250,7 +238,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Gets id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -260,7 +248,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param string $id id
      *
      * @return $this
      */
@@ -298,7 +286,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Gets speaker_id
      *
-     * @return int
+     * @return string
      */
     public function getSpeakerId()
     {
@@ -308,7 +296,7 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Sets speaker_id
      *
-     * @param int $speaker_id speaker_id
+     * @param string $speaker_id speaker_id
      *
      * @return $this
      */
@@ -368,33 +356,9 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     }
 
     /**
-     * Gets status
-     *
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
      * Gets update_at
      *
-     * @return int
+     * @return string
      */
     public function getUpdateAt()
     {
@@ -404,37 +368,13 @@ class TaskSpeakerForVideoEditorGetSpeakersOutput implements ModelInterface, Arra
     /**
      * Sets update_at
      *
-     * @param int $update_at update_at
+     * @param string $update_at update_at
      *
      * @return $this
      */
     public function setUpdateAt($update_at)
     {
         $this->container['update_at'] = $update_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets voices
-     *
-     * @return \Volcengine\I18nopenapi\Model\VoiceForVideoEditorGetSpeakersOutput[]
-     */
-    public function getVoices()
-    {
-        return $this->container['voices'];
-    }
-
-    /**
-     * Sets voices
-     *
-     * @param \Volcengine\I18nopenapi\Model\VoiceForVideoEditorGetSpeakersOutput[] $voices voices
-     *
-     * @return $this
-     */
-    public function setVoices($voices)
-    {
-        $this->container['voices'] = $voices;
 
         return $this;
     }

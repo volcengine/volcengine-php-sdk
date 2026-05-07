@@ -30,7 +30,7 @@ class VideoEditorAddEmotionTagRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'emotion_tag' => 'string',
         'name' => 'string',
-        'subtask_id' => 'int'
+        'subtask_id' => 'string'
     ];
 
     /**
@@ -41,7 +41,7 @@ class VideoEditorAddEmotionTagRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'emotion_tag' => null,
         'name' => null,
-        'subtask_id' => 'int32'
+        'subtask_id' => null
     ];
 
     /**
@@ -247,7 +247,7 @@ class VideoEditorAddEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Gets subtask_id
      *
-     * @return int
+     * @return string
      */
     public function getSubtaskId()
     {
@@ -257,7 +257,7 @@ class VideoEditorAddEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subtask_id
      *
-     * @param int $subtask_id subtask_id
+     * @param string $subtask_id subtask_id
      *
      * @return $this
      */

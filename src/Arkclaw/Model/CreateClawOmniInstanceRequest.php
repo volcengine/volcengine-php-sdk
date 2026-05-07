@@ -40,6 +40,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'string',
         'space_id' => 'string',
         'tags' => '\Volcengine\Arkclaw\Model\TagForCreateClawOmniInstanceInput[]',
+        'template_id' => 'string',
         'timeout' => 'int'
     ];
 
@@ -61,6 +62,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => null,
         'space_id' => null,
         'tags' => null,
+        'template_id' => null,
         'timeout' => 'int32'
     ];
 
@@ -103,6 +105,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'Soul',
         'space_id' => 'SpaceId',
         'tags' => 'Tags',
+        'template_id' => 'TemplateId',
         'timeout' => 'Timeout'
     ];
 
@@ -124,6 +127,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'setSoul',
         'space_id' => 'setSpaceId',
         'tags' => 'setTags',
+        'template_id' => 'setTemplateId',
         'timeout' => 'setTimeout'
     ];
 
@@ -145,6 +149,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'getSoul',
         'space_id' => 'getSpaceId',
         'tags' => 'getTags',
+        'template_id' => 'getTemplateId',
         'timeout' => 'getTimeout'
     ];
 
@@ -220,6 +225,7 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
 
@@ -232,12 +238,6 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cpu_milli'] === null) {
-            $invalidProperties[] = "'cpu_milli' can't be null";
-        }
-        if ($this->container['image'] === null) {
-            $invalidProperties[] = "'image' can't be null";
-        }
         if ($this->container['memory_mb'] === null) {
             $invalidProperties[] = "'memory_mb' can't be null";
         }
@@ -546,6 +546,30 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
