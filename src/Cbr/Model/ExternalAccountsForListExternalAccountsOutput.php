@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Iam20210801\Model;
+namespace Volcengine\Cbr\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetProjectResponse implements ModelInterface, ArrayAccess
+class ExternalAccountsForListExternalAccountsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProjectResponse';
+    protected static $swaggerModelName = 'ExternalAccountsForListExternalAccountsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'create_date' => 'string',
-        'description' => 'string',
-        'display_name' => 'string',
-        'parent_project_name' => 'string',
-        'path' => 'string',
-        'project_name' => 'string',
-        'status' => 'string',
-        'update_date' => 'string'
+        'created_at' => 'string',
+        'external_account_id' => 'string',
+        'external_account_uid' => 'string',
+        'name' => 'string',
+        'platform_id' => 'string',
+        'role_name' => 'string'
     ];
 
     /**
@@ -45,15 +42,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'create_date' => null,
-        'description' => null,
-        'display_name' => null,
-        'parent_project_name' => null,
-        'path' => null,
-        'project_name' => null,
-        'status' => null,
-        'update_date' => null
+        'created_at' => null,
+        'external_account_id' => null,
+        'external_account_uid' => null,
+        'name' => null,
+        'platform_id' => null,
+        'role_name' => null
     ];
 
     /**
@@ -83,15 +77,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountID',
-        'create_date' => 'CreateDate',
-        'description' => 'Description',
-        'display_name' => 'DisplayName',
-        'parent_project_name' => 'ParentProjectName',
-        'path' => 'Path',
-        'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_date' => 'UpdateDate'
+        'created_at' => 'CreatedAt',
+        'external_account_id' => 'ExternalAccountId',
+        'external_account_uid' => 'ExternalAccountUid',
+        'name' => 'Name',
+        'platform_id' => 'PlatformId',
+        'role_name' => 'RoleName'
     ];
 
     /**
@@ -100,15 +91,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'create_date' => 'setCreateDate',
-        'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
-        'parent_project_name' => 'setParentProjectName',
-        'path' => 'setPath',
-        'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_date' => 'setUpdateDate'
+        'created_at' => 'setCreatedAt',
+        'external_account_id' => 'setExternalAccountId',
+        'external_account_uid' => 'setExternalAccountUid',
+        'name' => 'setName',
+        'platform_id' => 'setPlatformId',
+        'role_name' => 'setRoleName'
     ];
 
     /**
@@ -117,15 +105,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'create_date' => 'getCreateDate',
-        'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
-        'parent_project_name' => 'getParentProjectName',
-        'path' => 'getPath',
-        'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_date' => 'getUpdateDate'
+        'created_at' => 'getCreatedAt',
+        'external_account_id' => 'getExternalAccountId',
+        'external_account_uid' => 'getExternalAccountUid',
+        'name' => 'getName',
+        'platform_id' => 'getPlatformId',
+        'role_name' => 'getRoleName'
     ];
 
     /**
@@ -188,15 +173,12 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['parent_project_name'] = isset($data['parent_project_name']) ? $data['parent_project_name'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['external_account_id'] = isset($data['external_account_id']) ? $data['external_account_id'] : null;
+        $this->container['external_account_uid'] = isset($data['external_account_uid']) ? $data['external_account_uid'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['platform_id'] = isset($data['platform_id']) ? $data['platform_id'] : null;
+        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
     }
 
     /**
@@ -224,217 +206,145 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets created_at
      *
-     * @return int
+     * @return string
      */
-    public function getAccountId()
+    public function getCreatedAt()
     {
-        return $this->container['account_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets account_id
+     * Sets created_at
      *
-     * @param int $account_id account_id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets create_date
+     * Gets external_account_id
      *
      * @return string
      */
-    public function getCreateDate()
+    public function getExternalAccountId()
     {
-        return $this->container['create_date'];
+        return $this->container['external_account_id'];
     }
 
     /**
-     * Sets create_date
+     * Sets external_account_id
      *
-     * @param string $create_date create_date
+     * @param string $external_account_id external_account_id
      *
      * @return $this
      */
-    public function setCreateDate($create_date)
+    public function setExternalAccountId($external_account_id)
     {
-        $this->container['create_date'] = $create_date;
+        $this->container['external_account_id'] = $external_account_id;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets external_account_uid
      *
      * @return string
      */
-    public function getDescription()
+    public function getExternalAccountUid()
     {
-        return $this->container['description'];
+        return $this->container['external_account_uid'];
     }
 
     /**
-     * Sets description
+     * Sets external_account_uid
      *
-     * @param string $description description
+     * @param string $external_account_uid external_account_uid
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setExternalAccountUid($external_account_uid)
     {
-        $this->container['description'] = $description;
+        $this->container['external_account_uid'] = $external_account_uid;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getName()
     {
-        return $this->container['display_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets display_name
+     * Sets name
      *
-     * @param string $display_name display_name
+     * @param string $name name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setName($name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets parent_project_name
+     * Gets platform_id
      *
      * @return string
      */
-    public function getParentProjectName()
+    public function getPlatformId()
     {
-        return $this->container['parent_project_name'];
+        return $this->container['platform_id'];
     }
 
     /**
-     * Sets parent_project_name
+     * Sets platform_id
      *
-     * @param string $parent_project_name parent_project_name
+     * @param string $platform_id platform_id
      *
      * @return $this
      */
-    public function setParentProjectName($parent_project_name)
+    public function setPlatformId($platform_id)
     {
-        $this->container['parent_project_name'] = $parent_project_name;
+        $this->container['platform_id'] = $platform_id;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets role_name
      *
      * @return string
      */
-    public function getPath()
+    public function getRoleName()
     {
-        return $this->container['path'];
+        return $this->container['role_name'];
     }
 
     /**
-     * Sets path
+     * Sets role_name
      *
-     * @param string $path path
+     * @param string $role_name role_name
      *
      * @return $this
      */
-    public function setPath($path)
+    public function setRoleName($role_name)
     {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_date
-     *
-     * @return string
-     */
-    public function getUpdateDate()
-    {
-        return $this->container['update_date'];
-    }
-
-    /**
-     * Sets update_date
-     *
-     * @param string $update_date update_date
-     *
-     * @return $this
-     */
-    public function setUpdateDate($update_date)
-    {
-        $this->container['update_date'] = $update_date;
+        $this->container['role_name'] = $role_name;
 
         return $this;
     }
