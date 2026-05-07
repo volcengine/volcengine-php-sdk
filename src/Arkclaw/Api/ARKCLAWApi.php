@@ -440,6 +440,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function resetClawOmniInstance($body = null)
+    {
+        list($response) = $this->resetClawOmniInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resetClawOmniInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ResetClawOmniInstanceResponse';
+        $request = $this->resetClawOmniInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function resetClawOmniInstanceAsync($body = null)
+    {
+        return $this->resetClawOmniInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resetClawOmniInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ResetClawOmniInstanceResponse';
+        $request = $this->resetClawOmniInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function resetClawOmniInstanceRequest($body)
+    {
+        $resourcePath = '/ResetClawOmniInstance/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function resumeClawOmniInstance($body = null)
     {
         list($response) = $this->resumeClawOmniInstanceWithHttpInfo($body);

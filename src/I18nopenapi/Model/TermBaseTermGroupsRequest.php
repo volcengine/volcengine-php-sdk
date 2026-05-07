@@ -29,10 +29,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'case_sensitive' => 'int',
+        'keyword' => 'string',
         'limit' => 'int',
         'offset' => 'int',
+        'sort_locale' => 'string',
         'sort_type' => 'int',
         'sorting' => 'int',
+        'tags' => 'string',
         'term_base_id' => 'string'
     ];
 
@@ -43,10 +46,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'case_sensitive' => 'int32',
+        'keyword' => null,
         'limit' => 'int32',
         'offset' => 'int32',
+        'sort_locale' => null,
         'sort_type' => 'int32',
         'sorting' => 'int32',
+        'tags' => null,
         'term_base_id' => null
     ];
 
@@ -78,10 +84,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'case_sensitive' => 'caseSensitive',
+        'keyword' => 'keyword',
         'limit' => 'limit',
         'offset' => 'offset',
+        'sort_locale' => 'sortLocale',
         'sort_type' => 'sortType',
         'sorting' => 'sorting',
+        'tags' => 'tags',
         'term_base_id' => 'termBaseId'
     ];
 
@@ -92,10 +101,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'case_sensitive' => 'setCaseSensitive',
+        'keyword' => 'setKeyword',
         'limit' => 'setLimit',
         'offset' => 'setOffset',
+        'sort_locale' => 'setSortLocale',
         'sort_type' => 'setSortType',
         'sorting' => 'setSorting',
+        'tags' => 'setTags',
         'term_base_id' => 'setTermBaseId'
     ];
 
@@ -106,10 +118,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'case_sensitive' => 'getCaseSensitive',
+        'keyword' => 'getKeyword',
         'limit' => 'getLimit',
         'offset' => 'getOffset',
+        'sort_locale' => 'getSortLocale',
         'sort_type' => 'getSortType',
         'sorting' => 'getSorting',
+        'tags' => 'getTags',
         'term_base_id' => 'getTermBaseId'
     ];
 
@@ -174,10 +189,13 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['case_sensitive'] = isset($data['case_sensitive']) ? $data['case_sensitive'] : null;
+        $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['sort_locale'] = isset($data['sort_locale']) ? $data['sort_locale'] : null;
         $this->container['sort_type'] = isset($data['sort_type']) ? $data['sort_type'] : null;
         $this->container['sorting'] = isset($data['sorting']) ? $data['sorting'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
     }
 
@@ -190,12 +208,6 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['offset'] === null) {
-            $invalidProperties[] = "'offset' can't be null";
-        }
         if ($this->container['term_base_id'] === null) {
             $invalidProperties[] = "'term_base_id' can't be null";
         }
@@ -234,6 +246,30 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     public function setCaseSensitive($case_sensitive)
     {
         $this->container['case_sensitive'] = $case_sensitive;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyword
+     *
+     * @return string
+     */
+    public function getKeyword()
+    {
+        return $this->container['keyword'];
+    }
+
+    /**
+     * Sets keyword
+     *
+     * @param string $keyword keyword
+     *
+     * @return $this
+     */
+    public function setKeyword($keyword)
+    {
+        $this->container['keyword'] = $keyword;
 
         return $this;
     }
@@ -287,6 +323,30 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sort_locale
+     *
+     * @return string
+     */
+    public function getSortLocale()
+    {
+        return $this->container['sort_locale'];
+    }
+
+    /**
+     * Sets sort_locale
+     *
+     * @param string $sort_locale sort_locale
+     *
+     * @return $this
+     */
+    public function setSortLocale($sort_locale)
+    {
+        $this->container['sort_locale'] = $sort_locale;
+
+        return $this;
+    }
+
+    /**
      * Gets sort_type
      *
      * @return int
@@ -330,6 +390,30 @@ class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
     public function setSorting($sorting)
     {
         $this->container['sorting'] = $sorting;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

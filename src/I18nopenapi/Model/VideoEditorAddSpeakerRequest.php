@@ -29,7 +29,7 @@ class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'speaker_name' => 'string',
-        'subtask_id' => 'int',
+        'subtask_id' => 'string',
         'type' => 'int'
     ];
 
@@ -40,7 +40,7 @@ class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'speaker_name' => null,
-        'subtask_id' => 'int32',
+        'subtask_id' => null,
         'type' => 'int32'
     ];
 
@@ -178,6 +178,9 @@ class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
         if ($this->container['subtask_id'] === null) {
             $invalidProperties[] = "'subtask_id' can't be null";
         }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -220,7 +223,7 @@ class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
     /**
      * Gets subtask_id
      *
-     * @return int
+     * @return string
      */
     public function getSubtaskId()
     {
@@ -230,7 +233,7 @@ class VideoEditorAddSpeakerRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subtask_id
      *
-     * @param int $subtask_id subtask_id
+     * @param string $subtask_id subtask_id
      *
      * @return $this
      */

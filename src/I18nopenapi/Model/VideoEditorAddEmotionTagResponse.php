@@ -28,7 +28,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoEditorAddEmotionTagOutput'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32'
+        'data' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'data' => 'data'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'data' => 'setData'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'data' => 'getData'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoEditorAddEmotionTagResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoEditorAddEmotionTagOutput
      */
-    public function getId()
+    public function getData()
     {
-        return $this->container['id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets id
+     * Sets data
      *
-     * @param int $id id
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoEditorAddEmotionTagOutput $data data
      *
      * @return $this
      */
-    public function setId($id)
+    public function setData($data)
     {
-        $this->container['id'] = $id;
+        $this->container['data'] = $data;
 
         return $this;
     }

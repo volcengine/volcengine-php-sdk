@@ -28,10 +28,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'keyword' => 'string',
         'limit' => 'int',
         'offset' => 'int',
         'project_id' => 'string',
-        'target_project' => 'string'
+        'target_project' => 'string',
+        'term_base_id' => 'string',
+        'term_base_type' => 'int'
     ];
 
     /**
@@ -40,10 +43,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'keyword' => null,
         'limit' => 'int32',
         'offset' => 'int32',
         'project_id' => null,
-        'target_project' => null
+        'target_project' => null,
+        'term_base_id' => null,
+        'term_base_type' => 'int32'
     ];
 
     /**
@@ -73,10 +79,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'keyword' => 'keyword',
         'limit' => 'limit',
         'offset' => 'offset',
         'project_id' => 'projectId',
-        'target_project' => 'targetProject'
+        'target_project' => 'targetProject',
+        'term_base_id' => 'termBaseId',
+        'term_base_type' => 'termBaseType'
     ];
 
     /**
@@ -85,10 +94,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'keyword' => 'setKeyword',
         'limit' => 'setLimit',
         'offset' => 'setOffset',
         'project_id' => 'setProjectId',
-        'target_project' => 'setTargetProject'
+        'target_project' => 'setTargetProject',
+        'term_base_id' => 'setTermBaseId',
+        'term_base_type' => 'setTermBaseType'
     ];
 
     /**
@@ -97,10 +109,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'keyword' => 'getKeyword',
         'limit' => 'getLimit',
         'offset' => 'getOffset',
         'project_id' => 'getProjectId',
-        'target_project' => 'getTargetProject'
+        'target_project' => 'getTargetProject',
+        'term_base_id' => 'getTermBaseId',
+        'term_base_type' => 'getTermBaseType'
     ];
 
     /**
@@ -163,10 +178,13 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['target_project'] = isset($data['target_project']) ? $data['target_project'] : null;
+        $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
+        $this->container['term_base_type'] = isset($data['term_base_type']) ? $data['term_base_type'] : null;
     }
 
     /**
@@ -178,12 +196,6 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['offset'] === null) {
-            $invalidProperties[] = "'offset' can't be null";
-        }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
         }
@@ -204,6 +216,30 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets keyword
+     *
+     * @return string
+     */
+    public function getKeyword()
+    {
+        return $this->container['keyword'];
+    }
+
+    /**
+     * Sets keyword
+     *
+     * @param string $keyword keyword
+     *
+     * @return $this
+     */
+    public function setKeyword($keyword)
+    {
+        $this->container['keyword'] = $keyword;
+
+        return $this;
+    }
 
     /**
      * Gets limit
@@ -297,6 +333,54 @@ class VideoTermBasesRequest implements ModelInterface, ArrayAccess
     public function setTargetProject($target_project)
     {
         $this->container['target_project'] = $target_project;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_base_id
+     *
+     * @return string
+     */
+    public function getTermBaseId()
+    {
+        return $this->container['term_base_id'];
+    }
+
+    /**
+     * Sets term_base_id
+     *
+     * @param string $term_base_id term_base_id
+     *
+     * @return $this
+     */
+    public function setTermBaseId($term_base_id)
+    {
+        $this->container['term_base_id'] = $term_base_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_base_type
+     *
+     * @return int
+     */
+    public function getTermBaseType()
+    {
+        return $this->container['term_base_type'];
+    }
+
+    /**
+     * Sets term_base_type
+     *
+     * @param int $term_base_type term_base_type
+     *
+     * @return $this
+     */
+    public function setTermBaseType($term_base_type)
+    {
+        $this->container['term_base_type'] = $term_base_type;
 
         return $this;
     }

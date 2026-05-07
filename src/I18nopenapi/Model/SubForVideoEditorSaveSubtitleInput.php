@@ -30,6 +30,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ai_voice_id' => 'string',
         'effect_type' => 'string',
+        'emotion_tag' => 'string',
         'end_time' => 'string',
         'segment_id' => 'string',
         'source' => '\Volcengine\I18nopenapi\Model\SourceForVideoEditorSaveSubtitleInput',
@@ -49,6 +50,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ai_voice_id' => null,
         'effect_type' => null,
+        'emotion_tag' => null,
         'end_time' => null,
         'segment_id' => null,
         'source' => null,
@@ -89,6 +91,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ai_voice_id' => 'aiVoiceId',
         'effect_type' => 'effectType',
+        'emotion_tag' => 'emotionTag',
         'end_time' => 'endTime',
         'segment_id' => 'segmentId',
         'source' => 'source',
@@ -108,6 +111,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ai_voice_id' => 'setAiVoiceId',
         'effect_type' => 'setEffectType',
+        'emotion_tag' => 'setEmotionTag',
         'end_time' => 'setEndTime',
         'segment_id' => 'setSegmentId',
         'source' => 'setSource',
@@ -127,6 +131,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ai_voice_id' => 'getAiVoiceId',
         'effect_type' => 'getEffectType',
+        'emotion_tag' => 'getEmotionTag',
         'end_time' => 'getEndTime',
         'segment_id' => 'getSegmentId',
         'source' => 'getSource',
@@ -200,6 +205,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     {
         $this->container['ai_voice_id'] = isset($data['ai_voice_id']) ? $data['ai_voice_id'] : null;
         $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
+        $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['segment_id'] = isset($data['segment_id']) ? $data['segment_id'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
@@ -279,6 +285,30 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     public function setEffectType($effect_type)
     {
         $this->container['effect_type'] = $effect_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets emotion_tag
+     *
+     * @return string
+     */
+    public function getEmotionTag()
+    {
+        return $this->container['emotion_tag'];
+    }
+
+    /**
+     * Sets emotion_tag
+     *
+     * @param string $emotion_tag emotion_tag
+     *
+     * @return $this
+     */
+    public function setEmotionTag($emotion_tag)
+    {
+        $this->container['emotion_tag'] = $emotion_tag;
 
         return $this;
     }
