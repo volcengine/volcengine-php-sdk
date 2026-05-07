@@ -455,6 +455,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     []
                 ),
             
+                'insight' => new ServiceEndpointInfo(
+                    'insight',
+                    true,
+                    '',
+                    []
+                ),
+                
                 'cbr' => new ServiceEndpointInfo(
                     'cbr',
                     false,

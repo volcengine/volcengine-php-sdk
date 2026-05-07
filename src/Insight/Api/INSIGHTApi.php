@@ -68,6 +68,68 @@ class INSIGHTApi
         return $this->config;
     }
 
+    public function agentChat($body = null)
+    {
+        list($response) = $this->agentChatWithHttpInfo($body);
+        return $response;
+    }
+
+    public function agentChatWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Insight\Model\AgentChatResponse';
+        $request = $this->agentChatRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function agentChatAsync($body = null)
+    {
+        return $this->agentChatAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function agentChatAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Insight\Model\AgentChatResponse';
+        $request = $this->agentChatRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function agentChatRequest($body)
+    {
+        $resourcePath = '/AgentChat/2025-09-05/insight/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function expertInvokeAPI($body = null)
     {
         list($response) = $this->expertInvokeAPIWithHttpInfo($body);
