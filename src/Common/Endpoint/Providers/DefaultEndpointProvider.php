@@ -455,6 +455,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     []
                 ),
             
+                'arkclaw' => new ServiceEndpointInfo(
+                    'arkclaw',
+                    true,
+                    '',
+                    []
+                ),
+                
                 'insight' => new ServiceEndpointInfo(
                     'insight',
                     true,
