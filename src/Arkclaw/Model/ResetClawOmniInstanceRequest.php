@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Iam20210801\Model;
+namespace Volcengine\Arkclaw\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetProjectResponse implements ModelInterface, ArrayAccess
+class ResetClawOmniInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProjectResponse';
+    protected static $swaggerModelName = 'ResetClawOmniInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'create_date' => 'string',
-        'description' => 'string',
-        'display_name' => 'string',
-        'parent_project_name' => 'string',
-        'path' => 'string',
+        'id' => 'string',
         'project_name' => 'string',
-        'status' => 'string',
-        'update_date' => 'string'
+        'template_id' => 'string'
     ];
 
     /**
@@ -45,15 +39,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'create_date' => null,
-        'description' => null,
-        'display_name' => null,
-        'parent_project_name' => null,
-        'path' => null,
+        'id' => null,
         'project_name' => null,
-        'status' => null,
-        'update_date' => null
+        'template_id' => null
     ];
 
     /**
@@ -83,15 +71,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountID',
-        'create_date' => 'CreateDate',
-        'description' => 'Description',
-        'display_name' => 'DisplayName',
-        'parent_project_name' => 'ParentProjectName',
-        'path' => 'Path',
+        'id' => 'Id',
         'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_date' => 'UpdateDate'
+        'template_id' => 'TemplateId'
     ];
 
     /**
@@ -100,15 +82,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'create_date' => 'setCreateDate',
-        'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
-        'parent_project_name' => 'setParentProjectName',
-        'path' => 'setPath',
+        'id' => 'setId',
         'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_date' => 'setUpdateDate'
+        'template_id' => 'setTemplateId'
     ];
 
     /**
@@ -117,15 +93,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'create_date' => 'getCreateDate',
-        'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
-        'parent_project_name' => 'getParentProjectName',
-        'path' => 'getPath',
+        'id' => 'getId',
         'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_date' => 'getUpdateDate'
+        'template_id' => 'getTemplateId'
     ];
 
     /**
@@ -188,15 +158,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['parent_project_name'] = isset($data['parent_project_name']) ? $data['parent_project_name'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
     /**
@@ -208,6 +172,9 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -224,145 +191,25 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
-     *
-     * @return int
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param int $account_id account_id
-     *
-     * @return $this
-     */
-    public function setAccountId($account_id)
-    {
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_date
+     * Gets id
      *
      * @return string
      */
-    public function getCreateDate()
+    public function getId()
     {
-        return $this->container['create_date'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets create_date
+     * Sets id
      *
-     * @param string $create_date create_date
+     * @param string $id id
      *
      * @return $this
      */
-    public function setCreateDate($create_date)
+    public function setId($id)
     {
-        $this->container['create_date'] = $create_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent_project_name
-     *
-     * @return string
-     */
-    public function getParentProjectName()
-    {
-        return $this->container['parent_project_name'];
-    }
-
-    /**
-     * Sets parent_project_name
-     *
-     * @param string $parent_project_name parent_project_name
-     *
-     * @return $this
-     */
-    public function setParentProjectName($parent_project_name)
-    {
-        $this->container['parent_project_name'] = $parent_project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string $path path
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -392,49 +239,25 @@ class GetProjectResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets template_id
      *
      * @return string
      */
-    public function getStatus()
+    public function getTemplateId()
     {
-        return $this->container['status'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets status
+     * Sets template_id
      *
-     * @param string $status status
+     * @param string $template_id template_id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setTemplateId($template_id)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_date
-     *
-     * @return string
-     */
-    public function getUpdateDate()
-    {
-        return $this->container['update_date'];
-    }
-
-    /**
-     * Sets update_date
-     *
-     * @param string $update_date update_date
-     *
-     * @return $this
-     */
-    public function setUpdateDate($update_date)
-    {
-        $this->container['update_date'] = $update_date;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }

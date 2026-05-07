@@ -45,6 +45,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'space_id' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Arkclaw\Model\TagForGetClawOmniInstanceOutput[]',
+        'template_id' => 'string',
         'updated_at' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'space_id' => null,
         'status' => null,
         'tags' => null,
+        'template_id' => null,
         'updated_at' => null
     ];
 
@@ -118,6 +120,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'space_id' => 'SpaceId',
         'status' => 'Status',
         'tags' => 'Tags',
+        'template_id' => 'TemplateId',
         'updated_at' => 'UpdatedAt'
     ];
 
@@ -144,6 +147,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'space_id' => 'setSpaceId',
         'status' => 'setStatus',
         'tags' => 'setTags',
+        'template_id' => 'setTemplateId',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -170,6 +174,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'space_id' => 'getSpaceId',
         'status' => 'getStatus',
         'tags' => 'getTags',
+        'template_id' => 'getTemplateId',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -250,6 +255,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -681,6 +687,30 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }

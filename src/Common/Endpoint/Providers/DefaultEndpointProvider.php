@@ -461,6 +461,27 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+                
+                'arkclaw' => new ServiceEndpointInfo(
+                    'arkclaw',
+                    true,
+                    '',
+                    []
+                ),
+                
+                'insight' => new ServiceEndpointInfo(
+                    'insight',
+                    true,
+                    '',
+                    []
+                ),
+                
+                'cbr' => new ServiceEndpointInfo(
+                    'cbr',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
