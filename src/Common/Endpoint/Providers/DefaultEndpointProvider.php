@@ -455,6 +455,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     []
                 ),
             
+                'i18n_openapi' => new ServiceEndpointInfo(
+                    'i18n_openapi',
+                    true,
+                    '',
+                    []
+                ),
+                
                 'arkclaw' => new ServiceEndpointInfo(
                     'arkclaw',
                     true,

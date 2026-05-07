@@ -28,14 +28,13 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'int',
+        'create_time' => 'string',
         'emotion_tag' => 'string',
-        'id' => 'int',
+        'id' => 'string',
         'name' => 'string',
         'operator' => 'string',
-        'task_id' => 'int',
-        'type' => 'int',
-        'voice_id' => 'string'
+        'task_id' => 'string',
+        'type' => 'int'
     ];
 
     /**
@@ -44,14 +43,13 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => 'int32',
+        'create_time' => null,
         'emotion_tag' => null,
-        'id' => 'int32',
+        'id' => null,
         'name' => null,
         'operator' => null,
-        'task_id' => 'int32',
-        'type' => 'int32',
-        'voice_id' => null
+        'task_id' => null,
+        'type' => 'int32'
     ];
 
     /**
@@ -87,8 +85,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
         'name' => 'name',
         'operator' => 'operator',
         'task_id' => 'taskId',
-        'type' => 'type',
-        'voice_id' => 'voiceId'
+        'type' => 'type'
     ];
 
     /**
@@ -103,8 +100,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
         'name' => 'setName',
         'operator' => 'setOperator',
         'task_id' => 'setTaskId',
-        'type' => 'setType',
-        'voice_id' => 'setVoiceId'
+        'type' => 'setType'
     ];
 
     /**
@@ -119,8 +115,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
         'name' => 'getName',
         'operator' => 'getOperator',
         'task_id' => 'getTaskId',
-        'type' => 'getType',
-        'voice_id' => 'getVoiceId'
+        'type' => 'getType'
     ];
 
     /**
@@ -190,7 +185,6 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['voice_id'] = isset($data['voice_id']) ? $data['voice_id'] : null;
     }
 
     /**
@@ -220,7 +214,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Gets create_time
      *
-     * @return int
+     * @return string
      */
     public function getCreateTime()
     {
@@ -230,7 +224,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Sets create_time
      *
-     * @param int $create_time create_time
+     * @param string $create_time create_time
      *
      * @return $this
      */
@@ -268,7 +262,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Gets id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -278,7 +272,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param string $id id
      *
      * @return $this
      */
@@ -340,7 +334,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Gets task_id
      *
-     * @return int
+     * @return string
      */
     public function getTaskId()
     {
@@ -350,7 +344,7 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     /**
      * Sets task_id
      *
-     * @param int $task_id task_id
+     * @param string $task_id task_id
      *
      * @return $this
      */
@@ -381,30 +375,6 @@ class BuiltInEmotionTagForVideoEditorGetEmotionTagsOutput implements ModelInterf
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets voice_id
-     *
-     * @return string
-     */
-    public function getVoiceId()
-    {
-        return $this->container['voice_id'];
-    }
-
-    /**
-     * Sets voice_id
-     *
-     * @param string $voice_id voice_id
-     *
-     * @return $this
-     */
-    public function setVoiceId($voice_id)
-    {
-        $this->container['voice_id'] = $voice_id;
 
         return $this;
     }

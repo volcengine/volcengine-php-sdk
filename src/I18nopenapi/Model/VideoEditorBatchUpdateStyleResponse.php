@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAccess
+class VideoEditorBatchUpdateStyleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'voiceForVideoEditorGetSpeakersOutput';
+    protected static $swaggerModelName = 'VideoEditorBatchUpdateStyleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_at' => 'int',
-        'emotion_tag' => 'string',
-        'id' => 'int',
-        'name' => 'string',
-        'voice_id' => 'string'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_at' => 'int32',
-        'emotion_tag' => null,
-        'id' => 'int32',
-        'name' => null,
-        'voice_id' => null
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_at' => 'createAt',
-        'emotion_tag' => 'emotionTag',
-        'id' => 'id',
-        'name' => 'name',
-        'voice_id' => 'voiceId'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'create_at' => 'setCreateAt',
-        'emotion_tag' => 'setEmotionTag',
-        'id' => 'setId',
-        'name' => 'setName',
-        'voice_id' => 'setVoiceId'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'create_at' => 'getCreateAt',
-        'emotion_tag' => 'getEmotionTag',
-        'id' => 'getId',
-        'name' => 'getName',
-        'voice_id' => 'getVoiceId'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
-        $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['voice_id'] = isset($data['voice_id']) ? $data['voice_id'] : null;
     }
 
     /**
@@ -198,126 +173,6 @@ class VoiceForVideoEditorGetSpeakersOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets create_at
-     *
-     * @return int
-     */
-    public function getCreateAt()
-    {
-        return $this->container['create_at'];
-    }
-
-    /**
-     * Sets create_at
-     *
-     * @param int $create_at create_at
-     *
-     * @return $this
-     */
-    public function setCreateAt($create_at)
-    {
-        $this->container['create_at'] = $create_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets emotion_tag
-     *
-     * @return string
-     */
-    public function getEmotionTag()
-    {
-        return $this->container['emotion_tag'];
-    }
-
-    /**
-     * Sets emotion_tag
-     *
-     * @param string $emotion_tag emotion_tag
-     *
-     * @return $this
-     */
-    public function setEmotionTag($emotion_tag)
-    {
-        $this->container['emotion_tag'] = $emotion_tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets voice_id
-     *
-     * @return string
-     */
-    public function getVoiceId()
-    {
-        return $this->container['voice_id'];
-    }
-
-    /**
-     * Sets voice_id
-     *
-     * @param string $voice_id voice_id
-     *
-     * @return $this
-     */
-    public function setVoiceId($voice_id)
-    {
-        $this->container['voice_id'] = $voice_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -28,8 +28,8 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'subtask_id' => 'int'
+        'id' => 'string',
+        'subtask_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32',
-        'subtask_id' => 'int32'
+        'id' => null,
+        'subtask_id' => null
     ];
 
     /**
@@ -190,7 +190,7 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -200,7 +200,7 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param string $id id
      *
      * @return $this
      */
@@ -214,7 +214,7 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Gets subtask_id
      *
-     * @return int
+     * @return string
      */
     public function getSubtaskId()
     {
@@ -224,7 +224,7 @@ class VideoEditorDeleteEmotionTagRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subtask_id
      *
-     * @param int $subtask_id subtask_id
+     * @param string $subtask_id subtask_id
      *
      * @return $this
      */
