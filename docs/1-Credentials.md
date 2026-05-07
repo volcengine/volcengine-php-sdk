@@ -286,6 +286,10 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### ECS Role Credential Provider
 
+> 🚨 **Current version limitation**
+>
+> **Auto-detection of the role name from IMDS is not yet supported in the current release.** You must pass the role name explicitly via the constructor argument or the `VOLCENGINE_ECS_METADATA` environment variable. Auto-detection will be supported in a future version — please watch the release notes.
+
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
 - `roleName` priority: constructor arg > `VOLCENGINE_ECS_METADATA` > auto-detect from IMDS
