@@ -2,11 +2,13 @@
 
 ---
 
-# HTTPS Request Configuration
+## HTTPS Request Configuration
 
-## Specify Scheme
+### Specify Scheme
 
-> **Default**: `https`
+> **Default**
+>
+> - `scheme` - `https`
 
 ```php
 <?php
@@ -18,9 +20,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSchema('https');
 ```
 
-## Ignore SSL Verification
+### Ignore SSL Verification
 
-> **Default**: `verifySsl=true`
+> **Default**
+>
+> - `verifySsl` - `true`
 
 ```php
 <?php
@@ -32,9 +36,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setVerifySsl(false);
 ```
 
-## Specify TLS Version
+### Specify TLS Version
 
-> - **Default**: >= TLS 1.2
+> **Default**
+>
+> >= TLS 1.2
 
 Use a custom HTTP client to set TLS version. Unless you have specific requirements, it is recommended not to modify this.
 
@@ -67,11 +73,13 @@ try {
 }
 ```
 
-# HTTP(S) Proxy
+## HTTP(S) Proxy
 
-> - **Default**: no proxy
+> **Default**
+>
+> No proxy.
 
-## Configure HTTP(S) Proxy
+### Configure HTTP(S) Proxy
 
 ```php
 <?php

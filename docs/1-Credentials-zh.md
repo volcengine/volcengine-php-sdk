@@ -2,11 +2,11 @@
 
 ---
 
-# 访问凭据
+## 访问凭据
 
 火山引擎 PHP SDK 同时支持显式凭证配置，以及基于 `CredentialProvider` 的自动凭证解析。
 
-## 凭证提供者概览
+### 凭证提供者概览
 
 | Provider | 用途 | 是否自动刷新 | 典型场景 |
 | --- | --- | --- | --- |
@@ -19,11 +19,11 @@
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
 | `DefaultCredentialProvider` | 默认凭证链封装 | 取决于实际命中的 provider | 业务代码不显式写 AK/SK |
 
-## AK、SK设置
+### AK、SK 设置
 
 AK/SK 是由火山引擎用户在控制台创建的一对永久访问密钥。SDK 使用该密钥对每次请求进行签名，从而完成身份验证。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 不得在客户端嵌入或暴露 AK/SK。
 > 2. 推荐使用配置中心或环境变量存储密钥。
@@ -67,17 +67,16 @@ try {
 ?>
 ```
 
-## STS Token设置
+### STS Token 设置
 
-STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和
-Token），有效期可配置，适用于安全要求较高的场景。
+STS（Security Token Service）是火山引擎提供的临时访问凭证机制。开发者通过服务端调用 STS 接口获取临时凭证（临时 AK、SK 和 Token），有效期可配置，适用于安全要求较高的场景。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，建议不要超过1小时。
 
-```PHP
+```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -109,13 +108,13 @@ try {
 ?>
 ```
 
-## AssumeRole
+### AssumeRole
 
-动态访问凭证信息，支持动态刷新，在STS临时Token过期前60S会进行自动的刷新，避免临界时间点Token过期
+动态访问凭证信息，支持动态刷新，在 STS 临时 Token 过期前 60 秒会进行自动刷新，避免临界时间点 Token 过期。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
-> 1. 最小权限： 仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
+> 1. 最小权限：仅授予调用方访问所需资源的最小权限，避免使用 * 通配符授予全资源、全操作权限。
 > 2. 设置合理的有效期: 请根据实际情况设置合理有效期，越短越安全，最长不能超过12小时。
 > 3. 细粒度角色: 角色应绑定精细的访问控制策略，仅允许访问特定服务、资源、操作，防止角色滥用。
 
@@ -147,7 +146,7 @@ try {
     * [AccessKeyId] => ************  # 临时凭证的ak
     * [SecretAccessKey] => ************  #临时凭证的sk
     * [SessionToken] => ***************  #临时凭证的token
-    * )*
+    * )
     */
 } catch (Exception $e) {
     echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
@@ -155,7 +154,7 @@ try {
 
 ```
 
-## OIDC 凭证提供者
+### OIDC 凭证提供者
 
 `OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证。
 
@@ -207,11 +206,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## SAML 凭证提供者
+### SAML 凭证提供者
 
 `SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
 
-> ⚠️ 注意事项
+> ⚠️ **注意事项**
 >
 > 1. 最小权限原则。
 > 2. 合理的有效期；建议不超过 1 小时。
@@ -240,7 +239,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setCredentialProvider($provider);
 ```
 
-## 环境变量凭证提供者
+### 环境变量凭证提供者
 
 `EnvironmentVariableCredentialProvider` 支持从以下环境变量读取凭证：
 
@@ -268,7 +267,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## CLI 配置凭证提供者
+### CLI 配置凭证提供者
 
 `CLIConfigCredentialProvider` 默认读取 `~/.volcengine/config.json`。
 
@@ -297,7 +296,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## ECS 角色凭证提供者
+### ECS 角色凭证提供者
 
 `EcsRoleCredentialProvider` 从 ECS IMDS 中读取临时凭证。
 
@@ -322,7 +321,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setCredentialProvider($provider);
 ```
 
-## 默认凭证提供者
+### 默认凭证提供者
 
 当 `ak`、`sk` 和 `credentialProvider` 都未设置时，SDK 会自动使用 `DefaultCredentialProvider`。通常不需要业务方手动拼默认凭证链，除非要自定义链路选项。
 

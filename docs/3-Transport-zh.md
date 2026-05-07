@@ -2,12 +2,13 @@
 
 ---
 
-# Https请求配置
+## HTTPS 请求配置
 
-## 指定scheme
+## 指定 scheme
 
 > **默认**
-> * `scheme` - `https`
+>
+> - `scheme` - `https`
 
 **代码示例：**
 
@@ -21,10 +22,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSchema('https');  # 非必填，默认为https，可以定义为http
 ```
 
-## 忽略SSL验证
+## 忽略 SSL 验证
 
 > **默认**
-> * `verifySsl` - `True`
+>
+> - `verifySsl` - `True`
 
 **代码示例：**
 
@@ -38,10 +40,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setVerifySsl(false); #非必填，默认为true需要验证ssl，false为不需要验证
 ```
 
-## 指定TLS协议版本
+## 指定 TLS 协议版本
 
-> - **默认**
-    > \>=TLS 1.2
+> **默认**
+>
+> >=TLS 1.2
 
 目前只支持自定义HTTPClient的方式实现；如果没有特殊要求，建议不要修改。
 
@@ -75,12 +78,13 @@ try {
 }
 ```
 
-# Http(s)代理配置
+## HTTP(S) 代理配置
 
-> - **默认**
-    > 无代理
+> **默认**
+>
+> 无代理。
 
-## 配置Http(s)代理
+### 配置 HTTP(S) 代理
 
 ```php
 <?php

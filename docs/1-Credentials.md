@@ -2,11 +2,11 @@
 
 ---
 
-# Credentials
+## Credentials
 
 The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
 
-## Credential Providers Overview
+### Credential Providers Overview
 
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
@@ -19,17 +19,17 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
 
-## AK/SK
+### AK/SK
 
 AK/SK is a pair of permanent access keys created in the Volcengine console. The SDK signs each request to authenticate.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Do not embed or expose AK/SK in client-side applications.
 > 2. Use a configuration center or environment variables.
 > 3. Follow least privilege principles.
 
-**Example**
+**Example:**
 
 ```php
 <?php
@@ -67,11 +67,11 @@ try {
 ?>
 ```
 
-## STS Token
+### STS Token
 
 STS (Security Token Service) provides temporary credentials (temporary AK/SK and Token).
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Use a reasonable TTL. Shorter is safer; avoid exceeding 1 hour.
@@ -106,11 +106,11 @@ try {
 ?>
 ```
 
-## AssumeRole
+### AssumeRole
 
 AssumeRole provides dynamic credentials with automatic refresh.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Choose a reasonable TTL; maximum is 12 hours.
@@ -142,7 +142,7 @@ try {
 ?>
 ```
 
-## OIDC Credential Provider
+### OIDC Credential Provider
 
 `OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC.
 
@@ -194,11 +194,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## SAML Credential Provider
+### SAML Credential Provider
 
 `SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
 
-> ⚠️ Notes
+> ⚠️ **Notes**
 >
 > 1. Least privilege.
 > 2. Reasonable TTL; recommended ≤ 1 hour.
@@ -227,7 +227,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setCredentialProvider($provider);
 ```
 
-## Environment Variable Credential Provider
+### Environment Variable Credential Provider
 
 `EnvironmentVariableCredentialProvider` reads credentials from:
 
@@ -255,7 +255,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## CLI Config Credential Provider
+### CLI Config Credential Provider
 
 `CLIConfigCredentialProvider` reads `~/.volcengine/config.json` by default.
 
@@ -284,7 +284,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     );
 ```
 
-## ECS Role Credential Provider
+### ECS Role Credential Provider
 
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
@@ -309,7 +309,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setCredentialProvider($provider);
 ```
 
-## Default Credential Provider
+### Default Credential Provider
 
 When `ak`, `sk`, and `credentialProvider` are all unset, the SDK automatically uses `DefaultCredentialProvider`. You do not need to configure the chain manually unless you want custom options.
 

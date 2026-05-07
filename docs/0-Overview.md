@@ -2,16 +2,16 @@ Overview[(中文)](0-Overview-zh.md) | [Credentials →](1-Credentials.md)
 
 ---
 
-# SDK Integration
+## SDK Integration
 
 When calling APIs, it is recommended to integrate the SDK in your project. Using the SDK simplifies development, speeds up integration, and reduces long-term maintenance costs. Volcengine SDK integration typically includes three steps: importing the SDK, configuring access credentials, and writing API call code.
 
-# Requirements
+## Requirements
 
 1. PHP version **>= 5.5**.
 2. It is recommended to use **Composer** for dependency management.
 
-# Table of Contents
+## Table of Contents
 
 1. [Credentials](1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS Role, Default Chain
 2. [Endpoint Configuration](2-Endpoint.md) — Custom Endpoint, RegionId, Automatic Resolution
