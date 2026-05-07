@@ -68,6 +68,68 @@ class CBRApi
         return $this->config;
     }
 
+    public function checkExternalAccountRole($body = null)
+    {
+        list($response) = $this->checkExternalAccountRoleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function checkExternalAccountRoleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\CheckExternalAccountRoleResponse';
+        $request = $this->checkExternalAccountRoleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function checkExternalAccountRoleAsync($body = null)
+    {
+        return $this->checkExternalAccountRoleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function checkExternalAccountRoleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\CheckExternalAccountRoleResponse';
+        $request = $this->checkExternalAccountRoleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function checkExternalAccountRoleRequest($body)
+    {
+        $resourcePath = '/CheckExternalAccountRole/2024-03-01/cbr/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createBackupJob($body = null)
     {
         list($response) = $this->createBackupJobWithHttpInfo($body);
@@ -288,6 +350,68 @@ class CBRApi
     protected function createBackupResourceRequest($body)
     {
         $resourcePath = '/CreateBackupResource/2024-03-01/cbr/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createExternalAccount($body = null)
+    {
+        list($response) = $this->createExternalAccountWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createExternalAccountWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\CreateExternalAccountResponse';
+        $request = $this->createExternalAccountRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createExternalAccountAsync($body = null)
+    {
+        return $this->createExternalAccountAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createExternalAccountAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\CreateExternalAccountResponse';
+        $request = $this->createExternalAccountRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createExternalAccountRequest($body)
+    {
+        $resourcePath = '/CreateExternalAccount/2024-03-01/cbr/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -598,6 +722,68 @@ class CBRApi
     protected function deleteBackupResourceRequest($body)
     {
         $resourcePath = '/DeleteBackupResource/2024-03-01/cbr/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteExternalAccount($body = null)
+    {
+        list($response) = $this->deleteExternalAccountWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteExternalAccountWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\DeleteExternalAccountResponse';
+        $request = $this->deleteExternalAccountRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteExternalAccountAsync($body = null)
+    {
+        return $this->deleteExternalAccountAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteExternalAccountAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\DeleteExternalAccountResponse';
+        $request = $this->deleteExternalAccountRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteExternalAccountRequest($body)
+    {
+        $resourcePath = '/DeleteExternalAccount/2024-03-01/cbr/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1342,6 +1528,68 @@ class CBRApi
     protected function enableBackupPolicyRequest($body)
     {
         $resourcePath = '/EnableBackupPolicy/2024-03-01/cbr/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listExternalAccounts($body = null)
+    {
+        list($response) = $this->listExternalAccountsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listExternalAccountsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\ListExternalAccountsResponse';
+        $request = $this->listExternalAccountsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listExternalAccountsAsync($body = null)
+    {
+        return $this->listExternalAccountsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listExternalAccountsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cbr\Model\ListExternalAccountsResponse';
+        $request = $this->listExternalAccountsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listExternalAccountsRequest($body)
+    {
+        $resourcePath = '/ListExternalAccounts/2024-03-01/cbr/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
