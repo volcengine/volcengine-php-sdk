@@ -11,7 +11,7 @@ class EcsRoleCredentialProvider extends Provider
     // IMDSv2 endpoint and paths
     const IMDS_ENDPOINT = 'http://100.96.0.96';
     const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/'; // GET
-    const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?fetchuserrole=true'; // GET
+    const IMDS_ROLE_NAME_PATH = '/volcstack/latest/iam/security_credentials?type=user&format=json'; // GET
     const IMDS_TOKEN_PATH = '/latest/api/token'; // PUT
 
     // IMDSv2 headers
@@ -48,7 +48,8 @@ class EcsRoleCredentialProvider extends Provider
         $maxRetries = self::DEFAULT_MAX_RETRIES,
         $retryInterval = self::DEFAULT_RETRY_INTERVAL,
         $expireBufferSeconds = self::DEFAULT_EXPIRE_BUFFER_SECONDS
-    ) {
+    )
+    {
         if ($connectTimeout < 0) {
             throw new \InvalidArgumentException('connectTimeout must be >= 0');
         }
@@ -330,7 +331,7 @@ class EcsRoleCredentialProvider extends Provider
         if (isset($http_response_header) && is_array($http_response_header)) {
             $statusLine = $http_response_header[0];
             if (preg_match('/HTTP\/\S+\s+(\d+)/', $statusLine, $matches)) {
-                $statusCode = (int) $matches[1];
+                $statusCode = (int)$matches[1];
                 if ($statusCode !== 200) {
                     throw new ApiException(
                         self::PROVIDER_NAME . ': IMDS request failed with status ' . $statusCode,
