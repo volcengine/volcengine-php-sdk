@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
+class ImageSpecForDescribeContainerImageCommitmentsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExecContainerImageCommitmentRequest';
+    protected static $swaggerModelName = 'ImageSpecForDescribeContainerImageCommitmentsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
-        'client_token' => 'string',
-        'container_name' => 'string',
-        'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
-        'instance_id' => 'string',
-        'pause' => 'bool'
+        'author' => 'string',
+        'changes' => 'string[]',
+        'image_name' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_config' => null,
-        'client_token' => null,
-        'container_name' => null,
-        'image_spec' => null,
-        'instance_id' => null,
-        'pause' => null
+        'author' => null,
+        'changes' => null,
+        'image_name' => null,
+        'message' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_config' => 'AuthConfig',
-        'client_token' => 'ClientToken',
-        'container_name' => 'ContainerName',
-        'image_spec' => 'ImageSpec',
-        'instance_id' => 'InstanceId',
-        'pause' => 'Pause'
+        'author' => 'Author',
+        'changes' => 'Changes',
+        'image_name' => 'ImageName',
+        'message' => 'Message'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_config' => 'setAuthConfig',
-        'client_token' => 'setClientToken',
-        'container_name' => 'setContainerName',
-        'image_spec' => 'setImageSpec',
-        'instance_id' => 'setInstanceId',
-        'pause' => 'setPause'
+        'author' => 'setAuthor',
+        'changes' => 'setChanges',
+        'image_name' => 'setImageName',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_config' => 'getAuthConfig',
-        'client_token' => 'getClientToken',
-        'container_name' => 'getContainerName',
-        'image_spec' => 'getImageSpec',
-        'instance_id' => 'getInstanceId',
-        'pause' => 'getPause'
+        'author' => 'getAuthor',
+        'changes' => 'getChanges',
+        'image_name' => 'getImageName',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
-        $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['pause'] = isset($data['pause']) ? $data['pause'] : null;
+        $this->container['author'] = isset($data['author']) ? $data['author'] : null;
+        $this->container['changes'] = isset($data['changes']) ? $data['changes'] : null;
+        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -190,12 +178,6 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalidProperties[] = "'container_name' can't be null";
-        }
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +194,97 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_config
-     *
-     * @return \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput
-     */
-    public function getAuthConfig()
-    {
-        return $this->container['auth_config'];
-    }
-
-    /**
-     * Sets auth_config
-     *
-     * @param \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput $auth_config auth_config
-     *
-     * @return $this
-     */
-    public function setAuthConfig($auth_config)
-    {
-        $this->container['auth_config'] = $auth_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets author
      *
      * @return string
      */
-    public function getClientToken()
+    public function getAuthor()
     {
-        return $this->container['client_token'];
+        return $this->container['author'];
     }
 
     /**
-     * Sets client_token
+     * Sets author
      *
-     * @param string $client_token client_token
+     * @param string $author author
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setAuthor($author)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['author'] = $author;
 
         return $this;
     }
 
     /**
-     * Gets container_name
+     * Gets changes
+     *
+     * @return string[]
+     */
+    public function getChanges()
+    {
+        return $this->container['changes'];
+    }
+
+    /**
+     * Sets changes
+     *
+     * @param string[] $changes changes
+     *
+     * @return $this
+     */
+    public function setChanges($changes)
+    {
+        $this->container['changes'] = $changes;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_name
      *
      * @return string
      */
-    public function getContainerName()
+    public function getImageName()
     {
-        return $this->container['container_name'];
+        return $this->container['image_name'];
     }
 
     /**
-     * Sets container_name
+     * Sets image_name
      *
-     * @param string $container_name container_name
+     * @param string $image_name image_name
      *
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setImageName($image_name)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['image_name'] = $image_name;
 
         return $this;
     }
 
     /**
-     * Gets image_spec
-     *
-     * @return \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput
-     */
-    public function getImageSpec()
-    {
-        return $this->container['image_spec'];
-    }
-
-    /**
-     * Sets image_spec
-     *
-     * @param \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput $image_spec image_spec
-     *
-     * @return $this
-     */
-    public function setImageSpec($image_spec)
-    {
-        $this->container['image_spec'] = $image_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
+     * Gets message
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getMessage()
     {
-        return $this->container['instance_id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets instance_id
+     * Sets message
      *
-     * @param string $instance_id instance_id
+     * @param string $message message
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setMessage($message)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets pause
-     *
-     * @return bool
-     */
-    public function getPause()
-    {
-        return $this->container['pause'];
-    }
-
-    /**
-     * Sets pause
-     *
-     * @param bool $pause pause
-     *
-     * @return $this
-     */
-    public function setPause($pause)
-    {
-        $this->container['pause'] = $pause;
+        $this->container['message'] = $message;
 
         return $this;
     }

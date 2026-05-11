@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
+class ListSupportedGpuDriverVersionsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExecContainerImageCommitmentRequest';
+    protected static $swaggerModelName = 'ListSupportedGpuDriverVersionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
-        'client_token' => 'string',
-        'container_name' => 'string',
-        'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
-        'instance_id' => 'string',
-        'pause' => 'bool'
+        'image_id' => 'string',
+        'instance_type_families' => 'string[]',
+        'instance_type_ids' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_config' => null,
-        'client_token' => null,
-        'container_name' => null,
-        'image_spec' => null,
-        'instance_id' => null,
-        'pause' => null
+        'image_id' => null,
+        'instance_type_families' => null,
+        'instance_type_ids' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_config' => 'AuthConfig',
-        'client_token' => 'ClientToken',
-        'container_name' => 'ContainerName',
-        'image_spec' => 'ImageSpec',
-        'instance_id' => 'InstanceId',
-        'pause' => 'Pause'
+        'image_id' => 'ImageId',
+        'instance_type_families' => 'InstanceTypeFamilies',
+        'instance_type_ids' => 'InstanceTypeIds'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_config' => 'setAuthConfig',
-        'client_token' => 'setClientToken',
-        'container_name' => 'setContainerName',
-        'image_spec' => 'setImageSpec',
-        'instance_id' => 'setInstanceId',
-        'pause' => 'setPause'
+        'image_id' => 'setImageId',
+        'instance_type_families' => 'setInstanceTypeFamilies',
+        'instance_type_ids' => 'setInstanceTypeIds'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_config' => 'getAuthConfig',
-        'client_token' => 'getClientToken',
-        'container_name' => 'getContainerName',
-        'image_spec' => 'getImageSpec',
-        'instance_id' => 'getInstanceId',
-        'pause' => 'getPause'
+        'image_id' => 'getImageId',
+        'instance_type_families' => 'getInstanceTypeFamilies',
+        'instance_type_ids' => 'getInstanceTypeIds'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
-        $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['pause'] = isset($data['pause']) ? $data['pause'] : null;
+        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['instance_type_families'] = isset($data['instance_type_families']) ? $data['instance_type_families'] : null;
+        $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
     }
 
     /**
@@ -190,11 +172,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalidProperties[] = "'container_name' can't be null";
-        }
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,145 +191,73 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_config
-     *
-     * @return \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput
-     */
-    public function getAuthConfig()
-    {
-        return $this->container['auth_config'];
-    }
-
-    /**
-     * Sets auth_config
-     *
-     * @param \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput $auth_config auth_config
-     *
-     * @return $this
-     */
-    public function setAuthConfig($auth_config)
-    {
-        $this->container['auth_config'] = $auth_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets image_id
      *
      * @return string
      */
-    public function getClientToken()
+    public function getImageId()
     {
-        return $this->container['client_token'];
+        return $this->container['image_id'];
     }
 
     /**
-     * Sets client_token
+     * Sets image_id
      *
-     * @param string $client_token client_token
+     * @param string $image_id image_id
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setImageId($image_id)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['image_id'] = $image_id;
 
         return $this;
     }
 
     /**
-     * Gets container_name
+     * Gets instance_type_families
      *
-     * @return string
+     * @return string[]
      */
-    public function getContainerName()
+    public function getInstanceTypeFamilies()
     {
-        return $this->container['container_name'];
+        return $this->container['instance_type_families'];
     }
 
     /**
-     * Sets container_name
+     * Sets instance_type_families
      *
-     * @param string $container_name container_name
+     * @param string[] $instance_type_families instance_type_families
      *
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setInstanceTypeFamilies($instance_type_families)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['instance_type_families'] = $instance_type_families;
 
         return $this;
     }
 
     /**
-     * Gets image_spec
+     * Gets instance_type_ids
      *
-     * @return \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput
+     * @return string[]
      */
-    public function getImageSpec()
+    public function getInstanceTypeIds()
     {
-        return $this->container['image_spec'];
+        return $this->container['instance_type_ids'];
     }
 
     /**
-     * Sets image_spec
+     * Sets instance_type_ids
      *
-     * @param \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput $image_spec image_spec
+     * @param string[] $instance_type_ids instance_type_ids
      *
      * @return $this
      */
-    public function setImageSpec($image_spec)
+    public function setInstanceTypeIds($instance_type_ids)
     {
-        $this->container['image_spec'] = $image_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets pause
-     *
-     * @return bool
-     */
-    public function getPause()
-    {
-        return $this->container['pause'];
-    }
-
-    /**
-     * Sets pause
-     *
-     * @param bool $pause pause
-     *
-     * @return $this
-     */
-    public function setPause($pause)
-    {
-        $this->container['pause'] = $pause;
+        $this->container['instance_type_ids'] = $instance_type_ids;
 
         return $this;
     }

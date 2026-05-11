@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
+class AffinityGroupConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExecContainerImageCommitmentRequest';
+    protected static $swaggerModelName = 'AffinityGroupConfigForUpdateNodePoolConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
-        'client_token' => 'string',
-        'container_name' => 'string',
-        'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
-        'instance_id' => 'string',
-        'pause' => 'bool'
+        'enabled' => 'bool',
+        'size' => 'int'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_config' => null,
-        'client_token' => null,
-        'container_name' => null,
-        'image_spec' => null,
-        'instance_id' => null,
-        'pause' => null
+        'enabled' => null,
+        'size' => 'int32'
     ];
 
     /**
@@ -77,12 +69,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_config' => 'AuthConfig',
-        'client_token' => 'ClientToken',
-        'container_name' => 'ContainerName',
-        'image_spec' => 'ImageSpec',
-        'instance_id' => 'InstanceId',
-        'pause' => 'Pause'
+        'enabled' => 'Enabled',
+        'size' => 'Size'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_config' => 'setAuthConfig',
-        'client_token' => 'setClientToken',
-        'container_name' => 'setContainerName',
-        'image_spec' => 'setImageSpec',
-        'instance_id' => 'setInstanceId',
-        'pause' => 'setPause'
+        'enabled' => 'setEnabled',
+        'size' => 'setSize'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_config' => 'getAuthConfig',
-        'client_token' => 'getClientToken',
-        'container_name' => 'getContainerName',
-        'image_spec' => 'getImageSpec',
-        'instance_id' => 'getInstanceId',
-        'pause' => 'getPause'
+        'enabled' => 'getEnabled',
+        'size' => 'getSize'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
-        $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['pause'] = isset($data['pause']) ? $data['pause'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
 
     /**
@@ -190,12 +166,6 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalidProperties[] = "'container_name' can't be null";
-        }
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +182,49 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_config
-     *
-     * @return \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput
-     */
-    public function getAuthConfig()
-    {
-        return $this->container['auth_config'];
-    }
-
-    /**
-     * Sets auth_config
-     *
-     * @param \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput $auth_config auth_config
-     *
-     * @return $this
-     */
-    public function setAuthConfig($auth_config)
-    {
-        $this->container['auth_config'] = $auth_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets container_name
-     *
-     * @return string
-     */
-    public function getContainerName()
-    {
-        return $this->container['container_name'];
-    }
-
-    /**
-     * Sets container_name
-     *
-     * @param string $container_name container_name
-     *
-     * @return $this
-     */
-    public function setContainerName($container_name)
-    {
-        $this->container['container_name'] = $container_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_spec
-     *
-     * @return \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput
-     */
-    public function getImageSpec()
-    {
-        return $this->container['image_spec'];
-    }
-
-    /**
-     * Sets image_spec
-     *
-     * @param \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput $image_spec image_spec
-     *
-     * @return $this
-     */
-    public function setImageSpec($image_spec)
-    {
-        $this->container['image_spec'] = $image_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets pause
+     * Gets enabled
      *
      * @return bool
      */
-    public function getPause()
+    public function getEnabled()
     {
-        return $this->container['pause'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets pause
+     * Sets enabled
      *
-     * @param bool $pause pause
+     * @param bool $enabled enabled
      *
      * @return $this
      */
-    public function setPause($pause)
+    public function setEnabled($enabled)
     {
-        $this->container['pause'] = $pause;
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int $size size
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
 
         return $this;
     }

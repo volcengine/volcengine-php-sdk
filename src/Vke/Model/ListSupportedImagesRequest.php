@@ -28,7 +28,9 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_type_ids' => 'string[]'
+        'instance_type_ids' => 'string[]',
+        'intersection' => 'bool',
+        'kubernetes_version' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_type_ids' => null
+        'instance_type_ids' => null,
+        'intersection' => null,
+        'kubernetes_version' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_type_ids' => 'InstanceTypeIds'
+        'instance_type_ids' => 'InstanceTypeIds',
+        'intersection' => 'Intersection',
+        'kubernetes_version' => 'KubernetesVersion'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_type_ids' => 'setInstanceTypeIds'
+        'instance_type_ids' => 'setInstanceTypeIds',
+        'intersection' => 'setIntersection',
+        'kubernetes_version' => 'setKubernetesVersion'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_type_ids' => 'getInstanceTypeIds'
+        'instance_type_ids' => 'getInstanceTypeIds',
+        'intersection' => 'getIntersection',
+        'kubernetes_version' => 'getKubernetesVersion'
     ];
 
     /**
@@ -149,6 +159,8 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
+        $this->container['intersection'] = isset($data['intersection']) ? $data['intersection'] : null;
+        $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
     }
 
     /**
@@ -195,6 +207,54 @@ class ListSupportedImagesRequest implements ModelInterface, ArrayAccess
     public function setInstanceTypeIds($instance_type_ids)
     {
         $this->container['instance_type_ids'] = $instance_type_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets intersection
+     *
+     * @return bool
+     */
+    public function getIntersection()
+    {
+        return $this->container['intersection'];
+    }
+
+    /**
+     * Sets intersection
+     *
+     * @param bool $intersection intersection
+     *
+     * @return $this
+     */
+    public function setIntersection($intersection)
+    {
+        $this->container['intersection'] = $intersection;
+
+        return $this;
+    }
+
+    /**
+     * Gets kubernetes_version
+     *
+     * @return string
+     */
+    public function getKubernetesVersion()
+    {
+        return $this->container['kubernetes_version'];
+    }
+
+    /**
+     * Sets kubernetes_version
+     *
+     * @param string $kubernetes_version kubernetes_version
+     *
+     * @return $this
+     */
+    public function setKubernetesVersion($kubernetes_version)
+    {
+        $this->container['kubernetes_version'] = $kubernetes_version;
 
         return $this;
     }

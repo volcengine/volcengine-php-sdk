@@ -28,7 +28,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'task_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'task_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'task_id' => 'TaskId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -148,6 +148,7 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class ExecContainerImageCommitmentResponse implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
