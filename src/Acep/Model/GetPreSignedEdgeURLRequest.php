@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAOSPImageRequest implements ModelInterface, ArrayAccess
+class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAOSPImageRequest';
+    protected static $swaggerModelName = 'GetPreSignedEdgeURLRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,16 +28,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aosp_version' => 'string',
-        'expand_scope' => 'bool',
-        'image_id_list' => 'string[]',
-        'image_name' => 'string',
-        'image_status' => 'int',
-        'is_public' => 'bool',
-        'max_results' => 'int',
-        'next_token' => 'string',
-        'platform_type' => 'string',
-        'product_id' => 'string'
+        'api_path' => 'string',
+        'api_payload' => '\Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput',
+        'api_type' => 'string',
+        'pod_id' => 'string',
+        'product_id' => 'string',
+        'single_use' => 'bool',
+        'ttl' => 'int',
+        'timeout' => 'int'
     ];
 
     /**
@@ -46,16 +44,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aosp_version' => null,
-        'expand_scope' => null,
-        'image_id_list' => null,
-        'image_name' => null,
-        'image_status' => 'int32',
-        'is_public' => null,
-        'max_results' => 'int32',
-        'next_token' => null,
-        'platform_type' => null,
-        'product_id' => null
+        'api_path' => null,
+        'api_payload' => null,
+        'api_type' => null,
+        'pod_id' => null,
+        'product_id' => null,
+        'single_use' => null,
+        'ttl' => 'int32',
+        'timeout' => 'int32'
     ];
 
     /**
@@ -85,16 +81,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aosp_version' => 'AOSPVersion',
-        'expand_scope' => 'ExpandScope',
-        'image_id_list' => 'ImageIdList',
-        'image_name' => 'ImageName',
-        'image_status' => 'ImageStatus',
-        'is_public' => 'IsPublic',
-        'max_results' => 'MaxResults',
-        'next_token' => 'NextToken',
-        'platform_type' => 'PlatformType',
-        'product_id' => 'ProductId'
+        'api_path' => 'APIPath',
+        'api_payload' => 'APIPayload',
+        'api_type' => 'APIType',
+        'pod_id' => 'PodId',
+        'product_id' => 'ProductId',
+        'single_use' => 'SingleUse',
+        'ttl' => 'TTL',
+        'timeout' => 'Timeout'
     ];
 
     /**
@@ -103,16 +97,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aosp_version' => 'setAospVersion',
-        'expand_scope' => 'setExpandScope',
-        'image_id_list' => 'setImageIdList',
-        'image_name' => 'setImageName',
-        'image_status' => 'setImageStatus',
-        'is_public' => 'setIsPublic',
-        'max_results' => 'setMaxResults',
-        'next_token' => 'setNextToken',
-        'platform_type' => 'setPlatformType',
-        'product_id' => 'setProductId'
+        'api_path' => 'setApiPath',
+        'api_payload' => 'setApiPayload',
+        'api_type' => 'setApiType',
+        'pod_id' => 'setPodId',
+        'product_id' => 'setProductId',
+        'single_use' => 'setSingleUse',
+        'ttl' => 'setTtl',
+        'timeout' => 'setTimeout'
     ];
 
     /**
@@ -121,16 +113,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aosp_version' => 'getAospVersion',
-        'expand_scope' => 'getExpandScope',
-        'image_id_list' => 'getImageIdList',
-        'image_name' => 'getImageName',
-        'image_status' => 'getImageStatus',
-        'is_public' => 'getIsPublic',
-        'max_results' => 'getMaxResults',
-        'next_token' => 'getNextToken',
-        'platform_type' => 'getPlatformType',
-        'product_id' => 'getProductId'
+        'api_path' => 'getApiPath',
+        'api_payload' => 'getApiPayload',
+        'api_type' => 'getApiType',
+        'pod_id' => 'getPodId',
+        'product_id' => 'getProductId',
+        'single_use' => 'getSingleUse',
+        'ttl' => 'getTtl',
+        'timeout' => 'getTimeout'
     ];
 
     /**
@@ -193,16 +183,14 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aosp_version'] = isset($data['aosp_version']) ? $data['aosp_version'] : null;
-        $this->container['expand_scope'] = isset($data['expand_scope']) ? $data['expand_scope'] : null;
-        $this->container['image_id_list'] = isset($data['image_id_list']) ? $data['image_id_list'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['image_status'] = isset($data['image_status']) ? $data['image_status'] : null;
-        $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['platform_type'] = isset($data['platform_type']) ? $data['platform_type'] : null;
+        $this->container['api_path'] = isset($data['api_path']) ? $data['api_path'] : null;
+        $this->container['api_payload'] = isset($data['api_payload']) ? $data['api_payload'] : null;
+        $this->container['api_type'] = isset($data['api_type']) ? $data['api_type'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['single_use'] = isset($data['single_use']) ? $data['single_use'] : null;
+        $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
 
     /**
@@ -214,6 +202,12 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['api_type'] === null) {
+            $invalidProperties[] = "'api_type' can't be null";
+        }
+        if ($this->container['pod_id'] === null) {
+            $invalidProperties[] = "'pod_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
         }
@@ -233,217 +227,97 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aosp_version
+     * Gets api_path
      *
      * @return string
      */
-    public function getAospVersion()
+    public function getApiPath()
     {
-        return $this->container['aosp_version'];
+        return $this->container['api_path'];
     }
 
     /**
-     * Sets aosp_version
+     * Sets api_path
      *
-     * @param string $aosp_version aosp_version
+     * @param string $api_path api_path
      *
      * @return $this
      */
-    public function setAospVersion($aosp_version)
+    public function setApiPath($api_path)
     {
-        $this->container['aosp_version'] = $aosp_version;
+        $this->container['api_path'] = $api_path;
 
         return $this;
     }
 
     /**
-     * Gets expand_scope
+     * Gets api_payload
      *
-     * @return bool
+     * @return \Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput
      */
-    public function getExpandScope()
+    public function getApiPayload()
     {
-        return $this->container['expand_scope'];
+        return $this->container['api_payload'];
     }
 
     /**
-     * Sets expand_scope
+     * Sets api_payload
      *
-     * @param bool $expand_scope expand_scope
+     * @param \Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput $api_payload api_payload
      *
      * @return $this
      */
-    public function setExpandScope($expand_scope)
+    public function setApiPayload($api_payload)
     {
-        $this->container['expand_scope'] = $expand_scope;
+        $this->container['api_payload'] = $api_payload;
 
         return $this;
     }
 
     /**
-     * Gets image_id_list
-     *
-     * @return string[]
-     */
-    public function getImageIdList()
-    {
-        return $this->container['image_id_list'];
-    }
-
-    /**
-     * Sets image_id_list
-     *
-     * @param string[] $image_id_list image_id_list
-     *
-     * @return $this
-     */
-    public function setImageIdList($image_id_list)
-    {
-        $this->container['image_id_list'] = $image_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
+     * Gets api_type
      *
      * @return string
      */
-    public function getImageName()
+    public function getApiType()
     {
-        return $this->container['image_name'];
+        return $this->container['api_type'];
     }
 
     /**
-     * Sets image_name
+     * Sets api_type
      *
-     * @param string $image_name image_name
+     * @param string $api_type api_type
      *
      * @return $this
      */
-    public function setImageName($image_name)
+    public function setApiType($api_type)
     {
-        $this->container['image_name'] = $image_name;
+        $this->container['api_type'] = $api_type;
 
         return $this;
     }
 
     /**
-     * Gets image_status
-     *
-     * @return int
-     */
-    public function getImageStatus()
-    {
-        return $this->container['image_status'];
-    }
-
-    /**
-     * Sets image_status
-     *
-     * @param int $image_status image_status
-     *
-     * @return $this
-     */
-    public function setImageStatus($image_status)
-    {
-        $this->container['image_status'] = $image_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_public
-     *
-     * @return bool
-     */
-    public function getIsPublic()
-    {
-        return $this->container['is_public'];
-    }
-
-    /**
-     * Sets is_public
-     *
-     * @param bool $is_public is_public
-     *
-     * @return $this
-     */
-    public function setIsPublic($is_public)
-    {
-        $this->container['is_public'] = $is_public;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return int
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param int $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_token
+     * Gets pod_id
      *
      * @return string
      */
-    public function getNextToken()
+    public function getPodId()
     {
-        return $this->container['next_token'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets next_token
+     * Sets pod_id
      *
-     * @param string $next_token next_token
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setNextToken($next_token)
+    public function setPodId($pod_id)
     {
-        $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets platform_type
-     *
-     * @return string
-     */
-    public function getPlatformType()
-    {
-        return $this->container['platform_type'];
-    }
-
-    /**
-     * Sets platform_type
-     *
-     * @param string $platform_type platform_type
-     *
-     * @return $this
-     */
-    public function setPlatformType($platform_type)
-    {
-        $this->container['platform_type'] = $platform_type;
+        $this->container['pod_id'] = $pod_id;
 
         return $this;
     }
@@ -468,6 +342,78 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_use
+     *
+     * @return bool
+     */
+    public function getSingleUse()
+    {
+        return $this->container['single_use'];
+    }
+
+    /**
+     * Sets single_use
+     *
+     * @param bool $single_use single_use
+     *
+     * @return $this
+     */
+    public function setSingleUse($single_use)
+    {
+        $this->container['single_use'] = $single_use;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return int
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param int $ttl ttl
+     *
+     * @return $this
+     */
+    public function setTtl($ttl)
+    {
+        $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param int $timeout timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }

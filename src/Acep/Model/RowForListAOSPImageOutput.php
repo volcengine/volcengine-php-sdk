@@ -38,6 +38,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         'image_size' => 'int',
         'image_status' => 'int',
         'image_status_str' => 'string',
+        'platform_type' => 'string',
         'preheat_status' => 'int',
         'update_at' => 'int',
         'upload_image_status' => 'int'
@@ -59,6 +60,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         'image_size' => 'int64',
         'image_status' => 'int32',
         'image_status_str' => null,
+        'platform_type' => null,
         'preheat_status' => 'int32',
         'update_at' => 'int64',
         'upload_image_status' => 'int32'
@@ -101,6 +103,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         'image_size' => 'ImageSize',
         'image_status' => 'ImageStatus',
         'image_status_str' => 'ImageStatusStr',
+        'platform_type' => 'PlatformType',
         'preheat_status' => 'PreheatStatus',
         'update_at' => 'UpdateAt',
         'upload_image_status' => 'UploadImageStatus'
@@ -122,6 +125,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         'image_size' => 'setImageSize',
         'image_status' => 'setImageStatus',
         'image_status_str' => 'setImageStatusStr',
+        'platform_type' => 'setPlatformType',
         'preheat_status' => 'setPreheatStatus',
         'update_at' => 'setUpdateAt',
         'upload_image_status' => 'setUploadImageStatus'
@@ -143,6 +147,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         'image_size' => 'getImageSize',
         'image_status' => 'getImageStatus',
         'image_status_str' => 'getImageStatusStr',
+        'platform_type' => 'getPlatformType',
         'preheat_status' => 'getPreheatStatus',
         'update_at' => 'getUpdateAt',
         'upload_image_status' => 'getUploadImageStatus'
@@ -218,6 +223,7 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
         $this->container['image_size'] = isset($data['image_size']) ? $data['image_size'] : null;
         $this->container['image_status'] = isset($data['image_status']) ? $data['image_status'] : null;
         $this->container['image_status_str'] = isset($data['image_status_str']) ? $data['image_status_str'] : null;
+        $this->container['platform_type'] = isset($data['platform_type']) ? $data['platform_type'] : null;
         $this->container['preheat_status'] = isset($data['preheat_status']) ? $data['preheat_status'] : null;
         $this->container['update_at'] = isset($data['update_at']) ? $data['update_at'] : null;
         $this->container['upload_image_status'] = isset($data['upload_image_status']) ? $data['upload_image_status'] : null;
@@ -483,6 +489,30 @@ class RowForListAOSPImageOutput implements ModelInterface, ArrayAccess
     public function setImageStatusStr($image_status_str)
     {
         $this->container['image_status_str'] = $image_status_str;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform_type
+     *
+     * @return string
+     */
+    public function getPlatformType()
+    {
+        return $this->container['platform_type'];
+    }
+
+    /**
+     * Sets platform_type
+     *
+     * @param string $platform_type platform_type
+     *
+     * @return $this
+     */
+    public function setPlatformType($platform_type)
+    {
+        $this->container['platform_type'] = $platform_type;
 
         return $this;
     }
