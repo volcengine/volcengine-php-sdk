@@ -86,6 +86,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pretax_amount' => 'string',
         'pretax_real_value' => 'string',
         'price' => 'string',
+        'price_factor' => 'string',
         'price_interval' => 'string',
         'price_unit' => 'string',
         'product' => 'string',
@@ -99,6 +100,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'string',
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => 'string',
+        'saving_plan_deduction_discount_total_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
         'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
@@ -191,6 +193,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pretax_amount' => null,
         'pretax_real_value' => null,
         'price' => null,
+        'price_factor' => null,
         'price_interval' => null,
         'price_unit' => null,
         'product' => null,
@@ -204,6 +207,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => null,
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => null,
+        'saving_plan_deduction_discount_total_amount' => null,
         'saving_plan_deduction_sp_id' => null,
         'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
@@ -317,6 +321,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pretax_amount' => 'PretaxAmount',
         'pretax_real_value' => 'PretaxRealValue',
         'price' => 'Price',
+        'price_factor' => 'PriceFactor',
         'price_interval' => 'PriceInterval',
         'price_unit' => 'PriceUnit',
         'product' => 'Product',
@@ -330,6 +335,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'SavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
@@ -422,6 +428,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pretax_amount' => 'setPretaxAmount',
         'pretax_real_value' => 'setPretaxRealValue',
         'price' => 'setPrice',
+        'price_factor' => 'setPriceFactor',
         'price_interval' => 'setPriceInterval',
         'price_unit' => 'setPriceUnit',
         'product' => 'setProduct',
@@ -435,6 +442,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'setSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
@@ -527,6 +535,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pretax_amount' => 'getPretaxAmount',
         'pretax_real_value' => 'getPretaxRealValue',
         'price' => 'getPrice',
+        'price_factor' => 'getPriceFactor',
         'price_interval' => 'getPriceInterval',
         'price_unit' => 'getPriceUnit',
         'product' => 'getProduct',
@@ -540,6 +549,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'getSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
@@ -686,6 +696,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['pretax_amount'] = isset($data['pretax_amount']) ? $data['pretax_amount'] : null;
         $this->container['pretax_real_value'] = isset($data['pretax_real_value']) ? $data['pretax_real_value'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['price_factor'] = isset($data['price_factor']) ? $data['price_factor'] : null;
         $this->container['price_interval'] = isset($data['price_interval']) ? $data['price_interval'] : null;
         $this->container['price_unit'] = isset($data['price_unit']) ? $data['price_unit'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
@@ -699,6 +710,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
+        $this->container['saving_plan_deduction_discount_total_amount'] = isset($data['saving_plan_deduction_discount_total_amount']) ? $data['saving_plan_deduction_discount_total_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
@@ -2144,6 +2156,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets price_factor
+     *
+     * @return string
+     */
+    public function getPriceFactor()
+    {
+        return $this->container['price_factor'];
+    }
+
+    /**
+     * Sets price_factor
+     *
+     * @param string $price_factor price_factor
+     *
+     * @return $this
+     */
+    public function setPriceFactor($price_factor)
+    {
+        $this->container['price_factor'] = $price_factor;
+
+        return $this;
+    }
+
+    /**
      * Gets price_interval
      *
      * @return string
@@ -2451,6 +2487,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setSavingPlanDeductionDiscountAmount($saving_plan_deduction_discount_amount)
     {
         $this->container['saving_plan_deduction_discount_amount'] = $saving_plan_deduction_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_discount_total_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionDiscountTotalAmount()
+    {
+        return $this->container['saving_plan_deduction_discount_total_amount'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_discount_total_amount
+     *
+     * @param string $saving_plan_deduction_discount_total_amount saving_plan_deduction_discount_total_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionDiscountTotalAmount($saving_plan_deduction_discount_total_amount)
+    {
+        $this->container['saving_plan_deduction_discount_total_amount'] = $saving_plan_deduction_discount_total_amount;
 
         return $this;
     }
