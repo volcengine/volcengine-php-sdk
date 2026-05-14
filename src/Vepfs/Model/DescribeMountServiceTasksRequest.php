@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
+class DescribeMountServiceTasksRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeLensTasksRequest';
+    protected static $swaggerModelName = 'DescribeMountServiceTasksRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'file_system_id' => 'string',
-        'lens_policy_id' => 'string',
-        'lens_task_id' => 'string',
-        'lens_task_name' => 'string',
-        'master_task_id' => 'string',
+        'mount_service_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'schedule_type' => 'string',
-        'status' => 'string[]'
+        'status' => 'string',
+        'task_id' => 'string',
+        'task_type' => 'string'
     ];
 
     /**
@@ -45,15 +42,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'file_system_id' => null,
-        'lens_policy_id' => null,
-        'lens_task_id' => null,
-        'lens_task_name' => null,
-        'master_task_id' => null,
+        'mount_service_id' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
-        'schedule_type' => null,
-        'status' => null
+        'status' => null,
+        'task_id' => null,
+        'task_type' => null
     ];
 
     /**
@@ -83,15 +77,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'file_system_id' => 'FileSystemId',
-        'lens_policy_id' => 'LensPolicyId',
-        'lens_task_id' => 'LensTaskId',
-        'lens_task_name' => 'LensTaskName',
-        'master_task_id' => 'MasterTaskId',
+        'mount_service_id' => 'MountServiceId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'schedule_type' => 'ScheduleType',
-        'status' => 'Status'
+        'status' => 'Status',
+        'task_id' => 'TaskId',
+        'task_type' => 'TaskType'
     ];
 
     /**
@@ -100,15 +91,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'file_system_id' => 'setFileSystemId',
-        'lens_policy_id' => 'setLensPolicyId',
-        'lens_task_id' => 'setLensTaskId',
-        'lens_task_name' => 'setLensTaskName',
-        'master_task_id' => 'setMasterTaskId',
+        'mount_service_id' => 'setMountServiceId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'schedule_type' => 'setScheduleType',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'task_id' => 'setTaskId',
+        'task_type' => 'setTaskType'
     ];
 
     /**
@@ -117,15 +105,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'file_system_id' => 'getFileSystemId',
-        'lens_policy_id' => 'getLensPolicyId',
-        'lens_task_id' => 'getLensTaskId',
-        'lens_task_name' => 'getLensTaskName',
-        'master_task_id' => 'getMasterTaskId',
+        'mount_service_id' => 'getMountServiceId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'schedule_type' => 'getScheduleType',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'task_id' => 'getTaskId',
+        'task_type' => 'getTaskType'
     ];
 
     /**
@@ -169,33 +154,16 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const SCHEDULE_TYPE_ONCE = 'Once';
-    const SCHEDULE_TYPE_TIMED = 'Timed';
-    const STATUS_CREATING = 'Creating';
     const STATUS_PENDING = 'Pending';
-    const STATUS_STARTING = 'Starting';
     const STATUS_RUNNING = 'Running';
-    const STATUS_CANCELING = 'Canceling';
     const STATUS_COMPLETED = 'Completed';
-    const STATUS_CANCELLED = 'Cancelled';
+    const STATUS_IN_COMPLETED = 'InCompleted';
     const STATUS_ABNORMAL = 'Abnormal';
-    const STATUS_CONFLICTED = 'Conflicted';
     const STATUS_FAILED = 'Failed';
+    const TASK_TYPE_ADD_CLIENT = 'AddClient';
+    const TASK_TYPE_REMOVE_CLIENT = 'RemoveClient';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getScheduleTypeAllowableValues()
-    {
-        return [
-            self::SCHEDULE_TYPE_ONCE,
-            self::SCHEDULE_TYPE_TIMED,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -205,16 +173,25 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_CREATING,
             self::STATUS_PENDING,
-            self::STATUS_STARTING,
             self::STATUS_RUNNING,
-            self::STATUS_CANCELING,
             self::STATUS_COMPLETED,
-            self::STATUS_CANCELLED,
+            self::STATUS_IN_COMPLETED,
             self::STATUS_ABNORMAL,
-            self::STATUS_CONFLICTED,
             self::STATUS_FAILED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTaskTypeAllowableValues()
+    {
+        return [
+            self::TASK_TYPE_ADD_CLIENT,
+            self::TASK_TYPE_REMOVE_CLIENT,
         ];
     }
     
@@ -234,15 +211,12 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
-        $this->container['lens_policy_id'] = isset($data['lens_policy_id']) ? $data['lens_policy_id'] : null;
-        $this->container['lens_task_id'] = isset($data['lens_task_id']) ? $data['lens_task_id'] : null;
-        $this->container['lens_task_name'] = isset($data['lens_task_name']) ? $data['lens_task_name'] : null;
-        $this->container['master_task_id'] = isset($data['master_task_id']) ? $data['master_task_id'] : null;
+        $this->container['mount_service_id'] = isset($data['mount_service_id']) ? $data['mount_service_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['schedule_type'] = isset($data['schedule_type']) ? $data['schedule_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
     }
 
     /**
@@ -254,10 +228,18 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getScheduleTypeAllowableValues();
-        if (!is_null($this->container['schedule_type']) && !in_array($this->container['schedule_type'], $allowedValues, true)) {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'schedule_type', must be one of '%s'",
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTaskTypeAllowableValues();
+        if (!is_null($this->container['task_type']) && !in_array($this->container['task_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'task_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -278,121 +260,25 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets file_system_id
+     * Gets mount_service_id
      *
      * @return string
      */
-    public function getFileSystemId()
+    public function getMountServiceId()
     {
-        return $this->container['file_system_id'];
+        return $this->container['mount_service_id'];
     }
 
     /**
-     * Sets file_system_id
+     * Sets mount_service_id
      *
-     * @param string $file_system_id file_system_id
+     * @param string $mount_service_id mount_service_id
      *
      * @return $this
      */
-    public function setFileSystemId($file_system_id)
+    public function setMountServiceId($mount_service_id)
     {
-        $this->container['file_system_id'] = $file_system_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets lens_policy_id
-     *
-     * @return string
-     */
-    public function getLensPolicyId()
-    {
-        return $this->container['lens_policy_id'];
-    }
-
-    /**
-     * Sets lens_policy_id
-     *
-     * @param string $lens_policy_id lens_policy_id
-     *
-     * @return $this
-     */
-    public function setLensPolicyId($lens_policy_id)
-    {
-        $this->container['lens_policy_id'] = $lens_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets lens_task_id
-     *
-     * @return string
-     */
-    public function getLensTaskId()
-    {
-        return $this->container['lens_task_id'];
-    }
-
-    /**
-     * Sets lens_task_id
-     *
-     * @param string $lens_task_id lens_task_id
-     *
-     * @return $this
-     */
-    public function setLensTaskId($lens_task_id)
-    {
-        $this->container['lens_task_id'] = $lens_task_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets lens_task_name
-     *
-     * @return string
-     */
-    public function getLensTaskName()
-    {
-        return $this->container['lens_task_name'];
-    }
-
-    /**
-     * Sets lens_task_name
-     *
-     * @param string $lens_task_name lens_task_name
-     *
-     * @return $this
-     */
-    public function setLensTaskName($lens_task_name)
-    {
-        $this->container['lens_task_name'] = $lens_task_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets master_task_id
-     *
-     * @return string
-     */
-    public function getMasterTaskId()
-    {
-        return $this->container['master_task_id'];
-    }
-
-    /**
-     * Sets master_task_id
-     *
-     * @param string $master_task_id master_task_id
-     *
-     * @return $this
-     */
-    public function setMasterTaskId($master_task_id)
-    {
-        $this->container['master_task_id'] = $master_task_id;
+        $this->container['mount_service_id'] = $mount_service_id;
 
         return $this;
     }
@@ -446,42 +332,9 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets schedule_type
-     *
-     * @return string
-     */
-    public function getScheduleType()
-    {
-        return $this->container['schedule_type'];
-    }
-
-    /**
-     * Sets schedule_type
-     *
-     * @param string $schedule_type schedule_type
-     *
-     * @return $this
-     */
-    public function setScheduleType($schedule_type)
-    {
-        $allowedValues = $this->getScheduleTypeAllowableValues();
-        if (!is_null($schedule_type) && !in_array($schedule_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'schedule_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['schedule_type'] = $schedule_type;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
-     * @return string[]
+     * @return string
      */
     public function getStatus()
     {
@@ -491,14 +344,14 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string[] $status status
+     * @param string $status status
      *
      * @return $this
      */
     public function setStatus($status)
     {
         $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && array_diff($status, $allowedValues)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'status', must be one of '%s'",
@@ -507,6 +360,63 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_type
+     *
+     * @return string
+     */
+    public function getTaskType()
+    {
+        return $this->container['task_type'];
+    }
+
+    /**
+     * Sets task_type
+     *
+     * @param string $task_type task_type
+     *
+     * @return $this
+     */
+    public function setTaskType($task_type)
+    {
+        $allowedValues = $this->getTaskTypeAllowableValues();
+        if (!is_null($task_type) && !in_array($task_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'task_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['task_type'] = $task_type;
 
         return $this;
     }
