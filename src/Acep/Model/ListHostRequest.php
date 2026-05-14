@@ -33,15 +33,15 @@ class ListHostRequest implements ModelInterface, ArrayAccess
         'dc' => 'string',
         'expire_time_before' => 'string',
         'host_id' => 'string',
-        'host_id_list' => 'string',
+        'host_id_list' => 'string[]',
         'max_results' => 'int',
         'next_token' => 'string',
         'pod_id' => 'string',
-        'pod_id_list' => 'string',
+        'pod_id_list' => 'string[]',
         'product_id' => 'string',
         'region' => 'string',
         'resource_set_id' => 'string',
-        'status_list' => 'string',
+        'status_list' => 'int[]',
         'sync_renew_type' => 'bool',
         'use_status' => 'int',
         'volc_region' => 'string'
@@ -66,7 +66,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
         'product_id' => null,
         'region' => null,
         'resource_set_id' => null,
-        'status_list' => null,
+        'status_list' => 'int32',
         'sync_renew_type' => null,
         'use_status' => 'int32',
         'volc_region' => null
@@ -397,7 +397,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Gets host_id_list
      *
-     * @return string
+     * @return string[]
      */
     public function getHostIdList()
     {
@@ -407,7 +407,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Sets host_id_list
      *
-     * @param string $host_id_list host_id_list
+     * @param string[] $host_id_list host_id_list
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Gets pod_id_list
      *
-     * @return string
+     * @return string[]
      */
     public function getPodIdList()
     {
@@ -503,7 +503,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Sets pod_id_list
      *
-     * @param string $pod_id_list pod_id_list
+     * @param string[] $pod_id_list pod_id_list
      *
      * @return $this
      */
@@ -589,7 +589,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Gets status_list
      *
-     * @return string
+     * @return int[]
      */
     public function getStatusList()
     {
@@ -599,7 +599,7 @@ class ListHostRequest implements ModelInterface, ArrayAccess
     /**
      * Sets status_list
      *
-     * @param string $status_list status_list
+     * @param int[] $status_list status_list
      *
      * @return $this
      */
