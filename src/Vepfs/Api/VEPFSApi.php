@@ -68,6 +68,68 @@ class VEPFSApi
         return $this->config;
     }
 
+    public function addMountServiceClients($body = null)
+    {
+        list($response) = $this->addMountServiceClientsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addMountServiceClientsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\AddMountServiceClientsResponse';
+        $request = $this->addMountServiceClientsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addMountServiceClientsAsync($body = null)
+    {
+        return $this->addMountServiceClientsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addMountServiceClientsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\AddMountServiceClientsResponse';
+        $request = $this->addMountServiceClientsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addMountServiceClientsRequest($body)
+    {
+        $resourcePath = '/AddMountServiceClients/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function attachMountServiceToSelfFileSystem($body = null)
     {
         list($response) = $this->attachMountServiceToSelfFileSystemWithHttpInfo($body);
@@ -1866,6 +1928,68 @@ class VEPFSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeMountServiceClients($body = null)
+    {
+        list($response) = $this->describeMountServiceClientsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeMountServiceClientsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceClientsResponse';
+        $request = $this->describeMountServiceClientsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeMountServiceClientsAsync($body = null)
+    {
+        return $this->describeMountServiceClientsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeMountServiceClientsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceClientsResponse';
+        $request = $this->describeMountServiceClientsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeMountServiceClientsRequest($body)
+    {
+        $resourcePath = '/DescribeMountServiceClients/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeMountServiceNodeTypes($body = null)
     {
         list($response) = $this->describeMountServiceNodeTypesWithHttpInfo($body);
@@ -1900,6 +2024,130 @@ class VEPFSApi
     protected function describeMountServiceNodeTypesRequest($body)
     {
         $resourcePath = '/DescribeMountServiceNodeTypes/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeMountServiceTaskResults($body = null)
+    {
+        list($response) = $this->describeMountServiceTaskResultsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeMountServiceTaskResultsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceTaskResultsResponse';
+        $request = $this->describeMountServiceTaskResultsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeMountServiceTaskResultsAsync($body = null)
+    {
+        return $this->describeMountServiceTaskResultsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeMountServiceTaskResultsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceTaskResultsResponse';
+        $request = $this->describeMountServiceTaskResultsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeMountServiceTaskResultsRequest($body)
+    {
+        $resourcePath = '/DescribeMountServiceTaskResults/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeMountServiceTasks($body = null)
+    {
+        list($response) = $this->describeMountServiceTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeMountServiceTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceTasksResponse';
+        $request = $this->describeMountServiceTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeMountServiceTasksAsync($body = null)
+    {
+        return $this->describeMountServiceTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeMountServiceTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\DescribeMountServiceTasksResponse';
+        $request = $this->describeMountServiceTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeMountServiceTasksRequest($body)
+    {
+        $resourcePath = '/DescribeMountServiceTasks/2022-01-01/vepfs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2272,6 +2520,68 @@ class VEPFSApi
     protected function listTagsForResourcesRequest($body)
     {
         $resourcePath = '/ListTagsForResources/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function removeMountServiceClients($body = null)
+    {
+        list($response) = $this->removeMountServiceClientsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function removeMountServiceClientsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\RemoveMountServiceClientsResponse';
+        $request = $this->removeMountServiceClientsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function removeMountServiceClientsAsync($body = null)
+    {
+        return $this->removeMountServiceClientsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function removeMountServiceClientsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\RemoveMountServiceClientsResponse';
+        $request = $this->removeMountServiceClientsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function removeMountServiceClientsRequest($body)
+    {
+        $resourcePath = '/RemoveMountServiceClients/2022-01-01/vepfs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3140,6 +3450,68 @@ class VEPFSApi
     protected function updateMountServiceRequest($body)
     {
         $resourcePath = '/UpdateMountService/2022-01-01/vepfs/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function verifyMountServiceClients($body = null)
+    {
+        list($response) = $this->verifyMountServiceClientsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function verifyMountServiceClientsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\VerifyMountServiceClientsResponse';
+        $request = $this->verifyMountServiceClientsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function verifyMountServiceClientsAsync($body = null)
+    {
+        return $this->verifyMountServiceClientsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function verifyMountServiceClientsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vepfs\Model\VerifyMountServiceClientsResponse';
+        $request = $this->verifyMountServiceClientsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function verifyMountServiceClientsRequest($body)
+    {
+        $resourcePath = '/VerifyMountServiceClients/2022-01-01/vepfs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
