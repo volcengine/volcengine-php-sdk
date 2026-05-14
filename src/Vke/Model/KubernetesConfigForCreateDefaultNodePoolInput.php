@@ -36,6 +36,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         'name_prefix' => 'string',
         'name_suffix' => 'string',
         'name_use_hostname' => 'bool',
+        'runtime' => '\Volcengine\Vke\Model\RuntimeForCreateDefaultNodePoolInput',
         'taints' => '\Volcengine\Vke\Model\TaintForCreateDefaultNodePoolInput[]'
     ];
 
@@ -53,6 +54,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         'name_prefix' => null,
         'name_suffix' => null,
         'name_use_hostname' => null,
+        'runtime' => null,
         'taints' => null
     ];
 
@@ -91,6 +93,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         'name_prefix' => 'NamePrefix',
         'name_suffix' => 'NameSuffix',
         'name_use_hostname' => 'NameUseHostname',
+        'runtime' => 'Runtime',
         'taints' => 'Taints'
     ];
 
@@ -108,6 +111,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         'name_prefix' => 'setNamePrefix',
         'name_suffix' => 'setNameSuffix',
         'name_use_hostname' => 'setNameUseHostname',
+        'runtime' => 'setRuntime',
         'taints' => 'setTaints'
     ];
 
@@ -125,6 +129,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         'name_prefix' => 'getNamePrefix',
         'name_suffix' => 'getNameSuffix',
         'name_use_hostname' => 'getNameUseHostname',
+        'runtime' => 'getRuntime',
         'taints' => 'getTaints'
     ];
 
@@ -196,6 +201,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
         $this->container['name_suffix'] = isset($data['name_suffix']) ? $data['name_suffix'] : null;
         $this->container['name_use_hostname'] = isset($data['name_use_hostname']) ? $data['name_use_hostname'] : null;
+        $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
     }
 
@@ -411,6 +417,30 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
     public function setNameUseHostname($name_use_hostname)
     {
         $this->container['name_use_hostname'] = $name_use_hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets runtime
+     *
+     * @return \Volcengine\Vke\Model\RuntimeForCreateDefaultNodePoolInput
+     */
+    public function getRuntime()
+    {
+        return $this->container['runtime'];
+    }
+
+    /**
+     * Sets runtime
+     *
+     * @param \Volcengine\Vke\Model\RuntimeForCreateDefaultNodePoolInput $runtime runtime
+     *
+     * @return $this
+     */
+    public function setRuntime($runtime)
+    {
+        $this->container['runtime'] = $runtime;
 
         return $this;
     }

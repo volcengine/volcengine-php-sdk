@@ -28,6 +28,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'intersection_items' => '\Volcengine\Vke\Model\IntersectionItemForListSupportedImagesOutput[]',
         'items' => '\Volcengine\Vke\Model\ItemForListSupportedImagesOutput[]'
     ];
 
@@ -37,6 +38,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'intersection_items' => null,
         'items' => null
     ];
 
@@ -67,6 +69,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'intersection_items' => 'IntersectionItems',
         'items' => 'Items'
     ];
 
@@ -76,6 +79,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'intersection_items' => 'setIntersectionItems',
         'items' => 'setItems'
     ];
 
@@ -85,6 +89,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'intersection_items' => 'getIntersectionItems',
         'items' => 'getItems'
     ];
 
@@ -148,6 +153,7 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['intersection_items'] = isset($data['intersection_items']) ? $data['intersection_items'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
@@ -174,6 +180,30 @@ class ListSupportedImagesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets intersection_items
+     *
+     * @return \Volcengine\Vke\Model\IntersectionItemForListSupportedImagesOutput[]
+     */
+    public function getIntersectionItems()
+    {
+        return $this->container['intersection_items'];
+    }
+
+    /**
+     * Sets intersection_items
+     *
+     * @param \Volcengine\Vke\Model\IntersectionItemForListSupportedImagesOutput[] $intersection_items intersection_items
+     *
+     * @return $this
+     */
+    public function setIntersectionItems($intersection_items)
+    {
+        $this->container['intersection_items'] = $intersection_items;
+
+        return $this;
+    }
 
     /**
      * Gets items

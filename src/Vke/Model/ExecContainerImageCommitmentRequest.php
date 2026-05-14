@@ -29,6 +29,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
+        'client_token' => 'string',
         'container_name' => 'string',
         'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
         'instance_id' => 'string',
@@ -42,6 +43,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auth_config' => null,
+        'client_token' => null,
         'container_name' => null,
         'image_spec' => null,
         'instance_id' => null,
@@ -76,6 +78,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auth_config' => 'AuthConfig',
+        'client_token' => 'ClientToken',
         'container_name' => 'ContainerName',
         'image_spec' => 'ImageSpec',
         'instance_id' => 'InstanceId',
@@ -89,6 +92,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auth_config' => 'setAuthConfig',
+        'client_token' => 'setClientToken',
         'container_name' => 'setContainerName',
         'image_spec' => 'setImageSpec',
         'instance_id' => 'setInstanceId',
@@ -102,6 +106,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auth_config' => 'getAuthConfig',
+        'client_token' => 'getClientToken',
         'container_name' => 'getContainerName',
         'image_spec' => 'getImageSpec',
         'instance_id' => 'getInstanceId',
@@ -169,6 +174,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
         $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -225,6 +231,30 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     public function setAuthConfig($auth_config)
     {
         $this->container['auth_config'] = $auth_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }

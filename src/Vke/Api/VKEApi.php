@@ -564,6 +564,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createSnapshot($body = null)
+    {
+        list($response) = $this->createSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateSnapshotResponse';
+        $request = $this->createSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createSnapshotAsync($body = null)
+    {
+        return $this->createSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateSnapshotResponse';
+        $request = $this->createSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createSnapshotRequest($body)
+    {
+        $resourcePath = '/CreateSnapshot/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteAddon($body = null)
     {
         list($response) = $this->deleteAddonWithHttpInfo($body);
@@ -908,6 +970,192 @@ class VKEApi
     protected function deleteScalingPoliciesRequest($body)
     {
         $resourcePath = '/DeleteScalingPolicies/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteSnapshot($body = null)
+    {
+        list($response) = $this->deleteSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteSnapshotResponse';
+        $request = $this->deleteSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteSnapshotAsync($body = null)
+    {
+        return $this->deleteSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteSnapshotResponse';
+        $request = $this->deleteSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteSnapshotRequest($body)
+    {
+        $resourcePath = '/DeleteSnapshot/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeContainerImageCommitments($body = null)
+    {
+        list($response) = $this->describeContainerImageCommitmentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeContainerImageCommitmentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DescribeContainerImageCommitmentsResponse';
+        $request = $this->describeContainerImageCommitmentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeContainerImageCommitmentsAsync($body = null)
+    {
+        return $this->describeContainerImageCommitmentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeContainerImageCommitmentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DescribeContainerImageCommitmentsResponse';
+        $request = $this->describeContainerImageCommitmentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeContainerImageCommitmentsRequest($body)
+    {
+        $resourcePath = '/DescribeContainerImageCommitments/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeSnapshots($body = null)
+    {
+        list($response) = $this->describeSnapshotsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeSnapshotsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DescribeSnapshotsResponse';
+        $request = $this->describeSnapshotsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeSnapshotsAsync($body = null)
+    {
+        return $this->describeSnapshotsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeSnapshotsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DescribeSnapshotsResponse';
+        $request = $this->describeSnapshotsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeSnapshotsRequest($body)
+    {
+        $resourcePath = '/DescribeSnapshots/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1900,6 +2148,68 @@ class VKEApi
     protected function listSupportedAddonsRequest($body)
     {
         $resourcePath = '/ListSupportedAddons/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSupportedGpuDriverVersions($body = null)
+    {
+        list($response) = $this->listSupportedGpuDriverVersionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSupportedGpuDriverVersionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListSupportedGpuDriverVersionsResponse';
+        $request = $this->listSupportedGpuDriverVersionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSupportedGpuDriverVersionsAsync($body = null)
+    {
+        return $this->listSupportedGpuDriverVersionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSupportedGpuDriverVersionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListSupportedGpuDriverVersionsResponse';
+        $request = $this->listSupportedGpuDriverVersionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSupportedGpuDriverVersionsRequest($body)
+    {
+        $resourcePath = '/ListSupportedGpuDriverVersions/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

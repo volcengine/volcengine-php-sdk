@@ -129,8 +129,39 @@ class ConditionForListNodesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_OK = 'Ok';
+    const TYPE_UNSCHEDULABLE = 'Unschedulable';
+    const TYPE_NOT_READY = 'NotReady';
+    const TYPE_INITIALIZE_FAILED = 'InitializeFailed';
+    const TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
+    const TYPE_SECURITY = 'Security';
+    const TYPE_BALANCE = 'Balance';
+    const TYPE_UNKNOWN = 'Unknown';
+    const TYPE_PROGRESSING = 'Progressing';
+    const TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_OK,
+            self::TYPE_UNSCHEDULABLE,
+            self::TYPE_NOT_READY,
+            self::TYPE_INITIALIZE_FAILED,
+            self::TYPE_RESOURCE_CLEANUP_FAILED,
+            self::TYPE_SECURITY,
+            self::TYPE_BALANCE,
+            self::TYPE_UNKNOWN,
+            self::TYPE_PROGRESSING,
+            self::TYPE_CLUSTER_VERSION_UPGRADING,
+        ];
+    }
     
 
     /**
@@ -159,6 +190,14 @@ class ConditionForListNodesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -194,6 +233,15 @@ class ConditionForListNodesOutput implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

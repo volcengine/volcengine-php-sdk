@@ -36,6 +36,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         'is_public' => 'bool',
         'max_results' => 'int',
         'next_token' => 'string',
+        'platform_type' => 'string',
         'product_id' => 'string'
     ];
 
@@ -53,6 +54,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         'is_public' => null,
         'max_results' => 'int32',
         'next_token' => null,
+        'platform_type' => null,
         'product_id' => null
     ];
 
@@ -91,6 +93,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         'is_public' => 'IsPublic',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
+        'platform_type' => 'PlatformType',
         'product_id' => 'ProductId'
     ];
 
@@ -108,6 +111,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         'is_public' => 'setIsPublic',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
+        'platform_type' => 'setPlatformType',
         'product_id' => 'setProductId'
     ];
 
@@ -125,6 +129,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         'is_public' => 'getIsPublic',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
+        'platform_type' => 'getPlatformType',
         'product_id' => 'getProductId'
     ];
 
@@ -196,6 +201,7 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
         $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['platform_type'] = isset($data['platform_type']) ? $data['platform_type'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
@@ -414,6 +420,30 @@ class ListAOSPImageRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform_type
+     *
+     * @return string
+     */
+    public function getPlatformType()
+    {
+        return $this->container['platform_type'];
+    }
+
+    /**
+     * Sets platform_type
+     *
+     * @param string $platform_type platform_type
+     *
+     * @return $this
+     */
+    public function setPlatformType($platform_type)
+    {
+        $this->container['platform_type'] = $platform_type;
 
         return $this;
     }
