@@ -31,6 +31,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         'action' => '\Volcengine\Vke\Model\ActionForListRemedyConfigsOutput',
         'auto_restore_schedule' => 'bool',
         'drain' => '\Volcengine\Vke\Model\DrainForListRemedyConfigsOutput',
+        'iaas_events' => 'string[]',
         'intervene_cordon' => '\Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput',
         'intervene_drain' => '\Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput'
     ];
@@ -44,6 +45,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         'action' => null,
         'auto_restore_schedule' => null,
         'drain' => null,
+        'iaas_events' => null,
         'intervene_cordon' => null,
         'intervene_drain' => null
     ];
@@ -78,6 +80,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         'action' => 'Action',
         'auto_restore_schedule' => 'AutoRestoreSchedule',
         'drain' => 'Drain',
+        'iaas_events' => 'IaasEvents',
         'intervene_cordon' => 'InterveneCordon',
         'intervene_drain' => 'InterveneDrain'
     ];
@@ -91,6 +94,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         'action' => 'setAction',
         'auto_restore_schedule' => 'setAutoRestoreSchedule',
         'drain' => 'setDrain',
+        'iaas_events' => 'setIaasEvents',
         'intervene_cordon' => 'setInterveneCordon',
         'intervene_drain' => 'setInterveneDrain'
     ];
@@ -104,6 +108,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         'action' => 'getAction',
         'auto_restore_schedule' => 'getAutoRestoreSchedule',
         'drain' => 'getDrain',
+        'iaas_events' => 'getIaasEvents',
         'intervene_cordon' => 'getInterveneCordon',
         'intervene_drain' => 'getInterveneDrain'
     ];
@@ -171,6 +176,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['auto_restore_schedule'] = isset($data['auto_restore_schedule']) ? $data['auto_restore_schedule'] : null;
         $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
+        $this->container['iaas_events'] = isset($data['iaas_events']) ? $data['iaas_events'] : null;
         $this->container['intervene_cordon'] = isset($data['intervene_cordon']) ? $data['intervene_cordon'] : null;
         $this->container['intervene_drain'] = isset($data['intervene_drain']) ? $data['intervene_drain'] : null;
     }
@@ -267,6 +273,30 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
     public function setDrain($drain)
     {
         $this->container['drain'] = $drain;
+
+        return $this;
+    }
+
+    /**
+     * Gets iaas_events
+     *
+     * @return string[]
+     */
+    public function getIaasEvents()
+    {
+        return $this->container['iaas_events'];
+    }
+
+    /**
+     * Sets iaas_events
+     *
+     * @param string[] $iaas_events iaas_events
+     *
+     * @return $this
+     */
+    public function setIaasEvents($iaas_events)
+    {
+        $this->container['iaas_events'] = $iaas_events;
 
         return $this;
     }

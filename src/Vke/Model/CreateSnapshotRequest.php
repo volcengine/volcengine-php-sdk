@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
+class CreateSnapshotRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExecContainerImageCommitmentRequest';
+    protected static $swaggerModelName = 'CreateSnapshotRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
         'client_token' => 'string',
-        'container_name' => 'string',
-        'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
+        'description' => 'string',
         'instance_id' => 'string',
-        'pause' => 'bool'
+        'retention_days' => 'int',
+        'snapshot_name' => 'string',
+        'tags' => '\Volcengine\Vke\Model\TagForCreateSnapshotInput[]'
     ];
 
     /**
@@ -42,12 +42,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_config' => null,
         'client_token' => null,
-        'container_name' => null,
-        'image_spec' => null,
+        'description' => null,
         'instance_id' => null,
-        'pause' => null
+        'retention_days' => 'int32',
+        'snapshot_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -77,12 +77,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_config' => 'AuthConfig',
         'client_token' => 'ClientToken',
-        'container_name' => 'ContainerName',
-        'image_spec' => 'ImageSpec',
+        'description' => 'Description',
         'instance_id' => 'InstanceId',
-        'pause' => 'Pause'
+        'retention_days' => 'RetentionDays',
+        'snapshot_name' => 'SnapshotName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -91,12 +91,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_config' => 'setAuthConfig',
         'client_token' => 'setClientToken',
-        'container_name' => 'setContainerName',
-        'image_spec' => 'setImageSpec',
+        'description' => 'setDescription',
         'instance_id' => 'setInstanceId',
-        'pause' => 'setPause'
+        'retention_days' => 'setRetentionDays',
+        'snapshot_name' => 'setSnapshotName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,12 +105,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_config' => 'getAuthConfig',
         'client_token' => 'getClientToken',
-        'container_name' => 'getContainerName',
-        'image_spec' => 'getImageSpec',
+        'description' => 'getDescription',
         'instance_id' => 'getInstanceId',
-        'pause' => 'getPause'
+        'retention_days' => 'getRetentionDays',
+        'snapshot_name' => 'getSnapshotName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,12 +173,12 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
-        $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['pause'] = isset($data['pause']) ? $data['pause'] : null;
+        $this->container['retention_days'] = isset($data['retention_days']) ? $data['retention_days'] : null;
+        $this->container['snapshot_name'] = isset($data['snapshot_name']) ? $data['snapshot_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -190,11 +190,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalidProperties[] = "'container_name' can't be null";
-        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['snapshot_name'] === null) {
+            $invalidProperties[] = "'snapshot_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,30 +210,6 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets auth_config
-     *
-     * @return \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput
-     */
-    public function getAuthConfig()
-    {
-        return $this->container['auth_config'];
-    }
-
-    /**
-     * Sets auth_config
-     *
-     * @param \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput $auth_config auth_config
-     *
-     * @return $this
-     */
-    public function setAuthConfig($auth_config)
-    {
-        $this->container['auth_config'] = $auth_config;
-
-        return $this;
-    }
 
     /**
      * Gets client_token
@@ -260,49 +236,25 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets container_name
+     * Gets description
      *
      * @return string
      */
-    public function getContainerName()
+    public function getDescription()
     {
-        return $this->container['container_name'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets container_name
+     * Sets description
      *
-     * @param string $container_name container_name
+     * @param string $description description
      *
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setDescription($description)
     {
-        $this->container['container_name'] = $container_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_spec
-     *
-     * @return \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput
-     */
-    public function getImageSpec()
-    {
-        return $this->container['image_spec'];
-    }
-
-    /**
-     * Sets image_spec
-     *
-     * @param \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput $image_spec image_spec
-     *
-     * @return $this
-     */
-    public function setImageSpec($image_spec)
-    {
-        $this->container['image_spec'] = $image_spec;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -332,25 +284,73 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets pause
+     * Gets retention_days
      *
-     * @return bool
+     * @return int
      */
-    public function getPause()
+    public function getRetentionDays()
     {
-        return $this->container['pause'];
+        return $this->container['retention_days'];
     }
 
     /**
-     * Sets pause
+     * Sets retention_days
      *
-     * @param bool $pause pause
+     * @param int $retention_days retention_days
      *
      * @return $this
      */
-    public function setPause($pause)
+    public function setRetentionDays($retention_days)
     {
-        $this->container['pause'] = $pause;
+        $this->container['retention_days'] = $retention_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_name
+     *
+     * @return string
+     */
+    public function getSnapshotName()
+    {
+        return $this->container['snapshot_name'];
+    }
+
+    /**
+     * Sets snapshot_name
+     *
+     * @param string $snapshot_name snapshot_name
+     *
+     * @return $this
+     */
+    public function setSnapshotName($snapshot_name)
+    {
+        $this->container['snapshot_name'] = $snapshot_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vke\Model\TagForCreateSnapshotInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vke\Model\TagForCreateSnapshotInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

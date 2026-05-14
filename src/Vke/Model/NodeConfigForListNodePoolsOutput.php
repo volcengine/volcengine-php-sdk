@@ -29,11 +29,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'additional_container_storage_enabled' => 'bool',
+        'affinity_group_config' => '\Volcengine\Vke\Model\AffinityGroupConfigForListNodePoolsOutput',
         'auto_renew' => 'bool',
         'auto_renew_period' => 'int',
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForListNodePoolsOutput[]',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
+        'gpu_driver_version' => 'string',
         'hostname' => 'string',
         'hpc_cluster_ids' => 'string[]',
         'image_id' => 'string',
@@ -63,11 +65,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'additional_container_storage_enabled' => null,
+        'affinity_group_config' => null,
         'auto_renew' => null,
         'auto_renew_period' => 'int32',
         'data_volumes' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
+        'gpu_driver_version' => null,
         'hostname' => null,
         'hpc_cluster_ids' => null,
         'image_id' => null,
@@ -118,11 +122,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'additional_container_storage_enabled' => 'AdditionalContainerStorageEnabled',
+        'affinity_group_config' => 'AffinityGroupConfig',
         'auto_renew' => 'AutoRenew',
         'auto_renew_period' => 'AutoRenewPeriod',
         'data_volumes' => 'DataVolumes',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
+        'gpu_driver_version' => 'GpuDriverVersion',
         'hostname' => 'Hostname',
         'hpc_cluster_ids' => 'HpcClusterIds',
         'image_id' => 'ImageId',
@@ -152,11 +158,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'additional_container_storage_enabled' => 'setAdditionalContainerStorageEnabled',
+        'affinity_group_config' => 'setAffinityGroupConfig',
         'auto_renew' => 'setAutoRenew',
         'auto_renew_period' => 'setAutoRenewPeriod',
         'data_volumes' => 'setDataVolumes',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
+        'gpu_driver_version' => 'setGpuDriverVersion',
         'hostname' => 'setHostname',
         'hpc_cluster_ids' => 'setHpcClusterIds',
         'image_id' => 'setImageId',
@@ -186,11 +194,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'additional_container_storage_enabled' => 'getAdditionalContainerStorageEnabled',
+        'affinity_group_config' => 'getAffinityGroupConfig',
         'auto_renew' => 'getAutoRenew',
         'auto_renew_period' => 'getAutoRenewPeriod',
         'data_volumes' => 'getDataVolumes',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
+        'gpu_driver_version' => 'getGpuDriverVersion',
         'hostname' => 'getHostname',
         'hpc_cluster_ids' => 'getHpcClusterIds',
         'image_id' => 'getImageId',
@@ -304,11 +314,13 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['additional_container_storage_enabled'] = isset($data['additional_container_storage_enabled']) ? $data['additional_container_storage_enabled'] : null;
+        $this->container['affinity_group_config'] = isset($data['affinity_group_config']) ? $data['affinity_group_config'] : null;
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
+        $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
@@ -391,6 +403,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setAdditionalContainerStorageEnabled($additional_container_storage_enabled)
     {
         $this->container['additional_container_storage_enabled'] = $additional_container_storage_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets affinity_group_config
+     *
+     * @return \Volcengine\Vke\Model\AffinityGroupConfigForListNodePoolsOutput
+     */
+    public function getAffinityGroupConfig()
+    {
+        return $this->container['affinity_group_config'];
+    }
+
+    /**
+     * Sets affinity_group_config
+     *
+     * @param \Volcengine\Vke\Model\AffinityGroupConfigForListNodePoolsOutput $affinity_group_config affinity_group_config
+     *
+     * @return $this
+     */
+    public function setAffinityGroupConfig($affinity_group_config)
+    {
+        $this->container['affinity_group_config'] = $affinity_group_config;
 
         return $this;
     }
@@ -511,6 +547,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setDeploymentSetId($deployment_set_id)
     {
         $this->container['deployment_set_id'] = $deployment_set_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_driver_version
+     *
+     * @return string
+     */
+    public function getGpuDriverVersion()
+    {
+        return $this->container['gpu_driver_version'];
+    }
+
+    /**
+     * Sets gpu_driver_version
+     *
+     * @param string $gpu_driver_version gpu_driver_version
+     *
+     * @return $this
+     */
+    public function setGpuDriverVersion($gpu_driver_version)
+    {
+        $this->container['gpu_driver_version'] = $gpu_driver_version;
 
         return $this;
     }

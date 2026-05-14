@@ -143,14 +143,12 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
     const CONDITIONS_TYPE_BALANCE = 'Balance';
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
     const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
+    const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
     const PHASE_CREATING = 'Creating';
     const PHASE_RUNNING = 'Running';
     const PHASE_DELETING = 'Deleting';
     const PHASE_UPDATING = 'Updating';
     const PHASE_FAILED = 'Failed';
-    const PHASE_STARTING = 'Starting';
-    const PHASE_STOPPING = 'Stopping';
-    const PHASE_STOPPED = 'Stopped';
     
 
     
@@ -171,6 +169,7 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
             self::CONDITIONS_TYPE_BALANCE,
             self::CONDITIONS_TYPE_UNKNOWN,
             self::CONDITIONS_TYPE_PROGRESSING,
+            self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
         ];
     }
     
@@ -187,9 +186,6 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
             self::PHASE_DELETING,
             self::PHASE_UPDATING,
             self::PHASE_FAILED,
-            self::PHASE_STARTING,
-            self::PHASE_STOPPING,
-            self::PHASE_STOPPED,
         ];
     }
     

@@ -29,7 +29,8 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'subnet_ids' => 'string[]',
-        'trunk_eni_enabled' => 'bool'
+        'trunk_eni_enabled' => 'bool',
+        'vci_subnet_ids' => 'string[]'
     ];
 
     /**
@@ -39,7 +40,8 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'subnet_ids' => null,
-        'trunk_eni_enabled' => null
+        'trunk_eni_enabled' => null,
+        'vci_subnet_ids' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'subnet_ids' => 'SubnetIds',
-        'trunk_eni_enabled' => 'TrunkEniEnabled'
+        'trunk_eni_enabled' => 'TrunkEniEnabled',
+        'vci_subnet_ids' => 'VciSubnetIds'
     ];
 
     /**
@@ -80,7 +83,8 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'subnet_ids' => 'setSubnetIds',
-        'trunk_eni_enabled' => 'setTrunkEniEnabled'
+        'trunk_eni_enabled' => 'setTrunkEniEnabled',
+        'vci_subnet_ids' => 'setVciSubnetIds'
     ];
 
     /**
@@ -90,7 +94,8 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'subnet_ids' => 'getSubnetIds',
-        'trunk_eni_enabled' => 'getTrunkEniEnabled'
+        'trunk_eni_enabled' => 'getTrunkEniEnabled',
+        'vci_subnet_ids' => 'getVciSubnetIds'
     ];
 
     /**
@@ -155,6 +160,7 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
     {
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['trunk_eni_enabled'] = isset($data['trunk_eni_enabled']) ? $data['trunk_eni_enabled'] : null;
+        $this->container['vci_subnet_ids'] = isset($data['vci_subnet_ids']) ? $data['vci_subnet_ids'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class VpcCniConfigForListClustersOutput implements ModelInterface, ArrayAccess
     public function setTrunkEniEnabled($trunk_eni_enabled)
     {
         $this->container['trunk_eni_enabled'] = $trunk_eni_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets vci_subnet_ids
+     *
+     * @return string[]
+     */
+    public function getVciSubnetIds()
+    {
+        return $this->container['vci_subnet_ids'];
+    }
+
+    /**
+     * Sets vci_subnet_ids
+     *
+     * @param string[] $vci_subnet_ids vci_subnet_ids
+     *
+     * @return $this
+     */
+    public function setVciSubnetIds($vci_subnet_ids)
+    {
+        $this->container['vci_subnet_ids'] = $vci_subnet_ids;
 
         return $this;
     }

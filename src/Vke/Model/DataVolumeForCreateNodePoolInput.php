@@ -28,6 +28,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
         'file_system' => 'string',
         'mount_point' => 'string',
         'placement_group_id' => 'string',
@@ -43,6 +46,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
         'file_system' => null,
         'mount_point' => null,
         'placement_group_id' => null,
@@ -79,6 +85,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'extra_performance_iops' => 'ExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'file_system' => 'FileSystem',
         'mount_point' => 'MountPoint',
         'placement_group_id' => 'PlacementGroupId',
@@ -94,6 +103,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'file_system' => 'setFileSystem',
         'mount_point' => 'setMountPoint',
         'placement_group_id' => 'setPlacementGroupId',
@@ -109,6 +121,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'file_system' => 'getFileSystem',
         'mount_point' => 'getMountPoint',
         'placement_group_id' => 'getPlacementGroupId',
@@ -159,6 +174,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const EXTRA_PERFORMANCE_TYPE_ID_BALANCE = 'Balance';
+    const EXTRA_PERFORMANCE_TYPE_ID_IOPS = 'IOPS';
+    const EXTRA_PERFORMANCE_TYPE_ID_THROUGHPUT = 'Throughput';
     const FILE_SYSTEM_EXT4 = 'Ext4';
     const FILE_SYSTEM_XFS = 'Xfs';
     const TYPE_ESSD = 'ESSD';
@@ -173,6 +191,20 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
     const TYPE_LOCAL_LVM_SSD = 'LOCAL_LVM_SSD';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExtraPerformanceTypeIdAllowableValues()
+    {
+        return [
+            self::EXTRA_PERFORMANCE_TYPE_ID_BALANCE,
+            self::EXTRA_PERFORMANCE_TYPE_ID_IOPS,
+            self::EXTRA_PERFORMANCE_TYPE_ID_THROUGHPUT,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -224,6 +256,9 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['file_system'] = isset($data['file_system']) ? $data['file_system'] : null;
         $this->container['mount_point'] = isset($data['mount_point']) ? $data['mount_point'] : null;
         $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
@@ -241,6 +276,14 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getExtraPerformanceTypeIdAllowableValues();
+        if (!is_null($this->container['extra_performance_type_id']) && !in_array($this->container['extra_performance_type_id'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'extra_performance_type_id', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getFileSystemAllowableValues();
         if (!is_null($this->container['file_system']) && !in_array($this->container['file_system'], $allowedValues, true)) {
@@ -272,6 +315,87 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
+     *
+     * @return string
+     */
+    public function getExtraPerformanceTypeId()
+    {
+        return $this->container['extra_performance_type_id'];
+    }
+
+    /**
+     * Sets extra_performance_type_id
+     *
+     * @param string $extra_performance_type_id extra_performance_type_id
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    {
+        $allowedValues = $this->getExtraPerformanceTypeIdAllowableValues();
+        if (!is_null($extra_performance_type_id) && !in_array($extra_performance_type_id, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'extra_performance_type_id', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+
+        return $this;
+    }
 
     /**
      * Gets file_system

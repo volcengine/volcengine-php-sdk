@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
+class DescribeContainerImageCommitmentsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExecContainerImageCommitmentRequest';
+    protected static $swaggerModelName = 'DescribeContainerImageCommitmentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_config' => '\Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput',
-        'client_token' => 'string',
-        'container_name' => 'string',
-        'image_spec' => '\Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput',
-        'instance_id' => 'string',
-        'pause' => 'bool'
+        'instance_ids' => 'string',
+        'max_results' => 'string',
+        'next_token' => 'string',
+        'task_ids' => 'string[]',
+        'task_status' => 'string'
     ];
 
     /**
@@ -42,12 +41,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_config' => null,
-        'client_token' => null,
-        'container_name' => null,
-        'image_spec' => null,
-        'instance_id' => null,
-        'pause' => null
+        'instance_ids' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'task_ids' => null,
+        'task_status' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_config' => 'AuthConfig',
-        'client_token' => 'ClientToken',
-        'container_name' => 'ContainerName',
-        'image_spec' => 'ImageSpec',
-        'instance_id' => 'InstanceId',
-        'pause' => 'Pause'
+        'instance_ids' => 'InstanceIds',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'task_ids' => 'TaskIds',
+        'task_status' => 'TaskStatus'
     ];
 
     /**
@@ -91,12 +88,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_config' => 'setAuthConfig',
-        'client_token' => 'setClientToken',
-        'container_name' => 'setContainerName',
-        'image_spec' => 'setImageSpec',
-        'instance_id' => 'setInstanceId',
-        'pause' => 'setPause'
+        'instance_ids' => 'setInstanceIds',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'task_ids' => 'setTaskIds',
+        'task_status' => 'setTaskStatus'
     ];
 
     /**
@@ -105,12 +101,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_config' => 'getAuthConfig',
-        'client_token' => 'getClientToken',
-        'container_name' => 'getContainerName',
-        'image_spec' => 'getImageSpec',
-        'instance_id' => 'getInstanceId',
-        'pause' => 'getPause'
+        'instance_ids' => 'getInstanceIds',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'task_ids' => 'getTaskIds',
+        'task_status' => 'getTaskStatus'
     ];
 
     /**
@@ -173,12 +168,11 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['container_name'] = isset($data['container_name']) ? $data['container_name'] : null;
-        $this->container['image_spec'] = isset($data['image_spec']) ? $data['image_spec'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['pause'] = isset($data['pause']) ? $data['pause'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
+        $this->container['task_status'] = isset($data['task_status']) ? $data['task_status'] : null;
     }
 
     /**
@@ -190,12 +184,6 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['container_name'] === null) {
-            $invalidProperties[] = "'container_name' can't be null";
-        }
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +200,121 @@ class ExecContainerImageCommitmentRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_config
-     *
-     * @return \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput
-     */
-    public function getAuthConfig()
-    {
-        return $this->container['auth_config'];
-    }
-
-    /**
-     * Sets auth_config
-     *
-     * @param \Volcengine\Vke\Model\AuthConfigForExecContainerImageCommitmentInput $auth_config auth_config
-     *
-     * @return $this
-     */
-    public function setAuthConfig($auth_config)
-    {
-        $this->container['auth_config'] = $auth_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets instance_ids
      *
      * @return string
      */
-    public function getClientToken()
+    public function getInstanceIds()
     {
-        return $this->container['client_token'];
+        return $this->container['instance_ids'];
     }
 
     /**
-     * Sets client_token
+     * Sets instance_ids
      *
-     * @param string $client_token client_token
+     * @param string $instance_ids instance_ids
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setInstanceIds($instance_ids)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['instance_ids'] = $instance_ids;
 
         return $this;
     }
 
     /**
-     * Gets container_name
+     * Gets max_results
      *
      * @return string
      */
-    public function getContainerName()
+    public function getMaxResults()
     {
-        return $this->container['container_name'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets container_name
+     * Sets max_results
      *
-     * @param string $container_name container_name
+     * @param string $max_results max_results
      *
      * @return $this
      */
-    public function setContainerName($container_name)
+    public function setMaxResults($max_results)
     {
-        $this->container['container_name'] = $container_name;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets image_spec
-     *
-     * @return \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput
-     */
-    public function getImageSpec()
-    {
-        return $this->container['image_spec'];
-    }
-
-    /**
-     * Sets image_spec
-     *
-     * @param \Volcengine\Vke\Model\ImageSpecForExecContainerImageCommitmentInput $image_spec image_spec
-     *
-     * @return $this
-     */
-    public function setImageSpec($image_spec)
-    {
-        $this->container['image_spec'] = $image_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getNextToken()
     {
-        return $this->container['instance_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets instance_id
+     * Sets next_token
      *
-     * @param string $instance_id instance_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setNextToken($next_token)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets pause
+     * Gets task_ids
      *
-     * @return bool
+     * @return string[]
      */
-    public function getPause()
+    public function getTaskIds()
     {
-        return $this->container['pause'];
+        return $this->container['task_ids'];
     }
 
     /**
-     * Sets pause
+     * Sets task_ids
      *
-     * @param bool $pause pause
+     * @param string[] $task_ids task_ids
      *
      * @return $this
      */
-    public function setPause($pause)
+    public function setTaskIds($task_ids)
     {
-        $this->container['pause'] = $pause;
+        $this->container['task_ids'] = $task_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_status
+     *
+     * @return string
+     */
+    public function getTaskStatus()
+    {
+        return $this->container['task_status'];
+    }
+
+    /**
+     * Sets task_status
+     *
+     * @param string $task_status task_status
+     *
+     * @return $this
+     */
+    public function setTaskStatus($task_status)
+    {
+        $this->container['task_status'] = $task_status;
 
         return $this;
     }

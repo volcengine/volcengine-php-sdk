@@ -29,16 +29,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'additional_container_storage_enabled' => 'bool',
+        'affinity_group_id' => 'string',
         'cluster_id' => 'string',
         'container_storage_path' => 'string',
         'create_client_token' => 'string',
         'create_time' => 'string',
+        'gpu_driver_version' => 'string',
         'id' => 'string',
         'image_id' => 'string',
         'initialize_script' => 'string',
         'instance_id' => 'string',
         'is_virtual' => 'bool',
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForListNodesOutput',
+        'metadata_name' => 'string',
         'name' => 'string',
         'node_pool_id' => 'string',
         'pre_script' => 'string',
@@ -55,16 +58,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'additional_container_storage_enabled' => null,
+        'affinity_group_id' => null,
         'cluster_id' => null,
         'container_storage_path' => null,
         'create_client_token' => null,
         'create_time' => null,
+        'gpu_driver_version' => null,
         'id' => null,
         'image_id' => null,
         'initialize_script' => null,
         'instance_id' => null,
         'is_virtual' => null,
         'kubernetes_config' => null,
+        'metadata_name' => null,
         'name' => null,
         'node_pool_id' => null,
         'pre_script' => null,
@@ -102,16 +108,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'additional_container_storage_enabled' => 'AdditionalContainerStorageEnabled',
+        'affinity_group_id' => 'AffinityGroupId',
         'cluster_id' => 'ClusterId',
         'container_storage_path' => 'ContainerStoragePath',
         'create_client_token' => 'CreateClientToken',
         'create_time' => 'CreateTime',
+        'gpu_driver_version' => 'GpuDriverVersion',
         'id' => 'Id',
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
         'instance_id' => 'InstanceId',
         'is_virtual' => 'IsVirtual',
         'kubernetes_config' => 'KubernetesConfig',
+        'metadata_name' => 'MetadataName',
         'name' => 'Name',
         'node_pool_id' => 'NodePoolId',
         'pre_script' => 'PreScript',
@@ -128,16 +137,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'additional_container_storage_enabled' => 'setAdditionalContainerStorageEnabled',
+        'affinity_group_id' => 'setAffinityGroupId',
         'cluster_id' => 'setClusterId',
         'container_storage_path' => 'setContainerStoragePath',
         'create_client_token' => 'setCreateClientToken',
         'create_time' => 'setCreateTime',
+        'gpu_driver_version' => 'setGpuDriverVersion',
         'id' => 'setId',
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
         'instance_id' => 'setInstanceId',
         'is_virtual' => 'setIsVirtual',
         'kubernetes_config' => 'setKubernetesConfig',
+        'metadata_name' => 'setMetadataName',
         'name' => 'setName',
         'node_pool_id' => 'setNodePoolId',
         'pre_script' => 'setPreScript',
@@ -154,16 +166,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'additional_container_storage_enabled' => 'getAdditionalContainerStorageEnabled',
+        'affinity_group_id' => 'getAffinityGroupId',
         'cluster_id' => 'getClusterId',
         'container_storage_path' => 'getContainerStoragePath',
         'create_client_token' => 'getCreateClientToken',
         'create_time' => 'getCreateTime',
+        'gpu_driver_version' => 'getGpuDriverVersion',
         'id' => 'getId',
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
         'instance_id' => 'getInstanceId',
         'is_virtual' => 'getIsVirtual',
         'kubernetes_config' => 'getKubernetesConfig',
+        'metadata_name' => 'getMetadataName',
         'name' => 'getName',
         'node_pool_id' => 'getNodePoolId',
         'pre_script' => 'getPreScript',
@@ -214,8 +229,25 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ROLES_MASTER = 'Master';
+    const ROLES_ETCD = 'Etcd';
+    const ROLES_WORKER = 'Worker';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRolesAllowableValues()
+    {
+        return [
+            self::ROLES_MASTER,
+            self::ROLES_ETCD,
+            self::ROLES_WORKER,
+        ];
+    }
     
 
     /**
@@ -234,16 +266,19 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['additional_container_storage_enabled'] = isset($data['additional_container_storage_enabled']) ? $data['additional_container_storage_enabled'] : null;
+        $this->container['affinity_group_id'] = isset($data['affinity_group_id']) ? $data['affinity_group_id'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['container_storage_path'] = isset($data['container_storage_path']) ? $data['container_storage_path'] : null;
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['is_virtual'] = isset($data['is_virtual']) ? $data['is_virtual'] : null;
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
+        $this->container['metadata_name'] = isset($data['metadata_name']) ? $data['metadata_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
         $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
@@ -297,6 +332,30 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     public function setAdditionalContainerStorageEnabled($additional_container_storage_enabled)
     {
         $this->container['additional_container_storage_enabled'] = $additional_container_storage_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets affinity_group_id
+     *
+     * @return string
+     */
+    public function getAffinityGroupId()
+    {
+        return $this->container['affinity_group_id'];
+    }
+
+    /**
+     * Sets affinity_group_id
+     *
+     * @param string $affinity_group_id affinity_group_id
+     *
+     * @return $this
+     */
+    public function setAffinityGroupId($affinity_group_id)
+    {
+        $this->container['affinity_group_id'] = $affinity_group_id;
 
         return $this;
     }
@@ -393,6 +452,30 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_driver_version
+     *
+     * @return string
+     */
+    public function getGpuDriverVersion()
+    {
+        return $this->container['gpu_driver_version'];
+    }
+
+    /**
+     * Sets gpu_driver_version
+     *
+     * @param string $gpu_driver_version gpu_driver_version
+     *
+     * @return $this
+     */
+    public function setGpuDriverVersion($gpu_driver_version)
+    {
+        $this->container['gpu_driver_version'] = $gpu_driver_version;
 
         return $this;
     }
@@ -542,6 +625,30 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets metadata_name
+     *
+     * @return string
+     */
+    public function getMetadataName()
+    {
+        return $this->container['metadata_name'];
+    }
+
+    /**
+     * Sets metadata_name
+     *
+     * @param string $metadata_name metadata_name
+     *
+     * @return $this
+     */
+    public function setMetadataName($metadata_name)
+    {
+        $this->container['metadata_name'] = $metadata_name;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -632,6 +739,15 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
      */
     public function setRoles($roles)
     {
+        $allowedValues = $this->getRolesAllowableValues();
+        if (!is_null($roles) && array_diff($roles, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'roles', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['roles'] = $roles;
 
         return $this;

@@ -32,6 +32,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'cluster_id' => 'string',
         'container_storage_path' => 'string',
+        'gpu_driver_version' => 'string',
         'image_id' => 'string',
         'initialize_script' => 'string',
         'instance_ids' => 'string[]',
@@ -52,6 +53,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'cluster_id' => null,
         'container_storage_path' => null,
+        'gpu_driver_version' => null,
         'image_id' => null,
         'initialize_script' => null,
         'instance_ids' => null,
@@ -93,6 +95,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
         'container_storage_path' => 'ContainerStoragePath',
+        'gpu_driver_version' => 'GpuDriverVersion',
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
         'instance_ids' => 'InstanceIds',
@@ -113,6 +116,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
         'container_storage_path' => 'setContainerStoragePath',
+        'gpu_driver_version' => 'setGpuDriverVersion',
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
         'instance_ids' => 'setInstanceIds',
@@ -133,6 +137,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
         'container_storage_path' => 'getContainerStoragePath',
+        'gpu_driver_version' => 'getGpuDriverVersion',
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
         'instance_ids' => 'getInstanceIds',
@@ -207,6 +212,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['container_storage_path'] = isset($data['container_storage_path']) ? $data['container_storage_path'] : null;
+        $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
@@ -336,6 +342,30 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
     public function setContainerStoragePath($container_storage_path)
     {
         $this->container['container_storage_path'] = $container_storage_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_driver_version
+     *
+     * @return string
+     */
+    public function getGpuDriverVersion()
+    {
+        return $this->container['gpu_driver_version'];
+    }
+
+    /**
+     * Sets gpu_driver_version
+     *
+     * @param string $gpu_driver_version gpu_driver_version
+     *
+     * @return $this
+     */
+    public function setGpuDriverVersion($gpu_driver_version)
+    {
+        $this->container['gpu_driver_version'] = $gpu_driver_version;
 
         return $this;
     }
