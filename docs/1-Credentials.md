@@ -268,7 +268,8 @@ Supported profile modes:
 - `ramrolearn` (delegates to `StsProvider`; supports `access-key`, `secret-key`, `role-name`, `account-id`, and optional `region`)
 - `oidc` (delegates to `OidcCredentialProvider`)
 - `ecsrole` (delegates to `EcsRoleCredentialProvider`)
-- `sso` (delegates to `SsoCredentialProvider`)
+- `sso` (reads STS credentials from the CLI sso cache, delegates to `SsoCredentialProvider`)
+- `console-login` (reads STS credentials from the CLI console-login cache, delegates to `ConsoleLoginCredentialProvider`)
 
 ```php
 <?php

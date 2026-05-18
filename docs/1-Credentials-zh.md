@@ -280,7 +280,8 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 - `ramrolearn`，内部委托给 `StsProvider`；支持 `access-key`、`secret-key`、`role-name`、`account-id`，可选 `region`
 - `oidc`，内部委托给 `OidcCredentialProvider`
 - `ecsrole`，内部委托给 `EcsRoleCredentialProvider`
-- `sso`，内部委托给 `SsoCredentialProvider`
+- `sso`，从 CLI sso 缓存读取 STS 凭证, 内部委托给 `SsoCredentialProvider`
+- `console-login`，从 CLI console-login 缓存读取 STS 凭证, 内部委托给 `ConsoleLoginCredentialProvider`
 
 ```php
 <?php

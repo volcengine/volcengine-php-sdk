@@ -155,6 +155,11 @@ class CLIConfigCredentialProvider extends Provider
                 $this->delegate = new SsoCredentialProvider($profileData, $profile, $config, $cacheDir);
                 return null;
 
+            case 'console-login':
+                $cacheDir = $this->resolveLoginCacheDir();
+                $this->delegate = new ConsoleLoginCredentialProvider($profileData, $profile, $cacheDir);
+                return null;
+
             default:
                 throw new ApiException(
                     self::PROVIDER_NAME . ': unsupported mode: ' . $mode
@@ -205,6 +210,18 @@ class CLIConfigCredentialProvider extends Provider
         $configPath = $this->resolveConfigPath();
         $configDir = dirname($configPath);
         return $configDir . DIRECTORY_SEPARATOR . 'sso' . DIRECTORY_SEPARATOR . 'cache';
+    }
+
+    private function resolveLoginCacheDir()
+    {
+        $envPath = getenv('VOLCENGINE_LOGIN_CACHE_DIRECTORY');
+        if ($envPath !== false && $envPath !== '') {
+            return $envPath;
+        }
+
+        $configPath = $this->resolveConfigPath();
+        $configDir = dirname($configPath);
+        return $configDir . DIRECTORY_SEPARATOR . 'login' . DIRECTORY_SEPARATOR . 'cache';
     }
 
     private function getHomeDir()

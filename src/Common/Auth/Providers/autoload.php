@@ -9,6 +9,7 @@ require_once __DIR__ . '/StsCredentialTrait.php';
 require_once __DIR__ . '/OidcCredentialProvider.php';
 require_once __DIR__ . '/SamlCredentialProvider.php';
 require_once __DIR__ . '/SsoCredentialProvider.php';
+require_once __DIR__ . '/ConsoleLoginCredentialProvider.php';
 require_once __DIR__ . '/CLIConfigCredentialProvider.php';
 require_once __DIR__ . '/EcsRoleCredentialProvider.php';
 require_once __DIR__ . '/DefaultCredentialProvider.php';
