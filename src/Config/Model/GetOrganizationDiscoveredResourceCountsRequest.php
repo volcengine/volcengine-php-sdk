@@ -134,8 +134,23 @@ class GetOrganizationDiscoveredResourceCountsRequest implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_STATUS_DELETED = 'Deleted';
+    const RESOURCE_STATUS_HELD = 'Held';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceStatusAllowableValues()
+    {
+        return [
+            self::RESOURCE_STATUS_DELETED,
+            self::RESOURCE_STATUS_HELD,
+        ];
+    }
     
 
     /**
@@ -165,6 +180,14 @@ class GetOrganizationDiscoveredResourceCountsRequest implements ModelInterface, 
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getResourceStatusAllowableValues();
+        if (!is_null($this->container['resource_status']) && !in_array($this->container['resource_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,6 +223,15 @@ class GetOrganizationDiscoveredResourceCountsRequest implements ModelInterface, 
      */
     public function setResourceStatus($resource_status)
     {
+        $allowedValues = $this->getResourceStatusAllowableValues();
+        if (!is_null($resource_status) && !in_array($resource_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['resource_status'] = $resource_status;
 
         return $this;

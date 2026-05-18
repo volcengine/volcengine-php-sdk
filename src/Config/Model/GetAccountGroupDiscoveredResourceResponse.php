@@ -30,10 +30,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'configuration' => 'map[string,object]',
+        'configuration_capture_time' => 'string',
         'is_deleted' => 'bool',
         'project_name' => 'string',
         'region' => 'string',
         'relationships' => '\Volcengine\Config\Model\RelationshipForGetAccountGroupDiscoveredResourceOutput[]',
+        'resource_creation_time' => 'string',
         'resource_id' => 'string',
         'resource_identifier' => 'string',
         'resource_name' => 'string',
@@ -49,10 +51,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     protected static $swaggerFormats = [
         'account_id' => null,
         'configuration' => null,
+        'configuration_capture_time' => null,
         'is_deleted' => null,
         'project_name' => null,
         'region' => null,
         'relationships' => null,
+        'resource_creation_time' => null,
         'resource_id' => null,
         'resource_identifier' => null,
         'resource_name' => null,
@@ -89,10 +93,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'configuration' => 'Configuration',
+        'configuration_capture_time' => 'ConfigurationCaptureTime',
         'is_deleted' => 'IsDeleted',
         'project_name' => 'ProjectName',
         'region' => 'Region',
         'relationships' => 'Relationships',
+        'resource_creation_time' => 'ResourceCreationTime',
         'resource_id' => 'ResourceId',
         'resource_identifier' => 'ResourceIdentifier',
         'resource_name' => 'ResourceName',
@@ -108,10 +114,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     protected static $setters = [
         'account_id' => 'setAccountId',
         'configuration' => 'setConfiguration',
+        'configuration_capture_time' => 'setConfigurationCaptureTime',
         'is_deleted' => 'setIsDeleted',
         'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'relationships' => 'setRelationships',
+        'resource_creation_time' => 'setResourceCreationTime',
         'resource_id' => 'setResourceId',
         'resource_identifier' => 'setResourceIdentifier',
         'resource_name' => 'setResourceName',
@@ -127,10 +135,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     protected static $getters = [
         'account_id' => 'getAccountId',
         'configuration' => 'getConfiguration',
+        'configuration_capture_time' => 'getConfigurationCaptureTime',
         'is_deleted' => 'getIsDeleted',
         'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'relationships' => 'getRelationships',
+        'resource_creation_time' => 'getResourceCreationTime',
         'resource_id' => 'getResourceId',
         'resource_identifier' => 'getResourceIdentifier',
         'resource_name' => 'getResourceName',
@@ -200,10 +210,12 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
+        $this->container['configuration_capture_time'] = isset($data['configuration_capture_time']) ? $data['configuration_capture_time'] : null;
         $this->container['is_deleted'] = isset($data['is_deleted']) ? $data['is_deleted'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
+        $this->container['resource_creation_time'] = isset($data['resource_creation_time']) ? $data['resource_creation_time'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_identifier'] = isset($data['resource_identifier']) ? $data['resource_identifier'] : null;
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
@@ -279,6 +291,30 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     public function setConfiguration($configuration)
     {
         $this->container['configuration'] = $configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_capture_time
+     *
+     * @return string
+     */
+    public function getConfigurationCaptureTime()
+    {
+        return $this->container['configuration_capture_time'];
+    }
+
+    /**
+     * Sets configuration_capture_time
+     *
+     * @param string $configuration_capture_time configuration_capture_time
+     *
+     * @return $this
+     */
+    public function setConfigurationCaptureTime($configuration_capture_time)
+    {
+        $this->container['configuration_capture_time'] = $configuration_capture_time;
 
         return $this;
     }
@@ -375,6 +411,30 @@ class GetAccountGroupDiscoveredResourceResponse implements ModelInterface, Array
     public function setRelationships($relationships)
     {
         $this->container['relationships'] = $relationships;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_creation_time
+     *
+     * @return string
+     */
+    public function getResourceCreationTime()
+    {
+        return $this->container['resource_creation_time'];
+    }
+
+    /**
+     * Sets resource_creation_time
+     *
+     * @param string $resource_creation_time resource_creation_time
+     *
+     * @return $this
+     */
+    public function setResourceCreationTime($resource_creation_time)
+    {
+        $this->container['resource_creation_time'] = $resource_creation_time;
 
         return $this;
     }

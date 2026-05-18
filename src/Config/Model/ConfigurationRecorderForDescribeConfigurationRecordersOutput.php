@@ -165,6 +165,8 @@ class ConfigurationRecorderForDescribeConfigurationRecordersOutput implements Mo
     const CONFIGURATION_RECORDER_STATUS_REBUILDING = 'Rebuilding';
     const CONFIGURATION_RECORDER_STATUS_ENABLED = 'Enabled';
     const CONFIGURATION_RECORDER_STATUS_PENDING_DISABLE = 'PendingDisable';
+    const RECORDER_TYPE_SINGLE_ACCOUNT = 'SingleAccount';
+    const RECORDER_TYPE_ORGANIZATION = 'Organization';
     
 
     
@@ -182,6 +184,19 @@ class ConfigurationRecorderForDescribeConfigurationRecordersOutput implements Mo
             self::CONFIGURATION_RECORDER_STATUS_REBUILDING,
             self::CONFIGURATION_RECORDER_STATUS_ENABLED,
             self::CONFIGURATION_RECORDER_STATUS_PENDING_DISABLE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRecorderTypeAllowableValues()
+    {
+        return [
+            self::RECORDER_TYPE_SINGLE_ACCOUNT,
+            self::RECORDER_TYPE_ORGANIZATION,
         ];
     }
     
@@ -223,6 +238,14 @@ class ConfigurationRecorderForDescribeConfigurationRecordersOutput implements Mo
         if (!is_null($this->container['configuration_recorder_status']) && !in_array($this->container['configuration_recorder_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'configuration_recorder_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRecorderTypeAllowableValues();
+        if (!is_null($this->container['recorder_type']) && !in_array($this->container['recorder_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'recorder_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -414,6 +437,15 @@ class ConfigurationRecorderForDescribeConfigurationRecordersOutput implements Mo
      */
     public function setRecorderType($recorder_type)
     {
+        $allowedValues = $this->getRecorderTypeAllowableValues();
+        if (!is_null($recorder_type) && !in_array($recorder_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'recorder_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['recorder_type'] = $recorder_type;
 
         return $this;

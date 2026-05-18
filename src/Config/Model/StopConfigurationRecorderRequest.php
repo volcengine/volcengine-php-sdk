@@ -129,8 +129,23 @@ class StopConfigurationRecorderRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RECORDER_TYPE_SINGLE_ACCOUNT = 'SingleAccount';
+    const RECORDER_TYPE_ORGANIZATION = 'Organization';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRecorderTypeAllowableValues()
+    {
+        return [
+            self::RECORDER_TYPE_SINGLE_ACCOUNT,
+            self::RECORDER_TYPE_ORGANIZATION,
+        ];
+    }
     
 
     /**
@@ -163,6 +178,14 @@ class StopConfigurationRecorderRequest implements ModelInterface, ArrayAccess
         if ($this->container['recorder_type'] === null) {
             $invalidProperties[] = "'recorder_type' can't be null";
         }
+        $allowedValues = $this->getRecorderTypeAllowableValues();
+        if (!is_null($this->container['recorder_type']) && !in_array($this->container['recorder_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'recorder_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -197,6 +220,15 @@ class StopConfigurationRecorderRequest implements ModelInterface, ArrayAccess
      */
     public function setRecorderType($recorder_type)
     {
+        $allowedValues = $this->getRecorderTypeAllowableValues();
+        if (!in_array($recorder_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'recorder_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['recorder_type'] = $recorder_type;
 
         return $this;

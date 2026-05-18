@@ -29,7 +29,8 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'account_list' => '\Volcengine\Config\Model\AccountListForListAccountGroupMembersOutput[]',
-        'next_token' => 'string'
+        'next_token' => 'string',
+        'total_count' => 'int'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'account_list' => null,
-        'next_token' => null
+        'next_token' => null,
+        'total_count' => 'int64'
     ];
 
     /**
@@ -70,7 +72,8 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'account_list' => 'AccountList',
-        'next_token' => 'NextToken'
+        'next_token' => 'NextToken',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'account_list' => 'setAccountList',
-        'next_token' => 'setNextToken'
+        'next_token' => 'setNextToken',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'account_list' => 'getAccountList',
-        'next_token' => 'getNextToken'
+        'next_token' => 'getNextToken',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
     {
         $this->container['account_list'] = isset($data['account_list']) ? $data['account_list'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ListAccountGroupMembersResponse implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
