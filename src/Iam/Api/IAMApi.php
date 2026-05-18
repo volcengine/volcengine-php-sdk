@@ -2608,6 +2608,68 @@ class IAMApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getServiceLinkedRoleTemplate($body = null)
+    {
+        list($response) = $this->getServiceLinkedRoleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getServiceLinkedRoleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\GetServiceLinkedRoleTemplateResponse';
+        $request = $this->getServiceLinkedRoleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getServiceLinkedRoleTemplateAsync($body = null)
+    {
+        return $this->getServiceLinkedRoleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getServiceLinkedRoleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\GetServiceLinkedRoleTemplateResponse';
+        $request = $this->getServiceLinkedRoleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getServiceLinkedRoleTemplateRequest($body)
+    {
+        $resourcePath = '/GetServiceLinkedRoleTemplate/2018-01-01/iam/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getUser($body = null)
     {
         list($response) = $this->getUserWithHttpInfo($body);
