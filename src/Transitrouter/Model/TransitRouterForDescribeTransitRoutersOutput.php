@@ -30,6 +30,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'asn' => 'int',
+        'billing_owner_type' => 'string',
         'business_status' => 'string',
         'creation_time' => 'string',
         'deleted_time' => 'string',
@@ -54,6 +55,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'account_id' => null,
         'asn' => 'int64',
+        'billing_owner_type' => null,
         'business_status' => null,
         'creation_time' => null,
         'deleted_time' => null,
@@ -99,6 +101,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'asn' => 'Asn',
+        'billing_owner_type' => 'BillingOwnerType',
         'business_status' => 'BusinessStatus',
         'creation_time' => 'CreationTime',
         'deleted_time' => 'DeletedTime',
@@ -123,6 +126,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     protected static $setters = [
         'account_id' => 'setAccountId',
         'asn' => 'setAsn',
+        'billing_owner_type' => 'setBillingOwnerType',
         'business_status' => 'setBusinessStatus',
         'creation_time' => 'setCreationTime',
         'deleted_time' => 'setDeletedTime',
@@ -147,6 +151,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     protected static $getters = [
         'account_id' => 'getAccountId',
         'asn' => 'getAsn',
+        'billing_owner_type' => 'getBillingOwnerType',
         'business_status' => 'getBusinessStatus',
         'creation_time' => 'getCreationTime',
         'deleted_time' => 'getDeletedTime',
@@ -225,6 +230,7 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['asn'] = isset($data['asn']) ? $data['asn'] : null;
+        $this->container['billing_owner_type'] = isset($data['billing_owner_type']) ? $data['billing_owner_type'] : null;
         $this->container['business_status'] = isset($data['business_status']) ? $data['business_status'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
@@ -309,6 +315,30 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     public function setAsn($asn)
     {
         $this->container['asn'] = $asn;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_owner_type
+     *
+     * @return string
+     */
+    public function getBillingOwnerType()
+    {
+        return $this->container['billing_owner_type'];
+    }
+
+    /**
+     * Sets billing_owner_type
+     *
+     * @param string $billing_owner_type billing_owner_type
+     *
+     * @return $this
+     */
+    public function setBillingOwnerType($billing_owner_type)
+    {
+        $this->container['billing_owner_type'] = $billing_owner_type;
 
         return $this;
     }

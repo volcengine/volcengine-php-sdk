@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput implements ModelInterface, ArrayAccess
+class ModifyTransitRouterTrafficQosQueueEntryAttributesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput';
+    protected static $swaggerModelName = 'ModifyTransitRouterTrafficQosQueueEntryAttributesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'creation_time' => 'string',
-        'propagation_granularity' => 'string',
-        'status' => 'string',
-        'transit_router_attachment_id' => 'string',
-        'transit_router_route_table_id' => 'string'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'creation_time' => null,
-        'propagation_granularity' => null,
-        'status' => null,
-        'transit_router_attachment_id' => null,
-        'transit_router_route_table_id' => null
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_time' => 'CreationTime',
-        'propagation_granularity' => 'PropagationGranularity',
-        'status' => 'Status',
-        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_route_table_id' => 'TransitRouterRouteTableId'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      * @var string[]
      */
     protected static $setters = [
-        'creation_time' => 'setCreationTime',
-        'propagation_granularity' => 'setPropagationGranularity',
-        'status' => 'setStatus',
-        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_route_table_id' => 'setTransitRouterRouteTableId'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      * @var string[]
      */
     protected static $getters = [
-        'creation_time' => 'getCreationTime',
-        'propagation_granularity' => 'getPropagationGranularity',
-        'status' => 'getStatus',
-        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_route_table_id' => 'getTransitRouterRouteTableId'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      */
     public function __construct($data = null)
     {
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['propagation_granularity'] = isset($data['propagation_granularity']) ? $data['propagation_granularity'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
     }
 
     /**
@@ -198,126 +173,6 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets creation_time
-     *
-     * @return string
-     */
-    public function getCreationTime()
-    {
-        return $this->container['creation_time'];
-    }
-
-    /**
-     * Sets creation_time
-     *
-     * @param string $creation_time creation_time
-     *
-     * @return $this
-     */
-    public function setCreationTime($creation_time)
-    {
-        $this->container['creation_time'] = $creation_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets propagation_granularity
-     *
-     * @return string
-     */
-    public function getPropagationGranularity()
-    {
-        return $this->container['propagation_granularity'];
-    }
-
-    /**
-     * Sets propagation_granularity
-     *
-     * @param string $propagation_granularity propagation_granularity
-     *
-     * @return $this
-     */
-    public function setPropagationGranularity($propagation_granularity)
-    {
-        $this->container['propagation_granularity'] = $propagation_granularity;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_id
-     *
-     * @return string
-     */
-    public function getTransitRouterAttachmentId()
-    {
-        return $this->container['transit_router_attachment_id'];
-    }
-
-    /**
-     * Sets transit_router_attachment_id
-     *
-     * @param string $transit_router_attachment_id transit_router_attachment_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterAttachmentId($transit_router_attachment_id)
-    {
-        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_route_table_id
-     *
-     * @return string
-     */
-    public function getTransitRouterRouteTableId()
-    {
-        return $this->container['transit_router_route_table_id'];
-    }
-
-    /**
-     * Sets transit_router_route_table_id
-     *
-     * @param string $transit_router_route_table_id transit_router_route_table_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterRouteTableId($transit_router_route_table_id)
-    {
-        $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
