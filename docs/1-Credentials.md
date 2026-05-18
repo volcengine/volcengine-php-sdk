@@ -108,7 +108,7 @@ try {
 
 ### AssumeRole
 
-AssumeRole provides dynamic credentials with automatic refresh.
+AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response.
 
 > ⚠️ **Notes**
 >
@@ -144,7 +144,7 @@ try {
 
 ### OIDC Credential Provider
 
-`OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC.
+`OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC, caches them and refreshes before expiry. The expiry is estimated from the local `durationSeconds`; we recommend setting `durationSeconds` slightly shorter than your actual STS TTL to absorb network latency and clock skew.
 
 Supported OIDC env vars:
 
@@ -196,7 +196,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### SAML Credential Provider
 
-`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are auto-refreshed before expiration.
+`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are cached and auto-refreshed before expiry. The expiry is estimated from the local `durationSeconds`; we recommend setting `durationSeconds` slightly shorter than your STS TTL to absorb network latency and clock skew.
 
 > ⚠️ **Notes**
 >
@@ -265,7 +265,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 Supported profile modes:
 
 - `ak` or empty (also accepts `session-token` for static STS credentials)
-- `ramrolearn` (delegates to `StsProvider`)
+- `ramrolearn` (delegates to `StsProvider`; supports `access-key`, `secret-key`, `role-name`, `account-id`, and optional `region`)
 - `oidc` (delegates to `OidcCredentialProvider`)
 - `ecsrole` (delegates to `EcsRoleCredentialProvider`)
 - `sso` (delegates to `SsoCredentialProvider`)

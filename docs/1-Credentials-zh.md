@@ -110,7 +110,7 @@ try {
 
 ### AssumeRole
 
-动态访问凭证信息，支持动态刷新，在 STS 临时 Token 过期前 60 秒会进行自动刷新，避免临界时间点 Token 过期。
+动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。
 
 > ⚠️ **注意事项**
 >
@@ -156,7 +156,7 @@ try {
 
 ### OIDC 凭证提供者
 
-`OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证。
+`OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证并缓存复用，在到期前自动刷新。过期时间按本地 `durationSeconds` 估算；建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
 
 支持的 OIDC 环境变量：
 
@@ -208,7 +208,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### SAML 凭证提供者
 
-`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证，并在到期前自动刷新。
+`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证并缓存复用，在到期前自动刷新。过期时间按本地 `durationSeconds` 估算；建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
 
 > ⚠️ **注意事项**
 >
@@ -277,7 +277,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 支持的 profile mode：
 
 - `ak` 或空（同时支持 `session-token` 字段以承载静态 STS 凭证）
-- `ramrolearn`，内部委托给 `StsProvider`
+- `ramrolearn`，内部委托给 `StsProvider`；支持 `access-key`、`secret-key`、`role-name`、`account-id`，可选 `region`
 - `oidc`，内部委托给 `OidcCredentialProvider`
 - `ecsrole`，内部委托给 `EcsRoleCredentialProvider`
 - `sso`，内部委托给 `SsoCredentialProvider`
@@ -300,7 +300,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 > 🚨 **当前版本限制**
 >
-> **当前版本暂不支持从 IMDS 自动探测角色名**，必须通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
+> **当前版本暂不支持从 IMDS 自动探测角色名**，请通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
 
 `EcsRoleCredentialProvider` 从 ECS IMDS 中读取临时凭证。
 

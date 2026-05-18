@@ -111,6 +111,10 @@ class CLIConfigCredentialProvider extends Provider
                 $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
                 $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
                 $accountId = isset($profileData['account-id']) ? trim($profileData['account-id']) : '';
+                $region = isset($profileData['region']) ? trim($profileData['region']) : '';
+                if (empty($region)) {
+                    $region = 'cn-beijing';
+                }
 
                 if (empty($ak) || empty($sk) || empty($roleName) || empty($accountId)) {
                     throw new ApiException(
@@ -118,7 +122,7 @@ class CLIConfigCredentialProvider extends Provider
                     );
                 }
 
-                $this->delegate = new StsProvider($ak, $sk, $roleName, $accountId);
+                $this->delegate = new StsProvider($ak, $sk, $roleName, $accountId, $region);
                 return null;
 
             case 'oidc':

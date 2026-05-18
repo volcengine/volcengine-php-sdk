@@ -56,7 +56,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 2. **DualStack 支持（IPv6）**
 
-    SDK 支持双栈网络（IPv4 + IPv6）访问地址，自动启用条件如下：显式传入参数 `useDualStack = true`，或设置环境变量 `VOLC_ENABLE_DUALSTACK=true`。优先级：`useDualStack` > `VOLC_ENABLE_DUALSTACK`。
+    SDK 支持双栈网络（IPv4 + IPv6）访问地址。在常规 `ApiClient` 配置路径中，默认 `useDualStack=false` 会作为显式配置传递给 Endpoint Provider；因此要启用 DualStack，请调用 `setUseDualStack(true)`。`VOLC_ENABLE_DUALSTACK=true` 仅在 Endpoint Provider 收到的 `useDualStack` 为 `null` 时生效。
 
     启用后，域名后缀将从 `volcengineapi.com` 切换为 `volcengine-api.com`。
 

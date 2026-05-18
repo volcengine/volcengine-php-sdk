@@ -11,6 +11,10 @@
 1. PHP环境版本>=5.5
 2. 建议使用composer的方式进行包管理
 
+## 配置对象
+
+文档示例中的 `Configuration::getDefaultConfiguration()` 当前按工厂方式使用，每次调用都会返回新的配置对象；如需复用配置，请保存该对象并传给 API Client 或继续链式配置。不要依赖 `setDefaultConfiguration()` 后再次调用 `getDefaultConfiguration()` 能取回同一个对象。
+
 ## 目录
 
 1. [访问凭据](1-Credentials-zh.md) — AK/SK、STS、AssumeRole、OIDC、SAML、ECS 角色、默认凭证链

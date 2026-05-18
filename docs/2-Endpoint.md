@@ -54,7 +54,7 @@ To simplify configuration, the SDK provides a flexible automatic endpoint resolu
 
 2. **DualStack support (IPv6)**
 
-    The SDK supports dual-stack (IPv4 + IPv6) access URLs. To enable: pass `useDualStack = true` explicitly, or set `VOLC_ENABLE_DUALSTACK=true`. Priority: `useDualStack` > `VOLC_ENABLE_DUALSTACK`.
+    The SDK supports dual-stack (IPv4 + IPv6) access URLs. In the regular `ApiClient` configuration path, the default `useDualStack=false` value is passed to the Endpoint Provider as an explicit setting. To enable DualStack, call `setUseDualStack(true)`. `VOLC_ENABLE_DUALSTACK=true` only takes effect when the Endpoint Provider receives `useDualStack` as `null`.
 
     When enabled, the domain suffix changes from `volcengineapi.com` to `volcengine-api.com`.
 
