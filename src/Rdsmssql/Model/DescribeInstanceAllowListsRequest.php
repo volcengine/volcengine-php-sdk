@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class DescribeInstanceAllowListsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'DescribeInstanceAllowListsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'instance_id' => 'string',
+        'region_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'instance_id' => null,
+        'region_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'instance_id' => 'InstanceId',
+        'region_id' => 'RegionId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'instance_id' => 'setInstanceId',
+        'region_id' => 'setRegionId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'instance_id' => 'getInstanceId',
+        'region_id' => 'getRegionId'
     ];
 
     /**
@@ -148,7 +153,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets instance_id
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return string
      */
-    public function getInstanceSpecsInfo()
+    public function getInstanceId()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets instance_id
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setInstanceId($instance_id)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets region_id
+     *
+     * @return string
+     */
+    public function getRegionId()
+    {
+        return $this->container['region_id'];
+    }
+
+    /**
+     * Sets region_id
+     *
+     * @param string $region_id region_id
+     *
+     * @return $this
+     */
+    public function setRegionId($region_id)
+    {
+        $this->container['region_id'] = $region_id;
 
         return $this;
     }

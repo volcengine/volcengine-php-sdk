@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class DescribeInstanceAllowListsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'DescribeInstanceAllowListsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'authorized_allow_lists' => '\Volcengine\Rdsmssql\Model\AuthorizedAllowListForDescribeInstanceAllowListsOutput[]',
+        'unauthorized_allow_list_num' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'authorized_allow_lists' => null,
+        'unauthorized_allow_list_num' => 'int64'
     ];
 
     /**
@@ -67,7 +69,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'authorized_allow_lists' => 'AuthorizedAllowLists',
+        'unauthorized_allow_list_num' => 'UnauthorizedAllowListNum'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'authorized_allow_lists' => 'setAuthorizedAllowLists',
+        'unauthorized_allow_list_num' => 'setUnauthorizedAllowListNum'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'authorized_allow_lists' => 'getAuthorizedAllowLists',
+        'unauthorized_allow_list_num' => 'getUnauthorizedAllowListNum'
     ];
 
     /**
@@ -148,7 +153,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['authorized_allow_lists'] = isset($data['authorized_allow_lists']) ? $data['authorized_allow_lists'] : null;
+        $this->container['unauthorized_allow_list_num'] = isset($data['unauthorized_allow_list_num']) ? $data['unauthorized_allow_list_num'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets authorized_allow_lists
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return \Volcengine\Rdsmssql\Model\AuthorizedAllowListForDescribeInstanceAllowListsOutput[]
      */
-    public function getInstanceSpecsInfo()
+    public function getAuthorizedAllowLists()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['authorized_allow_lists'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets authorized_allow_lists
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param \Volcengine\Rdsmssql\Model\AuthorizedAllowListForDescribeInstanceAllowListsOutput[] $authorized_allow_lists authorized_allow_lists
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setAuthorizedAllowLists($authorized_allow_lists)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['authorized_allow_lists'] = $authorized_allow_lists;
+
+        return $this;
+    }
+
+    /**
+     * Gets unauthorized_allow_list_num
+     *
+     * @return int
+     */
+    public function getUnauthorizedAllowListNum()
+    {
+        return $this->container['unauthorized_allow_list_num'];
+    }
+
+    /**
+     * Sets unauthorized_allow_list_num
+     *
+     * @param int $unauthorized_allow_list_num unauthorized_allow_list_num
+     *
+     * @return $this
+     */
+    public function setUnauthorizedAllowListNum($unauthorized_allow_list_num)
+    {
+        $this->container['unauthorized_allow_list_num'] = $unauthorized_allow_list_num;
 
         return $this;
     }

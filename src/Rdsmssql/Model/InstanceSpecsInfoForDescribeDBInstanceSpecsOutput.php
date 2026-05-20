@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, ArrayAccess
+class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NodeDetailInfoForDescribeDBInstancesOutput';
+    protected static $swaggerModelName = 'InstanceSpecsInfoForDescribeDBInstanceSpecsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'host_name' => 'string',
-        'instance_id' => 'string',
+        'db_engine_version' => 'string',
+        'generation' => 'string',
+        'instance_type' => 'string',
         'memory' => 'int',
-        'node_ip' => 'string',
-        'node_id' => 'string',
-        'node_spec' => 'string',
-        'node_status' => 'string',
-        'node_type' => 'string',
-        'region_id' => 'string',
-        'update_time' => 'string',
+        'spec_code' => 'string',
+        'spec_family' => 'string',
+        'spec_sale_type' => 'string',
+        'spec_status' => 'string',
         'vcpu' => 'int',
         'zone_id' => 'string'
     ];
@@ -49,17 +46,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'host_name' => null,
-        'instance_id' => null,
+        'db_engine_version' => null,
+        'generation' => null,
+        'instance_type' => null,
         'memory' => 'int32',
-        'node_ip' => null,
-        'node_id' => null,
-        'node_spec' => null,
-        'node_status' => null,
-        'node_type' => null,
-        'region_id' => null,
-        'update_time' => null,
+        'spec_code' => null,
+        'spec_family' => null,
+        'spec_sale_type' => null,
+        'spec_status' => null,
         'vcpu' => 'int32',
         'zone_id' => null
     ];
@@ -91,17 +85,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'host_name' => 'HostName',
-        'instance_id' => 'InstanceId',
+        'db_engine_version' => 'DBEngineVersion',
+        'generation' => 'Generation',
+        'instance_type' => 'InstanceType',
         'memory' => 'Memory',
-        'node_ip' => 'NodeIP',
-        'node_id' => 'NodeId',
-        'node_spec' => 'NodeSpec',
-        'node_status' => 'NodeStatus',
-        'node_type' => 'NodeType',
-        'region_id' => 'RegionId',
-        'update_time' => 'UpdateTime',
+        'spec_code' => 'SpecCode',
+        'spec_family' => 'SpecFamily',
+        'spec_sale_type' => 'SpecSaleType',
+        'spec_status' => 'SpecStatus',
         'vcpu' => 'VCPU',
         'zone_id' => 'ZoneId'
     ];
@@ -112,17 +103,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'host_name' => 'setHostName',
-        'instance_id' => 'setInstanceId',
+        'db_engine_version' => 'setDbEngineVersion',
+        'generation' => 'setGeneration',
+        'instance_type' => 'setInstanceType',
         'memory' => 'setMemory',
-        'node_ip' => 'setNodeIp',
-        'node_id' => 'setNodeId',
-        'node_spec' => 'setNodeSpec',
-        'node_status' => 'setNodeStatus',
-        'node_type' => 'setNodeType',
-        'region_id' => 'setRegionId',
-        'update_time' => 'setUpdateTime',
+        'spec_code' => 'setSpecCode',
+        'spec_family' => 'setSpecFamily',
+        'spec_sale_type' => 'setSpecSaleType',
+        'spec_status' => 'setSpecStatus',
         'vcpu' => 'setVcpu',
         'zone_id' => 'setZoneId'
     ];
@@ -133,17 +121,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'host_name' => 'getHostName',
-        'instance_id' => 'getInstanceId',
+        'db_engine_version' => 'getDbEngineVersion',
+        'generation' => 'getGeneration',
+        'instance_type' => 'getInstanceType',
         'memory' => 'getMemory',
-        'node_ip' => 'getNodeIp',
-        'node_id' => 'getNodeId',
-        'node_spec' => 'getNodeSpec',
-        'node_status' => 'getNodeStatus',
-        'node_type' => 'getNodeType',
-        'region_id' => 'getRegionId',
-        'update_time' => 'getUpdateTime',
+        'spec_code' => 'getSpecCode',
+        'spec_family' => 'getSpecFamily',
+        'spec_sale_type' => 'getSpecSaleType',
+        'spec_status' => 'getSpecStatus',
         'vcpu' => 'getVcpu',
         'zone_id' => 'getZoneId'
     ];
@@ -208,17 +193,14 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
+        $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
+        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
-        $this->container['node_ip'] = isset($data['node_ip']) ? $data['node_ip'] : null;
-        $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
-        $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
-        $this->container['node_status'] = isset($data['node_status']) ? $data['node_status'] : null;
-        $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
-        $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['spec_code'] = isset($data['spec_code']) ? $data['spec_code'] : null;
+        $this->container['spec_family'] = isset($data['spec_family']) ? $data['spec_family'] : null;
+        $this->container['spec_sale_type'] = isset($data['spec_sale_type']) ? $data['spec_sale_type'] : null;
+        $this->container['spec_status'] = isset($data['spec_status']) ? $data['spec_status'] : null;
         $this->container['vcpu'] = isset($data['vcpu']) ? $data['vcpu'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -248,73 +230,73 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
 
 
     /**
-     * Gets create_time
+     * Gets db_engine_version
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getDbEngineVersion()
     {
-        return $this->container['create_time'];
+        return $this->container['db_engine_version'];
     }
 
     /**
-     * Sets create_time
+     * Sets db_engine_version
      *
-     * @param string $create_time create_time
+     * @param string $db_engine_version db_engine_version
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setDbEngineVersion($db_engine_version)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['db_engine_version'] = $db_engine_version;
 
         return $this;
     }
 
     /**
-     * Gets host_name
+     * Gets generation
      *
      * @return string
      */
-    public function getHostName()
+    public function getGeneration()
     {
-        return $this->container['host_name'];
+        return $this->container['generation'];
     }
 
     /**
-     * Sets host_name
+     * Sets generation
      *
-     * @param string $host_name host_name
+     * @param string $generation generation
      *
      * @return $this
      */
-    public function setHostName($host_name)
+    public function setGeneration($generation)
     {
-        $this->container['host_name'] = $host_name;
+        $this->container['generation'] = $generation;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets instance_type
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getInstanceType()
     {
-        return $this->container['instance_id'];
+        return $this->container['instance_type'];
     }
 
     /**
-     * Sets instance_id
+     * Sets instance_type
      *
-     * @param string $instance_id instance_id
+     * @param string $instance_type instance_type
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setInstanceType($instance_type)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['instance_type'] = $instance_type;
 
         return $this;
     }
@@ -344,169 +326,97 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
     }
 
     /**
-     * Gets node_ip
+     * Gets spec_code
      *
      * @return string
      */
-    public function getNodeIp()
+    public function getSpecCode()
     {
-        return $this->container['node_ip'];
+        return $this->container['spec_code'];
     }
 
     /**
-     * Sets node_ip
+     * Sets spec_code
      *
-     * @param string $node_ip node_ip
+     * @param string $spec_code spec_code
      *
      * @return $this
      */
-    public function setNodeIp($node_ip)
+    public function setSpecCode($spec_code)
     {
-        $this->container['node_ip'] = $node_ip;
+        $this->container['spec_code'] = $spec_code;
 
         return $this;
     }
 
     /**
-     * Gets node_id
+     * Gets spec_family
      *
      * @return string
      */
-    public function getNodeId()
+    public function getSpecFamily()
     {
-        return $this->container['node_id'];
+        return $this->container['spec_family'];
     }
 
     /**
-     * Sets node_id
+     * Sets spec_family
      *
-     * @param string $node_id node_id
+     * @param string $spec_family spec_family
      *
      * @return $this
      */
-    public function setNodeId($node_id)
+    public function setSpecFamily($spec_family)
     {
-        $this->container['node_id'] = $node_id;
+        $this->container['spec_family'] = $spec_family;
 
         return $this;
     }
 
     /**
-     * Gets node_spec
+     * Gets spec_sale_type
      *
      * @return string
      */
-    public function getNodeSpec()
+    public function getSpecSaleType()
     {
-        return $this->container['node_spec'];
+        return $this->container['spec_sale_type'];
     }
 
     /**
-     * Sets node_spec
+     * Sets spec_sale_type
      *
-     * @param string $node_spec node_spec
+     * @param string $spec_sale_type spec_sale_type
      *
      * @return $this
      */
-    public function setNodeSpec($node_spec)
+    public function setSpecSaleType($spec_sale_type)
     {
-        $this->container['node_spec'] = $node_spec;
+        $this->container['spec_sale_type'] = $spec_sale_type;
 
         return $this;
     }
 
     /**
-     * Gets node_status
+     * Gets spec_status
      *
      * @return string
      */
-    public function getNodeStatus()
+    public function getSpecStatus()
     {
-        return $this->container['node_status'];
+        return $this->container['spec_status'];
     }
 
     /**
-     * Sets node_status
+     * Sets spec_status
      *
-     * @param string $node_status node_status
+     * @param string $spec_status spec_status
      *
      * @return $this
      */
-    public function setNodeStatus($node_status)
+    public function setSpecStatus($spec_status)
     {
-        $this->container['node_status'] = $node_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_type
-     *
-     * @return string
-     */
-    public function getNodeType()
-    {
-        return $this->container['node_type'];
-    }
-
-    /**
-     * Sets node_type
-     *
-     * @param string $node_type node_type
-     *
-     * @return $this
-     */
-    public function setNodeType($node_type)
-    {
-        $this->container['node_type'] = $node_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets region_id
-     *
-     * @return string
-     */
-    public function getRegionId()
-    {
-        return $this->container['region_id'];
-    }
-
-    /**
-     * Sets region_id
-     *
-     * @param string $region_id region_id
-     *
-     * @return $this
-     */
-    public function setRegionId($region_id)
-    {
-        $this->container['region_id'] = $region_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['spec_status'] = $spec_status;
 
         return $this;
     }

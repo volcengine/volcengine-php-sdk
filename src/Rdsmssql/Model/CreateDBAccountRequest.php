@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class CreateDBAccountRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'CreateDBAccountRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'account_name' => 'string',
+        'account_password' => 'string',
+        'account_privileges' => '\Volcengine\Rdsmssql\Model\AccountPrivilegeForCreateDBAccountInput[]',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'account_name' => null,
+        'account_password' => null,
+        'account_privileges' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'account_name' => 'AccountName',
+        'account_password' => 'AccountPassword',
+        'account_privileges' => 'AccountPrivileges',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -76,7 +85,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'account_name' => 'setAccountName',
+        'account_password' => 'setAccountPassword',
+        'account_privileges' => 'setAccountPrivileges',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -85,7 +97,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'account_name' => 'getAccountName',
+        'account_password' => 'getAccountPassword',
+        'account_privileges' => 'getAccountPrivileges',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -148,7 +163,10 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
+        $this->container['account_password'] = isset($data['account_password']) ? $data['account_password'] : null;
+        $this->container['account_privileges'] = isset($data['account_privileges']) ? $data['account_privileges'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -160,6 +178,15 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['account_name'] === null) {
+            $invalidProperties[] = "'account_name' can't be null";
+        }
+        if ($this->container['account_password'] === null) {
+            $invalidProperties[] = "'account_password' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +203,97 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets account_name
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return string
      */
-    public function getInstanceSpecsInfo()
+    public function getAccountName()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['account_name'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets account_name
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param string $account_name account_name
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setAccountName($account_name)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['account_name'] = $account_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_password
+     *
+     * @return string
+     */
+    public function getAccountPassword()
+    {
+        return $this->container['account_password'];
+    }
+
+    /**
+     * Sets account_password
+     *
+     * @param string $account_password account_password
+     *
+     * @return $this
+     */
+    public function setAccountPassword($account_password)
+    {
+        $this->container['account_password'] = $account_password;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_privileges
+     *
+     * @return \Volcengine\Rdsmssql\Model\AccountPrivilegeForCreateDBAccountInput[]
+     */
+    public function getAccountPrivileges()
+    {
+        return $this->container['account_privileges'];
+    }
+
+    /**
+     * Sets account_privileges
+     *
+     * @param \Volcengine\Rdsmssql\Model\AccountPrivilegeForCreateDBAccountInput[] $account_privileges account_privileges
+     *
+     * @return $this
+     */
+    public function setAccountPrivileges($account_privileges)
+    {
+        $this->container['account_privileges'] = $account_privileges;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

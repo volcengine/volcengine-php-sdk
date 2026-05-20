@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class ModifyAllowListResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'ModifyAllowListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
     }
 
     /**
@@ -174,30 +173,6 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets instance_specs_info
-     *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
-     */
-    public function getInstanceSpecsInfo()
-    {
-        return $this->container['instance_specs_info'];
-    }
-
-    /**
-     * Sets instance_specs_info
-     *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
-     *
-     * @return $this
-     */
-    public function setInstanceSpecsInfo($instance_specs_info)
-    {
-        $this->container['instance_specs_info'] = $instance_specs_info;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
