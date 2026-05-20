@@ -95,9 +95,9 @@ class OidcCredentialProvider extends Provider
             'OIDCToken' => $oidcToken,
         ];
 
-        // OIDC puts Policy in query string
+        // OIDC puts Policy in form body
         if (!empty($this->rolePolicy)) {
-            $queryParams['Policy'] = $this->rolePolicy;
+            $bodyParams['Policy'] = $this->rolePolicy;
         }
 
         $formBody = http_build_query($bodyParams);
