@@ -471,7 +471,7 @@ class DefaultEndpointProvider extends EndpointProvider
                 
                 'arkclaw' => new ServiceEndpointInfo(
                     'arkclaw',
-                    true,
+                    false,
                     '',
                     []
                 ),
@@ -486,6 +486,13 @@ class DefaultEndpointProvider extends EndpointProvider
                 'cbr' => new ServiceEndpointInfo(
                     'cbr',
                     false,
+                    '',
+                    []
+                ),
+            
+                'config' => new ServiceEndpointInfo(
+                    'config',
+                    true,
                     '',
                     []
                 ),

@@ -28,7 +28,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style' => 'string',
+        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
         'subtask_id' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style' => null,
+        'style_config' => null,
         'subtask_id' => null
     ];
 
@@ -69,7 +69,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style' => 'style',
+        'style_config' => 'styleConfig',
         'subtask_id' => 'subtaskId'
     ];
 
@@ -79,7 +79,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style' => 'setStyle',
+        'style_config' => 'setStyleConfig',
         'subtask_id' => 'setSubtaskId'
     ];
 
@@ -89,7 +89,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style' => 'getStyle',
+        'style_config' => 'getStyleConfig',
         'subtask_id' => 'getSubtaskId'
     ];
 
@@ -153,7 +153,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style'] = isset($data['style']) ? $data['style'] : null;
+        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
         $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
@@ -182,25 +182,25 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style
+     * Gets style_config
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
      */
-    public function getStyle()
+    public function getStyleConfig()
     {
-        return $this->container['style'];
+        return $this->container['style_config'];
     }
 
     /**
-     * Sets style
+     * Sets style_config
      *
-     * @param string $style style
+     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
      *
      * @return $this
      */
-    public function setStyle($style)
+    public function setStyleConfig($style_config)
     {
-        $this->container['style'] = $style;
+        $this->container['style_config'] = $style_config;
 
         return $this;
     }

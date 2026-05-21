@@ -164,8 +164,40 @@ class AccountGroupForDescribeAccountGroupsOutput implements ModelInterface, Arra
         return self::$swaggerModelName;
     }
 
+    const GROUP_TYPE_ORG = 'Org';
+    const GROUP_TYPE_ORG_UNIT = 'OrgUnit';
+    const GROUP_TYPE_ORG_MEMBER = 'OrgMember';
+    const STATUS_CREATING = 'Creating';
+    const STATUS_ENABLED = 'Enabled';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGroupTypeAllowableValues()
+    {
+        return [
+            self::GROUP_TYPE_ORG,
+            self::GROUP_TYPE_ORG_UNIT,
+            self::GROUP_TYPE_ORG_MEMBER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_CREATING,
+            self::STATUS_ENABLED,
+        ];
+    }
     
 
     /**
@@ -201,6 +233,22 @@ class AccountGroupForDescribeAccountGroupsOutput implements ModelInterface, Arra
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getGroupTypeAllowableValues();
+        if (!is_null($this->container['group_type']) && !in_array($this->container['group_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'group_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -332,6 +380,15 @@ class AccountGroupForDescribeAccountGroupsOutput implements ModelInterface, Arra
      */
     public function setGroupType($group_type)
     {
+        $allowedValues = $this->getGroupTypeAllowableValues();
+        if (!is_null($group_type) && !in_array($group_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'group_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['group_type'] = $group_type;
 
         return $this;
@@ -380,6 +437,15 @@ class AccountGroupForDescribeAccountGroupsOutput implements ModelInterface, Arra
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;

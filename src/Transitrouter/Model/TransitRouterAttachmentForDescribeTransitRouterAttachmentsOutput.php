@@ -30,6 +30,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'auto_publish_route_enabled' => 'bool',
+        'billing_account_id' => 'string',
         'business_status' => 'string',
         'creation_time' => 'string',
         'deleted_time' => 'string',
@@ -58,6 +59,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     protected static $swaggerFormats = [
         'account_id' => null,
         'auto_publish_route_enabled' => null,
+        'billing_account_id' => null,
         'business_status' => null,
         'creation_time' => null,
         'deleted_time' => null,
@@ -107,6 +109,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
+        'billing_account_id' => 'BillingAccountId',
         'business_status' => 'BusinessStatus',
         'creation_time' => 'CreationTime',
         'deleted_time' => 'DeletedTime',
@@ -135,6 +138,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     protected static $setters = [
         'account_id' => 'setAccountId',
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
+        'billing_account_id' => 'setBillingAccountId',
         'business_status' => 'setBusinessStatus',
         'creation_time' => 'setCreationTime',
         'deleted_time' => 'setDeletedTime',
@@ -163,6 +167,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     protected static $getters = [
         'account_id' => 'getAccountId',
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
+        'billing_account_id' => 'getBillingAccountId',
         'business_status' => 'getBusinessStatus',
         'creation_time' => 'getCreationTime',
         'deleted_time' => 'getDeletedTime',
@@ -245,6 +250,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
+        $this->container['billing_account_id'] = isset($data['billing_account_id']) ? $data['billing_account_id'] : null;
         $this->container['business_status'] = isset($data['business_status']) ? $data['business_status'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
@@ -333,6 +339,30 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
     {
         $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_account_id
+     *
+     * @return string
+     */
+    public function getBillingAccountId()
+    {
+        return $this->container['billing_account_id'];
+    }
+
+    /**
+     * Sets billing_account_id
+     *
+     * @param string $billing_account_id billing_account_id
+     *
+     * @return $this
+     */
+    public function setBillingAccountId($billing_account_id)
+    {
+        $this->container['billing_account_id'] = $billing_account_id;
 
         return $this;
     }

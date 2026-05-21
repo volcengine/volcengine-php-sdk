@@ -29,6 +29,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
       */
     protected static $swaggerTypes = [
         'creation_time' => 'string',
+        'propagation_granularity' => 'string',
         'status' => 'string',
         'transit_router_attachment_id' => 'string',
         'transit_router_route_table_id' => 'string'
@@ -41,6 +42,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
       */
     protected static $swaggerFormats = [
         'creation_time' => null,
+        'propagation_granularity' => null,
         'status' => null,
         'transit_router_attachment_id' => null,
         'transit_router_route_table_id' => null
@@ -74,6 +76,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      */
     protected static $attributeMap = [
         'creation_time' => 'CreationTime',
+        'propagation_granularity' => 'PropagationGranularity',
         'status' => 'Status',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
         'transit_router_route_table_id' => 'TransitRouterRouteTableId'
@@ -86,6 +89,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      */
     protected static $setters = [
         'creation_time' => 'setCreationTime',
+        'propagation_granularity' => 'setPropagationGranularity',
         'status' => 'setStatus',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
         'transit_router_route_table_id' => 'setTransitRouterRouteTableId'
@@ -98,6 +102,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
      */
     protected static $getters = [
         'creation_time' => 'getCreationTime',
+        'propagation_granularity' => 'getPropagationGranularity',
         'status' => 'getStatus',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
         'transit_router_route_table_id' => 'getTransitRouterRouteTableId'
@@ -164,6 +169,7 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
     public function __construct($data = null)
     {
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['propagation_granularity'] = isset($data['propagation_granularity']) ? $data['propagation_granularity'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
         $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
@@ -213,6 +219,30 @@ class TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropag
     public function setCreationTime($creation_time)
     {
         $this->container['creation_time'] = $creation_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets propagation_granularity
+     *
+     * @return string
+     */
+    public function getPropagationGranularity()
+    {
+        return $this->container['propagation_granularity'];
+    }
+
+    /**
+     * Sets propagation_granularity
+     *
+     * @param string $propagation_granularity propagation_granularity
+     *
+     * @return $this
+     */
+    public function setPropagationGranularity($propagation_granularity)
+    {
+        $this->container['propagation_granularity'] = $propagation_granularity;
 
         return $this;
     }

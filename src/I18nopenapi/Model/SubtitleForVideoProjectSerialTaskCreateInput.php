@@ -28,8 +28,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'arrangement' => 'int',
         'file_type' => 'int',
         'name' => 'string',
+        'subtitle_lang' => 'int',
         'uri' => 'string'
     ];
 
@@ -39,8 +41,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'arrangement' => 'int32',
         'file_type' => 'int32',
         'name' => null,
+        'subtitle_lang' => 'int32',
         'uri' => null
     ];
 
@@ -71,8 +75,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
+        'arrangement' => 'arrangement',
         'file_type' => 'fileType',
         'name' => 'name',
+        'subtitle_lang' => 'subtitleLang',
         'uri' => 'uri'
     ];
 
@@ -82,8 +88,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
+        'arrangement' => 'setArrangement',
         'file_type' => 'setFileType',
         'name' => 'setName',
+        'subtitle_lang' => 'setSubtitleLang',
         'uri' => 'setUri'
     ];
 
@@ -93,8 +101,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
+        'arrangement' => 'getArrangement',
         'file_type' => 'getFileType',
         'name' => 'getName',
+        'subtitle_lang' => 'getSubtitleLang',
         'uri' => 'getUri'
     ];
 
@@ -158,8 +168,10 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
+        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
 
@@ -186,6 +198,30 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets arrangement
+     *
+     * @return int
+     */
+    public function getArrangement()
+    {
+        return $this->container['arrangement'];
+    }
+
+    /**
+     * Sets arrangement
+     *
+     * @param int $arrangement arrangement
+     *
+     * @return $this
+     */
+    public function setArrangement($arrangement)
+    {
+        $this->container['arrangement'] = $arrangement;
+
+        return $this;
+    }
 
     /**
      * Gets file_type
@@ -231,6 +267,30 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_lang
+     *
+     * @return int
+     */
+    public function getSubtitleLang()
+    {
+        return $this->container['subtitle_lang'];
+    }
+
+    /**
+     * Sets subtitle_lang
+     *
+     * @param int $subtitle_lang subtitle_lang
+     *
+     * @return $this
+     */
+    public function setSubtitleLang($subtitle_lang)
+    {
+        $this->container['subtitle_lang'] = $subtitle_lang;
 
         return $this;
     }

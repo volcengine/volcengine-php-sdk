@@ -1,0 +1,5 @@
+{
+  "description": "TRANSITROUTER: 新增 AcceptTransitRouterPeerAttachment, ModifyTransitRouterTrafficQosQueueEntryAttributes, RejectTransitRouterPeerAttachment；修改 CreateTransitRouterTrafficQosQueueEntry, DescribeTransitRouterTrafficQosQueueEntries, CreateTransitRouterPeerAttachment, ModifyTransitRouterAttributes, DescribeTransitRouterAttachments, DescribeTransitRouters, DescribeTransitRouterPeerAttachments, DescribeTransitRouterRouteTablePropagations, EnableTransitRouterRouteTablePropagation",
+  "modules": "service/transitrouter",
+  "type": "breaking-change"
+}

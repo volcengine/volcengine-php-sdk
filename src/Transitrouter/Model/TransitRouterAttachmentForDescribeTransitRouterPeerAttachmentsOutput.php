@@ -34,12 +34,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'description' => 'string',
         'ipv6_enabled' => 'bool',
         'peer_transit_router_id' => 'string',
+        'peer_transit_router_owner_id' => 'string',
         'peer_transit_router_region_id' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterPeerAttachmentsOutput[]',
         'transit_router_attachment_id' => 'string',
         'transit_router_attachment_name' => 'string',
         'transit_router_bandwidth_package_id' => 'string',
+        'transit_router_bandwidth_package_owner_id' => 'string',
         'transit_router_forward_policy_table_id' => 'string',
         'transit_router_id' => 'string',
         'transit_router_route_table_id' => 'string',
@@ -60,12 +62,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'description' => null,
         'ipv6_enabled' => null,
         'peer_transit_router_id' => null,
+        'peer_transit_router_owner_id' => null,
         'peer_transit_router_region_id' => null,
         'status' => null,
         'tags' => null,
         'transit_router_attachment_id' => null,
         'transit_router_attachment_name' => null,
         'transit_router_bandwidth_package_id' => null,
+        'transit_router_bandwidth_package_owner_id' => null,
         'transit_router_forward_policy_table_id' => null,
         'transit_router_id' => null,
         'transit_router_route_table_id' => null,
@@ -107,12 +111,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'description' => 'Description',
         'ipv6_enabled' => 'Ipv6Enabled',
         'peer_transit_router_id' => 'PeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'PeerTransitRouterRegionId',
         'status' => 'Status',
         'tags' => 'Tags',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'TransitRouterBandwidthPackageId',
+        'transit_router_bandwidth_package_owner_id' => 'TransitRouterBandwidthPackageOwnerId',
         'transit_router_forward_policy_table_id' => 'TransitRouterForwardPolicyTableId',
         'transit_router_id' => 'TransitRouterId',
         'transit_router_route_table_id' => 'TransitRouterRouteTableId',
@@ -133,12 +139,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'description' => 'setDescription',
         'ipv6_enabled' => 'setIpv6Enabled',
         'peer_transit_router_id' => 'setPeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'setPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'setPeerTransitRouterRegionId',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'setTransitRouterBandwidthPackageId',
+        'transit_router_bandwidth_package_owner_id' => 'setTransitRouterBandwidthPackageOwnerId',
         'transit_router_forward_policy_table_id' => 'setTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'setTransitRouterId',
         'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
@@ -159,12 +167,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'description' => 'getDescription',
         'ipv6_enabled' => 'getIpv6Enabled',
         'peer_transit_router_id' => 'getPeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'getPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'getPeerTransitRouterRegionId',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'getTransitRouterBandwidthPackageId',
+        'transit_router_bandwidth_package_owner_id' => 'getTransitRouterBandwidthPackageOwnerId',
         'transit_router_forward_policy_table_id' => 'getTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'getTransitRouterId',
         'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
@@ -239,12 +249,14 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['peer_transit_router_id'] = isset($data['peer_transit_router_id']) ? $data['peer_transit_router_id'] : null;
+        $this->container['peer_transit_router_owner_id'] = isset($data['peer_transit_router_owner_id']) ? $data['peer_transit_router_owner_id'] : null;
         $this->container['peer_transit_router_region_id'] = isset($data['peer_transit_router_region_id']) ? $data['peer_transit_router_region_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
         $this->container['transit_router_bandwidth_package_id'] = isset($data['transit_router_bandwidth_package_id']) ? $data['transit_router_bandwidth_package_id'] : null;
+        $this->container['transit_router_bandwidth_package_owner_id'] = isset($data['transit_router_bandwidth_package_owner_id']) ? $data['transit_router_bandwidth_package_owner_id'] : null;
         $this->container['transit_router_forward_policy_table_id'] = isset($data['transit_router_forward_policy_table_id']) ? $data['transit_router_forward_policy_table_id'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
         $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
@@ -422,6 +434,30 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     }
 
     /**
+     * Gets peer_transit_router_owner_id
+     *
+     * @return string
+     */
+    public function getPeerTransitRouterOwnerId()
+    {
+        return $this->container['peer_transit_router_owner_id'];
+    }
+
+    /**
+     * Sets peer_transit_router_owner_id
+     *
+     * @param string $peer_transit_router_owner_id peer_transit_router_owner_id
+     *
+     * @return $this
+     */
+    public function setPeerTransitRouterOwnerId($peer_transit_router_owner_id)
+    {
+        $this->container['peer_transit_router_owner_id'] = $peer_transit_router_owner_id;
+
+        return $this;
+    }
+
+    /**
      * Gets peer_transit_router_region_id
      *
      * @return string
@@ -561,6 +597,30 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     public function setTransitRouterBandwidthPackageId($transit_router_bandwidth_package_id)
     {
         $this->container['transit_router_bandwidth_package_id'] = $transit_router_bandwidth_package_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_bandwidth_package_owner_id
+     *
+     * @return string
+     */
+    public function getTransitRouterBandwidthPackageOwnerId()
+    {
+        return $this->container['transit_router_bandwidth_package_owner_id'];
+    }
+
+    /**
+     * Sets transit_router_bandwidth_package_owner_id
+     *
+     * @param string $transit_router_bandwidth_package_owner_id transit_router_bandwidth_package_owner_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterBandwidthPackageOwnerId($transit_router_bandwidth_package_owner_id)
+    {
+        $this->container['transit_router_bandwidth_package_owner_id'] = $transit_router_bandwidth_package_owner_id;
 
         return $this;
     }

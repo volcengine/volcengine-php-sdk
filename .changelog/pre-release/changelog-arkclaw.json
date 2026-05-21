@@ -1,5 +1,5 @@
 {
-  "description": "ARKCLAW: 新增 ResetClawOmniInstance；修改 CreateClawOmniInstance, GetClawOmniInstance, ListClawOmniInstances",
+  "description": "ARKCLAW: 新增 DeleteClawOmniInstance, ListClawOmniInstanceCommandJobs, ListClawOmniInstanceDevicePairings, StopClawOmniInstanceCommandJob, UpdateClawOmniInstance, GetClawOmniInstanceCommandJobLog, ListClawOmniInstanceDeviceStatus, RejectClawOmniInstanceDevicePairing, ApproveClawOmniInstanceDevicePairing, GetClawOmniInstance, GetClawOmniInstanceCommandJob, ListClawOmniChannels, RemoveClawOmniInstanceDevicePaired, ResumeClawOmniInstance, UpdateClawOmniInstanceModel, ClearClawOmniInstanceDevicePaired, CreateClawOmniInstanceCommandJob, ListClawOmniSpaceEnabledModels, PauseClawOmniInstance, ResetClawOmniInstance；修改 ResetClawOmniInstance, ResumeClawOmniInstance, CreateClawOmniInstance, DeleteClawOmniInstance, GetClawOmniInstance, PauseClawOmniInstance",
   "modules": "service/arkclaw",
-  "type": "feature"
+  "type": "breaking-change"
 }
