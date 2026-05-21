@@ -471,7 +471,7 @@ class DefaultEndpointProvider extends EndpointProvider
                 
                 'arkclaw' => new ServiceEndpointInfo(
                     'arkclaw',
-                    true,
+                    false,
                     '',
                     []
                 ),
