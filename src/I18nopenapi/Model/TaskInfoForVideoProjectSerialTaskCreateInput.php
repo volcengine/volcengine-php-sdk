@@ -30,6 +30,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $swaggerTypes = [
         'ai_remove_type' => 'int',
         'asr_model' => 'int',
+        'audit_fail_policy' => 'int',
         'bgm_policy' => 'int',
         'comment' => 'string',
         'created_at' => 'string',
@@ -38,6 +39,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_description' => 'string',
         'drama_title' => 'string',
         'dub_or_translation_task_id' => 'string',
+        'dub_voice_mode' => 'int',
         'is_dub' => 'bool',
         'llm_video_understanding_type' => 'int',
         'need_translate_cover' => 'bool',
@@ -68,6 +70,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'ai_remove_type' => 'int32',
         'asr_model' => 'int32',
+        'audit_fail_policy' => 'int32',
         'bgm_policy' => 'int32',
         'comment' => null,
         'created_at' => null,
@@ -76,6 +79,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_description' => null,
         'drama_title' => null,
         'dub_or_translation_task_id' => null,
+        'dub_voice_mode' => 'int32',
         'is_dub' => null,
         'llm_video_understanding_type' => 'int32',
         'need_translate_cover' => null,
@@ -127,6 +131,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $attributeMap = [
         'ai_remove_type' => 'aiRemoveType',
         'asr_model' => 'asrModel',
+        'audit_fail_policy' => 'auditFailPolicy',
         'bgm_policy' => 'bgmPolicy',
         'comment' => 'comment',
         'created_at' => 'createdAt',
@@ -135,6 +140,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_description' => 'dramaDescription',
         'drama_title' => 'dramaTitle',
         'dub_or_translation_task_id' => 'dubOrTranslationTaskID',
+        'dub_voice_mode' => 'dubVoiceMode',
         'is_dub' => 'isDub',
         'llm_video_understanding_type' => 'llmVideoUnderstandingType',
         'need_translate_cover' => 'needTranslateCover',
@@ -165,6 +171,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $setters = [
         'ai_remove_type' => 'setAiRemoveType',
         'asr_model' => 'setAsrModel',
+        'audit_fail_policy' => 'setAuditFailPolicy',
         'bgm_policy' => 'setBgmPolicy',
         'comment' => 'setComment',
         'created_at' => 'setCreatedAt',
@@ -173,6 +180,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_description' => 'setDramaDescription',
         'drama_title' => 'setDramaTitle',
         'dub_or_translation_task_id' => 'setDubOrTranslationTaskId',
+        'dub_voice_mode' => 'setDubVoiceMode',
         'is_dub' => 'setIsDub',
         'llm_video_understanding_type' => 'setLlmVideoUnderstandingType',
         'need_translate_cover' => 'setNeedTranslateCover',
@@ -203,6 +211,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $getters = [
         'ai_remove_type' => 'getAiRemoveType',
         'asr_model' => 'getAsrModel',
+        'audit_fail_policy' => 'getAuditFailPolicy',
         'bgm_policy' => 'getBgmPolicy',
         'comment' => 'getComment',
         'created_at' => 'getCreatedAt',
@@ -211,6 +220,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'drama_description' => 'getDramaDescription',
         'drama_title' => 'getDramaTitle',
         'dub_or_translation_task_id' => 'getDubOrTranslationTaskId',
+        'dub_voice_mode' => 'getDubVoiceMode',
         'is_dub' => 'getIsDub',
         'llm_video_understanding_type' => 'getLlmVideoUnderstandingType',
         'need_translate_cover' => 'getNeedTranslateCover',
@@ -295,6 +305,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;
+        $this->container['audit_fail_policy'] = isset($data['audit_fail_policy']) ? $data['audit_fail_policy'] : null;
         $this->container['bgm_policy'] = isset($data['bgm_policy']) ? $data['bgm_policy'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -303,6 +314,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         $this->container['drama_description'] = isset($data['drama_description']) ? $data['drama_description'] : null;
         $this->container['drama_title'] = isset($data['drama_title']) ? $data['drama_title'] : null;
         $this->container['dub_or_translation_task_id'] = isset($data['dub_or_translation_task_id']) ? $data['dub_or_translation_task_id'] : null;
+        $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
         $this->container['llm_video_understanding_type'] = isset($data['llm_video_understanding_type']) ? $data['llm_video_understanding_type'] : null;
         $this->container['need_translate_cover'] = isset($data['need_translate_cover']) ? $data['need_translate_cover'] : null;
@@ -393,6 +405,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setAsrModel($asr_model)
     {
         $this->container['asr_model'] = $asr_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets audit_fail_policy
+     *
+     * @return int
+     */
+    public function getAuditFailPolicy()
+    {
+        return $this->container['audit_fail_policy'];
+    }
+
+    /**
+     * Sets audit_fail_policy
+     *
+     * @param int $audit_fail_policy audit_fail_policy
+     *
+     * @return $this
+     */
+    public function setAuditFailPolicy($audit_fail_policy)
+    {
+        $this->container['audit_fail_policy'] = $audit_fail_policy;
 
         return $this;
     }
@@ -585,6 +621,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setDubOrTranslationTaskId($dub_or_translation_task_id)
     {
         $this->container['dub_or_translation_task_id'] = $dub_or_translation_task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets dub_voice_mode
+     *
+     * @return int
+     */
+    public function getDubVoiceMode()
+    {
+        return $this->container['dub_voice_mode'];
+    }
+
+    /**
+     * Sets dub_voice_mode
+     *
+     * @param int $dub_voice_mode dub_voice_mode
+     *
+     * @return $this
+     */
+    public function setDubVoiceMode($dub_voice_mode)
+    {
+        $this->container['dub_voice_mode'] = $dub_voice_mode;
 
         return $this;
     }
