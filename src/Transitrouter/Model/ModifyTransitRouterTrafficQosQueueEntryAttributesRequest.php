@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, ArrayAccess
+class ModifyTransitRouterTrafficQosQueueEntryAttributesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterTrafficQosQueueEntryRequest';
+    protected static $swaggerModelName = 'ModifyTransitRouterTrafficQosQueueEntryAttributesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,12 +29,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'bandwidth_percent' => 'int',
-        'client_token' => 'string',
         'description' => 'string',
-        'dscps' => 'int[]',
-        'priority' => 'string',
-        'transit_router_traffic_qos_queue_entry_name' => 'string',
-        'transit_router_traffic_qos_queue_policy_id' => 'string'
+        'transit_router_traffic_qos_queue_entry_id' => 'string',
+        'transit_router_traffic_qos_queue_entry_name' => 'string'
     ];
 
     /**
@@ -44,12 +41,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
       */
     protected static $swaggerFormats = [
         'bandwidth_percent' => 'int32',
-        'client_token' => null,
         'description' => null,
-        'dscps' => 'int32',
-        'priority' => null,
-        'transit_router_traffic_qos_queue_entry_name' => null,
-        'transit_router_traffic_qos_queue_policy_id' => null
+        'transit_router_traffic_qos_queue_entry_id' => null,
+        'transit_router_traffic_qos_queue_entry_name' => null
     ];
 
     /**
@@ -80,12 +74,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
      */
     protected static $attributeMap = [
         'bandwidth_percent' => 'BandwidthPercent',
-        'client_token' => 'ClientToken',
         'description' => 'Description',
-        'dscps' => 'Dscps',
-        'priority' => 'Priority',
-        'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName',
-        'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId'
+        'transit_router_traffic_qos_queue_entry_id' => 'TransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName'
     ];
 
     /**
@@ -95,12 +86,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
      */
     protected static $setters = [
         'bandwidth_percent' => 'setBandwidthPercent',
-        'client_token' => 'setClientToken',
         'description' => 'setDescription',
-        'dscps' => 'setDscps',
-        'priority' => 'setPriority',
-        'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName',
-        'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId'
+        'transit_router_traffic_qos_queue_entry_id' => 'setTransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName'
     ];
 
     /**
@@ -110,12 +98,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
      */
     protected static $getters = [
         'bandwidth_percent' => 'getBandwidthPercent',
-        'client_token' => 'getClientToken',
         'description' => 'getDescription',
-        'dscps' => 'getDscps',
-        'priority' => 'getPriority',
-        'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName',
-        'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId'
+        'transit_router_traffic_qos_queue_entry_id' => 'getTransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName'
     ];
 
     /**
@@ -159,23 +144,8 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
-    const PRIORITY_NORMAL = 'Normal';
-    const PRIORITY_HIGH = 'High';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPriorityAllowableValues()
-    {
-        return [
-            self::PRIORITY_NORMAL,
-            self::PRIORITY_HIGH,
-        ];
-    }
     
 
     /**
@@ -194,12 +164,9 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     public function __construct($data = null)
     {
         $this->container['bandwidth_percent'] = isset($data['bandwidth_percent']) ? $data['bandwidth_percent'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['dscps'] = isset($data['dscps']) ? $data['dscps'] : null;
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['transit_router_traffic_qos_queue_entry_id'] = isset($data['transit_router_traffic_qos_queue_entry_id']) ? $data['transit_router_traffic_qos_queue_entry_id'] : null;
         $this->container['transit_router_traffic_qos_queue_entry_name'] = isset($data['transit_router_traffic_qos_queue_entry_name']) ? $data['transit_router_traffic_qos_queue_entry_name'] : null;
-        $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
     }
 
     /**
@@ -211,19 +178,8 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!is_null($this->container['priority']) && !in_array($this->container['priority'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'priority', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['transit_router_traffic_qos_queue_entry_name'] === null) {
-            $invalidProperties[] = "'transit_router_traffic_qos_queue_entry_name' can't be null";
-        }
-        if ($this->container['transit_router_traffic_qos_queue_policy_id'] === null) {
-            $invalidProperties[] = "'transit_router_traffic_qos_queue_policy_id' can't be null";
+        if ($this->container['transit_router_traffic_qos_queue_entry_id'] === null) {
+            $invalidProperties[] = "'transit_router_traffic_qos_queue_entry_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -265,30 +221,6 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     }
 
     /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
      * Gets description
      *
      * @return string
@@ -313,58 +245,25 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     }
 
     /**
-     * Gets dscps
-     *
-     * @return int[]
-     */
-    public function getDscps()
-    {
-        return $this->container['dscps'];
-    }
-
-    /**
-     * Sets dscps
-     *
-     * @param int[] $dscps dscps
-     *
-     * @return $this
-     */
-    public function setDscps($dscps)
-    {
-        $this->container['dscps'] = $dscps;
-
-        return $this;
-    }
-
-    /**
-     * Gets priority
+     * Gets transit_router_traffic_qos_queue_entry_id
      *
      * @return string
      */
-    public function getPriority()
+    public function getTransitRouterTrafficQosQueueEntryId()
     {
-        return $this->container['priority'];
+        return $this->container['transit_router_traffic_qos_queue_entry_id'];
     }
 
     /**
-     * Sets priority
+     * Sets transit_router_traffic_qos_queue_entry_id
      *
-     * @param string $priority priority
+     * @param string $transit_router_traffic_qos_queue_entry_id transit_router_traffic_qos_queue_entry_id
      *
      * @return $this
      */
-    public function setPriority($priority)
+    public function setTransitRouterTrafficQosQueueEntryId($transit_router_traffic_qos_queue_entry_id)
     {
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!is_null($priority) && !in_array($priority, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'priority', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['priority'] = $priority;
+        $this->container['transit_router_traffic_qos_queue_entry_id'] = $transit_router_traffic_qos_queue_entry_id;
 
         return $this;
     }
@@ -389,30 +288,6 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     public function setTransitRouterTrafficQosQueueEntryName($transit_router_traffic_qos_queue_entry_name)
     {
         $this->container['transit_router_traffic_qos_queue_entry_name'] = $transit_router_traffic_qos_queue_entry_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_traffic_qos_queue_policy_id
-     *
-     * @return string
-     */
-    public function getTransitRouterTrafficQosQueuePolicyId()
-    {
-        return $this->container['transit_router_traffic_qos_queue_policy_id'];
-    }
-
-    /**
-     * Sets transit_router_traffic_qos_queue_policy_id
-     *
-     * @param string $transit_router_traffic_qos_queue_policy_id transit_router_traffic_qos_queue_policy_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterTrafficQosQueuePolicyId($transit_router_traffic_qos_queue_policy_id)
-    {
-        $this->container['transit_router_traffic_qos_queue_policy_id'] = $transit_router_traffic_qos_queue_policy_id;
 
         return $this;
     }

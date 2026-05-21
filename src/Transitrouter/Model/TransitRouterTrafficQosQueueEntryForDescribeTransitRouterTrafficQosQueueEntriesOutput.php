@@ -33,6 +33,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         'description' => 'string',
         'dscps' => 'int[]',
         'is_default' => 'bool',
+        'priority' => 'string',
         'status' => 'string',
         'transit_router_traffic_qos_queue_entry_id' => 'string',
         'transit_router_traffic_qos_queue_entry_name' => 'string',
@@ -51,6 +52,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         'description' => null,
         'dscps' => 'int32',
         'is_default' => null,
+        'priority' => null,
         'status' => null,
         'transit_router_traffic_qos_queue_entry_id' => null,
         'transit_router_traffic_qos_queue_entry_name' => null,
@@ -90,6 +92,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         'description' => 'Description',
         'dscps' => 'Dscps',
         'is_default' => 'IsDefault',
+        'priority' => 'Priority',
         'status' => 'Status',
         'transit_router_traffic_qos_queue_entry_id' => 'TransitRouterTrafficQosQueueEntryId',
         'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName',
@@ -108,6 +111,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         'description' => 'setDescription',
         'dscps' => 'setDscps',
         'is_default' => 'setIsDefault',
+        'priority' => 'setPriority',
         'status' => 'setStatus',
         'transit_router_traffic_qos_queue_entry_id' => 'setTransitRouterTrafficQosQueueEntryId',
         'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName',
@@ -126,6 +130,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         'description' => 'getDescription',
         'dscps' => 'getDscps',
         'is_default' => 'getIsDefault',
+        'priority' => 'getPriority',
         'status' => 'getStatus',
         'transit_router_traffic_qos_queue_entry_id' => 'getTransitRouterTrafficQosQueueEntryId',
         'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName',
@@ -198,6 +203,7 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dscps'] = isset($data['dscps']) ? $data['dscps'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
+        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transit_router_traffic_qos_queue_entry_id'] = isset($data['transit_router_traffic_qos_queue_entry_id']) ? $data['transit_router_traffic_qos_queue_entry_id'] : null;
         $this->container['transit_router_traffic_qos_queue_entry_name'] = isset($data['transit_router_traffic_qos_queue_entry_name']) ? $data['transit_router_traffic_qos_queue_entry_name'] : null;
@@ -345,6 +351,30 @@ class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEn
     public function setIsDefault($is_default)
     {
         $this->container['is_default'] = $is_default;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return string
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param string $priority priority
+     *
+     * @return $this
+     */
+    public function setPriority($priority)
+    {
+        $this->container['priority'] = $priority;
 
         return $this;
     }
