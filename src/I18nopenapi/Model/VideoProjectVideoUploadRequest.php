@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'VideoProjectVideoUploadRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'project_id' => 'string',
+        'video_urls' => 'string[]',
+        'video_upload_type' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'project_id' => null,
+        'video_urls' => null,
+        'video_upload_type' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'project_id' => 'projectId',
+        'video_urls' => 'videoURLs',
+        'video_upload_type' => 'videoUploadType'
     ];
 
     /**
@@ -79,8 +82,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'project_id' => 'setProjectId',
+        'video_urls' => 'setVideoUrls',
+        'video_upload_type' => 'setVideoUploadType'
     ];
 
     /**
@@ -89,8 +93,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'project_id' => 'getProjectId',
+        'video_urls' => 'getVideoUrls',
+        'video_upload_type' => 'getVideoUploadType'
     ];
 
     /**
@@ -153,8 +158,9 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['video_urls'] = isset($data['video_urls']) ? $data['video_urls'] : null;
+        $this->container['video_upload_type'] = isset($data['video_upload_type']) ? $data['video_upload_type'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['video_upload_type'] === null) {
+            $invalidProperties[] = "'video_upload_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +194,73 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
+     * Gets project_id
      *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
+     * @return string
      */
-    public function getStyleConfig()
+    public function getProjectId()
     {
-        return $this->container['style_config'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets style_config
+     * Sets project_id
      *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setStyleConfig($style_config)
+    public function setProjectId($project_id)
     {
-        $this->container['style_config'] = $style_config;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets subtask_id
+     * Gets video_urls
      *
-     * @return string
+     * @return string[]
      */
-    public function getSubtaskId()
+    public function getVideoUrls()
     {
-        return $this->container['subtask_id'];
+        return $this->container['video_urls'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets video_urls
      *
-     * @param string $subtask_id subtask_id
+     * @param string[] $video_urls video_urls
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setVideoUrls($video_urls)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['video_urls'] = $video_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_upload_type
+     *
+     * @return int
+     */
+    public function getVideoUploadType()
+    {
+        return $this->container['video_upload_type'];
+    }
+
+    /**
+     * Sets video_upload_type
+     *
+     * @param int $video_upload_type video_upload_type
+     *
+     * @return $this
+     */
+    public function setVideoUploadType($video_upload_type)
+    {
+        $this->container['video_upload_type'] = $video_upload_type;
 
         return $this;
     }

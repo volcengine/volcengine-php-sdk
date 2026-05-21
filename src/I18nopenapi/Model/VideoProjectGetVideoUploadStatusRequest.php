@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class VideoProjectGetVideoUploadStatusRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'VideoProjectGetVideoUploadStatusRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'batch_id' => 'string',
+        'project_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'batch_id' => null,
+        'project_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'batch_id' => 'batchId',
+        'project_id' => 'projectId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'batch_id' => 'setBatchId',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'batch_id' => 'getBatchId',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['batch_id'] === null) {
+            $invalidProperties[] = "'batch_id' can't be null";
+        }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
+     * Gets batch_id
      *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
+     * @return string
      */
-    public function getStyleConfig()
+    public function getBatchId()
     {
-        return $this->container['style_config'];
+        return $this->container['batch_id'];
     }
 
     /**
-     * Sets style_config
+     * Sets batch_id
      *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
+     * @param string $batch_id batch_id
      *
      * @return $this
      */
-    public function setStyleConfig($style_config)
+    public function setBatchId($batch_id)
     {
-        $this->container['style_config'] = $style_config;
+        $this->container['batch_id'] = $batch_id;
 
         return $this;
     }
 
     /**
-     * Gets subtask_id
+     * Gets project_id
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getProjectId()
     {
-        return $this->container['subtask_id'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets project_id
      *
-     * @param string $subtask_id subtask_id
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setProjectId($project_id)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

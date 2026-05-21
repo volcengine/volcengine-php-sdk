@@ -30,6 +30,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     protected static $swaggerTypes = [
         'ai_remove_type' => 'int',
         'asr_model' => 'int',
+        'audit_fail_policy' => 'int',
         'bgm_policy' => 'int',
         'comment' => 'string',
         'created_at' => 'string',
@@ -68,6 +69,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     protected static $swaggerFormats = [
         'ai_remove_type' => 'int32',
         'asr_model' => 'int32',
+        'audit_fail_policy' => 'int32',
         'bgm_policy' => 'int32',
         'comment' => null,
         'created_at' => null,
@@ -127,6 +129,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     protected static $attributeMap = [
         'ai_remove_type' => 'aiRemoveType',
         'asr_model' => 'asrModel',
+        'audit_fail_policy' => 'auditFailPolicy',
         'bgm_policy' => 'bgmPolicy',
         'comment' => 'comment',
         'created_at' => 'createdAt',
@@ -165,6 +168,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     protected static $setters = [
         'ai_remove_type' => 'setAiRemoveType',
         'asr_model' => 'setAsrModel',
+        'audit_fail_policy' => 'setAuditFailPolicy',
         'bgm_policy' => 'setBgmPolicy',
         'comment' => 'setComment',
         'created_at' => 'setCreatedAt',
@@ -203,6 +207,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     protected static $getters = [
         'ai_remove_type' => 'getAiRemoveType',
         'asr_model' => 'getAsrModel',
+        'audit_fail_policy' => 'getAuditFailPolicy',
         'bgm_policy' => 'getBgmPolicy',
         'comment' => 'getComment',
         'created_at' => 'getCreatedAt',
@@ -295,6 +300,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;
+        $this->container['audit_fail_policy'] = isset($data['audit_fail_policy']) ? $data['audit_fail_policy'] : null;
         $this->container['bgm_policy'] = isset($data['bgm_policy']) ? $data['bgm_policy'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -393,6 +399,30 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     public function setAsrModel($asr_model)
     {
         $this->container['asr_model'] = $asr_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets audit_fail_policy
+     *
+     * @return int
+     */
+    public function getAuditFailPolicy()
+    {
+        return $this->container['audit_fail_policy'];
+    }
+
+    /**
+     * Sets audit_fail_policy
+     *
+     * @param int $audit_fail_policy audit_fail_policy
+     *
+     * @return $this
+     */
+    public function setAuditFailPolicy($audit_fail_policy)
+    {
+        $this->container['audit_fail_policy'] = $audit_fail_policy;
 
         return $this;
     }

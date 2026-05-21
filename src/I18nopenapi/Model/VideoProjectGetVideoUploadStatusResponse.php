@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'VideoProjectGetVideoUploadStatusResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'video_upload_tasks' => '\Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[]'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'video_upload_tasks' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'video_upload_tasks' => 'videoUploadTasks'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'video_upload_tasks' => 'setVideoUploadTasks'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'video_upload_tasks' => 'getVideoUploadTasks'
     ];
 
     /**
@@ -153,8 +148,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['video_upload_tasks'] = isset($data['video_upload_tasks']) ? $data['video_upload_tasks'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
+     * Gets video_upload_tasks
      *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
+     * @return \Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[]
      */
-    public function getStyleConfig()
+    public function getVideoUploadTasks()
     {
-        return $this->container['style_config'];
+        return $this->container['video_upload_tasks'];
     }
 
     /**
-     * Sets style_config
+     * Sets video_upload_tasks
      *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
+     * @param \Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[] $video_upload_tasks video_upload_tasks
      *
      * @return $this
      */
-    public function setStyleConfig($style_config)
+    public function setVideoUploadTasks($video_upload_tasks)
     {
-        $this->container['style_config'] = $style_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtask_id
-     *
-     * @return string
-     */
-    public function getSubtaskId()
-    {
-        return $this->container['subtask_id'];
-    }
-
-    /**
-     * Sets subtask_id
-     *
-     * @param string $subtask_id subtask_id
-     *
-     * @return $this
-     */
-    public function setSubtaskId($subtask_id)
-    {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['video_upload_tasks'] = $video_upload_tasks;
 
         return $this;
     }

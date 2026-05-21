@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class StyleConfigForVideoEditorUpdateGlobalStyleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'styleConfigForVideoEditorUpdateGlobalStyleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'source' => '\Volcengine\I18nopenapi\Model\SourceForVideoEditorUpdateGlobalStyleInput',
+        'target' => '\Volcengine\I18nopenapi\Model\TargetForVideoEditorUpdateGlobalStyleInput'
     ];
 
     /**
@@ -38,8 +38,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'source' => null,
+        'target' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'source' => 'source',
+        'target' => 'target'
     ];
 
     /**
@@ -79,8 +79,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'source' => 'setSource',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -89,8 +89,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'source' => 'getSource',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -153,8 +153,8 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
+     * Gets source
      *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
+     * @return \Volcengine\I18nopenapi\Model\SourceForVideoEditorUpdateGlobalStyleInput
      */
-    public function getStyleConfig()
+    public function getSource()
     {
-        return $this->container['style_config'];
+        return $this->container['source'];
     }
 
     /**
-     * Sets style_config
+     * Sets source
      *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
+     * @param \Volcengine\I18nopenapi\Model\SourceForVideoEditorUpdateGlobalStyleInput $source source
      *
      * @return $this
      */
-    public function setStyleConfig($style_config)
+    public function setSource($source)
     {
-        $this->container['style_config'] = $style_config;
+        $this->container['source'] = $source;
 
         return $this;
     }
 
     /**
-     * Gets subtask_id
+     * Gets target
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\TargetForVideoEditorUpdateGlobalStyleInput
      */
-    public function getSubtaskId()
+    public function getTarget()
     {
-        return $this->container['subtask_id'];
+        return $this->container['target'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets target
      *
-     * @param string $subtask_id subtask_id
+     * @param \Volcengine\I18nopenapi\Model\TargetForVideoEditorUpdateGlobalStyleInput $target target
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setTarget($target)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['target'] = $target;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'sourceForVideoEditorUpdateGlobalStyleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'alignment' => 'int',
+        'font_family' => 'string',
+        'font_size' => 'int',
+        'show' => 'float',
+        'x' => 'int',
+        'y' => 'int'
     ];
 
     /**
@@ -38,8 +42,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'alignment' => 'int32',
+        'font_family' => null,
+        'font_size' => 'int32',
+        'show' => 'float',
+        'x' => 'int64',
+        'y' => 'int64'
     ];
 
     /**
@@ -69,8 +77,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'alignment' => 'alignment',
+        'font_family' => 'fontFamily',
+        'font_size' => 'fontSize',
+        'show' => 'show',
+        'x' => 'x',
+        'y' => 'y'
     ];
 
     /**
@@ -79,8 +91,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'alignment' => 'setAlignment',
+        'font_family' => 'setFontFamily',
+        'font_size' => 'setFontSize',
+        'show' => 'setShow',
+        'x' => 'setX',
+        'y' => 'setY'
     ];
 
     /**
@@ -89,8 +105,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'alignment' => 'getAlignment',
+        'font_family' => 'getFontFamily',
+        'font_size' => 'getFontSize',
+        'show' => 'getShow',
+        'x' => 'getX',
+        'y' => 'getY'
     ];
 
     /**
@@ -153,8 +173,12 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['alignment'] = isset($data['alignment']) ? $data['alignment'] : null;
+        $this->container['font_family'] = isset($data['font_family']) ? $data['font_family'] : null;
+        $this->container['font_size'] = isset($data['font_size']) ? $data['font_size'] : null;
+        $this->container['show'] = isset($data['show']) ? $data['show'] : null;
+        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
+        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
     }
 
     /**
@@ -182,49 +206,145 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
+     * Gets alignment
      *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
+     * @return int
      */
-    public function getStyleConfig()
+    public function getAlignment()
     {
-        return $this->container['style_config'];
+        return $this->container['alignment'];
     }
 
     /**
-     * Sets style_config
+     * Sets alignment
      *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
+     * @param int $alignment alignment
      *
      * @return $this
      */
-    public function setStyleConfig($style_config)
+    public function setAlignment($alignment)
     {
-        $this->container['style_config'] = $style_config;
+        $this->container['alignment'] = $alignment;
 
         return $this;
     }
 
     /**
-     * Gets subtask_id
+     * Gets font_family
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getFontFamily()
     {
-        return $this->container['subtask_id'];
+        return $this->container['font_family'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets font_family
      *
-     * @param string $subtask_id subtask_id
+     * @param string $font_family font_family
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setFontFamily($font_family)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['font_family'] = $font_family;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_size
+     *
+     * @return int
+     */
+    public function getFontSize()
+    {
+        return $this->container['font_size'];
+    }
+
+    /**
+     * Sets font_size
+     *
+     * @param int $font_size font_size
+     *
+     * @return $this
+     */
+    public function setFontSize($font_size)
+    {
+        $this->container['font_size'] = $font_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets show
+     *
+     * @return float
+     */
+    public function getShow()
+    {
+        return $this->container['show'];
+    }
+
+    /**
+     * Sets show
+     *
+     * @param float $show show
+     *
+     * @return $this
+     */
+    public function setShow($show)
+    {
+        $this->container['show'] = $show;
+
+        return $this;
+    }
+
+    /**
+     * Gets x
+     *
+     * @return int
+     */
+    public function getX()
+    {
+        return $this->container['x'];
+    }
+
+    /**
+     * Sets x
+     *
+     * @param int $x x
+     *
+     * @return $this
+     */
+    public function setX($x)
+    {
+        $this->container['x'] = $x;
+
+        return $this;
+    }
+
+    /**
+     * Gets y
+     *
+     * @return int
+     */
+    public function getY()
+    {
+        return $this->container['y'];
+    }
+
+    /**
+     * Sets y
+     *
+     * @param int $y y
+     *
+     * @return $this
+     */
+    public function setY($y)
+    {
+        $this->container['y'] = $y;
 
         return $this;
     }

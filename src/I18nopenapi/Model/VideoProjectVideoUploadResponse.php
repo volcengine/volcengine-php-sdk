@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
+class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorUpdateGlobalStyleRequest';
+    protected static $swaggerModelName = 'VideoProjectVideoUploadResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style_config' => '\Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput',
-        'subtask_id' => 'string'
+        'batch_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style_config' => null,
-        'subtask_id' => null
+        'batch_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'style_config' => 'styleConfig',
-        'subtask_id' => 'subtaskId'
+        'batch_id' => 'batchId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'style_config' => 'setStyleConfig',
-        'subtask_id' => 'setSubtaskId'
+        'batch_id' => 'setBatchId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'style_config' => 'getStyleConfig',
-        'subtask_id' => 'getSubtaskId'
+        'batch_id' => 'getBatchId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['style_config'] = isset($data['style_config']) ? $data['style_config'] : null;
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class VideoEditorUpdateGlobalStyleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets style_config
-     *
-     * @return \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput
-     */
-    public function getStyleConfig()
-    {
-        return $this->container['style_config'];
-    }
-
-    /**
-     * Sets style_config
-     *
-     * @param \Volcengine\I18nopenapi\Model\StyleConfigForVideoEditorUpdateGlobalStyleInput $style_config style_config
-     *
-     * @return $this
-     */
-    public function setStyleConfig($style_config)
-    {
-        $this->container['style_config'] = $style_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtask_id
+     * Gets batch_id
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getBatchId()
     {
-        return $this->container['subtask_id'];
+        return $this->container['batch_id'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets batch_id
      *
-     * @param string $subtask_id subtask_id
+     * @param string $batch_id batch_id
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setBatchId($batch_id)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['batch_id'] = $batch_id;
 
         return $this;
     }
