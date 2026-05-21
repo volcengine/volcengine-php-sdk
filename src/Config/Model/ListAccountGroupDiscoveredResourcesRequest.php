@@ -32,8 +32,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         'max_results' => 'int',
         'next_token' => 'string',
         'regions' => 'string[]',
+        'resource_account_id' => 'int',
         'resource_identifiers' => 'string[]',
         'resource_ids' => 'string[]',
+        'resource_name' => 'string',
         'resource_status' => 'string',
         'resource_types' => 'string[]'
     ];
@@ -48,8 +50,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         'max_results' => 'int32',
         'next_token' => null,
         'regions' => null,
+        'resource_account_id' => 'int64',
         'resource_identifiers' => null,
         'resource_ids' => null,
+        'resource_name' => null,
         'resource_status' => null,
         'resource_types' => null
     ];
@@ -85,8 +89,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'regions' => 'Regions',
+        'resource_account_id' => 'ResourceAccountId',
         'resource_identifiers' => 'ResourceIdentifiers',
         'resource_ids' => 'ResourceIds',
+        'resource_name' => 'ResourceName',
         'resource_status' => 'ResourceStatus',
         'resource_types' => 'ResourceTypes'
     ];
@@ -101,8 +107,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'regions' => 'setRegions',
+        'resource_account_id' => 'setResourceAccountId',
         'resource_identifiers' => 'setResourceIdentifiers',
         'resource_ids' => 'setResourceIds',
+        'resource_name' => 'setResourceName',
         'resource_status' => 'setResourceStatus',
         'resource_types' => 'setResourceTypes'
     ];
@@ -117,8 +125,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'regions' => 'getRegions',
+        'resource_account_id' => 'getResourceAccountId',
         'resource_identifiers' => 'getResourceIdentifiers',
         'resource_ids' => 'getResourceIds',
+        'resource_name' => 'getResourceName',
         'resource_status' => 'getResourceStatus',
         'resource_types' => 'getResourceTypes'
     ];
@@ -202,8 +212,10 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
+        $this->container['resource_account_id'] = isset($data['resource_account_id']) ? $data['resource_account_id'] : null;
         $this->container['resource_identifiers'] = isset($data['resource_identifiers']) ? $data['resource_identifiers'] : null;
         $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
         $this->container['resource_status'] = isset($data['resource_status']) ? $data['resource_status'] : null;
         $this->container['resource_types'] = isset($data['resource_types']) ? $data['resource_types'] : null;
     }
@@ -340,6 +352,30 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
     }
 
     /**
+     * Gets resource_account_id
+     *
+     * @return int
+     */
+    public function getResourceAccountId()
+    {
+        return $this->container['resource_account_id'];
+    }
+
+    /**
+     * Sets resource_account_id
+     *
+     * @param int $resource_account_id resource_account_id
+     *
+     * @return $this
+     */
+    public function setResourceAccountId($resource_account_id)
+    {
+        $this->container['resource_account_id'] = $resource_account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_identifiers
      *
      * @return string[]
@@ -383,6 +419,30 @@ class ListAccountGroupDiscoveredResourcesRequest implements ModelInterface, Arra
     public function setResourceIds($resource_ids)
     {
         $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_name
+     *
+     * @return string
+     */
+    public function getResourceName()
+    {
+        return $this->container['resource_name'];
+    }
+
+    /**
+     * Sets resource_name
+     *
+     * @param string $resource_name resource_name
+     *
+     * @return $this
+     */
+    public function setResourceName($resource_name)
+    {
+        $this->container['resource_name'] = $resource_name;
 
         return $this;
     }

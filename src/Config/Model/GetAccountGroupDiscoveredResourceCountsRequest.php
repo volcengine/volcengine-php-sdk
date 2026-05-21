@@ -29,6 +29,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'account_group_id' => 'string',
+        'resource_account_id' => 'int',
         'resource_status' => 'string',
         'resource_types' => 'string[]'
     ];
@@ -40,6 +41,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
       */
     protected static $swaggerFormats = [
         'account_group_id' => null,
+        'resource_account_id' => 'int64',
         'resource_status' => null,
         'resource_types' => null
     ];
@@ -72,6 +74,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
      */
     protected static $attributeMap = [
         'account_group_id' => 'AccountGroupId',
+        'resource_account_id' => 'ResourceAccountId',
         'resource_status' => 'ResourceStatus',
         'resource_types' => 'ResourceTypes'
     ];
@@ -83,6 +86,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
      */
     protected static $setters = [
         'account_group_id' => 'setAccountGroupId',
+        'resource_account_id' => 'setResourceAccountId',
         'resource_status' => 'setResourceStatus',
         'resource_types' => 'setResourceTypes'
     ];
@@ -94,6 +98,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
      */
     protected static $getters = [
         'account_group_id' => 'getAccountGroupId',
+        'resource_account_id' => 'getResourceAccountId',
         'resource_status' => 'getResourceStatus',
         'resource_types' => 'getResourceTypes'
     ];
@@ -139,8 +144,23 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_STATUS_DELETED = 'Deleted';
+    const RESOURCE_STATUS_HELD = 'Held';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceStatusAllowableValues()
+    {
+        return [
+            self::RESOURCE_STATUS_DELETED,
+            self::RESOURCE_STATUS_HELD,
+        ];
+    }
     
 
     /**
@@ -159,6 +179,7 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
     public function __construct($data = null)
     {
         $this->container['account_group_id'] = isset($data['account_group_id']) ? $data['account_group_id'] : null;
+        $this->container['resource_account_id'] = isset($data['resource_account_id']) ? $data['resource_account_id'] : null;
         $this->container['resource_status'] = isset($data['resource_status']) ? $data['resource_status'] : null;
         $this->container['resource_types'] = isset($data['resource_types']) ? $data['resource_types'] : null;
     }
@@ -175,6 +196,14 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
         if ($this->container['account_group_id'] === null) {
             $invalidProperties[] = "'account_group_id' can't be null";
         }
+        $allowedValues = $this->getResourceStatusAllowableValues();
+        if (!is_null($this->container['resource_status']) && !in_array($this->container['resource_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -215,6 +244,30 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
     }
 
     /**
+     * Gets resource_account_id
+     *
+     * @return int
+     */
+    public function getResourceAccountId()
+    {
+        return $this->container['resource_account_id'];
+    }
+
+    /**
+     * Sets resource_account_id
+     *
+     * @param int $resource_account_id resource_account_id
+     *
+     * @return $this
+     */
+    public function setResourceAccountId($resource_account_id)
+    {
+        $this->container['resource_account_id'] = $resource_account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_status
      *
      * @return string
@@ -233,6 +286,15 @@ class GetAccountGroupDiscoveredResourceCountsRequest implements ModelInterface, 
      */
     public function setResourceStatus($resource_status)
     {
+        $allowedValues = $this->getResourceStatusAllowableValues();
+        if (!is_null($resource_status) && !in_array($resource_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['resource_status'] = $resource_status;
 
         return $this;
