@@ -37,6 +37,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         'last_update_timestamp' => 'string',
         'message_delay_time' => 'string',
         'message_model' => 'string',
+        'read_enable' => 'bool',
         'retry_max_times' => 'int',
         'rocketmq_version' => 'string',
         'service_status' => 'string',
@@ -60,6 +61,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         'last_update_timestamp' => null,
         'message_delay_time' => null,
         'message_model' => null,
+        'read_enable' => null,
         'retry_max_times' => 'int32',
         'rocketmq_version' => null,
         'service_status' => null,
@@ -104,6 +106,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         'last_update_timestamp' => 'LastUpdateTimestamp',
         'message_delay_time' => 'MessageDelayTime',
         'message_model' => 'MessageModel',
+        'read_enable' => 'ReadEnable',
         'retry_max_times' => 'RetryMaxTimes',
         'rocketmq_version' => 'RocketmqVersion',
         'service_status' => 'ServiceStatus',
@@ -127,6 +130,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         'last_update_timestamp' => 'setLastUpdateTimestamp',
         'message_delay_time' => 'setMessageDelayTime',
         'message_model' => 'setMessageModel',
+        'read_enable' => 'setReadEnable',
         'retry_max_times' => 'setRetryMaxTimes',
         'rocketmq_version' => 'setRocketmqVersion',
         'service_status' => 'setServiceStatus',
@@ -150,6 +154,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         'last_update_timestamp' => 'getLastUpdateTimestamp',
         'message_delay_time' => 'getMessageDelayTime',
         'message_model' => 'getMessageModel',
+        'read_enable' => 'getReadEnable',
         'retry_max_times' => 'getRetryMaxTimes',
         'rocketmq_version' => 'getRocketmqVersion',
         'service_status' => 'getServiceStatus',
@@ -227,6 +232,7 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
         $this->container['last_update_timestamp'] = isset($data['last_update_timestamp']) ? $data['last_update_timestamp'] : null;
         $this->container['message_delay_time'] = isset($data['message_delay_time']) ? $data['message_delay_time'] : null;
         $this->container['message_model'] = isset($data['message_model']) ? $data['message_model'] : null;
+        $this->container['read_enable'] = isset($data['read_enable']) ? $data['read_enable'] : null;
         $this->container['retry_max_times'] = isset($data['retry_max_times']) ? $data['retry_max_times'] : null;
         $this->container['rocketmq_version'] = isset($data['rocketmq_version']) ? $data['rocketmq_version'] : null;
         $this->container['service_status'] = isset($data['service_status']) ? $data['service_status'] : null;
@@ -471,6 +477,30 @@ class DescribeGroupsDetailResponse implements ModelInterface, ArrayAccess
     public function setMessageModel($message_model)
     {
         $this->container['message_model'] = $message_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_enable
+     *
+     * @return bool
+     */
+    public function getReadEnable()
+    {
+        return $this->container['read_enable'];
+    }
+
+    /**
+     * Sets read_enable
+     *
+     * @param bool $read_enable read_enable
+     *
+     * @return $this
+     */
+    public function setReadEnable($read_enable)
+    {
+        $this->container['read_enable'] = $read_enable;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'charge_type' => 'string',
+        'ignore_broker_info' => 'bool',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_status' => 'string',
@@ -51,6 +52,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'charge_type' => null,
+        'ignore_broker_info' => null,
         'instance_id' => null,
         'instance_name' => null,
         'instance_status' => null,
@@ -94,6 +96,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'charge_type' => 'ChargeType',
+        'ignore_broker_info' => 'IgnoreBrokerInfo',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
@@ -116,6 +119,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'charge_type' => 'setChargeType',
+        'ignore_broker_info' => 'setIgnoreBrokerInfo',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
@@ -138,6 +142,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'charge_type' => 'getChargeType',
+        'ignore_broker_info' => 'getIgnoreBrokerInfo',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
@@ -214,6 +219,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['ignore_broker_info'] = isset($data['ignore_broker_info']) ? $data['ignore_broker_info'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
@@ -279,6 +285,30 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
     public function setChargeType($charge_type)
     {
         $this->container['charge_type'] = $charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_broker_info
+     *
+     * @return bool
+     */
+    public function getIgnoreBrokerInfo()
+    {
+        return $this->container['ignore_broker_info'];
+    }
+
+    /**
+     * Sets ignore_broker_info
+     *
+     * @param bool $ignore_broker_info ignore_broker_info
+     *
+     * @return $this
+     */
+    public function setIgnoreBrokerInfo($ignore_broker_info)
+    {
+        $this->container['ignore_broker_info'] = $ignore_broker_info;
 
         return $this;
     }

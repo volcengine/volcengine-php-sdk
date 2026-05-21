@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class CreateAccessKeyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'CreateAccessKeyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'access_key' => 'string',
+        'secret_key' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        'access_key' => null,
+        'secret_key' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        'access_key' => 'AccessKey',
+        'secret_key' => 'SecretKey'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        'access_key' => 'setAccessKey',
+        'secret_key' => 'setSecretKey'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        'access_key' => 'getAccessKey',
+        'secret_key' => 'getSecretKey'
     ];
 
     /**
@@ -148,7 +153,8 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
+        $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
+        $this->container['secret_key'] = isset($data['secret_key']) ? $data['secret_key'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_results
+     * Gets access_key
      *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
+     * @return string
      */
-    public function getResendResults()
+    public function getAccessKey()
     {
-        return $this->container['resend_results'];
+        return $this->container['access_key'];
     }
 
     /**
-     * Sets resend_results
+     * Sets access_key
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
+     * @param string $access_key access_key
      *
      * @return $this
      */
-    public function setResendResults($resend_results)
+    public function setAccessKey($access_key)
     {
-        $this->container['resend_results'] = $resend_results;
+        $this->container['access_key'] = $access_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_key
+     *
+     * @return string
+     */
+    public function getSecretKey()
+    {
+        return $this->container['secret_key'];
+    }
+
+    /**
+     * Sets secret_key
+     *
+     * @param string $secret_key secret_key
+     *
+     * @return $this
+     */
+    public function setSecretKey($secret_key)
+    {
+        $this->container['secret_key'] = $secret_key;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class TopicLagMapForDescribeConsumerGroupLagOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'TopicLagMapForDescribeConsumerGroupLagOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
     }
 
     /**
@@ -174,30 +173,6 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets resend_results
-     *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
-     */
-    public function getResendResults()
-    {
-        return $this->container['resend_results'];
-    }
-
-    /**
-     * Sets resend_results
-     *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
-     *
-     * @return $this
-     */
-    public function setResendResults($resend_results)
-    {
-        $this->container['resend_results'] = $resend_results;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class DescribeConsumerGroupLagRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'DescribeConsumerGroupLagRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'group_id' => 'string',
+        'instance_id' => 'string',
+        'lite_topic' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        'group_id' => null,
+        'instance_id' => null,
+        'lite_topic' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        'group_id' => 'GroupId',
+        'instance_id' => 'InstanceId',
+        'lite_topic' => 'LiteTopic'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        'group_id' => 'setGroupId',
+        'instance_id' => 'setInstanceId',
+        'lite_topic' => 'setLiteTopic'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        'group_id' => 'getGroupId',
+        'instance_id' => 'getInstanceId',
+        'lite_topic' => 'getLiteTopic'
     ];
 
     /**
@@ -148,7 +158,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
+        $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
     }
 
     /**
@@ -160,6 +172,12 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['group_id'] === null) {
+            $invalidProperties[] = "'group_id' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +194,73 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_results
+     * Gets group_id
      *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
+     * @return string
      */
-    public function getResendResults()
+    public function getGroupId()
     {
-        return $this->container['resend_results'];
+        return $this->container['group_id'];
     }
 
     /**
-     * Sets resend_results
+     * Sets group_id
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
+     * @param string $group_id group_id
      *
      * @return $this
      */
-    public function setResendResults($resend_results)
+    public function setGroupId($group_id)
     {
-        $this->container['resend_results'] = $resend_results;
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lite_topic
+     *
+     * @return string
+     */
+    public function getLiteTopic()
+    {
+        return $this->container['lite_topic'];
+    }
+
+    /**
+     * Sets lite_topic
+     *
+     * @param string $lite_topic lite_topic
+     *
+     * @return $this
+     */
+    public function setLiteTopic($lite_topic)
+    {
+        $this->container['lite_topic'] = $lite_topic;
 
         return $this;
     }

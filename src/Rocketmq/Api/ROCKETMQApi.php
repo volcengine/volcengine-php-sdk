@@ -254,6 +254,68 @@ class ROCKETMQApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createAccessKey($body = null)
+    {
+        list($response) = $this->createAccessKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccessKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\CreateAccessKeyResponse';
+        $request = $this->createAccessKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccessKeyAsync($body = null)
+    {
+        return $this->createAccessKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccessKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\CreateAccessKeyResponse';
+        $request = $this->createAccessKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccessKeyRequest($body)
+    {
+        $resourcePath = '/CreateAccessKey/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createAllowList($body = null)
     {
         list($response) = $this->createAllowListWithHttpInfo($body);
@@ -1838,6 +1900,68 @@ class ROCKETMQApi
     protected function describeConsumedTopicsRequest($body)
     {
         $resourcePath = '/DescribeConsumedTopics/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeConsumerGroupLag($body = null)
+    {
+        list($response) = $this->describeConsumerGroupLagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeConsumerGroupLagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DescribeConsumerGroupLagResponse';
+        $request = $this->describeConsumerGroupLagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeConsumerGroupLagAsync($body = null)
+    {
+        return $this->describeConsumerGroupLagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeConsumerGroupLagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DescribeConsumerGroupLagResponse';
+        $request = $this->describeConsumerGroupLagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeConsumerGroupLagRequest($body)
+    {
+        $resourcePath = '/DescribeConsumerGroupLag/2023-01-01/rocketmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

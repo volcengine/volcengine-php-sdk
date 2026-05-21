@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class CreateAccessKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'CreateAccessKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'all_authority' => 'string',
+        'description' => 'string',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        'all_authority' => null,
+        'description' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        'all_authority' => 'AllAuthority',
+        'description' => 'Description',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        'all_authority' => 'setAllAuthority',
+        'description' => 'setDescription',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        'all_authority' => 'getAllAuthority',
+        'description' => 'getDescription',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -148,7 +158,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
+        $this->container['all_authority'] = isset($data['all_authority']) ? $data['all_authority'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -160,6 +172,12 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['all_authority'] === null) {
+            $invalidProperties[] = "'all_authority' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +194,73 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_results
+     * Gets all_authority
      *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
+     * @return string
      */
-    public function getResendResults()
+    public function getAllAuthority()
     {
-        return $this->container['resend_results'];
+        return $this->container['all_authority'];
     }
 
     /**
-     * Sets resend_results
+     * Sets all_authority
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
+     * @param string $all_authority all_authority
      *
      * @return $this
      */
-    public function setResendResults($resend_results)
+    public function setAllAuthority($all_authority)
     {
-        $this->container['resend_results'] = $resend_results;
+        $this->container['all_authority'] = $all_authority;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
