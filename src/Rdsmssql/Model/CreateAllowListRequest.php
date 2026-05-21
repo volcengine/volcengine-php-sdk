@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayAccess
+class CreateAllowListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceSpecInfoForDescribeDBInstanceSpecsOutput';
+    protected static $swaggerModelName = 'CreateAllowListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,16 +28,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'db_engine_version' => 'string',
-        'generation' => 'string',
-        'instance_type' => 'string',
-        'memory' => 'int',
-        'spec_code' => 'string',
-        'spec_family' => 'string',
-        'spec_sale_type' => 'string',
-        'spec_status' => 'string',
-        'vcpu' => 'int',
-        'zone_id' => 'string'
+        'allow_list' => 'string',
+        'allow_list_category' => 'string',
+        'allow_list_desc' => 'string',
+        'allow_list_name' => 'string',
+        'allow_list_type' => 'string',
+        'project_name' => 'string',
+        'security_group_bind_infos' => '\Volcengine\Rdsmssql\Model\SecurityGroupBindInfoForCreateAllowListInput[]',
+        'user_allow_list' => 'string'
     ];
 
     /**
@@ -46,16 +44,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'db_engine_version' => null,
-        'generation' => null,
-        'instance_type' => null,
-        'memory' => 'int32',
-        'spec_code' => null,
-        'spec_family' => null,
-        'spec_sale_type' => null,
-        'spec_status' => null,
-        'vcpu' => 'int32',
-        'zone_id' => null
+        'allow_list' => null,
+        'allow_list_category' => null,
+        'allow_list_desc' => null,
+        'allow_list_name' => null,
+        'allow_list_type' => null,
+        'project_name' => null,
+        'security_group_bind_infos' => null,
+        'user_allow_list' => null
     ];
 
     /**
@@ -85,16 +81,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'db_engine_version' => 'DBEngineVersion',
-        'generation' => 'Generation',
-        'instance_type' => 'InstanceType',
-        'memory' => 'Memory',
-        'spec_code' => 'SpecCode',
-        'spec_family' => 'SpecFamily',
-        'spec_sale_type' => 'SpecSaleType',
-        'spec_status' => 'SpecStatus',
-        'vcpu' => 'VCPU',
-        'zone_id' => 'ZoneId'
+        'allow_list' => 'AllowList',
+        'allow_list_category' => 'AllowListCategory',
+        'allow_list_desc' => 'AllowListDesc',
+        'allow_list_name' => 'AllowListName',
+        'allow_list_type' => 'AllowListType',
+        'project_name' => 'ProjectName',
+        'security_group_bind_infos' => 'SecurityGroupBindInfos',
+        'user_allow_list' => 'UserAllowList'
     ];
 
     /**
@@ -103,16 +97,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'db_engine_version' => 'setDbEngineVersion',
-        'generation' => 'setGeneration',
-        'instance_type' => 'setInstanceType',
-        'memory' => 'setMemory',
-        'spec_code' => 'setSpecCode',
-        'spec_family' => 'setSpecFamily',
-        'spec_sale_type' => 'setSpecSaleType',
-        'spec_status' => 'setSpecStatus',
-        'vcpu' => 'setVcpu',
-        'zone_id' => 'setZoneId'
+        'allow_list' => 'setAllowList',
+        'allow_list_category' => 'setAllowListCategory',
+        'allow_list_desc' => 'setAllowListDesc',
+        'allow_list_name' => 'setAllowListName',
+        'allow_list_type' => 'setAllowListType',
+        'project_name' => 'setProjectName',
+        'security_group_bind_infos' => 'setSecurityGroupBindInfos',
+        'user_allow_list' => 'setUserAllowList'
     ];
 
     /**
@@ -121,16 +113,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'db_engine_version' => 'getDbEngineVersion',
-        'generation' => 'getGeneration',
-        'instance_type' => 'getInstanceType',
-        'memory' => 'getMemory',
-        'spec_code' => 'getSpecCode',
-        'spec_family' => 'getSpecFamily',
-        'spec_sale_type' => 'getSpecSaleType',
-        'spec_status' => 'getSpecStatus',
-        'vcpu' => 'getVcpu',
-        'zone_id' => 'getZoneId'
+        'allow_list' => 'getAllowList',
+        'allow_list_category' => 'getAllowListCategory',
+        'allow_list_desc' => 'getAllowListDesc',
+        'allow_list_name' => 'getAllowListName',
+        'allow_list_type' => 'getAllowListType',
+        'project_name' => 'getProjectName',
+        'security_group_bind_infos' => 'getSecurityGroupBindInfos',
+        'user_allow_list' => 'getUserAllowList'
     ];
 
     /**
@@ -193,16 +183,14 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
-        $this->container['generation'] = isset($data['generation']) ? $data['generation'] : null;
-        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
-        $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
-        $this->container['spec_code'] = isset($data['spec_code']) ? $data['spec_code'] : null;
-        $this->container['spec_family'] = isset($data['spec_family']) ? $data['spec_family'] : null;
-        $this->container['spec_sale_type'] = isset($data['spec_sale_type']) ? $data['spec_sale_type'] : null;
-        $this->container['spec_status'] = isset($data['spec_status']) ? $data['spec_status'] : null;
-        $this->container['vcpu'] = isset($data['vcpu']) ? $data['vcpu'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['allow_list'] = isset($data['allow_list']) ? $data['allow_list'] : null;
+        $this->container['allow_list_category'] = isset($data['allow_list_category']) ? $data['allow_list_category'] : null;
+        $this->container['allow_list_desc'] = isset($data['allow_list_desc']) ? $data['allow_list_desc'] : null;
+        $this->container['allow_list_name'] = isset($data['allow_list_name']) ? $data['allow_list_name'] : null;
+        $this->container['allow_list_type'] = isset($data['allow_list_type']) ? $data['allow_list_type'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['security_group_bind_infos'] = isset($data['security_group_bind_infos']) ? $data['security_group_bind_infos'] : null;
+        $this->container['user_allow_list'] = isset($data['user_allow_list']) ? $data['user_allow_list'] : null;
     }
 
     /**
@@ -214,6 +202,9 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
     {
         $invalidProperties = [];
 
+        if ($this->container['allow_list_name'] === null) {
+            $invalidProperties[] = "'allow_list_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -230,241 +221,193 @@ class InstanceSpecInfoForDescribeDBInstanceSpecsOutput implements ModelInterface
 
 
     /**
-     * Gets db_engine_version
+     * Gets allow_list
      *
      * @return string
      */
-    public function getDbEngineVersion()
+    public function getAllowList()
     {
-        return $this->container['db_engine_version'];
+        return $this->container['allow_list'];
     }
 
     /**
-     * Sets db_engine_version
+     * Sets allow_list
      *
-     * @param string $db_engine_version db_engine_version
+     * @param string $allow_list allow_list
      *
      * @return $this
      */
-    public function setDbEngineVersion($db_engine_version)
+    public function setAllowList($allow_list)
     {
-        $this->container['db_engine_version'] = $db_engine_version;
+        $this->container['allow_list'] = $allow_list;
 
         return $this;
     }
 
     /**
-     * Gets generation
+     * Gets allow_list_category
      *
      * @return string
      */
-    public function getGeneration()
+    public function getAllowListCategory()
     {
-        return $this->container['generation'];
+        return $this->container['allow_list_category'];
     }
 
     /**
-     * Sets generation
+     * Sets allow_list_category
      *
-     * @param string $generation generation
+     * @param string $allow_list_category allow_list_category
      *
      * @return $this
      */
-    public function setGeneration($generation)
+    public function setAllowListCategory($allow_list_category)
     {
-        $this->container['generation'] = $generation;
+        $this->container['allow_list_category'] = $allow_list_category;
 
         return $this;
     }
 
     /**
-     * Gets instance_type
+     * Gets allow_list_desc
      *
      * @return string
      */
-    public function getInstanceType()
+    public function getAllowListDesc()
     {
-        return $this->container['instance_type'];
+        return $this->container['allow_list_desc'];
     }
 
     /**
-     * Sets instance_type
+     * Sets allow_list_desc
      *
-     * @param string $instance_type instance_type
+     * @param string $allow_list_desc allow_list_desc
      *
      * @return $this
      */
-    public function setInstanceType($instance_type)
+    public function setAllowListDesc($allow_list_desc)
     {
-        $this->container['instance_type'] = $instance_type;
+        $this->container['allow_list_desc'] = $allow_list_desc;
 
         return $this;
     }
 
     /**
-     * Gets memory
-     *
-     * @return int
-     */
-    public function getMemory()
-    {
-        return $this->container['memory'];
-    }
-
-    /**
-     * Sets memory
-     *
-     * @param int $memory memory
-     *
-     * @return $this
-     */
-    public function setMemory($memory)
-    {
-        $this->container['memory'] = $memory;
-
-        return $this;
-    }
-
-    /**
-     * Gets spec_code
+     * Gets allow_list_name
      *
      * @return string
      */
-    public function getSpecCode()
+    public function getAllowListName()
     {
-        return $this->container['spec_code'];
+        return $this->container['allow_list_name'];
     }
 
     /**
-     * Sets spec_code
+     * Sets allow_list_name
      *
-     * @param string $spec_code spec_code
+     * @param string $allow_list_name allow_list_name
      *
      * @return $this
      */
-    public function setSpecCode($spec_code)
+    public function setAllowListName($allow_list_name)
     {
-        $this->container['spec_code'] = $spec_code;
+        $this->container['allow_list_name'] = $allow_list_name;
 
         return $this;
     }
 
     /**
-     * Gets spec_family
+     * Gets allow_list_type
      *
      * @return string
      */
-    public function getSpecFamily()
+    public function getAllowListType()
     {
-        return $this->container['spec_family'];
+        return $this->container['allow_list_type'];
     }
 
     /**
-     * Sets spec_family
+     * Sets allow_list_type
      *
-     * @param string $spec_family spec_family
+     * @param string $allow_list_type allow_list_type
      *
      * @return $this
      */
-    public function setSpecFamily($spec_family)
+    public function setAllowListType($allow_list_type)
     {
-        $this->container['spec_family'] = $spec_family;
+        $this->container['allow_list_type'] = $allow_list_type;
 
         return $this;
     }
 
     /**
-     * Gets spec_sale_type
+     * Gets project_name
      *
      * @return string
      */
-    public function getSpecSaleType()
+    public function getProjectName()
     {
-        return $this->container['spec_sale_type'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets spec_sale_type
+     * Sets project_name
      *
-     * @param string $spec_sale_type spec_sale_type
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setSpecSaleType($spec_sale_type)
+    public function setProjectName($project_name)
     {
-        $this->container['spec_sale_type'] = $spec_sale_type;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
 
     /**
-     * Gets spec_status
+     * Gets security_group_bind_infos
+     *
+     * @return \Volcengine\Rdsmssql\Model\SecurityGroupBindInfoForCreateAllowListInput[]
+     */
+    public function getSecurityGroupBindInfos()
+    {
+        return $this->container['security_group_bind_infos'];
+    }
+
+    /**
+     * Sets security_group_bind_infos
+     *
+     * @param \Volcengine\Rdsmssql\Model\SecurityGroupBindInfoForCreateAllowListInput[] $security_group_bind_infos security_group_bind_infos
+     *
+     * @return $this
+     */
+    public function setSecurityGroupBindInfos($security_group_bind_infos)
+    {
+        $this->container['security_group_bind_infos'] = $security_group_bind_infos;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_allow_list
      *
      * @return string
      */
-    public function getSpecStatus()
+    public function getUserAllowList()
     {
-        return $this->container['spec_status'];
+        return $this->container['user_allow_list'];
     }
 
     /**
-     * Sets spec_status
+     * Sets user_allow_list
      *
-     * @param string $spec_status spec_status
+     * @param string $user_allow_list user_allow_list
      *
      * @return $this
      */
-    public function setSpecStatus($spec_status)
+    public function setUserAllowList($user_allow_list)
     {
-        $this->container['spec_status'] = $spec_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets vcpu
-     *
-     * @return int
-     */
-    public function getVcpu()
-    {
-        return $this->container['vcpu'];
-    }
-
-    /**
-     * Sets vcpu
-     *
-     * @param int $vcpu vcpu
-     *
-     * @return $this
-     */
-    public function setVcpu($vcpu)
-    {
-        $this->container['vcpu'] = $vcpu;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['user_allow_list'] = $user_allow_list;
 
         return $this;
     }

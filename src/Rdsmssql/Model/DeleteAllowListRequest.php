@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class DeleteAllowListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'DeleteAllowListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'allow_list_id' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'allow_list_id' => null,
+        'project_name' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'allow_list_id' => 'AllowListId',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'allow_list_id' => 'setAllowListId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'allow_list_id' => 'getAllowListId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -148,7 +153,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['allow_list_id'] = isset($data['allow_list_id']) ? $data['allow_list_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -160,6 +166,9 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['allow_list_id'] === null) {
+            $invalidProperties[] = "'allow_list_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +185,49 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets allow_list_id
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return string
      */
-    public function getInstanceSpecsInfo()
+    public function getAllowListId()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['allow_list_id'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets allow_list_id
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param string $allow_list_id allow_list_id
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setAllowListId($allow_list_id)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['allow_list_id'] = $allow_list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class DescribeAllowListsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'DescribeAllowListsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'allow_lists' => '\Volcengine\Rdsmssql\Model\AllowListForDescribeAllowListsOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'allow_lists' => null,
+        'total' => 'int64'
     ];
 
     /**
@@ -67,7 +69,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'allow_lists' => 'AllowLists',
+        'total' => 'Total'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'allow_lists' => 'setAllowLists',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'allow_lists' => 'getAllowLists',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -148,7 +153,8 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['allow_lists'] = isset($data['allow_lists']) ? $data['allow_lists'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets allow_lists
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return \Volcengine\Rdsmssql\Model\AllowListForDescribeAllowListsOutput[]
      */
-    public function getInstanceSpecsInfo()
+    public function getAllowLists()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['allow_lists'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets allow_lists
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param \Volcengine\Rdsmssql\Model\AllowListForDescribeAllowListsOutput[] $allow_lists allow_lists
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setAllowLists($allow_lists)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['allow_lists'] = $allow_lists;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

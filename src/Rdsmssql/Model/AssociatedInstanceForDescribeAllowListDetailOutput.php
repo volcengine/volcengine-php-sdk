@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
+class AssociatedInstanceForDescribeAllowListDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceSpecsResponse';
+    protected static $swaggerModelName = 'AssociatedInstanceForDescribeAllowListDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
+        'instance_id' => 'string',
+        'instance_name' => 'string',
+        'instance_status' => 'string',
+        'is_latest' => 'bool',
+        'project_name' => 'string',
+        'vpc' => 'string'
     ];
 
     /**
@@ -37,7 +42,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_specs_info' => null
+        'instance_id' => null,
+        'instance_name' => null,
+        'instance_status' => null,
+        'is_latest' => null,
+        'project_name' => null,
+        'vpc' => null
     ];
 
     /**
@@ -67,7 +77,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_specs_info' => 'InstanceSpecsInfo'
+        'instance_id' => 'InstanceId',
+        'instance_name' => 'InstanceName',
+        'instance_status' => 'InstanceStatus',
+        'is_latest' => 'IsLatest',
+        'project_name' => 'ProjectName',
+        'vpc' => 'VPC'
     ];
 
     /**
@@ -76,7 +91,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_specs_info' => 'setInstanceSpecsInfo'
+        'instance_id' => 'setInstanceId',
+        'instance_name' => 'setInstanceName',
+        'instance_status' => 'setInstanceStatus',
+        'is_latest' => 'setIsLatest',
+        'project_name' => 'setProjectName',
+        'vpc' => 'setVpc'
     ];
 
     /**
@@ -85,7 +105,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_specs_info' => 'getInstanceSpecsInfo'
+        'instance_id' => 'getInstanceId',
+        'instance_name' => 'getInstanceName',
+        'instance_status' => 'getInstanceStatus',
+        'is_latest' => 'getIsLatest',
+        'project_name' => 'getProjectName',
+        'vpc' => 'getVpc'
     ];
 
     /**
@@ -148,7 +173,12 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
+        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
+        $this->container['is_latest'] = isset($data['is_latest']) ? $data['is_latest'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['vpc'] = isset($data['vpc']) ? $data['vpc'] : null;
     }
 
     /**
@@ -176,25 +206,145 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_specs_info
+     * Gets instance_id
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
+     * @return string
      */
-    public function getInstanceSpecsInfo()
+    public function getInstanceId()
     {
-        return $this->container['instance_specs_info'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets instance_specs_info
+     * Sets instance_id
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setInstanceSpecsInfo($instance_specs_info)
+    public function setInstanceId($instance_id)
     {
-        $this->container['instance_specs_info'] = $instance_specs_info;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_status
+     *
+     * @return string
+     */
+    public function getInstanceStatus()
+    {
+        return $this->container['instance_status'];
+    }
+
+    /**
+     * Sets instance_status
+     *
+     * @param string $instance_status instance_status
+     *
+     * @return $this
+     */
+    public function setInstanceStatus($instance_status)
+    {
+        $this->container['instance_status'] = $instance_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_latest
+     *
+     * @return bool
+     */
+    public function getIsLatest()
+    {
+        return $this->container['is_latest'];
+    }
+
+    /**
+     * Sets is_latest
+     *
+     * @param bool $is_latest is_latest
+     *
+     * @return $this
+     */
+    public function setIsLatest($is_latest)
+    {
+        $this->container['is_latest'] = $is_latest;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc
+     *
+     * @return string
+     */
+    public function getVpc()
+    {
+        return $this->container['vpc'];
+    }
+
+    /**
+     * Sets vpc
+     *
+     * @param string $vpc vpc
+     *
+     * @return $this
+     */
+    public function setVpc($vpc)
+    {
+        $this->container['vpc'] = $vpc;
 
         return $this;
     }
