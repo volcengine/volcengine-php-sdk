@@ -28,7 +28,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'batch_id' => 'string'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectVideoUploadOutput'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'batch_id' => null
+        'data' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_id' => 'batchId'
+        'data' => 'data'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'batch_id' => 'setBatchId'
+        'data' => 'setData'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'batch_id' => 'getBatchId'
+        'data' => 'getData'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoProjectVideoUploadResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets batch_id
+     * Gets data
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectVideoUploadOutput
      */
-    public function getBatchId()
+    public function getData()
     {
-        return $this->container['batch_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets batch_id
+     * Sets data
      *
-     * @param string $batch_id batch_id
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectVideoUploadOutput $data data
      *
      * @return $this
      */
-    public function setBatchId($batch_id)
+    public function setData($data)
     {
-        $this->container['batch_id'] = $batch_id;
+        $this->container['data'] = $data;
 
         return $this;
     }
