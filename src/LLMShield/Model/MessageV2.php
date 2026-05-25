@@ -49,6 +49,21 @@ class MessageV2 implements JsonSerializable
                 'class' => '\Volcengine\LLMShield\Model\MultiPart',
                 ),
         ),
+        5 => array(
+            'var' => 'ToolCallID',
+            'isRequired' => false,
+            'type' => TType::STRING,
+        ),
+        6 => array(
+            'var' => 'ToolCall',
+            'isRequired' => false,
+            'type' => TType::LST,
+            'etype' => TType::STRUCT,
+            'elem' => array(
+                'type' => TType::STRUCT,
+                'class' => '\Volcengine\LLMShield\Model\ToolCall',
+                ),
+        ),
     );
 
     /**
@@ -67,6 +82,14 @@ class MessageV2 implements JsonSerializable
      * @var \Volcengine\LLMShield\Model\MultiPart[]
      */
     public $MultiPart = null;
+    /**
+     * @var string
+     */
+    public $ToolCallID = null;
+    /**
+     * @var \Volcengine\LLMShield\Model\ToolCall[]
+     */
+    public $ToolCall = null;
 
     public function __construct($vals = null)
     {
@@ -82,6 +105,12 @@ class MessageV2 implements JsonSerializable
             }
             if (isset($vals['MultiPart'])) {
                 $this->MultiPart = $vals['MultiPart'];
+            }
+            if (isset($vals['ToolCallID'])) {
+                $this->ToolCallID = $vals['ToolCallID'];
+            }
+            if (isset($vals['ToolCall'])) {
+                $this->ToolCall = $vals['ToolCall'];
             }
         }
     }
@@ -143,6 +172,30 @@ class MessageV2 implements JsonSerializable
                         $xfer += $input->skip($ftype);
                     }
                     break;
+                case 5:
+                    if ($ftype == TType::STRING) {
+                        $xfer += $input->readString($this->ToolCallID);
+                    } else {
+                        $xfer += $input->skip($ftype);
+                    }
+                    break;
+                case 6:
+                    if ($ftype == TType::LST) {
+                        $this->ToolCall = array();
+                        $_size6 = 0;
+                        $_etype9 = 0;
+                        $xfer += $input->readListBegin($_etype9, $_size6);
+                        for ($_i10 = 0; $_i10 < $_size6; ++$_i10) {
+                            $elem11 = null;
+                            $elem11 = new \Volcengine\LLMShield\Model\ToolCall();
+                            $xfer += $elem11->read($input);
+                            $this->ToolCall []= $elem11;
+                        }
+                        $xfer += $input->readListEnd();
+                    } else {
+                        $xfer += $input->skip($ftype);
+                    }
+                    break;
                 default:
                     $xfer += $input->skip($ftype);
                     break;
@@ -184,6 +237,23 @@ class MessageV2 implements JsonSerializable
             $output->writeListEnd();
             $xfer += $output->writeFieldEnd();
         }
+        if ($this->ToolCallID !== null) {
+            $xfer += $output->writeFieldBegin('ToolCallID', TType::STRING, 5);
+            $xfer += $output->writeString($this->ToolCallID);
+            $xfer += $output->writeFieldEnd();
+        }
+        if ($this->ToolCall !== null) {
+            if (!is_array($this->ToolCall)) {
+                throw new TProtocolException('Bad type in structure.', TProtocolException::INVALID_DATA);
+            }
+            $xfer += $output->writeFieldBegin('ToolCall', TType::LST, 6);
+            $output->writeListBegin(TType::STRUCT, count($this->ToolCall));
+            foreach ($this->ToolCall as $iter12) {
+                $xfer += $iter12->write($output);
+            }
+            $output->writeListEnd();
+            $xfer += $output->writeFieldEnd();
+        }
         $xfer += $output->writeFieldStop();
         $xfer += $output->writeStructEnd();
         return $xfer;
@@ -203,6 +273,12 @@ class MessageV2 implements JsonSerializable
         }
         if ($this->MultiPart !== null) {
             $json->MultiPart = $this->MultiPart;
+        }
+        if ($this->ToolCallID !== null) {
+            $json->ToolCallID = (string)$this->ToolCallID;
+        }
+        if ($this->ToolCall !== null) {
+            $json->ToolCall = $this->ToolCall;
         }
         return $json;
     }
