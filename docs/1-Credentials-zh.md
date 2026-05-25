@@ -11,7 +11,7 @@
 | Provider | 用途 | 是否自动刷新 | 典型场景 |
 | --- | --- | --- | --- |
 | 直接在 `Configuration` 中设置 `AK/SK` 或 `AK/SK/Token` | 显式传入固定或临时凭证 | 否 | 简单服务端接入 |
-| `StsProvider` | STS AssumeRole | 是 | 基于角色的临时凭证 |
+| `StsProvider` | STS AssumeRole | 否 | 基于角色的临时凭证（每次调用都请求 STS，需调用方自行缓存） |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
@@ -156,7 +156,7 @@ try {
 
 ### OIDC 凭证提供者
 
-`OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证并缓存复用，在到期前自动刷新。过期时间按本地 `durationSeconds` 估算；建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
+`OidcCredentialProvider` 通过 STS AssumeRoleWithOIDC 获取临时凭证并缓存复用，在到期前自动刷新。过期时间优先使用 STS 返回的 `Expiration`；若响应中未携带该字段，则按本地 `durationSeconds` 估算。建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
 
 支持的 OIDC 环境变量：
 
