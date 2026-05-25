@@ -99,7 +99,7 @@ class SsoCredentialProvider extends Provider
                 $refreshedToken = $this->refreshAccessToken($diskCache, $tokenPath, $region);
             } catch (InvalidGrantApiException $e2) {
                 throw new ApiException(
-                    self::PROVIDER_NAME . ": sso refresh token rejected; reloaded disk cache but the new refresh token was also rejected; please run 've sso login'. underlying error: "
+                    self::PROVIDER_NAME . ": sso refresh token rejected; reloaded disk cache but the new refresh token was also rejected; please run 've sso login' to re-authenticate. underlying error: "
                         . $e2->getMessage()
                 );
             }
