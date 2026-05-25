@@ -50,36 +50,60 @@ class SsoCredentialProvider extends Provider
 
     private function retrieve()
     {
-        // Fast path: use cached STS credentials if still valid
+        // Fast path: use cached STS credentials from the CLI profile if still valid.
         $fastResult = $this->useStsCredentialsIfValid();
         if ($fastResult !== null) {
             return $fastResult;
         }
 
-        // Resolve SSO session configuration
         list($sessionName, $startURL, $region) = $this->resolveSsoSession();
-
-        // Resolve token cache file path
         $tokenPath = $this->resolveTokenCachePath($startURL, $sessionName);
-
-        // Load token cache
         $tokenCache = $this->loadTokenCache($tokenPath);
 
-        $accessToken = isset($tokenCache['access_token']) ? trim($tokenCache['access_token']) : '';
+        $accessToken = isset($tokenCache['access_token']) && is_string($tokenCache['access_token'])
+            ? trim($tokenCache['access_token']) : '';
         if ($accessToken === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain access_token"
+                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain access_token; please run 've sso login' to re-authenticate"
             );
         }
 
-        // Check if token is expired
-        $expired = $this->isTokenExpired($tokenCache);
-        if (!$expired) {
+        if (!$this->isTokenExpired($tokenCache)) {
             return $this->getRoleCredentials($accessToken, $region);
         }
 
-        // Refresh the access token
-        $refreshedToken = $this->refreshAccessToken($tokenCache, $tokenPath, $region);
+        try {
+            $refreshedToken = $this->refreshAccessToken($tokenCache, $tokenPath, $region);
+        } catch (InvalidGrantApiException $e) {
+            // Fallback: a concurrent `ve sso login` or another SDK process may
+            // have rotated the cache under us. Reload the disk file once; if
+            // the disk refresh_token differs, retry the OAuth call exactly
+            // once with the disk state. Otherwise surface an actionable error.
+            $diskCache = $this->loadTokenCache($tokenPath);
+            $diskRT = isset($diskCache['refresh_token']) && is_string($diskCache['refresh_token'])
+                ? trim($diskCache['refresh_token']) : '';
+            $memRT = isset($tokenCache['refresh_token']) && is_string($tokenCache['refresh_token'])
+                ? trim($tokenCache['refresh_token']) : '';
+            if ($diskRT === '' || $diskRT === $memRT) {
+                throw new ApiException(
+                    self::PROVIDER_NAME . ": sso refresh token was rejected and the disk cache holds no fresher token; please run 've sso login' to re-authenticate. underlying error: "
+                        . $e->getMessage()
+                );
+            }
+            $diskAccessToken = isset($diskCache['access_token']) && is_string($diskCache['access_token'])
+                ? trim($diskCache['access_token']) : '';
+            if ($diskAccessToken !== '' && !$this->isTokenExpired($diskCache)) {
+                return $this->getRoleCredentials($diskAccessToken, $region);
+            }
+            try {
+                $refreshedToken = $this->refreshAccessToken($diskCache, $tokenPath, $region);
+            } catch (InvalidGrantApiException $e2) {
+                throw new ApiException(
+                    self::PROVIDER_NAME . ": sso refresh token rejected; reloaded disk cache but the new refresh token was also rejected; please run 've sso login'. underlying error: "
+                        . $e2->getMessage()
+                );
+            }
+        }
 
         return $this->getRoleCredentials($refreshedToken, $region);
     }
@@ -165,7 +189,7 @@ class SsoCredentialProvider extends Provider
 
         if (!file_exists($tokenPath)) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} does not exist"
+                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} does not exist; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -186,20 +210,20 @@ class SsoCredentialProvider extends Provider
         $content = @file_get_contents($tokenPath);
         if ($content === false) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": failed to read sso token cache file {$tokenPath}"
+                self::PROVIDER_NAME . ": failed to read sso token cache file {$tokenPath}; please run 've sso login' to re-authenticate"
             );
         }
 
         if (trim($content) === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} was empty"
+                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} was empty; please run 've sso login' to re-authenticate"
             );
         }
 
         $data = json_decode($content, true);
         if (!is_array($data)) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": failed to parse sso token cache file {$tokenPath}"
+                self::PROVIDER_NAME . ": failed to parse sso token cache file {$tokenPath}; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -208,7 +232,8 @@ class SsoCredentialProvider extends Provider
 
     private function isTokenExpired($tokenCache)
     {
-        $expiresAt = isset($tokenCache['expires_at']) ? trim($tokenCache['expires_at']) : '';
+        $expiresAt = isset($tokenCache['expires_at']) && is_string($tokenCache['expires_at'])
+            ? trim($tokenCache['expires_at']) : '';
         if ($expiresAt === '') {
             return true;
         }
@@ -216,7 +241,7 @@ class SsoCredentialProvider extends Provider
         $ts = strtotime($expiresAt);
         if ($ts === false) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": failed to parse expires_at: {$expiresAt}"
+                self::PROVIDER_NAME . ": failed to parse expires_at: {$expiresAt}; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -225,10 +250,11 @@ class SsoCredentialProvider extends Provider
 
     private function refreshAccessToken($tokenCache, $tokenPath, $region)
     {
-        $refreshToken = isset($tokenCache['refresh_token']) ? trim($tokenCache['refresh_token']) : '';
+        $refreshToken = isset($tokenCache['refresh_token']) && is_string($tokenCache['refresh_token'])
+            ? trim($tokenCache['refresh_token']) : '';
         if ($refreshToken === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain refresh_token"
+                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain refresh_token; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -236,21 +262,23 @@ class SsoCredentialProvider extends Provider
         $clientSecretExpiresAt = isset($tokenCache['client_secret_expires_at']) ? (int) $tokenCache['client_secret_expires_at'] : 0;
         if ($clientSecretExpiresAt <= 0) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": refresh token expiration is missing in {$tokenPath}"
+                self::PROVIDER_NAME . ": refresh token expiration is missing in {$tokenPath}; please run 've sso login' to re-authenticate"
             );
         }
         $refreshExpTime = $this->unixTimestampToSeconds($clientSecretExpiresAt);
         if (time() >= $refreshExpTime) {
             throw new ApiException(
-                self::PROVIDER_NAME . ": refresh token in {$tokenPath} has expired"
+                self::PROVIDER_NAME . ": refresh token in {$tokenPath} has expired; please run 've sso login' to re-authenticate"
             );
         }
 
-        $clientId = isset($tokenCache['client_id']) ? trim($tokenCache['client_id']) : '';
-        $clientSecret = isset($tokenCache['client_secret']) ? trim($tokenCache['client_secret']) : '';
+        $clientId = isset($tokenCache['client_id']) && is_string($tokenCache['client_id'])
+            ? trim($tokenCache['client_id']) : '';
+        $clientSecret = isset($tokenCache['client_secret']) && is_string($tokenCache['client_secret'])
+            ? trim($tokenCache['client_secret']) : '';
         if ($clientId === '' || $clientSecret === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain client_id/client_secret"
+                self::PROVIDER_NAME . ": sso token cache file {$tokenPath} did not contain client_id/client_secret; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -266,27 +294,28 @@ class SsoCredentialProvider extends Provider
         $response = json_decode($responseBody, true);
         if (!is_array($response)) {
             throw new ApiException(
-                self::PROVIDER_NAME . ': failed to parse OAuth token refresh response'
+                self::PROVIDER_NAME . ": failed to parse OAuth token refresh response; please run 've sso login' to re-authenticate"
             );
         }
 
-        $newAccessToken = isset($response['access_token']) ? trim($response['access_token']) : '';
+        $newAccessToken = isset($response['access_token']) && is_string($response['access_token'])
+            ? trim($response['access_token']) : '';
         if ($newAccessToken === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ': OAuth token refresh response did not include access_token'
+                self::PROVIDER_NAME . ": OAuth token refresh response did not include access_token; please run 've sso login' to re-authenticate"
             );
         }
 
         $expiresIn = isset($response['expires_in']) ? (int) $response['expires_in'] : 0;
         if ($expiresIn <= 0) {
             throw new ApiException(
-                self::PROVIDER_NAME . ': OAuth token refresh response did not include expires_in'
+                self::PROVIDER_NAME . ": OAuth token refresh response did not include expires_in; please run 've sso login' to re-authenticate"
             );
         }
 
         // Update token cache
         $tokenCache['access_token'] = $newAccessToken;
-        if (isset($response['refresh_token']) && trim($response['refresh_token']) !== '') {
+        if (isset($response['refresh_token']) && is_string($response['refresh_token']) && trim($response['refresh_token']) !== '') {
             $tokenCache['refresh_token'] = $response['refresh_token'];
         }
         $tokenCache['expires_at'] = gmdate('Y-m-d\TH:i:s\Z', time() + $expiresIn);
@@ -321,25 +350,25 @@ class SsoCredentialProvider extends Provider
         $response = json_decode($responseBody, true);
         if (!is_array($response)) {
             throw new ApiException(
-                self::PROVIDER_NAME . ': failed to parse portal credentials response'
+                self::PROVIDER_NAME . ": failed to parse portal credentials response; please run 've sso login' to re-authenticate"
             );
         }
 
         $roleCreds = isset($response['Result']['RoleCredentials']) ? $response['Result']['RoleCredentials'] : null;
         if (!is_array($roleCreds)) {
             throw new ApiException(
-                self::PROVIDER_NAME . ': portal response did not contain Result.RoleCredentials'
+                self::PROVIDER_NAME . ": portal response did not contain Result.RoleCredentials; please run 've sso login' to re-authenticate"
             );
         }
 
-        $ak = isset($roleCreds['AccessKeyId']) ? trim($roleCreds['AccessKeyId']) : '';
-        $sk = isset($roleCreds['SecretAccessKey']) ? trim($roleCreds['SecretAccessKey']) : '';
-        $sessionToken = isset($roleCreds['SessionToken']) ? trim($roleCreds['SessionToken']) : '';
+        $ak = isset($roleCreds['AccessKeyId']) && is_string($roleCreds['AccessKeyId']) ? trim($roleCreds['AccessKeyId']) : '';
+        $sk = isset($roleCreds['SecretAccessKey']) && is_string($roleCreds['SecretAccessKey']) ? trim($roleCreds['SecretAccessKey']) : '';
+        $sessionToken = isset($roleCreds['SessionToken']) && is_string($roleCreds['SessionToken']) ? trim($roleCreds['SessionToken']) : '';
         $expiration = isset($roleCreds['Expiration']) ? (int) $roleCreds['Expiration'] : 0;
 
         if ($ak === '' || $sk === '') {
             throw new ApiException(
-                self::PROVIDER_NAME . ': portal credentials response did not include AccessKeyId or SecretAccessKey'
+                self::PROVIDER_NAME . ": portal credentials response did not include AccessKeyId or SecretAccessKey; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -375,16 +404,29 @@ class SsoCredentialProvider extends Provider
         } catch (TransferException $e) {
             throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP POST request failed to ' . $url . ' - ' . $e->getMessage()
+                . "; please run 've sso login' to re-authenticate"
             );
         }
 
         $statusCode = $response->getStatusCode();
         $responseBody = (string) $response->getBody();
 
+        if ($statusCode === 400) {
+            $decoded = json_decode($responseBody, true);
+            $err = is_array($decoded) && isset($decoded['error']) && is_string($decoded['error'])
+                ? $decoded['error'] : '';
+            if ($err === 'invalid_grant') {
+                throw new InvalidGrantApiException(
+                    'sso refresh_token rejected (invalid_grant): ' . $responseBody
+                );
+            }
+        }
+
         if ($statusCode < 200 || $statusCode >= 300) {
             throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP POST request failed with status ' . $statusCode
-                . ($responseBody !== '' ? ': ' . $responseBody : ''),
+                . ($responseBody !== '' ? ': ' . $responseBody : '')
+                . "; please run 've sso login' to re-authenticate",
                 $statusCode,
                 $response->getHeaders(),
                 $responseBody
@@ -413,6 +455,7 @@ class SsoCredentialProvider extends Provider
         } catch (TransferException $e) {
             throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP GET request failed to ' . $url . ' - ' . $e->getMessage()
+                . "; please run 've sso login' to re-authenticate"
             );
         }
 
@@ -422,7 +465,8 @@ class SsoCredentialProvider extends Provider
         if ($statusCode < 200 || $statusCode >= 300) {
             throw new ApiException(
                 self::PROVIDER_NAME . ': HTTP GET request failed with status ' . $statusCode
-                . ($responseBody !== '' ? ': ' . $responseBody : ''),
+                . ($responseBody !== '' ? ': ' . $responseBody : '')
+                . "; please run 've sso login' to re-authenticate",
                 $statusCode,
                 $response->getHeaders(),
                 $responseBody
@@ -440,6 +484,15 @@ class SsoCredentialProvider extends Provider
         }
 
         $json = json_encode($tokenCache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        if ($json === false) {
+            // SSO refresh contract requires the disk write to succeed so other PHP
+            // processes can reuse the rotated token; throw loudly here, unlike the
+            // console-login provider which can silently fall back to in-memory
+            // credentials and let the next process re-refresh.
+            throw new ApiException(
+                self::PROVIDER_NAME . ": failed to encode sso token cache for {$tokenPath}"
+            );
+        }
         $tmpFile = $tokenPath . '.tmp.' . getmypid();
 
         if (@file_put_contents($tmpFile, $json) === false) {

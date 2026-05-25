@@ -268,8 +268,8 @@ Supported profile modes:
 - `ramrolearn` (delegates to `StsProvider`; supports `access-key`, `secret-key`, `role-name`, `account-id`, and optional `region`)
 - `oidc` (delegates to `OidcCredentialProvider`)
 - `ecsrole` (delegates to `EcsRoleCredentialProvider`)
-- `sso` (reads STS credentials from the CLI sso cache, delegates to `SsoCredentialProvider`)
-- `console-login` (reads STS credentials from the CLI console-login cache, delegates to `ConsoleLoginCredentialProvider`)
+- `sso` (reads STS credentials from the CLI sso cache; auto-refreshes the access token via OAuth when expired, delegates to `SsoCredentialProvider`)
+- `console-login` (reads STS credentials from the CLI console-login cache; auto-refreshes via OAuth `refresh_token` when expired, delegates to `ConsoleLoginCredentialProvider`)
 
 ```php
 <?php
@@ -284,6 +284,35 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
         )
     );
 ```
+
+#### Runtime Refresh Behavior (sso / console-login)
+
+For `sso` and `console-login` modes the SDK auto-refreshes credentials in the
+current PHP process when the cached access token enters its expiry window (60 s
+before its TTL). Because PHP processes are short-lived, the refresh contract
+differs slightly from the Go / Java / Python SDKs:
+
+- **Per-object in-memory cache**: a single `CLIConfigCredentialProvider` instance
+  caches the parsed credentials for the lifetime of the object (within a single
+  PHP request), so repeated API calls inside one request reuse the same STS.
+- **Disk-backed cross-process refresh**: the SDK *does* write the refreshed
+  token back to the cache file (`~/.volcengine/sso/cache/<sha1>.json` or
+  `~/.volcengine/login/cache/<sha1(login_session)>.json`) via atomic rename,
+  so concurrent PHP processes — and the `ve` CLI itself — can share the
+  refreshed `refresh_token`. This is the opposite of the long-running Go /
+  Java / Python SDKs (which keep refresh state purely in memory) and is the
+  correct trade-off for PHP's short request lifecycle.
+- **`refresh_token` rotation**: when the server returns HTTP 400
+  `invalid_grant`, the SDK reloads the cache file once, compares the disk
+  `refresh_token` against the in-memory copy, and retries the refresh
+  exactly once with the disk state. This recovers the case where a
+  concurrent `ve login` (or another PHP process) rotated the token under us
+  without colliding writes. If the disk also yields no fresher token, the
+  SDK raises an `ApiException` containing `please run 've login'` /
+  `'ve sso login'` so the user knows the remedy.
+- **Actionable error messages**: every error path that requires
+  re-authentication contains `'ve login'` (console-login) or `'ve sso login'`
+  (sso) so the caller can present a clear next step.
 
 ### ECS Role Credential Provider
 
