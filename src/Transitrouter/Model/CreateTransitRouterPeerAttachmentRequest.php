@@ -32,6 +32,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         'client_token' => 'string',
         'description' => 'string',
         'peer_transit_router_id' => 'string',
+        'peer_transit_router_owner_id' => 'string',
         'peer_transit_router_region_id' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterPeerAttachmentInput[]',
         'transit_router_attachment_name' => 'string',
@@ -49,6 +50,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         'client_token' => null,
         'description' => null,
         'peer_transit_router_id' => null,
+        'peer_transit_router_owner_id' => null,
         'peer_transit_router_region_id' => null,
         'tags' => null,
         'transit_router_attachment_name' => null,
@@ -87,6 +89,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'peer_transit_router_id' => 'PeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'PeerTransitRouterRegionId',
         'tags' => 'Tags',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName',
@@ -104,6 +107,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'peer_transit_router_id' => 'setPeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'setPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'setPeerTransitRouterRegionId',
         'tags' => 'setTags',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
@@ -121,6 +125,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'peer_transit_router_id' => 'getPeerTransitRouterId',
+        'peer_transit_router_owner_id' => 'getPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'getPeerTransitRouterRegionId',
         'tags' => 'getTags',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
@@ -192,6 +197,7 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['peer_transit_router_id'] = isset($data['peer_transit_router_id']) ? $data['peer_transit_router_id'] : null;
+        $this->container['peer_transit_router_owner_id'] = isset($data['peer_transit_router_owner_id']) ? $data['peer_transit_router_owner_id'] : null;
         $this->container['peer_transit_router_region_id'] = isset($data['peer_transit_router_region_id']) ? $data['peer_transit_router_region_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
@@ -324,6 +330,30 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
     public function setPeerTransitRouterId($peer_transit_router_id)
     {
         $this->container['peer_transit_router_id'] = $peer_transit_router_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets peer_transit_router_owner_id
+     *
+     * @return string
+     */
+    public function getPeerTransitRouterOwnerId()
+    {
+        return $this->container['peer_transit_router_owner_id'];
+    }
+
+    /**
+     * Sets peer_transit_router_owner_id
+     *
+     * @param string $peer_transit_router_owner_id peer_transit_router_owner_id
+     *
+     * @return $this
+     */
+    public function setPeerTransitRouterOwnerId($peer_transit_router_owner_id)
+    {
+        $this->container['peer_transit_router_owner_id'] = $peer_transit_router_owner_id;
 
         return $this;
     }

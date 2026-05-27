@@ -29,6 +29,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
       */
     protected static $swaggerTypes = [
         'create_time' => 'string',
+        'host_name' => 'string',
         'instance_id' => 'string',
         'memory' => 'int',
         'node_ip' => 'string',
@@ -49,6 +50,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
       */
     protected static $swaggerFormats = [
         'create_time' => null,
+        'host_name' => null,
         'instance_id' => null,
         'memory' => 'int32',
         'node_ip' => null,
@@ -90,6 +92,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
      */
     protected static $attributeMap = [
         'create_time' => 'CreateTime',
+        'host_name' => 'HostName',
         'instance_id' => 'InstanceId',
         'memory' => 'Memory',
         'node_ip' => 'NodeIP',
@@ -110,6 +113,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
      */
     protected static $setters = [
         'create_time' => 'setCreateTime',
+        'host_name' => 'setHostName',
         'instance_id' => 'setInstanceId',
         'memory' => 'setMemory',
         'node_ip' => 'setNodeIp',
@@ -130,6 +134,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
      */
     protected static $getters = [
         'create_time' => 'getCreateTime',
+        'host_name' => 'getHostName',
         'instance_id' => 'getInstanceId',
         'memory' => 'getMemory',
         'node_ip' => 'getNodeIp',
@@ -204,6 +209,7 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
     public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
         $this->container['node_ip'] = isset($data['node_ip']) ? $data['node_ip'] : null;
@@ -261,6 +267,30 @@ class NodeDetailInfoForDescribeDBInstanceDetailOutput implements ModelInterface,
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_name
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->container['host_name'];
+    }
+
+    /**
+     * Sets host_name
+     *
+     * @param string $host_name host_name
+     *
+     * @return $this
+     */
+    public function setHostName($host_name)
+    {
+        $this->container['host_name'] = $host_name;
 
         return $this;
     }

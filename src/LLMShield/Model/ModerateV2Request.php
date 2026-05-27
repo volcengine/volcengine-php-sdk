@@ -54,6 +54,13 @@ class ModerateV2Request implements JsonSerializable
                 'class' => '\Volcengine\LLMShield\Model\MessageV2',
                 ),
         ),
+        7 => array(
+            'var' => 'Extensions',
+            'isRequired' => false,
+            'type' => TType::MAP,
+            'ktype' => TType::STRING,
+            'vtype' => TType::STRING,
+        ),
         255 => array(
             'var' => 'Base',
             'isRequired' => false,
@@ -83,6 +90,10 @@ class ModerateV2Request implements JsonSerializable
      */
     public $History = null;
     /**
+     * @var array
+     */
+    public $Extensions = null;
+    /**
      * @var \Base
      */
     public $Base = null;
@@ -104,6 +115,9 @@ class ModerateV2Request implements JsonSerializable
             }
             if (isset($vals['History'])) {
                 $this->History = $vals['History'];
+            }
+            if (isset($vals['Extensions'])) {
+                $this->Extensions = $vals['Extensions'];
             }
             if (isset($vals['Base'])) {
                 $this->Base = $vals['Base'];
@@ -176,6 +190,23 @@ class ModerateV2Request implements JsonSerializable
                         $xfer += $input->skip($ftype);
                     }
                     break;
+                case 7:
+                    if ($ftype == TType::MAP) {
+                        $this->Extensions = array();
+                        $_size13 = 0;
+                        $xfer += $input->readMapBegin($ktype14, $vtype15, $_size13);
+                        for ($_i16 = 0; $_i16 < $_size13; ++$_i16) {
+                            $_key17 = null;
+                            $_val18 = null;
+                            $xfer += $input->readString($_key17);
+                            $xfer += $input->readString($_val18);
+                            $this->Extensions[$_key17] = $_val18;
+                        }
+                        $xfer += $input->readMapEnd();
+                    } else {
+                        $xfer += $input->skip($ftype);
+                    }
+                    break;
                 case 255:
                     if ($ftype == TType::STRUCT) {
                         $this->Base = new \Base();
@@ -233,6 +264,19 @@ class ModerateV2Request implements JsonSerializable
             $output->writeListEnd();
             $xfer += $output->writeFieldEnd();
         }
+        if ($this->Extensions !== null) {
+            if (!is_array($this->Extensions)) {
+                throw new TProtocolException('Bad type in structure.', TProtocolException::INVALID_DATA);
+            }
+            $xfer += $output->writeFieldBegin('Extensions', TType::MAP, 7);
+            $output->writeMapBegin(TType::STRING, TType::STRING, count($this->Extensions));
+            foreach ($this->Extensions as $iter19 => $iter20) {
+                $xfer += $output->writeString($iter19);
+                $xfer += $output->writeString($iter20);
+            }
+            $output->writeMapEnd();
+            $xfer += $output->writeFieldEnd();
+        }
         if ($this->Base !== null) {
             if (!is_object($this->Base)) {
                 throw new TProtocolException('Bad type in structure.', TProtocolException::INVALID_DATA);
@@ -263,6 +307,9 @@ class ModerateV2Request implements JsonSerializable
         }
         if ($this->History !== null) {
             $json->History = $this->History;
+        }
+        if ($this->Extensions !== null) {
+            $json->Extensions = (object)$this->Extensions;
         }
         if ($this->Base !== null) {
             $json->Base = $this->Base;

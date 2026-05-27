@@ -28,10 +28,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affinity_group_ids' => 'string[]',
         'cluster_ids' => 'string[]',
         'create_client_token' => 'string',
         'ids' => 'string[]',
         'instance_ids' => 'string[]',
+        'metadata_name' => 'string',
         'name' => 'string',
         'node_pool_ids' => 'string[]',
         'statuses' => '\Volcengine\Vke\Model\StatusForListNodesInput[]',
@@ -44,10 +46,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affinity_group_ids' => null,
         'cluster_ids' => null,
         'create_client_token' => null,
         'ids' => null,
         'instance_ids' => null,
+        'metadata_name' => null,
         'name' => null,
         'node_pool_ids' => null,
         'statuses' => null,
@@ -81,10 +85,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affinity_group_ids' => 'AffinityGroupIds',
         'cluster_ids' => 'ClusterIds',
         'create_client_token' => 'CreateClientToken',
         'ids' => 'Ids',
         'instance_ids' => 'InstanceIds',
+        'metadata_name' => 'MetadataName',
         'name' => 'Name',
         'node_pool_ids' => 'NodePoolIds',
         'statuses' => 'Statuses',
@@ -97,10 +103,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affinity_group_ids' => 'setAffinityGroupIds',
         'cluster_ids' => 'setClusterIds',
         'create_client_token' => 'setCreateClientToken',
         'ids' => 'setIds',
         'instance_ids' => 'setInstanceIds',
+        'metadata_name' => 'setMetadataName',
         'name' => 'setName',
         'node_pool_ids' => 'setNodePoolIds',
         'statuses' => 'setStatuses',
@@ -113,10 +121,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affinity_group_ids' => 'getAffinityGroupIds',
         'cluster_ids' => 'getClusterIds',
         'create_client_token' => 'getCreateClientToken',
         'ids' => 'getIds',
         'instance_ids' => 'getInstanceIds',
+        'metadata_name' => 'getMetadataName',
         'name' => 'getName',
         'node_pool_ids' => 'getNodePoolIds',
         'statuses' => 'getStatuses',
@@ -183,10 +193,12 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['affinity_group_ids'] = isset($data['affinity_group_ids']) ? $data['affinity_group_ids'] : null;
         $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['metadata_name'] = isset($data['metadata_name']) ? $data['metadata_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_pool_ids'] = isset($data['node_pool_ids']) ? $data['node_pool_ids'] : null;
         $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
@@ -216,6 +228,30 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affinity_group_ids
+     *
+     * @return string[]
+     */
+    public function getAffinityGroupIds()
+    {
+        return $this->container['affinity_group_ids'];
+    }
+
+    /**
+     * Sets affinity_group_ids
+     *
+     * @param string[] $affinity_group_ids affinity_group_ids
+     *
+     * @return $this
+     */
+    public function setAffinityGroupIds($affinity_group_ids)
+    {
+        $this->container['affinity_group_ids'] = $affinity_group_ids;
+
+        return $this;
+    }
 
     /**
      * Gets cluster_ids
@@ -309,6 +345,30 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
     public function setInstanceIds($instance_ids)
     {
         $this->container['instance_ids'] = $instance_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata_name
+     *
+     * @return string
+     */
+    public function getMetadataName()
+    {
+        return $this->container['metadata_name'];
+    }
+
+    /**
+     * Sets metadata_name
+     *
+     * @param string $metadata_name metadata_name
+     *
+     * @return $this
+     */
+    public function setMetadataName($metadata_name)
+    {
+        $this->container['metadata_name'] = $metadata_name;
 
         return $this;
     }

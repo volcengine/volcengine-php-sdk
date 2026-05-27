@@ -2610,6 +2610,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getPreSignedEdgeURL($body = null)
+    {
+        list($response) = $this->getPreSignedEdgeURLWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPreSignedEdgeURLWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\GetPreSignedEdgeURLResponse';
+        $request = $this->getPreSignedEdgeURLRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPreSignedEdgeURLAsync($body = null)
+    {
+        return $this->getPreSignedEdgeURLAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPreSignedEdgeURLAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\GetPreSignedEdgeURLResponse';
+        $request = $this->getPreSignedEdgeURLRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPreSignedEdgeURLRequest($body)
+    {
+        $resourcePath = '/GetPreSignedEdgeURL/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getProductResource($body = null)
     {
         list($response) = $this->getProductResourceWithHttpInfo($body);
@@ -5372,6 +5434,68 @@ class ACEPApi
     protected function setProxyRequest($body)
     {
         $resourcePath = '/SetProxy/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function startNetRedirect($body = null)
+    {
+        list($response) = $this->startNetRedirectWithHttpInfo($body);
+        return $response;
+    }
+
+    public function startNetRedirectWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\StartNetRedirectResponse';
+        $request = $this->startNetRedirectRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function startNetRedirectAsync($body = null)
+    {
+        return $this->startNetRedirectAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function startNetRedirectAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\StartNetRedirectResponse';
+        $request = $this->startNetRedirectRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function startNetRedirectRequest($body)
+    {
+        $resourcePath = '/StartNetRedirect/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -192,6 +192,626 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createAccountGroupConformancePack($body = null)
+    {
+        list($response) = $this->createAccountGroupConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccountGroupConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupConformancePackResponse';
+        $request = $this->createAccountGroupConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccountGroupConformancePackAsync($body = null)
+    {
+        return $this->createAccountGroupConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccountGroupConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupConformancePackResponse';
+        $request = $this->createAccountGroupConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccountGroupConformancePackRequest($body)
+    {
+        $resourcePath = '/CreateAccountGroupConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAccountGroupConformancePackTemplate($body = null)
+    {
+        list($response) = $this->createAccountGroupConformancePackTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccountGroupConformancePackTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupConformancePackTemplateResponse';
+        $request = $this->createAccountGroupConformancePackTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccountGroupConformancePackTemplateAsync($body = null)
+    {
+        return $this->createAccountGroupConformancePackTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccountGroupConformancePackTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupConformancePackTemplateResponse';
+        $request = $this->createAccountGroupConformancePackTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccountGroupConformancePackTemplateRequest($body)
+    {
+        $resourcePath = '/CreateAccountGroupConformancePackTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAccountGroupDeliveryChannel($body = null)
+    {
+        list($response) = $this->createAccountGroupDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccountGroupDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupDeliveryChannelResponse';
+        $request = $this->createAccountGroupDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccountGroupDeliveryChannelAsync($body = null)
+    {
+        return $this->createAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupDeliveryChannelResponse';
+        $request = $this->createAccountGroupDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccountGroupDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/CreateAccountGroupDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAccountGroupRule($body = null)
+    {
+        list($response) = $this->createAccountGroupRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccountGroupRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupRuleResponse';
+        $request = $this->createAccountGroupRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccountGroupRuleAsync($body = null)
+    {
+        return $this->createAccountGroupRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccountGroupRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupRuleResponse';
+        $request = $this->createAccountGroupRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccountGroupRuleRequest($body)
+    {
+        $resourcePath = '/CreateAccountGroupRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAccountGroupRuleTemplate($body = null)
+    {
+        list($response) = $this->createAccountGroupRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAccountGroupRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupRuleTemplateResponse';
+        $request = $this->createAccountGroupRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAccountGroupRuleTemplateAsync($body = null)
+    {
+        return $this->createAccountGroupRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAccountGroupRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateAccountGroupRuleTemplateResponse';
+        $request = $this->createAccountGroupRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAccountGroupRuleTemplateRequest($body)
+    {
+        $resourcePath = '/CreateAccountGroupRuleTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createConformancePack($body = null)
+    {
+        list($response) = $this->createConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateConformancePackResponse';
+        $request = $this->createConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createConformancePackAsync($body = null)
+    {
+        return $this->createConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateConformancePackResponse';
+        $request = $this->createConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createConformancePackRequest($body)
+    {
+        $resourcePath = '/CreateConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createConformancePackTemplate($body = null)
+    {
+        list($response) = $this->createConformancePackTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createConformancePackTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateConformancePackTemplateResponse';
+        $request = $this->createConformancePackTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createConformancePackTemplateAsync($body = null)
+    {
+        return $this->createConformancePackTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createConformancePackTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateConformancePackTemplateResponse';
+        $request = $this->createConformancePackTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createConformancePackTemplateRequest($body)
+    {
+        $resourcePath = '/CreateConformancePackTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createDeliveryChannel($body = null)
+    {
+        list($response) = $this->createDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateDeliveryChannelResponse';
+        $request = $this->createDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDeliveryChannelAsync($body = null)
+    {
+        return $this->createDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateDeliveryChannelResponse';
+        $request = $this->createDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/CreateDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRule($body = null)
+    {
+        list($response) = $this->createRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateRuleResponse';
+        $request = $this->createRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRuleAsync($body = null)
+    {
+        return $this->createRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateRuleResponse';
+        $request = $this->createRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRuleRequest($body)
+    {
+        $resourcePath = '/CreateRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRuleTemplate($body = null)
+    {
+        list($response) = $this->createRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateRuleTemplateResponse';
+        $request = $this->createRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRuleTemplateAsync($body = null)
+    {
+        return $this->createRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\CreateRuleTemplateResponse';
+        $request = $this->createRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRuleTemplateRequest($body)
+    {
+        $resourcePath = '/CreateRuleTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteAccountGroup($body = null)
     {
         list($response) = $this->deleteAccountGroupWithHttpInfo($body);
@@ -226,6 +846,1184 @@ class CONFIGApi
     protected function deleteAccountGroupRequest($body)
     {
         $resourcePath = '/DeleteAccountGroup/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAccountGroupConformancePack($body = null)
+    {
+        list($response) = $this->deleteAccountGroupConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAccountGroupConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupConformancePackResponse';
+        $request = $this->deleteAccountGroupConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAccountGroupConformancePackAsync($body = null)
+    {
+        return $this->deleteAccountGroupConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAccountGroupConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupConformancePackResponse';
+        $request = $this->deleteAccountGroupConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAccountGroupConformancePackRequest($body)
+    {
+        $resourcePath = '/DeleteAccountGroupConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAccountGroupConformancePackTemplates($body = null)
+    {
+        list($response) = $this->deleteAccountGroupConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAccountGroupConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupConformancePackTemplatesResponse';
+        $request = $this->deleteAccountGroupConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAccountGroupConformancePackTemplatesAsync($body = null)
+    {
+        return $this->deleteAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupConformancePackTemplatesResponse';
+        $request = $this->deleteAccountGroupConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAccountGroupConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/DeleteAccountGroupConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAccountGroupDeliveryChannel($body = null)
+    {
+        list($response) = $this->deleteAccountGroupDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAccountGroupDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupDeliveryChannelResponse';
+        $request = $this->deleteAccountGroupDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAccountGroupDeliveryChannelAsync($body = null)
+    {
+        return $this->deleteAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupDeliveryChannelResponse';
+        $request = $this->deleteAccountGroupDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAccountGroupDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/DeleteAccountGroupDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAccountGroupRule($body = null)
+    {
+        list($response) = $this->deleteAccountGroupRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAccountGroupRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupRuleResponse';
+        $request = $this->deleteAccountGroupRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAccountGroupRuleAsync($body = null)
+    {
+        return $this->deleteAccountGroupRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAccountGroupRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupRuleResponse';
+        $request = $this->deleteAccountGroupRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAccountGroupRuleRequest($body)
+    {
+        $resourcePath = '/DeleteAccountGroupRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAccountGroupRuleTemplates($body = null)
+    {
+        list($response) = $this->deleteAccountGroupRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAccountGroupRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupRuleTemplatesResponse';
+        $request = $this->deleteAccountGroupRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAccountGroupRuleTemplatesAsync($body = null)
+    {
+        return $this->deleteAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteAccountGroupRuleTemplatesResponse';
+        $request = $this->deleteAccountGroupRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAccountGroupRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/DeleteAccountGroupRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteConformancePack($body = null)
+    {
+        list($response) = $this->deleteConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteConformancePackResponse';
+        $request = $this->deleteConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteConformancePackAsync($body = null)
+    {
+        return $this->deleteConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteConformancePackResponse';
+        $request = $this->deleteConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteConformancePackRequest($body)
+    {
+        $resourcePath = '/DeleteConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteConformancePackTemplates($body = null)
+    {
+        list($response) = $this->deleteConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteConformancePackTemplatesResponse';
+        $request = $this->deleteConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteConformancePackTemplatesAsync($body = null)
+    {
+        return $this->deleteConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteConformancePackTemplatesResponse';
+        $request = $this->deleteConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/DeleteConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteDeliveryChannel($body = null)
+    {
+        list($response) = $this->deleteDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteDeliveryChannelResponse';
+        $request = $this->deleteDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteDeliveryChannelAsync($body = null)
+    {
+        return $this->deleteDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteDeliveryChannelResponse';
+        $request = $this->deleteDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/DeleteDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteRule($body = null)
+    {
+        list($response) = $this->deleteRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteRuleResponse';
+        $request = $this->deleteRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRuleAsync($body = null)
+    {
+        return $this->deleteRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteRuleResponse';
+        $request = $this->deleteRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRuleRequest($body)
+    {
+        $resourcePath = '/DeleteRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteRuleTemplates($body = null)
+    {
+        list($response) = $this->deleteRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteRuleTemplatesResponse';
+        $request = $this->deleteRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRuleTemplatesAsync($body = null)
+    {
+        return $this->deleteRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DeleteRuleTemplatesResponse';
+        $request = $this->deleteRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/DeleteRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupComplianceByConformancePacks($body = null)
+    {
+        list($response) = $this->describeAccountGroupComplianceByConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupComplianceByConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByConformancePacksResponse';
+        $request = $this->describeAccountGroupComplianceByConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupComplianceByConformancePacksAsync($body = null)
+    {
+        return $this->describeAccountGroupComplianceByConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupComplianceByConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByConformancePacksResponse';
+        $request = $this->describeAccountGroupComplianceByConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupComplianceByConformancePacksRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupComplianceByConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupComplianceByResources($body = null)
+    {
+        list($response) = $this->describeAccountGroupComplianceByResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupComplianceByResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByResourcesResponse';
+        $request = $this->describeAccountGroupComplianceByResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupComplianceByResourcesAsync($body = null)
+    {
+        return $this->describeAccountGroupComplianceByResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupComplianceByResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByResourcesResponse';
+        $request = $this->describeAccountGroupComplianceByResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupComplianceByResourcesRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupComplianceByResources/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupComplianceByRules($body = null)
+    {
+        list($response) = $this->describeAccountGroupComplianceByRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupComplianceByRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByRulesResponse';
+        $request = $this->describeAccountGroupComplianceByRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupComplianceByRulesAsync($body = null)
+    {
+        return $this->describeAccountGroupComplianceByRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupComplianceByRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupComplianceByRulesResponse';
+        $request = $this->describeAccountGroupComplianceByRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupComplianceByRulesRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupComplianceByRules/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupConformancePackTemplates($body = null)
+    {
+        list($response) = $this->describeAccountGroupConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupConformancePackTemplatesResponse';
+        $request = $this->describeAccountGroupConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupConformancePackTemplatesAsync($body = null)
+    {
+        return $this->describeAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupConformancePackTemplatesResponse';
+        $request = $this->describeAccountGroupConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupConformancePacks($body = null)
+    {
+        list($response) = $this->describeAccountGroupConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupConformancePacksResponse';
+        $request = $this->describeAccountGroupConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupConformancePacksAsync($body = null)
+    {
+        return $this->describeAccountGroupConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupConformancePacksResponse';
+        $request = $this->describeAccountGroupConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupConformancePacksRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupDeliveryChannel($body = null)
+    {
+        list($response) = $this->describeAccountGroupDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupDeliveryChannelResponse';
+        $request = $this->describeAccountGroupDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupDeliveryChannelAsync($body = null)
+    {
+        return $this->describeAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupDeliveryChannelResponse';
+        $request = $this->describeAccountGroupDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupResourceExemptions($body = null)
+    {
+        list($response) = $this->describeAccountGroupResourceExemptionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupResourceExemptionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupResourceExemptionsResponse';
+        $request = $this->describeAccountGroupResourceExemptionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupResourceExemptionsAsync($body = null)
+    {
+        return $this->describeAccountGroupResourceExemptionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupResourceExemptionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupResourceExemptionsResponse';
+        $request = $this->describeAccountGroupResourceExemptionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupResourceExemptionsRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupResourceExemptions/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupRuleTemplates($body = null)
+    {
+        list($response) = $this->describeAccountGroupRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupRuleTemplatesResponse';
+        $request = $this->describeAccountGroupRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupRuleTemplatesAsync($body = null)
+    {
+        return $this->describeAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupRuleTemplatesResponse';
+        $request = $this->describeAccountGroupRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAccountGroupRules($body = null)
+    {
+        list($response) = $this->describeAccountGroupRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountGroupRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupRulesResponse';
+        $request = $this->describeAccountGroupRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountGroupRulesAsync($body = null)
+    {
+        return $this->describeAccountGroupRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountGroupRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeAccountGroupRulesResponse';
+        $request = $this->describeAccountGroupRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountGroupRulesRequest($body)
+    {
+        $resourcePath = '/DescribeAccountGroupRules/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -316,6 +2114,192 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeComplianceByConformancePacks($body = null)
+    {
+        list($response) = $this->describeComplianceByConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeComplianceByConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByConformancePacksResponse';
+        $request = $this->describeComplianceByConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeComplianceByConformancePacksAsync($body = null)
+    {
+        return $this->describeComplianceByConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeComplianceByConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByConformancePacksResponse';
+        $request = $this->describeComplianceByConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeComplianceByConformancePacksRequest($body)
+    {
+        $resourcePath = '/DescribeComplianceByConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeComplianceByResources($body = null)
+    {
+        list($response) = $this->describeComplianceByResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeComplianceByResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByResourcesResponse';
+        $request = $this->describeComplianceByResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeComplianceByResourcesAsync($body = null)
+    {
+        return $this->describeComplianceByResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeComplianceByResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByResourcesResponse';
+        $request = $this->describeComplianceByResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeComplianceByResourcesRequest($body)
+    {
+        $resourcePath = '/DescribeComplianceByResources/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeComplianceByRules($body = null)
+    {
+        list($response) = $this->describeComplianceByRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeComplianceByRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByRulesResponse';
+        $request = $this->describeComplianceByRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeComplianceByRulesAsync($body = null)
+    {
+        return $this->describeComplianceByRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeComplianceByRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeComplianceByRulesResponse';
+        $request = $this->describeComplianceByRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeComplianceByRulesRequest($body)
+    {
+        $resourcePath = '/DescribeComplianceByRules/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeConfigurationRecorders($body = null)
     {
         list($response) = $this->describeConfigurationRecordersWithHttpInfo($body);
@@ -378,6 +2362,688 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeConformancePackTemplates($body = null)
+    {
+        list($response) = $this->describeConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeConformancePackTemplatesResponse';
+        $request = $this->describeConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeConformancePackTemplatesAsync($body = null)
+    {
+        return $this->describeConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeConformancePackTemplatesResponse';
+        $request = $this->describeConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/DescribeConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeConformancePacks($body = null)
+    {
+        list($response) = $this->describeConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeConformancePacksResponse';
+        $request = $this->describeConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeConformancePacksAsync($body = null)
+    {
+        return $this->describeConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeConformancePacksResponse';
+        $request = $this->describeConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeConformancePacksRequest($body)
+    {
+        $resourcePath = '/DescribeConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeDeliveryChannel($body = null)
+    {
+        list($response) = $this->describeDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeDeliveryChannelResponse';
+        $request = $this->describeDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDeliveryChannelAsync($body = null)
+    {
+        return $this->describeDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeDeliveryChannelResponse';
+        $request = $this->describeDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/DescribeDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeResourceExemptions($body = null)
+    {
+        list($response) = $this->describeResourceExemptionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeResourceExemptionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeResourceExemptionsResponse';
+        $request = $this->describeResourceExemptionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeResourceExemptionsAsync($body = null)
+    {
+        return $this->describeResourceExemptionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeResourceExemptionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeResourceExemptionsResponse';
+        $request = $this->describeResourceExemptionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeResourceExemptionsRequest($body)
+    {
+        $resourcePath = '/DescribeResourceExemptions/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeRuleTemplates($body = null)
+    {
+        list($response) = $this->describeRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeRuleTemplatesResponse';
+        $request = $this->describeRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeRuleTemplatesAsync($body = null)
+    {
+        return $this->describeRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeRuleTemplatesResponse';
+        $request = $this->describeRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/DescribeRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeRules($body = null)
+    {
+        list($response) = $this->describeRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeRulesResponse';
+        $request = $this->describeRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeRulesAsync($body = null)
+    {
+        return $this->describeRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeRulesResponse';
+        $request = $this->describeRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeRulesRequest($body)
+    {
+        $resourcePath = '/DescribeRules/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeSupportedResourceTypes($body = null)
+    {
+        list($response) = $this->describeSupportedResourceTypesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeSupportedResourceTypesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeSupportedResourceTypesResponse';
+        $request = $this->describeSupportedResourceTypesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeSupportedResourceTypesAsync($body = null)
+    {
+        return $this->describeSupportedResourceTypesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeSupportedResourceTypesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DescribeSupportedResourceTypesResponse';
+        $request = $this->describeSupportedResourceTypesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeSupportedResourceTypesRequest($body)
+    {
+        $resourcePath = '/DescribeSupportedResourceTypes/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disableAccountGroupResourceExemption($body = null)
+    {
+        list($response) = $this->disableAccountGroupResourceExemptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableAccountGroupResourceExemptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableAccountGroupResourceExemptionResponse';
+        $request = $this->disableAccountGroupResourceExemptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableAccountGroupResourceExemptionAsync($body = null)
+    {
+        return $this->disableAccountGroupResourceExemptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableAccountGroupResourceExemptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableAccountGroupResourceExemptionResponse';
+        $request = $this->disableAccountGroupResourceExemptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableAccountGroupResourceExemptionRequest($body)
+    {
+        $resourcePath = '/DisableAccountGroupResourceExemption/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disableAccountGroupRule($body = null)
+    {
+        list($response) = $this->disableAccountGroupRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableAccountGroupRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableAccountGroupRuleResponse';
+        $request = $this->disableAccountGroupRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableAccountGroupRuleAsync($body = null)
+    {
+        return $this->disableAccountGroupRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableAccountGroupRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableAccountGroupRuleResponse';
+        $request = $this->disableAccountGroupRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableAccountGroupRuleRequest($body)
+    {
+        $resourcePath = '/DisableAccountGroupRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disableResourceExemption($body = null)
+    {
+        list($response) = $this->disableResourceExemptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableResourceExemptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableResourceExemptionResponse';
+        $request = $this->disableResourceExemptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableResourceExemptionAsync($body = null)
+    {
+        return $this->disableResourceExemptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableResourceExemptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableResourceExemptionResponse';
+        $request = $this->disableResourceExemptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableResourceExemptionRequest($body)
+    {
+        $resourcePath = '/DisableResourceExemption/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disableRule($body = null)
+    {
+        list($response) = $this->disableRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableRuleResponse';
+        $request = $this->disableRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableRuleAsync($body = null)
+    {
+        return $this->disableRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\DisableRuleResponse';
+        $request = $this->disableRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableRuleRequest($body)
+    {
+        $resourcePath = '/DisableRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function disassociateAccountGroupPrincipals($body = null)
     {
         list($response) = $this->disassociateAccountGroupPrincipalsWithHttpInfo($body);
@@ -412,6 +3078,192 @@ class CONFIGApi
     protected function disassociateAccountGroupPrincipalsRequest($body)
     {
         $resourcePath = '/DisassociateAccountGroupPrincipals/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enableAccountGroupRule($body = null)
+    {
+        list($response) = $this->enableAccountGroupRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enableAccountGroupRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\EnableAccountGroupRuleResponse';
+        $request = $this->enableAccountGroupRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enableAccountGroupRuleAsync($body = null)
+    {
+        return $this->enableAccountGroupRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enableAccountGroupRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\EnableAccountGroupRuleResponse';
+        $request = $this->enableAccountGroupRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enableAccountGroupRuleRequest($body)
+    {
+        $resourcePath = '/EnableAccountGroupRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enableRule($body = null)
+    {
+        list($response) = $this->enableRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enableRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\EnableRuleResponse';
+        $request = $this->enableRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enableRuleAsync($body = null)
+    {
+        return $this->enableRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enableRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\EnableRuleResponse';
+        $request = $this->enableRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enableRuleRequest($body)
+    {
+        $resourcePath = '/EnableRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAccountGroupComplianceHistory($body = null)
+    {
+        list($response) = $this->getAccountGroupComplianceHistoryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAccountGroupComplianceHistoryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetAccountGroupComplianceHistoryResponse';
+        $request = $this->getAccountGroupComplianceHistoryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAccountGroupComplianceHistoryAsync($body = null)
+    {
+        return $this->getAccountGroupComplianceHistoryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAccountGroupComplianceHistoryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetAccountGroupComplianceHistoryResponse';
+        $request = $this->getAccountGroupComplianceHistoryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAccountGroupComplianceHistoryRequest($body)
+    {
+        $resourcePath = '/GetAccountGroupComplianceHistory/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -626,6 +3478,192 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getComplianceHistory($body = null)
+    {
+        list($response) = $this->getComplianceHistoryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getComplianceHistoryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceHistoryResponse';
+        $request = $this->getComplianceHistoryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getComplianceHistoryAsync($body = null)
+    {
+        return $this->getComplianceHistoryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getComplianceHistoryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceHistoryResponse';
+        $request = $this->getComplianceHistoryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getComplianceHistoryRequest($body)
+    {
+        $resourcePath = '/GetComplianceHistory/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getComplianceSummary($body = null)
+    {
+        list($response) = $this->getComplianceSummaryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getComplianceSummaryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceSummaryResponse';
+        $request = $this->getComplianceSummaryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getComplianceSummaryAsync($body = null)
+    {
+        return $this->getComplianceSummaryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getComplianceSummaryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceSummaryResponse';
+        $request = $this->getComplianceSummaryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getComplianceSummaryRequest($body)
+    {
+        $resourcePath = '/GetComplianceSummary/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getComplianceSummaryByResource($body = null)
+    {
+        list($response) = $this->getComplianceSummaryByResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getComplianceSummaryByResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceSummaryByResourceResponse';
+        $request = $this->getComplianceSummaryByResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getComplianceSummaryByResourceAsync($body = null)
+    {
+        return $this->getComplianceSummaryByResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getComplianceSummaryByResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetComplianceSummaryByResourceResponse';
+        $request = $this->getComplianceSummaryByResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getComplianceSummaryByResourceRequest($body)
+    {
+        $resourcePath = '/GetComplianceSummaryByResource/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getDiscoveredResource($body = null)
     {
         list($response) = $this->getDiscoveredResourceWithHttpInfo($body);
@@ -722,6 +3760,130 @@ class CONFIGApi
     protected function getDiscoveredResourceCountsRequest($body)
     {
         $resourcePath = '/GetDiscoveredResourceCounts/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getOrganizationComplianceSummary($body = null)
+    {
+        list($response) = $this->getOrganizationComplianceSummaryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getOrganizationComplianceSummaryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetOrganizationComplianceSummaryResponse';
+        $request = $this->getOrganizationComplianceSummaryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getOrganizationComplianceSummaryAsync($body = null)
+    {
+        return $this->getOrganizationComplianceSummaryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getOrganizationComplianceSummaryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetOrganizationComplianceSummaryResponse';
+        $request = $this->getOrganizationComplianceSummaryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getOrganizationComplianceSummaryRequest($body)
+    {
+        $resourcePath = '/GetOrganizationComplianceSummary/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getOrganizationComplianceSummaryByResource($body = null)
+    {
+        list($response) = $this->getOrganizationComplianceSummaryByResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getOrganizationComplianceSummaryByResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetOrganizationComplianceSummaryByResourceResponse';
+        $request = $this->getOrganizationComplianceSummaryByResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getOrganizationComplianceSummaryByResourceAsync($body = null)
+    {
+        return $this->getOrganizationComplianceSummaryByResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getOrganizationComplianceSummaryByResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\GetOrganizationComplianceSummaryByResourceResponse';
+        $request = $this->getOrganizationComplianceSummaryByResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getOrganizationComplianceSummaryByResourceRequest($body)
+    {
+        $resourcePath = '/GetOrganizationComplianceSummaryByResource/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -874,6 +4036,192 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listAccountGroupConformancePackTemplates($body = null)
+    {
+        list($response) = $this->listAccountGroupConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupConformancePackTemplatesResponse';
+        $request = $this->listAccountGroupConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupConformancePackTemplatesAsync($body = null)
+    {
+        return $this->listAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupConformancePackTemplatesResponse';
+        $request = $this->listAccountGroupConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAccountGroupConformancePacks($body = null)
+    {
+        list($response) = $this->listAccountGroupConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupConformancePacksResponse';
+        $request = $this->listAccountGroupConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupConformancePacksAsync($body = null)
+    {
+        return $this->listAccountGroupConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupConformancePacksResponse';
+        $request = $this->listAccountGroupConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupConformancePacksRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAccountGroupDeliveryChannels($body = null)
+    {
+        list($response) = $this->listAccountGroupDeliveryChannelsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupDeliveryChannelsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupDeliveryChannelsResponse';
+        $request = $this->listAccountGroupDeliveryChannelsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupDeliveryChannelsAsync($body = null)
+    {
+        return $this->listAccountGroupDeliveryChannelsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupDeliveryChannelsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupDeliveryChannelsResponse';
+        $request = $this->listAccountGroupDeliveryChannelsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupDeliveryChannelsRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupDeliveryChannels/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listAccountGroupDiscoveredResources($body = null)
     {
         list($response) = $this->listAccountGroupDiscoveredResourcesWithHttpInfo($body);
@@ -908,6 +4256,68 @@ class CONFIGApi
     protected function listAccountGroupDiscoveredResourcesRequest($body)
     {
         $resourcePath = '/ListAccountGroupDiscoveredResources/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAccountGroupEvaluationResults($body = null)
+    {
+        list($response) = $this->listAccountGroupEvaluationResultsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupEvaluationResultsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupEvaluationResultsResponse';
+        $request = $this->listAccountGroupEvaluationResultsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupEvaluationResultsAsync($body = null)
+    {
+        return $this->listAccountGroupEvaluationResultsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupEvaluationResultsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupEvaluationResultsResponse';
+        $request = $this->listAccountGroupEvaluationResultsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupEvaluationResultsRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupEvaluationResults/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -998,6 +4408,130 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listAccountGroupRuleTemplates($body = null)
+    {
+        list($response) = $this->listAccountGroupRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupRuleTemplatesResponse';
+        $request = $this->listAccountGroupRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupRuleTemplatesAsync($body = null)
+    {
+        return $this->listAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupRuleTemplatesResponse';
+        $request = $this->listAccountGroupRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAccountGroupRules($body = null)
+    {
+        list($response) = $this->listAccountGroupRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAccountGroupRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupRulesResponse';
+        $request = $this->listAccountGroupRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAccountGroupRulesAsync($body = null)
+    {
+        return $this->listAccountGroupRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAccountGroupRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListAccountGroupRulesResponse';
+        $request = $this->listAccountGroupRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAccountGroupRulesRequest($body)
+    {
+        $resourcePath = '/ListAccountGroupRules/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listAccountGroups($body = null)
     {
         list($response) = $this->listAccountGroupsWithHttpInfo($body);
@@ -1032,6 +4566,192 @@ class CONFIGApi
     protected function listAccountGroupsRequest($body)
     {
         $resourcePath = '/ListAccountGroups/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listConformancePackTemplates($body = null)
+    {
+        list($response) = $this->listConformancePackTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listConformancePackTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListConformancePackTemplatesResponse';
+        $request = $this->listConformancePackTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listConformancePackTemplatesAsync($body = null)
+    {
+        return $this->listConformancePackTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listConformancePackTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListConformancePackTemplatesResponse';
+        $request = $this->listConformancePackTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listConformancePackTemplatesRequest($body)
+    {
+        $resourcePath = '/ListConformancePackTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listConformancePacks($body = null)
+    {
+        list($response) = $this->listConformancePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listConformancePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListConformancePacksResponse';
+        $request = $this->listConformancePacksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listConformancePacksAsync($body = null)
+    {
+        return $this->listConformancePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listConformancePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListConformancePacksResponse';
+        $request = $this->listConformancePacksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listConformancePacksRequest($body)
+    {
+        $resourcePath = '/ListConformancePacks/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDeliveryChannels($body = null)
+    {
+        list($response) = $this->listDeliveryChannelsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDeliveryChannelsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListDeliveryChannelsResponse';
+        $request = $this->listDeliveryChannelsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDeliveryChannelsAsync($body = null)
+    {
+        return $this->listDeliveryChannelsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDeliveryChannelsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListDeliveryChannelsResponse';
+        $request = $this->listDeliveryChannelsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDeliveryChannelsRequest($body)
+    {
+        $resourcePath = '/ListDeliveryChannels/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1122,6 +4842,378 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listEvaluationResults($body = null)
+    {
+        list($response) = $this->listEvaluationResultsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listEvaluationResultsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListEvaluationResultsResponse';
+        $request = $this->listEvaluationResultsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listEvaluationResultsAsync($body = null)
+    {
+        return $this->listEvaluationResultsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listEvaluationResultsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListEvaluationResultsResponse';
+        $request = $this->listEvaluationResultsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listEvaluationResultsRequest($body)
+    {
+        $resourcePath = '/ListEvaluationResults/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRuleTemplates($body = null)
+    {
+        list($response) = $this->listRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListRuleTemplatesResponse';
+        $request = $this->listRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRuleTemplatesAsync($body = null)
+    {
+        return $this->listRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListRuleTemplatesResponse';
+        $request = $this->listRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/ListRuleTemplates/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRules($body = null)
+    {
+        list($response) = $this->listRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListRulesResponse';
+        $request = $this->listRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRulesAsync($body = null)
+    {
+        return $this->listRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListRulesResponse';
+        $request = $this->listRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRulesRequest($body)
+    {
+        $resourcePath = '/ListRules/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSupportedResourceType($body = null)
+    {
+        list($response) = $this->listSupportedResourceTypeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSupportedResourceTypeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListSupportedResourceTypeResponse';
+        $request = $this->listSupportedResourceTypeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSupportedResourceTypeAsync($body = null)
+    {
+        return $this->listSupportedResourceTypeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSupportedResourceTypeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListSupportedResourceTypeResponse';
+        $request = $this->listSupportedResourceTypeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSupportedResourceTypeRequest($body)
+    {
+        $resourcePath = '/ListSupportedResourceType/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSupportedResourceTypes($body = null)
+    {
+        list($response) = $this->listSupportedResourceTypesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSupportedResourceTypesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListSupportedResourceTypesResponse';
+        $request = $this->listSupportedResourceTypesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSupportedResourceTypesAsync($body = null)
+    {
+        return $this->listSupportedResourceTypesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSupportedResourceTypesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\ListSupportedResourceTypesResponse';
+        $request = $this->listSupportedResourceTypesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSupportedResourceTypesRequest($body)
+    {
+        $resourcePath = '/ListSupportedResourceTypes/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function putAccountGroupResourceExemption($body = null)
+    {
+        list($response) = $this->putAccountGroupResourceExemptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function putAccountGroupResourceExemptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\PutAccountGroupResourceExemptionResponse';
+        $request = $this->putAccountGroupResourceExemptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function putAccountGroupResourceExemptionAsync($body = null)
+    {
+        return $this->putAccountGroupResourceExemptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function putAccountGroupResourceExemptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\PutAccountGroupResourceExemptionResponse';
+        $request = $this->putAccountGroupResourceExemptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function putAccountGroupResourceExemptionRequest($body)
+    {
+        $resourcePath = '/PutAccountGroupResourceExemption/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function putConfigurationRecorder($body = null)
     {
         list($response) = $this->putConfigurationRecorderWithHttpInfo($body);
@@ -1184,6 +5276,130 @@ class CONFIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function putResourceExemption($body = null)
+    {
+        list($response) = $this->putResourceExemptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function putResourceExemptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\PutResourceExemptionResponse';
+        $request = $this->putResourceExemptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function putResourceExemptionAsync($body = null)
+    {
+        return $this->putResourceExemptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function putResourceExemptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\PutResourceExemptionResponse';
+        $request = $this->putResourceExemptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function putResourceExemptionRequest($body)
+    {
+        $resourcePath = '/PutResourceExemption/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function startAccountGroupRuleEvaluation($body = null)
+    {
+        list($response) = $this->startAccountGroupRuleEvaluationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function startAccountGroupRuleEvaluationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\StartAccountGroupRuleEvaluationResponse';
+        $request = $this->startAccountGroupRuleEvaluationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function startAccountGroupRuleEvaluationAsync($body = null)
+    {
+        return $this->startAccountGroupRuleEvaluationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function startAccountGroupRuleEvaluationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\StartAccountGroupRuleEvaluationResponse';
+        $request = $this->startAccountGroupRuleEvaluationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function startAccountGroupRuleEvaluationRequest($body)
+    {
+        $resourcePath = '/StartAccountGroupRuleEvaluation/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function startConfigurationRecorder($body = null)
     {
         list($response) = $this->startConfigurationRecorderWithHttpInfo($body);
@@ -1218,6 +5434,68 @@ class CONFIGApi
     protected function startConfigurationRecorderRequest($body)
     {
         $resourcePath = '/StartConfigurationRecorder/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function startRuleEvaluation($body = null)
+    {
+        list($response) = $this->startRuleEvaluationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function startRuleEvaluationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\StartRuleEvaluationResponse';
+        $request = $this->startRuleEvaluationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function startRuleEvaluationAsync($body = null)
+    {
+        return $this->startRuleEvaluationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function startRuleEvaluationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\StartRuleEvaluationResponse';
+        $request = $this->startRuleEvaluationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function startRuleEvaluationRequest($body)
+    {
+        $resourcePath = '/StartRuleEvaluation/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1342,6 +5620,626 @@ class CONFIGApi
     protected function updateAccountGroupRequest($body)
     {
         $resourcePath = '/UpdateAccountGroup/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAccountGroupConformancePack($body = null)
+    {
+        list($response) = $this->updateAccountGroupConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAccountGroupConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupConformancePackResponse';
+        $request = $this->updateAccountGroupConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAccountGroupConformancePackAsync($body = null)
+    {
+        return $this->updateAccountGroupConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAccountGroupConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupConformancePackResponse';
+        $request = $this->updateAccountGroupConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAccountGroupConformancePackRequest($body)
+    {
+        $resourcePath = '/UpdateAccountGroupConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAccountGroupConformancePackTemplate($body = null)
+    {
+        list($response) = $this->updateAccountGroupConformancePackTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAccountGroupConformancePackTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupConformancePackTemplateResponse';
+        $request = $this->updateAccountGroupConformancePackTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAccountGroupConformancePackTemplateAsync($body = null)
+    {
+        return $this->updateAccountGroupConformancePackTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAccountGroupConformancePackTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupConformancePackTemplateResponse';
+        $request = $this->updateAccountGroupConformancePackTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAccountGroupConformancePackTemplateRequest($body)
+    {
+        $resourcePath = '/UpdateAccountGroupConformancePackTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAccountGroupDeliveryChannel($body = null)
+    {
+        list($response) = $this->updateAccountGroupDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAccountGroupDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupDeliveryChannelResponse';
+        $request = $this->updateAccountGroupDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAccountGroupDeliveryChannelAsync($body = null)
+    {
+        return $this->updateAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAccountGroupDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupDeliveryChannelResponse';
+        $request = $this->updateAccountGroupDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAccountGroupDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/UpdateAccountGroupDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAccountGroupRule($body = null)
+    {
+        list($response) = $this->updateAccountGroupRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAccountGroupRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupRuleResponse';
+        $request = $this->updateAccountGroupRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAccountGroupRuleAsync($body = null)
+    {
+        return $this->updateAccountGroupRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAccountGroupRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupRuleResponse';
+        $request = $this->updateAccountGroupRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAccountGroupRuleRequest($body)
+    {
+        $resourcePath = '/UpdateAccountGroupRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAccountGroupRuleTemplate($body = null)
+    {
+        list($response) = $this->updateAccountGroupRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAccountGroupRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupRuleTemplateResponse';
+        $request = $this->updateAccountGroupRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAccountGroupRuleTemplateAsync($body = null)
+    {
+        return $this->updateAccountGroupRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAccountGroupRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateAccountGroupRuleTemplateResponse';
+        $request = $this->updateAccountGroupRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAccountGroupRuleTemplateRequest($body)
+    {
+        $resourcePath = '/UpdateAccountGroupRuleTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateConformancePack($body = null)
+    {
+        list($response) = $this->updateConformancePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateConformancePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateConformancePackResponse';
+        $request = $this->updateConformancePackRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateConformancePackAsync($body = null)
+    {
+        return $this->updateConformancePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateConformancePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateConformancePackResponse';
+        $request = $this->updateConformancePackRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateConformancePackRequest($body)
+    {
+        $resourcePath = '/UpdateConformancePack/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateConformancePackTemplate($body = null)
+    {
+        list($response) = $this->updateConformancePackTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateConformancePackTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateConformancePackTemplateResponse';
+        $request = $this->updateConformancePackTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateConformancePackTemplateAsync($body = null)
+    {
+        return $this->updateConformancePackTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateConformancePackTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateConformancePackTemplateResponse';
+        $request = $this->updateConformancePackTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateConformancePackTemplateRequest($body)
+    {
+        $resourcePath = '/UpdateConformancePackTemplate/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateDeliveryChannel($body = null)
+    {
+        list($response) = $this->updateDeliveryChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateDeliveryChannelWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateDeliveryChannelResponse';
+        $request = $this->updateDeliveryChannelRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateDeliveryChannelAsync($body = null)
+    {
+        return $this->updateDeliveryChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateDeliveryChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateDeliveryChannelResponse';
+        $request = $this->updateDeliveryChannelRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateDeliveryChannelRequest($body)
+    {
+        $resourcePath = '/UpdateDeliveryChannel/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateRule($body = null)
+    {
+        list($response) = $this->updateRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateRuleResponse';
+        $request = $this->updateRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRuleAsync($body = null)
+    {
+        return $this->updateRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateRuleResponse';
+        $request = $this->updateRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRuleRequest($body)
+    {
+        $resourcePath = '/UpdateRule/2025-01-01/config/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateRuleTemplate($body = null)
+    {
+        list($response) = $this->updateRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateRuleTemplateResponse';
+        $request = $this->updateRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRuleTemplateAsync($body = null)
+    {
+        return $this->updateRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Config\Model\UpdateRuleTemplateResponse';
+        $request = $this->updateRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRuleTemplateRequest($body)
+    {
+        $resourcePath = '/UpdateRuleTemplate/2025-01-01/config/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

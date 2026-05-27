@@ -28,6 +28,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'propagation_granularity' => 'string',
         'transit_router_attachment_id' => 'string',
         'transit_router_route_table_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'propagation_granularity' => null,
         'transit_router_attachment_id' => null,
         'transit_router_route_table_id' => null
     ];
@@ -69,6 +71,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
+        'propagation_granularity' => 'PropagationGranularity',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
         'transit_router_route_table_id' => 'TransitRouterRouteTableId'
     ];
@@ -79,6 +82,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
+        'propagation_granularity' => 'setPropagationGranularity',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
         'transit_router_route_table_id' => 'setTransitRouterRouteTableId'
     ];
@@ -89,6 +93,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
+        'propagation_granularity' => 'getPropagationGranularity',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
         'transit_router_route_table_id' => 'getTransitRouterRouteTableId'
     ];
@@ -153,6 +158,7 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
      */
     public function __construct($data = null)
     {
+        $this->container['propagation_granularity'] = isset($data['propagation_granularity']) ? $data['propagation_granularity'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
         $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
     }
@@ -186,6 +192,30 @@ class EnableTransitRouterRouteTablePropagationRequest implements ModelInterface,
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets propagation_granularity
+     *
+     * @return string
+     */
+    public function getPropagationGranularity()
+    {
+        return $this->container['propagation_granularity'];
+    }
+
+    /**
+     * Sets propagation_granularity
+     *
+     * @param string $propagation_granularity propagation_granularity
+     *
+     * @return $this
+     */
+    public function setPropagationGranularity($propagation_granularity)
+    {
+        $this->container['propagation_granularity'] = $propagation_granularity;
+
+        return $this;
+    }
 
     /**
      * Gets transit_router_attachment_id

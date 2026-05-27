@@ -189,8 +189,25 @@ class ConfigurationItemForGetResourceConfigHistoryOutput implements ModelInterfa
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_EVENT_TYPE_DISCOVERED = 'Discovered';
+    const RESOURCE_EVENT_TYPE_UPDATE = 'Update';
+    const RESOURCE_EVENT_TYPE_DELETE = 'Delete';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceEventTypeAllowableValues()
+    {
+        return [
+            self::RESOURCE_EVENT_TYPE_DISCOVERED,
+            self::RESOURCE_EVENT_TYPE_UPDATE,
+            self::RESOURCE_EVENT_TYPE_DELETE,
+        ];
+    }
     
 
     /**
@@ -231,6 +248,14 @@ class ConfigurationItemForGetResourceConfigHistoryOutput implements ModelInterfa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getResourceEventTypeAllowableValues();
+        if (!is_null($this->container['resource_event_type']) && !in_array($this->container['resource_event_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_event_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -458,6 +483,15 @@ class ConfigurationItemForGetResourceConfigHistoryOutput implements ModelInterfa
      */
     public function setResourceEventType($resource_event_type)
     {
+        $allowedValues = $this->getResourceEventTypeAllowableValues();
+        if (!is_null($resource_event_type) && !in_array($resource_event_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_event_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['resource_event_type'] = $resource_event_type;
 
         return $this;

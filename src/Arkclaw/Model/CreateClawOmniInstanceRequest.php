@@ -40,7 +40,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'string',
         'space_id' => 'string',
         'tags' => '\Volcengine\Arkclaw\Model\TagForCreateClawOmniInstanceInput[]',
-        'timeout' => 'int'
+        'template_id' => 'string',
+        'timeout' => 'int',
+        'token_limit_per_day' => 'int',
+        'token_limit_per_min' => 'int',
+        'token_limit_per_week' => 'int'
     ];
 
     /**
@@ -61,7 +65,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => null,
         'space_id' => null,
         'tags' => null,
-        'timeout' => 'int32'
+        'template_id' => null,
+        'timeout' => 'int32',
+        'token_limit_per_day' => 'int32',
+        'token_limit_per_min' => 'int32',
+        'token_limit_per_week' => 'int32'
     ];
 
     /**
@@ -103,7 +111,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'Soul',
         'space_id' => 'SpaceId',
         'tags' => 'Tags',
-        'timeout' => 'Timeout'
+        'template_id' => 'TemplateId',
+        'timeout' => 'Timeout',
+        'token_limit_per_day' => 'TokenLimitPerDay',
+        'token_limit_per_min' => 'TokenLimitPerMin',
+        'token_limit_per_week' => 'TokenLimitPerWeek'
     ];
 
     /**
@@ -124,7 +136,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'setSoul',
         'space_id' => 'setSpaceId',
         'tags' => 'setTags',
-        'timeout' => 'setTimeout'
+        'template_id' => 'setTemplateId',
+        'timeout' => 'setTimeout',
+        'token_limit_per_day' => 'setTokenLimitPerDay',
+        'token_limit_per_min' => 'setTokenLimitPerMin',
+        'token_limit_per_week' => 'setTokenLimitPerWeek'
     ];
 
     /**
@@ -145,7 +161,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'getSoul',
         'space_id' => 'getSpaceId',
         'tags' => 'getTags',
-        'timeout' => 'getTimeout'
+        'template_id' => 'getTemplateId',
+        'timeout' => 'getTimeout',
+        'token_limit_per_day' => 'getTokenLimitPerDay',
+        'token_limit_per_min' => 'getTokenLimitPerMin',
+        'token_limit_per_week' => 'getTokenLimitPerWeek'
     ];
 
     /**
@@ -220,7 +240,11 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['token_limit_per_day'] = isset($data['token_limit_per_day']) ? $data['token_limit_per_day'] : null;
+        $this->container['token_limit_per_min'] = isset($data['token_limit_per_min']) ? $data['token_limit_per_min'] : null;
+        $this->container['token_limit_per_week'] = isset($data['token_limit_per_week']) ? $data['token_limit_per_week'] : null;
     }
 
     /**
@@ -232,12 +256,6 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cpu_milli'] === null) {
-            $invalidProperties[] = "'cpu_milli' can't be null";
-        }
-        if ($this->container['image'] === null) {
-            $invalidProperties[] = "'image' can't be null";
-        }
         if ($this->container['memory_mb'] === null) {
             $invalidProperties[] = "'memory_mb' can't be null";
         }
@@ -551,6 +569,30 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
      * Gets timeout
      *
      * @return int
@@ -570,6 +612,78 @@ class CreateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     public function setTimeout($timeout)
     {
         $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_day
+     *
+     * @return int
+     */
+    public function getTokenLimitPerDay()
+    {
+        return $this->container['token_limit_per_day'];
+    }
+
+    /**
+     * Sets token_limit_per_day
+     *
+     * @param int $token_limit_per_day token_limit_per_day
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerDay($token_limit_per_day)
+    {
+        $this->container['token_limit_per_day'] = $token_limit_per_day;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_min
+     *
+     * @return int
+     */
+    public function getTokenLimitPerMin()
+    {
+        return $this->container['token_limit_per_min'];
+    }
+
+    /**
+     * Sets token_limit_per_min
+     *
+     * @param int $token_limit_per_min token_limit_per_min
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerMin($token_limit_per_min)
+    {
+        $this->container['token_limit_per_min'] = $token_limit_per_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_week
+     *
+     * @return int
+     */
+    public function getTokenLimitPerWeek()
+    {
+        return $this->container['token_limit_per_week'];
+    }
+
+    /**
+     * Sets token_limit_per_week
+     *
+     * @param int $token_limit_per_week token_limit_per_week
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerWeek($token_limit_per_week)
+    {
+        $this->container['token_limit_per_week'] = $token_limit_per_week;
 
         return $this;
     }

@@ -32,8 +32,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         'lens_policy_id' => 'string',
         'lens_task_id' => 'string',
         'lens_task_name' => 'string',
+        'master_task_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'schedule_type' => 'string',
         'status' => 'string[]'
     ];
 
@@ -47,8 +49,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         'lens_policy_id' => null,
         'lens_task_id' => null,
         'lens_task_name' => null,
+        'master_task_id' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
+        'schedule_type' => null,
         'status' => null
     ];
 
@@ -83,8 +87,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         'lens_policy_id' => 'LensPolicyId',
         'lens_task_id' => 'LensTaskId',
         'lens_task_name' => 'LensTaskName',
+        'master_task_id' => 'MasterTaskId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'schedule_type' => 'ScheduleType',
         'status' => 'Status'
     ];
 
@@ -98,8 +104,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         'lens_policy_id' => 'setLensPolicyId',
         'lens_task_id' => 'setLensTaskId',
         'lens_task_name' => 'setLensTaskName',
+        'master_task_id' => 'setMasterTaskId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'schedule_type' => 'setScheduleType',
         'status' => 'setStatus'
     ];
 
@@ -113,8 +121,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         'lens_policy_id' => 'getLensPolicyId',
         'lens_task_id' => 'getLensTaskId',
         'lens_task_name' => 'getLensTaskName',
+        'master_task_id' => 'getMasterTaskId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'schedule_type' => 'getScheduleType',
         'status' => 'getStatus'
     ];
 
@@ -159,6 +169,8 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SCHEDULE_TYPE_ONCE = 'Once';
+    const SCHEDULE_TYPE_TIMED = 'Timed';
     const STATUS_CREATING = 'Creating';
     const STATUS_PENDING = 'Pending';
     const STATUS_STARTING = 'Starting';
@@ -171,6 +183,19 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     const STATUS_FAILED = 'Failed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getScheduleTypeAllowableValues()
+    {
+        return [
+            self::SCHEDULE_TYPE_ONCE,
+            self::SCHEDULE_TYPE_TIMED,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -213,8 +238,10 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
         $this->container['lens_policy_id'] = isset($data['lens_policy_id']) ? $data['lens_policy_id'] : null;
         $this->container['lens_task_id'] = isset($data['lens_task_id']) ? $data['lens_task_id'] : null;
         $this->container['lens_task_name'] = isset($data['lens_task_name']) ? $data['lens_task_name'] : null;
+        $this->container['master_task_id'] = isset($data['master_task_id']) ? $data['master_task_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['schedule_type'] = isset($data['schedule_type']) ? $data['schedule_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -226,6 +253,14 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getScheduleTypeAllowableValues();
+        if (!is_null($this->container['schedule_type']) && !in_array($this->container['schedule_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'schedule_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -339,6 +374,30 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets master_task_id
+     *
+     * @return string
+     */
+    public function getMasterTaskId()
+    {
+        return $this->container['master_task_id'];
+    }
+
+    /**
+     * Sets master_task_id
+     *
+     * @param string $master_task_id master_task_id
+     *
+     * @return $this
+     */
+    public function setMasterTaskId($master_task_id)
+    {
+        $this->container['master_task_id'] = $master_task_id;
+
+        return $this;
+    }
+
+    /**
      * Gets page_number
      *
      * @return int
@@ -382,6 +441,39 @@ class DescribeLensTasksRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule_type
+     *
+     * @return string
+     */
+    public function getScheduleType()
+    {
+        return $this->container['schedule_type'];
+    }
+
+    /**
+     * Sets schedule_type
+     *
+     * @param string $schedule_type schedule_type
+     *
+     * @return $this
+     */
+    public function setScheduleType($schedule_type)
+    {
+        $allowedValues = $this->getScheduleTypeAllowableValues();
+        if (!is_null($schedule_type) && !in_array($schedule_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'schedule_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['schedule_type'] = $schedule_type;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'billing_owner_type' => 'string',
         'description' => 'string',
         'transit_router_id' => 'string',
         'transit_router_name' => 'string'
@@ -39,6 +40,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'billing_owner_type' => null,
         'description' => null,
         'transit_router_id' => null,
         'transit_router_name' => null
@@ -71,6 +73,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'billing_owner_type' => 'BillingOwnerType',
         'description' => 'Description',
         'transit_router_id' => 'TransitRouterId',
         'transit_router_name' => 'TransitRouterName'
@@ -82,6 +85,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'billing_owner_type' => 'setBillingOwnerType',
         'description' => 'setDescription',
         'transit_router_id' => 'setTransitRouterId',
         'transit_router_name' => 'setTransitRouterName'
@@ -93,6 +97,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'billing_owner_type' => 'getBillingOwnerType',
         'description' => 'getDescription',
         'transit_router_id' => 'getTransitRouterId',
         'transit_router_name' => 'getTransitRouterName'
@@ -139,8 +144,23 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const BILLING_OWNER_TYPE_RESOURCE_OWNER = 'ResourceOwner';
+    const BILLING_OWNER_TYPE_TRANSIT_ROUTER_OWNER = 'TransitRouterOwner';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBillingOwnerTypeAllowableValues()
+    {
+        return [
+            self::BILLING_OWNER_TYPE_RESOURCE_OWNER,
+            self::BILLING_OWNER_TYPE_TRANSIT_ROUTER_OWNER,
+        ];
+    }
     
 
     /**
@@ -158,6 +178,7 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['billing_owner_type'] = isset($data['billing_owner_type']) ? $data['billing_owner_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
         $this->container['transit_router_name'] = isset($data['transit_router_name']) ? $data['transit_router_name'] : null;
@@ -171,6 +192,14 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getBillingOwnerTypeAllowableValues();
+        if (!is_null($this->container['billing_owner_type']) && !in_array($this->container['billing_owner_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'billing_owner_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['transit_router_id'] === null) {
             $invalidProperties[] = "'transit_router_id' can't be null";
@@ -189,6 +218,39 @@ class ModifyTransitRouterAttributesRequest implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets billing_owner_type
+     *
+     * @return string
+     */
+    public function getBillingOwnerType()
+    {
+        return $this->container['billing_owner_type'];
+    }
+
+    /**
+     * Sets billing_owner_type
+     *
+     * @param string $billing_owner_type billing_owner_type
+     *
+     * @return $this
+     */
+    public function setBillingOwnerType($billing_owner_type)
+    {
+        $allowedValues = $this->getBillingOwnerTypeAllowableValues();
+        if (!is_null($billing_owner_type) && !in_array($billing_owner_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'billing_owner_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_owner_type'] = $billing_owner_type;
+
+        return $this;
+    }
 
     /**
      * Gets description

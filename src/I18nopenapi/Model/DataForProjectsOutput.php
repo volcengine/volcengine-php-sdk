@@ -34,9 +34,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'source_lang' => 'string',
-        'source_locale' => 'string',
         'target_langs' => 'string[]',
-        'target_locales' => 'string[]',
         'updated_at' => 'string'
     ];
 
@@ -52,9 +50,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'name' => null,
         'source_lang' => null,
-        'source_locale' => null,
         'target_langs' => null,
-        'target_locales' => null,
         'updated_at' => null
     ];
 
@@ -91,9 +87,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'source_lang' => 'sourceLang',
-        'source_locale' => 'sourceLocale',
         'target_langs' => 'targetLangs',
-        'target_locales' => 'targetLocales',
         'updated_at' => 'updatedAt'
     ];
 
@@ -109,9 +103,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'source_lang' => 'setSourceLang',
-        'source_locale' => 'setSourceLocale',
         'target_langs' => 'setTargetLangs',
-        'target_locales' => 'setTargetLocales',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -127,9 +119,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'source_lang' => 'getSourceLang',
-        'source_locale' => 'getSourceLocale',
         'target_langs' => 'getTargetLangs',
-        'target_locales' => 'getTargetLocales',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -199,9 +189,7 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
-        $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['target_langs'] = isset($data['target_langs']) ? $data['target_langs'] : null;
-        $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -374,30 +362,6 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets source_locale
-     *
-     * @return string
-     */
-    public function getSourceLocale()
-    {
-        return $this->container['source_locale'];
-    }
-
-    /**
-     * Sets source_locale
-     *
-     * @param string $source_locale source_locale
-     *
-     * @return $this
-     */
-    public function setSourceLocale($source_locale)
-    {
-        $this->container['source_locale'] = $source_locale;
-
-        return $this;
-    }
-
-    /**
      * Gets target_langs
      *
      * @return string[]
@@ -417,30 +381,6 @@ class DataForProjectsOutput implements ModelInterface, ArrayAccess
     public function setTargetLangs($target_langs)
     {
         $this->container['target_langs'] = $target_langs;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_locales
-     *
-     * @return string[]
-     */
-    public function getTargetLocales()
-    {
-        return $this->container['target_locales'];
-    }
-
-    /**
-     * Sets target_locales
-     *
-     * @param string[] $target_locales target_locales
-     *
-     * @return $this
-     */
-    public function setTargetLocales($target_locales)
-    {
-        $this->container['target_locales'] = $target_locales;
 
         return $this;
     }

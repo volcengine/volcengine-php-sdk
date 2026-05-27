@@ -32,6 +32,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         'client_token' => 'string',
         'description' => 'string',
         'dscps' => 'int[]',
+        'priority' => 'string',
         'transit_router_traffic_qos_queue_entry_name' => 'string',
         'transit_router_traffic_qos_queue_policy_id' => 'string'
     ];
@@ -46,6 +47,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         'client_token' => null,
         'description' => null,
         'dscps' => 'int32',
+        'priority' => null,
         'transit_router_traffic_qos_queue_entry_name' => null,
         'transit_router_traffic_qos_queue_policy_id' => null
     ];
@@ -81,6 +83,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'dscps' => 'Dscps',
+        'priority' => 'Priority',
         'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId'
     ];
@@ -95,6 +98,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'dscps' => 'setDscps',
+        'priority' => 'setPriority',
         'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId'
     ];
@@ -109,6 +113,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'dscps' => 'getDscps',
+        'priority' => 'getPriority',
         'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId'
     ];
@@ -154,8 +159,23 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
+    const PRIORITY_NORMAL = 'Normal';
+    const PRIORITY_HIGH = 'High';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPriorityAllowableValues()
+    {
+        return [
+            self::PRIORITY_NORMAL,
+            self::PRIORITY_HIGH,
+        ];
+    }
     
 
     /**
@@ -177,6 +197,7 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dscps'] = isset($data['dscps']) ? $data['dscps'] : null;
+        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['transit_router_traffic_qos_queue_entry_name'] = isset($data['transit_router_traffic_qos_queue_entry_name']) ? $data['transit_router_traffic_qos_queue_entry_name'] : null;
         $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
     }
@@ -190,9 +211,14 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     {
         $invalidProperties = [];
 
-        if ($this->container['bandwidth_percent'] === null) {
-            $invalidProperties[] = "'bandwidth_percent' can't be null";
+        $allowedValues = $this->getPriorityAllowableValues();
+        if (!is_null($this->container['priority']) && !in_array($this->container['priority'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'priority', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['transit_router_traffic_qos_queue_entry_name'] === null) {
             $invalidProperties[] = "'transit_router_traffic_qos_queue_entry_name' can't be null";
         }
@@ -306,6 +332,39 @@ class CreateTransitRouterTrafficQosQueueEntryRequest implements ModelInterface, 
     public function setDscps($dscps)
     {
         $this->container['dscps'] = $dscps;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return string
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param string $priority priority
+     *
+     * @return $this
+     */
+    public function setPriority($priority)
+    {
+        $allowedValues = $this->getPriorityAllowableValues();
+        if (!is_null($priority) && !in_array($priority, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'priority', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['priority'] = $priority;
 
         return $this;
     }

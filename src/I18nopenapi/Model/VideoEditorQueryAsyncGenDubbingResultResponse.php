@@ -28,9 +28,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status' => 'int',
-        'tos_url' => 'string',
-        'tos_url_list' => 'string[]'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoEditorQueryAsyncGenDubbingResultOutput'
     ];
 
     /**
@@ -39,9 +37,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status' => 'int32',
-        'tos_url' => null,
-        'tos_url_list' => null
+        'data' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'tos_url' => 'tosUrl',
-        'tos_url_list' => 'tosUrlList'
+        'data' => 'data'
     ];
 
     /**
@@ -82,9 +76,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'tos_url' => 'setTosUrl',
-        'tos_url_list' => 'setTosUrlList'
+        'data' => 'setData'
     ];
 
     /**
@@ -93,9 +85,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'tos_url' => 'getTosUrl',
-        'tos_url_list' => 'getTosUrlList'
+        'data' => 'getData'
     ];
 
     /**
@@ -158,9 +148,7 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tos_url'] = isset($data['tos_url']) ? $data['tos_url'] : null;
-        $this->container['tos_url_list'] = isset($data['tos_url_list']) ? $data['tos_url_list'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class VideoEditorQueryAsyncGenDubbingResultResponse implements ModelInterface, A
 
 
     /**
-     * Gets status
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoEditorQueryAsyncGenDubbingResultOutput
      */
-    public function getStatus()
+    public function getData()
     {
-        return $this->container['status'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets status
+     * Sets data
      *
-     * @param int $status status
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoEditorQueryAsyncGenDubbingResultOutput $data data
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setData($data)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_url
-     *
-     * @return string
-     */
-    public function getTosUrl()
-    {
-        return $this->container['tos_url'];
-    }
-
-    /**
-     * Sets tos_url
-     *
-     * @param string $tos_url tos_url
-     *
-     * @return $this
-     */
-    public function setTosUrl($tos_url)
-    {
-        $this->container['tos_url'] = $tos_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_url_list
-     *
-     * @return string[]
-     */
-    public function getTosUrlList()
-    {
-        return $this->container['tos_url_list'];
-    }
-
-    /**
-     * Sets tos_url_list
-     *
-     * @param string[] $tos_url_list tos_url_list
-     *
-     * @return $this
-     */
-    public function setTosUrlList($tos_url_list)
-    {
-        $this->container['tos_url_list'] = $tos_url_list;
+        $this->container['data'] = $data;
 
         return $this;
     }

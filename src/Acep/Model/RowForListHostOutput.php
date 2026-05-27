@@ -38,11 +38,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'string',
         'expire_at' => 'int',
         'host_id' => 'string',
+        'last_reboot_time' => 'string',
         'pod_id_list' => 'string[]',
         'pod_num_available' => 'int',
         'pod_num_on_host' => 'int',
         'product_id' => 'string',
         'region' => 'string',
+        'renew_type' => 'int',
         'resource_set_id' => 'string',
         'server_type_code' => 'string',
         'status' => 'int',
@@ -65,11 +67,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => null,
         'expire_at' => 'int64',
         'host_id' => null,
+        'last_reboot_time' => null,
         'pod_id_list' => null,
         'pod_num_available' => 'int32',
         'pod_num_on_host' => 'int32',
         'product_id' => null,
         'region' => null,
+        'renew_type' => 'int32',
         'resource_set_id' => null,
         'server_type_code' => null,
         'status' => 'int32',
@@ -113,11 +117,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'Dc',
         'expire_at' => 'ExpireAt',
         'host_id' => 'HostId',
+        'last_reboot_time' => 'LastRebootTime',
         'pod_id_list' => 'PodIdList',
         'pod_num_available' => 'PodNumAvailable',
         'pod_num_on_host' => 'PodNumOnHost',
         'product_id' => 'ProductId',
         'region' => 'Region',
+        'renew_type' => 'RenewType',
         'resource_set_id' => 'ResourceSetId',
         'server_type_code' => 'ServerTypeCode',
         'status' => 'Status',
@@ -140,11 +146,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'setDc',
         'expire_at' => 'setExpireAt',
         'host_id' => 'setHostId',
+        'last_reboot_time' => 'setLastRebootTime',
         'pod_id_list' => 'setPodIdList',
         'pod_num_available' => 'setPodNumAvailable',
         'pod_num_on_host' => 'setPodNumOnHost',
         'product_id' => 'setProductId',
         'region' => 'setRegion',
+        'renew_type' => 'setRenewType',
         'resource_set_id' => 'setResourceSetId',
         'server_type_code' => 'setServerTypeCode',
         'status' => 'setStatus',
@@ -167,11 +175,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'getDc',
         'expire_at' => 'getExpireAt',
         'host_id' => 'getHostId',
+        'last_reboot_time' => 'getLastRebootTime',
         'pod_id_list' => 'getPodIdList',
         'pod_num_available' => 'getPodNumAvailable',
         'pod_num_on_host' => 'getPodNumOnHost',
         'product_id' => 'getProductId',
         'region' => 'getRegion',
+        'renew_type' => 'getRenewType',
         'resource_set_id' => 'getResourceSetId',
         'server_type_code' => 'getServerTypeCode',
         'status' => 'getStatus',
@@ -248,11 +258,13 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         $this->container['dc'] = isset($data['dc']) ? $data['dc'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
+        $this->container['last_reboot_time'] = isset($data['last_reboot_time']) ? $data['last_reboot_time'] : null;
         $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
         $this->container['pod_num_available'] = isset($data['pod_num_available']) ? $data['pod_num_available'] : null;
         $this->container['pod_num_on_host'] = isset($data['pod_num_on_host']) ? $data['pod_num_on_host'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['resource_set_id'] = isset($data['resource_set_id']) ? $data['resource_set_id'] : null;
         $this->container['server_type_code'] = isset($data['server_type_code']) ? $data['server_type_code'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -524,6 +536,30 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets last_reboot_time
+     *
+     * @return string
+     */
+    public function getLastRebootTime()
+    {
+        return $this->container['last_reboot_time'];
+    }
+
+    /**
+     * Sets last_reboot_time
+     *
+     * @param string $last_reboot_time last_reboot_time
+     *
+     * @return $this
+     */
+    public function setLastRebootTime($last_reboot_time)
+    {
+        $this->container['last_reboot_time'] = $last_reboot_time;
+
+        return $this;
+    }
+
+    /**
      * Gets pod_id_list
      *
      * @return string[]
@@ -639,6 +675,30 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets renew_type
+     *
+     * @return int
+     */
+    public function getRenewType()
+    {
+        return $this->container['renew_type'];
+    }
+
+    /**
+     * Sets renew_type
+     *
+     * @param int $renew_type renew_type
+     *
+     * @return $this
+     */
+    public function setRenewType($renew_type)
+    {
+        $this->container['renew_type'] = $renew_type;
 
         return $this;
     }

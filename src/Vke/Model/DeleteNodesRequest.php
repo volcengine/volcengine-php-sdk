@@ -213,9 +213,6 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
-        if ($this->container['node_pool_id'] === null) {
-            $invalidProperties[] = "'node_pool_id' can't be null";
-        }
         return $invalidProperties;
     }
 

@@ -28,7 +28,8 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subnet_ids' => 'string[]'
+        'subnet_ids' => 'string[]',
+        'vci_subnet_ids' => 'string[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subnet_ids' => null
+        'subnet_ids' => null,
+        'vci_subnet_ids' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'subnet_ids' => 'SubnetIds'
+        'subnet_ids' => 'SubnetIds',
+        'vci_subnet_ids' => 'VciSubnetIds'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'subnet_ids' => 'setSubnetIds'
+        'subnet_ids' => 'setSubnetIds',
+        'vci_subnet_ids' => 'setVciSubnetIds'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'subnet_ids' => 'getSubnetIds'
+        'subnet_ids' => 'getSubnetIds',
+        'vci_subnet_ids' => 'getVciSubnetIds'
     ];
 
     /**
@@ -149,6 +154,7 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
     public function __construct($data = null)
     {
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['vci_subnet_ids'] = isset($data['vci_subnet_ids']) ? $data['vci_subnet_ids'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class VpcCniConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAc
     public function setSubnetIds($subnet_ids)
     {
         $this->container['subnet_ids'] = $subnet_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets vci_subnet_ids
+     *
+     * @return string[]
+     */
+    public function getVciSubnetIds()
+    {
+        return $this->container['vci_subnet_ids'];
+    }
+
+    /**
+     * Sets vci_subnet_ids
+     *
+     * @param string[] $vci_subnet_ids vci_subnet_ids
+     *
+     * @return $this
+     */
+    public function setVciSubnetIds($vci_subnet_ids)
+    {
+        $this->container['vci_subnet_ids'] = $vci_subnet_ids;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_spec_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecInfoForDescribeDBInstanceSpecsOutput[]'
+        'instance_specs_info' => '\Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_spec_info' => null
+        'instance_specs_info' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_spec_info' => 'InstanceSpecInfo'
+        'instance_specs_info' => 'InstanceSpecsInfo'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_spec_info' => 'setInstanceSpecInfo'
+        'instance_specs_info' => 'setInstanceSpecsInfo'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_spec_info' => 'getInstanceSpecInfo'
+        'instance_specs_info' => 'getInstanceSpecsInfo'
     ];
 
     /**
@@ -148,7 +148,7 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_spec_info'] = isset($data['instance_spec_info']) ? $data['instance_spec_info'] : null;
+        $this->container['instance_specs_info'] = isset($data['instance_specs_info']) ? $data['instance_specs_info'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class DescribeDBInstanceSpecsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_spec_info
+     * Gets instance_specs_info
      *
-     * @return \Volcengine\Rdsmssql\Model\InstanceSpecInfoForDescribeDBInstanceSpecsOutput[]
+     * @return \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[]
      */
-    public function getInstanceSpecInfo()
+    public function getInstanceSpecsInfo()
     {
-        return $this->container['instance_spec_info'];
+        return $this->container['instance_specs_info'];
     }
 
     /**
-     * Sets instance_spec_info
+     * Sets instance_specs_info
      *
-     * @param \Volcengine\Rdsmssql\Model\InstanceSpecInfoForDescribeDBInstanceSpecsOutput[] $instance_spec_info instance_spec_info
+     * @param \Volcengine\Rdsmssql\Model\InstanceSpecsInfoForDescribeDBInstanceSpecsOutput[] $instance_specs_info instance_specs_info
      *
      * @return $this
      */
-    public function setInstanceSpecInfo($instance_spec_info)
+    public function setInstanceSpecsInfo($instance_specs_info)
     {
-        $this->container['instance_spec_info'] = $instance_spec_info;
+        $this->container['instance_specs_info'] = $instance_specs_info;
 
         return $this;
     }
