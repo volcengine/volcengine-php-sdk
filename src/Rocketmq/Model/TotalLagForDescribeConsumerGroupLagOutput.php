@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class TotalLagForDescribeConsumerGroupLagOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'TotalLagForDescribeConsumerGroupLagOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'delivery_duration' => 'int',
+        'last_consume_timestamp' => 'string',
+        'ready_count' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        'delivery_duration' => 'int64',
+        'last_consume_timestamp' => null,
+        'ready_count' => 'int64'
     ];
 
     /**
@@ -67,7 +71,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        'delivery_duration' => 'DeliveryDuration',
+        'last_consume_timestamp' => 'LastConsumeTimestamp',
+        'ready_count' => 'ReadyCount'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        'delivery_duration' => 'setDeliveryDuration',
+        'last_consume_timestamp' => 'setLastConsumeTimestamp',
+        'ready_count' => 'setReadyCount'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        'delivery_duration' => 'getDeliveryDuration',
+        'last_consume_timestamp' => 'getLastConsumeTimestamp',
+        'ready_count' => 'getReadyCount'
     ];
 
     /**
@@ -148,7 +158,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
+        $this->container['delivery_duration'] = isset($data['delivery_duration']) ? $data['delivery_duration'] : null;
+        $this->container['last_consume_timestamp'] = isset($data['last_consume_timestamp']) ? $data['last_consume_timestamp'] : null;
+        $this->container['ready_count'] = isset($data['ready_count']) ? $data['ready_count'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_results
+     * Gets delivery_duration
      *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
+     * @return int
      */
-    public function getResendResults()
+    public function getDeliveryDuration()
     {
-        return $this->container['resend_results'];
+        return $this->container['delivery_duration'];
     }
 
     /**
-     * Sets resend_results
+     * Sets delivery_duration
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
+     * @param int $delivery_duration delivery_duration
      *
      * @return $this
      */
-    public function setResendResults($resend_results)
+    public function setDeliveryDuration($delivery_duration)
     {
-        $this->container['resend_results'] = $resend_results;
+        $this->container['delivery_duration'] = $delivery_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_consume_timestamp
+     *
+     * @return string
+     */
+    public function getLastConsumeTimestamp()
+    {
+        return $this->container['last_consume_timestamp'];
+    }
+
+    /**
+     * Sets last_consume_timestamp
+     *
+     * @param string $last_consume_timestamp last_consume_timestamp
+     *
+     * @return $this
+     */
+    public function setLastConsumeTimestamp($last_consume_timestamp)
+    {
+        $this->container['last_consume_timestamp'] = $last_consume_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ready_count
+     *
+     * @return int
+     */
+    public function getReadyCount()
+    {
+        return $this->container['ready_count'];
+    }
+
+    /**
+     * Sets ready_count
+     *
+     * @param int $ready_count ready_count
+     *
+     * @return $this
+     */
+    public function setReadyCount($ready_count)
+    {
+        $this->container['ready_count'] = $ready_count;
 
         return $this;
     }

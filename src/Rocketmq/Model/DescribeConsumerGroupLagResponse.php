@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
+class DescribeConsumerGroupLagResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResendDLQMessageByIdResponse';
+    protected static $swaggerModelName = 'DescribeConsumerGroupLagResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'lite_topic_lag_map' => '\Volcengine\Rocketmq\Model\LiteTopicLagMapForDescribeConsumerGroupLagOutput',
+        'topic_lag_map' => '\Volcengine\Rocketmq\Model\TopicLagMapForDescribeConsumerGroupLagOutput',
+        'total_lag' => '\Volcengine\Rocketmq\Model\TotalLagForDescribeConsumerGroupLagOutput'
     ];
 
     /**
@@ -37,7 +39,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_results' => null
+        'lite_topic_lag_map' => null,
+        'topic_lag_map' => null,
+        'total_lag' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_results' => 'ResendResults'
+        'lite_topic_lag_map' => 'LiteTopicLagMap',
+        'topic_lag_map' => 'TopicLagMap',
+        'total_lag' => 'TotalLag'
     ];
 
     /**
@@ -76,7 +82,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_results' => 'setResendResults'
+        'lite_topic_lag_map' => 'setLiteTopicLagMap',
+        'topic_lag_map' => 'setTopicLagMap',
+        'total_lag' => 'setTotalLag'
     ];
 
     /**
@@ -85,7 +93,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_results' => 'getResendResults'
+        'lite_topic_lag_map' => 'getLiteTopicLagMap',
+        'topic_lag_map' => 'getTopicLagMap',
+        'total_lag' => 'getTotalLag'
     ];
 
     /**
@@ -148,7 +158,9 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
+        $this->container['lite_topic_lag_map'] = isset($data['lite_topic_lag_map']) ? $data['lite_topic_lag_map'] : null;
+        $this->container['topic_lag_map'] = isset($data['topic_lag_map']) ? $data['topic_lag_map'] : null;
+        $this->container['total_lag'] = isset($data['total_lag']) ? $data['total_lag'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_results
+     * Gets lite_topic_lag_map
      *
-     * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
+     * @return \Volcengine\Rocketmq\Model\LiteTopicLagMapForDescribeConsumerGroupLagOutput
      */
-    public function getResendResults()
+    public function getLiteTopicLagMap()
     {
-        return $this->container['resend_results'];
+        return $this->container['lite_topic_lag_map'];
     }
 
     /**
-     * Sets resend_results
+     * Sets lite_topic_lag_map
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
+     * @param \Volcengine\Rocketmq\Model\LiteTopicLagMapForDescribeConsumerGroupLagOutput $lite_topic_lag_map lite_topic_lag_map
      *
      * @return $this
      */
-    public function setResendResults($resend_results)
+    public function setLiteTopicLagMap($lite_topic_lag_map)
     {
-        $this->container['resend_results'] = $resend_results;
+        $this->container['lite_topic_lag_map'] = $lite_topic_lag_map;
+
+        return $this;
+    }
+
+    /**
+     * Gets topic_lag_map
+     *
+     * @return \Volcengine\Rocketmq\Model\TopicLagMapForDescribeConsumerGroupLagOutput
+     */
+    public function getTopicLagMap()
+    {
+        return $this->container['topic_lag_map'];
+    }
+
+    /**
+     * Sets topic_lag_map
+     *
+     * @param \Volcengine\Rocketmq\Model\TopicLagMapForDescribeConsumerGroupLagOutput $topic_lag_map topic_lag_map
+     *
+     * @return $this
+     */
+    public function setTopicLagMap($topic_lag_map)
+    {
+        $this->container['topic_lag_map'] = $topic_lag_map;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_lag
+     *
+     * @return \Volcengine\Rocketmq\Model\TotalLagForDescribeConsumerGroupLagOutput
+     */
+    public function getTotalLag()
+    {
+        return $this->container['total_lag'];
+    }
+
+    /**
+     * Sets total_lag
+     *
+     * @param \Volcengine\Rocketmq\Model\TotalLagForDescribeConsumerGroupLagOutput $total_lag total_lag
+     *
+     * @return $this
+     */
+    public function setTotalLag($total_lag)
+    {
+        $this->container['total_lag'] = $total_lag;
 
         return $this;
     }
