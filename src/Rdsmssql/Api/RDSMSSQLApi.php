@@ -1308,6 +1308,68 @@ class RDSMSSQLApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeDBInstanceSSL($body = null)
+    {
+        list($response) = $this->describeDBInstanceSSLWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBInstanceSSLWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceSSLResponse';
+        $request = $this->describeDBInstanceSSLRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBInstanceSSLAsync($body = null)
+    {
+        return $this->describeDBInstanceSSLAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBInstanceSSLAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceSSLResponse';
+        $request = $this->describeDBInstanceSSLRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBInstanceSSLRequest($body)
+    {
+        $resourcePath = '/DescribeDBInstanceSSL/2022-01-01/rds_mssql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeDBInstanceSpecs($body = null)
     {
         list($response) = $this->describeDBInstanceSpecsWithHttpInfo($body);
@@ -1342,6 +1404,68 @@ class RDSMSSQLApi
     protected function describeDBInstanceSpecsRequest($body)
     {
         $resourcePath = '/DescribeDBInstanceSpecs/2022-01-01/rds_mssql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeDBInstanceTDE($body = null)
+    {
+        list($response) = $this->describeDBInstanceTDEWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBInstanceTDEWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceTDEResponse';
+        $request = $this->describeDBInstanceTDERequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBInstanceTDEAsync($body = null)
+    {
+        return $this->describeDBInstanceTDEAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBInstanceTDEAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceTDEResponse';
+        $request = $this->describeDBInstanceTDERequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBInstanceTDERequest($body)
+    {
+        $resourcePath = '/DescribeDBInstanceTDE/2022-01-01/rds_mssql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1804,6 +1928,68 @@ class RDSMSSQLApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function downloadSSLCertificate($body = null)
+    {
+        list($response) = $this->downloadSSLCertificateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function downloadSSLCertificateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DownloadSSLCertificateResponse';
+        $request = $this->downloadSSLCertificateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function downloadSSLCertificateAsync($body = null)
+    {
+        return $this->downloadSSLCertificateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function downloadSSLCertificateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\DownloadSSLCertificateResponse';
+        $request = $this->downloadSSLCertificateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function downloadSSLCertificateRequest($body)
+    {
+        $resourcePath = '/DownloadSSLCertificate/2022-01-01/rds_mssql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function grantDBAccountPrivilege($body = null)
     {
         list($response) = $this->grantDBAccountPrivilegeWithHttpInfo($body);
@@ -2210,6 +2396,130 @@ class RDSMSSQLApi
     protected function modifyDBInstanceNameRequest($body)
     {
         $resourcePath = '/ModifyDBInstanceName/2022-01-01/rds_mssql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyDBInstanceSSL($body = null)
+    {
+        list($response) = $this->modifyDBInstanceSSLWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyDBInstanceSSLWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceSSLResponse';
+        $request = $this->modifyDBInstanceSSLRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyDBInstanceSSLAsync($body = null)
+    {
+        return $this->modifyDBInstanceSSLAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyDBInstanceSSLAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceSSLResponse';
+        $request = $this->modifyDBInstanceSSLRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyDBInstanceSSLRequest($body)
+    {
+        $resourcePath = '/ModifyDBInstanceSSL/2022-01-01/rds_mssql/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyDBInstanceTDE($body = null)
+    {
+        list($response) = $this->modifyDBInstanceTDEWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyDBInstanceTDEWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceTDEResponse';
+        $request = $this->modifyDBInstanceTDERequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyDBInstanceTDEAsync($body = null)
+    {
+        return $this->modifyDBInstanceTDEAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyDBInstanceTDEAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceTDEResponse';
+        $request = $this->modifyDBInstanceTDERequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyDBInstanceTDERequest($body)
+    {
+        $resourcePath = '/ModifyDBInstanceTDE/2022-01-01/rds_mssql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
