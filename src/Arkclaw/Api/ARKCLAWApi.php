@@ -316,6 +316,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createPrivateClawOmniSpaceTemplate($body = null)
+    {
+        list($response) = $this->createPrivateClawOmniSpaceTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateClawOmniSpaceTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateClawOmniSpaceTemplateResponse';
+        $request = $this->createPrivateClawOmniSpaceTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateClawOmniSpaceTemplateAsync($body = null)
+    {
+        return $this->createPrivateClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateClawOmniSpaceTemplateResponse';
+        $request = $this->createPrivateClawOmniSpaceTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateClawOmniSpaceTemplateRequest($body)
+    {
+        $resourcePath = '/CreatePrivateClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteClawOmniInstance($body = null)
     {
         list($response) = $this->deleteClawOmniInstanceWithHttpInfo($body);
@@ -598,6 +660,130 @@ class ARKCLAWApi
     protected function getClawOmniInstanceCommandJobLogRequest($body)
     {
         $resourcePath = '/GetClawOmniInstanceCommandJobLog/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getClawOmniInstanceSkills($body = null)
+    {
+        list($response) = $this->getClawOmniInstanceSkillsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getClawOmniInstanceSkillsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetClawOmniInstanceSkillsResponse';
+        $request = $this->getClawOmniInstanceSkillsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getClawOmniInstanceSkillsAsync($body = null)
+    {
+        return $this->getClawOmniInstanceSkillsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getClawOmniInstanceSkillsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetClawOmniInstanceSkillsResponse';
+        $request = $this->getClawOmniInstanceSkillsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getClawOmniInstanceSkillsRequest($body)
+    {
+        $resourcePath = '/GetClawOmniInstanceSkills/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getClawOmniSpaceTemplate($body = null)
+    {
+        list($response) = $this->getClawOmniSpaceTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getClawOmniSpaceTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetClawOmniSpaceTemplateResponse';
+        $request = $this->getClawOmniSpaceTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getClawOmniSpaceTemplateAsync($body = null)
+    {
+        return $this->getClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetClawOmniSpaceTemplateResponse';
+        $request = $this->getClawOmniSpaceTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getClawOmniSpaceTemplateRequest($body)
+    {
+        $resourcePath = '/GetClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -970,6 +1156,68 @@ class ARKCLAWApi
     protected function listClawOmniSpaceEnabledModelsRequest($body)
     {
         $resourcePath = '/ListClawOmniSpaceEnabledModels/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listClawOmniSpaceTemplates($body = null)
+    {
+        list($response) = $this->listClawOmniSpaceTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listClawOmniSpaceTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListClawOmniSpaceTemplatesResponse';
+        $request = $this->listClawOmniSpaceTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listClawOmniSpaceTemplatesAsync($body = null)
+    {
+        return $this->listClawOmniSpaceTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listClawOmniSpaceTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListClawOmniSpaceTemplatesResponse';
+        $request = $this->listClawOmniSpaceTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listClawOmniSpaceTemplatesRequest($body)
+    {
+        $resourcePath = '/ListClawOmniSpaceTemplates/2026-03-01/arkclaw/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1472,6 +1720,68 @@ class ARKCLAWApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePrivateClawOmniSpaceTemplate($body = null)
+    {
+        list($response) = $this->updatePrivateClawOmniSpaceTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePrivateClawOmniSpaceTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdatePrivateClawOmniSpaceTemplateResponse';
+        $request = $this->updatePrivateClawOmniSpaceTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePrivateClawOmniSpaceTemplateAsync($body = null)
+    {
+        return $this->updatePrivateClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePrivateClawOmniSpaceTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdatePrivateClawOmniSpaceTemplateResponse';
+        $request = $this->updatePrivateClawOmniSpaceTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePrivateClawOmniSpaceTemplateRequest($body)
+    {
+        $resourcePath = '/UpdatePrivateClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
