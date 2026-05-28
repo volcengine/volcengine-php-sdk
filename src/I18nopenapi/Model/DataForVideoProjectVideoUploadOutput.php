@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayAccess
+class DataForVideoProjectVideoUploadOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetVideoUploadStatusResponse';
+    protected static $swaggerModelName = 'dataForVideoProjectVideoUploadOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput'
+        'batch_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'batch_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'batch_id' => 'batchId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'batch_id' => 'setBatchId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'batch_id' => 'getBatchId'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
 
 
     /**
-     * Gets data
+     * Gets batch_id
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput
+     * @return string
      */
-    public function getData()
+    public function getBatchId()
     {
-        return $this->container['data'];
+        return $this->container['batch_id'];
     }
 
     /**
-     * Sets data
+     * Sets batch_id
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput $data data
+     * @param string $batch_id batch_id
      *
      * @return $this
      */
-    public function setData($data)
+    public function setBatchId($batch_id)
     {
-        $this->container['data'] = $data;
+        $this->container['batch_id'] = $batch_id;
 
         return $this;
     }

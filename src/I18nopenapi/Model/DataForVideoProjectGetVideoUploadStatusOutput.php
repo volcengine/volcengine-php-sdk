@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayAccess
+class DataForVideoProjectGetVideoUploadStatusOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetVideoUploadStatusResponse';
+    protected static $swaggerModelName = 'dataForVideoProjectGetVideoUploadStatusOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput'
+        'video_upload_tasks' => '\Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'video_upload_tasks' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'video_upload_tasks' => 'videoUploadTasks'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'video_upload_tasks' => 'setVideoUploadTasks'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'video_upload_tasks' => 'getVideoUploadTasks'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['video_upload_tasks'] = isset($data['video_upload_tasks']) ? $data['video_upload_tasks'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoProjectGetVideoUploadStatusResponse implements ModelInterface, ArrayA
 
 
     /**
-     * Gets data
+     * Gets video_upload_tasks
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput
+     * @return \Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[]
      */
-    public function getData()
+    public function getVideoUploadTasks()
     {
-        return $this->container['data'];
+        return $this->container['video_upload_tasks'];
     }
 
     /**
-     * Sets data
+     * Sets video_upload_tasks
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetVideoUploadStatusOutput $data data
+     * @param \Volcengine\I18nopenapi\Model\VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput[] $video_upload_tasks video_upload_tasks
      *
      * @return $this
      */
-    public function setData($data)
+    public function setVideoUploadTasks($video_upload_tasks)
     {
-        $this->container['data'] = $data;
+        $this->container['video_upload_tasks'] = $video_upload_tasks;
 
         return $this;
     }
