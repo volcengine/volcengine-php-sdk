@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
+class GetVarmorAuthInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VulnTypeForGetVulnStatisticsOutput';
+    protected static $swaggerModelName = 'GetVarmorAuthInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_app' => 'int',
-        'app' => 'int',
-        'dev_linux' => 'int',
-        'dev_py' => 'int',
-        'emg' => 'int',
-        'linux' => 'int',
-        'webcms' => 'int',
-        'windows' => 'int'
+        'authorized' => 'bool',
+        'cloud_security_center_url' => 'string',
+        'expire_time' => 'int',
+        'paid_type' => 'string',
+        'total_count' => 'int',
+        'used_count' => 'int',
+        'version' => 'int'
     ];
 
     /**
@@ -44,14 +43,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_app' => 'int64',
-        'app' => 'int64',
-        'dev_linux' => 'int64',
-        'dev_py' => 'int64',
-        'emg' => 'int64',
-        'linux' => 'int64',
-        'webcms' => 'int64',
-        'windows' => 'int64'
+        'authorized' => null,
+        'cloud_security_center_url' => null,
+        'expire_time' => 'int64',
+        'paid_type' => null,
+        'total_count' => 'int64',
+        'used_count' => 'int64',
+        'version' => 'int64'
     ];
 
     /**
@@ -81,14 +79,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_app' => 'AIApp',
-        'app' => 'App',
-        'dev_linux' => 'DevLinux',
-        'dev_py' => 'DevPy',
-        'emg' => 'Emg',
-        'linux' => 'Linux',
-        'webcms' => 'Webcms',
-        'windows' => 'Windows'
+        'authorized' => 'Authorized',
+        'cloud_security_center_url' => 'CloudSecurityCenterUrl',
+        'expire_time' => 'ExpireTime',
+        'paid_type' => 'PaidType',
+        'total_count' => 'TotalCount',
+        'used_count' => 'UsedCount',
+        'version' => 'Version'
     ];
 
     /**
@@ -97,14 +94,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ai_app' => 'setAiApp',
-        'app' => 'setApp',
-        'dev_linux' => 'setDevLinux',
-        'dev_py' => 'setDevPy',
-        'emg' => 'setEmg',
-        'linux' => 'setLinux',
-        'webcms' => 'setWebcms',
-        'windows' => 'setWindows'
+        'authorized' => 'setAuthorized',
+        'cloud_security_center_url' => 'setCloudSecurityCenterUrl',
+        'expire_time' => 'setExpireTime',
+        'paid_type' => 'setPaidType',
+        'total_count' => 'setTotalCount',
+        'used_count' => 'setUsedCount',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -113,14 +109,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ai_app' => 'getAiApp',
-        'app' => 'getApp',
-        'dev_linux' => 'getDevLinux',
-        'dev_py' => 'getDevPy',
-        'emg' => 'getEmg',
-        'linux' => 'getLinux',
-        'webcms' => 'getWebcms',
-        'windows' => 'getWindows'
+        'authorized' => 'getAuthorized',
+        'cloud_security_center_url' => 'getCloudSecurityCenterUrl',
+        'expire_time' => 'getExpireTime',
+        'paid_type' => 'getPaidType',
+        'total_count' => 'getTotalCount',
+        'used_count' => 'getUsedCount',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -183,14 +178,13 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
-        $this->container['app'] = isset($data['app']) ? $data['app'] : null;
-        $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
-        $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
-        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
-        $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
-        $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
-        $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
+        $this->container['authorized'] = isset($data['authorized']) ? $data['authorized'] : null;
+        $this->container['cloud_security_center_url'] = isset($data['cloud_security_center_url']) ? $data['cloud_security_center_url'] : null;
+        $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
+        $this->container['paid_type'] = isset($data['paid_type']) ? $data['paid_type'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -218,193 +212,169 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ai_app
+     * Gets authorized
      *
-     * @return int
+     * @return bool
      */
-    public function getAiApp()
+    public function getAuthorized()
     {
-        return $this->container['ai_app'];
+        return $this->container['authorized'];
     }
 
     /**
-     * Sets ai_app
+     * Sets authorized
      *
-     * @param int $ai_app ai_app
+     * @param bool $authorized authorized
      *
      * @return $this
      */
-    public function setAiApp($ai_app)
+    public function setAuthorized($authorized)
     {
-        $this->container['ai_app'] = $ai_app;
+        $this->container['authorized'] = $authorized;
 
         return $this;
     }
 
     /**
-     * Gets app
+     * Gets cloud_security_center_url
      *
-     * @return int
+     * @return string
      */
-    public function getApp()
+    public function getCloudSecurityCenterUrl()
     {
-        return $this->container['app'];
+        return $this->container['cloud_security_center_url'];
     }
 
     /**
-     * Sets app
+     * Sets cloud_security_center_url
      *
-     * @param int $app app
+     * @param string $cloud_security_center_url cloud_security_center_url
      *
      * @return $this
      */
-    public function setApp($app)
+    public function setCloudSecurityCenterUrl($cloud_security_center_url)
     {
-        $this->container['app'] = $app;
+        $this->container['cloud_security_center_url'] = $cloud_security_center_url;
 
         return $this;
     }
 
     /**
-     * Gets dev_linux
+     * Gets expire_time
      *
      * @return int
      */
-    public function getDevLinux()
+    public function getExpireTime()
     {
-        return $this->container['dev_linux'];
+        return $this->container['expire_time'];
     }
 
     /**
-     * Sets dev_linux
+     * Sets expire_time
      *
-     * @param int $dev_linux dev_linux
+     * @param int $expire_time expire_time
      *
      * @return $this
      */
-    public function setDevLinux($dev_linux)
+    public function setExpireTime($expire_time)
     {
-        $this->container['dev_linux'] = $dev_linux;
+        $this->container['expire_time'] = $expire_time;
 
         return $this;
     }
 
     /**
-     * Gets dev_py
+     * Gets paid_type
      *
-     * @return int
+     * @return string
      */
-    public function getDevPy()
+    public function getPaidType()
     {
-        return $this->container['dev_py'];
+        return $this->container['paid_type'];
     }
 
     /**
-     * Sets dev_py
+     * Sets paid_type
      *
-     * @param int $dev_py dev_py
+     * @param string $paid_type paid_type
      *
      * @return $this
      */
-    public function setDevPy($dev_py)
+    public function setPaidType($paid_type)
     {
-        $this->container['dev_py'] = $dev_py;
+        $this->container['paid_type'] = $paid_type;
 
         return $this;
     }
 
     /**
-     * Gets emg
+     * Gets total_count
      *
      * @return int
      */
-    public function getEmg()
+    public function getTotalCount()
     {
-        return $this->container['emg'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets emg
+     * Sets total_count
      *
-     * @param int $emg emg
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setEmg($emg)
+    public function setTotalCount($total_count)
     {
-        $this->container['emg'] = $emg;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
 
     /**
-     * Gets linux
+     * Gets used_count
      *
      * @return int
      */
-    public function getLinux()
+    public function getUsedCount()
     {
-        return $this->container['linux'];
+        return $this->container['used_count'];
     }
 
     /**
-     * Sets linux
+     * Sets used_count
      *
-     * @param int $linux linux
+     * @param int $used_count used_count
      *
      * @return $this
      */
-    public function setLinux($linux)
+    public function setUsedCount($used_count)
     {
-        $this->container['linux'] = $linux;
+        $this->container['used_count'] = $used_count;
 
         return $this;
     }
 
     /**
-     * Gets webcms
+     * Gets version
      *
      * @return int
      */
-    public function getWebcms()
+    public function getVersion()
     {
-        return $this->container['webcms'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets webcms
+     * Sets version
      *
-     * @param int $webcms webcms
+     * @param int $version version
      *
      * @return $this
      */
-    public function setWebcms($webcms)
+    public function setVersion($version)
     {
-        $this->container['webcms'] = $webcms;
-
-        return $this;
-    }
-
-    /**
-     * Gets windows
-     *
-     * @return int
-     */
-    public function getWindows()
-    {
-        return $this->container['windows'];
-    }
-
-    /**
-     * Sets windows
-     *
-     * @param int $windows windows
-     *
-     * @return $this
-     */
-    public function setWindows($windows)
-    {
-        $this->container['windows'] = $windows;
+        $this->container['version'] = $version;
 
         return $this;
     }

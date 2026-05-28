@@ -20,7 +20,7 @@ class PointInfoForDescribeLastWeekFileChangeTrendsOutput implements ModelInterfa
       *
       * @var string
       */
-    protected static $swaggerModelName = 'point_infoForDescribeLastWeekFileChangeTrendsOutput';
+    protected static $swaggerModelName = 'PointInfoForDescribeLastWeekFileChangeTrendsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,8 +69,8 @@ class PointInfoForDescribeLastWeekFileChangeTrendsOutput implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'key',
-        'value' => 'value'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**

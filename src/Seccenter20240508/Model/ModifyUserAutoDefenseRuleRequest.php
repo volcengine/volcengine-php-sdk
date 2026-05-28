@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
+class ModifyUserAutoDefenseRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VulnTypeForGetVulnStatisticsOutput';
+    protected static $swaggerModelName = 'ModifyUserAutoDefenseRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_app' => 'int',
-        'app' => 'int',
-        'dev_linux' => 'int',
-        'dev_py' => 'int',
-        'emg' => 'int',
-        'linux' => 'int',
-        'webcms' => 'int',
-        'windows' => 'int'
+        'agent_id_list' => 'string[]',
+        'argv' => 'string',
+        'domain' => 'string',
+        'enable' => 'bool',
+        'exe' => 'string',
+        'harm_level' => 'string',
+        'if_all_host' => 'bool',
+        'leaf_group_ids' => 'string[]',
+        'm2_md5' => 'string',
+        'rule_id' => 'string'
     ];
 
     /**
@@ -44,14 +46,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_app' => 'int64',
-        'app' => 'int64',
-        'dev_linux' => 'int64',
-        'dev_py' => 'int64',
-        'emg' => 'int64',
-        'linux' => 'int64',
-        'webcms' => 'int64',
-        'windows' => 'int64'
+        'agent_id_list' => null,
+        'argv' => null,
+        'domain' => null,
+        'enable' => null,
+        'exe' => null,
+        'harm_level' => null,
+        'if_all_host' => null,
+        'leaf_group_ids' => null,
+        'm2_md5' => null,
+        'rule_id' => null
     ];
 
     /**
@@ -81,14 +85,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_app' => 'AIApp',
-        'app' => 'App',
-        'dev_linux' => 'DevLinux',
-        'dev_py' => 'DevPy',
-        'emg' => 'Emg',
-        'linux' => 'Linux',
-        'webcms' => 'Webcms',
-        'windows' => 'Windows'
+        'agent_id_list' => 'AgentIDList',
+        'argv' => 'Argv',
+        'domain' => 'Domain',
+        'enable' => 'Enable',
+        'exe' => 'Exe',
+        'harm_level' => 'HarmLevel',
+        'if_all_host' => 'IfAllHost',
+        'leaf_group_ids' => 'LeafGroupIDs',
+        'm2_md5' => 'M2MD5',
+        'rule_id' => 'RuleID'
     ];
 
     /**
@@ -97,14 +103,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ai_app' => 'setAiApp',
-        'app' => 'setApp',
-        'dev_linux' => 'setDevLinux',
-        'dev_py' => 'setDevPy',
-        'emg' => 'setEmg',
-        'linux' => 'setLinux',
-        'webcms' => 'setWebcms',
-        'windows' => 'setWindows'
+        'agent_id_list' => 'setAgentIdList',
+        'argv' => 'setArgv',
+        'domain' => 'setDomain',
+        'enable' => 'setEnable',
+        'exe' => 'setExe',
+        'harm_level' => 'setHarmLevel',
+        'if_all_host' => 'setIfAllHost',
+        'leaf_group_ids' => 'setLeafGroupIds',
+        'm2_md5' => 'setM2Md5',
+        'rule_id' => 'setRuleId'
     ];
 
     /**
@@ -113,14 +121,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ai_app' => 'getAiApp',
-        'app' => 'getApp',
-        'dev_linux' => 'getDevLinux',
-        'dev_py' => 'getDevPy',
-        'emg' => 'getEmg',
-        'linux' => 'getLinux',
-        'webcms' => 'getWebcms',
-        'windows' => 'getWindows'
+        'agent_id_list' => 'getAgentIdList',
+        'argv' => 'getArgv',
+        'domain' => 'getDomain',
+        'enable' => 'getEnable',
+        'exe' => 'getExe',
+        'harm_level' => 'getHarmLevel',
+        'if_all_host' => 'getIfAllHost',
+        'leaf_group_ids' => 'getLeafGroupIds',
+        'm2_md5' => 'getM2Md5',
+        'rule_id' => 'getRuleId'
     ];
 
     /**
@@ -183,14 +193,16 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
-        $this->container['app'] = isset($data['app']) ? $data['app'] : null;
-        $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
-        $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
-        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
-        $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
-        $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
-        $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
+        $this->container['agent_id_list'] = isset($data['agent_id_list']) ? $data['agent_id_list'] : null;
+        $this->container['argv'] = isset($data['argv']) ? $data['argv'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['exe'] = isset($data['exe']) ? $data['exe'] : null;
+        $this->container['harm_level'] = isset($data['harm_level']) ? $data['harm_level'] : null;
+        $this->container['if_all_host'] = isset($data['if_all_host']) ? $data['if_all_host'] : null;
+        $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['m2_md5'] = isset($data['m2_md5']) ? $data['m2_md5'] : null;
+        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
     }
 
     /**
@@ -202,6 +214,9 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['rule_id'] === null) {
+            $invalidProperties[] = "'rule_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,193 +233,241 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ai_app
+     * Gets agent_id_list
      *
-     * @return int
+     * @return string[]
      */
-    public function getAiApp()
+    public function getAgentIdList()
     {
-        return $this->container['ai_app'];
+        return $this->container['agent_id_list'];
     }
 
     /**
-     * Sets ai_app
+     * Sets agent_id_list
      *
-     * @param int $ai_app ai_app
+     * @param string[] $agent_id_list agent_id_list
      *
      * @return $this
      */
-    public function setAiApp($ai_app)
+    public function setAgentIdList($agent_id_list)
     {
-        $this->container['ai_app'] = $ai_app;
+        $this->container['agent_id_list'] = $agent_id_list;
 
         return $this;
     }
 
     /**
-     * Gets app
+     * Gets argv
      *
-     * @return int
+     * @return string
      */
-    public function getApp()
+    public function getArgv()
     {
-        return $this->container['app'];
+        return $this->container['argv'];
     }
 
     /**
-     * Sets app
+     * Sets argv
      *
-     * @param int $app app
+     * @param string $argv argv
      *
      * @return $this
      */
-    public function setApp($app)
+    public function setArgv($argv)
     {
-        $this->container['app'] = $app;
+        $this->container['argv'] = $argv;
 
         return $this;
     }
 
     /**
-     * Gets dev_linux
+     * Gets domain
      *
-     * @return int
+     * @return string
      */
-    public function getDevLinux()
+    public function getDomain()
     {
-        return $this->container['dev_linux'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets dev_linux
+     * Sets domain
      *
-     * @param int $dev_linux dev_linux
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setDevLinux($dev_linux)
+    public function setDomain($domain)
     {
-        $this->container['dev_linux'] = $dev_linux;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets dev_py
+     * Gets enable
      *
-     * @return int
+     * @return bool
      */
-    public function getDevPy()
+    public function getEnable()
     {
-        return $this->container['dev_py'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets dev_py
+     * Sets enable
      *
-     * @param int $dev_py dev_py
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setDevPy($dev_py)
+    public function setEnable($enable)
     {
-        $this->container['dev_py'] = $dev_py;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets emg
+     * Gets exe
      *
-     * @return int
+     * @return string
      */
-    public function getEmg()
+    public function getExe()
     {
-        return $this->container['emg'];
+        return $this->container['exe'];
     }
 
     /**
-     * Sets emg
+     * Sets exe
      *
-     * @param int $emg emg
+     * @param string $exe exe
      *
      * @return $this
      */
-    public function setEmg($emg)
+    public function setExe($exe)
     {
-        $this->container['emg'] = $emg;
+        $this->container['exe'] = $exe;
 
         return $this;
     }
 
     /**
-     * Gets linux
+     * Gets harm_level
      *
-     * @return int
+     * @return string
      */
-    public function getLinux()
+    public function getHarmLevel()
     {
-        return $this->container['linux'];
+        return $this->container['harm_level'];
     }
 
     /**
-     * Sets linux
+     * Sets harm_level
      *
-     * @param int $linux linux
+     * @param string $harm_level harm_level
      *
      * @return $this
      */
-    public function setLinux($linux)
+    public function setHarmLevel($harm_level)
     {
-        $this->container['linux'] = $linux;
+        $this->container['harm_level'] = $harm_level;
 
         return $this;
     }
 
     /**
-     * Gets webcms
+     * Gets if_all_host
      *
-     * @return int
+     * @return bool
      */
-    public function getWebcms()
+    public function getIfAllHost()
     {
-        return $this->container['webcms'];
+        return $this->container['if_all_host'];
     }
 
     /**
-     * Sets webcms
+     * Sets if_all_host
      *
-     * @param int $webcms webcms
+     * @param bool $if_all_host if_all_host
      *
      * @return $this
      */
-    public function setWebcms($webcms)
+    public function setIfAllHost($if_all_host)
     {
-        $this->container['webcms'] = $webcms;
+        $this->container['if_all_host'] = $if_all_host;
 
         return $this;
     }
 
     /**
-     * Gets windows
+     * Gets leaf_group_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getWindows()
+    public function getLeafGroupIds()
     {
-        return $this->container['windows'];
+        return $this->container['leaf_group_ids'];
     }
 
     /**
-     * Sets windows
+     * Sets leaf_group_ids
      *
-     * @param int $windows windows
+     * @param string[] $leaf_group_ids leaf_group_ids
      *
      * @return $this
      */
-    public function setWindows($windows)
+    public function setLeafGroupIds($leaf_group_ids)
     {
-        $this->container['windows'] = $windows;
+        $this->container['leaf_group_ids'] = $leaf_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets m2_md5
+     *
+     * @return string
+     */
+    public function getM2Md5()
+    {
+        return $this->container['m2_md5'];
+    }
+
+    /**
+     * Sets m2_md5
+     *
+     * @param string $m2_md5 m2_md5
+     *
+     * @return $this
+     */
+    public function setM2Md5($m2_md5)
+    {
+        $this->container['m2_md5'] = $m2_md5;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_id
+     *
+     * @return string
+     */
+    public function getRuleId()
+    {
+        return $this->container['rule_id'];
+    }
+
+    /**
+     * Sets rule_id
+     *
+     * @param string $rule_id rule_id
+     *
+     * @return $this
+     */
+    public function setRuleId($rule_id)
+    {
+        $this->container['rule_id'] = $rule_id;
 
         return $this;
     }

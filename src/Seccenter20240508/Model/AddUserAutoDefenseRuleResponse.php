@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
+class AddUserAutoDefenseRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VulnTypeForGetVulnStatisticsOutput';
+    protected static $swaggerModelName = 'AddUserAutoDefenseRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_app' => 'int',
-        'app' => 'int',
-        'dev_linux' => 'int',
-        'dev_py' => 'int',
-        'emg' => 'int',
-        'linux' => 'int',
-        'webcms' => 'int',
-        'windows' => 'int'
+        'rule_id' => 'string',
+        'success' => 'bool'
     ];
 
     /**
@@ -44,14 +38,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_app' => 'int64',
-        'app' => 'int64',
-        'dev_linux' => 'int64',
-        'dev_py' => 'int64',
-        'emg' => 'int64',
-        'linux' => 'int64',
-        'webcms' => 'int64',
-        'windows' => 'int64'
+        'rule_id' => null,
+        'success' => null
     ];
 
     /**
@@ -81,14 +69,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_app' => 'AIApp',
-        'app' => 'App',
-        'dev_linux' => 'DevLinux',
-        'dev_py' => 'DevPy',
-        'emg' => 'Emg',
-        'linux' => 'Linux',
-        'webcms' => 'Webcms',
-        'windows' => 'Windows'
+        'rule_id' => 'RuleID',
+        'success' => 'Success'
     ];
 
     /**
@@ -97,14 +79,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ai_app' => 'setAiApp',
-        'app' => 'setApp',
-        'dev_linux' => 'setDevLinux',
-        'dev_py' => 'setDevPy',
-        'emg' => 'setEmg',
-        'linux' => 'setLinux',
-        'webcms' => 'setWebcms',
-        'windows' => 'setWindows'
+        'rule_id' => 'setRuleId',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -113,14 +89,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ai_app' => 'getAiApp',
-        'app' => 'getApp',
-        'dev_linux' => 'getDevLinux',
-        'dev_py' => 'getDevPy',
-        'emg' => 'getEmg',
-        'linux' => 'getLinux',
-        'webcms' => 'getWebcms',
-        'windows' => 'getWindows'
+        'rule_id' => 'getRuleId',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -183,14 +153,8 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
-        $this->container['app'] = isset($data['app']) ? $data['app'] : null;
-        $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
-        $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
-        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
-        $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
-        $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
-        $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
+        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -218,193 +182,49 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ai_app
+     * Gets rule_id
      *
-     * @return int
+     * @return string
      */
-    public function getAiApp()
+    public function getRuleId()
     {
-        return $this->container['ai_app'];
+        return $this->container['rule_id'];
     }
 
     /**
-     * Sets ai_app
+     * Sets rule_id
      *
-     * @param int $ai_app ai_app
+     * @param string $rule_id rule_id
      *
      * @return $this
      */
-    public function setAiApp($ai_app)
+    public function setRuleId($rule_id)
     {
-        $this->container['ai_app'] = $ai_app;
+        $this->container['rule_id'] = $rule_id;
 
         return $this;
     }
 
     /**
-     * Gets app
+     * Gets success
      *
-     * @return int
+     * @return bool
      */
-    public function getApp()
+    public function getSuccess()
     {
-        return $this->container['app'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets app
+     * Sets success
      *
-     * @param int $app app
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setApp($app)
+    public function setSuccess($success)
     {
-        $this->container['app'] = $app;
-
-        return $this;
-    }
-
-    /**
-     * Gets dev_linux
-     *
-     * @return int
-     */
-    public function getDevLinux()
-    {
-        return $this->container['dev_linux'];
-    }
-
-    /**
-     * Sets dev_linux
-     *
-     * @param int $dev_linux dev_linux
-     *
-     * @return $this
-     */
-    public function setDevLinux($dev_linux)
-    {
-        $this->container['dev_linux'] = $dev_linux;
-
-        return $this;
-    }
-
-    /**
-     * Gets dev_py
-     *
-     * @return int
-     */
-    public function getDevPy()
-    {
-        return $this->container['dev_py'];
-    }
-
-    /**
-     * Sets dev_py
-     *
-     * @param int $dev_py dev_py
-     *
-     * @return $this
-     */
-    public function setDevPy($dev_py)
-    {
-        $this->container['dev_py'] = $dev_py;
-
-        return $this;
-    }
-
-    /**
-     * Gets emg
-     *
-     * @return int
-     */
-    public function getEmg()
-    {
-        return $this->container['emg'];
-    }
-
-    /**
-     * Sets emg
-     *
-     * @param int $emg emg
-     *
-     * @return $this
-     */
-    public function setEmg($emg)
-    {
-        $this->container['emg'] = $emg;
-
-        return $this;
-    }
-
-    /**
-     * Gets linux
-     *
-     * @return int
-     */
-    public function getLinux()
-    {
-        return $this->container['linux'];
-    }
-
-    /**
-     * Sets linux
-     *
-     * @param int $linux linux
-     *
-     * @return $this
-     */
-    public function setLinux($linux)
-    {
-        $this->container['linux'] = $linux;
-
-        return $this;
-    }
-
-    /**
-     * Gets webcms
-     *
-     * @return int
-     */
-    public function getWebcms()
-    {
-        return $this->container['webcms'];
-    }
-
-    /**
-     * Sets webcms
-     *
-     * @param int $webcms webcms
-     *
-     * @return $this
-     */
-    public function setWebcms($webcms)
-    {
-        $this->container['webcms'] = $webcms;
-
-        return $this;
-    }
-
-    /**
-     * Gets windows
-     *
-     * @return int
-     */
-    public function getWindows()
-    {
-        return $this->container['windows'];
-    }
-
-    /**
-     * Sets windows
-     *
-     * @param int $windows windows
-     *
-     * @return $this
-     */
-    public function setWindows($windows)
-    {
-        $this->container['windows'] = $windows;
+        $this->container['success'] = $success;
 
         return $this;
     }

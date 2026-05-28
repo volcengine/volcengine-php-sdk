@@ -36,8 +36,7 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         'insert_time' => 'int',
         'labels' => 'string[]',
         'update_time' => 'int',
-        'value_added' => '\Volcengine\Seccenter20240508\Model\ValueAddedForGetTenantQuotaOutput',
-        'id' => 'string'
+        'value_added' => '\Volcengine\Seccenter20240508\Model\ValueAddedForGetTenantQuotaOutput'
     ];
 
     /**
@@ -54,8 +53,7 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         'insert_time' => 'int64',
         'labels' => null,
         'update_time' => 'int64',
-        'value_added' => null,
-        'id' => null
+        'value_added' => null
     ];
 
     /**
@@ -93,8 +91,7 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         'insert_time' => 'InsertTime',
         'labels' => 'Labels',
         'update_time' => 'UpdateTime',
-        'value_added' => 'ValueAdded',
-        'id' => 'id'
+        'value_added' => 'ValueAdded'
     ];
 
     /**
@@ -111,8 +108,7 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         'insert_time' => 'setInsertTime',
         'labels' => 'setLabels',
         'update_time' => 'setUpdateTime',
-        'value_added' => 'setValueAdded',
-        'id' => 'setId'
+        'value_added' => 'setValueAdded'
     ];
 
     /**
@@ -129,8 +125,7 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         'insert_time' => 'getInsertTime',
         'labels' => 'getLabels',
         'update_time' => 'getUpdateTime',
-        'value_added' => 'getValueAdded',
-        'id' => 'getId'
+        'value_added' => 'getValueAdded'
     ];
 
     /**
@@ -202,7 +197,6 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['value_added'] = isset($data['value_added']) ? $data['value_added'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -441,30 +435,6 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     public function setValueAdded($value_added)
     {
         $this->container['value_added'] = $value_added;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
 
         return $this;
     }

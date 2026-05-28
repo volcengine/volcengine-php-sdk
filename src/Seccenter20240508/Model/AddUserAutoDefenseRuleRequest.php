@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
+class AddUserAutoDefenseRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataForListAutoDefenseRulesOutput';
+    protected static $swaggerModelName = 'AddUserAutoDefenseRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,20 +28,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'create_time' => 'int',
-        'create_user' => 'string',
-        'data_type' => 'int',
+        'agent_id_list' => 'string[]',
+        'argv' => 'string',
+        'domain' => 'string',
         'enable' => 'bool',
+        'exe' => 'string',
         'harm_level' => 'string',
-        'range' => '\Volcengine\Seccenter20240508\Model\RangeForListAutoDefenseRulesOutput',
-        'rule_desc' => 'string',
-        'rule_id' => 'string',
+        'if_all_host' => 'bool',
+        'leaf_group_ids' => 'string[]',
+        'm2_md5' => 'string',
         'rule_type' => 'string',
-        'type' => 'string',
-        'update_time' => 'int',
-        'update_user' => 'string',
-        'user_auto_defense_rule' => '\Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput'
+        'type' => 'string'
     ];
 
     /**
@@ -50,20 +47,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'create_time' => 'int64',
-        'create_user' => null,
-        'data_type' => 'int64',
+        'agent_id_list' => null,
+        'argv' => null,
+        'domain' => null,
         'enable' => null,
+        'exe' => null,
         'harm_level' => null,
-        'range' => null,
-        'rule_desc' => null,
-        'rule_id' => null,
+        'if_all_host' => null,
+        'leaf_group_ids' => null,
+        'm2_md5' => null,
         'rule_type' => null,
-        'type' => null,
-        'update_time' => 'int64',
-        'update_user' => null,
-        'user_auto_defense_rule' => null
+        'type' => null
     ];
 
     /**
@@ -93,20 +87,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'create_time' => 'CreateTime',
-        'create_user' => 'CreateUser',
-        'data_type' => 'DataType',
+        'agent_id_list' => 'AgentIDList',
+        'argv' => 'Argv',
+        'domain' => 'Domain',
         'enable' => 'Enable',
+        'exe' => 'Exe',
         'harm_level' => 'HarmLevel',
-        'range' => 'Range',
-        'rule_desc' => 'RuleDesc',
-        'rule_id' => 'RuleID',
+        'if_all_host' => 'IfAllHost',
+        'leaf_group_ids' => 'LeafGroupIDs',
+        'm2_md5' => 'M2MD5',
         'rule_type' => 'RuleType',
-        'type' => 'Type',
-        'update_time' => 'UpdateTime',
-        'update_user' => 'UpdateUser',
-        'user_auto_defense_rule' => 'UserAutoDefenseRule'
+        'type' => 'Type'
     ];
 
     /**
@@ -115,20 +106,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'create_time' => 'setCreateTime',
-        'create_user' => 'setCreateUser',
-        'data_type' => 'setDataType',
+        'agent_id_list' => 'setAgentIdList',
+        'argv' => 'setArgv',
+        'domain' => 'setDomain',
         'enable' => 'setEnable',
+        'exe' => 'setExe',
         'harm_level' => 'setHarmLevel',
-        'range' => 'setRange',
-        'rule_desc' => 'setRuleDesc',
-        'rule_id' => 'setRuleId',
+        'if_all_host' => 'setIfAllHost',
+        'leaf_group_ids' => 'setLeafGroupIds',
+        'm2_md5' => 'setM2Md5',
         'rule_type' => 'setRuleType',
-        'type' => 'setType',
-        'update_time' => 'setUpdateTime',
-        'update_user' => 'setUpdateUser',
-        'user_auto_defense_rule' => 'setUserAutoDefenseRule'
+        'type' => 'setType'
     ];
 
     /**
@@ -137,20 +125,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'create_time' => 'getCreateTime',
-        'create_user' => 'getCreateUser',
-        'data_type' => 'getDataType',
+        'agent_id_list' => 'getAgentIdList',
+        'argv' => 'getArgv',
+        'domain' => 'getDomain',
         'enable' => 'getEnable',
+        'exe' => 'getExe',
         'harm_level' => 'getHarmLevel',
-        'range' => 'getRange',
-        'rule_desc' => 'getRuleDesc',
-        'rule_id' => 'getRuleId',
+        'if_all_host' => 'getIfAllHost',
+        'leaf_group_ids' => 'getLeafGroupIds',
+        'm2_md5' => 'getM2Md5',
         'rule_type' => 'getRuleType',
-        'type' => 'getType',
-        'update_time' => 'getUpdateTime',
-        'update_user' => 'getUpdateUser',
-        'user_auto_defense_rule' => 'getUserAutoDefenseRule'
+        'type' => 'getType'
     ];
 
     /**
@@ -213,20 +198,17 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['create_user'] = isset($data['create_user']) ? $data['create_user'] : null;
-        $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
+        $this->container['agent_id_list'] = isset($data['agent_id_list']) ? $data['agent_id_list'] : null;
+        $this->container['argv'] = isset($data['argv']) ? $data['argv'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['exe'] = isset($data['exe']) ? $data['exe'] : null;
         $this->container['harm_level'] = isset($data['harm_level']) ? $data['harm_level'] : null;
-        $this->container['range'] = isset($data['range']) ? $data['range'] : null;
-        $this->container['rule_desc'] = isset($data['rule_desc']) ? $data['rule_desc'] : null;
-        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
+        $this->container['if_all_host'] = isset($data['if_all_host']) ? $data['if_all_host'] : null;
+        $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['m2_md5'] = isset($data['m2_md5']) ? $data['m2_md5'] : null;
         $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['update_user'] = isset($data['update_user']) ? $data['update_user'] : null;
-        $this->container['user_auto_defense_rule'] = isset($data['user_auto_defense_rule']) ? $data['user_auto_defense_rule'] : null;
     }
 
     /**
@@ -238,6 +220,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['harm_level'] === null) {
+            $invalidProperties[] = "'harm_level' can't be null";
+        }
+        if ($this->container['rule_type'] === null) {
+            $invalidProperties[] = "'rule_type' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -254,97 +245,73 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets agent_id_list
+     *
+     * @return string[]
+     */
+    public function getAgentIdList()
+    {
+        return $this->container['agent_id_list'];
+    }
+
+    /**
+     * Sets agent_id_list
+     *
+     * @param string[] $agent_id_list agent_id_list
+     *
+     * @return $this
+     */
+    public function setAgentIdList($agent_id_list)
+    {
+        $this->container['agent_id_list'] = $agent_id_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets argv
      *
      * @return string
      */
-    public function getAction()
+    public function getArgv()
     {
-        return $this->container['action'];
+        return $this->container['argv'];
     }
 
     /**
-     * Sets action
+     * Sets argv
      *
-     * @param string $action action
+     * @param string $argv argv
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setArgv($argv)
     {
-        $this->container['action'] = $action;
+        $this->container['argv'] = $argv;
 
         return $this;
     }
 
     /**
-     * Gets create_time
-     *
-     * @return int
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param int $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_user
+     * Gets domain
      *
      * @return string
      */
-    public function getCreateUser()
+    public function getDomain()
     {
-        return $this->container['create_user'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets create_user
+     * Sets domain
      *
-     * @param string $create_user create_user
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setCreateUser($create_user)
+    public function setDomain($domain)
     {
-        $this->container['create_user'] = $create_user;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_type
-     *
-     * @return int
-     */
-    public function getDataType()
-    {
-        return $this->container['data_type'];
-    }
-
-    /**
-     * Sets data_type
-     *
-     * @param int $data_type data_type
-     *
-     * @return $this
-     */
-    public function setDataType($data_type)
-    {
-        $this->container['data_type'] = $data_type;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
@@ -374,6 +341,30 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets exe
+     *
+     * @return string
+     */
+    public function getExe()
+    {
+        return $this->container['exe'];
+    }
+
+    /**
+     * Sets exe
+     *
+     * @param string $exe exe
+     *
+     * @return $this
+     */
+    public function setExe($exe)
+    {
+        $this->container['exe'] = $exe;
+
+        return $this;
+    }
+
+    /**
      * Gets harm_level
      *
      * @return string
@@ -398,73 +389,73 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets range
+     * Gets if_all_host
      *
-     * @return \Volcengine\Seccenter20240508\Model\RangeForListAutoDefenseRulesOutput
+     * @return bool
      */
-    public function getRange()
+    public function getIfAllHost()
     {
-        return $this->container['range'];
+        return $this->container['if_all_host'];
     }
 
     /**
-     * Sets range
+     * Sets if_all_host
      *
-     * @param \Volcengine\Seccenter20240508\Model\RangeForListAutoDefenseRulesOutput $range range
+     * @param bool $if_all_host if_all_host
      *
      * @return $this
      */
-    public function setRange($range)
+    public function setIfAllHost($if_all_host)
     {
-        $this->container['range'] = $range;
+        $this->container['if_all_host'] = $if_all_host;
 
         return $this;
     }
 
     /**
-     * Gets rule_desc
+     * Gets leaf_group_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getRuleDesc()
+    public function getLeafGroupIds()
     {
-        return $this->container['rule_desc'];
+        return $this->container['leaf_group_ids'];
     }
 
     /**
-     * Sets rule_desc
+     * Sets leaf_group_ids
      *
-     * @param string $rule_desc rule_desc
+     * @param string[] $leaf_group_ids leaf_group_ids
      *
      * @return $this
      */
-    public function setRuleDesc($rule_desc)
+    public function setLeafGroupIds($leaf_group_ids)
     {
-        $this->container['rule_desc'] = $rule_desc;
+        $this->container['leaf_group_ids'] = $leaf_group_ids;
 
         return $this;
     }
 
     /**
-     * Gets rule_id
+     * Gets m2_md5
      *
      * @return string
      */
-    public function getRuleId()
+    public function getM2Md5()
     {
-        return $this->container['rule_id'];
+        return $this->container['m2_md5'];
     }
 
     /**
-     * Sets rule_id
+     * Sets m2_md5
      *
-     * @param string $rule_id rule_id
+     * @param string $m2_md5 m2_md5
      *
      * @return $this
      */
-    public function setRuleId($rule_id)
+    public function setM2Md5($m2_md5)
     {
-        $this->container['rule_id'] = $rule_id;
+        $this->container['m2_md5'] = $m2_md5;
 
         return $this;
     }
@@ -513,78 +504,6 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return int
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param int $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_user
-     *
-     * @return string
-     */
-    public function getUpdateUser()
-    {
-        return $this->container['update_user'];
-    }
-
-    /**
-     * Sets update_user
-     *
-     * @param string $update_user update_user
-     *
-     * @return $this
-     */
-    public function setUpdateUser($update_user)
-    {
-        $this->container['update_user'] = $update_user;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_auto_defense_rule
-     *
-     * @return \Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput
-     */
-    public function getUserAutoDefenseRule()
-    {
-        return $this->container['user_auto_defense_rule'];
-    }
-
-    /**
-     * Sets user_auto_defense_rule
-     *
-     * @param \Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput $user_auto_defense_rule user_auto_defense_rule
-     *
-     * @return $this
-     */
-    public function setUserAutoDefenseRule($user_auto_defense_rule)
-    {
-        $this->container['user_auto_defense_rule'] = $user_auto_defense_rule;
 
         return $this;
     }

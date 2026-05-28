@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
+class GetFingerprintAIAppResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VulnTypeForGetVulnStatisticsOutput';
+    protected static $swaggerModelName = 'GetFingerprintAIAppResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_app' => 'int',
-        'app' => 'int',
-        'dev_linux' => 'int',
-        'dev_py' => 'int',
-        'emg' => 'int',
-        'linux' => 'int',
-        'webcms' => 'int',
-        'windows' => 'int'
+        'data' => '\Volcengine\Seccenter20240508\Model\DataForGetFingerprintAIAppOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -44,14 +40,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_app' => 'int64',
-        'app' => 'int64',
-        'dev_linux' => 'int64',
-        'dev_py' => 'int64',
-        'emg' => 'int64',
-        'linux' => 'int64',
-        'webcms' => 'int64',
-        'windows' => 'int64'
+        'data' => null,
+        'page_number' => 'int64',
+        'page_size' => 'int64',
+        'total_count' => 'int64'
     ];
 
     /**
@@ -81,14 +73,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_app' => 'AIApp',
-        'app' => 'App',
-        'dev_linux' => 'DevLinux',
-        'dev_py' => 'DevPy',
-        'emg' => 'Emg',
-        'linux' => 'Linux',
-        'webcms' => 'Webcms',
-        'windows' => 'Windows'
+        'data' => 'Data',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -97,14 +85,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ai_app' => 'setAiApp',
-        'app' => 'setApp',
-        'dev_linux' => 'setDevLinux',
-        'dev_py' => 'setDevPy',
-        'emg' => 'setEmg',
-        'linux' => 'setLinux',
-        'webcms' => 'setWebcms',
-        'windows' => 'setWindows'
+        'data' => 'setData',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -113,14 +97,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ai_app' => 'getAiApp',
-        'app' => 'getApp',
-        'dev_linux' => 'getDevLinux',
-        'dev_py' => 'getDevPy',
-        'emg' => 'getEmg',
-        'linux' => 'getLinux',
-        'webcms' => 'getWebcms',
-        'windows' => 'getWindows'
+        'data' => 'getData',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -183,14 +163,10 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
-        $this->container['app'] = isset($data['app']) ? $data['app'] : null;
-        $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
-        $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
-        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
-        $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
-        $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
-        $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -218,193 +194,97 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ai_app
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\Seccenter20240508\Model\DataForGetFingerprintAIAppOutput[]
      */
-    public function getAiApp()
+    public function getData()
     {
-        return $this->container['ai_app'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets ai_app
+     * Sets data
      *
-     * @param int $ai_app ai_app
+     * @param \Volcengine\Seccenter20240508\Model\DataForGetFingerprintAIAppOutput[] $data data
      *
      * @return $this
      */
-    public function setAiApp($ai_app)
+    public function setData($data)
     {
-        $this->container['ai_app'] = $ai_app;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets app
+     * Gets page_number
      *
      * @return int
      */
-    public function getApp()
+    public function getPageNumber()
     {
-        return $this->container['app'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets app
+     * Sets page_number
      *
-     * @param int $app app
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setApp($app)
+    public function setPageNumber($page_number)
     {
-        $this->container['app'] = $app;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets dev_linux
+     * Gets page_size
      *
      * @return int
      */
-    public function getDevLinux()
+    public function getPageSize()
     {
-        return $this->container['dev_linux'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets dev_linux
+     * Sets page_size
      *
-     * @param int $dev_linux dev_linux
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setDevLinux($dev_linux)
+    public function setPageSize($page_size)
     {
-        $this->container['dev_linux'] = $dev_linux;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets dev_py
+     * Gets total_count
      *
      * @return int
      */
-    public function getDevPy()
+    public function getTotalCount()
     {
-        return $this->container['dev_py'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets dev_py
+     * Sets total_count
      *
-     * @param int $dev_py dev_py
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setDevPy($dev_py)
+    public function setTotalCount($total_count)
     {
-        $this->container['dev_py'] = $dev_py;
-
-        return $this;
-    }
-
-    /**
-     * Gets emg
-     *
-     * @return int
-     */
-    public function getEmg()
-    {
-        return $this->container['emg'];
-    }
-
-    /**
-     * Sets emg
-     *
-     * @param int $emg emg
-     *
-     * @return $this
-     */
-    public function setEmg($emg)
-    {
-        $this->container['emg'] = $emg;
-
-        return $this;
-    }
-
-    /**
-     * Gets linux
-     *
-     * @return int
-     */
-    public function getLinux()
-    {
-        return $this->container['linux'];
-    }
-
-    /**
-     * Sets linux
-     *
-     * @param int $linux linux
-     *
-     * @return $this
-     */
-    public function setLinux($linux)
-    {
-        $this->container['linux'] = $linux;
-
-        return $this;
-    }
-
-    /**
-     * Gets webcms
-     *
-     * @return int
-     */
-    public function getWebcms()
-    {
-        return $this->container['webcms'];
-    }
-
-    /**
-     * Sets webcms
-     *
-     * @param int $webcms webcms
-     *
-     * @return $this
-     */
-    public function setWebcms($webcms)
-    {
-        $this->container['webcms'] = $webcms;
-
-        return $this;
-    }
-
-    /**
-     * Gets windows
-     *
-     * @return int
-     */
-    public function getWindows()
-    {
-        return $this->container['windows'];
-    }
-
-    /**
-     * Sets windows
-     *
-     * @param int $windows windows
-     *
-     * @return $this
-     */
-    public function setWindows($windows)
-    {
-        $this->container['windows'] = $windows;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

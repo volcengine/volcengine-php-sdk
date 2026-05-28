@@ -29,6 +29,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'clean_days' => 'int',
+        'clean_hours' => 'int',
         'switch' => 'bool'
     ];
 
@@ -39,6 +40,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'clean_days' => 'int64',
+        'clean_hours' => 'int64',
         'switch' => null
     ];
 
@@ -70,6 +72,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'clean_days' => 'CleanDays',
+        'clean_hours' => 'CleanHours',
         'switch' => 'Switch'
     ];
 
@@ -80,6 +83,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'clean_days' => 'setCleanDays',
+        'clean_hours' => 'setCleanHours',
         'switch' => 'setSwitch'
     ];
 
@@ -90,6 +94,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'clean_days' => 'getCleanDays',
+        'clean_hours' => 'getCleanHours',
         'switch' => 'getSwitch'
     ];
 
@@ -154,6 +159,7 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['clean_days'] = isset($data['clean_days']) ? $data['clean_days'] : null;
+        $this->container['clean_hours'] = isset($data['clean_hours']) ? $data['clean_hours'] : null;
         $this->container['switch'] = isset($data['switch']) ? $data['switch'] : null;
     }
 
@@ -201,6 +207,30 @@ class GetRegularCleanResponse implements ModelInterface, ArrayAccess
     public function setCleanDays($clean_days)
     {
         $this->container['clean_days'] = $clean_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets clean_hours
+     *
+     * @return int
+     */
+    public function getCleanHours()
+    {
+        return $this->container['clean_hours'];
+    }
+
+    /**
+     * Sets clean_hours
+     *
+     * @param int $clean_hours clean_hours
+     *
+     * @return $this
+     */
+    public function setCleanHours($clean_hours)
+    {
+        $this->container['clean_hours'] = $clean_hours;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
+class UserAutoDefenseRuleForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VulnTypeForGetVulnStatisticsOutput';
+    protected static $swaggerModelName = 'UserAutoDefenseRuleForListAutoDefenseRulesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_app' => 'int',
-        'app' => 'int',
-        'dev_linux' => 'int',
-        'dev_py' => 'int',
-        'emg' => 'int',
-        'linux' => 'int',
-        'webcms' => 'int',
-        'windows' => 'int'
+        'argv' => 'string',
+        'domain' => 'string',
+        'exe' => 'string',
+        'id' => 'string',
+        'm2_md5' => 'string'
     ];
 
     /**
@@ -44,14 +41,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ai_app' => 'int64',
-        'app' => 'int64',
-        'dev_linux' => 'int64',
-        'dev_py' => 'int64',
-        'emg' => 'int64',
-        'linux' => 'int64',
-        'webcms' => 'int64',
-        'windows' => 'int64'
+        'argv' => null,
+        'domain' => null,
+        'exe' => null,
+        'id' => null,
+        'm2_md5' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_app' => 'AIApp',
-        'app' => 'App',
-        'dev_linux' => 'DevLinux',
-        'dev_py' => 'DevPy',
-        'emg' => 'Emg',
-        'linux' => 'Linux',
-        'webcms' => 'Webcms',
-        'windows' => 'Windows'
+        'argv' => 'Argv',
+        'domain' => 'Domain',
+        'exe' => 'Exe',
+        'id' => 'ID',
+        'm2_md5' => 'M2MD5'
     ];
 
     /**
@@ -97,14 +88,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ai_app' => 'setAiApp',
-        'app' => 'setApp',
-        'dev_linux' => 'setDevLinux',
-        'dev_py' => 'setDevPy',
-        'emg' => 'setEmg',
-        'linux' => 'setLinux',
-        'webcms' => 'setWebcms',
-        'windows' => 'setWindows'
+        'argv' => 'setArgv',
+        'domain' => 'setDomain',
+        'exe' => 'setExe',
+        'id' => 'setId',
+        'm2_md5' => 'setM2Md5'
     ];
 
     /**
@@ -113,14 +101,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ai_app' => 'getAiApp',
-        'app' => 'getApp',
-        'dev_linux' => 'getDevLinux',
-        'dev_py' => 'getDevPy',
-        'emg' => 'getEmg',
-        'linux' => 'getLinux',
-        'webcms' => 'getWebcms',
-        'windows' => 'getWindows'
+        'argv' => 'getArgv',
+        'domain' => 'getDomain',
+        'exe' => 'getExe',
+        'id' => 'getId',
+        'm2_md5' => 'getM2Md5'
     ];
 
     /**
@@ -183,14 +168,11 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
-        $this->container['app'] = isset($data['app']) ? $data['app'] : null;
-        $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
-        $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
-        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
-        $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
-        $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
-        $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
+        $this->container['argv'] = isset($data['argv']) ? $data['argv'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['exe'] = isset($data['exe']) ? $data['exe'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['m2_md5'] = isset($data['m2_md5']) ? $data['m2_md5'] : null;
     }
 
     /**
@@ -218,193 +200,121 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ai_app
+     * Gets argv
      *
-     * @return int
+     * @return string
      */
-    public function getAiApp()
+    public function getArgv()
     {
-        return $this->container['ai_app'];
+        return $this->container['argv'];
     }
 
     /**
-     * Sets ai_app
+     * Sets argv
      *
-     * @param int $ai_app ai_app
+     * @param string $argv argv
      *
      * @return $this
      */
-    public function setAiApp($ai_app)
+    public function setArgv($argv)
     {
-        $this->container['ai_app'] = $ai_app;
+        $this->container['argv'] = $argv;
 
         return $this;
     }
 
     /**
-     * Gets app
+     * Gets domain
      *
-     * @return int
+     * @return string
      */
-    public function getApp()
+    public function getDomain()
     {
-        return $this->container['app'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets app
+     * Sets domain
      *
-     * @param int $app app
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setApp($app)
+    public function setDomain($domain)
     {
-        $this->container['app'] = $app;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets dev_linux
+     * Gets exe
      *
-     * @return int
+     * @return string
      */
-    public function getDevLinux()
+    public function getExe()
     {
-        return $this->container['dev_linux'];
+        return $this->container['exe'];
     }
 
     /**
-     * Sets dev_linux
+     * Sets exe
      *
-     * @param int $dev_linux dev_linux
+     * @param string $exe exe
      *
      * @return $this
      */
-    public function setDevLinux($dev_linux)
+    public function setExe($exe)
     {
-        $this->container['dev_linux'] = $dev_linux;
+        $this->container['exe'] = $exe;
 
         return $this;
     }
 
     /**
-     * Gets dev_py
+     * Gets id
      *
-     * @return int
+     * @return string
      */
-    public function getDevPy()
+    public function getId()
     {
-        return $this->container['dev_py'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets dev_py
+     * Sets id
      *
-     * @param int $dev_py dev_py
+     * @param string $id id
      *
      * @return $this
      */
-    public function setDevPy($dev_py)
+    public function setId($id)
     {
-        $this->container['dev_py'] = $dev_py;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets emg
+     * Gets m2_md5
      *
-     * @return int
+     * @return string
      */
-    public function getEmg()
+    public function getM2Md5()
     {
-        return $this->container['emg'];
+        return $this->container['m2_md5'];
     }
 
     /**
-     * Sets emg
+     * Sets m2_md5
      *
-     * @param int $emg emg
+     * @param string $m2_md5 m2_md5
      *
      * @return $this
      */
-    public function setEmg($emg)
+    public function setM2Md5($m2_md5)
     {
-        $this->container['emg'] = $emg;
-
-        return $this;
-    }
-
-    /**
-     * Gets linux
-     *
-     * @return int
-     */
-    public function getLinux()
-    {
-        return $this->container['linux'];
-    }
-
-    /**
-     * Sets linux
-     *
-     * @param int $linux linux
-     *
-     * @return $this
-     */
-    public function setLinux($linux)
-    {
-        $this->container['linux'] = $linux;
-
-        return $this;
-    }
-
-    /**
-     * Gets webcms
-     *
-     * @return int
-     */
-    public function getWebcms()
-    {
-        return $this->container['webcms'];
-    }
-
-    /**
-     * Sets webcms
-     *
-     * @param int $webcms webcms
-     *
-     * @return $this
-     */
-    public function setWebcms($webcms)
-    {
-        $this->container['webcms'] = $webcms;
-
-        return $this;
-    }
-
-    /**
-     * Gets windows
-     *
-     * @return int
-     */
-    public function getWindows()
-    {
-        return $this->container['windows'];
-    }
-
-    /**
-     * Sets windows
-     *
-     * @param int $windows windows
-     *
-     * @return $this
-     */
-    public function setWindows($windows)
-    {
-        $this->container['windows'] = $windows;
+        $this->container['m2_md5'] = $m2_md5;
 
         return $this;
     }
