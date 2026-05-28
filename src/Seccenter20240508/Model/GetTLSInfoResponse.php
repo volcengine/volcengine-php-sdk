@@ -36,7 +36,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         'port_change_topic_config' => '\Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForGetTLSInfoOutput',
         'process_start_topic_config' => '\Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForGetTLSInfoOutput',
         'project_id' => 'string',
-        'project_id' => 'string',
         'quota_total' => 'int',
         'quota_used' => 'int',
         'storage_days' => 'int',
@@ -60,7 +59,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         'open' => null,
         'port_change_topic_config' => null,
         'process_start_topic_config' => null,
-        'project_id' => null,
         'project_id' => null,
         'quota_total' => 'int64',
         'quota_used' => 'int64',
@@ -107,7 +105,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         'port_change_topic_config' => 'PortChangeTopicConfig',
         'process_start_topic_config' => 'ProcessStartTopicConfig',
         'project_id' => 'ProjectID',
-        'project_id' => 'ProjectId',
         'quota_total' => 'QuotaTotal',
         'quota_used' => 'QuotaUsed',
         'storage_days' => 'StorageDays',
@@ -132,7 +129,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         'port_change_topic_config' => 'setPortChangeTopicConfig',
         'process_start_topic_config' => 'setProcessStartTopicConfig',
         'project_id' => 'setProjectId',
-        'project_id' => 'setProjectId',
         'quota_total' => 'setQuotaTotal',
         'quota_used' => 'setQuotaUsed',
         'storage_days' => 'setStorageDays',
@@ -156,7 +152,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         'open' => 'getOpen',
         'port_change_topic_config' => 'getPortChangeTopicConfig',
         'process_start_topic_config' => 'getProcessStartTopicConfig',
-        'project_id' => 'getProjectId',
         'project_id' => 'getProjectId',
         'quota_total' => 'getQuotaTotal',
         'quota_used' => 'getQuotaUsed',
@@ -235,7 +230,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
         $this->container['open'] = isset($data['open']) ? $data['open'] : null;
         $this->container['port_change_topic_config'] = isset($data['port_change_topic_config']) ? $data['port_change_topic_config'] : null;
         $this->container['process_start_topic_config'] = isset($data['process_start_topic_config']) ? $data['process_start_topic_config'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['quota_total'] = isset($data['quota_total']) ? $data['quota_total'] : null;
         $this->container['quota_used'] = isset($data['quota_used']) ? $data['quota_used'] : null;
@@ -435,30 +429,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
     public function setProcessStartTopicConfig($process_start_topic_config)
     {
         $this->container['process_start_topic_config'] = $process_start_topic_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_id
-     *
-     * @return string
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param string $project_id project_id
-     *
-     * @return $this
-     */
-    public function setProjectId($project_id)
-    {
-        $this->container['project_id'] = $project_id;
 
         return $this;
     }

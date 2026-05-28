@@ -33,13 +33,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         'create_user' => 'string',
         'data_type' => 'int',
         'enable' => 'bool',
+        'harm_level' => 'string',
         'range' => '\Volcengine\Seccenter20240508\Model\RangeForListAutoDefenseRulesOutput',
         'rule_desc' => 'string',
         'rule_id' => 'string',
         'rule_type' => 'string',
         'type' => 'string',
         'update_time' => 'int',
-        'update_user' => 'string'
+        'update_user' => 'string',
+        'user_auto_defense_rule' => '\Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput'
     ];
 
     /**
@@ -53,13 +55,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         'create_user' => null,
         'data_type' => 'int64',
         'enable' => null,
+        'harm_level' => null,
         'range' => null,
         'rule_desc' => null,
         'rule_id' => null,
         'rule_type' => null,
         'type' => null,
         'update_time' => 'int64',
-        'update_user' => null
+        'update_user' => null,
+        'user_auto_defense_rule' => null
     ];
 
     /**
@@ -94,13 +98,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         'create_user' => 'CreateUser',
         'data_type' => 'DataType',
         'enable' => 'Enable',
+        'harm_level' => 'HarmLevel',
         'range' => 'Range',
         'rule_desc' => 'RuleDesc',
         'rule_id' => 'RuleID',
         'rule_type' => 'RuleType',
         'type' => 'Type',
         'update_time' => 'UpdateTime',
-        'update_user' => 'UpdateUser'
+        'update_user' => 'UpdateUser',
+        'user_auto_defense_rule' => 'UserAutoDefenseRule'
     ];
 
     /**
@@ -114,13 +120,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         'create_user' => 'setCreateUser',
         'data_type' => 'setDataType',
         'enable' => 'setEnable',
+        'harm_level' => 'setHarmLevel',
         'range' => 'setRange',
         'rule_desc' => 'setRuleDesc',
         'rule_id' => 'setRuleId',
         'rule_type' => 'setRuleType',
         'type' => 'setType',
         'update_time' => 'setUpdateTime',
-        'update_user' => 'setUpdateUser'
+        'update_user' => 'setUpdateUser',
+        'user_auto_defense_rule' => 'setUserAutoDefenseRule'
     ];
 
     /**
@@ -134,13 +142,15 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         'create_user' => 'getCreateUser',
         'data_type' => 'getDataType',
         'enable' => 'getEnable',
+        'harm_level' => 'getHarmLevel',
         'range' => 'getRange',
         'rule_desc' => 'getRuleDesc',
         'rule_id' => 'getRuleId',
         'rule_type' => 'getRuleType',
         'type' => 'getType',
         'update_time' => 'getUpdateTime',
-        'update_user' => 'getUpdateUser'
+        'update_user' => 'getUpdateUser',
+        'user_auto_defense_rule' => 'getUserAutoDefenseRule'
     ];
 
     /**
@@ -208,6 +218,7 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         $this->container['create_user'] = isset($data['create_user']) ? $data['create_user'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['harm_level'] = isset($data['harm_level']) ? $data['harm_level'] : null;
         $this->container['range'] = isset($data['range']) ? $data['range'] : null;
         $this->container['rule_desc'] = isset($data['rule_desc']) ? $data['rule_desc'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
@@ -215,6 +226,7 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['update_user'] = isset($data['update_user']) ? $data['update_user'] : null;
+        $this->container['user_auto_defense_rule'] = isset($data['user_auto_defense_rule']) ? $data['user_auto_defense_rule'] : null;
     }
 
     /**
@@ -357,6 +369,30 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets harm_level
+     *
+     * @return string
+     */
+    public function getHarmLevel()
+    {
+        return $this->container['harm_level'];
+    }
+
+    /**
+     * Sets harm_level
+     *
+     * @param string $harm_level harm_level
+     *
+     * @return $this
+     */
+    public function setHarmLevel($harm_level)
+    {
+        $this->container['harm_level'] = $harm_level;
 
         return $this;
     }
@@ -525,6 +561,30 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
     public function setUpdateUser($update_user)
     {
         $this->container['update_user'] = $update_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_auto_defense_rule
+     *
+     * @return \Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput
+     */
+    public function getUserAutoDefenseRule()
+    {
+        return $this->container['user_auto_defense_rule'];
+    }
+
+    /**
+     * Sets user_auto_defense_rule
+     *
+     * @param \Volcengine\Seccenter20240508\Model\UserAutoDefenseRuleForListAutoDefenseRulesOutput $user_auto_defense_rule user_auto_defense_rule
+     *
+     * @return $this
+     */
+    public function setUserAutoDefenseRule($user_auto_defense_rule)
+    {
+        $this->container['user_auto_defense_rule'] = $user_auto_defense_rule;
 
         return $this;
     }

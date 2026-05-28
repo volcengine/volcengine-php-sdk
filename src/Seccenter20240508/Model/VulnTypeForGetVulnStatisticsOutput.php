@@ -28,6 +28,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai_app' => 'int',
         'app' => 'int',
         'dev_linux' => 'int',
         'dev_py' => 'int',
@@ -43,6 +44,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai_app' => 'int64',
         'app' => 'int64',
         'dev_linux' => 'int64',
         'dev_py' => 'int64',
@@ -79,6 +81,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_app' => 'AIApp',
         'app' => 'App',
         'dev_linux' => 'DevLinux',
         'dev_py' => 'DevPy',
@@ -94,6 +97,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai_app' => 'setAiApp',
         'app' => 'setApp',
         'dev_linux' => 'setDevLinux',
         'dev_py' => 'setDevPy',
@@ -109,6 +113,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai_app' => 'getAiApp',
         'app' => 'getApp',
         'dev_linux' => 'getDevLinux',
         'dev_py' => 'getDevPy',
@@ -178,6 +183,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
         $this->container['app'] = isset($data['app']) ? $data['app'] : null;
         $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
         $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
@@ -210,6 +216,30 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_app
+     *
+     * @return int
+     */
+    public function getAiApp()
+    {
+        return $this->container['ai_app'];
+    }
+
+    /**
+     * Sets ai_app
+     *
+     * @param int $ai_app ai_app
+     *
+     * @return $this
+     */
+    public function setAiApp($ai_app)
+    {
+        $this->container['ai_app'] = $ai_app;
+
+        return $this;
+    }
 
     /**
      * Gets app

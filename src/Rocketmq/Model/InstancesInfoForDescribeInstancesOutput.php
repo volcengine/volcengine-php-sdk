@@ -30,11 +30,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'apply_private_dnsto_public' => 'bool',
+        'available_group_number' => 'int',
         'available_queue_number' => 'int',
+        'available_topic_number' => 'int',
         'charge_detail' => '\Volcengine\Rocketmq\Model\ChargeDetailForDescribeInstancesOutput',
         'compute_spec' => 'string',
         'create_time' => 'string',
         'eip_id' => 'string',
+        'enable_inspect' => 'bool',
         'enable_ssl' => 'bool',
         'file_reserved_time' => 'int',
         'instance_description' => 'string',
@@ -42,11 +45,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         'instance_name' => 'string',
         'instance_status' => 'string',
         'instance_tags' => '\Volcengine\Rocketmq\Model\InstanceTagForDescribeInstancesOutput[]',
+        'product_version' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
         'ssl_mode' => 'string',
+        'send_receive_ratio' => 'int',
         'storage_space' => 'int',
         'subnet_id' => 'string',
+        'total_tps' => 'int',
         'used_group_number' => 'int',
         'used_queue_number' => 'int',
         'used_storage_space' => 'int',
@@ -64,11 +70,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'account_id' => null,
         'apply_private_dnsto_public' => null,
+        'available_group_number' => 'int32',
         'available_queue_number' => 'int32',
+        'available_topic_number' => 'int32',
         'charge_detail' => null,
         'compute_spec' => null,
         'create_time' => null,
         'eip_id' => null,
+        'enable_inspect' => null,
         'enable_ssl' => null,
         'file_reserved_time' => 'int32',
         'instance_description' => null,
@@ -76,11 +85,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         'instance_name' => null,
         'instance_status' => null,
         'instance_tags' => null,
+        'product_version' => null,
         'project_name' => null,
         'region_id' => null,
         'ssl_mode' => null,
+        'send_receive_ratio' => 'int32',
         'storage_space' => 'int32',
         'subnet_id' => null,
+        'total_tps' => 'int32',
         'used_group_number' => 'int32',
         'used_queue_number' => 'int32',
         'used_storage_space' => 'int32',
@@ -119,11 +131,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'apply_private_dnsto_public' => 'ApplyPrivateDNSToPublic',
+        'available_group_number' => 'AvailableGroupNumber',
         'available_queue_number' => 'AvailableQueueNumber',
+        'available_topic_number' => 'AvailableTopicNumber',
         'charge_detail' => 'ChargeDetail',
         'compute_spec' => 'ComputeSpec',
         'create_time' => 'CreateTime',
         'eip_id' => 'EipId',
+        'enable_inspect' => 'EnableInspect',
         'enable_ssl' => 'EnableSSL',
         'file_reserved_time' => 'FileReservedTime',
         'instance_description' => 'InstanceDescription',
@@ -131,11 +146,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
         'instance_tags' => 'InstanceTags',
+        'product_version' => 'ProductVersion',
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
         'ssl_mode' => 'SSLMode',
+        'send_receive_ratio' => 'SendReceiveRatio',
         'storage_space' => 'StorageSpace',
         'subnet_id' => 'SubnetId',
+        'total_tps' => 'TotalTps',
         'used_group_number' => 'UsedGroupNumber',
         'used_queue_number' => 'UsedQueueNumber',
         'used_storage_space' => 'UsedStorageSpace',
@@ -153,11 +171,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     protected static $setters = [
         'account_id' => 'setAccountId',
         'apply_private_dnsto_public' => 'setApplyPrivateDnstoPublic',
+        'available_group_number' => 'setAvailableGroupNumber',
         'available_queue_number' => 'setAvailableQueueNumber',
+        'available_topic_number' => 'setAvailableTopicNumber',
         'charge_detail' => 'setChargeDetail',
         'compute_spec' => 'setComputeSpec',
         'create_time' => 'setCreateTime',
         'eip_id' => 'setEipId',
+        'enable_inspect' => 'setEnableInspect',
         'enable_ssl' => 'setEnableSsl',
         'file_reserved_time' => 'setFileReservedTime',
         'instance_description' => 'setInstanceDescription',
@@ -165,11 +186,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
         'instance_tags' => 'setInstanceTags',
+        'product_version' => 'setProductVersion',
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
         'ssl_mode' => 'setSslMode',
+        'send_receive_ratio' => 'setSendReceiveRatio',
         'storage_space' => 'setStorageSpace',
         'subnet_id' => 'setSubnetId',
+        'total_tps' => 'setTotalTps',
         'used_group_number' => 'setUsedGroupNumber',
         'used_queue_number' => 'setUsedQueueNumber',
         'used_storage_space' => 'setUsedStorageSpace',
@@ -187,11 +211,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     protected static $getters = [
         'account_id' => 'getAccountId',
         'apply_private_dnsto_public' => 'getApplyPrivateDnstoPublic',
+        'available_group_number' => 'getAvailableGroupNumber',
         'available_queue_number' => 'getAvailableQueueNumber',
+        'available_topic_number' => 'getAvailableTopicNumber',
         'charge_detail' => 'getChargeDetail',
         'compute_spec' => 'getComputeSpec',
         'create_time' => 'getCreateTime',
         'eip_id' => 'getEipId',
+        'enable_inspect' => 'getEnableInspect',
         'enable_ssl' => 'getEnableSsl',
         'file_reserved_time' => 'getFileReservedTime',
         'instance_description' => 'getInstanceDescription',
@@ -199,11 +226,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
         'instance_tags' => 'getInstanceTags',
+        'product_version' => 'getProductVersion',
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
         'ssl_mode' => 'getSslMode',
+        'send_receive_ratio' => 'getSendReceiveRatio',
         'storage_space' => 'getStorageSpace',
         'subnet_id' => 'getSubnetId',
+        'total_tps' => 'getTotalTps',
         'used_group_number' => 'getUsedGroupNumber',
         'used_queue_number' => 'getUsedQueueNumber',
         'used_storage_space' => 'getUsedStorageSpace',
@@ -275,11 +305,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['apply_private_dnsto_public'] = isset($data['apply_private_dnsto_public']) ? $data['apply_private_dnsto_public'] : null;
+        $this->container['available_group_number'] = isset($data['available_group_number']) ? $data['available_group_number'] : null;
         $this->container['available_queue_number'] = isset($data['available_queue_number']) ? $data['available_queue_number'] : null;
+        $this->container['available_topic_number'] = isset($data['available_topic_number']) ? $data['available_topic_number'] : null;
         $this->container['charge_detail'] = isset($data['charge_detail']) ? $data['charge_detail'] : null;
         $this->container['compute_spec'] = isset($data['compute_spec']) ? $data['compute_spec'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['enable_inspect'] = isset($data['enable_inspect']) ? $data['enable_inspect'] : null;
         $this->container['enable_ssl'] = isset($data['enable_ssl']) ? $data['enable_ssl'] : null;
         $this->container['file_reserved_time'] = isset($data['file_reserved_time']) ? $data['file_reserved_time'] : null;
         $this->container['instance_description'] = isset($data['instance_description']) ? $data['instance_description'] : null;
@@ -287,11 +320,14 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
         $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
+        $this->container['product_version'] = isset($data['product_version']) ? $data['product_version'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['ssl_mode'] = isset($data['ssl_mode']) ? $data['ssl_mode'] : null;
+        $this->container['send_receive_ratio'] = isset($data['send_receive_ratio']) ? $data['send_receive_ratio'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['total_tps'] = isset($data['total_tps']) ? $data['total_tps'] : null;
         $this->container['used_group_number'] = isset($data['used_group_number']) ? $data['used_group_number'] : null;
         $this->container['used_queue_number'] = isset($data['used_queue_number']) ? $data['used_queue_number'] : null;
         $this->container['used_storage_space'] = isset($data['used_storage_space']) ? $data['used_storage_space'] : null;
@@ -374,6 +410,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets available_group_number
+     *
+     * @return int
+     */
+    public function getAvailableGroupNumber()
+    {
+        return $this->container['available_group_number'];
+    }
+
+    /**
+     * Sets available_group_number
+     *
+     * @param int $available_group_number available_group_number
+     *
+     * @return $this
+     */
+    public function setAvailableGroupNumber($available_group_number)
+    {
+        $this->container['available_group_number'] = $available_group_number;
+
+        return $this;
+    }
+
+    /**
      * Gets available_queue_number
      *
      * @return int
@@ -393,6 +453,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     public function setAvailableQueueNumber($available_queue_number)
     {
         $this->container['available_queue_number'] = $available_queue_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_topic_number
+     *
+     * @return int
+     */
+    public function getAvailableTopicNumber()
+    {
+        return $this->container['available_topic_number'];
+    }
+
+    /**
+     * Sets available_topic_number
+     *
+     * @param int $available_topic_number available_topic_number
+     *
+     * @return $this
+     */
+    public function setAvailableTopicNumber($available_topic_number)
+    {
+        $this->container['available_topic_number'] = $available_topic_number;
 
         return $this;
     }
@@ -489,6 +573,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     public function setEipId($eip_id)
     {
         $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_inspect
+     *
+     * @return bool
+     */
+    public function getEnableInspect()
+    {
+        return $this->container['enable_inspect'];
+    }
+
+    /**
+     * Sets enable_inspect
+     *
+     * @param bool $enable_inspect enable_inspect
+     *
+     * @return $this
+     */
+    public function setEnableInspect($enable_inspect)
+    {
+        $this->container['enable_inspect'] = $enable_inspect;
 
         return $this;
     }
@@ -662,6 +770,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets product_version
+     *
+     * @return string
+     */
+    public function getProductVersion()
+    {
+        return $this->container['product_version'];
+    }
+
+    /**
+     * Sets product_version
+     *
+     * @param string $product_version product_version
+     *
+     * @return $this
+     */
+    public function setProductVersion($product_version)
+    {
+        $this->container['product_version'] = $product_version;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -734,6 +866,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets send_receive_ratio
+     *
+     * @return int
+     */
+    public function getSendReceiveRatio()
+    {
+        return $this->container['send_receive_ratio'];
+    }
+
+    /**
+     * Sets send_receive_ratio
+     *
+     * @param int $send_receive_ratio send_receive_ratio
+     *
+     * @return $this
+     */
+    public function setSendReceiveRatio($send_receive_ratio)
+    {
+        $this->container['send_receive_ratio'] = $send_receive_ratio;
+
+        return $this;
+    }
+
+    /**
      * Gets storage_space
      *
      * @return int
@@ -777,6 +933,30 @@ class InstancesInfoForDescribeInstancesOutput implements ModelInterface, ArrayAc
     public function setSubnetId($subnet_id)
     {
         $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tps
+     *
+     * @return int
+     */
+    public function getTotalTps()
+    {
+        return $this->container['total_tps'];
+    }
+
+    /**
+     * Sets total_tps
+     *
+     * @param int $total_tps total_tps
+     *
+     * @return $this
+     */
+    public function setTotalTps($total_tps)
+    {
+        $this->container['total_tps'] = $total_tps;
 
         return $this;
     }

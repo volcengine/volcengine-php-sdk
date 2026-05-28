@@ -97,6 +97,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'string',
         'round_amount' => 'string',
         'saving_plan_deduction_discount_amount' => 'string',
+        'saving_plan_deduction_discount_total_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
         'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
@@ -205,6 +206,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => null,
         'round_amount' => null,
         'saving_plan_deduction_discount_amount' => null,
+        'saving_plan_deduction_discount_total_amount' => null,
         'saving_plan_deduction_sp_id' => null,
         'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
@@ -334,6 +336,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'SavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
@@ -442,6 +445,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'setSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
@@ -550,6 +554,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_discount_total_amount' => 'getSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
@@ -712,6 +717,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
+        $this->container['saving_plan_deduction_discount_total_amount'] = isset($data['saving_plan_deduction_discount_total_amount']) ? $data['saving_plan_deduction_discount_total_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
@@ -2421,6 +2427,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setSavingPlanDeductionDiscountAmount($saving_plan_deduction_discount_amount)
     {
         $this->container['saving_plan_deduction_discount_amount'] = $saving_plan_deduction_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_discount_total_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionDiscountTotalAmount()
+    {
+        return $this->container['saving_plan_deduction_discount_total_amount'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_discount_total_amount
+     *
+     * @param string $saving_plan_deduction_discount_total_amount saving_plan_deduction_discount_total_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionDiscountTotalAmount($saving_plan_deduction_discount_total_amount)
+    {
+        $this->container['saving_plan_deduction_discount_total_amount'] = $saving_plan_deduction_discount_total_amount;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'data' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'data' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'data' => 'Data'
     ];
 
     /**
@@ -76,7 +76,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'data' => 'setData'
     ];
 
     /**
@@ -85,7 +85,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'data' => 'getData'
     ];
 
     /**
@@ -148,6 +148,7 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class SetBruteForceBanConfigResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets data
+     *
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

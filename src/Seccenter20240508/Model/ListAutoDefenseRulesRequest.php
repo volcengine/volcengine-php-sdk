@@ -30,6 +30,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'page_number' => 'int',
         'page_size' => 'int',
+        'rule_scope' => 'string',
         'sort_by' => 'string',
         'sort_order' => 'string',
         'top_group_id' => 'string'
@@ -43,6 +44,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'page_number' => 'int64',
         'page_size' => 'int64',
+        'rule_scope' => null,
         'sort_by' => null,
         'sort_order' => null,
         'top_group_id' => null
@@ -77,6 +79,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'rule_scope' => 'RuleScope',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
         'top_group_id' => 'TopGroupID'
@@ -90,6 +93,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'rule_scope' => 'setRuleScope',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
         'top_group_id' => 'setTopGroupId'
@@ -103,6 +107,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'rule_scope' => 'getRuleScope',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
         'top_group_id' => 'getTopGroupId'
@@ -170,6 +175,7 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['rule_scope'] = isset($data['rule_scope']) ? $data['rule_scope'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
@@ -249,6 +255,30 @@ class ListAutoDefenseRulesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_scope
+     *
+     * @return string
+     */
+    public function getRuleScope()
+    {
+        return $this->container['rule_scope'];
+    }
+
+    /**
+     * Sets rule_scope
+     *
+     * @param string $rule_scope rule_scope
+     *
+     * @return $this
+     */
+    public function setRuleScope($rule_scope)
+    {
+        $this->container['rule_scope'] = $rule_scope;
 
         return $this;
     }

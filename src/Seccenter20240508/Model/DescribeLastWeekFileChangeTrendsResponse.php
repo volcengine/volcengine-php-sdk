@@ -30,9 +30,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'last_seven_change' => 'int',
         'point_info' => '\Volcengine\Seccenter20240508\Model\PointInfoForDescribeLastWeekFileChangeTrendsOutput[]',
-        'today_change' => 'int',
-        'last_seven_change' => 'int',
-        'point_info' => '\Volcengine\Seccenter20240508\Model\PointInfoForDescribeLastWeekFileChangeTrendsOutput[]',
         'today_change' => 'int'
     ];
 
@@ -42,9 +39,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'last_seven_change' => 'int64',
-        'point_info' => null,
-        'today_change' => 'int64',
         'last_seven_change' => 'int64',
         'point_info' => null,
         'today_change' => 'int64'
@@ -79,10 +73,7 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'last_seven_change' => 'LastSevenChange',
         'point_info' => 'PointInfo',
-        'today_change' => 'TodayChange',
-        'last_seven_change' => 'last_seven_change',
-        'point_info' => 'point_info',
-        'today_change' => 'today_change'
+        'today_change' => 'TodayChange'
     ];
 
     /**
@@ -91,9 +82,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'last_seven_change' => 'setLastSevenChange',
-        'point_info' => 'setPointInfo',
-        'today_change' => 'setTodayChange',
         'last_seven_change' => 'setLastSevenChange',
         'point_info' => 'setPointInfo',
         'today_change' => 'setTodayChange'
@@ -105,9 +93,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'last_seven_change' => 'getLastSevenChange',
-        'point_info' => 'getPointInfo',
-        'today_change' => 'getTodayChange',
         'last_seven_change' => 'getLastSevenChange',
         'point_info' => 'getPointInfo',
         'today_change' => 'getTodayChange'
@@ -176,9 +161,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
         $this->container['last_seven_change'] = isset($data['last_seven_change']) ? $data['last_seven_change'] : null;
         $this->container['point_info'] = isset($data['point_info']) ? $data['point_info'] : null;
         $this->container['today_change'] = isset($data['today_change']) ? $data['today_change'] : null;
-        $this->container['last_seven_change'] = isset($data['last_seven_change']) ? $data['last_seven_change'] : null;
-        $this->container['point_info'] = isset($data['point_info']) ? $data['point_info'] : null;
-        $this->container['today_change'] = isset($data['today_change']) ? $data['today_change'] : null;
     }
 
     /**
@@ -204,78 +186,6 @@ class DescribeLastWeekFileChangeTrendsResponse implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets last_seven_change
-     *
-     * @return int
-     */
-    public function getLastSevenChange()
-    {
-        return $this->container['last_seven_change'];
-    }
-
-    /**
-     * Sets last_seven_change
-     *
-     * @param int $last_seven_change last_seven_change
-     *
-     * @return $this
-     */
-    public function setLastSevenChange($last_seven_change)
-    {
-        $this->container['last_seven_change'] = $last_seven_change;
-
-        return $this;
-    }
-
-    /**
-     * Gets point_info
-     *
-     * @return \Volcengine\Seccenter20240508\Model\PointInfoForDescribeLastWeekFileChangeTrendsOutput[]
-     */
-    public function getPointInfo()
-    {
-        return $this->container['point_info'];
-    }
-
-    /**
-     * Sets point_info
-     *
-     * @param \Volcengine\Seccenter20240508\Model\PointInfoForDescribeLastWeekFileChangeTrendsOutput[] $point_info point_info
-     *
-     * @return $this
-     */
-    public function setPointInfo($point_info)
-    {
-        $this->container['point_info'] = $point_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets today_change
-     *
-     * @return int
-     */
-    public function getTodayChange()
-    {
-        return $this->container['today_change'];
-    }
-
-    /**
-     * Sets today_change
-     *
-     * @param int $today_change today_change
-     *
-     * @return $this
-     */
-    public function setTodayChange($today_change)
-    {
-        $this->container['today_change'] = $today_change;
-
-        return $this;
-    }
 
     /**
      * Gets last_seven_change

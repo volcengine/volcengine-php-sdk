@@ -28,6 +28,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai_app' => 'bool',
         'app' => 'bool',
         'dev_linux' => 'bool',
         'dev_py' => 'bool',
@@ -43,6 +44,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai_app' => null,
         'app' => null,
         'dev_linux' => null,
         'dev_py' => null,
@@ -79,6 +81,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_app' => 'AIApp',
         'app' => 'App',
         'dev_linux' => 'DevLinux',
         'dev_py' => 'DevPy',
@@ -94,6 +97,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai_app' => 'setAiApp',
         'app' => 'setApp',
         'dev_linux' => 'setDevLinux',
         'dev_py' => 'setDevPy',
@@ -109,6 +113,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai_app' => 'getAiApp',
         'app' => 'getApp',
         'dev_linux' => 'getDevLinux',
         'dev_py' => 'getDevPy',
@@ -178,6 +183,7 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['ai_app'] = isset($data['ai_app']) ? $data['ai_app'] : null;
         $this->container['app'] = isset($data['app']) ? $data['app'] : null;
         $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
         $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
@@ -210,6 +216,30 @@ class ScanTypeForDetectVulnInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_app
+     *
+     * @return bool
+     */
+    public function getAiApp()
+    {
+        return $this->container['ai_app'];
+    }
+
+    /**
+     * Sets ai_app
+     *
+     * @param bool $ai_app ai_app
+     *
+     * @return $this
+     */
+    public function setAiApp($ai_app)
+    {
+        $this->container['ai_app'] = $ai_app;
+
+        return $this;
+    }
 
     /**
      * Gets app

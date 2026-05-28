@@ -28,7 +28,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resend_result' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
+        'resend_results' => '\Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resend_result' => null
+        'resend_results' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resend_result' => 'ResendResult'
+        'resend_results' => 'ResendResults'
     ];
 
     /**
@@ -76,7 +76,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resend_result' => 'setResendResult'
+        'resend_results' => 'setResendResults'
     ];
 
     /**
@@ -85,7 +85,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resend_result' => 'getResendResult'
+        'resend_results' => 'getResendResults'
     ];
 
     /**
@@ -148,7 +148,7 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['resend_result'] = isset($data['resend_result']) ? $data['resend_result'] : null;
+        $this->container['resend_results'] = isset($data['resend_results']) ? $data['resend_results'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class ResendDLQMessageByIdResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resend_result
+     * Gets resend_results
      *
      * @return \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[]
      */
-    public function getResendResult()
+    public function getResendResults()
     {
-        return $this->container['resend_result'];
+        return $this->container['resend_results'];
     }
 
     /**
-     * Sets resend_result
+     * Sets resend_results
      *
-     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_result resend_result
+     * @param \Volcengine\Rocketmq\Model\ResendResultForResendDLQMessageByIdOutput[] $resend_results resend_results
      *
      * @return $this
      */
-    public function setResendResult($resend_result)
+    public function setResendResults($resend_results)
     {
-        $this->container['resend_result'] = $resend_result;
+        $this->container['resend_results'] = $resend_results;
 
         return $this;
     }
