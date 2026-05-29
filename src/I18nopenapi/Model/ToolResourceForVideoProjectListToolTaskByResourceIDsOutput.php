@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
+class ToolResourceForVideoProjectListToolTaskByResourceIDsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialDubTaskCreateInput';
+    protected static $swaggerModelName = 'toolResourceForVideoProjectListToolTaskByResourceIDsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'effect_subtitle' => '\Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput',
-        'effect_subtitles' => '\Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[]',
-        'episode' => 'int',
-        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput',
-        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput',
-        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]',
-        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput'
+        'create_time' => 'string',
+        'name' => 'string',
+        'resource_id' => 'string',
+        'resource_type' => 'int',
+        'update_time' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -43,13 +42,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'effect_subtitle' => null,
-        'effect_subtitles' => null,
-        'episode' => 'int32',
-        'pure_video' => null,
-        'subtitle' => null,
-        'subtitles' => null,
-        'video' => null
+        'create_time' => null,
+        'name' => null,
+        'resource_id' => null,
+        'resource_type' => 'int32',
+        'update_time' => null,
+        'url' => null
     ];
 
     /**
@@ -79,13 +77,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'effect_subtitle' => 'effectSubtitle',
-        'effect_subtitles' => 'effectSubtitles',
-        'episode' => 'episode',
-        'pure_video' => 'pureVideo',
-        'subtitle' => 'subtitle',
-        'subtitles' => 'subtitles',
-        'video' => 'video'
+        'create_time' => 'createTime',
+        'name' => 'name',
+        'resource_id' => 'resourceID',
+        'resource_type' => 'resourceType',
+        'update_time' => 'updateTime',
+        'url' => 'url'
     ];
 
     /**
@@ -94,13 +91,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'effect_subtitle' => 'setEffectSubtitle',
-        'effect_subtitles' => 'setEffectSubtitles',
-        'episode' => 'setEpisode',
-        'pure_video' => 'setPureVideo',
-        'subtitle' => 'setSubtitle',
-        'subtitles' => 'setSubtitles',
-        'video' => 'setVideo'
+        'create_time' => 'setCreateTime',
+        'name' => 'setName',
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
+        'update_time' => 'setUpdateTime',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -109,13 +105,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'effect_subtitle' => 'getEffectSubtitle',
-        'effect_subtitles' => 'getEffectSubtitles',
-        'episode' => 'getEpisode',
-        'pure_video' => 'getPureVideo',
-        'subtitle' => 'getSubtitle',
-        'subtitles' => 'getSubtitles',
-        'video' => 'getVideo'
+        'create_time' => 'getCreateTime',
+        'name' => 'getName',
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
+        'update_time' => 'getUpdateTime',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -178,13 +173,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      */
     public function __construct($data = null)
     {
-        $this->container['effect_subtitle'] = isset($data['effect_subtitle']) ? $data['effect_subtitle'] : null;
-        $this->container['effect_subtitles'] = isset($data['effect_subtitles']) ? $data['effect_subtitles'] : null;
-        $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
-        $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;
-        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
-        $this->container['subtitles'] = isset($data['subtitles']) ? $data['subtitles'] : null;
-        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -212,169 +206,145 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
 
 
     /**
-     * Gets effect_subtitle
+     * Gets create_time
      *
-     * @return \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput
+     * @return string
      */
-    public function getEffectSubtitle()
+    public function getCreateTime()
     {
-        return $this->container['effect_subtitle'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets effect_subtitle
+     * Sets create_time
      *
-     * @param \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput $effect_subtitle effect_subtitle
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setEffectSubtitle($effect_subtitle)
+    public function setCreateTime($create_time)
     {
-        $this->container['effect_subtitle'] = $effect_subtitle;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets effect_subtitles
+     * Gets name
      *
-     * @return \Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[]
+     * @return string
      */
-    public function getEffectSubtitles()
+    public function getName()
     {
-        return $this->container['effect_subtitles'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets effect_subtitles
+     * Sets name
      *
-     * @param \Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[] $effect_subtitles effect_subtitles
+     * @param string $name name
      *
      * @return $this
      */
-    public function setEffectSubtitles($effect_subtitles)
+    public function setName($name)
     {
-        $this->container['effect_subtitles'] = $effect_subtitles;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets episode
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
      *
      * @return int
      */
-    public function getEpisode()
+    public function getResourceType()
     {
-        return $this->container['episode'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets episode
+     * Sets resource_type
      *
-     * @param int $episode episode
+     * @param int $resource_type resource_type
      *
      * @return $this
      */
-    public function setEpisode($episode)
+    public function setResourceType($resource_type)
     {
-        $this->container['episode'] = $episode;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets pure_video
+     * Gets update_time
      *
-     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput
+     * @return string
      */
-    public function getPureVideo()
+    public function getUpdateTime()
     {
-        return $this->container['pure_video'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets pure_video
+     * Sets update_time
      *
-     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput $pure_video pure_video
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setPureVideo($pure_video)
+    public function setUpdateTime($update_time)
     {
-        $this->container['pure_video'] = $pure_video;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
 
     /**
-     * Gets subtitle
+     * Gets url
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput
+     * @return string
      */
-    public function getSubtitle()
+    public function getUrl()
     {
-        return $this->container['subtitle'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets subtitle
+     * Sets url
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput $subtitle subtitle
+     * @param string $url url
      *
      * @return $this
      */
-    public function setSubtitle($subtitle)
+    public function setUrl($url)
     {
-        $this->container['subtitle'] = $subtitle;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitles
-     *
-     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]
-     */
-    public function getSubtitles()
-    {
-        return $this->container['subtitles'];
-    }
-
-    /**
-     * Sets subtitles
-     *
-     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[] $subtitles subtitles
-     *
-     * @return $this
-     */
-    public function setSubtitles($subtitles)
-    {
-        $this->container['subtitles'] = $subtitles;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput $video video
-     *
-     * @return $this
-     */
-    public function setVideo($video)
-    {
-        $this->container['video'] = $video;
+        $this->container['url'] = $url;
 
         return $this;
     }

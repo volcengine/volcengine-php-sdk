@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
+class ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialDubTaskCreateInput';
+    protected static $swaggerModelName = 'ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'effect_subtitle' => '\Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput',
-        'effect_subtitles' => '\Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[]',
-        'episode' => 'int',
-        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput',
-        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput',
-        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]',
-        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput'
+        'arrangement' => 'int',
+        'file_type' => 'int',
+        'name' => 'string',
+        'subtitle_lang' => 'int',
+        'target_lang' => 'string',
+        'uri' => 'string'
     ];
 
     /**
@@ -43,13 +42,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'effect_subtitle' => null,
-        'effect_subtitles' => null,
-        'episode' => 'int32',
-        'pure_video' => null,
-        'subtitle' => null,
-        'subtitles' => null,
-        'video' => null
+        'arrangement' => 'int32',
+        'file_type' => 'int32',
+        'name' => null,
+        'subtitle_lang' => 'int32',
+        'target_lang' => null,
+        'uri' => null
     ];
 
     /**
@@ -79,13 +77,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'effect_subtitle' => 'effectSubtitle',
-        'effect_subtitles' => 'effectSubtitles',
-        'episode' => 'episode',
-        'pure_video' => 'pureVideo',
-        'subtitle' => 'subtitle',
-        'subtitles' => 'subtitles',
-        'video' => 'video'
+        'arrangement' => 'arrangement',
+        'file_type' => 'fileType',
+        'name' => 'name',
+        'subtitle_lang' => 'subtitleLang',
+        'target_lang' => 'targetLang',
+        'uri' => 'uri'
     ];
 
     /**
@@ -94,13 +91,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'effect_subtitle' => 'setEffectSubtitle',
-        'effect_subtitles' => 'setEffectSubtitles',
-        'episode' => 'setEpisode',
-        'pure_video' => 'setPureVideo',
-        'subtitle' => 'setSubtitle',
-        'subtitles' => 'setSubtitles',
-        'video' => 'setVideo'
+        'arrangement' => 'setArrangement',
+        'file_type' => 'setFileType',
+        'name' => 'setName',
+        'subtitle_lang' => 'setSubtitleLang',
+        'target_lang' => 'setTargetLang',
+        'uri' => 'setUri'
     ];
 
     /**
@@ -109,13 +105,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'effect_subtitle' => 'getEffectSubtitle',
-        'effect_subtitles' => 'getEffectSubtitles',
-        'episode' => 'getEpisode',
-        'pure_video' => 'getPureVideo',
-        'subtitle' => 'getSubtitle',
-        'subtitles' => 'getSubtitles',
-        'video' => 'getVideo'
+        'arrangement' => 'getArrangement',
+        'file_type' => 'getFileType',
+        'name' => 'getName',
+        'subtitle_lang' => 'getSubtitleLang',
+        'target_lang' => 'getTargetLang',
+        'uri' => 'getUri'
     ];
 
     /**
@@ -178,13 +173,12 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      */
     public function __construct($data = null)
     {
-        $this->container['effect_subtitle'] = isset($data['effect_subtitle']) ? $data['effect_subtitle'] : null;
-        $this->container['effect_subtitles'] = isset($data['effect_subtitles']) ? $data['effect_subtitles'] : null;
-        $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
-        $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;
-        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
-        $this->container['subtitles'] = isset($data['subtitles']) ? $data['subtitles'] : null;
-        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
+        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
+        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['target_lang'] = isset($data['target_lang']) ? $data['target_lang'] : null;
+        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
 
     /**
@@ -212,169 +206,145 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
 
 
     /**
-     * Gets effect_subtitle
-     *
-     * @return \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput
-     */
-    public function getEffectSubtitle()
-    {
-        return $this->container['effect_subtitle'];
-    }
-
-    /**
-     * Sets effect_subtitle
-     *
-     * @param \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialDubTaskCreateInput $effect_subtitle effect_subtitle
-     *
-     * @return $this
-     */
-    public function setEffectSubtitle($effect_subtitle)
-    {
-        $this->container['effect_subtitle'] = $effect_subtitle;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_subtitles
-     *
-     * @return \Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[]
-     */
-    public function getEffectSubtitles()
-    {
-        return $this->container['effect_subtitles'];
-    }
-
-    /**
-     * Sets effect_subtitles
-     *
-     * @param \Volcengine\I18nopenapi\Model\ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput[] $effect_subtitles effect_subtitles
-     *
-     * @return $this
-     */
-    public function setEffectSubtitles($effect_subtitles)
-    {
-        $this->container['effect_subtitles'] = $effect_subtitles;
-
-        return $this;
-    }
-
-    /**
-     * Gets episode
+     * Gets arrangement
      *
      * @return int
      */
-    public function getEpisode()
+    public function getArrangement()
     {
-        return $this->container['episode'];
+        return $this->container['arrangement'];
     }
 
     /**
-     * Sets episode
+     * Sets arrangement
      *
-     * @param int $episode episode
+     * @param int $arrangement arrangement
      *
      * @return $this
      */
-    public function setEpisode($episode)
+    public function setArrangement($arrangement)
     {
-        $this->container['episode'] = $episode;
+        $this->container['arrangement'] = $arrangement;
 
         return $this;
     }
 
     /**
-     * Gets pure_video
+     * Gets file_type
      *
-     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput
+     * @return int
      */
-    public function getPureVideo()
+    public function getFileType()
     {
-        return $this->container['pure_video'];
+        return $this->container['file_type'];
     }
 
     /**
-     * Sets pure_video
+     * Sets file_type
      *
-     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput $pure_video pure_video
+     * @param int $file_type file_type
      *
      * @return $this
      */
-    public function setPureVideo($pure_video)
+    public function setFileType($file_type)
     {
-        $this->container['pure_video'] = $pure_video;
+        $this->container['file_type'] = $file_type;
 
         return $this;
     }
 
     /**
-     * Gets subtitle
+     * Gets name
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput
+     * @return string
      */
-    public function getSubtitle()
+    public function getName()
     {
-        return $this->container['subtitle'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets subtitle
+     * Sets name
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput $subtitle subtitle
+     * @param string $name name
      *
      * @return $this
      */
-    public function setSubtitle($subtitle)
+    public function setName($name)
     {
-        $this->container['subtitle'] = $subtitle;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets subtitles
+     * Gets subtitle_lang
      *
-     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]
+     * @return int
      */
-    public function getSubtitles()
+    public function getSubtitleLang()
     {
-        return $this->container['subtitles'];
+        return $this->container['subtitle_lang'];
     }
 
     /**
-     * Sets subtitles
+     * Sets subtitle_lang
      *
-     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[] $subtitles subtitles
+     * @param int $subtitle_lang subtitle_lang
      *
      * @return $this
      */
-    public function setSubtitles($subtitles)
+    public function setSubtitleLang($subtitle_lang)
     {
-        $this->container['subtitles'] = $subtitles;
+        $this->container['subtitle_lang'] = $subtitle_lang;
 
         return $this;
     }
 
     /**
-     * Gets video
+     * Gets target_lang
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput
+     * @return string
      */
-    public function getVideo()
+    public function getTargetLang()
     {
-        return $this->container['video'];
+        return $this->container['target_lang'];
     }
 
     /**
-     * Sets video
+     * Sets target_lang
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput $video video
+     * @param string $target_lang target_lang
      *
      * @return $this
      */
-    public function setVideo($video)
+    public function setTargetLang($target_lang)
     {
-        $this->container['video'] = $video;
+        $this->container['target_lang'] = $target_lang;
+
+        return $this;
+    }
+
+    /**
+     * Gets uri
+     *
+     * @return string
+     */
+    public function getUri()
+    {
+        return $this->container['uri'];
+    }
+
+    /**
+     * Sets uri
+     *
+     * @param string $uri uri
+     *
+     * @return $this
+     */
+    public function setUri($uri)
+    {
+        $this->container['uri'] = $uri;
 
         return $this;
     }
