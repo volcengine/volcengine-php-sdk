@@ -44,7 +44,7 @@ class ListResolverRulesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'endpoint_id' => 'int32',
+        'endpoint_id' => 'int64',
         'endpoint_trn' => null,
         'name' => null,
         'page_number' => 'int32',

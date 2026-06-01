@@ -58,7 +58,7 @@ class ZoneForListPrivateZonesOutput implements ModelInterface, ArrayAccess
         'remark' => null,
         'tags' => null,
         'updated_at' => null,
-        'zid' => 'int32',
+        'zid' => 'int64',
         'zone_name' => null
     ];
 

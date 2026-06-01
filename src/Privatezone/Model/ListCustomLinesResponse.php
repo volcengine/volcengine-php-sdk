@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
+class ListCustomLinesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateResolverRuleRequest';
+    protected static $swaggerModelName = 'ListCustomLinesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'forward_ips' => '\Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]',
-        'line' => 'string',
-        'name' => 'string',
-        'rule_id' => 'int',
-        'rule_trn' => 'string',
-        'vpcs' => '\Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]',
-        'zone_name' => 'string'
+        'customer_lines' => '\Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[]',
+        'ip_segment_count' => 'int',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -43,13 +41,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'forward_ips' => null,
-        'line' => null,
-        'name' => null,
-        'rule_id' => 'int64',
-        'rule_trn' => null,
-        'vpcs' => null,
-        'zone_name' => null
+        'customer_lines' => null,
+        'ip_segment_count' => 'int32',
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -79,13 +75,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'forward_ips' => 'ForwardIPs',
-        'line' => 'Line',
-        'name' => 'Name',
-        'rule_id' => 'RuleID',
-        'rule_trn' => 'RuleTrn',
-        'vpcs' => 'Vpcs',
-        'zone_name' => 'ZoneName'
+        'customer_lines' => 'CustomerLines',
+        'ip_segment_count' => 'IPSegmentCount',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -94,13 +88,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'forward_ips' => 'setForwardIps',
-        'line' => 'setLine',
-        'name' => 'setName',
-        'rule_id' => 'setRuleId',
-        'rule_trn' => 'setRuleTrn',
-        'vpcs' => 'setVpcs',
-        'zone_name' => 'setZoneName'
+        'customer_lines' => 'setCustomerLines',
+        'ip_segment_count' => 'setIpSegmentCount',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -109,13 +101,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'forward_ips' => 'getForwardIps',
-        'line' => 'getLine',
-        'name' => 'getName',
-        'rule_id' => 'getRuleId',
-        'rule_trn' => 'getRuleTrn',
-        'vpcs' => 'getVpcs',
-        'zone_name' => 'getZoneName'
+        'customer_lines' => 'getCustomerLines',
+        'ip_segment_count' => 'getIpSegmentCount',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -178,13 +168,11 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['forward_ips'] = isset($data['forward_ips']) ? $data['forward_ips'] : null;
-        $this->container['line'] = isset($data['line']) ? $data['line'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
-        $this->container['rule_trn'] = isset($data['rule_trn']) ? $data['rule_trn'] : null;
-        $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
+        $this->container['customer_lines'] = isset($data['customer_lines']) ? $data['customer_lines'] : null;
+        $this->container['ip_segment_count'] = isset($data['ip_segment_count']) ? $data['ip_segment_count'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -196,9 +184,6 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rule_id'] === null) {
-            $invalidProperties[] = "'rule_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,169 +200,121 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets forward_ips
+     * Gets customer_lines
      *
-     * @return \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]
+     * @return \Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[]
      */
-    public function getForwardIps()
+    public function getCustomerLines()
     {
-        return $this->container['forward_ips'];
+        return $this->container['customer_lines'];
     }
 
     /**
-     * Sets forward_ips
+     * Sets customer_lines
      *
-     * @param \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[] $forward_ips forward_ips
+     * @param \Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[] $customer_lines customer_lines
      *
      * @return $this
      */
-    public function setForwardIps($forward_ips)
+    public function setCustomerLines($customer_lines)
     {
-        $this->container['forward_ips'] = $forward_ips;
+        $this->container['customer_lines'] = $customer_lines;
 
         return $this;
     }
 
     /**
-     * Gets line
-     *
-     * @return string
-     */
-    public function getLine()
-    {
-        return $this->container['line'];
-    }
-
-    /**
-     * Sets line
-     *
-     * @param string $line line
-     *
-     * @return $this
-     */
-    public function setLine($line)
-    {
-        $this->container['line'] = $line;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_id
+     * Gets ip_segment_count
      *
      * @return int
      */
-    public function getRuleId()
+    public function getIpSegmentCount()
     {
-        return $this->container['rule_id'];
+        return $this->container['ip_segment_count'];
     }
 
     /**
-     * Sets rule_id
+     * Sets ip_segment_count
      *
-     * @param int $rule_id rule_id
+     * @param int $ip_segment_count ip_segment_count
      *
      * @return $this
      */
-    public function setRuleId($rule_id)
+    public function setIpSegmentCount($ip_segment_count)
     {
-        $this->container['rule_id'] = $rule_id;
+        $this->container['ip_segment_count'] = $ip_segment_count;
 
         return $this;
     }
 
     /**
-     * Gets rule_trn
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getRuleTrn()
+    public function getPageNumber()
     {
-        return $this->container['rule_trn'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets rule_trn
+     * Sets page_number
      *
-     * @param string $rule_trn rule_trn
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setRuleTrn($rule_trn)
+    public function setPageNumber($page_number)
     {
-        $this->container['rule_trn'] = $rule_trn;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets vpcs
+     * Gets page_size
      *
-     * @return \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]
+     * @return int
      */
-    public function getVpcs()
+    public function getPageSize()
     {
-        return $this->container['vpcs'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets vpcs
+     * Sets page_size
      *
-     * @param \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[] $vpcs vpcs
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setVpcs($vpcs)
+    public function setPageSize($page_size)
     {
-        $this->container['vpcs'] = $vpcs;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets total_count
      *
-     * @return string
+     * @return int
      */
-    public function getZoneName()
+    public function getTotalCount()
     {
-        return $this->container['zone_name'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets zone_name
+     * Sets total_count
      *
-     * @param string $zone_name zone_name
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setTotalCount($total_count)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

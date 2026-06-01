@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
+class ListCustomLinesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateZoneRequest';
+    protected static $swaggerModelName = 'ListCustomLinesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,16 +28,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'line_mode' => 'int',
-        'nodata_fallback' => 'bool',
-        'project_name' => 'string',
-        'recursion_mode' => 'bool',
+        'ip_segment' => 'string',
+        'line' => 'string',
+        'name_cn' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'remark' => 'string',
-        'tags' => '\Volcengine\Privatezone\Model\TagForCreatePrivateZoneInput[]',
-        'vpc_trns' => 'string[]',
-        'vpcs' => '\Volcengine\Privatezone\Model\VpcForCreatePrivateZoneInput[]',
-        'zone_name' => 'string'
+        'search_mode' => 'string'
     ];
 
     /**
@@ -46,16 +43,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'line_mode' => 'int32',
-        'nodata_fallback' => null,
-        'project_name' => null,
-        'recursion_mode' => null,
+        'ip_segment' => null,
+        'line' => null,
+        'name_cn' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
         'remark' => null,
-        'tags' => null,
-        'vpc_trns' => null,
-        'vpcs' => null,
-        'zone_name' => null
+        'search_mode' => null
     ];
 
     /**
@@ -85,16 +79,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'line_mode' => 'LineMode',
-        'nodata_fallback' => 'NodataFallback',
-        'project_name' => 'ProjectName',
-        'recursion_mode' => 'RecursionMode',
+        'ip_segment' => 'IPSegment',
+        'line' => 'Line',
+        'name_cn' => 'NameCN',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'remark' => 'Remark',
-        'tags' => 'Tags',
-        'vpc_trns' => 'VpcTrns',
-        'vpcs' => 'Vpcs',
-        'zone_name' => 'ZoneName'
+        'search_mode' => 'SearchMode'
     ];
 
     /**
@@ -103,16 +94,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'line_mode' => 'setLineMode',
-        'nodata_fallback' => 'setNodataFallback',
-        'project_name' => 'setProjectName',
-        'recursion_mode' => 'setRecursionMode',
+        'ip_segment' => 'setIpSegment',
+        'line' => 'setLine',
+        'name_cn' => 'setNameCn',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'remark' => 'setRemark',
-        'tags' => 'setTags',
-        'vpc_trns' => 'setVpcTrns',
-        'vpcs' => 'setVpcs',
-        'zone_name' => 'setZoneName'
+        'search_mode' => 'setSearchMode'
     ];
 
     /**
@@ -121,16 +109,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'line_mode' => 'getLineMode',
-        'nodata_fallback' => 'getNodataFallback',
-        'project_name' => 'getProjectName',
-        'recursion_mode' => 'getRecursionMode',
+        'ip_segment' => 'getIpSegment',
+        'line' => 'getLine',
+        'name_cn' => 'getNameCn',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'remark' => 'getRemark',
-        'tags' => 'getTags',
-        'vpc_trns' => 'getVpcTrns',
-        'vpcs' => 'getVpcs',
-        'zone_name' => 'getZoneName'
+        'search_mode' => 'getSearchMode'
     ];
 
     /**
@@ -193,16 +178,13 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['line_mode'] = isset($data['line_mode']) ? $data['line_mode'] : null;
-        $this->container['nodata_fallback'] = isset($data['nodata_fallback']) ? $data['nodata_fallback'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;
+        $this->container['ip_segment'] = isset($data['ip_segment']) ? $data['ip_segment'] : null;
+        $this->container['line'] = isset($data['line']) ? $data['line'] : null;
+        $this->container['name_cn'] = isset($data['name_cn']) ? $data['name_cn'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['vpc_trns'] = isset($data['vpc_trns']) ? $data['vpc_trns'] : null;
-        $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
+        $this->container['search_mode'] = isset($data['search_mode']) ? $data['search_mode'] : null;
     }
 
     /**
@@ -214,9 +196,6 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['zone_name'] === null) {
-            $invalidProperties[] = "'zone_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,121 +212,121 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets ip_segment
      *
      * @return string
      */
-    public function getClientToken()
+    public function getIpSegment()
     {
-        return $this->container['client_token'];
+        return $this->container['ip_segment'];
     }
 
     /**
-     * Sets client_token
+     * Sets ip_segment
      *
-     * @param string $client_token client_token
+     * @param string $ip_segment ip_segment
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setIpSegment($ip_segment)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['ip_segment'] = $ip_segment;
 
         return $this;
     }
 
     /**
-     * Gets line_mode
+     * Gets line
+     *
+     * @return string
+     */
+    public function getLine()
+    {
+        return $this->container['line'];
+    }
+
+    /**
+     * Sets line
+     *
+     * @param string $line line
+     *
+     * @return $this
+     */
+    public function setLine($line)
+    {
+        $this->container['line'] = $line;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_cn
+     *
+     * @return string
+     */
+    public function getNameCn()
+    {
+        return $this->container['name_cn'];
+    }
+
+    /**
+     * Sets name_cn
+     *
+     * @param string $name_cn name_cn
+     *
+     * @return $this
+     */
+    public function setNameCn($name_cn)
+    {
+        $this->container['name_cn'] = $name_cn;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
      *
      * @return int
      */
-    public function getLineMode()
+    public function getPageNumber()
     {
-        return $this->container['line_mode'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets line_mode
+     * Sets page_number
      *
-     * @param int $line_mode line_mode
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setLineMode($line_mode)
+    public function setPageNumber($page_number)
     {
-        $this->container['line_mode'] = $line_mode;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets nodata_fallback
+     * Gets page_size
      *
-     * @return bool
+     * @return int
      */
-    public function getNodataFallback()
+    public function getPageSize()
     {
-        return $this->container['nodata_fallback'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets nodata_fallback
+     * Sets page_size
      *
-     * @param bool $nodata_fallback nodata_fallback
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setNodataFallback($nodata_fallback)
+    public function setPageSize($page_size)
     {
-        $this->container['nodata_fallback'] = $nodata_fallback;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets recursion_mode
-     *
-     * @return bool
-     */
-    public function getRecursionMode()
-    {
-        return $this->container['recursion_mode'];
-    }
-
-    /**
-     * Sets recursion_mode
-     *
-     * @param bool $recursion_mode recursion_mode
-     *
-     * @return $this
-     */
-    public function setRecursionMode($recursion_mode)
-    {
-        $this->container['recursion_mode'] = $recursion_mode;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
@@ -377,97 +356,25 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Privatezone\Model\TagForCreatePrivateZoneInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Privatezone\Model\TagForCreatePrivateZoneInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_trns
-     *
-     * @return string[]
-     */
-    public function getVpcTrns()
-    {
-        return $this->container['vpc_trns'];
-    }
-
-    /**
-     * Sets vpc_trns
-     *
-     * @param string[] $vpc_trns vpc_trns
-     *
-     * @return $this
-     */
-    public function setVpcTrns($vpc_trns)
-    {
-        $this->container['vpc_trns'] = $vpc_trns;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpcs
-     *
-     * @return \Volcengine\Privatezone\Model\VpcForCreatePrivateZoneInput[]
-     */
-    public function getVpcs()
-    {
-        return $this->container['vpcs'];
-    }
-
-    /**
-     * Sets vpcs
-     *
-     * @param \Volcengine\Privatezone\Model\VpcForCreatePrivateZoneInput[] $vpcs vpcs
-     *
-     * @return $this
-     */
-    public function setVpcs($vpcs)
-    {
-        $this->container['vpcs'] = $vpcs;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_name
+     * Gets search_mode
      *
      * @return string
      */
-    public function getZoneName()
+    public function getSearchMode()
     {
-        return $this->container['zone_name'];
+        return $this->container['search_mode'];
     }
 
     /**
-     * Sets zone_name
+     * Sets search_mode
      *
-     * @param string $zone_name zone_name
+     * @param string $search_mode search_mode
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setSearchMode($search_mode)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['search_mode'] = $search_mode;
 
         return $this;
     }
