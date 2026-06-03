@@ -2,7 +2,9 @@
 
 ---
 
-> This section is not yet available for the PHP SDK.
+## Error Handling
+
+Not yet available for PHP SDK.
 
 ---
 
