@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Privatezone\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
+class ListCustomLinesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialTaskCreateInput';
+    protected static $swaggerModelName = 'ListCustomLinesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'effect_subtitle' => '\Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput',
-        'episode' => 'int',
-        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput',
-        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput',
-        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]',
-        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput'
+        'customer_lines' => '\Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[]',
+        'ip_segment_count' => 'int',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -42,12 +41,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'effect_subtitle' => null,
-        'episode' => 'int32',
-        'pure_video' => null,
-        'subtitle' => null,
-        'subtitles' => null,
-        'video' => null
+        'customer_lines' => null,
+        'ip_segment_count' => 'int32',
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -77,12 +75,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'effect_subtitle' => 'effectSubtitle',
-        'episode' => 'episode',
-        'pure_video' => 'pureVideo',
-        'subtitle' => 'subtitle',
-        'subtitles' => 'subtitles',
-        'video' => 'video'
+        'customer_lines' => 'CustomerLines',
+        'ip_segment_count' => 'IPSegmentCount',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -91,12 +88,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'effect_subtitle' => 'setEffectSubtitle',
-        'episode' => 'setEpisode',
-        'pure_video' => 'setPureVideo',
-        'subtitle' => 'setSubtitle',
-        'subtitles' => 'setSubtitles',
-        'video' => 'setVideo'
+        'customer_lines' => 'setCustomerLines',
+        'ip_segment_count' => 'setIpSegmentCount',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -105,12 +101,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'effect_subtitle' => 'getEffectSubtitle',
-        'episode' => 'getEpisode',
-        'pure_video' => 'getPureVideo',
-        'subtitle' => 'getSubtitle',
-        'subtitles' => 'getSubtitles',
-        'video' => 'getVideo'
+        'customer_lines' => 'getCustomerLines',
+        'ip_segment_count' => 'getIpSegmentCount',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -173,12 +168,11 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['effect_subtitle'] = isset($data['effect_subtitle']) ? $data['effect_subtitle'] : null;
-        $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
-        $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;
-        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
-        $this->container['subtitles'] = isset($data['subtitles']) ? $data['subtitles'] : null;
-        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
+        $this->container['customer_lines'] = isset($data['customer_lines']) ? $data['customer_lines'] : null;
+        $this->container['ip_segment_count'] = isset($data['ip_segment_count']) ? $data['ip_segment_count'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -206,145 +200,121 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
 
 
     /**
-     * Gets effect_subtitle
+     * Gets customer_lines
      *
-     * @return \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput
+     * @return \Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[]
      */
-    public function getEffectSubtitle()
+    public function getCustomerLines()
     {
-        return $this->container['effect_subtitle'];
+        return $this->container['customer_lines'];
     }
 
     /**
-     * Sets effect_subtitle
+     * Sets customer_lines
      *
-     * @param \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput $effect_subtitle effect_subtitle
+     * @param \Volcengine\Privatezone\Model\CustomerLineForListCustomLinesOutput[] $customer_lines customer_lines
      *
      * @return $this
      */
-    public function setEffectSubtitle($effect_subtitle)
+    public function setCustomerLines($customer_lines)
     {
-        $this->container['effect_subtitle'] = $effect_subtitle;
+        $this->container['customer_lines'] = $customer_lines;
 
         return $this;
     }
 
     /**
-     * Gets episode
+     * Gets ip_segment_count
      *
      * @return int
      */
-    public function getEpisode()
+    public function getIpSegmentCount()
     {
-        return $this->container['episode'];
+        return $this->container['ip_segment_count'];
     }
 
     /**
-     * Sets episode
+     * Sets ip_segment_count
      *
-     * @param int $episode episode
+     * @param int $ip_segment_count ip_segment_count
      *
      * @return $this
      */
-    public function setEpisode($episode)
+    public function setIpSegmentCount($ip_segment_count)
     {
-        $this->container['episode'] = $episode;
+        $this->container['ip_segment_count'] = $ip_segment_count;
 
         return $this;
     }
 
     /**
-     * Gets pure_video
+     * Gets page_number
      *
-     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput
+     * @return int
      */
-    public function getPureVideo()
+    public function getPageNumber()
     {
-        return $this->container['pure_video'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets pure_video
+     * Sets page_number
      *
-     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput $pure_video pure_video
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setPureVideo($pure_video)
+    public function setPageNumber($page_number)
     {
-        $this->container['pure_video'] = $pure_video;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets subtitle
+     * Gets page_size
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput
+     * @return int
      */
-    public function getSubtitle()
+    public function getPageSize()
     {
-        return $this->container['subtitle'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets subtitle
+     * Sets page_size
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput $subtitle subtitle
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setSubtitle($subtitle)
+    public function setPageSize($page_size)
     {
-        $this->container['subtitle'] = $subtitle;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets subtitles
+     * Gets total_count
      *
-     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]
+     * @return int
      */
-    public function getSubtitles()
+    public function getTotalCount()
     {
-        return $this->container['subtitles'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets subtitles
+     * Sets total_count
      *
-     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[] $subtitles subtitles
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setSubtitles($subtitles)
+    public function setTotalCount($total_count)
     {
-        $this->container['subtitles'] = $subtitles;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput $video video
-     *
-     * @return $this
-     */
-    public function setVideo($video)
-    {
-        $this->container['video'] = $video;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

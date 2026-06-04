@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Privatezone\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
+class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateResolverRuleRequest';
+    protected static $swaggerModelName = 'VideoProjectGetToolTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'forward_ips' => '\Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]',
-        'line' => 'string',
-        'name' => 'string',
-        'rule_id' => 'int',
-        'rule_trn' => 'string',
-        'vpcs' => '\Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]',
-        'zone_name' => 'string'
+        'task_id' => 'string'
     ];
 
     /**
@@ -43,13 +37,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'forward_ips' => null,
-        'line' => null,
-        'name' => null,
-        'rule_id' => 'int64',
-        'rule_trn' => null,
-        'vpcs' => null,
-        'zone_name' => null
+        'task_id' => null
     ];
 
     /**
@@ -79,13 +67,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'forward_ips' => 'ForwardIPs',
-        'line' => 'Line',
-        'name' => 'Name',
-        'rule_id' => 'RuleID',
-        'rule_trn' => 'RuleTrn',
-        'vpcs' => 'Vpcs',
-        'zone_name' => 'ZoneName'
+        'task_id' => 'taskId'
     ];
 
     /**
@@ -94,13 +76,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'forward_ips' => 'setForwardIps',
-        'line' => 'setLine',
-        'name' => 'setName',
-        'rule_id' => 'setRuleId',
-        'rule_trn' => 'setRuleTrn',
-        'vpcs' => 'setVpcs',
-        'zone_name' => 'setZoneName'
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -109,13 +85,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'forward_ips' => 'getForwardIps',
-        'line' => 'getLine',
-        'name' => 'getName',
-        'rule_id' => 'getRuleId',
-        'rule_trn' => 'getRuleTrn',
-        'vpcs' => 'getVpcs',
-        'zone_name' => 'getZoneName'
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -178,13 +148,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['forward_ips'] = isset($data['forward_ips']) ? $data['forward_ips'] : null;
-        $this->container['line'] = isset($data['line']) ? $data['line'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
-        $this->container['rule_trn'] = isset($data['rule_trn']) ? $data['rule_trn'] : null;
-        $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -196,8 +160,8 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rule_id'] === null) {
-            $invalidProperties[] = "'rule_id' can't be null";
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,169 +179,25 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets forward_ips
-     *
-     * @return \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]
-     */
-    public function getForwardIps()
-    {
-        return $this->container['forward_ips'];
-    }
-
-    /**
-     * Sets forward_ips
-     *
-     * @param \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[] $forward_ips forward_ips
-     *
-     * @return $this
-     */
-    public function setForwardIps($forward_ips)
-    {
-        $this->container['forward_ips'] = $forward_ips;
-
-        return $this;
-    }
-
-    /**
-     * Gets line
+     * Gets task_id
      *
      * @return string
      */
-    public function getLine()
+    public function getTaskId()
     {
-        return $this->container['line'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets line
+     * Sets task_id
      *
-     * @param string $line line
+     * @param string $task_id task_id
      *
      * @return $this
      */
-    public function setLine($line)
+    public function setTaskId($task_id)
     {
-        $this->container['line'] = $line;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_id
-     *
-     * @return int
-     */
-    public function getRuleId()
-    {
-        return $this->container['rule_id'];
-    }
-
-    /**
-     * Sets rule_id
-     *
-     * @param int $rule_id rule_id
-     *
-     * @return $this
-     */
-    public function setRuleId($rule_id)
-    {
-        $this->container['rule_id'] = $rule_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_trn
-     *
-     * @return string
-     */
-    public function getRuleTrn()
-    {
-        return $this->container['rule_trn'];
-    }
-
-    /**
-     * Sets rule_trn
-     *
-     * @param string $rule_trn rule_trn
-     *
-     * @return $this
-     */
-    public function setRuleTrn($rule_trn)
-    {
-        $this->container['rule_trn'] = $rule_trn;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpcs
-     *
-     * @return \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]
-     */
-    public function getVpcs()
-    {
-        return $this->container['vpcs'];
-    }
-
-    /**
-     * Sets vpcs
-     *
-     * @param \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[] $vpcs vpcs
-     *
-     * @return $this
-     */
-    public function setVpcs($vpcs)
-    {
-        $this->container['vpcs'] = $vpcs;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_name
-     *
-     * @return string
-     */
-    public function getZoneName()
-    {
-        return $this->container['zone_name'];
-    }
-
-    /**
-     * Sets zone_name
-     *
-     * @param string $zone_name zone_name
-     *
-     * @return $this
-     */
-    public function setZoneName($zone_name)
-    {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

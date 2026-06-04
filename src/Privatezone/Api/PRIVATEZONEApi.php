@@ -130,6 +130,68 @@ class PRIVATEZONEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function batchDeleteCustomLine($body = null)
+    {
+        list($response) = $this->batchDeleteCustomLineWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchDeleteCustomLineWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\BatchDeleteCustomLineResponse';
+        $request = $this->batchDeleteCustomLineRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchDeleteCustomLineAsync($body = null)
+    {
+        return $this->batchDeleteCustomLineAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchDeleteCustomLineAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\BatchDeleteCustomLineResponse';
+        $request = $this->batchDeleteCustomLineRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchDeleteCustomLineRequest($body)
+    {
+        $resourcePath = '/BatchDeleteCustomLine/2022-06-01/private_zone/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function batchDeleteRecord($body = null)
     {
         list($response) = $this->batchDeleteRecordWithHttpInfo($body);
@@ -412,6 +474,68 @@ class PRIVATEZONEApi
     protected function createAuthorizedUserRequest($body)
     {
         $resourcePath = '/CreateAuthorizedUser/2022-06-01/private_zone/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createCustomLine($body = null)
+    {
+        list($response) = $this->createCustomLineWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createCustomLineWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\CreateCustomLineResponse';
+        $request = $this->createCustomLineRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createCustomLineAsync($body = null)
+    {
+        return $this->createCustomLineAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createCustomLineAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\CreateCustomLineResponse';
+        $request = $this->createCustomLineRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createCustomLineRequest($body)
+    {
+        $resourcePath = '/CreateCustomLine/2022-06-01/private_zone/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1246,6 +1370,68 @@ class PRIVATEZONEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listAvailabilityZones($body = null)
+    {
+        list($response) = $this->listAvailabilityZonesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAvailabilityZonesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListAvailabilityZonesResponse';
+        $request = $this->listAvailabilityZonesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAvailabilityZonesAsync($body = null)
+    {
+        return $this->listAvailabilityZonesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAvailabilityZonesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListAvailabilityZonesResponse';
+        $request = $this->listAvailabilityZonesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAvailabilityZonesRequest($body)
+    {
+        $resourcePath = '/ListAvailabilityZones/2022-06-01/private_zone/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listBindVPC($body = null)
     {
         list($response) = $this->listBindVPCWithHttpInfo($body);
@@ -1286,6 +1472,68 @@ class PRIVATEZONEApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listCustomLines($body = null)
+    {
+        list($response) = $this->listCustomLinesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listCustomLinesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListCustomLinesResponse';
+        $request = $this->listCustomLinesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listCustomLinesAsync($body = null)
+    {
+        return $this->listCustomLinesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listCustomLinesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListCustomLinesResponse';
+        $request = $this->listCustomLinesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listCustomLinesRequest($body)
+    {
+        $resourcePath = '/ListCustomLines/2022-06-01/private_zone/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -1404,6 +1652,68 @@ class PRIVATEZONEApi
     protected function listRecordAttributesRequest($body)
     {
         $resourcePath = '/ListRecordAttributes/2022-06-01/private_zone/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRecordDigestByLine($body = null)
+    {
+        list($response) = $this->listRecordDigestByLineWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRecordDigestByLineWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListRecordDigestByLineResponse';
+        $request = $this->listRecordDigestByLineRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRecordDigestByLineAsync($body = null)
+    {
+        return $this->listRecordDigestByLineAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRecordDigestByLineAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\ListRecordDigestByLineResponse';
+        $request = $this->listRecordDigestByLineRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRecordDigestByLineRequest($body)
+    {
+        $resourcePath = '/ListRecordDigestByLine/2022-06-01/private_zone/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2582,6 +2892,68 @@ class PRIVATEZONEApi
     protected function updateBindVPCRequest($body)
     {
         $resourcePath = '/UpdateBindVPC/2022-06-01/private_zone/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateCustomLine($body = null)
+    {
+        list($response) = $this->updateCustomLineWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateCustomLineWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\UpdateCustomLineResponse';
+        $request = $this->updateCustomLineRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateCustomLineAsync($body = null)
+    {
+        return $this->updateCustomLineAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateCustomLineAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Privatezone\Model\UpdateCustomLineResponse';
+        $request = $this->updateCustomLineRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateCustomLineRequest($body)
+    {
+        $resourcePath = '/UpdateCustomLine/2022-06-01/private_zone/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

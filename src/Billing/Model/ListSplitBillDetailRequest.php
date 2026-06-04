@@ -41,6 +41,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int[]',
         'payer_id' => 'int[]',
         'product' => 'string[]',
+        'project' => 'string[]',
         'split_dimension' => 'string',
         'split_item_id' => 'string'
     ];
@@ -64,6 +65,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int64',
         'payer_id' => 'int64',
         'product' => null,
+        'project' => null,
         'split_dimension' => null,
         'split_item_id' => null
     ];
@@ -108,6 +110,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'OwnerID',
         'payer_id' => 'PayerID',
         'product' => 'Product',
+        'project' => 'Project',
         'split_dimension' => 'SplitDimension',
         'split_item_id' => 'SplitItemID'
     ];
@@ -131,6 +134,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'setOwnerId',
         'payer_id' => 'setPayerId',
         'product' => 'setProduct',
+        'project' => 'setProject',
         'split_dimension' => 'setSplitDimension',
         'split_item_id' => 'setSplitItemId'
     ];
@@ -154,6 +158,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'getOwnerId',
         'payer_id' => 'getPayerId',
         'product' => 'getProduct',
+        'project' => 'getProject',
         'split_dimension' => 'getSplitDimension',
         'split_item_id' => 'getSplitItemId'
     ];
@@ -231,6 +236,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['split_dimension'] = isset($data['split_dimension']) ? $data['split_dimension'] : null;
         $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
     }
@@ -573,6 +579,30 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
     public function setProduct($product)
     {
         $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets project
+     *
+     * @return string[]
+     */
+    public function getProject()
+    {
+        return $this->container['project'];
+    }
+
+    /**
+     * Sets project
+     *
+     * @param string[] $project project
+     *
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->container['project'] = $project;
 
         return $this;
     }

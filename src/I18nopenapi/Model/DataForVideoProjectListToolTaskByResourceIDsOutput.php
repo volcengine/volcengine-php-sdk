@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
+class DataForVideoProjectListToolTaskByResourceIDsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialTaskCreateInput';
+    protected static $swaggerModelName = 'dataForVideoProjectListToolTaskByResourceIDsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'effect_subtitle' => '\Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput',
-        'episode' => 'int',
-        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput',
-        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput',
-        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]',
-        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput'
+        'tool_tasks' => '\Volcengine\I18nopenapi\Model\ToolTaskForVideoProjectListToolTaskByResourceIDsOutput[]',
+        'total_count' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'effect_subtitle' => null,
-        'episode' => 'int32',
-        'pure_video' => null,
-        'subtitle' => null,
-        'subtitles' => null,
-        'video' => null
+        'tool_tasks' => null,
+        'total_count' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'effect_subtitle' => 'effectSubtitle',
-        'episode' => 'episode',
-        'pure_video' => 'pureVideo',
-        'subtitle' => 'subtitle',
-        'subtitles' => 'subtitles',
-        'video' => 'video'
+        'tool_tasks' => 'toolTasks',
+        'total_count' => 'totalCount'
     ];
 
     /**
@@ -91,12 +79,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'effect_subtitle' => 'setEffectSubtitle',
-        'episode' => 'setEpisode',
-        'pure_video' => 'setPureVideo',
-        'subtitle' => 'setSubtitle',
-        'subtitles' => 'setSubtitles',
-        'video' => 'setVideo'
+        'tool_tasks' => 'setToolTasks',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -105,12 +89,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'effect_subtitle' => 'getEffectSubtitle',
-        'episode' => 'getEpisode',
-        'pure_video' => 'getPureVideo',
-        'subtitle' => 'getSubtitle',
-        'subtitles' => 'getSubtitles',
-        'video' => 'getVideo'
+        'tool_tasks' => 'getToolTasks',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -173,12 +153,8 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['effect_subtitle'] = isset($data['effect_subtitle']) ? $data['effect_subtitle'] : null;
-        $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
-        $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;
-        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
-        $this->container['subtitles'] = isset($data['subtitles']) ? $data['subtitles'] : null;
-        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
+        $this->container['tool_tasks'] = isset($data['tool_tasks']) ? $data['tool_tasks'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
 
 
     /**
-     * Gets effect_subtitle
+     * Gets tool_tasks
      *
-     * @return \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\ToolTaskForVideoProjectListToolTaskByResourceIDsOutput[]
      */
-    public function getEffectSubtitle()
+    public function getToolTasks()
     {
-        return $this->container['effect_subtitle'];
+        return $this->container['tool_tasks'];
     }
 
     /**
-     * Sets effect_subtitle
+     * Sets tool_tasks
      *
-     * @param \Volcengine\I18nopenapi\Model\EffectSubtitleForVideoProjectSerialTaskCreateInput $effect_subtitle effect_subtitle
+     * @param \Volcengine\I18nopenapi\Model\ToolTaskForVideoProjectListToolTaskByResourceIDsOutput[] $tool_tasks tool_tasks
      *
      * @return $this
      */
-    public function setEffectSubtitle($effect_subtitle)
+    public function setToolTasks($tool_tasks)
     {
-        $this->container['effect_subtitle'] = $effect_subtitle;
+        $this->container['tool_tasks'] = $tool_tasks;
 
         return $this;
     }
 
     /**
-     * Gets episode
+     * Gets total_count
      *
-     * @return int
+     * @return string
      */
-    public function getEpisode()
+    public function getTotalCount()
     {
-        return $this->container['episode'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets episode
+     * Sets total_count
      *
-     * @param int $episode episode
+     * @param string $total_count total_count
      *
      * @return $this
      */
-    public function setEpisode($episode)
+    public function setTotalCount($total_count)
     {
-        $this->container['episode'] = $episode;
-
-        return $this;
-    }
-
-    /**
-     * Gets pure_video
-     *
-     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput
-     */
-    public function getPureVideo()
-    {
-        return $this->container['pure_video'];
-    }
-
-    /**
-     * Sets pure_video
-     *
-     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput $pure_video pure_video
-     *
-     * @return $this
-     */
-    public function setPureVideo($pure_video)
-    {
-        $this->container['pure_video'] = $pure_video;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle
-     *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput
-     */
-    public function getSubtitle()
-    {
-        return $this->container['subtitle'];
-    }
-
-    /**
-     * Sets subtitle
-     *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput $subtitle subtitle
-     *
-     * @return $this
-     */
-    public function setSubtitle($subtitle)
-    {
-        $this->container['subtitle'] = $subtitle;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitles
-     *
-     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]
-     */
-    public function getSubtitles()
-    {
-        return $this->container['subtitles'];
-    }
-
-    /**
-     * Sets subtitles
-     *
-     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[] $subtitles subtitles
-     *
-     * @return $this
-     */
-    public function setSubtitles($subtitles)
-    {
-        $this->container['subtitles'] = $subtitles;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput $video video
-     *
-     * @return $this
-     */
-    public function setVideo($video)
-    {
-        $this->container['video'] = $video;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

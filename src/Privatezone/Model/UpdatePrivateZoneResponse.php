@@ -31,6 +31,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         'created_at' => 'string',
         'last_operator' => 'string',
         'line_mode' => 'int',
+        'nodata_fallback' => 'bool',
         'project_name' => 'string',
         'record_count' => 'int',
         'recursion_mode' => 'bool',
@@ -50,6 +51,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         'created_at' => null,
         'last_operator' => null,
         'line_mode' => 'int32',
+        'nodata_fallback' => null,
         'project_name' => null,
         'record_count' => 'int32',
         'recursion_mode' => null,
@@ -90,6 +92,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         'created_at' => 'CreatedAt',
         'last_operator' => 'LastOperator',
         'line_mode' => 'LineMode',
+        'nodata_fallback' => 'NodataFallback',
         'project_name' => 'ProjectName',
         'record_count' => 'RecordCount',
         'recursion_mode' => 'RecursionMode',
@@ -109,6 +112,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'last_operator' => 'setLastOperator',
         'line_mode' => 'setLineMode',
+        'nodata_fallback' => 'setNodataFallback',
         'project_name' => 'setProjectName',
         'record_count' => 'setRecordCount',
         'recursion_mode' => 'setRecursionMode',
@@ -128,6 +132,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'last_operator' => 'getLastOperator',
         'line_mode' => 'getLineMode',
+        'nodata_fallback' => 'getNodataFallback',
         'project_name' => 'getProjectName',
         'record_count' => 'getRecordCount',
         'recursion_mode' => 'getRecursionMode',
@@ -201,6 +206,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['last_operator'] = isset($data['last_operator']) ? $data['last_operator'] : null;
         $this->container['line_mode'] = isset($data['line_mode']) ? $data['line_mode'] : null;
+        $this->container['nodata_fallback'] = isset($data['nodata_fallback']) ? $data['nodata_fallback'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['record_count'] = isset($data['record_count']) ? $data['record_count'] : null;
         $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;
@@ -303,6 +309,30 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
     public function setLineMode($line_mode)
     {
         $this->container['line_mode'] = $line_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets nodata_fallback
+     *
+     * @return bool
+     */
+    public function getNodataFallback()
+    {
+        return $this->container['nodata_fallback'];
+    }
+
+    /**
+     * Sets nodata_fallback
+     *
+     * @param bool $nodata_fallback nodata_fallback
+     *
+     * @return $this
+     */
+    public function setNodataFallback($nodata_fallback)
+    {
+        $this->container['nodata_fallback'] = $nodata_fallback;
 
         return $this;
     }

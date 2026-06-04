@@ -61,7 +61,7 @@ class RecordForListRecordsOutput implements ModelInterface, ArrayAccess
         'updated_at' => null,
         'value' => null,
         'weight' => 'int32',
-        'zid' => 'int32'
+        'zid' => 'int64'
     ];
 
     /**

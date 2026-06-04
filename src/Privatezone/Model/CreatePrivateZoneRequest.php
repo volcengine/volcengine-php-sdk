@@ -30,6 +30,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'line_mode' => 'int',
+        'nodata_fallback' => 'bool',
         'project_name' => 'string',
         'recursion_mode' => 'bool',
         'remark' => 'string',
@@ -47,6 +48,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'client_token' => null,
         'line_mode' => 'int32',
+        'nodata_fallback' => null,
         'project_name' => null,
         'recursion_mode' => null,
         'remark' => null,
@@ -85,6 +87,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'line_mode' => 'LineMode',
+        'nodata_fallback' => 'NodataFallback',
         'project_name' => 'ProjectName',
         'recursion_mode' => 'RecursionMode',
         'remark' => 'Remark',
@@ -102,6 +105,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_token' => 'setClientToken',
         'line_mode' => 'setLineMode',
+        'nodata_fallback' => 'setNodataFallback',
         'project_name' => 'setProjectName',
         'recursion_mode' => 'setRecursionMode',
         'remark' => 'setRemark',
@@ -119,6 +123,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_token' => 'getClientToken',
         'line_mode' => 'getLineMode',
+        'nodata_fallback' => 'getNodataFallback',
         'project_name' => 'getProjectName',
         'recursion_mode' => 'getRecursionMode',
         'remark' => 'getRemark',
@@ -190,6 +195,7 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['line_mode'] = isset($data['line_mode']) ? $data['line_mode'] : null;
+        $this->container['nodata_fallback'] = isset($data['nodata_fallback']) ? $data['nodata_fallback'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
@@ -270,6 +276,30 @@ class CreatePrivateZoneRequest implements ModelInterface, ArrayAccess
     public function setLineMode($line_mode)
     {
         $this->container['line_mode'] = $line_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets nodata_fallback
+     *
+     * @return bool
+     */
+    public function getNodataFallback()
+    {
+        return $this->container['nodata_fallback'];
+    }
+
+    /**
+     * Sets nodata_fallback
+     *
+     * @param bool $nodata_fallback nodata_fallback
+     *
+     * @return $this
+     */
+    public function setNodataFallback($nodata_fallback)
+    {
+        $this->container['nodata_fallback'] = $nodata_fallback;
 
         return $this;
     }
