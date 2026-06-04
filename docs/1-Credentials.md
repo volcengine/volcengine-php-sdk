@@ -44,7 +44,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setHost('open.volcengineapi.com') # optional, default open.volcengineapi.com
     ->setSchema('https');  # optional, default https
 
-$apiInstance = new \Volcengine\Vpc\API\VPCApi(
+$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -144,7 +144,7 @@ try {
 
 ### OIDC Credential Provider
 
-`OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC, caches them and refreshes before expiry. The expiry is estimated from the local `durationSeconds`; we recommend setting `durationSeconds` slightly shorter than your actual STS TTL to absorb network latency and clock skew.
+`OidcCredentialProvider` obtains temporary credentials via STS AssumeRoleWithOIDC, caches them and refreshes before expiry. The expiry prefers the `Expiration` returned by STS; if the response does not include that field, it falls back to the local `durationSeconds` estimate. We recommend setting `durationSeconds` slightly shorter than your actual STS TTL to absorb network latency and clock skew.
 
 Supported OIDC env vars:
 

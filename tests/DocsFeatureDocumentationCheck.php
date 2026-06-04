@@ -58,8 +58,20 @@ assert_contains($retry, 'setRetryInterval(1)', 'retry interval example');
 
 $errorHandling = read_file_or_fail($root . '/docs/7-ErrorHandling.md');
 assert_contains($errorHandling, 'Volcengine\\Common\\ApiException', 'error docs exception class');
+assert_contains($errorHandling, 'Guzzle `RequestException`', 'error docs request exception scope');
+assert_contains($errorHandling, 'Guzzle `TransferException`', 'error docs transfer exception caveat');
+assert_contains($errorHandling, '\\GuzzleHttp\\Exception\\TransferException', 'error docs transfer exception catch');
 assert_contains($errorHandling, 'getResponseHeaders()', 'error docs response headers');
 assert_contains($errorHandling, 'getResponseBody()', 'error docs response body');
+
+$credentials = read_file_or_fail($root . '/docs/1-Credentials.md');
+assert_not_contains($credentials, '\\Volcengine\\Vpc\\API\\VPCApi', 'credentials docs VPC API namespace');
+assert_contains($credentials, '\\Volcengine\\Vpc\\Api\\VPCApi', 'credentials docs VPC Api namespace');
+assert_contains($credentials, 'The expiry prefers the `Expiration` returned by STS', 'credentials docs OIDC expiration source');
+
+$credentialsZh = read_file_or_fail($root . '/docs/1-Credentials-zh.md');
+assert_not_contains($credentialsZh, '\\Volcengine\\Vpc\\API\\VPCApi', 'credentials zh docs VPC API namespace');
+assert_contains($credentialsZh, '\\Volcengine\\Vpc\\Api\\VPCApi', 'credentials zh docs VPC Api namespace');
 
 $debugging = read_file_or_fail($root . '/docs/8-Debugging.md');
 assert_contains($debugging, 'setDebug(true)', 'debug docs setDebug');

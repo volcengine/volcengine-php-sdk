@@ -44,7 +44,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setHost('open.volcengineapi.com') #非必填，默认为open.volcengineapi.com
     ->setSchema('https'); #非必填，默认为https，可选https或者http
 
-$apiInstance = new \Volcengine\Vpc\API\VPCApi(
+$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

@@ -5,8 +5,9 @@
 ## Error Handling
 
 Service API calls throw `Volcengine\Common\ApiException` for HTTP errors,
-transport request failures wrapped by Guzzle, and API responses that contain
-`ResponseMetadata.Error`.
+Guzzle `RequestException` failures, and API responses that contain
+`ResponseMetadata.Error`. Connection-level Guzzle `TransferException` failures
+such as DNS or connection timeout errors may still be thrown directly.
 
 `ApiException` exposes the HTTP status code through `getCode()`, response
 headers through `getResponseHeaders()`, and the raw response body through
@@ -29,6 +30,8 @@ try {
 } catch (\Volcengine\Common\ApiException $e) {
     echo 'Status code: ', $e->getCode(), PHP_EOL;
     echo 'Response body: ', $e->getResponseBody(), PHP_EOL;
+} catch (\GuzzleHttp\Exception\TransferException $e) {
+    echo 'Transport exception: ', $e->getMessage(), PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception: ', $e->getMessage(), PHP_EOL;
 }
