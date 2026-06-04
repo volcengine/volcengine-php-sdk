@@ -80,6 +80,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'pickup_voucher_count_unit' => 'string',
+        'pickup_voucher_deduct_count' => 'string',
+        'pickup_voucher_id' => 'string',
         'posttax_amount' => 'string',
         'pre_tax_payable_amount' => 'string',
         'preferential_bill_amount' => 'string',
@@ -187,6 +190,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'pickup_voucher_count_unit' => null,
+        'pickup_voucher_deduct_count' => null,
+        'pickup_voucher_id' => null,
         'posttax_amount' => null,
         'pre_tax_payable_amount' => null,
         'preferential_bill_amount' => null,
@@ -315,6 +321,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'pickup_voucher_count_unit' => 'PickupVoucherCountUnit',
+        'pickup_voucher_deduct_count' => 'PickupVoucherDeductCount',
+        'pickup_voucher_id' => 'PickupVoucherID',
         'posttax_amount' => 'PosttaxAmount',
         'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'preferential_bill_amount' => 'PreferentialBillAmount',
@@ -422,6 +431,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'pickup_voucher_count_unit' => 'setPickupVoucherCountUnit',
+        'pickup_voucher_deduct_count' => 'setPickupVoucherDeductCount',
+        'pickup_voucher_id' => 'setPickupVoucherId',
         'posttax_amount' => 'setPosttaxAmount',
         'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
@@ -529,6 +541,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'pickup_voucher_count_unit' => 'getPickupVoucherCountUnit',
+        'pickup_voucher_deduct_count' => 'getPickupVoucherDeductCount',
+        'pickup_voucher_id' => 'getPickupVoucherId',
         'posttax_amount' => 'getPosttaxAmount',
         'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
@@ -690,6 +705,9 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['pickup_voucher_count_unit'] = isset($data['pickup_voucher_count_unit']) ? $data['pickup_voucher_count_unit'] : null;
+        $this->container['pickup_voucher_deduct_count'] = isset($data['pickup_voucher_deduct_count']) ? $data['pickup_voucher_deduct_count'] : null;
+        $this->container['pickup_voucher_id'] = isset($data['pickup_voucher_id']) ? $data['pickup_voucher_id'] : null;
         $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
         $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
@@ -2007,6 +2025,78 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setPayerUserName($payer_user_name)
     {
         $this->container['payer_user_name'] = $payer_user_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_voucher_count_unit
+     *
+     * @return string
+     */
+    public function getPickupVoucherCountUnit()
+    {
+        return $this->container['pickup_voucher_count_unit'];
+    }
+
+    /**
+     * Sets pickup_voucher_count_unit
+     *
+     * @param string $pickup_voucher_count_unit pickup_voucher_count_unit
+     *
+     * @return $this
+     */
+    public function setPickupVoucherCountUnit($pickup_voucher_count_unit)
+    {
+        $this->container['pickup_voucher_count_unit'] = $pickup_voucher_count_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_voucher_deduct_count
+     *
+     * @return string
+     */
+    public function getPickupVoucherDeductCount()
+    {
+        return $this->container['pickup_voucher_deduct_count'];
+    }
+
+    /**
+     * Sets pickup_voucher_deduct_count
+     *
+     * @param string $pickup_voucher_deduct_count pickup_voucher_deduct_count
+     *
+     * @return $this
+     */
+    public function setPickupVoucherDeductCount($pickup_voucher_deduct_count)
+    {
+        $this->container['pickup_voucher_deduct_count'] = $pickup_voucher_deduct_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_voucher_id
+     *
+     * @return string
+     */
+    public function getPickupVoucherId()
+    {
+        return $this->container['pickup_voucher_id'];
+    }
+
+    /**
+     * Sets pickup_voucher_id
+     *
+     * @param string $pickup_voucher_id pickup_voucher_id
+     *
+     * @return $this
+     */
+    public function setPickupVoucherId($pickup_voucher_id)
+    {
+        $this->container['pickup_voucher_id'] = $pickup_voucher_id;
 
         return $this;
     }
