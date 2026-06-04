@@ -4,7 +4,33 @@
 
 ## 异常处理
 
-暂未适配 PHP SDK
+服务 API 调用在遇到 HTTP 错误、Guzzle 请求异常，或响应中包含
+`ResponseMetadata.Error` 时，会抛出 `Volcengine\Common\ApiException`。
+
+`ApiException` 可以通过 `getCode()` 获取 HTTP 状态码，通过
+`getResponseHeaders()` 获取响应头，通过 `getResponseBody()` 获取原始响应体。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setAk("Your ak")
+    ->setSk("Your sk")
+    ->setRegion('cn-beijing');
+
+$apiInstance = new \Volcengine\Vpc\Api\VPCApi(null, $config);
+
+try {
+    $result = $apiInstance->describeVpcs(new \Volcengine\Vpc\Model\DescribeVpcsRequest());
+    print_r($result);
+} catch (\Volcengine\Common\ApiException $e) {
+    echo 'Status code: ', $e->getCode(), PHP_EOL;
+    echo 'Response body: ', $e->getResponseBody(), PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception: ', $e->getMessage(), PHP_EOL;
+}
+```
 
 ---
 
