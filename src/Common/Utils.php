@@ -8,6 +8,10 @@ class Utils
     {
         $result = array();
 
+        if ($data === null) {
+            return $result;
+        }
+
         foreach ($data::swaggerTypes() as $property => $swaggerType) {
             $getter = $data::getters()[$property];
             $value = $data->$getter();

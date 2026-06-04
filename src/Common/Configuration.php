@@ -211,6 +211,12 @@ class Configuration
         return $this->credentialProvider;
     }
 
+    public function setCredentialProvider($credentialProvider)
+    {
+        $this->credentialProvider = $credentialProvider;
+        return $this;
+    }
+
     public function getRuntimeOptions()
     {
         return $this->runtimeOptions;
