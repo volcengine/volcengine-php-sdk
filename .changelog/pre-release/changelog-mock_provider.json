@@ -1,5 +1,0 @@
-{
-  "description": "MOCK_PROVIDER: 新增 CreateRulesA, DescribeRules, CreateRules；删除 CollectCamJsonParam, NormalTimeoutRetry, Return500",
-  "modules": "service/mock_provider",
-  "type": "breaking-change"
-}
