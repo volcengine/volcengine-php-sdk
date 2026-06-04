@@ -503,6 +503,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'mock_provider' => new ServiceEndpointInfo(
+                    'mock_provider',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
