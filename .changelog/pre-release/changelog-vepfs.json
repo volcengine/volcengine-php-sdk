@@ -1,5 +1,0 @@
-{
-  "description": "VEPFS: 新增 RemoveMountServiceClients, VerifyMountServiceClients, AddMountServiceClients, DescribeMountServiceClients, DescribeMountServiceTaskResults, DescribeMountServiceTasks；修改 DescribeLensTasks",
-  "modules": "service/vepfs",
-  "type": "feature"
-}

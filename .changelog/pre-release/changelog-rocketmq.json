@@ -1,5 +1,0 @@
-{
-  "description": "ROCKETMQ: 新增 CreateAccessKey, DescribeConsumerGroupLag；修改 ResendDLQMessageById, DescribeGroupsDetail, DescribeInstanceDetail, DescribeInstances",
-  "modules": "service/RocketMQ",
-  "type": "breaking-change"
-}
