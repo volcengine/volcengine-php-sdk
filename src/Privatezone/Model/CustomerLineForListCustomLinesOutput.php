@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
+class CustomerLineForListCustomLinesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdatePrivateZoneResponse';
+    protected static $swaggerModelName = 'CustomerLineForListCustomLinesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,17 +29,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'created_at' => 'string',
-        'last_operator' => 'string',
-        'line_mode' => 'int',
-        'nodata_fallback' => 'bool',
-        'project_name' => 'string',
-        'record_count' => 'int',
-        'recursion_mode' => 'bool',
-        'region' => 'string[]',
+        'ip_segments' => 'string[]',
+        'line' => 'string',
+        'name_cn' => 'string',
         'remark' => 'string',
-        'updated_at' => 'string',
-        'zid' => 'int',
-        'zone_name' => 'string'
+        'updated_at' => 'string'
     ];
 
     /**
@@ -49,17 +43,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'created_at' => null,
-        'last_operator' => null,
-        'line_mode' => 'int32',
-        'nodata_fallback' => null,
-        'project_name' => null,
-        'record_count' => 'int32',
-        'recursion_mode' => null,
-        'region' => null,
+        'ip_segments' => null,
+        'line' => null,
+        'name_cn' => null,
         'remark' => null,
-        'updated_at' => null,
-        'zid' => 'int64',
-        'zone_name' => null
+        'updated_at' => null
     ];
 
     /**
@@ -90,17 +78,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
-        'last_operator' => 'LastOperator',
-        'line_mode' => 'LineMode',
-        'nodata_fallback' => 'NodataFallback',
-        'project_name' => 'ProjectName',
-        'record_count' => 'RecordCount',
-        'recursion_mode' => 'RecursionMode',
-        'region' => 'Region',
+        'ip_segments' => 'IPSegments',
+        'line' => 'Line',
+        'name_cn' => 'NameCN',
         'remark' => 'Remark',
-        'updated_at' => 'UpdatedAt',
-        'zid' => 'ZID',
-        'zone_name' => 'ZoneName'
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -110,17 +92,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'created_at' => 'setCreatedAt',
-        'last_operator' => 'setLastOperator',
-        'line_mode' => 'setLineMode',
-        'nodata_fallback' => 'setNodataFallback',
-        'project_name' => 'setProjectName',
-        'record_count' => 'setRecordCount',
-        'recursion_mode' => 'setRecursionMode',
-        'region' => 'setRegion',
+        'ip_segments' => 'setIpSegments',
+        'line' => 'setLine',
+        'name_cn' => 'setNameCn',
         'remark' => 'setRemark',
-        'updated_at' => 'setUpdatedAt',
-        'zid' => 'setZid',
-        'zone_name' => 'setZoneName'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -130,17 +106,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'created_at' => 'getCreatedAt',
-        'last_operator' => 'getLastOperator',
-        'line_mode' => 'getLineMode',
-        'nodata_fallback' => 'getNodataFallback',
-        'project_name' => 'getProjectName',
-        'record_count' => 'getRecordCount',
-        'recursion_mode' => 'getRecursionMode',
-        'region' => 'getRegion',
+        'ip_segments' => 'getIpSegments',
+        'line' => 'getLine',
+        'name_cn' => 'getNameCn',
         'remark' => 'getRemark',
-        'updated_at' => 'getUpdatedAt',
-        'zid' => 'getZid',
-        'zone_name' => 'getZoneName'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -204,17 +174,11 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['last_operator'] = isset($data['last_operator']) ? $data['last_operator'] : null;
-        $this->container['line_mode'] = isset($data['line_mode']) ? $data['line_mode'] : null;
-        $this->container['nodata_fallback'] = isset($data['nodata_fallback']) ? $data['nodata_fallback'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['record_count'] = isset($data['record_count']) ? $data['record_count'] : null;
-        $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['ip_segments'] = isset($data['ip_segments']) ? $data['ip_segments'] : null;
+        $this->container['line'] = isset($data['line']) ? $data['line'] : null;
+        $this->container['name_cn'] = isset($data['name_cn']) ? $data['name_cn'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['zid'] = isset($data['zid']) ? $data['zid'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
     }
 
     /**
@@ -266,169 +230,73 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets last_operator
-     *
-     * @return string
-     */
-    public function getLastOperator()
-    {
-        return $this->container['last_operator'];
-    }
-
-    /**
-     * Sets last_operator
-     *
-     * @param string $last_operator last_operator
-     *
-     * @return $this
-     */
-    public function setLastOperator($last_operator)
-    {
-        $this->container['last_operator'] = $last_operator;
-
-        return $this;
-    }
-
-    /**
-     * Gets line_mode
-     *
-     * @return int
-     */
-    public function getLineMode()
-    {
-        return $this->container['line_mode'];
-    }
-
-    /**
-     * Sets line_mode
-     *
-     * @param int $line_mode line_mode
-     *
-     * @return $this
-     */
-    public function setLineMode($line_mode)
-    {
-        $this->container['line_mode'] = $line_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets nodata_fallback
-     *
-     * @return bool
-     */
-    public function getNodataFallback()
-    {
-        return $this->container['nodata_fallback'];
-    }
-
-    /**
-     * Sets nodata_fallback
-     *
-     * @param bool $nodata_fallback nodata_fallback
-     *
-     * @return $this
-     */
-    public function setNodataFallback($nodata_fallback)
-    {
-        $this->container['nodata_fallback'] = $nodata_fallback;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets record_count
-     *
-     * @return int
-     */
-    public function getRecordCount()
-    {
-        return $this->container['record_count'];
-    }
-
-    /**
-     * Sets record_count
-     *
-     * @param int $record_count record_count
-     *
-     * @return $this
-     */
-    public function setRecordCount($record_count)
-    {
-        $this->container['record_count'] = $record_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets recursion_mode
-     *
-     * @return bool
-     */
-    public function getRecursionMode()
-    {
-        return $this->container['recursion_mode'];
-    }
-
-    /**
-     * Sets recursion_mode
-     *
-     * @param bool $recursion_mode recursion_mode
-     *
-     * @return $this
-     */
-    public function setRecursionMode($recursion_mode)
-    {
-        $this->container['recursion_mode'] = $recursion_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
+     * Gets ip_segments
      *
      * @return string[]
      */
-    public function getRegion()
+    public function getIpSegments()
     {
-        return $this->container['region'];
+        return $this->container['ip_segments'];
     }
 
     /**
-     * Sets region
+     * Sets ip_segments
      *
-     * @param string[] $region region
+     * @param string[] $ip_segments ip_segments
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setIpSegments($ip_segments)
     {
-        $this->container['region'] = $region;
+        $this->container['ip_segments'] = $ip_segments;
+
+        return $this;
+    }
+
+    /**
+     * Gets line
+     *
+     * @return string
+     */
+    public function getLine()
+    {
+        return $this->container['line'];
+    }
+
+    /**
+     * Sets line
+     *
+     * @param string $line line
+     *
+     * @return $this
+     */
+    public function setLine($line)
+    {
+        $this->container['line'] = $line;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_cn
+     *
+     * @return string
+     */
+    public function getNameCn()
+    {
+        return $this->container['name_cn'];
+    }
+
+    /**
+     * Sets name_cn
+     *
+     * @param string $name_cn name_cn
+     *
+     * @return $this
+     */
+    public function setNameCn($name_cn)
+    {
+        $this->container['name_cn'] = $name_cn;
 
         return $this;
     }
@@ -477,54 +345,6 @@ class UpdatePrivateZoneResponse implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets zid
-     *
-     * @return int
-     */
-    public function getZid()
-    {
-        return $this->container['zid'];
-    }
-
-    /**
-     * Sets zid
-     *
-     * @param int $zid zid
-     *
-     * @return $this
-     */
-    public function setZid($zid)
-    {
-        $this->container['zid'] = $zid;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_name
-     *
-     * @return string
-     */
-    public function getZoneName()
-    {
-        return $this->container['zone_name'];
-    }
-
-    /**
-     * Sets zone_name
-     *
-     * @param string $zone_name zone_name
-     *
-     * @return $this
-     */
-    public function setZoneName($zone_name)
-    {
-        $this->container['zone_name'] = $zone_name;
 
         return $this;
     }

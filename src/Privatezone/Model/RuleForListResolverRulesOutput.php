@@ -50,7 +50,7 @@ class RuleForListResolverRulesOutput implements ModelInterface, ArrayAccess
         'created_at' => null,
         'endpoint_id' => 'int32',
         'forward_ips' => null,
-        'id' => 'int32',
+        'id' => 'int64',
         'last_operator' => null,
         'line' => null,
         'name' => null,

@@ -28,7 +28,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'line_mode' => 'int',
         'load_balance' => 'bool',
+        'nodata_fallback' => 'bool',
         'recursion_mode' => 'bool',
         'remark' => 'string',
         'zid' => 'int'
@@ -40,7 +42,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'line_mode' => 'int32',
         'load_balance' => null,
+        'nodata_fallback' => null,
         'recursion_mode' => null,
         'remark' => null,
         'zid' => 'int64'
@@ -73,7 +77,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'line_mode' => 'LineMode',
         'load_balance' => 'LoadBalance',
+        'nodata_fallback' => 'NodataFallback',
         'recursion_mode' => 'RecursionMode',
         'remark' => 'Remark',
         'zid' => 'ZID'
@@ -85,7 +91,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'line_mode' => 'setLineMode',
         'load_balance' => 'setLoadBalance',
+        'nodata_fallback' => 'setNodataFallback',
         'recursion_mode' => 'setRecursionMode',
         'remark' => 'setRemark',
         'zid' => 'setZid'
@@ -97,7 +105,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'line_mode' => 'getLineMode',
         'load_balance' => 'getLoadBalance',
+        'nodata_fallback' => 'getNodataFallback',
         'recursion_mode' => 'getRecursionMode',
         'remark' => 'getRemark',
         'zid' => 'getZid'
@@ -163,7 +173,9 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['line_mode'] = isset($data['line_mode']) ? $data['line_mode'] : null;
         $this->container['load_balance'] = isset($data['load_balance']) ? $data['load_balance'] : null;
+        $this->container['nodata_fallback'] = isset($data['nodata_fallback']) ? $data['nodata_fallback'] : null;
         $this->container['recursion_mode'] = isset($data['recursion_mode']) ? $data['recursion_mode'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
         $this->container['zid'] = isset($data['zid']) ? $data['zid'] : null;
@@ -197,6 +209,30 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets line_mode
+     *
+     * @return int
+     */
+    public function getLineMode()
+    {
+        return $this->container['line_mode'];
+    }
+
+    /**
+     * Sets line_mode
+     *
+     * @param int $line_mode line_mode
+     *
+     * @return $this
+     */
+    public function setLineMode($line_mode)
+    {
+        $this->container['line_mode'] = $line_mode;
+
+        return $this;
+    }
+
+    /**
      * Gets load_balance
      *
      * @return bool
@@ -216,6 +252,30 @@ class UpdatePrivateZoneRequest implements ModelInterface, ArrayAccess
     public function setLoadBalance($load_balance)
     {
         $this->container['load_balance'] = $load_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets nodata_fallback
+     *
+     * @return bool
+     */
+    public function getNodataFallback()
+    {
+        return $this->container['nodata_fallback'];
+    }
+
+    /**
+     * Sets nodata_fallback
+     *
+     * @param bool $nodata_fallback nodata_fallback
+     *
+     * @return $this
+     */
+    public function setNodataFallback($nodata_fallback)
+    {
+        $this->container['nodata_fallback'] = $nodata_fallback;
 
         return $this;
     }

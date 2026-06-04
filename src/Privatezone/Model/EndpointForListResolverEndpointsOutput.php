@@ -30,6 +30,7 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'created_at' => 'string',
         'direction' => 'string',
+        'endpoint_type' => 'string',
         'id' => 'int',
         'ip_configs' => '\Volcengine\Privatezone\Model\IpConfigForListResolverEndpointsOutput[]',
         'name' => 'string',
@@ -50,7 +51,8 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'created_at' => null,
         'direction' => null,
-        'id' => 'int32',
+        'endpoint_type' => null,
+        'id' => 'int64',
         'ip_configs' => null,
         'name' => null,
         'project_name' => null,
@@ -91,6 +93,7 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
         'direction' => 'Direction',
+        'endpoint_type' => 'EndpointType',
         'id' => 'ID',
         'ip_configs' => 'IpConfigs',
         'name' => 'Name',
@@ -111,6 +114,7 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     protected static $setters = [
         'created_at' => 'setCreatedAt',
         'direction' => 'setDirection',
+        'endpoint_type' => 'setEndpointType',
         'id' => 'setId',
         'ip_configs' => 'setIpConfigs',
         'name' => 'setName',
@@ -131,6 +135,7 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     protected static $getters = [
         'created_at' => 'getCreatedAt',
         'direction' => 'getDirection',
+        'endpoint_type' => 'getEndpointType',
         'id' => 'getId',
         'ip_configs' => 'getIpConfigs',
         'name' => 'getName',
@@ -205,6 +210,7 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
+        $this->container['endpoint_type'] = isset($data['endpoint_type']) ? $data['endpoint_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['ip_configs'] = isset($data['ip_configs']) ? $data['ip_configs'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -285,6 +291,30 @@ class EndpointForListResolverEndpointsOutput implements ModelInterface, ArrayAcc
     public function setDirection($direction)
     {
         $this->container['direction'] = $direction;
+
+        return $this;
+    }
+
+    /**
+     * Gets endpoint_type
+     *
+     * @return string
+     */
+    public function getEndpointType()
+    {
+        return $this->container['endpoint_type'];
+    }
+
+    /**
+     * Sets endpoint_type
+     *
+     * @param string $endpoint_type endpoint_type
+     *
+     * @return $this
+     */
+    public function setEndpointType($endpoint_type)
+    {
+        $this->container['endpoint_type'] = $endpoint_type;
 
         return $this;
     }

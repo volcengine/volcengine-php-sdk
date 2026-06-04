@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
+class RecordDigestForListRecordDigestByLineOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateResolverRuleRequest';
+    protected static $swaggerModelName = 'RecordDigestForListRecordDigestByLineOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'forward_ips' => '\Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]',
-        'line' => 'string',
+        'line_name_cn' => 'string',
         'name' => 'string',
-        'rule_id' => 'int',
-        'rule_trn' => 'string',
-        'vpcs' => '\Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]',
-        'zone_name' => 'string'
+        'type' => 'string',
+        'zid' => 'int'
     ];
 
     /**
@@ -43,13 +40,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'forward_ips' => null,
-        'line' => null,
+        'line_name_cn' => null,
         'name' => null,
-        'rule_id' => 'int64',
-        'rule_trn' => null,
-        'vpcs' => null,
-        'zone_name' => null
+        'type' => null,
+        'zid' => 'int64'
     ];
 
     /**
@@ -79,13 +73,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'forward_ips' => 'ForwardIPs',
-        'line' => 'Line',
+        'line_name_cn' => 'LineNameCN',
         'name' => 'Name',
-        'rule_id' => 'RuleID',
-        'rule_trn' => 'RuleTrn',
-        'vpcs' => 'Vpcs',
-        'zone_name' => 'ZoneName'
+        'type' => 'Type',
+        'zid' => 'ZID'
     ];
 
     /**
@@ -94,13 +85,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'forward_ips' => 'setForwardIps',
-        'line' => 'setLine',
+        'line_name_cn' => 'setLineNameCn',
         'name' => 'setName',
-        'rule_id' => 'setRuleId',
-        'rule_trn' => 'setRuleTrn',
-        'vpcs' => 'setVpcs',
-        'zone_name' => 'setZoneName'
+        'type' => 'setType',
+        'zid' => 'setZid'
     ];
 
     /**
@@ -109,13 +97,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'forward_ips' => 'getForwardIps',
-        'line' => 'getLine',
+        'line_name_cn' => 'getLineNameCn',
         'name' => 'getName',
-        'rule_id' => 'getRuleId',
-        'rule_trn' => 'getRuleTrn',
-        'vpcs' => 'getVpcs',
-        'zone_name' => 'getZoneName'
+        'type' => 'getType',
+        'zid' => 'getZid'
     ];
 
     /**
@@ -178,13 +163,10 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['forward_ips'] = isset($data['forward_ips']) ? $data['forward_ips'] : null;
-        $this->container['line'] = isset($data['line']) ? $data['line'] : null;
+        $this->container['line_name_cn'] = isset($data['line_name_cn']) ? $data['line_name_cn'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
-        $this->container['rule_trn'] = isset($data['rule_trn']) ? $data['rule_trn'] : null;
-        $this->container['vpcs'] = isset($data['vpcs']) ? $data['vpcs'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['zid'] = isset($data['zid']) ? $data['zid'] : null;
     }
 
     /**
@@ -196,9 +178,6 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rule_id'] === null) {
-            $invalidProperties[] = "'rule_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,49 +194,25 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets forward_ips
-     *
-     * @return \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[]
-     */
-    public function getForwardIps()
-    {
-        return $this->container['forward_ips'];
-    }
-
-    /**
-     * Sets forward_ips
-     *
-     * @param \Volcengine\Privatezone\Model\ForwardIPForUpdateResolverRuleInput[] $forward_ips forward_ips
-     *
-     * @return $this
-     */
-    public function setForwardIps($forward_ips)
-    {
-        $this->container['forward_ips'] = $forward_ips;
-
-        return $this;
-    }
-
-    /**
-     * Gets line
+     * Gets line_name_cn
      *
      * @return string
      */
-    public function getLine()
+    public function getLineNameCn()
     {
-        return $this->container['line'];
+        return $this->container['line_name_cn'];
     }
 
     /**
-     * Sets line
+     * Sets line_name_cn
      *
-     * @param string $line line
+     * @param string $line_name_cn line_name_cn
      *
      * @return $this
      */
-    public function setLine($line)
+    public function setLineNameCn($line_name_cn)
     {
-        $this->container['line'] = $line;
+        $this->container['line_name_cn'] = $line_name_cn;
 
         return $this;
     }
@@ -287,97 +242,49 @@ class UpdateResolverRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rule_id
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets zid
      *
      * @return int
      */
-    public function getRuleId()
+    public function getZid()
     {
-        return $this->container['rule_id'];
+        return $this->container['zid'];
     }
 
     /**
-     * Sets rule_id
+     * Sets zid
      *
-     * @param int $rule_id rule_id
+     * @param int $zid zid
      *
      * @return $this
      */
-    public function setRuleId($rule_id)
+    public function setZid($zid)
     {
-        $this->container['rule_id'] = $rule_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_trn
-     *
-     * @return string
-     */
-    public function getRuleTrn()
-    {
-        return $this->container['rule_trn'];
-    }
-
-    /**
-     * Sets rule_trn
-     *
-     * @param string $rule_trn rule_trn
-     *
-     * @return $this
-     */
-    public function setRuleTrn($rule_trn)
-    {
-        $this->container['rule_trn'] = $rule_trn;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpcs
-     *
-     * @return \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[]
-     */
-    public function getVpcs()
-    {
-        return $this->container['vpcs'];
-    }
-
-    /**
-     * Sets vpcs
-     *
-     * @param \Volcengine\Privatezone\Model\VpcForUpdateResolverRuleInput[] $vpcs vpcs
-     *
-     * @return $this
-     */
-    public function setVpcs($vpcs)
-    {
-        $this->container['vpcs'] = $vpcs;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_name
-     *
-     * @return string
-     */
-    public function getZoneName()
-    {
-        return $this->container['zone_name'];
-    }
-
-    /**
-     * Sets zone_name
-     *
-     * @param string $zone_name zone_name
-     *
-     * @return $this
-     */
-    public function setZoneName($zone_name)
-    {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['zid'] = $zid;
 
         return $this;
     }
