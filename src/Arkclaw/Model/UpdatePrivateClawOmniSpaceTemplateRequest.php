@@ -39,8 +39,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         'name' => 'string',
         'plugin_config' => 'string',
         'skill_config' => 'string',
-        'soul' => 'string',
-        'template_label' => 'string'
+        'soul' => 'string'
     ];
 
     /**
@@ -60,8 +59,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         'name' => null,
         'plugin_config' => null,
         'skill_config' => null,
-        'soul' => null,
-        'template_label' => null
+        'soul' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         'name' => 'Name',
         'plugin_config' => 'PluginConfig',
         'skill_config' => 'SkillConfig',
-        'soul' => 'Soul',
-        'template_label' => 'TemplateLabel'
+        'soul' => 'Soul'
     ];
 
     /**
@@ -123,8 +120,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         'name' => 'setName',
         'plugin_config' => 'setPluginConfig',
         'skill_config' => 'setSkillConfig',
-        'soul' => 'setSoul',
-        'template_label' => 'setTemplateLabel'
+        'soul' => 'setSoul'
     ];
 
     /**
@@ -144,8 +140,7 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         'name' => 'getName',
         'plugin_config' => 'getPluginConfig',
         'skill_config' => 'getSkillConfig',
-        'soul' => 'getSoul',
-        'template_label' => 'getTemplateLabel'
+        'soul' => 'getSoul'
     ];
 
     /**
@@ -220,7 +215,6 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
         $this->container['plugin_config'] = isset($data['plugin_config']) ? $data['plugin_config'] : null;
         $this->container['skill_config'] = isset($data['skill_config']) ? $data['skill_config'] : null;
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
-        $this->container['template_label'] = isset($data['template_label']) ? $data['template_label'] : null;
     }
 
     /**
@@ -534,30 +528,6 @@ class UpdatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     public function setSoul($soul)
     {
         $this->container['soul'] = $soul;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_label
-     *
-     * @return string
-     */
-    public function getTemplateLabel()
-    {
-        return $this->container['template_label'];
-    }
-
-    /**
-     * Sets template_label
-     *
-     * @param string $template_label template_label
-     *
-     * @return $this
-     */
-    public function setTemplateLabel($template_label)
-    {
-        $this->container['template_label'] = $template_label;
 
         return $this;
     }

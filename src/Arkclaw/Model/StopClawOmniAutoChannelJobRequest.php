@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class StopClawOmniAutoChannelJobRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'StopClawOmniAutoChannelJobRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,8 +29,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'job_id' => 'string'
     ];
 
     /**
@@ -40,8 +39,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'job_id' => null
     ];
 
     /**
@@ -72,8 +70,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $attributeMap = [
         'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'job_id' => 'JobId'
     ];
 
     /**
@@ -83,8 +80,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $setters = [
         'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'job_id' => 'setJobId'
     ];
 
     /**
@@ -94,8 +90,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $getters = [
         'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'job_id' => 'getJobId'
     ];
 
     /**
@@ -159,8 +154,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     public function __construct($data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['job_id'] = isset($data['job_id']) ? $data['job_id'] : null;
     }
 
     /**
@@ -172,6 +166,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['job_id'] === null) {
+            $invalidProperties[] = "'job_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,49 +212,25 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     }
 
     /**
-     * Gets image_build_status
+     * Gets job_id
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getJobId()
     {
-        return $this->container['image_build_status'];
+        return $this->container['job_id'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets job_id
      *
-     * @param string $image_build_status image_build_status
+     * @param string $job_id job_id
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setJobId($job_id)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['job_id'] = $job_id;
 
         return $this;
     }

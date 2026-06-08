@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class SnapshotInfoForGetClawInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'SnapshotInfoForGetClawInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'auto_backup_enabled' => 'bool',
+        'snapshot_hour' => 'string',
+        'snapshots' => '\Volcengine\Arkclaw\Model\SnapshotForGetClawInstanceOutput[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'auto_backup_enabled' => null,
+        'snapshot_hour' => null,
+        'snapshots' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'auto_backup_enabled' => 'AutoBackupEnabled',
+        'snapshot_hour' => 'SnapshotHour',
+        'snapshots' => 'Snapshots'
     ];
 
     /**
@@ -82,9 +82,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'auto_backup_enabled' => 'setAutoBackupEnabled',
+        'snapshot_hour' => 'setSnapshotHour',
+        'snapshots' => 'setSnapshots'
     ];
 
     /**
@@ -93,9 +93,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'auto_backup_enabled' => 'getAutoBackupEnabled',
+        'snapshot_hour' => 'getSnapshotHour',
+        'snapshots' => 'getSnapshots'
     ];
 
     /**
@@ -158,9 +158,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['auto_backup_enabled'] = isset($data['auto_backup_enabled']) ? $data['auto_backup_enabled'] : null;
+        $this->container['snapshot_hour'] = isset($data['snapshot_hour']) ? $data['snapshot_hour'] : null;
+        $this->container['snapshots'] = isset($data['snapshots']) ? $data['snapshots'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets auto_backup_enabled
      *
-     * @return string
+     * @return bool
      */
-    public function getId()
+    public function getAutoBackupEnabled()
     {
-        return $this->container['id'];
+        return $this->container['auto_backup_enabled'];
     }
 
     /**
-     * Sets id
+     * Sets auto_backup_enabled
      *
-     * @param string $id id
+     * @param bool $auto_backup_enabled auto_backup_enabled
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAutoBackupEnabled($auto_backup_enabled)
     {
-        $this->container['id'] = $id;
+        $this->container['auto_backup_enabled'] = $auto_backup_enabled;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets snapshot_hour
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getSnapshotHour()
     {
-        return $this->container['image_build_status'];
+        return $this->container['snapshot_hour'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets snapshot_hour
      *
-     * @param string $image_build_status image_build_status
+     * @param string $snapshot_hour snapshot_hour
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setSnapshotHour($snapshot_hour)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['snapshot_hour'] = $snapshot_hour;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets snapshots
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\SnapshotForGetClawInstanceOutput[]
      */
-    public function getVersionId()
+    public function getSnapshots()
     {
-        return $this->container['version_id'];
+        return $this->container['snapshots'];
     }
 
     /**
-     * Sets version_id
+     * Sets snapshots
      *
-     * @param string $version_id version_id
+     * @param \Volcengine\Arkclaw\Model\SnapshotForGetClawInstanceOutput[] $snapshots snapshots
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setSnapshots($snapshots)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['snapshots'] = $snapshots;
 
         return $this;
     }

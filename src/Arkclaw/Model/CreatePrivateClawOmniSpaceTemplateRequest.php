@@ -29,18 +29,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'agent_md' => 'string',
+        'application_version_id' => 'string',
         'cpu_milli' => 'int',
         'default_model_name' => 'string',
         'default_model_source' => 'string',
         'description' => 'string',
         'image_id' => 'string',
+        'input' => 'string',
         'memory_mb' => 'int',
         'name' => 'string',
         'plugin_config' => 'string',
         'project_name' => 'string',
+        'reasoning' => 'string',
         'skill_config' => 'string',
-        'soul' => 'string',
-        'template_label' => 'string'
+        'soul' => 'string'
     ];
 
     /**
@@ -50,18 +52,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'agent_md' => null,
+        'application_version_id' => null,
         'cpu_milli' => 'int32',
         'default_model_name' => null,
         'default_model_source' => null,
         'description' => null,
         'image_id' => null,
+        'input' => null,
         'memory_mb' => 'int32',
         'name' => null,
         'plugin_config' => null,
         'project_name' => null,
+        'reasoning' => null,
         'skill_config' => null,
-        'soul' => null,
-        'template_label' => null
+        'soul' => null
     ];
 
     /**
@@ -92,18 +96,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'agent_md' => 'AgentMd',
+        'application_version_id' => 'ApplicationVersionId',
         'cpu_milli' => 'CpuMilli',
         'default_model_name' => 'DefaultModelName',
         'default_model_source' => 'DefaultModelSource',
         'description' => 'Description',
         'image_id' => 'ImageId',
+        'input' => 'Input',
         'memory_mb' => 'MemoryMb',
         'name' => 'Name',
         'plugin_config' => 'PluginConfig',
         'project_name' => 'ProjectName',
+        'reasoning' => 'Reasoning',
         'skill_config' => 'SkillConfig',
-        'soul' => 'Soul',
-        'template_label' => 'TemplateLabel'
+        'soul' => 'Soul'
     ];
 
     /**
@@ -113,18 +119,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'agent_md' => 'setAgentMd',
+        'application_version_id' => 'setApplicationVersionId',
         'cpu_milli' => 'setCpuMilli',
         'default_model_name' => 'setDefaultModelName',
         'default_model_source' => 'setDefaultModelSource',
         'description' => 'setDescription',
         'image_id' => 'setImageId',
+        'input' => 'setInput',
         'memory_mb' => 'setMemoryMb',
         'name' => 'setName',
         'plugin_config' => 'setPluginConfig',
         'project_name' => 'setProjectName',
+        'reasoning' => 'setReasoning',
         'skill_config' => 'setSkillConfig',
-        'soul' => 'setSoul',
-        'template_label' => 'setTemplateLabel'
+        'soul' => 'setSoul'
     ];
 
     /**
@@ -134,18 +142,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'agent_md' => 'getAgentMd',
+        'application_version_id' => 'getApplicationVersionId',
         'cpu_milli' => 'getCpuMilli',
         'default_model_name' => 'getDefaultModelName',
         'default_model_source' => 'getDefaultModelSource',
         'description' => 'getDescription',
         'image_id' => 'getImageId',
+        'input' => 'getInput',
         'memory_mb' => 'getMemoryMb',
         'name' => 'getName',
         'plugin_config' => 'getPluginConfig',
         'project_name' => 'getProjectName',
+        'reasoning' => 'getReasoning',
         'skill_config' => 'getSkillConfig',
-        'soul' => 'getSoul',
-        'template_label' => 'getTemplateLabel'
+        'soul' => 'getSoul'
     ];
 
     /**
@@ -209,18 +219,20 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['agent_md'] = isset($data['agent_md']) ? $data['agent_md'] : null;
+        $this->container['application_version_id'] = isset($data['application_version_id']) ? $data['application_version_id'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['default_model_name'] = isset($data['default_model_name']) ? $data['default_model_name'] : null;
         $this->container['default_model_source'] = isset($data['default_model_source']) ? $data['default_model_source'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['plugin_config'] = isset($data['plugin_config']) ? $data['plugin_config'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['reasoning'] = isset($data['reasoning']) ? $data['reasoning'] : null;
         $this->container['skill_config'] = isset($data['skill_config']) ? $data['skill_config'] : null;
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
-        $this->container['template_label'] = isset($data['template_label']) ? $data['template_label'] : null;
     }
 
     /**
@@ -232,11 +244,11 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if ($this->container['application_version_id'] === null) {
+            $invalidProperties[] = "'application_version_id' can't be null";
+        }
         if ($this->container['cpu_milli'] === null) {
             $invalidProperties[] = "'cpu_milli' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
         }
         if ($this->container['memory_mb'] === null) {
             $invalidProperties[] = "'memory_mb' can't be null";
@@ -282,6 +294,30 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     public function setAgentMd($agent_md)
     {
         $this->container['agent_md'] = $agent_md;
+
+        return $this;
+    }
+
+    /**
+     * Gets application_version_id
+     *
+     * @return string
+     */
+    public function getApplicationVersionId()
+    {
+        return $this->container['application_version_id'];
+    }
+
+    /**
+     * Sets application_version_id
+     *
+     * @param string $application_version_id application_version_id
+     *
+     * @return $this
+     */
+    public function setApplicationVersionId($application_version_id)
+    {
+        $this->container['application_version_id'] = $application_version_id;
 
         return $this;
     }
@@ -407,6 +443,30 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     }
 
     /**
+     * Gets input
+     *
+     * @return string
+     */
+    public function getInput()
+    {
+        return $this->container['input'];
+    }
+
+    /**
+     * Sets input
+     *
+     * @param string $input input
+     *
+     * @return $this
+     */
+    public function setInput($input)
+    {
+        $this->container['input'] = $input;
+
+        return $this;
+    }
+
+    /**
      * Gets memory_mb
      *
      * @return int
@@ -503,6 +563,30 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     }
 
     /**
+     * Gets reasoning
+     *
+     * @return string
+     */
+    public function getReasoning()
+    {
+        return $this->container['reasoning'];
+    }
+
+    /**
+     * Sets reasoning
+     *
+     * @param string $reasoning reasoning
+     *
+     * @return $this
+     */
+    public function setReasoning($reasoning)
+    {
+        $this->container['reasoning'] = $reasoning;
+
+        return $this;
+    }
+
+    /**
      * Gets skill_config
      *
      * @return string
@@ -546,30 +630,6 @@ class CreatePrivateClawOmniSpaceTemplateRequest implements ModelInterface, Array
     public function setSoul($soul)
     {
         $this->container['soul'] = $soul;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_label
-     *
-     * @return string
-     */
-    public function getTemplateLabel()
-    {
-        return $this->container['template_label'];
-    }
-
-    /**
-     * Sets template_label
-     *
-     * @param string $template_label template_label
-     *
-     * @return $this
-     */
-    public function setTemplateLabel($template_label)
-    {
-        $this->container['template_label'] = $template_label;
 
         return $this;
     }

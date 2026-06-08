@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class EventForGetClawOmniAutoChannelJobOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'EventForGetClawOmniAutoChannelJobOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'action' => 'string',
+        'code' => 'string',
+        'level' => 'string',
+        'message' => 'string',
+        'qrcode_content' => 'string',
+        'raw_json' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'action' => null,
+        'code' => null,
+        'level' => null,
+        'message' => null,
+        'qrcode_content' => null,
+        'raw_json' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'action' => 'Action',
+        'code' => 'Code',
+        'level' => 'Level',
+        'message' => 'Message',
+        'qrcode_content' => 'QrcodeContent',
+        'raw_json' => 'RawJson'
     ];
 
     /**
@@ -82,9 +91,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'action' => 'setAction',
+        'code' => 'setCode',
+        'level' => 'setLevel',
+        'message' => 'setMessage',
+        'qrcode_content' => 'setQrcodeContent',
+        'raw_json' => 'setRawJson'
     ];
 
     /**
@@ -93,9 +105,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'action' => 'getAction',
+        'code' => 'getCode',
+        'level' => 'getLevel',
+        'message' => 'getMessage',
+        'qrcode_content' => 'getQrcodeContent',
+        'raw_json' => 'getRawJson'
     ];
 
     /**
@@ -158,9 +173,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['qrcode_content'] = isset($data['qrcode_content']) ? $data['qrcode_content'] : null;
+        $this->container['raw_json'] = isset($data['raw_json']) ? $data['raw_json'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets action
      *
      * @return string
      */
-    public function getId()
+    public function getAction()
     {
-        return $this->container['id'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets id
+     * Sets action
      *
-     * @param string $id id
+     * @param string $action action
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAction($action)
     {
-        $this->container['id'] = $id;
+        $this->container['action'] = $action;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets code
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getCode()
     {
-        return $this->container['image_build_status'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets code
      *
-     * @param string $image_build_status image_build_status
+     * @param string $code code
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setCode($code)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets level
      *
      * @return string
      */
-    public function getVersionId()
+    public function getLevel()
     {
-        return $this->container['version_id'];
+        return $this->container['level'];
     }
 
     /**
-     * Sets version_id
+     * Sets level
      *
-     * @param string $version_id version_id
+     * @param string $level level
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setLevel($level)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['level'] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets qrcode_content
+     *
+     * @return string
+     */
+    public function getQrcodeContent()
+    {
+        return $this->container['qrcode_content'];
+    }
+
+    /**
+     * Sets qrcode_content
+     *
+     * @param string $qrcode_content qrcode_content
+     *
+     * @return $this
+     */
+    public function setQrcodeContent($qrcode_content)
+    {
+        $this->container['qrcode_content'] = $qrcode_content;
+
+        return $this;
+    }
+
+    /**
+     * Gets raw_json
+     *
+     * @return string
+     */
+    public function getRawJson()
+    {
+        return $this->container['raw_json'];
+    }
+
+    /**
+     * Sets raw_json
+     *
+     * @param string $raw_json raw_json
+     *
+     * @return $this
+     */
+    public function setRawJson($raw_json)
+    {
+        $this->container['raw_json'] = $raw_json;
 
         return $this;
     }

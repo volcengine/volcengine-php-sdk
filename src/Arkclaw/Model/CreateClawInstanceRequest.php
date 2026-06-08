@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, ArrayAccess
+class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClawOmniInstanceForGetClawOmniInstanceOutput';
+    protected static $swaggerModelName = 'CreateClawInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,26 +28,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'agent_md' => 'string',
-        'cpu_milli' => 'int',
-        'created_at' => 'string',
+        'auto_renew' => 'bool',
+        'billing_type' => 'string',
+        'client_token' => 'string',
         'description' => 'string',
-        'endpoint' => 'string',
-        'expired_action' => 'string',
-        'expired_at' => 'string',
-        'id' => 'string',
-        'image' => 'string',
-        'internal_endpoint' => 'string',
-        'memory_mb' => 'int',
-        'model_config' => '\Volcengine\Arkclaw\Model\ModelConfigForGetClawOmniInstanceOutput',
+        'dry_run' => 'bool',
+        'model_api_key' => 'string',
+        'model_base_url' => 'string',
+        'model_name' => 'string',
+        'model_source' => 'string',
         'name' => 'string',
+        'period' => 'int',
         'project_name' => 'string',
         'soul' => 'string',
         'space_id' => 'string',
-        'status' => 'string',
-        'tags' => '\Volcengine\Arkclaw\Model\TagForGetClawOmniInstanceOutput[]',
-        'template_id' => 'string',
-        'updated_at' => 'string'
+        'spec' => 'string',
+        'user_pool_user_uid' => 'string'
     ];
 
     /**
@@ -56,26 +52,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'agent_md' => null,
-        'cpu_milli' => 'int32',
-        'created_at' => null,
+        'auto_renew' => null,
+        'billing_type' => null,
+        'client_token' => null,
         'description' => null,
-        'endpoint' => null,
-        'expired_action' => null,
-        'expired_at' => null,
-        'id' => null,
-        'image' => null,
-        'internal_endpoint' => null,
-        'memory_mb' => 'int32',
-        'model_config' => null,
+        'dry_run' => null,
+        'model_api_key' => null,
+        'model_base_url' => null,
+        'model_name' => null,
+        'model_source' => null,
         'name' => null,
+        'period' => 'int32',
         'project_name' => null,
         'soul' => null,
         'space_id' => null,
-        'status' => null,
-        'tags' => null,
-        'template_id' => null,
-        'updated_at' => null
+        'spec' => null,
+        'user_pool_user_uid' => null
     ];
 
     /**
@@ -105,26 +97,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'agent_md' => 'AgentMd',
-        'cpu_milli' => 'CpuMilli',
-        'created_at' => 'CreatedAt',
+        'auto_renew' => 'AutoRenew',
+        'billing_type' => 'BillingType',
+        'client_token' => 'ClientToken',
         'description' => 'Description',
-        'endpoint' => 'Endpoint',
-        'expired_action' => 'ExpiredAction',
-        'expired_at' => 'ExpiredAt',
-        'id' => 'Id',
-        'image' => 'Image',
-        'internal_endpoint' => 'InternalEndpoint',
-        'memory_mb' => 'MemoryMb',
-        'model_config' => 'ModelConfig',
+        'dry_run' => 'DryRun',
+        'model_api_key' => 'ModelApiKey',
+        'model_base_url' => 'ModelBaseUrl',
+        'model_name' => 'ModelName',
+        'model_source' => 'ModelSource',
         'name' => 'Name',
+        'period' => 'Period',
         'project_name' => 'ProjectName',
         'soul' => 'Soul',
         'space_id' => 'SpaceId',
-        'status' => 'Status',
-        'tags' => 'Tags',
-        'template_id' => 'TemplateId',
-        'updated_at' => 'UpdatedAt'
+        'spec' => 'Spec',
+        'user_pool_user_uid' => 'UserPoolUserUid'
     ];
 
     /**
@@ -133,26 +121,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'agent_md' => 'setAgentMd',
-        'cpu_milli' => 'setCpuMilli',
-        'created_at' => 'setCreatedAt',
+        'auto_renew' => 'setAutoRenew',
+        'billing_type' => 'setBillingType',
+        'client_token' => 'setClientToken',
         'description' => 'setDescription',
-        'endpoint' => 'setEndpoint',
-        'expired_action' => 'setExpiredAction',
-        'expired_at' => 'setExpiredAt',
-        'id' => 'setId',
-        'image' => 'setImage',
-        'internal_endpoint' => 'setInternalEndpoint',
-        'memory_mb' => 'setMemoryMb',
-        'model_config' => 'setModelConfig',
+        'dry_run' => 'setDryRun',
+        'model_api_key' => 'setModelApiKey',
+        'model_base_url' => 'setModelBaseUrl',
+        'model_name' => 'setModelName',
+        'model_source' => 'setModelSource',
         'name' => 'setName',
+        'period' => 'setPeriod',
         'project_name' => 'setProjectName',
         'soul' => 'setSoul',
         'space_id' => 'setSpaceId',
-        'status' => 'setStatus',
-        'tags' => 'setTags',
-        'template_id' => 'setTemplateId',
-        'updated_at' => 'setUpdatedAt'
+        'spec' => 'setSpec',
+        'user_pool_user_uid' => 'setUserPoolUserUid'
     ];
 
     /**
@@ -161,26 +145,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'agent_md' => 'getAgentMd',
-        'cpu_milli' => 'getCpuMilli',
-        'created_at' => 'getCreatedAt',
+        'auto_renew' => 'getAutoRenew',
+        'billing_type' => 'getBillingType',
+        'client_token' => 'getClientToken',
         'description' => 'getDescription',
-        'endpoint' => 'getEndpoint',
-        'expired_action' => 'getExpiredAction',
-        'expired_at' => 'getExpiredAt',
-        'id' => 'getId',
-        'image' => 'getImage',
-        'internal_endpoint' => 'getInternalEndpoint',
-        'memory_mb' => 'getMemoryMb',
-        'model_config' => 'getModelConfig',
+        'dry_run' => 'getDryRun',
+        'model_api_key' => 'getModelApiKey',
+        'model_base_url' => 'getModelBaseUrl',
+        'model_name' => 'getModelName',
+        'model_source' => 'getModelSource',
         'name' => 'getName',
+        'period' => 'getPeriod',
         'project_name' => 'getProjectName',
         'soul' => 'getSoul',
         'space_id' => 'getSpaceId',
-        'status' => 'getStatus',
-        'tags' => 'getTags',
-        'template_id' => 'getTemplateId',
-        'updated_at' => 'getUpdatedAt'
+        'spec' => 'getSpec',
+        'user_pool_user_uid' => 'getUserPoolUserUid'
     ];
 
     /**
@@ -243,26 +223,22 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
-        $this->container['agent_md'] = isset($data['agent_md']) ? $data['agent_md'] : null;
-        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
+        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['expired_action'] = isset($data['expired_action']) ? $data['expired_action'] : null;
-        $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
-        $this->container['internal_endpoint'] = isset($data['internal_endpoint']) ? $data['internal_endpoint'] : null;
-        $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
-        $this->container['model_config'] = isset($data['model_config']) ? $data['model_config'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['model_api_key'] = isset($data['model_api_key']) ? $data['model_api_key'] : null;
+        $this->container['model_base_url'] = isset($data['model_base_url']) ? $data['model_base_url'] : null;
+        $this->container['model_name'] = isset($data['model_name']) ? $data['model_name'] : null;
+        $this->container['model_source'] = isset($data['model_source']) ? $data['model_source'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['spec'] = isset($data['spec']) ? $data['spec'] : null;
+        $this->container['user_pool_user_uid'] = isset($data['user_pool_user_uid']) ? $data['user_pool_user_uid'] : null;
     }
 
     /**
@@ -274,6 +250,15 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['space_id'] === null) {
+            $invalidProperties[] = "'space_id' can't be null";
+        }
+        if ($this->container['spec'] === null) {
+            $invalidProperties[] = "'spec' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -290,73 +275,73 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets agent_md
+     * Gets auto_renew
      *
-     * @return string
+     * @return bool
      */
-    public function getAgentMd()
+    public function getAutoRenew()
     {
-        return $this->container['agent_md'];
+        return $this->container['auto_renew'];
     }
 
     /**
-     * Sets agent_md
+     * Sets auto_renew
      *
-     * @param string $agent_md agent_md
+     * @param bool $auto_renew auto_renew
      *
      * @return $this
      */
-    public function setAgentMd($agent_md)
+    public function setAutoRenew($auto_renew)
     {
-        $this->container['agent_md'] = $agent_md;
+        $this->container['auto_renew'] = $auto_renew;
 
         return $this;
     }
 
     /**
-     * Gets cpu_milli
+     * Gets billing_type
      *
-     * @return int
+     * @return string
      */
-    public function getCpuMilli()
+    public function getBillingType()
     {
-        return $this->container['cpu_milli'];
+        return $this->container['billing_type'];
     }
 
     /**
-     * Sets cpu_milli
+     * Sets billing_type
      *
-     * @param int $cpu_milli cpu_milli
+     * @param string $billing_type billing_type
      *
      * @return $this
      */
-    public function setCpuMilli($cpu_milli)
+    public function setBillingType($billing_type)
     {
-        $this->container['cpu_milli'] = $cpu_milli;
+        $this->container['billing_type'] = $billing_type;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets client_token
      *
      * @return string
      */
-    public function getCreatedAt()
+    public function getClientToken()
     {
-        return $this->container['created_at'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets created_at
+     * Sets client_token
      *
-     * @param string $created_at created_at
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setClientToken($client_token)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
@@ -386,193 +371,121 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     }
 
     /**
-     * Gets endpoint
+     * Gets dry_run
+     *
+     * @return bool
+     */
+    public function getDryRun()
+    {
+        return $this->container['dry_run'];
+    }
+
+    /**
+     * Sets dry_run
+     *
+     * @param bool $dry_run dry_run
+     *
+     * @return $this
+     */
+    public function setDryRun($dry_run)
+    {
+        $this->container['dry_run'] = $dry_run;
+
+        return $this;
+    }
+
+    /**
+     * Gets model_api_key
      *
      * @return string
      */
-    public function getEndpoint()
+    public function getModelApiKey()
     {
-        return $this->container['endpoint'];
+        return $this->container['model_api_key'];
     }
 
     /**
-     * Sets endpoint
+     * Sets model_api_key
      *
-     * @param string $endpoint endpoint
+     * @param string $model_api_key model_api_key
      *
      * @return $this
      */
-    public function setEndpoint($endpoint)
+    public function setModelApiKey($model_api_key)
     {
-        $this->container['endpoint'] = $endpoint;
+        $this->container['model_api_key'] = $model_api_key;
 
         return $this;
     }
 
     /**
-     * Gets expired_action
+     * Gets model_base_url
      *
      * @return string
      */
-    public function getExpiredAction()
+    public function getModelBaseUrl()
     {
-        return $this->container['expired_action'];
+        return $this->container['model_base_url'];
     }
 
     /**
-     * Sets expired_action
+     * Sets model_base_url
      *
-     * @param string $expired_action expired_action
+     * @param string $model_base_url model_base_url
      *
      * @return $this
      */
-    public function setExpiredAction($expired_action)
+    public function setModelBaseUrl($model_base_url)
     {
-        $this->container['expired_action'] = $expired_action;
+        $this->container['model_base_url'] = $model_base_url;
 
         return $this;
     }
 
     /**
-     * Gets expired_at
+     * Gets model_name
      *
      * @return string
      */
-    public function getExpiredAt()
+    public function getModelName()
     {
-        return $this->container['expired_at'];
+        return $this->container['model_name'];
     }
 
     /**
-     * Sets expired_at
+     * Sets model_name
      *
-     * @param string $expired_at expired_at
+     * @param string $model_name model_name
      *
      * @return $this
      */
-    public function setExpiredAt($expired_at)
+    public function setModelName($model_name)
     {
-        $this->container['expired_at'] = $expired_at;
+        $this->container['model_name'] = $model_name;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets model_source
      *
      * @return string
      */
-    public function getId()
+    public function getModelSource()
     {
-        return $this->container['id'];
+        return $this->container['model_source'];
     }
 
     /**
-     * Sets id
+     * Sets model_source
      *
-     * @param string $id id
+     * @param string $model_source model_source
      *
      * @return $this
      */
-    public function setId($id)
+    public function setModelSource($model_source)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string $image image
-     *
-     * @return $this
-     */
-    public function setImage($image)
-    {
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets internal_endpoint
-     *
-     * @return string
-     */
-    public function getInternalEndpoint()
-    {
-        return $this->container['internal_endpoint'];
-    }
-
-    /**
-     * Sets internal_endpoint
-     *
-     * @param string $internal_endpoint internal_endpoint
-     *
-     * @return $this
-     */
-    public function setInternalEndpoint($internal_endpoint)
-    {
-        $this->container['internal_endpoint'] = $internal_endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets memory_mb
-     *
-     * @return int
-     */
-    public function getMemoryMb()
-    {
-        return $this->container['memory_mb'];
-    }
-
-    /**
-     * Sets memory_mb
-     *
-     * @param int $memory_mb memory_mb
-     *
-     * @return $this
-     */
-    public function setMemoryMb($memory_mb)
-    {
-        $this->container['memory_mb'] = $memory_mb;
-
-        return $this;
-    }
-
-    /**
-     * Gets model_config
-     *
-     * @return \Volcengine\Arkclaw\Model\ModelConfigForGetClawOmniInstanceOutput
-     */
-    public function getModelConfig()
-    {
-        return $this->container['model_config'];
-    }
-
-    /**
-     * Sets model_config
-     *
-     * @param \Volcengine\Arkclaw\Model\ModelConfigForGetClawOmniInstanceOutput $model_config model_config
-     *
-     * @return $this
-     */
-    public function setModelConfig($model_config)
-    {
-        $this->container['model_config'] = $model_config;
+        $this->container['model_source'] = $model_source;
 
         return $this;
     }
@@ -597,6 +510,30 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return int
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param int $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
 
         return $this;
     }
@@ -674,97 +611,49 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     }
 
     /**
-     * Gets status
+     * Gets spec
      *
      * @return string
      */
-    public function getStatus()
+    public function getSpec()
     {
-        return $this->container['status'];
+        return $this->container['spec'];
     }
 
     /**
-     * Sets status
+     * Sets spec
      *
-     * @param string $status status
+     * @param string $spec spec
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setSpec($spec)
     {
-        $this->container['status'] = $status;
+        $this->container['spec'] = $spec;
 
         return $this;
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Arkclaw\Model\TagForGetClawOmniInstanceOutput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Arkclaw\Model\TagForGetClawOmniInstanceOutput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_id
+     * Gets user_pool_user_uid
      *
      * @return string
      */
-    public function getTemplateId()
+    public function getUserPoolUserUid()
     {
-        return $this->container['template_id'];
+        return $this->container['user_pool_user_uid'];
     }
 
     /**
-     * Sets template_id
+     * Sets user_pool_user_uid
      *
-     * @param string $template_id template_id
+     * @param string $user_pool_user_uid user_pool_user_uid
      *
      * @return $this
      */
-    public function setTemplateId($template_id)
+    public function setUserPoolUserUid($user_pool_user_uid)
     {
-        $this->container['template_id'] = $template_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['user_pool_user_uid'] = $user_pool_user_uid;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class InstallClawOmniInstanceSkillRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'InstallClawOmniInstanceSkillRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,8 +29,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'project_name' => 'string',
+        'skill' => 'string'
     ];
 
     /**
@@ -40,8 +40,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'project_name' => null,
+        'skill' => null
     ];
 
     /**
@@ -72,8 +72,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $attributeMap = [
         'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'project_name' => 'ProjectName',
+        'skill' => 'Skill'
     ];
 
     /**
@@ -83,8 +83,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $setters = [
         'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'project_name' => 'setProjectName',
+        'skill' => 'setSkill'
     ];
 
     /**
@@ -94,8 +94,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     protected static $getters = [
         'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'project_name' => 'getProjectName',
+        'skill' => 'getSkill'
     ];
 
     /**
@@ -159,8 +159,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     public function __construct($data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['skill'] = isset($data['skill']) ? $data['skill'] : null;
     }
 
     /**
@@ -172,6 +172,12 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['skill'] === null) {
+            $invalidProperties[] = "'skill' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,49 +218,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     }
 
     /**
-     * Gets image_build_status
+     * Gets project_name
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getProjectName()
     {
-        return $this->container['image_build_status'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets project_name
      *
-     * @param string $image_build_status image_build_status
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setProjectName($project_name)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets skill
      *
      * @return string
      */
-    public function getVersionId()
+    public function getSkill()
     {
-        return $this->container['version_id'];
+        return $this->container['skill'];
     }
 
     /**
-     * Sets version_id
+     * Sets skill
      *
-     * @param string $version_id version_id
+     * @param string $skill skill
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setSkill($skill)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['skill'] = $skill;
 
         return $this;
     }

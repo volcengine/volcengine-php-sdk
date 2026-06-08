@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class CustomJwtAuthorizerForGetClawInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'CustomJwtAuthorizerForGetClawInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'allowed_clients' => 'string[]',
+        'discoveryurl' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'allowed_clients' => null,
+        'discoveryurl' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'allowed_clients' => 'AllowedClients',
+        'discoveryurl' => 'Discoveryurl'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'allowed_clients' => 'setAllowedClients',
+        'discoveryurl' => 'setDiscoveryurl'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'allowed_clients' => 'getAllowedClients',
+        'discoveryurl' => 'getDiscoveryurl'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['allowed_clients'] = isset($data['allowed_clients']) ? $data['allowed_clients'] : null;
+        $this->container['discoveryurl'] = isset($data['discoveryurl']) ? $data['discoveryurl'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets allowed_clients
      *
-     * @return string
+     * @return string[]
      */
-    public function getId()
+    public function getAllowedClients()
     {
-        return $this->container['id'];
+        return $this->container['allowed_clients'];
     }
 
     /**
-     * Sets id
+     * Sets allowed_clients
      *
-     * @param string $id id
+     * @param string[] $allowed_clients allowed_clients
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAllowedClients($allowed_clients)
     {
-        $this->container['id'] = $id;
+        $this->container['allowed_clients'] = $allowed_clients;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets discoveryurl
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getDiscoveryurl()
     {
-        return $this->container['image_build_status'];
+        return $this->container['discoveryurl'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets discoveryurl
      *
-     * @param string $image_build_status image_build_status
+     * @param string $discoveryurl discoveryurl
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setDiscoveryurl($discoveryurl)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['discoveryurl'] = $discoveryurl;
 
         return $this;
     }

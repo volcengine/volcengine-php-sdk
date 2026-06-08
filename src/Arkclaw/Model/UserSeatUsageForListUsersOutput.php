@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class UserSeatUsageForListUsersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'UserSeatUsageForListUsersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'premium_seat_usage' => 'int',
+        'standard_seat_usage' => 'int',
+        'starter_seat_usage' => 'int',
+        'ultimate_seat_usage' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'premium_seat_usage' => 'int32',
+        'standard_seat_usage' => 'int32',
+        'starter_seat_usage' => 'int32',
+        'ultimate_seat_usage' => 'int32'
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'premium_seat_usage' => 'PremiumSeatUsage',
+        'standard_seat_usage' => 'StandardSeatUsage',
+        'starter_seat_usage' => 'StarterSeatUsage',
+        'ultimate_seat_usage' => 'UltimateSeatUsage'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'premium_seat_usage' => 'setPremiumSeatUsage',
+        'standard_seat_usage' => 'setStandardSeatUsage',
+        'starter_seat_usage' => 'setStarterSeatUsage',
+        'ultimate_seat_usage' => 'setUltimateSeatUsage'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'premium_seat_usage' => 'getPremiumSeatUsage',
+        'standard_seat_usage' => 'getStandardSeatUsage',
+        'starter_seat_usage' => 'getStarterSeatUsage',
+        'ultimate_seat_usage' => 'getUltimateSeatUsage'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['premium_seat_usage'] = isset($data['premium_seat_usage']) ? $data['premium_seat_usage'] : null;
+        $this->container['standard_seat_usage'] = isset($data['standard_seat_usage']) ? $data['standard_seat_usage'] : null;
+        $this->container['starter_seat_usage'] = isset($data['starter_seat_usage']) ? $data['starter_seat_usage'] : null;
+        $this->container['ultimate_seat_usage'] = isset($data['ultimate_seat_usage']) ? $data['ultimate_seat_usage'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets premium_seat_usage
      *
-     * @return string
+     * @return int
      */
-    public function getId()
+    public function getPremiumSeatUsage()
     {
-        return $this->container['id'];
+        return $this->container['premium_seat_usage'];
     }
 
     /**
-     * Sets id
+     * Sets premium_seat_usage
      *
-     * @param string $id id
+     * @param int $premium_seat_usage premium_seat_usage
      *
      * @return $this
      */
-    public function setId($id)
+    public function setPremiumSeatUsage($premium_seat_usage)
     {
-        $this->container['id'] = $id;
+        $this->container['premium_seat_usage'] = $premium_seat_usage;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets standard_seat_usage
      *
-     * @return string
+     * @return int
      */
-    public function getImageBuildStatus()
+    public function getStandardSeatUsage()
     {
-        return $this->container['image_build_status'];
+        return $this->container['standard_seat_usage'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets standard_seat_usage
      *
-     * @param string $image_build_status image_build_status
+     * @param int $standard_seat_usage standard_seat_usage
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setStandardSeatUsage($standard_seat_usage)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['standard_seat_usage'] = $standard_seat_usage;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets starter_seat_usage
      *
-     * @return string
+     * @return int
      */
-    public function getVersionId()
+    public function getStarterSeatUsage()
     {
-        return $this->container['version_id'];
+        return $this->container['starter_seat_usage'];
     }
 
     /**
-     * Sets version_id
+     * Sets starter_seat_usage
      *
-     * @param string $version_id version_id
+     * @param int $starter_seat_usage starter_seat_usage
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setStarterSeatUsage($starter_seat_usage)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['starter_seat_usage'] = $starter_seat_usage;
+
+        return $this;
+    }
+
+    /**
+     * Gets ultimate_seat_usage
+     *
+     * @return int
+     */
+    public function getUltimateSeatUsage()
+    {
+        return $this->container['ultimate_seat_usage'];
+    }
+
+    /**
+     * Sets ultimate_seat_usage
+     *
+     * @param int $ultimate_seat_usage ultimate_seat_usage
+     *
+     * @return $this
+     */
+    public function setUltimateSeatUsage($ultimate_seat_usage)
+    {
+        $this->container['ultimate_seat_usage'] = $ultimate_seat_usage;
 
         return $this;
     }

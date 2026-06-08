@@ -32,7 +32,8 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'id' => 'string',
         'token_limit_per_day' => 'int',
         'token_limit_per_min' => 'int',
-        'token_limit_per_week' => 'string'
+        'token_limit_per_week' => 'string',
+        'token_quota' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'id' => null,
         'token_limit_per_day' => 'int32',
         'token_limit_per_min' => 'int32',
-        'token_limit_per_week' => null
+        'token_limit_per_week' => null,
+        'token_quota' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'token_limit_per_day' => 'TokenLimitPerDay',
         'token_limit_per_min' => 'TokenLimitPerMin',
-        'token_limit_per_week' => 'TokenLimitPerWeek'
+        'token_limit_per_week' => 'TokenLimitPerWeek',
+        'token_quota' => 'TokenQuota'
     ];
 
     /**
@@ -92,7 +95,8 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'token_limit_per_day' => 'setTokenLimitPerDay',
         'token_limit_per_min' => 'setTokenLimitPerMin',
-        'token_limit_per_week' => 'setTokenLimitPerWeek'
+        'token_limit_per_week' => 'setTokenLimitPerWeek',
+        'token_quota' => 'setTokenQuota'
     ];
 
     /**
@@ -105,7 +109,8 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'token_limit_per_day' => 'getTokenLimitPerDay',
         'token_limit_per_min' => 'getTokenLimitPerMin',
-        'token_limit_per_week' => 'getTokenLimitPerWeek'
+        'token_limit_per_week' => 'getTokenLimitPerWeek',
+        'token_quota' => 'getTokenQuota'
     ];
 
     /**
@@ -173,6 +178,7 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['token_limit_per_day'] = isset($data['token_limit_per_day']) ? $data['token_limit_per_day'] : null;
         $this->container['token_limit_per_min'] = isset($data['token_limit_per_min']) ? $data['token_limit_per_min'] : null;
         $this->container['token_limit_per_week'] = isset($data['token_limit_per_week']) ? $data['token_limit_per_week'] : null;
+        $this->container['token_quota'] = isset($data['token_quota']) ? $data['token_quota'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     public function setTokenLimitPerWeek($token_limit_per_week)
     {
         $this->container['token_limit_per_week'] = $token_limit_per_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_quota
+     *
+     * @return string
+     */
+    public function getTokenQuota()
+    {
+        return $this->container['token_quota'];
+    }
+
+    /**
+     * Sets token_quota
+     *
+     * @param string $token_quota token_quota
+     *
+     * @return $this
+     */
+    public function setTokenQuota($token_quota)
+    {
+        $this->container['token_quota'] = $token_quota;
 
         return $this;
     }

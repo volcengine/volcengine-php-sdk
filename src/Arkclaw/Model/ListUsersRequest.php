@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class ListUsersRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'ListUsersRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'filter' => '\Volcengine\Arkclaw\Model\FilterForListUsersInput',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'space_id' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'filter' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'space_id' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'filter' => 'Filter',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'space_id' => 'SpaceId'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'filter' => 'setFilter',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'space_id' => 'setSpaceId'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'filter' => 'getFilter',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'space_id' => 'getSpaceId'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
     }
 
     /**
@@ -172,6 +178,15 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['page_number'] === null) {
+            $invalidProperties[] = "'page_number' can't be null";
+        }
+        if ($this->container['page_size'] === null) {
+            $invalidProperties[] = "'page_size' can't be null";
+        }
+        if ($this->container['space_id'] === null) {
+            $invalidProperties[] = "'space_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +203,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets filter
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\FilterForListUsersInput
      */
-    public function getId()
+    public function getFilter()
     {
-        return $this->container['id'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets id
+     * Sets filter
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\FilterForListUsersInput $filter filter
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFilter($filter)
     {
-        $this->container['id'] = $id;
+        $this->container['filter'] = $filter;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getImageBuildStatus()
+    public function getPageNumber()
     {
-        return $this->container['image_build_status'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets page_number
      *
-     * @param string $image_build_status image_build_status
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setPageNumber($page_number)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getVersionId()
+    public function getPageSize()
     {
-        return $this->container['version_id'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets version_id
+     * Sets page_size
      *
-     * @param string $version_id version_id
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setPageSize($page_size)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_id
+     *
+     * @return string
+     */
+    public function getSpaceId()
+    {
+        return $this->container['space_id'];
+    }
+
+    /**
+     * Sets space_id
+     *
+     * @param string $space_id space_id
+     *
+     * @return $this
+     */
+    public function setSpaceId($space_id)
+    {
+        $this->container['space_id'] = $space_id;
 
         return $this;
     }

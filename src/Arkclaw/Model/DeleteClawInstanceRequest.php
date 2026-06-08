@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class DeleteClawInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'DeleteClawInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'claw_instance_id' => 'string',
+        'client_token' => 'string',
+        'dry_run' => 'bool',
+        'recycle' => 'bool',
+        'space_id' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'claw_instance_id' => null,
+        'client_token' => null,
+        'dry_run' => null,
+        'recycle' => null,
+        'space_id' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'claw_instance_id' => 'ClawInstanceId',
+        'client_token' => 'ClientToken',
+        'dry_run' => 'DryRun',
+        'recycle' => 'Recycle',
+        'space_id' => 'SpaceId'
     ];
 
     /**
@@ -82,9 +88,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'claw_instance_id' => 'setClawInstanceId',
+        'client_token' => 'setClientToken',
+        'dry_run' => 'setDryRun',
+        'recycle' => 'setRecycle',
+        'space_id' => 'setSpaceId'
     ];
 
     /**
@@ -93,9 +101,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'claw_instance_id' => 'getClawInstanceId',
+        'client_token' => 'getClientToken',
+        'dry_run' => 'getDryRun',
+        'recycle' => 'getRecycle',
+        'space_id' => 'getSpaceId'
     ];
 
     /**
@@ -158,9 +168,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['claw_instance_id'] = isset($data['claw_instance_id']) ? $data['claw_instance_id'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['recycle'] = isset($data['recycle']) ? $data['recycle'] : null;
+        $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
     }
 
     /**
@@ -172,6 +184,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['claw_instance_id'] === null) {
+            $invalidProperties[] = "'claw_instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +203,121 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets claw_instance_id
      *
      * @return string
      */
-    public function getId()
+    public function getClawInstanceId()
     {
-        return $this->container['id'];
+        return $this->container['claw_instance_id'];
     }
 
     /**
-     * Sets id
+     * Sets claw_instance_id
      *
-     * @param string $id id
+     * @param string $claw_instance_id claw_instance_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setClawInstanceId($claw_instance_id)
     {
-        $this->container['id'] = $id;
+        $this->container['claw_instance_id'] = $claw_instance_id;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets client_token
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getClientToken()
     {
-        return $this->container['image_build_status'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets client_token
      *
-     * @param string $image_build_status image_build_status
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setClientToken($client_token)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets dry_run
      *
-     * @return string
+     * @return bool
      */
-    public function getVersionId()
+    public function getDryRun()
     {
-        return $this->container['version_id'];
+        return $this->container['dry_run'];
     }
 
     /**
-     * Sets version_id
+     * Sets dry_run
      *
-     * @param string $version_id version_id
+     * @param bool $dry_run dry_run
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setDryRun($dry_run)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['dry_run'] = $dry_run;
+
+        return $this;
+    }
+
+    /**
+     * Gets recycle
+     *
+     * @return bool
+     */
+    public function getRecycle()
+    {
+        return $this->container['recycle'];
+    }
+
+    /**
+     * Sets recycle
+     *
+     * @param bool $recycle recycle
+     *
+     * @return $this
+     */
+    public function setRecycle($recycle)
+    {
+        $this->container['recycle'] = $recycle;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_id
+     *
+     * @return string
+     */
+    public function getSpaceId()
+    {
+        return $this->container['space_id'];
+    }
+
+    /**
+     * Sets space_id
+     *
+     * @param string $space_id space_id
+     *
+     * @return $this
+     */
+    public function setSpaceId($space_id)
+    {
+        $this->container['space_id'] = $space_id;
 
         return $this;
     }

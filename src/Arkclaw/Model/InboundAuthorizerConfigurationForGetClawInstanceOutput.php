@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class InboundAuthorizerConfigurationForGetClawInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'InboundAuthorizerConfigurationForGetClawInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'authorizer' => '\Volcengine\Arkclaw\Model\AuthorizerForGetClawInstanceOutput',
+        'authorizer_type' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'authorizer' => null,
+        'authorizer_type' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'authorizer' => 'Authorizer',
+        'authorizer_type' => 'AuthorizerType'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'authorizer' => 'setAuthorizer',
+        'authorizer_type' => 'setAuthorizerType'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'authorizer' => 'getAuthorizer',
+        'authorizer_type' => 'getAuthorizerType'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['authorizer'] = isset($data['authorizer']) ? $data['authorizer'] : null;
+        $this->container['authorizer_type'] = isset($data['authorizer_type']) ? $data['authorizer_type'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets authorizer
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\AuthorizerForGetClawInstanceOutput
      */
-    public function getId()
+    public function getAuthorizer()
     {
-        return $this->container['id'];
+        return $this->container['authorizer'];
     }
 
     /**
-     * Sets id
+     * Sets authorizer
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\AuthorizerForGetClawInstanceOutput $authorizer authorizer
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAuthorizer($authorizer)
     {
-        $this->container['id'] = $id;
+        $this->container['authorizer'] = $authorizer;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets authorizer_type
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getAuthorizerType()
     {
-        return $this->container['image_build_status'];
+        return $this->container['authorizer_type'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets authorizer_type
      *
-     * @param string $image_build_status image_build_status
+     * @param string $authorizer_type authorizer_type
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setAuthorizerType($authorizer_type)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['authorizer_type'] = $authorizer_type;
 
         return $this;
     }

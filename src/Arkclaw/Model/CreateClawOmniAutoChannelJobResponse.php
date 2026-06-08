@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class CreateClawOmniAutoChannelJobResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'CreateClawOmniAutoChannelJobResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'channel' => 'string',
+        'job_id' => 'string',
+        'status' => 'string',
+        'status_code' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'channel' => null,
+        'job_id' => null,
+        'status' => null,
+        'status_code' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'channel' => 'Channel',
+        'job_id' => 'JobId',
+        'status' => 'Status',
+        'status_code' => 'StatusCode'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'channel' => 'setChannel',
+        'job_id' => 'setJobId',
+        'status' => 'setStatus',
+        'status_code' => 'setStatusCode'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'channel' => 'getChannel',
+        'job_id' => 'getJobId',
+        'status' => 'getStatus',
+        'status_code' => 'getStatusCode'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['job_id'] = isset($data['job_id']) ? $data['job_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets channel
      *
      * @return string
      */
-    public function getId()
+    public function getChannel()
     {
-        return $this->container['id'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets id
+     * Sets channel
      *
-     * @param string $id id
+     * @param string $channel channel
      *
      * @return $this
      */
-    public function setId($id)
+    public function setChannel($channel)
     {
-        $this->container['id'] = $id;
+        $this->container['channel'] = $channel;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets job_id
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getJobId()
     {
-        return $this->container['image_build_status'];
+        return $this->container['job_id'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets job_id
      *
-     * @param string $image_build_status image_build_status
+     * @param string $job_id job_id
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setJobId($job_id)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['job_id'] = $job_id;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets status
      *
      * @return string
      */
-    public function getVersionId()
+    public function getStatus()
     {
-        return $this->container['version_id'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets version_id
+     * Sets status
      *
-     * @param string $version_id version_id
+     * @param string $status status
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setStatus($status)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_code
+     *
+     * @return string
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param string $status_code status_code
+     *
+     * @return $this
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }
