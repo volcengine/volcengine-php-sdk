@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'DescribeEipAddressHighResolutionMonitorAttributeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'allocation_id' => 'string',
+        'eip_address' => 'string',
+        'log_project_id' => 'string',
+        'log_project_name' => 'string',
+        'log_topic_id' => 'string',
+        'log_topic_name' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'allocation_id' => null,
+        'eip_address' => null,
+        'log_project_id' => null,
+        'log_project_name' => null,
+        'log_topic_id' => null,
+        'log_topic_name' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'allocation_id' => 'AllocationId',
+        'eip_address' => 'EipAddress',
+        'log_project_id' => 'LogProjectId',
+        'log_project_name' => 'LogProjectName',
+        'log_topic_id' => 'LogTopicId',
+        'log_topic_name' => 'LogTopicName'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'allocation_id' => 'setAllocationId',
+        'eip_address' => 'setEipAddress',
+        'log_project_id' => 'setLogProjectId',
+        'log_project_name' => 'setLogProjectName',
+        'log_topic_id' => 'setLogTopicId',
+        'log_topic_name' => 'setLogTopicName'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'allocation_id' => 'getAllocationId',
+        'eip_address' => 'getEipAddress',
+        'log_project_id' => 'getLogProjectId',
+        'log_project_name' => 'getLogProjectName',
+        'log_topic_id' => 'getLogTopicId',
+        'log_topic_name' => 'getLogTopicName'
     ];
 
     /**
@@ -158,9 +173,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
+        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['log_project_id'] = isset($data['log_project_id']) ? $data['log_project_id'] : null;
+        $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
+        $this->container['log_topic_id'] = isset($data['log_topic_id']) ? $data['log_topic_id'] : null;
+        $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
     }
 
     /**
@@ -172,12 +190,6 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +206,145 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets allocation_id
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getAllocationId()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['allocation_id'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets allocation_id
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $allocation_id allocation_id
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setAllocationId($allocation_id)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['allocation_id'] = $allocation_id;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets eip_address
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getEipAddress()
     {
-        return $this->container['instance_id'];
+        return $this->container['eip_address'];
     }
 
     /**
-     * Sets instance_id
+     * Sets eip_address
      *
-     * @param string $instance_id instance_id
+     * @param string $eip_address eip_address
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setEipAddress($eip_address)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['eip_address'] = $eip_address;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets log_project_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getLogProjectId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['log_project_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets log_project_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $log_project_id log_project_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setLogProjectId($log_project_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['log_project_id'] = $log_project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_project_name
+     *
+     * @return string
+     */
+    public function getLogProjectName()
+    {
+        return $this->container['log_project_name'];
+    }
+
+    /**
+     * Sets log_project_name
+     *
+     * @param string $log_project_name log_project_name
+     *
+     * @return $this
+     */
+    public function setLogProjectName($log_project_name)
+    {
+        $this->container['log_project_name'] = $log_project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_topic_id
+     *
+     * @return string
+     */
+    public function getLogTopicId()
+    {
+        return $this->container['log_topic_id'];
+    }
+
+    /**
+     * Sets log_topic_id
+     *
+     * @param string $log_topic_id log_topic_id
+     *
+     * @return $this
+     */
+    public function setLogTopicId($log_topic_id)
+    {
+        $this->container['log_topic_id'] = $log_topic_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_topic_name
+     *
+     * @return string
+     */
+    public function getLogTopicName()
+    {
+        return $this->container['log_topic_name'];
+    }
+
+    /**
+     * Sets log_topic_name
+     *
+     * @param string $log_topic_name log_topic_name
+     *
+     * @return $this
+     */
+    public function setLogTopicName($log_topic_name)
+    {
+        $this->container['log_topic_name'] = $log_topic_name;
 
         return $this;
     }

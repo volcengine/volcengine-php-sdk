@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class ModifyIpamRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'ModifyIpamRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'add_operating_regions' => 'string[]',
+        'description' => 'string',
+        'ipam_id' => 'string',
+        'ipam_name' => 'string',
+        'remove_operating_regions' => 'string[]'
     ];
 
     /**
@@ -39,9 +41,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'add_operating_regions' => null,
+        'description' => null,
+        'ipam_id' => null,
+        'ipam_name' => null,
+        'remove_operating_regions' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'add_operating_regions' => 'AddOperatingRegions',
+        'description' => 'Description',
+        'ipam_id' => 'IpamId',
+        'ipam_name' => 'IpamName',
+        'remove_operating_regions' => 'RemoveOperatingRegions'
     ];
 
     /**
@@ -82,9 +88,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'add_operating_regions' => 'setAddOperatingRegions',
+        'description' => 'setDescription',
+        'ipam_id' => 'setIpamId',
+        'ipam_name' => 'setIpamName',
+        'remove_operating_regions' => 'setRemoveOperatingRegions'
     ];
 
     /**
@@ -93,9 +101,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'add_operating_regions' => 'getAddOperatingRegions',
+        'description' => 'getDescription',
+        'ipam_id' => 'getIpamId',
+        'ipam_name' => 'getIpamName',
+        'remove_operating_regions' => 'getRemoveOperatingRegions'
     ];
 
     /**
@@ -158,9 +168,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['add_operating_regions'] = isset($data['add_operating_regions']) ? $data['add_operating_regions'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipam_id'] = isset($data['ipam_id']) ? $data['ipam_id'] : null;
+        $this->container['ipam_name'] = isset($data['ipam_name']) ? $data['ipam_name'] : null;
+        $this->container['remove_operating_regions'] = isset($data['remove_operating_regions']) ? $data['remove_operating_regions'] : null;
     }
 
     /**
@@ -172,11 +184,8 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        if ($this->container['ipam_id'] === null) {
+            $invalidProperties[] = "'ipam_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +203,121 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets add_operating_regions
      *
-     * @return bool
+     * @return string[]
      */
-    public function getDeleteOnTermination()
+    public function getAddOperatingRegions()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['add_operating_regions'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets add_operating_regions
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string[] $add_operating_regions add_operating_regions
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setAddOperatingRegions($add_operating_regions)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['add_operating_regions'] = $add_operating_regions;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets description
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getDescription()
     {
-        return $this->container['instance_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets instance_id
+     * Sets description
      *
-     * @param string $instance_id instance_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setDescription($description)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets ipam_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getIpamId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['ipam_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets ipam_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $ipam_id ipam_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setIpamId($ipam_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['ipam_id'] = $ipam_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_name
+     *
+     * @return string
+     */
+    public function getIpamName()
+    {
+        return $this->container['ipam_name'];
+    }
+
+    /**
+     * Sets ipam_name
+     *
+     * @param string $ipam_name ipam_name
+     *
+     * @return $this
+     */
+    public function setIpamName($ipam_name)
+    {
+        $this->container['ipam_name'] = $ipam_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets remove_operating_regions
+     *
+     * @return string[]
+     */
+    public function getRemoveOperatingRegions()
+    {
+        return $this->container['remove_operating_regions'];
+    }
+
+    /**
+     * Sets remove_operating_regions
+     *
+     * @param string[] $remove_operating_regions remove_operating_regions
+     *
+     * @return $this
+     */
+    public function setRemoveOperatingRegions($remove_operating_regions)
+    {
+        $this->container['remove_operating_regions'] = $remove_operating_regions;
 
         return $this;
     }

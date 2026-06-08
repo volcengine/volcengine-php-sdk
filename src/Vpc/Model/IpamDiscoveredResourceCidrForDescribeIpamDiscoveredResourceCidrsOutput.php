@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
+class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyFlowLogAttributeRequest';
+    protected static $swaggerModelName = 'IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aggregation_interval' => 'int',
-        'client_token' => 'string',
-        'description' => 'string',
-        'flow_log_id' => 'string',
-        'flow_log_name' => 'string',
-        'traffic_path' => 'int[]'
+        'cidr_block' => 'string',
+        'discovery_time' => 'string',
+        'ip_usage' => 'string',
+        'ipam_resource_discovery_id' => 'string',
+        'resource_id' => 'string',
+        'resource_region_id' => 'string',
+        'resource_type' => 'string',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -42,12 +44,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aggregation_interval' => null,
-        'client_token' => null,
-        'description' => null,
-        'flow_log_id' => null,
-        'flow_log_name' => null,
-        'traffic_path' => null
+        'cidr_block' => null,
+        'discovery_time' => null,
+        'ip_usage' => null,
+        'ipam_resource_discovery_id' => null,
+        'resource_id' => null,
+        'resource_region_id' => null,
+        'resource_type' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aggregation_interval' => 'AggregationInterval',
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'flow_log_id' => 'FlowLogId',
-        'flow_log_name' => 'FlowLogName',
-        'traffic_path' => 'TrafficPath'
+        'cidr_block' => 'CidrBlock',
+        'discovery_time' => 'DiscoveryTime',
+        'ip_usage' => 'IpUsage',
+        'ipam_resource_discovery_id' => 'IpamResourceDiscoveryId',
+        'resource_id' => 'ResourceId',
+        'resource_region_id' => 'ResourceRegionId',
+        'resource_type' => 'ResourceType',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -91,12 +97,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aggregation_interval' => 'setAggregationInterval',
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'flow_log_id' => 'setFlowLogId',
-        'flow_log_name' => 'setFlowLogName',
-        'traffic_path' => 'setTrafficPath'
+        'cidr_block' => 'setCidrBlock',
+        'discovery_time' => 'setDiscoveryTime',
+        'ip_usage' => 'setIpUsage',
+        'ipam_resource_discovery_id' => 'setIpamResourceDiscoveryId',
+        'resource_id' => 'setResourceId',
+        'resource_region_id' => 'setResourceRegionId',
+        'resource_type' => 'setResourceType',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -105,12 +113,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aggregation_interval' => 'getAggregationInterval',
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'flow_log_id' => 'getFlowLogId',
-        'flow_log_name' => 'getFlowLogName',
-        'traffic_path' => 'getTrafficPath'
+        'cidr_block' => 'getCidrBlock',
+        'discovery_time' => 'getDiscoveryTime',
+        'ip_usage' => 'getIpUsage',
+        'ipam_resource_discovery_id' => 'getIpamResourceDiscoveryId',
+        'resource_id' => 'getResourceId',
+        'resource_region_id' => 'getResourceRegionId',
+        'resource_type' => 'getResourceType',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -173,12 +183,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['flow_log_id'] = isset($data['flow_log_id']) ? $data['flow_log_id'] : null;
-        $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
-        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
+        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
+        $this->container['discovery_time'] = isset($data['discovery_time']) ? $data['discovery_time'] : null;
+        $this->container['ip_usage'] = isset($data['ip_usage']) ? $data['ip_usage'] : null;
+        $this->container['ipam_resource_discovery_id'] = isset($data['ipam_resource_discovery_id']) ? $data['ipam_resource_discovery_id'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -190,9 +202,6 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['flow_log_id'] === null) {
-            $invalidProperties[] = "'flow_log_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +218,193 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aggregation_interval
-     *
-     * @return int
-     */
-    public function getAggregationInterval()
-    {
-        return $this->container['aggregation_interval'];
-    }
-
-    /**
-     * Sets aggregation_interval
-     *
-     * @param int $aggregation_interval aggregation_interval
-     *
-     * @return $this
-     */
-    public function setAggregationInterval($aggregation_interval)
-    {
-        $this->container['aggregation_interval'] = $aggregation_interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets cidr_block
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCidrBlock()
     {
-        return $this->container['client_token'];
+        return $this->container['cidr_block'];
     }
 
     /**
-     * Sets client_token
+     * Sets cidr_block
      *
-     * @param string $client_token client_token
+     * @param string $cidr_block cidr_block
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCidrBlock($cidr_block)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['cidr_block'] = $cidr_block;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets discovery_time
      *
      * @return string
      */
-    public function getDescription()
+    public function getDiscoveryTime()
     {
-        return $this->container['description'];
+        return $this->container['discovery_time'];
     }
 
     /**
-     * Sets description
+     * Sets discovery_time
      *
-     * @param string $description description
+     * @param string $discovery_time discovery_time
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDiscoveryTime($discovery_time)
     {
-        $this->container['description'] = $description;
+        $this->container['discovery_time'] = $discovery_time;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_id
+     * Gets ip_usage
      *
      * @return string
      */
-    public function getFlowLogId()
+    public function getIpUsage()
     {
-        return $this->container['flow_log_id'];
+        return $this->container['ip_usage'];
     }
 
     /**
-     * Sets flow_log_id
+     * Sets ip_usage
      *
-     * @param string $flow_log_id flow_log_id
+     * @param string $ip_usage ip_usage
      *
      * @return $this
      */
-    public function setFlowLogId($flow_log_id)
+    public function setIpUsage($ip_usage)
     {
-        $this->container['flow_log_id'] = $flow_log_id;
+        $this->container['ip_usage'] = $ip_usage;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_name
+     * Gets ipam_resource_discovery_id
      *
      * @return string
      */
-    public function getFlowLogName()
+    public function getIpamResourceDiscoveryId()
     {
-        return $this->container['flow_log_name'];
+        return $this->container['ipam_resource_discovery_id'];
     }
 
     /**
-     * Sets flow_log_name
+     * Sets ipam_resource_discovery_id
      *
-     * @param string $flow_log_name flow_log_name
+     * @param string $ipam_resource_discovery_id ipam_resource_discovery_id
      *
      * @return $this
      */
-    public function setFlowLogName($flow_log_name)
+    public function setIpamResourceDiscoveryId($ipam_resource_discovery_id)
     {
-        $this->container['flow_log_name'] = $flow_log_name;
+        $this->container['ipam_resource_discovery_id'] = $ipam_resource_discovery_id;
 
         return $this;
     }
 
     /**
-     * Gets traffic_path
+     * Gets resource_id
      *
-     * @return int[]
+     * @return string
      */
-    public function getTrafficPath()
+    public function getResourceId()
     {
-        return $this->container['traffic_path'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets traffic_path
+     * Sets resource_id
      *
-     * @param int[] $traffic_path traffic_path
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setTrafficPath($traffic_path)
+    public function setResourceId($resource_id)
     {
-        $this->container['traffic_path'] = $traffic_path;
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

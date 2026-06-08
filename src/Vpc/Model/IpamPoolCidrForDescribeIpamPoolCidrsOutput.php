@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class IpamPoolCidrForDescribeIpamPoolCidrsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'IpamPoolCidrForDescribeIpamPoolCidrsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'account_id' => 'string',
+        'cidr_block' => 'string',
+        'create_time' => 'string',
+        'ipam_pool_id' => 'string',
+        'status' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'account_id' => null,
+        'cidr_block' => null,
+        'create_time' => null,
+        'ipam_pool_id' => null,
+        'status' => null,
+        'update_time' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'account_id' => 'AccountId',
+        'cidr_block' => 'CidrBlock',
+        'create_time' => 'CreateTime',
+        'ipam_pool_id' => 'IpamPoolId',
+        'status' => 'Status',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'account_id' => 'setAccountId',
+        'cidr_block' => 'setCidrBlock',
+        'create_time' => 'setCreateTime',
+        'ipam_pool_id' => 'setIpamPoolId',
+        'status' => 'setStatus',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'account_id' => 'getAccountId',
+        'cidr_block' => 'getCidrBlock',
+        'create_time' => 'getCreateTime',
+        'ipam_pool_id' => 'getIpamPoolId',
+        'status' => 'getStatus',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -158,9 +173,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['ipam_pool_id'] = isset($data['ipam_pool_id']) ? $data['ipam_pool_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -172,12 +190,6 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +206,145 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets account_id
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getAccountId()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets account_id
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setAccountId($account_id)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets cidr_block
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getCidrBlock()
     {
-        return $this->container['instance_id'];
+        return $this->container['cidr_block'];
     }
 
     /**
-     * Sets instance_id
+     * Sets cidr_block
      *
-     * @param string $instance_id instance_id
+     * @param string $cidr_block cidr_block
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setCidrBlock($cidr_block)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['cidr_block'] = $cidr_block;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets create_time
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getCreateTime()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets create_time
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setCreateTime($create_time)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_pool_id
+     *
+     * @return string
+     */
+    public function getIpamPoolId()
+    {
+        return $this->container['ipam_pool_id'];
+    }
+
+    /**
+     * Sets ipam_pool_id
+     *
+     * @param string $ipam_pool_id ipam_pool_id
+     *
+     * @return $this
+     */
+    public function setIpamPoolId($ipam_pool_id)
+    {
+        $this->container['ipam_pool_id'] = $ipam_pool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

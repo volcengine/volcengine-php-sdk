@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class ModifyIpamScopeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'ModifyIpamScopeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'description' => 'string',
+        'ipam_scope_id' => 'string',
+        'ipam_scope_name' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'description' => null,
+        'ipam_scope_id' => null,
+        'ipam_scope_name' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'description' => 'Description',
+        'ipam_scope_id' => 'IpamScopeId',
+        'ipam_scope_name' => 'IpamScopeName'
     ];
 
     /**
@@ -82,9 +82,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'description' => 'setDescription',
+        'ipam_scope_id' => 'setIpamScopeId',
+        'ipam_scope_name' => 'setIpamScopeName'
     ];
 
     /**
@@ -93,9 +93,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'description' => 'getDescription',
+        'ipam_scope_id' => 'getIpamScopeId',
+        'ipam_scope_name' => 'getIpamScopeName'
     ];
 
     /**
@@ -158,9 +158,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipam_scope_id'] = isset($data['ipam_scope_id']) ? $data['ipam_scope_id'] : null;
+        $this->container['ipam_scope_name'] = isset($data['ipam_scope_name']) ? $data['ipam_scope_name'] : null;
     }
 
     /**
@@ -172,11 +172,8 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        if ($this->container['ipam_scope_id'] === null) {
+            $invalidProperties[] = "'ipam_scope_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +191,73 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets description
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getDescription()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets description
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $description description
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setDescription($description)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets ipam_scope_id
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getIpamScopeId()
     {
-        return $this->container['instance_id'];
+        return $this->container['ipam_scope_id'];
     }
 
     /**
-     * Sets instance_id
+     * Sets ipam_scope_id
      *
-     * @param string $instance_id instance_id
+     * @param string $ipam_scope_id ipam_scope_id
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setIpamScopeId($ipam_scope_id)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['ipam_scope_id'] = $ipam_scope_id;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets ipam_scope_name
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getIpamScopeName()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['ipam_scope_name'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets ipam_scope_name
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $ipam_scope_name ipam_scope_name
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setIpamScopeName($ipam_scope_name)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['ipam_scope_name'] = $ipam_scope_name;
 
         return $this;
     }

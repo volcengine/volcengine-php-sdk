@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class DescribeIpamPoolsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'DescribeIpamPoolsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'ipam_pools' => '\Volcengine\Vpc\Model\IpamPoolForDescribeIpamPoolsOutput[]',
+        'next_token' => 'string',
+        'request_id' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'ipam_pools' => null,
+        'next_token' => null,
+        'request_id' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'ipam_pools' => 'IpamPools',
+        'next_token' => 'NextToken',
+        'request_id' => 'RequestId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'ipam_pools' => 'setIpamPools',
+        'next_token' => 'setNextToken',
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'ipam_pools' => 'getIpamPools',
+        'next_token' => 'getNextToken',
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['ipam_pools'] = isset($data['ipam_pools']) ? $data['ipam_pools'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
 
     /**
@@ -172,12 +172,6 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +188,73 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets ipam_pools
      *
-     * @return bool
+     * @return \Volcengine\Vpc\Model\IpamPoolForDescribeIpamPoolsOutput[]
      */
-    public function getDeleteOnTermination()
+    public function getIpamPools()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['ipam_pools'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets ipam_pools
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param \Volcengine\Vpc\Model\IpamPoolForDescribeIpamPoolsOutput[] $ipam_pools ipam_pools
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setIpamPools($ipam_pools)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['ipam_pools'] = $ipam_pools;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getNextToken()
     {
-        return $this->container['instance_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets instance_id
+     * Sets next_token
      *
-     * @param string $instance_id instance_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setNextToken($next_token)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets request_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getRequestId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['request_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets request_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $request_id request_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setRequestId($request_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }

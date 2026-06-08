@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateFlowLogRequest implements ModelInterface, ArrayAccess
+class IpamPoolAllocationForDescribeIpamPoolAllocationsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateFlowLogRequest';
+    protected static $swaggerModelName = 'IpamPoolAllocationForDescribeIpamPoolAllocationsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,19 +28,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aggregation_interval' => 'int',
-        'client_token' => 'string',
+        'account_id' => 'string',
+        'cidr_block' => 'string',
+        'create_time' => 'string',
         'description' => 'string',
-        'enable_index' => 'bool',
-        'flow_log_name' => 'string',
-        'log_project_name' => 'string',
-        'log_topic_name' => 'string',
-        'project_name' => 'string',
+        'ipam_pool_allocation_id' => 'string',
+        'ipam_pool_id' => 'string',
+        'ipam_pool_region_id' => 'string',
+        'ipam_region_id' => 'string',
         'resource_id' => 'string',
+        'resource_region_id' => 'string',
         'resource_type' => 'string',
-        'tags' => '\Volcengine\Vpc\Model\TagForCreateFlowLogInput[]',
-        'traffic_path' => 'int[]',
-        'traffic_type' => 'string'
+        'source_cidr_block' => 'string',
+        'status' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -49,19 +50,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aggregation_interval' => null,
-        'client_token' => null,
+        'account_id' => null,
+        'cidr_block' => null,
+        'create_time' => null,
         'description' => null,
-        'enable_index' => null,
-        'flow_log_name' => null,
-        'log_project_name' => null,
-        'log_topic_name' => null,
-        'project_name' => null,
+        'ipam_pool_allocation_id' => null,
+        'ipam_pool_id' => null,
+        'ipam_pool_region_id' => null,
+        'ipam_region_id' => null,
         'resource_id' => null,
+        'resource_region_id' => null,
         'resource_type' => null,
-        'tags' => null,
-        'traffic_path' => null,
-        'traffic_type' => null
+        'source_cidr_block' => null,
+        'status' => null,
+        'update_time' => null
     ];
 
     /**
@@ -91,19 +93,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aggregation_interval' => 'AggregationInterval',
-        'client_token' => 'ClientToken',
+        'account_id' => 'AccountId',
+        'cidr_block' => 'CidrBlock',
+        'create_time' => 'CreateTime',
         'description' => 'Description',
-        'enable_index' => 'EnableIndex',
-        'flow_log_name' => 'FlowLogName',
-        'log_project_name' => 'LogProjectName',
-        'log_topic_name' => 'LogTopicName',
-        'project_name' => 'ProjectName',
+        'ipam_pool_allocation_id' => 'IpamPoolAllocationId',
+        'ipam_pool_id' => 'IpamPoolId',
+        'ipam_pool_region_id' => 'IpamPoolRegionId',
+        'ipam_region_id' => 'IpamRegionId',
         'resource_id' => 'ResourceId',
+        'resource_region_id' => 'ResourceRegionId',
         'resource_type' => 'ResourceType',
-        'tags' => 'Tags',
-        'traffic_path' => 'TrafficPath',
-        'traffic_type' => 'TrafficType'
+        'source_cidr_block' => 'SourceCidrBlock',
+        'status' => 'Status',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -112,19 +115,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aggregation_interval' => 'setAggregationInterval',
-        'client_token' => 'setClientToken',
+        'account_id' => 'setAccountId',
+        'cidr_block' => 'setCidrBlock',
+        'create_time' => 'setCreateTime',
         'description' => 'setDescription',
-        'enable_index' => 'setEnableIndex',
-        'flow_log_name' => 'setFlowLogName',
-        'log_project_name' => 'setLogProjectName',
-        'log_topic_name' => 'setLogTopicName',
-        'project_name' => 'setProjectName',
+        'ipam_pool_allocation_id' => 'setIpamPoolAllocationId',
+        'ipam_pool_id' => 'setIpamPoolId',
+        'ipam_pool_region_id' => 'setIpamPoolRegionId',
+        'ipam_region_id' => 'setIpamRegionId',
         'resource_id' => 'setResourceId',
+        'resource_region_id' => 'setResourceRegionId',
         'resource_type' => 'setResourceType',
-        'tags' => 'setTags',
-        'traffic_path' => 'setTrafficPath',
-        'traffic_type' => 'setTrafficType'
+        'source_cidr_block' => 'setSourceCidrBlock',
+        'status' => 'setStatus',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -133,19 +137,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aggregation_interval' => 'getAggregationInterval',
-        'client_token' => 'getClientToken',
+        'account_id' => 'getAccountId',
+        'cidr_block' => 'getCidrBlock',
+        'create_time' => 'getCreateTime',
         'description' => 'getDescription',
-        'enable_index' => 'getEnableIndex',
-        'flow_log_name' => 'getFlowLogName',
-        'log_project_name' => 'getLogProjectName',
-        'log_topic_name' => 'getLogTopicName',
-        'project_name' => 'getProjectName',
+        'ipam_pool_allocation_id' => 'getIpamPoolAllocationId',
+        'ipam_pool_id' => 'getIpamPoolId',
+        'ipam_pool_region_id' => 'getIpamPoolRegionId',
+        'ipam_region_id' => 'getIpamRegionId',
         'resource_id' => 'getResourceId',
+        'resource_region_id' => 'getResourceRegionId',
         'resource_type' => 'getResourceType',
-        'tags' => 'getTags',
-        'traffic_path' => 'getTrafficPath',
-        'traffic_type' => 'getTrafficType'
+        'source_cidr_block' => 'getSourceCidrBlock',
+        'status' => 'getStatus',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -208,19 +213,20 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enable_index'] = isset($data['enable_index']) ? $data['enable_index'] : null;
-        $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
-        $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
-        $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['ipam_pool_allocation_id'] = isset($data['ipam_pool_allocation_id']) ? $data['ipam_pool_allocation_id'] : null;
+        $this->container['ipam_pool_id'] = isset($data['ipam_pool_id']) ? $data['ipam_pool_id'] : null;
+        $this->container['ipam_pool_region_id'] = isset($data['ipam_pool_region_id']) ? $data['ipam_pool_region_id'] : null;
+        $this->container['ipam_region_id'] = isset($data['ipam_region_id']) ? $data['ipam_region_id'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
-        $this->container['traffic_type'] = isset($data['traffic_type']) ? $data['traffic_type'] : null;
+        $this->container['source_cidr_block'] = isset($data['source_cidr_block']) ? $data['source_cidr_block'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -232,27 +238,6 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['aggregation_interval'] === null) {
-            $invalidProperties[] = "'aggregation_interval' can't be null";
-        }
-        if ($this->container['flow_log_name'] === null) {
-            $invalidProperties[] = "'flow_log_name' can't be null";
-        }
-        if ($this->container['log_project_name'] === null) {
-            $invalidProperties[] = "'log_project_name' can't be null";
-        }
-        if ($this->container['log_topic_name'] === null) {
-            $invalidProperties[] = "'log_topic_name' can't be null";
-        }
-        if ($this->container['resource_id'] === null) {
-            $invalidProperties[] = "'resource_id' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
-        if ($this->container['traffic_type'] === null) {
-            $invalidProperties[] = "'traffic_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -269,49 +254,73 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aggregation_interval
+     * Gets account_id
      *
-     * @return int
+     * @return string
      */
-    public function getAggregationInterval()
+    public function getAccountId()
     {
-        return $this->container['aggregation_interval'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets aggregation_interval
+     * Sets account_id
      *
-     * @param int $aggregation_interval aggregation_interval
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setAggregationInterval($aggregation_interval)
+    public function setAccountId($account_id)
     {
-        $this->container['aggregation_interval'] = $aggregation_interval;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets cidr_block
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCidrBlock()
     {
-        return $this->container['client_token'];
+        return $this->container['cidr_block'];
     }
 
     /**
-     * Sets client_token
+     * Sets cidr_block
      *
-     * @param string $client_token client_token
+     * @param string $cidr_block cidr_block
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCidrBlock($cidr_block)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['cidr_block'] = $cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return string
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param string $create_time create_time
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
@@ -341,121 +350,97 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets enable_index
+     * Gets ipam_pool_allocation_id
      *
-     * @return bool
+     * @return string
      */
-    public function getEnableIndex()
+    public function getIpamPoolAllocationId()
     {
-        return $this->container['enable_index'];
+        return $this->container['ipam_pool_allocation_id'];
     }
 
     /**
-     * Sets enable_index
+     * Sets ipam_pool_allocation_id
      *
-     * @param bool $enable_index enable_index
+     * @param string $ipam_pool_allocation_id ipam_pool_allocation_id
      *
      * @return $this
      */
-    public function setEnableIndex($enable_index)
+    public function setIpamPoolAllocationId($ipam_pool_allocation_id)
     {
-        $this->container['enable_index'] = $enable_index;
+        $this->container['ipam_pool_allocation_id'] = $ipam_pool_allocation_id;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_name
+     * Gets ipam_pool_id
      *
      * @return string
      */
-    public function getFlowLogName()
+    public function getIpamPoolId()
     {
-        return $this->container['flow_log_name'];
+        return $this->container['ipam_pool_id'];
     }
 
     /**
-     * Sets flow_log_name
+     * Sets ipam_pool_id
      *
-     * @param string $flow_log_name flow_log_name
+     * @param string $ipam_pool_id ipam_pool_id
      *
      * @return $this
      */
-    public function setFlowLogName($flow_log_name)
+    public function setIpamPoolId($ipam_pool_id)
     {
-        $this->container['flow_log_name'] = $flow_log_name;
+        $this->container['ipam_pool_id'] = $ipam_pool_id;
 
         return $this;
     }
 
     /**
-     * Gets log_project_name
+     * Gets ipam_pool_region_id
      *
      * @return string
      */
-    public function getLogProjectName()
+    public function getIpamPoolRegionId()
     {
-        return $this->container['log_project_name'];
+        return $this->container['ipam_pool_region_id'];
     }
 
     /**
-     * Sets log_project_name
+     * Sets ipam_pool_region_id
      *
-     * @param string $log_project_name log_project_name
+     * @param string $ipam_pool_region_id ipam_pool_region_id
      *
      * @return $this
      */
-    public function setLogProjectName($log_project_name)
+    public function setIpamPoolRegionId($ipam_pool_region_id)
     {
-        $this->container['log_project_name'] = $log_project_name;
+        $this->container['ipam_pool_region_id'] = $ipam_pool_region_id;
 
         return $this;
     }
 
     /**
-     * Gets log_topic_name
+     * Gets ipam_region_id
      *
      * @return string
      */
-    public function getLogTopicName()
+    public function getIpamRegionId()
     {
-        return $this->container['log_topic_name'];
+        return $this->container['ipam_region_id'];
     }
 
     /**
-     * Sets log_topic_name
+     * Sets ipam_region_id
      *
-     * @param string $log_topic_name log_topic_name
+     * @param string $ipam_region_id ipam_region_id
      *
      * @return $this
      */
-    public function setLogTopicName($log_topic_name)
+    public function setIpamRegionId($ipam_region_id)
     {
-        $this->container['log_topic_name'] = $log_topic_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['ipam_region_id'] = $ipam_region_id;
 
         return $this;
     }
@@ -485,6 +470,30 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_type
      *
      * @return string
@@ -509,73 +518,73 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Vpc\Model\TagForCreateFlowLogInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Vpc\Model\TagForCreateFlowLogInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets traffic_path
-     *
-     * @return int[]
-     */
-    public function getTrafficPath()
-    {
-        return $this->container['traffic_path'];
-    }
-
-    /**
-     * Sets traffic_path
-     *
-     * @param int[] $traffic_path traffic_path
-     *
-     * @return $this
-     */
-    public function setTrafficPath($traffic_path)
-    {
-        $this->container['traffic_path'] = $traffic_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets traffic_type
+     * Gets source_cidr_block
      *
      * @return string
      */
-    public function getTrafficType()
+    public function getSourceCidrBlock()
     {
-        return $this->container['traffic_type'];
+        return $this->container['source_cidr_block'];
     }
 
     /**
-     * Sets traffic_type
+     * Sets source_cidr_block
      *
-     * @param string $traffic_type traffic_type
+     * @param string $source_cidr_block source_cidr_block
      *
      * @return $this
      */
-    public function setTrafficType($traffic_type)
+    public function setSourceCidrBlock($source_cidr_block)
     {
-        $this->container['traffic_type'] = $traffic_type;
+        $this->container['source_cidr_block'] = $source_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
