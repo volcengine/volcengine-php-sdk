@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class SendAlertResultForListAlertOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'SendAlertResultForListAlertOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'is_send_alert' => 'bool',
+        'send_alert_notifications' => '\Volcengine\Cloudmonitor\Model\SendAlertNotificationForListAlertOutput[]',
+        'silence_policy_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'is_send_alert' => null,
+        'send_alert_notifications' => null,
+        'silence_policy_id' => null,
+        'status' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'is_send_alert' => 'IsSendAlert',
+        'send_alert_notifications' => 'SendAlertNotifications',
+        'silence_policy_id' => 'SilencePolicyId',
+        'status' => 'Status'
     ];
 
     /**
@@ -79,8 +85,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'is_send_alert' => 'setIsSendAlert',
+        'send_alert_notifications' => 'setSendAlertNotifications',
+        'silence_policy_id' => 'setSilencePolicyId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -89,8 +97,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'is_send_alert' => 'getIsSendAlert',
+        'send_alert_notifications' => 'getSendAlertNotifications',
+        'silence_policy_id' => 'getSilencePolicyId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -153,8 +163,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['is_send_alert'] = isset($data['is_send_alert']) ? $data['is_send_alert'] : null;
+        $this->container['send_alert_notifications'] = isset($data['send_alert_notifications']) ? $data['send_alert_notifications'] : null;
+        $this->container['silence_policy_id'] = isset($data['silence_policy_id']) ? $data['silence_policy_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets is_send_alert
      *
-     * @return int
+     * @return bool
      */
-    public function getTimestamp()
+    public function getIsSendAlert()
     {
-        return $this->container['timestamp'];
+        return $this->container['is_send_alert'];
     }
 
     /**
-     * Sets timestamp
+     * Sets is_send_alert
      *
-     * @param int $timestamp timestamp
+     * @param bool $is_send_alert is_send_alert
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setIsSendAlert($is_send_alert)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['is_send_alert'] = $is_send_alert;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets send_alert_notifications
      *
-     * @return double
+     * @return \Volcengine\Cloudmonitor\Model\SendAlertNotificationForListAlertOutput[]
      */
-    public function getValue()
+    public function getSendAlertNotifications()
     {
-        return $this->container['value'];
+        return $this->container['send_alert_notifications'];
     }
 
     /**
-     * Sets value
+     * Sets send_alert_notifications
      *
-     * @param double $value value
+     * @param \Volcengine\Cloudmonitor\Model\SendAlertNotificationForListAlertOutput[] $send_alert_notifications send_alert_notifications
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setSendAlertNotifications($send_alert_notifications)
     {
-        $this->container['value'] = $value;
+        $this->container['send_alert_notifications'] = $send_alert_notifications;
+
+        return $this;
+    }
+
+    /**
+     * Gets silence_policy_id
+     *
+     * @return string
+     */
+    public function getSilencePolicyId()
+    {
+        return $this->container['silence_policy_id'];
+    }
+
+    /**
+     * Sets silence_policy_id
+     *
+     * @param string $silence_policy_id silence_policy_id
+     *
+     * @return $this
+     */
+    public function setSilencePolicyId($silence_policy_id)
+    {
+        $this->container['silence_policy_id'] = $silence_policy_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

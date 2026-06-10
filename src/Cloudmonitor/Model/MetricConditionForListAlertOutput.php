@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class MetricConditionForListAlertOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'MetricConditionForListAlertOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'condition' => 'string',
+        'current_value' => 'string',
+        'metric' => 'string',
+        'trigger_condition' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'condition' => null,
+        'current_value' => null,
+        'metric' => null,
+        'trigger_condition' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'condition' => 'Condition',
+        'current_value' => 'CurrentValue',
+        'metric' => 'Metric',
+        'trigger_condition' => 'TriggerCondition'
     ];
 
     /**
@@ -79,8 +85,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'condition' => 'setCondition',
+        'current_value' => 'setCurrentValue',
+        'metric' => 'setMetric',
+        'trigger_condition' => 'setTriggerCondition'
     ];
 
     /**
@@ -89,8 +97,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'condition' => 'getCondition',
+        'current_value' => 'getCurrentValue',
+        'metric' => 'getMetric',
+        'trigger_condition' => 'getTriggerCondition'
     ];
 
     /**
@@ -153,8 +163,10 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['current_value'] = isset($data['current_value']) ? $data['current_value'] : null;
+        $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
+        $this->container['trigger_condition'] = isset($data['trigger_condition']) ? $data['trigger_condition'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets condition
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getCondition()
     {
-        return $this->container['timestamp'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets timestamp
+     * Sets condition
      *
-     * @param int $timestamp timestamp
+     * @param string $condition condition
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setCondition($condition)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['condition'] = $condition;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets current_value
      *
-     * @return double
+     * @return string
      */
-    public function getValue()
+    public function getCurrentValue()
     {
-        return $this->container['value'];
+        return $this->container['current_value'];
     }
 
     /**
-     * Sets value
+     * Sets current_value
      *
-     * @param double $value value
+     * @param string $current_value current_value
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setCurrentValue($current_value)
     {
-        $this->container['value'] = $value;
+        $this->container['current_value'] = $current_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets metric
+     *
+     * @return string
+     */
+    public function getMetric()
+    {
+        return $this->container['metric'];
+    }
+
+    /**
+     * Sets metric
+     *
+     * @param string $metric metric
+     *
+     * @return $this
+     */
+    public function setMetric($metric)
+    {
+        $this->container['metric'] = $metric;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_condition
+     *
+     * @return string
+     */
+    public function getTriggerCondition()
+    {
+        return $this->container['trigger_condition'];
+    }
+
+    /**
+     * Sets trigger_condition
+     *
+     * @param string $trigger_condition trigger_condition
+     *
+     * @return $this
+     */
+    public function setTriggerCondition($trigger_condition)
+    {
+        $this->container['trigger_condition'] = $trigger_condition;
 
         return $this;
     }

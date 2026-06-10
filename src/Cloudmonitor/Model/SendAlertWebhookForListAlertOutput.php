@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class SendAlertWebhookForListAlertOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'SendAlertWebhookForListAlertOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'err_msg' => 'string',
+        'name' => 'string',
+        'status' => 'string',
+        'success' => 'bool',
+        'type' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -38,8 +42,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'err_msg' => null,
+        'name' => null,
+        'status' => null,
+        'success' => null,
+        'type' => null,
+        'url' => null
     ];
 
     /**
@@ -69,8 +77,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'err_msg' => 'ErrMsg',
+        'name' => 'Name',
+        'status' => 'Status',
+        'success' => 'Success',
+        'type' => 'Type',
+        'url' => 'Url'
     ];
 
     /**
@@ -79,8 +91,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'err_msg' => 'setErrMsg',
+        'name' => 'setName',
+        'status' => 'setStatus',
+        'success' => 'setSuccess',
+        'type' => 'setType',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -89,8 +105,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'err_msg' => 'getErrMsg',
+        'name' => 'getName',
+        'status' => 'getStatus',
+        'success' => 'getSuccess',
+        'type' => 'getType',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -153,8 +173,12 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -182,49 +206,145 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets err_msg
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getErrMsg()
     {
-        return $this->container['timestamp'];
+        return $this->container['err_msg'];
     }
 
     /**
-     * Sets timestamp
+     * Sets err_msg
      *
-     * @param int $timestamp timestamp
+     * @param string $err_msg err_msg
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setErrMsg($err_msg)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['err_msg'] = $err_msg;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets name
      *
-     * @return double
+     * @return string
      */
-    public function getValue()
+    public function getName()
     {
-        return $this->container['value'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets value
+     * Sets name
      *
-     * @param double $value value
+     * @param string $name name
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setName($name)
     {
-        $this->container['value'] = $value;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success success
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
