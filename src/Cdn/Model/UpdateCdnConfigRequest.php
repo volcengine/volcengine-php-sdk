@@ -70,6 +70,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_header' => '\Volcengine\Cdn\Model\RequestHeaderForUpdateCdnConfigInput[]',
         'response_header' => '\Volcengine\Cdn\Model\ResponseHeaderForUpdateCdnConfigInput[]',
         'rewrite_hls' => '\Volcengine\Cdn\Model\RewriteHLSForUpdateCdnConfigInput',
+        'rule_engine' => '\Volcengine\Cdn\Model\RuleEngineForUpdateCdnConfigInput',
         'service_region' => 'string',
         'signed_url_auth' => '\Volcengine\Cdn\Model\SignedUrlAuthForUpdateCdnConfigInput',
         'timeout' => '\Volcengine\Cdn\Model\TimeoutForUpdateCdnConfigInput',
@@ -126,6 +127,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_header' => null,
         'response_header' => null,
         'rewrite_hls' => null,
+        'rule_engine' => null,
         'service_region' => null,
         'signed_url_auth' => null,
         'timeout' => null,
@@ -203,6 +205,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_header' => 'RequestHeader',
         'response_header' => 'ResponseHeader',
         'rewrite_hls' => 'RewriteHLS',
+        'rule_engine' => 'RuleEngine',
         'service_region' => 'ServiceRegion',
         'signed_url_auth' => 'SignedUrlAuth',
         'timeout' => 'Timeout',
@@ -259,6 +262,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_header' => 'setRequestHeader',
         'response_header' => 'setResponseHeader',
         'rewrite_hls' => 'setRewriteHls',
+        'rule_engine' => 'setRuleEngine',
         'service_region' => 'setServiceRegion',
         'signed_url_auth' => 'setSignedUrlAuth',
         'timeout' => 'setTimeout',
@@ -315,6 +319,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_header' => 'getRequestHeader',
         'response_header' => 'getResponseHeader',
         'rewrite_hls' => 'getRewriteHls',
+        'rule_engine' => 'getRuleEngine',
         'service_region' => 'getServiceRegion',
         'signed_url_auth' => 'getSignedUrlAuth',
         'timeout' => 'getTimeout',
@@ -425,6 +430,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['request_header'] = isset($data['request_header']) ? $data['request_header'] : null;
         $this->container['response_header'] = isset($data['response_header']) ? $data['response_header'] : null;
         $this->container['rewrite_hls'] = isset($data['rewrite_hls']) ? $data['rewrite_hls'] : null;
+        $this->container['rule_engine'] = isset($data['rule_engine']) ? $data['rule_engine'] : null;
         $this->container['service_region'] = isset($data['service_region']) ? $data['service_region'] : null;
         $this->container['signed_url_auth'] = isset($data['signed_url_auth']) ? $data['signed_url_auth'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
@@ -1464,6 +1470,30 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     public function setRewriteHls($rewrite_hls)
     {
         $this->container['rewrite_hls'] = $rewrite_hls;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_engine
+     *
+     * @return \Volcengine\Cdn\Model\RuleEngineForUpdateCdnConfigInput
+     */
+    public function getRuleEngine()
+    {
+        return $this->container['rule_engine'];
+    }
+
+    /**
+     * Sets rule_engine
+     *
+     * @param \Volcengine\Cdn\Model\RuleEngineForUpdateCdnConfigInput $rule_engine rule_engine
+     *
+     * @return $this
+     */
+    public function setRuleEngine($rule_engine)
+    {
+        $this->container['rule_engine'] = $rule_engine;
 
         return $this;
     }

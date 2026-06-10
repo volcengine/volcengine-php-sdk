@@ -28,6 +28,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cert_info_list' => '\Volcengine\Cdn\Model\CertInfoListForUpdateCdnConfigInput[]',
         'switch' => 'bool'
     ];
 
@@ -37,6 +38,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cert_info_list' => null,
         'switch' => null
     ];
 
@@ -67,6 +69,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'cert_info_list' => 'CertInfoList',
         'switch' => 'Switch'
     ];
 
@@ -76,6 +79,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'cert_info_list' => 'setCertInfoList',
         'switch' => 'setSwitch'
     ];
 
@@ -85,6 +89,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'cert_info_list' => 'getCertInfoList',
         'switch' => 'getSwitch'
     ];
 
@@ -148,6 +153,7 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
      */
     public function __construct($data = null)
     {
+        $this->container['cert_info_list'] = isset($data['cert_info_list']) ? $data['cert_info_list'] : null;
         $this->container['switch'] = isset($data['switch']) ? $data['switch'] : null;
     }
 
@@ -174,6 +180,30 @@ class OriginCertCheckForUpdateCdnConfigInput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cert_info_list
+     *
+     * @return \Volcengine\Cdn\Model\CertInfoListForUpdateCdnConfigInput[]
+     */
+    public function getCertInfoList()
+    {
+        return $this->container['cert_info_list'];
+    }
+
+    /**
+     * Sets cert_info_list
+     *
+     * @param \Volcengine\Cdn\Model\CertInfoListForUpdateCdnConfigInput[] $cert_info_list cert_info_list
+     *
+     * @return $this
+     */
+    public function setCertInfoList($cert_info_list)
+    {
+        $this->container['cert_info_list'] = $cert_info_list;
+
+        return $this;
+    }
 
     /**
      * Gets switch
