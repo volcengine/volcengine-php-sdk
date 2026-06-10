@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class FilterForDMDescribeWorkflowsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'FilterForDMDescribeWorkflowsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -139,8 +134,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
+    const KEY_NAME = 'NAME';
+    const KEY_INSTANCE_ID = 'INSTANCE_ID';
     
 
     
@@ -149,11 +144,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getZoneStatusAllowableValues()
+    public function getKeyAllowableValues()
     {
         return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
+            self::KEY_NAME,
+            self::KEY_INSTANCE_ID,
         ];
     }
     
@@ -173,9 +168,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -187,10 +181,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!is_null($this->container['key']) && !in_array($this->container['key'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
+                "invalid value for 'key', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -211,82 +205,58 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets key
      *
      * @return string
      */
-    public function getZoneId()
+    public function getKey()
     {
-        return $this->container['zone_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets zone_id
+     * Sets key
      *
-     * @param string $zone_id zone_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setKey($key)
     {
-        $this->container['zone_id'] = $zone_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_name
-     *
-     * @return string
-     */
-    public function getZoneName()
-    {
-        return $this->container['zone_name'];
-    }
-
-    /**
-     * Sets zone_name
-     *
-     * @param string $zone_name zone_name
-     *
-     * @return $this
-     */
-    public function setZoneName($zone_name)
-    {
-        $this->container['zone_name'] = $zone_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_status
-     *
-     * @return string
-     */
-    public function getZoneStatus()
-    {
-        return $this->container['zone_status'];
-    }
-
-    /**
-     * Sets zone_status
-     *
-     * @param string $zone_status zone_status
-     *
-     * @return $this
-     */
-    public function setZoneStatus($zone_status)
-    {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!is_null($key) && !in_array($key, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
+                    "Invalid value for 'key', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[] $values values
+     *
+     * @return $this
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

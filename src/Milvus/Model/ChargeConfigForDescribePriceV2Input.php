@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class ChargeConfigForDescribePriceV2Input implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'ChargeConfigForDescribePriceV2Input';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'auto_renew' => 'bool',
+        'charge_type' => 'string',
+        'period' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'auto_renew' => null,
+        'charge_type' => null,
+        'period' => 'int32'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'auto_renew' => 'AutoRenew',
+        'charge_type' => 'ChargeType',
+        'period' => 'Period'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'auto_renew' => 'setAutoRenew',
+        'charge_type' => 'setChargeType',
+        'period' => 'setPeriod'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'auto_renew' => 'getAutoRenew',
+        'charge_type' => 'getChargeType',
+        'period' => 'getPeriod'
     ];
 
     /**
@@ -139,23 +139,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +158,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
+        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
     /**
@@ -186,14 +171,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +188,73 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets auto_renew
      *
-     * @return string
+     * @return bool
      */
-    public function getZoneId()
+    public function getAutoRenew()
     {
-        return $this->container['zone_id'];
+        return $this->container['auto_renew'];
     }
 
     /**
-     * Sets zone_id
+     * Sets auto_renew
      *
-     * @param string $zone_id zone_id
+     * @param bool $auto_renew auto_renew
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setAutoRenew($auto_renew)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['auto_renew'] = $auto_renew;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets charge_type
      *
      * @return string
      */
-    public function getZoneName()
+    public function getChargeType()
     {
-        return $this->container['zone_name'];
+        return $this->container['charge_type'];
     }
 
     /**
-     * Sets zone_name
+     * Sets charge_type
      *
-     * @param string $zone_name zone_name
+     * @param string $charge_type charge_type
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setChargeType($charge_type)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['charge_type'] = $charge_type;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets period
      *
-     * @return string
+     * @return int
      */
-    public function getZoneStatus()
+    public function getPeriod()
     {
-        return $this->container['zone_status'];
+        return $this->container['period'];
     }
 
     /**
-     * Sets zone_status
+     * Sets period
      *
-     * @param string $zone_status zone_status
+     * @param int $period period
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setPeriod($period)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['period'] = $period;
 
         return $this;
     }

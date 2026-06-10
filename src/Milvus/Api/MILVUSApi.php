@@ -68,68 +68,6 @@ class MILVUSApi
         return $this->config;
     }
 
-    public function createInstance($body = null)
-    {
-        list($response) = $this->createInstanceWithHttpInfo($body);
-        return $response;
-    }
-
-    public function createInstanceWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\CreateInstanceResponse';
-        $request = $this->createInstanceRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function createInstanceAsync($body = null)
-    {
-        return $this->createInstanceAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createInstanceAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\CreateInstanceResponse';
-        $request = $this->createInstanceRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function createInstanceRequest($body)
-    {
-        $resourcePath = '/CreateInstance/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function createInstanceOneStep($body = null)
     {
         list($response) = $this->createInstanceOneStepWithHttpInfo($body);
@@ -192,23 +130,23 @@ class MILVUSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function describeAvailableSpec($body = null)
+    public function dMCreateWorkflow($body = null)
     {
-        list($response) = $this->describeAvailableSpecWithHttpInfo($body);
+        list($response) = $this->dMCreateWorkflowWithHttpInfo($body);
         return $response;
     }
 
-    public function describeAvailableSpecWithHttpInfo($body)
+    public function dMCreateWorkflowWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Milvus\Model\DescribeAvailableSpecResponse';
-        $request = $this->describeAvailableSpecRequest($body);
+        $returnType = '\Volcengine\Milvus\Model\DMCreateWorkflowResponse';
+        $request = $this->dMCreateWorkflowRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function describeAvailableSpecAsync($body = null)
+    public function dMCreateWorkflowAsync($body = null)
     {
-        return $this->describeAvailableSpecAsyncWithHttpInfo($body)
+        return $this->dMCreateWorkflowAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -216,16 +154,450 @@ class MILVUSApi
             );
     }
 
-    public function describeAvailableSpecAsyncWithHttpInfo($body)
+    public function dMCreateWorkflowAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Milvus\Model\DescribeAvailableSpecResponse';
-        $request = $this->describeAvailableSpecRequest($body);
+        $returnType = '\Volcengine\Milvus\Model\DMCreateWorkflowResponse';
+        $request = $this->dMCreateWorkflowRequest($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function describeAvailableSpecRequest($body)
+    protected function dMCreateWorkflowRequest($body)
     {
-        $resourcePath = '/DescribeAvailableSpec/2023-01-01/milvus/post/application_json/';
+        $resourcePath = '/DMCreateWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMDeleteWorkflow($body = null)
+    {
+        list($response) = $this->dMDeleteWorkflowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMDeleteWorkflowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDeleteWorkflowResponse';
+        $request = $this->dMDeleteWorkflowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMDeleteWorkflowAsync($body = null)
+    {
+        return $this->dMDeleteWorkflowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMDeleteWorkflowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDeleteWorkflowResponse';
+        $request = $this->dMDeleteWorkflowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMDeleteWorkflowRequest($body)
+    {
+        $resourcePath = '/DMDeleteWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMDescribeWorkflow($body = null)
+    {
+        list($response) = $this->dMDescribeWorkflowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMDescribeWorkflowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDescribeWorkflowResponse';
+        $request = $this->dMDescribeWorkflowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMDescribeWorkflowAsync($body = null)
+    {
+        return $this->dMDescribeWorkflowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMDescribeWorkflowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDescribeWorkflowResponse';
+        $request = $this->dMDescribeWorkflowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMDescribeWorkflowRequest($body)
+    {
+        $resourcePath = '/DMDescribeWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMDescribeWorkflows($body = null)
+    {
+        list($response) = $this->dMDescribeWorkflowsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMDescribeWorkflowsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDescribeWorkflowsResponse';
+        $request = $this->dMDescribeWorkflowsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMDescribeWorkflowsAsync($body = null)
+    {
+        return $this->dMDescribeWorkflowsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMDescribeWorkflowsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMDescribeWorkflowsResponse';
+        $request = $this->dMDescribeWorkflowsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMDescribeWorkflowsRequest($body)
+    {
+        $resourcePath = '/DMDescribeWorkflows/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMStartWorkflow($body = null)
+    {
+        list($response) = $this->dMStartWorkflowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMStartWorkflowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMStartWorkflowResponse';
+        $request = $this->dMStartWorkflowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMStartWorkflowAsync($body = null)
+    {
+        return $this->dMStartWorkflowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMStartWorkflowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMStartWorkflowResponse';
+        $request = $this->dMStartWorkflowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMStartWorkflowRequest($body)
+    {
+        $resourcePath = '/DMStartWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMStopWorkflow($body = null)
+    {
+        list($response) = $this->dMStopWorkflowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMStopWorkflowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMStopWorkflowResponse';
+        $request = $this->dMStopWorkflowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMStopWorkflowAsync($body = null)
+    {
+        return $this->dMStopWorkflowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMStopWorkflowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMStopWorkflowResponse';
+        $request = $this->dMStopWorkflowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMStopWorkflowRequest($body)
+    {
+        $resourcePath = '/DMStopWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function dMUpdateWorkflow($body = null)
+    {
+        list($response) = $this->dMUpdateWorkflowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function dMUpdateWorkflowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMUpdateWorkflowResponse';
+        $request = $this->dMUpdateWorkflowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function dMUpdateWorkflowAsync($body = null)
+    {
+        return $this->dMUpdateWorkflowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function dMUpdateWorkflowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DMUpdateWorkflowResponse';
+        $request = $this->dMUpdateWorkflowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function dMUpdateWorkflowRequest($body)
+    {
+        $resourcePath = '/DMUpdateWorkflow/2023-01-01/milvus/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeAvailableSpecV2($body = null)
+    {
+        list($response) = $this->describeAvailableSpecV2WithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAvailableSpecV2WithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DescribeAvailableSpecV2Response';
+        $request = $this->describeAvailableSpecV2Request($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAvailableSpecV2Async($body = null)
+    {
+        return $this->describeAvailableSpecV2AsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAvailableSpecV2AsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Milvus\Model\DescribeAvailableSpecV2Response';
+        $request = $this->describeAvailableSpecV2Request($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAvailableSpecV2Request($body)
+    {
+        $resourcePath = '/DescribeAvailableSpecV2/2023-01-01/milvus/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -626,23 +998,23 @@ class MILVUSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function describePrice($body = null)
+    public function describePriceV2($body = null)
     {
-        list($response) = $this->describePriceWithHttpInfo($body);
+        list($response) = $this->describePriceV2WithHttpInfo($body);
         return $response;
     }
 
-    public function describePriceWithHttpInfo($body)
+    public function describePriceV2WithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Milvus\Model\DescribePriceResponse';
-        $request = $this->describePriceRequest($body);
+        $returnType = '\Volcengine\Milvus\Model\DescribePriceV2Response';
+        $request = $this->describePriceV2Request($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function describePriceAsync($body = null)
+    public function describePriceV2Async($body = null)
     {
-        return $this->describePriceAsyncWithHttpInfo($body)
+        return $this->describePriceV2AsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -650,16 +1022,16 @@ class MILVUSApi
             );
     }
 
-    public function describePriceAsyncWithHttpInfo($body)
+    public function describePriceV2AsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Milvus\Model\DescribePriceResponse';
-        $request = $this->describePriceRequest($body);
+        $returnType = '\Volcengine\Milvus\Model\DescribePriceV2Response';
+        $request = $this->describePriceV2Request($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function describePriceRequest($body)
+    protected function describePriceV2Request($body)
     {
-        $resourcePath = '/DescribePrice/2023-01-01/milvus/post/application_json/';
+        $resourcePath = '/DescribePriceV2/2023-01-01/milvus/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -722,68 +1094,6 @@ class MILVUSApi
     protected function describeZonesRequest($body)
     {
         $resourcePath = '/DescribeZones/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function listTagsForResources($body = null)
-    {
-        list($response) = $this->listTagsForResourcesWithHttpInfo($body);
-        return $response;
-    }
-
-    public function listTagsForResourcesWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ListTagsForResourcesResponse';
-        $request = $this->listTagsForResourcesRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function listTagsForResourcesAsync($body = null)
-    {
-        return $this->listTagsForResourcesAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function listTagsForResourcesAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ListTagsForResourcesResponse';
-        $request = $this->listTagsForResourcesRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function listTagsForResourcesRequest($body)
-    {
-        $resourcePath = '/ListTagsForResources/2023-01-01/milvus/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1432,192 +1742,6 @@ class MILVUSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function modifyPostPaid($body = null)
-    {
-        list($response) = $this->modifyPostPaidWithHttpInfo($body);
-        return $response;
-    }
-
-    public function modifyPostPaidWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyPostPaidResponse';
-        $request = $this->modifyPostPaidRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function modifyPostPaidAsync($body = null)
-    {
-        return $this->modifyPostPaidAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function modifyPostPaidAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyPostPaidResponse';
-        $request = $this->modifyPostPaidRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function modifyPostPaidRequest($body)
-    {
-        $resourcePath = '/ModifyPostPaid/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function modifyPrePaid($body = null)
-    {
-        list($response) = $this->modifyPrePaidWithHttpInfo($body);
-        return $response;
-    }
-
-    public function modifyPrePaidWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyPrePaidResponse';
-        $request = $this->modifyPrePaidRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function modifyPrePaidAsync($body = null)
-    {
-        return $this->modifyPrePaidAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function modifyPrePaidAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyPrePaidResponse';
-        $request = $this->modifyPrePaidRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function modifyPrePaidRequest($body)
-    {
-        $resourcePath = '/ModifyPrePaid/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function modifyResourceTags($body = null)
-    {
-        list($response) = $this->modifyResourceTagsWithHttpInfo($body);
-        return $response;
-    }
-
-    public function modifyResourceTagsWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyResourceTagsResponse';
-        $request = $this->modifyResourceTagsRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function modifyResourceTagsAsync($body = null)
-    {
-        return $this->modifyResourceTagsAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function modifyResourceTagsAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\ModifyResourceTagsResponse';
-        $request = $this->modifyResourceTagsRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function modifyResourceTagsRequest($body)
-    {
-        $resourcePath = '/ModifyResourceTags/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function releaseInstance($body = null)
     {
         list($response) = $this->releaseInstanceWithHttpInfo($body);
@@ -1714,130 +1838,6 @@ class MILVUSApi
     protected function scaleInstanceRequest($body)
     {
         $resourcePath = '/ScaleInstance/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function tagResources($body = null)
-    {
-        list($response) = $this->tagResourcesWithHttpInfo($body);
-        return $response;
-    }
-
-    public function tagResourcesWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\TagResourcesResponse';
-        $request = $this->tagResourcesRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function tagResourcesAsync($body = null)
-    {
-        return $this->tagResourcesAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function tagResourcesAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\TagResourcesResponse';
-        $request = $this->tagResourcesRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function tagResourcesRequest($body)
-    {
-        $resourcePath = '/TagResources/2023-01-01/milvus/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function untagResources($body = null)
-    {
-        list($response) = $this->untagResourcesWithHttpInfo($body);
-        return $response;
-    }
-
-    public function untagResourcesWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\UntagResourcesResponse';
-        $request = $this->untagResourcesRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function untagResourcesAsync($body = null)
-    {
-        return $this->untagResourcesAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function untagResourcesAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Milvus\Model\UntagResourcesResponse';
-        $request = $this->untagResourcesRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function untagResourcesRequest($body)
-    {
-        $resourcePath = '/UntagResources/2023-01-01/milvus/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

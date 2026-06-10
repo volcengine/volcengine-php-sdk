@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class ComponentSpecListForDescribePriceV2Input implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'ComponentSpecListForDescribePriceV2Input';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'node_num' => 'int',
+        'node_type' => 'string',
+        'resource_spec_name' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'node_num' => 'int32',
+        'node_type' => null,
+        'resource_spec_name' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'node_num' => 'NodeNum',
+        'node_type' => 'NodeType',
+        'resource_spec_name' => 'ResourceSpecName'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'node_num' => 'setNodeNum',
+        'node_type' => 'setNodeType',
+        'resource_spec_name' => 'setResourceSpecName'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'node_num' => 'getNodeNum',
+        'node_type' => 'getNodeType',
+        'resource_spec_name' => 'getResourceSpecName'
     ];
 
     /**
@@ -139,8 +139,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
+    const NODE_TYPE_META_NODE = 'META_NODE';
+    const NODE_TYPE_DATA_NODE = 'DATA_NODE';
+    const NODE_TYPE_PROXY_NODE = 'PROXY_NODE';
+    const NODE_TYPE_INDEX_NODE = 'INDEX_NODE';
+    const NODE_TYPE_QUERY_NODE = 'QUERY_NODE';
+    const NODE_TYPE_STREAMING_NODE = 'STREAMING_NODE';
     
 
     
@@ -149,11 +153,15 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getZoneStatusAllowableValues()
+    public function getNodeTypeAllowableValues()
     {
         return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
+            self::NODE_TYPE_META_NODE,
+            self::NODE_TYPE_DATA_NODE,
+            self::NODE_TYPE_PROXY_NODE,
+            self::NODE_TYPE_INDEX_NODE,
+            self::NODE_TYPE_QUERY_NODE,
+            self::NODE_TYPE_STREAMING_NODE,
         ];
     }
     
@@ -173,9 +181,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['node_num'] = isset($data['node_num']) ? $data['node_num'] : null;
+        $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
+        $this->container['resource_spec_name'] = isset($data['resource_spec_name']) ? $data['resource_spec_name'] : null;
     }
 
     /**
@@ -187,10 +195,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
+        $allowedValues = $this->getNodeTypeAllowableValues();
+        if (!is_null($this->container['node_type']) && !in_array($this->container['node_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
+                "invalid value for 'node_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -211,82 +219,82 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets node_num
      *
-     * @return string
+     * @return int
      */
-    public function getZoneId()
+    public function getNodeNum()
     {
-        return $this->container['zone_id'];
+        return $this->container['node_num'];
     }
 
     /**
-     * Sets zone_id
+     * Sets node_num
      *
-     * @param string $zone_id zone_id
+     * @param int $node_num node_num
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setNodeNum($node_num)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['node_num'] = $node_num;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets node_type
      *
      * @return string
      */
-    public function getZoneName()
+    public function getNodeType()
     {
-        return $this->container['zone_name'];
+        return $this->container['node_type'];
     }
 
     /**
-     * Sets zone_name
+     * Sets node_type
      *
-     * @param string $zone_name zone_name
+     * @param string $node_type node_type
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setNodeType($node_type)
     {
-        $this->container['zone_name'] = $zone_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_status
-     *
-     * @return string
-     */
-    public function getZoneStatus()
-    {
-        return $this->container['zone_status'];
-    }
-
-    /**
-     * Sets zone_status
-     *
-     * @param string $zone_status zone_status
-     *
-     * @return $this
-     */
-    public function setZoneStatus($zone_status)
-    {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
+        $allowedValues = $this->getNodeTypeAllowableValues();
+        if (!is_null($node_type) && !in_array($node_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
+                    "Invalid value for 'node_type', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['node_type'] = $node_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_spec_name
+     *
+     * @return string
+     */
+    public function getResourceSpecName()
+    {
+        return $this->container['resource_spec_name'];
+    }
+
+    /**
+     * Sets resource_spec_name
+     *
+     * @param string $resource_spec_name resource_spec_name
+     *
+     * @return $this
+     */
+    public function setResourceSpecName($resource_spec_name)
+    {
+        $this->container['resource_spec_name'] = $resource_spec_name;
 
         return $this;
     }

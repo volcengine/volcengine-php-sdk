@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class DMDescribeWorkflowsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'DMDescribeWorkflowsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'filters' => '\Volcengine\Milvus\Model\FilterForDMDescribeWorkflowsInput[]',
+        'orders' => '\Volcengine\Milvus\Model\OrderForDMDescribeWorkflowsInput[]',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'filters' => null,
+        'orders' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32'
     ];
 
     /**
@@ -71,9 +73,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'filters' => 'Filters',
+        'orders' => 'Orders',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'filters' => 'setFilters',
+        'orders' => 'setOrders',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'filters' => 'getFilters',
+        'orders' => 'getOrders',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -139,23 +144,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +163,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -186,14 +177,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +194,97 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets filters
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\FilterForDMDescribeWorkflowsInput[]
      */
-    public function getZoneId()
+    public function getFilters()
     {
-        return $this->container['zone_id'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets zone_id
+     * Sets filters
      *
-     * @param string $zone_id zone_id
+     * @param \Volcengine\Milvus\Model\FilterForDMDescribeWorkflowsInput[] $filters filters
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setFilters($filters)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['filters'] = $filters;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets orders
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\OrderForDMDescribeWorkflowsInput[]
      */
-    public function getZoneName()
+    public function getOrders()
     {
-        return $this->container['zone_name'];
+        return $this->container['orders'];
     }
 
     /**
-     * Sets zone_name
+     * Sets orders
      *
-     * @param string $zone_name zone_name
+     * @param \Volcengine\Milvus\Model\OrderForDMDescribeWorkflowsInput[] $orders orders
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setOrders($orders)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['orders'] = $orders;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getZoneStatus()
+    public function getPageNumber()
     {
-        return $this->container['zone_status'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets zone_status
+     * Sets page_number
      *
-     * @param string $zone_status zone_status
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setPageNumber($page_number)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

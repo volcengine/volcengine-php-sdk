@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class DescribePriceV2Request implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'DescribePriceV2Request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'charge_config' => '\Volcengine\Milvus\Model\ChargeConfigForDescribePriceV2Input',
+        'component_spec_list' => '\Volcengine\Milvus\Model\ComponentSpecListForDescribePriceV2Input[]',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'charge_config' => null,
+        'component_spec_list' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'charge_config' => 'ChargeConfig',
+        'component_spec_list' => 'ComponentSpecList',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'charge_config' => 'setChargeConfig',
+        'component_spec_list' => 'setComponentSpecList',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'charge_config' => 'getChargeConfig',
+        'component_spec_list' => 'getComponentSpecList',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -139,23 +139,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +158,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['charge_config'] = isset($data['charge_config']) ? $data['charge_config'] : null;
+        $this->container['component_spec_list'] = isset($data['component_spec_list']) ? $data['component_spec_list'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -186,14 +171,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +188,73 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets charge_config
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\ChargeConfigForDescribePriceV2Input
      */
-    public function getZoneId()
+    public function getChargeConfig()
     {
-        return $this->container['zone_id'];
+        return $this->container['charge_config'];
     }
 
     /**
-     * Sets zone_id
+     * Sets charge_config
      *
-     * @param string $zone_id zone_id
+     * @param \Volcengine\Milvus\Model\ChargeConfigForDescribePriceV2Input $charge_config charge_config
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setChargeConfig($charge_config)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['charge_config'] = $charge_config;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets component_spec_list
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\ComponentSpecListForDescribePriceV2Input[]
      */
-    public function getZoneName()
+    public function getComponentSpecList()
     {
-        return $this->container['zone_name'];
+        return $this->container['component_spec_list'];
     }
 
     /**
-     * Sets zone_name
+     * Sets component_spec_list
      *
-     * @param string $zone_name zone_name
+     * @param \Volcengine\Milvus\Model\ComponentSpecListForDescribePriceV2Input[] $component_spec_list component_spec_list
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setComponentSpecList($component_spec_list)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['component_spec_list'] = $component_spec_list;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets instance_id
      *
      * @return string
      */
-    public function getZoneStatus()
+    public function getInstanceId()
     {
-        return $this->container['zone_status'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets zone_status
+     * Sets instance_id
      *
-     * @param string $zone_status zone_status
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setInstanceId($instance_id)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

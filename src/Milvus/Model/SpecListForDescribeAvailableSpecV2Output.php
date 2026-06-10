@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class SpecListForDescribeAvailableSpecV2Output implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'SpecListForDescribeAvailableSpecV2Output';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'cpu' => 'int',
+        'display_name' => 'string',
+        'item_type' => 'string',
+        'memory' => 'int',
+        'spec_name' => 'string',
+        'spec_type' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'cpu' => 'int64',
+        'display_name' => null,
+        'item_type' => null,
+        'memory' => 'int64',
+        'spec_name' => null,
+        'spec_type' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'cpu' => 'Cpu',
+        'display_name' => 'DisplayName',
+        'item_type' => 'ItemType',
+        'memory' => 'Memory',
+        'spec_name' => 'SpecName',
+        'spec_type' => 'SpecType'
     ];
 
     /**
@@ -82,9 +91,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'cpu' => 'setCpu',
+        'display_name' => 'setDisplayName',
+        'item_type' => 'setItemType',
+        'memory' => 'setMemory',
+        'spec_name' => 'setSpecName',
+        'spec_type' => 'setSpecType'
     ];
 
     /**
@@ -93,9 +105,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'cpu' => 'getCpu',
+        'display_name' => 'getDisplayName',
+        'item_type' => 'getItemType',
+        'memory' => 'getMemory',
+        'spec_name' => 'getSpecName',
+        'spec_type' => 'getSpecType'
     ];
 
     /**
@@ -139,8 +154,10 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
+    const ITEM_TYPE_PERFORMANCE = 'PERFORMANCE';
+    const ITEM_TYPE_CAPACITY = 'CAPACITY';
+    const SPEC_TYPE_CU = 'CU';
+    const SPEC_TYPE_GPU = 'GPU';
     
 
     
@@ -149,11 +166,24 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getZoneStatusAllowableValues()
+    public function getItemTypeAllowableValues()
     {
         return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
+            self::ITEM_TYPE_PERFORMANCE,
+            self::ITEM_TYPE_CAPACITY,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpecTypeAllowableValues()
+    {
+        return [
+            self::SPEC_TYPE_CU,
+            self::SPEC_TYPE_GPU,
         ];
     }
     
@@ -173,9 +203,12 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['item_type'] = isset($data['item_type']) ? $data['item_type'] : null;
+        $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
+        $this->container['spec_name'] = isset($data['spec_name']) ? $data['spec_name'] : null;
+        $this->container['spec_type'] = isset($data['spec_type']) ? $data['spec_type'] : null;
     }
 
     /**
@@ -187,10 +220,18 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
+        $allowedValues = $this->getItemTypeAllowableValues();
+        if (!is_null($this->container['item_type']) && !in_array($this->container['item_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
+                "invalid value for 'item_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpecTypeAllowableValues();
+        if (!is_null($this->container['spec_type']) && !in_array($this->container['spec_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'spec_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -211,82 +252,163 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets cpu
      *
-     * @return string
+     * @return int
      */
-    public function getZoneId()
+    public function getCpu()
     {
-        return $this->container['zone_id'];
+        return $this->container['cpu'];
     }
 
     /**
-     * Sets zone_id
+     * Sets cpu
      *
-     * @param string $zone_id zone_id
+     * @param int $cpu cpu
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setCpu($cpu)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['cpu'] = $cpu;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets display_name
      *
      * @return string
      */
-    public function getZoneName()
+    public function getDisplayName()
     {
-        return $this->container['zone_name'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets zone_name
+     * Sets display_name
      *
-     * @param string $zone_name zone_name
+     * @param string $display_name display_name
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setDisplayName($display_name)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets item_type
      *
      * @return string
      */
-    public function getZoneStatus()
+    public function getItemType()
     {
-        return $this->container['zone_status'];
+        return $this->container['item_type'];
     }
 
     /**
-     * Sets zone_status
+     * Sets item_type
      *
-     * @param string $zone_status zone_status
+     * @param string $item_type item_type
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setItemType($item_type)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
+        $allowedValues = $this->getItemTypeAllowableValues();
+        if (!is_null($item_type) && !in_array($item_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
+                    "Invalid value for 'item_type', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['item_type'] = $item_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets memory
+     *
+     * @return int
+     */
+    public function getMemory()
+    {
+        return $this->container['memory'];
+    }
+
+    /**
+     * Sets memory
+     *
+     * @param int $memory memory
+     *
+     * @return $this
+     */
+    public function setMemory($memory)
+    {
+        $this->container['memory'] = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets spec_name
+     *
+     * @return string
+     */
+    public function getSpecName()
+    {
+        return $this->container['spec_name'];
+    }
+
+    /**
+     * Sets spec_name
+     *
+     * @param string $spec_name spec_name
+     *
+     * @return $this
+     */
+    public function setSpecName($spec_name)
+    {
+        $this->container['spec_name'] = $spec_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets spec_type
+     *
+     * @return string
+     */
+    public function getSpecType()
+    {
+        return $this->container['spec_type'];
+    }
+
+    /**
+     * Sets spec_type
+     *
+     * @param string $spec_type spec_type
+     *
+     * @return $this
+     */
+    public function setSpecType($spec_type)
+    {
+        $allowedValues = $this->getSpecTypeAllowableValues();
+        if (!is_null($spec_type) && !in_array($spec_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'spec_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spec_type'] = $spec_type;
 
         return $this;
     }
