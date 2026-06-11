@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
+class FatLogForDescribeFatLogsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'HotKeyForDescribeHotKeysOutput';
+    protected static $swaggerModelName = 'FatLogForDescribeFatLogsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,13 +29,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'action_type' => 'string',
-        'create_time' => 'string',
-        'db_name' => 'string',
-        'key_info' => 'string',
-        'key_type' => 'string',
-        'node_id' => 'string',
-        'query_count' => 'string',
-        'shard_id' => 'string'
+        'client_address' => 'string',
+        'client_name' => 'string',
+        'cmd' => 'string',
+        'cmd_length' => 'string',
+        'execution_start_time' => 'string',
+        'instance_id' => 'string',
+        'log_id' => 'string',
+        'node_id' => 'string'
     ];
 
     /**
@@ -45,13 +46,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'action_type' => null,
-        'create_time' => null,
-        'db_name' => null,
-        'key_info' => null,
-        'key_type' => null,
-        'node_id' => null,
-        'query_count' => null,
-        'shard_id' => null
+        'client_address' => null,
+        'client_name' => null,
+        'cmd' => null,
+        'cmd_length' => null,
+        'execution_start_time' => null,
+        'instance_id' => null,
+        'log_id' => null,
+        'node_id' => null
     ];
 
     /**
@@ -82,13 +84,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'action_type' => 'ActionType',
-        'create_time' => 'CreateTime',
-        'db_name' => 'DBName',
-        'key_info' => 'KeyInfo',
-        'key_type' => 'KeyType',
-        'node_id' => 'NodeId',
-        'query_count' => 'QueryCount',
-        'shard_id' => 'ShardId'
+        'client_address' => 'ClientAddress',
+        'client_name' => 'ClientName',
+        'cmd' => 'Cmd',
+        'cmd_length' => 'CmdLength',
+        'execution_start_time' => 'ExecutionStartTime',
+        'instance_id' => 'InstanceId',
+        'log_id' => 'LogId',
+        'node_id' => 'NodeId'
     ];
 
     /**
@@ -98,13 +101,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'action_type' => 'setActionType',
-        'create_time' => 'setCreateTime',
-        'db_name' => 'setDbName',
-        'key_info' => 'setKeyInfo',
-        'key_type' => 'setKeyType',
-        'node_id' => 'setNodeId',
-        'query_count' => 'setQueryCount',
-        'shard_id' => 'setShardId'
+        'client_address' => 'setClientAddress',
+        'client_name' => 'setClientName',
+        'cmd' => 'setCmd',
+        'cmd_length' => 'setCmdLength',
+        'execution_start_time' => 'setExecutionStartTime',
+        'instance_id' => 'setInstanceId',
+        'log_id' => 'setLogId',
+        'node_id' => 'setNodeId'
     ];
 
     /**
@@ -114,13 +118,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'action_type' => 'getActionType',
-        'create_time' => 'getCreateTime',
-        'db_name' => 'getDbName',
-        'key_info' => 'getKeyInfo',
-        'key_type' => 'getKeyType',
-        'node_id' => 'getNodeId',
-        'query_count' => 'getQueryCount',
-        'shard_id' => 'getShardId'
+        'client_address' => 'getClientAddress',
+        'client_name' => 'getClientName',
+        'cmd' => 'getCmd',
+        'cmd_length' => 'getCmdLength',
+        'execution_start_time' => 'getExecutionStartTime',
+        'instance_id' => 'getInstanceId',
+        'log_id' => 'getLogId',
+        'node_id' => 'getNodeId'
     ];
 
     /**
@@ -184,13 +189,14 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
-        $this->container['key_info'] = isset($data['key_info']) ? $data['key_info'] : null;
-        $this->container['key_type'] = isset($data['key_type']) ? $data['key_type'] : null;
+        $this->container['client_address'] = isset($data['client_address']) ? $data['client_address'] : null;
+        $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
+        $this->container['cmd'] = isset($data['cmd']) ? $data['cmd'] : null;
+        $this->container['cmd_length'] = isset($data['cmd_length']) ? $data['cmd_length'] : null;
+        $this->container['execution_start_time'] = isset($data['execution_start_time']) ? $data['execution_start_time'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['log_id'] = isset($data['log_id']) ? $data['log_id'] : null;
         $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
-        $this->container['query_count'] = isset($data['query_count']) ? $data['query_count'] : null;
-        $this->container['shard_id'] = isset($data['shard_id']) ? $data['shard_id'] : null;
     }
 
     /**
@@ -242,97 +248,169 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets create_time
+     * Gets client_address
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getClientAddress()
     {
-        return $this->container['create_time'];
+        return $this->container['client_address'];
     }
 
     /**
-     * Sets create_time
+     * Sets client_address
      *
-     * @param string $create_time create_time
+     * @param string $client_address client_address
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setClientAddress($client_address)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['client_address'] = $client_address;
 
         return $this;
     }
 
     /**
-     * Gets db_name
+     * Gets client_name
      *
      * @return string
      */
-    public function getDbName()
+    public function getClientName()
     {
-        return $this->container['db_name'];
+        return $this->container['client_name'];
     }
 
     /**
-     * Sets db_name
+     * Sets client_name
      *
-     * @param string $db_name db_name
+     * @param string $client_name client_name
      *
      * @return $this
      */
-    public function setDbName($db_name)
+    public function setClientName($client_name)
     {
-        $this->container['db_name'] = $db_name;
+        $this->container['client_name'] = $client_name;
 
         return $this;
     }
 
     /**
-     * Gets key_info
+     * Gets cmd
      *
      * @return string
      */
-    public function getKeyInfo()
+    public function getCmd()
     {
-        return $this->container['key_info'];
+        return $this->container['cmd'];
     }
 
     /**
-     * Sets key_info
+     * Sets cmd
      *
-     * @param string $key_info key_info
+     * @param string $cmd cmd
      *
      * @return $this
      */
-    public function setKeyInfo($key_info)
+    public function setCmd($cmd)
     {
-        $this->container['key_info'] = $key_info;
+        $this->container['cmd'] = $cmd;
 
         return $this;
     }
 
     /**
-     * Gets key_type
+     * Gets cmd_length
      *
      * @return string
      */
-    public function getKeyType()
+    public function getCmdLength()
     {
-        return $this->container['key_type'];
+        return $this->container['cmd_length'];
     }
 
     /**
-     * Sets key_type
+     * Sets cmd_length
      *
-     * @param string $key_type key_type
+     * @param string $cmd_length cmd_length
      *
      * @return $this
      */
-    public function setKeyType($key_type)
+    public function setCmdLength($cmd_length)
     {
-        $this->container['key_type'] = $key_type;
+        $this->container['cmd_length'] = $cmd_length;
+
+        return $this;
+    }
+
+    /**
+     * Gets execution_start_time
+     *
+     * @return string
+     */
+    public function getExecutionStartTime()
+    {
+        return $this->container['execution_start_time'];
+    }
+
+    /**
+     * Sets execution_start_time
+     *
+     * @param string $execution_start_time execution_start_time
+     *
+     * @return $this
+     */
+    public function setExecutionStartTime($execution_start_time)
+    {
+        $this->container['execution_start_time'] = $execution_start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_id
+     *
+     * @return string
+     */
+    public function getLogId()
+    {
+        return $this->container['log_id'];
+    }
+
+    /**
+     * Sets log_id
+     *
+     * @param string $log_id log_id
+     *
+     * @return $this
+     */
+    public function setLogId($log_id)
+    {
+        $this->container['log_id'] = $log_id;
 
         return $this;
     }
@@ -357,54 +435,6 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
     public function setNodeId($node_id)
     {
         $this->container['node_id'] = $node_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_count
-     *
-     * @return string
-     */
-    public function getQueryCount()
-    {
-        return $this->container['query_count'];
-    }
-
-    /**
-     * Sets query_count
-     *
-     * @param string $query_count query_count
-     *
-     * @return $this
-     */
-    public function setQueryCount($query_count)
-    {
-        $this->container['query_count'] = $query_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets shard_id
-     *
-     * @return string
-     */
-    public function getShardId()
-    {
-        return $this->container['shard_id'];
-    }
-
-    /**
-     * Sets shard_id
-     *
-     * @param string $shard_id shard_id
-     *
-     * @return $this
-     */
-    public function setShardId($shard_id)
-    {
-        $this->container['shard_id'] = $shard_id;
 
         return $this;
     }

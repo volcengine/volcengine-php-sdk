@@ -30,6 +30,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     protected static $swaggerTypes = [
         'account_id' => 'int',
         'arch_type' => 'string',
+        'blue_green_role' => 'string',
         'charge_type' => 'string',
         'deletion_protection' => 'string',
         'engine_version' => 'string',
@@ -55,6 +56,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     protected static $swaggerFormats = [
         'account_id' => 'int64',
         'arch_type' => null,
+        'blue_green_role' => null,
         'charge_type' => null,
         'deletion_protection' => null,
         'engine_version' => null,
@@ -101,6 +103,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'arch_type' => 'ArchType',
+        'blue_green_role' => 'BlueGreenRole',
         'charge_type' => 'ChargeType',
         'deletion_protection' => 'DeletionProtection',
         'engine_version' => 'EngineVersion',
@@ -126,6 +129,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     protected static $setters = [
         'account_id' => 'setAccountId',
         'arch_type' => 'setArchType',
+        'blue_green_role' => 'setBlueGreenRole',
         'charge_type' => 'setChargeType',
         'deletion_protection' => 'setDeletionProtection',
         'engine_version' => 'setEngineVersion',
@@ -151,6 +155,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     protected static $getters = [
         'account_id' => 'getAccountId',
         'arch_type' => 'getArchType',
+        'blue_green_role' => 'getBlueGreenRole',
         'charge_type' => 'getChargeType',
         'deletion_protection' => 'getDeletionProtection',
         'engine_version' => 'getEngineVersion',
@@ -209,8 +214,23 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
         return self::$swaggerModelName;
     }
 
+    const BLUE_GREEN_ROLE_BLUE = 'Blue';
+    const BLUE_GREEN_ROLE_GREEN = 'Green';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBlueGreenRoleAllowableValues()
+    {
+        return [
+            self::BLUE_GREEN_ROLE_BLUE,
+            self::BLUE_GREEN_ROLE_GREEN,
+        ];
+    }
     
 
     /**
@@ -230,6 +250,7 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['arch_type'] = isset($data['arch_type']) ? $data['arch_type'] : null;
+        $this->container['blue_green_role'] = isset($data['blue_green_role']) ? $data['blue_green_role'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['engine_version'] = isset($data['engine_version']) ? $data['engine_version'] : null;
@@ -255,6 +276,14 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getBlueGreenRoleAllowableValues();
+        if (!is_null($this->container['blue_green_role']) && !in_array($this->container['blue_green_role'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'blue_green_role', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -315,6 +344,39 @@ class InstanceInfoForDescribeCrossRegionBackupsOutput implements ModelInterface,
     public function setArchType($arch_type)
     {
         $this->container['arch_type'] = $arch_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets blue_green_role
+     *
+     * @return string
+     */
+    public function getBlueGreenRole()
+    {
+        return $this->container['blue_green_role'];
+    }
+
+    /**
+     * Sets blue_green_role
+     *
+     * @param string $blue_green_role blue_green_role
+     *
+     * @return $this
+     */
+    public function setBlueGreenRole($blue_green_role)
+    {
+        $allowedValues = $this->getBlueGreenRoleAllowableValues();
+        if (!is_null($blue_green_role) && !in_array($blue_green_role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'blue_green_role', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['blue_green_role'] = $blue_green_role;
 
         return $this;
     }

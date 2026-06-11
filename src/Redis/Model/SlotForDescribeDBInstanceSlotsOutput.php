@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
+class SlotForDescribeDBInstanceSlotsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'HotKeyForDescribeHotKeysOutput';
+    protected static $swaggerModelName = 'SlotForDescribeDBInstanceSlotsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action_type' => 'string',
-        'create_time' => 'string',
-        'db_name' => 'string',
-        'key_info' => 'string',
-        'key_type' => 'string',
-        'node_id' => 'string',
-        'query_count' => 'string',
-        'shard_id' => 'string'
+        'shard_id' => 'int',
+        'slots' => 'string[]'
     ];
 
     /**
@@ -44,14 +38,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action_type' => null,
-        'create_time' => null,
-        'db_name' => null,
-        'key_info' => null,
-        'key_type' => null,
-        'node_id' => null,
-        'query_count' => null,
-        'shard_id' => null
+        'shard_id' => 'int32',
+        'slots' => null
     ];
 
     /**
@@ -81,14 +69,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action_type' => 'ActionType',
-        'create_time' => 'CreateTime',
-        'db_name' => 'DBName',
-        'key_info' => 'KeyInfo',
-        'key_type' => 'KeyType',
-        'node_id' => 'NodeId',
-        'query_count' => 'QueryCount',
-        'shard_id' => 'ShardId'
+        'shard_id' => 'ShardId',
+        'slots' => 'Slots'
     ];
 
     /**
@@ -97,14 +79,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action_type' => 'setActionType',
-        'create_time' => 'setCreateTime',
-        'db_name' => 'setDbName',
-        'key_info' => 'setKeyInfo',
-        'key_type' => 'setKeyType',
-        'node_id' => 'setNodeId',
-        'query_count' => 'setQueryCount',
-        'shard_id' => 'setShardId'
+        'shard_id' => 'setShardId',
+        'slots' => 'setSlots'
     ];
 
     /**
@@ -113,14 +89,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action_type' => 'getActionType',
-        'create_time' => 'getCreateTime',
-        'db_name' => 'getDbName',
-        'key_info' => 'getKeyInfo',
-        'key_type' => 'getKeyType',
-        'node_id' => 'getNodeId',
-        'query_count' => 'getQueryCount',
-        'shard_id' => 'getShardId'
+        'shard_id' => 'getShardId',
+        'slots' => 'getSlots'
     ];
 
     /**
@@ -183,14 +153,8 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
-        $this->container['key_info'] = isset($data['key_info']) ? $data['key_info'] : null;
-        $this->container['key_type'] = isset($data['key_type']) ? $data['key_type'] : null;
-        $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
-        $this->container['query_count'] = isset($data['query_count']) ? $data['query_count'] : null;
         $this->container['shard_id'] = isset($data['shard_id']) ? $data['shard_id'] : null;
+        $this->container['slots'] = isset($data['slots']) ? $data['slots'] : null;
     }
 
     /**
@@ -218,177 +182,9 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action_type
-     *
-     * @return string
-     */
-    public function getActionType()
-    {
-        return $this->container['action_type'];
-    }
-
-    /**
-     * Sets action_type
-     *
-     * @param string $action_type action_type
-     *
-     * @return $this
-     */
-    public function setActionType($action_type)
-    {
-        $this->container['action_type'] = $action_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_time
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param string $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets db_name
-     *
-     * @return string
-     */
-    public function getDbName()
-    {
-        return $this->container['db_name'];
-    }
-
-    /**
-     * Sets db_name
-     *
-     * @param string $db_name db_name
-     *
-     * @return $this
-     */
-    public function setDbName($db_name)
-    {
-        $this->container['db_name'] = $db_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_info
-     *
-     * @return string
-     */
-    public function getKeyInfo()
-    {
-        return $this->container['key_info'];
-    }
-
-    /**
-     * Sets key_info
-     *
-     * @param string $key_info key_info
-     *
-     * @return $this
-     */
-    public function setKeyInfo($key_info)
-    {
-        $this->container['key_info'] = $key_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_type
-     *
-     * @return string
-     */
-    public function getKeyType()
-    {
-        return $this->container['key_type'];
-    }
-
-    /**
-     * Sets key_type
-     *
-     * @param string $key_type key_type
-     *
-     * @return $this
-     */
-    public function setKeyType($key_type)
-    {
-        $this->container['key_type'] = $key_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_id
-     *
-     * @return string
-     */
-    public function getNodeId()
-    {
-        return $this->container['node_id'];
-    }
-
-    /**
-     * Sets node_id
-     *
-     * @param string $node_id node_id
-     *
-     * @return $this
-     */
-    public function setNodeId($node_id)
-    {
-        $this->container['node_id'] = $node_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_count
-     *
-     * @return string
-     */
-    public function getQueryCount()
-    {
-        return $this->container['query_count'];
-    }
-
-    /**
-     * Sets query_count
-     *
-     * @param string $query_count query_count
-     *
-     * @return $this
-     */
-    public function setQueryCount($query_count)
-    {
-        $this->container['query_count'] = $query_count;
-
-        return $this;
-    }
-
-    /**
      * Gets shard_id
      *
-     * @return string
+     * @return int
      */
     public function getShardId()
     {
@@ -398,13 +194,37 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
     /**
      * Sets shard_id
      *
-     * @param string $shard_id shard_id
+     * @param int $shard_id shard_id
      *
      * @return $this
      */
     public function setShardId($shard_id)
     {
         $this->container['shard_id'] = $shard_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets slots
+     *
+     * @return string[]
+     */
+    public function getSlots()
+    {
+        return $this->container['slots'];
+    }
+
+    /**
+     * Sets slots
+     *
+     * @param string[] $slots slots
+     *
+     * @return $this
+     */
+    public function setSlots($slots)
+    {
+        $this->container['slots'] = $slots;
 
         return $this;
     }
