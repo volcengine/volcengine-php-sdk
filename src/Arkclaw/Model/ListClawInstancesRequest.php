@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class ListClawInstancesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'ListClawInstancesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'filters' => '\Volcengine\Arkclaw\Model\FilterForListClawInstancesInput[]',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'recycle' => 'bool',
+        'space_id' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'filters' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
+        'recycle' => null,
+        'space_id' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'filters' => 'Filters',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'recycle' => 'Recycle',
+        'space_id' => 'SpaceId'
     ];
 
     /**
@@ -82,9 +88,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'filters' => 'setFilters',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'recycle' => 'setRecycle',
+        'space_id' => 'setSpaceId'
     ];
 
     /**
@@ -93,9 +101,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'filters' => 'getFilters',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'recycle' => 'getRecycle',
+        'space_id' => 'getSpaceId'
     ];
 
     /**
@@ -158,9 +168,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['recycle'] = isset($data['recycle']) ? $data['recycle'] : null;
+        $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
     }
 
     /**
@@ -172,6 +184,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['space_id'] === null) {
+            $invalidProperties[] = "'space_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +203,121 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets filters
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\FilterForListClawInstancesInput[]
      */
-    public function getId()
+    public function getFilters()
     {
-        return $this->container['id'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets id
+     * Sets filters
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\FilterForListClawInstancesInput[] $filters filters
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFilters($filters)
     {
-        $this->container['id'] = $id;
+        $this->container['filters'] = $filters;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getImageBuildStatus()
+    public function getMaxResults()
     {
-        return $this->container['image_build_status'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets max_results
      *
-     * @param string $image_build_status image_build_status
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setMaxResults($max_results)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getVersionId()
+    public function getNextToken()
     {
-        return $this->container['version_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets version_id
+     * Sets next_token
      *
-     * @param string $version_id version_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setNextToken($next_token)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets recycle
+     *
+     * @return bool
+     */
+    public function getRecycle()
+    {
+        return $this->container['recycle'];
+    }
+
+    /**
+     * Sets recycle
+     *
+     * @param bool $recycle recycle
+     *
+     * @return $this
+     */
+    public function setRecycle($recycle)
+    {
+        $this->container['recycle'] = $recycle;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_id
+     *
+     * @return string
+     */
+    public function getSpaceId()
+    {
+        return $this->container['space_id'];
+    }
+
+    /**
+     * Sets space_id
+     *
+     * @param string $space_id space_id
+     *
+     * @return $this
+     */
+    public function setSpaceId($space_id)
+    {
+        $this->container['space_id'] = $space_id;
 
         return $this;
     }

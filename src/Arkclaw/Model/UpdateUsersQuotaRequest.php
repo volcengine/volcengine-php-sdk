@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class UpdateUsersQuotaRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'UpdateUsersQuotaRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'seat_quota_config' => '\Volcengine\Arkclaw\Model\SeatQuotaConfigForUpdateUsersQuotaInput',
+        'space_id' => 'string',
+        'uid_list' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'seat_quota_config' => null,
+        'space_id' => null,
+        'uid_list' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'seat_quota_config' => 'SeatQuotaConfig',
+        'space_id' => 'SpaceId',
+        'uid_list' => 'UidList'
     ];
 
     /**
@@ -82,9 +82,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'seat_quota_config' => 'setSeatQuotaConfig',
+        'space_id' => 'setSpaceId',
+        'uid_list' => 'setUidList'
     ];
 
     /**
@@ -93,9 +93,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'seat_quota_config' => 'getSeatQuotaConfig',
+        'space_id' => 'getSpaceId',
+        'uid_list' => 'getUidList'
     ];
 
     /**
@@ -158,9 +158,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['seat_quota_config'] = isset($data['seat_quota_config']) ? $data['seat_quota_config'] : null;
+        $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
+        $this->container['uid_list'] = isset($data['uid_list']) ? $data['uid_list'] : null;
     }
 
     /**
@@ -172,6 +172,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['space_id'] === null) {
+            $invalidProperties[] = "'space_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +191,73 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets seat_quota_config
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\SeatQuotaConfigForUpdateUsersQuotaInput
      */
-    public function getId()
+    public function getSeatQuotaConfig()
     {
-        return $this->container['id'];
+        return $this->container['seat_quota_config'];
     }
 
     /**
-     * Sets id
+     * Sets seat_quota_config
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\SeatQuotaConfigForUpdateUsersQuotaInput $seat_quota_config seat_quota_config
      *
      * @return $this
      */
-    public function setId($id)
+    public function setSeatQuotaConfig($seat_quota_config)
     {
-        $this->container['id'] = $id;
+        $this->container['seat_quota_config'] = $seat_quota_config;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets space_id
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getSpaceId()
     {
-        return $this->container['image_build_status'];
+        return $this->container['space_id'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets space_id
      *
-     * @param string $image_build_status image_build_status
+     * @param string $space_id space_id
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setSpaceId($space_id)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['space_id'] = $space_id;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets uid_list
      *
-     * @return string
+     * @return string[]
      */
-    public function getVersionId()
+    public function getUidList()
     {
-        return $this->container['version_id'];
+        return $this->container['uid_list'];
     }
 
     /**
-     * Sets version_id
+     * Sets uid_list
      *
-     * @param string $version_id version_id
+     * @param string[] $uid_list uid_list
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setUidList($uid_list)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['uid_list'] = $uid_list;
 
         return $this;
     }

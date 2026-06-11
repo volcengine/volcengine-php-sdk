@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class ListUsersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'ListUsersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'page_number' => 'string',
+        'page_size' => 'string',
+        'total_count' => 'string',
+        'users' => '\Volcengine\Arkclaw\Model\UserForListUsersOutput[]'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'page_number' => null,
+        'page_size' => null,
+        'total_count' => null,
+        'users' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount',
+        'users' => 'Users'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount',
+        'users' => 'setUsers'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount',
+        'users' => 'getUsers'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets page_number
      *
      * @return string
      */
-    public function getId()
+    public function getPageNumber()
     {
-        return $this->container['id'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets id
+     * Sets page_number
      *
-     * @param string $id id
+     * @param string $page_number page_number
      *
      * @return $this
      */
-    public function setId($id)
+    public function setPageNumber($page_number)
     {
-        $this->container['id'] = $id;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets page_size
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getPageSize()
     {
-        return $this->container['image_build_status'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets page_size
      *
-     * @param string $image_build_status image_build_status
+     * @param string $page_size page_size
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setPageSize($page_size)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets total_count
      *
      * @return string
      */
-    public function getVersionId()
+    public function getTotalCount()
     {
-        return $this->container['version_id'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets version_id
+     * Sets total_count
      *
-     * @param string $version_id version_id
+     * @param string $total_count total_count
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setTotalCount($total_count)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['total_count'] = $total_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets users
+     *
+     * @return \Volcengine\Arkclaw\Model\UserForListUsersOutput[]
+     */
+    public function getUsers()
+    {
+        return $this->container['users'];
+    }
+
+    /**
+     * Sets users
+     *
+     * @param \Volcengine\Arkclaw\Model\UserForListUsersOutput[] $users users
+     *
+     * @return $this
+     */
+    public function setUsers($users)
+    {
+        $this->container['users'] = $users;
 
         return $this;
     }

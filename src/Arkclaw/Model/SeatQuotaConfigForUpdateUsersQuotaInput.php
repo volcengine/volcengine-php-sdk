@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class SeatQuotaConfigForUpdateUsersQuotaInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'SeatQuotaConfigForUpdateUsersQuotaInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'premium_seat_quota' => '\Volcengine\Arkclaw\Model\PremiumSeatQuotaForUpdateUsersQuotaInput',
+        'standard_seat_quota' => '\Volcengine\Arkclaw\Model\StandardSeatQuotaForUpdateUsersQuotaInput',
+        'starter_seat_quota' => '\Volcengine\Arkclaw\Model\StarterSeatQuotaForUpdateUsersQuotaInput',
+        'ultimate_seat_quota' => '\Volcengine\Arkclaw\Model\UltimateSeatQuotaForUpdateUsersQuotaInput'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'premium_seat_quota' => null,
+        'standard_seat_quota' => null,
+        'starter_seat_quota' => null,
+        'ultimate_seat_quota' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'premium_seat_quota' => 'PremiumSeatQuota',
+        'standard_seat_quota' => 'StandardSeatQuota',
+        'starter_seat_quota' => 'StarterSeatQuota',
+        'ultimate_seat_quota' => 'UltimateSeatQuota'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'premium_seat_quota' => 'setPremiumSeatQuota',
+        'standard_seat_quota' => 'setStandardSeatQuota',
+        'starter_seat_quota' => 'setStarterSeatQuota',
+        'ultimate_seat_quota' => 'setUltimateSeatQuota'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'premium_seat_quota' => 'getPremiumSeatQuota',
+        'standard_seat_quota' => 'getStandardSeatQuota',
+        'starter_seat_quota' => 'getStarterSeatQuota',
+        'ultimate_seat_quota' => 'getUltimateSeatQuota'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['premium_seat_quota'] = isset($data['premium_seat_quota']) ? $data['premium_seat_quota'] : null;
+        $this->container['standard_seat_quota'] = isset($data['standard_seat_quota']) ? $data['standard_seat_quota'] : null;
+        $this->container['starter_seat_quota'] = isset($data['starter_seat_quota']) ? $data['starter_seat_quota'] : null;
+        $this->container['ultimate_seat_quota'] = isset($data['ultimate_seat_quota']) ? $data['ultimate_seat_quota'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets premium_seat_quota
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\PremiumSeatQuotaForUpdateUsersQuotaInput
      */
-    public function getId()
+    public function getPremiumSeatQuota()
     {
-        return $this->container['id'];
+        return $this->container['premium_seat_quota'];
     }
 
     /**
-     * Sets id
+     * Sets premium_seat_quota
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\PremiumSeatQuotaForUpdateUsersQuotaInput $premium_seat_quota premium_seat_quota
      *
      * @return $this
      */
-    public function setId($id)
+    public function setPremiumSeatQuota($premium_seat_quota)
     {
-        $this->container['id'] = $id;
+        $this->container['premium_seat_quota'] = $premium_seat_quota;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets standard_seat_quota
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\StandardSeatQuotaForUpdateUsersQuotaInput
      */
-    public function getImageBuildStatus()
+    public function getStandardSeatQuota()
     {
-        return $this->container['image_build_status'];
+        return $this->container['standard_seat_quota'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets standard_seat_quota
      *
-     * @param string $image_build_status image_build_status
+     * @param \Volcengine\Arkclaw\Model\StandardSeatQuotaForUpdateUsersQuotaInput $standard_seat_quota standard_seat_quota
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setStandardSeatQuota($standard_seat_quota)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['standard_seat_quota'] = $standard_seat_quota;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets starter_seat_quota
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\StarterSeatQuotaForUpdateUsersQuotaInput
      */
-    public function getVersionId()
+    public function getStarterSeatQuota()
     {
-        return $this->container['version_id'];
+        return $this->container['starter_seat_quota'];
     }
 
     /**
-     * Sets version_id
+     * Sets starter_seat_quota
      *
-     * @param string $version_id version_id
+     * @param \Volcengine\Arkclaw\Model\StarterSeatQuotaForUpdateUsersQuotaInput $starter_seat_quota starter_seat_quota
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setStarterSeatQuota($starter_seat_quota)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['starter_seat_quota'] = $starter_seat_quota;
+
+        return $this;
+    }
+
+    /**
+     * Gets ultimate_seat_quota
+     *
+     * @return \Volcengine\Arkclaw\Model\UltimateSeatQuotaForUpdateUsersQuotaInput
+     */
+    public function getUltimateSeatQuota()
+    {
+        return $this->container['ultimate_seat_quota'];
+    }
+
+    /**
+     * Sets ultimate_seat_quota
+     *
+     * @param \Volcengine\Arkclaw\Model\UltimateSeatQuotaForUpdateUsersQuotaInput $ultimate_seat_quota ultimate_seat_quota
+     *
+     * @return $this
+     */
+    public function setUltimateSeatQuota($ultimate_seat_quota)
+    {
+        $this->container['ultimate_seat_quota'] = $ultimate_seat_quota;
 
         return $this;
     }

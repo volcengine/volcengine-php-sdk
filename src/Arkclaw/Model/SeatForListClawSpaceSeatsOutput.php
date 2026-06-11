@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class SeatForListClawSpaceSeatsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'SeatForListClawSpaceSeatsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'count' => 'int',
+        'created_at' => 'string',
+        'expired_at' => 'string',
+        'seat_type' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'count' => 'int32',
+        'created_at' => null,
+        'expired_at' => null,
+        'seat_type' => null,
+        'status' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'count' => 'Count',
+        'created_at' => 'CreatedAt',
+        'expired_at' => 'ExpiredAt',
+        'seat_type' => 'SeatType',
+        'status' => 'Status'
     ];
 
     /**
@@ -82,9 +88,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'count' => 'setCount',
+        'created_at' => 'setCreatedAt',
+        'expired_at' => 'setExpiredAt',
+        'seat_type' => 'setSeatType',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -93,9 +101,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'count' => 'getCount',
+        'created_at' => 'getCreatedAt',
+        'expired_at' => 'getExpiredAt',
+        'seat_type' => 'getSeatType',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -158,9 +168,11 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
+        $this->container['seat_type'] = isset($data['seat_type']) ? $data['seat_type'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -188,73 +200,121 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets count
      *
-     * @return string
+     * @return int
      */
-    public function getId()
+    public function getCount()
     {
-        return $this->container['id'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets id
+     * Sets count
      *
-     * @param string $id id
+     * @param int $count count
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCount($count)
     {
-        $this->container['id'] = $id;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets created_at
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getCreatedAt()
     {
-        return $this->container['image_build_status'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets created_at
      *
-     * @param string $image_build_status image_build_status
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setCreatedAt($created_at)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets expired_at
      *
      * @return string
      */
-    public function getVersionId()
+    public function getExpiredAt()
     {
-        return $this->container['version_id'];
+        return $this->container['expired_at'];
     }
 
     /**
-     * Sets version_id
+     * Sets expired_at
      *
-     * @param string $version_id version_id
+     * @param string $expired_at expired_at
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setExpiredAt($expired_at)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['expired_at'] = $expired_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets seat_type
+     *
+     * @return string
+     */
+    public function getSeatType()
+    {
+        return $this->container['seat_type'];
+    }
+
+    /**
+     * Sets seat_type
+     *
+     * @param string $seat_type seat_type
+     *
+     * @return $this
+     */
+    public function setSeatType($seat_type)
+    {
+        $this->container['seat_type'] = $seat_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

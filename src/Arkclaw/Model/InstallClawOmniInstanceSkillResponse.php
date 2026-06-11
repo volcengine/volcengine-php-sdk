@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class InstallClawOmniInstanceSkillResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'InstallClawOmniInstanceSkillResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'exit_code' => 'int',
+        'output' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'exit_code' => 'int64',
+        'output' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'exit_code' => 'ExitCode',
+        'output' => 'Output'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'exit_code' => 'setExitCode',
+        'output' => 'setOutput'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'exit_code' => 'getExitCode',
+        'output' => 'getOutput'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['exit_code'] = isset($data['exit_code']) ? $data['exit_code'] : null;
+        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets exit_code
      *
-     * @return string
+     * @return int
      */
-    public function getId()
+    public function getExitCode()
     {
-        return $this->container['id'];
+        return $this->container['exit_code'];
     }
 
     /**
-     * Sets id
+     * Sets exit_code
      *
-     * @param string $id id
+     * @param int $exit_code exit_code
      *
      * @return $this
      */
-    public function setId($id)
+    public function setExitCode($exit_code)
     {
-        $this->container['id'] = $id;
+        $this->container['exit_code'] = $exit_code;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets output
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getOutput()
     {
-        return $this->container['image_build_status'];
+        return $this->container['output'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets output
      *
-     * @param string $image_build_status image_build_status
+     * @param string $output output
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setOutput($output)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['output'] = $output;
 
         return $this;
     }

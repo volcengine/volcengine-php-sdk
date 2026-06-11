@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class ListClawInstancesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'ListClawInstancesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'claw_instances' => '\Volcengine\Arkclaw\Model\ClawInstanceForListClawInstancesOutput[]',
+        'next_token' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'claw_instances' => null,
+        'next_token' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'claw_instances' => 'ClawInstances',
+        'next_token' => 'NextToken'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'claw_instances' => 'setClawInstances',
+        'next_token' => 'setNextToken'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'claw_instances' => 'getClawInstances',
+        'next_token' => 'getNextToken'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['claw_instances'] = isset($data['claw_instances']) ? $data['claw_instances'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets claw_instances
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\ClawInstanceForListClawInstancesOutput[]
      */
-    public function getId()
+    public function getClawInstances()
     {
-        return $this->container['id'];
+        return $this->container['claw_instances'];
     }
 
     /**
-     * Sets id
+     * Sets claw_instances
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\ClawInstanceForListClawInstancesOutput[] $claw_instances claw_instances
      *
      * @return $this
      */
-    public function setId($id)
+    public function setClawInstances($claw_instances)
     {
-        $this->container['id'] = $id;
+        $this->container['claw_instances'] = $claw_instances;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets next_token
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getNextToken()
     {
-        return $this->container['image_build_status'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets next_token
      *
-     * @param string $image_build_status image_build_status
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setNextToken($next_token)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

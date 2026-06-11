@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class UserInfoForListClawInstancesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'UserInfoForListClawInstancesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'email' => 'string',
+        'group' => 'string',
+        'group_uid' => 'string',
+        'name' => 'string',
+        'owner_user' => 'string',
+        'user_email' => 'string',
+        'user_group' => 'string',
+        'user_group_uid' => 'string'
     ];
 
     /**
@@ -39,9 +44,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'email' => null,
+        'group' => null,
+        'group_uid' => null,
+        'name' => null,
+        'owner_user' => null,
+        'user_email' => null,
+        'user_group' => null,
+        'user_group_uid' => null
     ];
 
     /**
@@ -71,9 +81,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'email' => 'Email',
+        'group' => 'Group',
+        'group_uid' => 'GroupUid',
+        'name' => 'Name',
+        'owner_user' => 'OwnerUser',
+        'user_email' => 'UserEmail',
+        'user_group' => 'UserGroup',
+        'user_group_uid' => 'UserGroupUid'
     ];
 
     /**
@@ -82,9 +97,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'email' => 'setEmail',
+        'group' => 'setGroup',
+        'group_uid' => 'setGroupUid',
+        'name' => 'setName',
+        'owner_user' => 'setOwnerUser',
+        'user_email' => 'setUserEmail',
+        'user_group' => 'setUserGroup',
+        'user_group_uid' => 'setUserGroupUid'
     ];
 
     /**
@@ -93,9 +113,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'email' => 'getEmail',
+        'group' => 'getGroup',
+        'group_uid' => 'getGroupUid',
+        'name' => 'getName',
+        'owner_user' => 'getOwnerUser',
+        'user_email' => 'getUserEmail',
+        'user_group' => 'getUserGroup',
+        'user_group_uid' => 'getUserGroupUid'
     ];
 
     /**
@@ -158,9 +183,14 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['group_uid'] = isset($data['group_uid']) ? $data['group_uid'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['owner_user'] = isset($data['owner_user']) ? $data['owner_user'] : null;
+        $this->container['user_email'] = isset($data['user_email']) ? $data['user_email'] : null;
+        $this->container['user_group'] = isset($data['user_group']) ? $data['user_group'] : null;
+        $this->container['user_group_uid'] = isset($data['user_group_uid']) ? $data['user_group_uid'] : null;
     }
 
     /**
@@ -188,73 +218,193 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets email
      *
      * @return string
      */
-    public function getId()
+    public function getEmail()
     {
-        return $this->container['id'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets id
+     * Sets email
      *
-     * @param string $id id
+     * @param string $email email
      *
      * @return $this
      */
-    public function setId($id)
+    public function setEmail($email)
     {
-        $this->container['id'] = $id;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets group
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getGroup()
     {
-        return $this->container['image_build_status'];
+        return $this->container['group'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets group
      *
-     * @param string $image_build_status image_build_status
+     * @param string $group group
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setGroup($group)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['group'] = $group;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets group_uid
      *
      * @return string
      */
-    public function getVersionId()
+    public function getGroupUid()
     {
-        return $this->container['version_id'];
+        return $this->container['group_uid'];
     }
 
     /**
-     * Sets version_id
+     * Sets group_uid
      *
-     * @param string $version_id version_id
+     * @param string $group_uid group_uid
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setGroupUid($group_uid)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['group_uid'] = $group_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_user
+     *
+     * @return string
+     */
+    public function getOwnerUser()
+    {
+        return $this->container['owner_user'];
+    }
+
+    /**
+     * Sets owner_user
+     *
+     * @param string $owner_user owner_user
+     *
+     * @return $this
+     */
+    public function setOwnerUser($owner_user)
+    {
+        $this->container['owner_user'] = $owner_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_email
+     *
+     * @return string
+     */
+    public function getUserEmail()
+    {
+        return $this->container['user_email'];
+    }
+
+    /**
+     * Sets user_email
+     *
+     * @param string $user_email user_email
+     *
+     * @return $this
+     */
+    public function setUserEmail($user_email)
+    {
+        $this->container['user_email'] = $user_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_group
+     *
+     * @return string
+     */
+    public function getUserGroup()
+    {
+        return $this->container['user_group'];
+    }
+
+    /**
+     * Sets user_group
+     *
+     * @param string $user_group user_group
+     *
+     * @return $this
+     */
+    public function setUserGroup($user_group)
+    {
+        $this->container['user_group'] = $user_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_group_uid
+     *
+     * @return string
+     */
+    public function getUserGroupUid()
+    {
+        return $this->container['user_group_uid'];
+    }
+
+    /**
+     * Sets user_group_uid
+     *
+     * @param string $user_group_uid user_group_uid
+     *
+     * @return $this
+     */
+    public function setUserGroupUid($user_group_uid)
+    {
+        $this->container['user_group_uid'] = $user_group_uid;
 
         return $this;
     }

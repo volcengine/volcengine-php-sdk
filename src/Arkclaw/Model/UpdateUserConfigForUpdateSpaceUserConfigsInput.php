@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class UpdateUserConfigForUpdateSpaceUserConfigsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'UpdateUserConfigForUpdateSpaceUserConfigsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'coding_plan_seat_type' => '\Volcengine\Arkclaw\Model\CodingPlanSeatTypeForUpdateSpaceUserConfigsInput',
+        'token_rate_limit_per_day' => '\Volcengine\Arkclaw\Model\TokenRateLimitPerDayForUpdateSpaceUserConfigsInput',
+        'token_rate_limit_per_min' => '\Volcengine\Arkclaw\Model\TokenRateLimitPerMinForUpdateSpaceUserConfigsInput',
+        'uid' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'coding_plan_seat_type' => null,
+        'token_rate_limit_per_day' => null,
+        'token_rate_limit_per_min' => null,
+        'uid' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'coding_plan_seat_type' => 'CodingPlanSeatType',
+        'token_rate_limit_per_day' => 'TokenRateLimitPerDay',
+        'token_rate_limit_per_min' => 'TokenRateLimitPerMin',
+        'uid' => 'Uid'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'coding_plan_seat_type' => 'setCodingPlanSeatType',
+        'token_rate_limit_per_day' => 'setTokenRateLimitPerDay',
+        'token_rate_limit_per_min' => 'setTokenRateLimitPerMin',
+        'uid' => 'setUid'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'coding_plan_seat_type' => 'getCodingPlanSeatType',
+        'token_rate_limit_per_day' => 'getTokenRateLimitPerDay',
+        'token_rate_limit_per_min' => 'getTokenRateLimitPerMin',
+        'uid' => 'getUid'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['coding_plan_seat_type'] = isset($data['coding_plan_seat_type']) ? $data['coding_plan_seat_type'] : null;
+        $this->container['token_rate_limit_per_day'] = isset($data['token_rate_limit_per_day']) ? $data['token_rate_limit_per_day'] : null;
+        $this->container['token_rate_limit_per_min'] = isset($data['token_rate_limit_per_min']) ? $data['token_rate_limit_per_min'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
     /**
@@ -172,6 +178,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['uid'] === null) {
+            $invalidProperties[] = "'uid' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +197,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets coding_plan_seat_type
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\CodingPlanSeatTypeForUpdateSpaceUserConfigsInput
      */
-    public function getId()
+    public function getCodingPlanSeatType()
     {
-        return $this->container['id'];
+        return $this->container['coding_plan_seat_type'];
     }
 
     /**
-     * Sets id
+     * Sets coding_plan_seat_type
      *
-     * @param string $id id
+     * @param \Volcengine\Arkclaw\Model\CodingPlanSeatTypeForUpdateSpaceUserConfigsInput $coding_plan_seat_type coding_plan_seat_type
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCodingPlanSeatType($coding_plan_seat_type)
     {
-        $this->container['id'] = $id;
+        $this->container['coding_plan_seat_type'] = $coding_plan_seat_type;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets token_rate_limit_per_day
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\TokenRateLimitPerDayForUpdateSpaceUserConfigsInput
      */
-    public function getImageBuildStatus()
+    public function getTokenRateLimitPerDay()
     {
-        return $this->container['image_build_status'];
+        return $this->container['token_rate_limit_per_day'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets token_rate_limit_per_day
      *
-     * @param string $image_build_status image_build_status
+     * @param \Volcengine\Arkclaw\Model\TokenRateLimitPerDayForUpdateSpaceUserConfigsInput $token_rate_limit_per_day token_rate_limit_per_day
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setTokenRateLimitPerDay($token_rate_limit_per_day)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['token_rate_limit_per_day'] = $token_rate_limit_per_day;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets token_rate_limit_per_min
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\TokenRateLimitPerMinForUpdateSpaceUserConfigsInput
      */
-    public function getVersionId()
+    public function getTokenRateLimitPerMin()
     {
-        return $this->container['version_id'];
+        return $this->container['token_rate_limit_per_min'];
     }
 
     /**
-     * Sets version_id
+     * Sets token_rate_limit_per_min
      *
-     * @param string $version_id version_id
+     * @param \Volcengine\Arkclaw\Model\TokenRateLimitPerMinForUpdateSpaceUserConfigsInput $token_rate_limit_per_min token_rate_limit_per_min
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setTokenRateLimitPerMin($token_rate_limit_per_min)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['token_rate_limit_per_min'] = $token_rate_limit_per_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param string $uid uid
+     *
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
 
         return $this;
     }

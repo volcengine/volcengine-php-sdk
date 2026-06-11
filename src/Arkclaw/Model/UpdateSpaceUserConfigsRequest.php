@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class UpdateSpaceUserConfigsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'UpdateSpaceUserConfigsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'space_id' => 'string',
+        'update_user_configs' => '\Volcengine\Arkclaw\Model\UpdateUserConfigForUpdateSpaceUserConfigsInput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'space_id' => null,
+        'update_user_configs' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'space_id' => 'SpaceId',
+        'update_user_configs' => 'UpdateUserConfigs'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'space_id' => 'setSpaceId',
+        'update_user_configs' => 'setUpdateUserConfigs'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'space_id' => 'getSpaceId',
+        'update_user_configs' => 'getUpdateUserConfigs'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
+        $this->container['update_user_configs'] = isset($data['update_user_configs']) ? $data['update_user_configs'] : null;
     }
 
     /**
@@ -172,6 +166,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['space_id'] === null) {
+            $invalidProperties[] = "'space_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +185,49 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets space_id
      *
      * @return string
      */
-    public function getId()
+    public function getSpaceId()
     {
-        return $this->container['id'];
+        return $this->container['space_id'];
     }
 
     /**
-     * Sets id
+     * Sets space_id
      *
-     * @param string $id id
+     * @param string $space_id space_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setSpaceId($space_id)
     {
-        $this->container['id'] = $id;
+        $this->container['space_id'] = $space_id;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets update_user_configs
      *
-     * @return string
+     * @return \Volcengine\Arkclaw\Model\UpdateUserConfigForUpdateSpaceUserConfigsInput[]
      */
-    public function getImageBuildStatus()
+    public function getUpdateUserConfigs()
     {
-        return $this->container['image_build_status'];
+        return $this->container['update_user_configs'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets update_user_configs
      *
-     * @param string $image_build_status image_build_status
+     * @param \Volcengine\Arkclaw\Model\UpdateUserConfigForUpdateSpaceUserConfigsInput[] $update_user_configs update_user_configs
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setUpdateUserConfigs($update_user_configs)
     {
-        $this->container['image_build_status'] = $image_build_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_id
-     *
-     * @return string
-     */
-    public function getVersionId()
-    {
-        return $this->container['version_id'];
-    }
-
-    /**
-     * Sets version_id
-     *
-     * @param string $version_id version_id
-     *
-     * @return $this
-     */
-    public function setVersionId($version_id)
-    {
-        $this->container['version_id'] = $version_id;
+        $this->container['update_user_configs'] = $update_user_configs;
 
         return $this;
     }

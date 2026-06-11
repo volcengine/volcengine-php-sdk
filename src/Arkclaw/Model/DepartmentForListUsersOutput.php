@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class DepartmentForListUsersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'DepartmentForListUsersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'name' => 'string',
+        'name_path' => 'string',
+        'path' => 'string',
+        'uid' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'name' => null,
+        'name_path' => null,
+        'path' => null,
+        'uid' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'name' => 'Name',
+        'name_path' => 'NamePath',
+        'path' => 'Path',
+        'uid' => 'Uid'
     ];
 
     /**
@@ -82,9 +85,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'name' => 'setName',
+        'name_path' => 'setNamePath',
+        'path' => 'setPath',
+        'uid' => 'setUid'
     ];
 
     /**
@@ -93,9 +97,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'name' => 'getName',
+        'name_path' => 'getNamePath',
+        'path' => 'getPath',
+        'uid' => 'getUid'
     ];
 
     /**
@@ -158,9 +163,10 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['name_path'] = isset($data['name_path']) ? $data['name_path'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets name
      *
      * @return string
      */
-    public function getId()
+    public function getName()
     {
-        return $this->container['id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets id
+     * Sets name
      *
-     * @param string $id id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->container['id'] = $id;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets name_path
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getNamePath()
     {
-        return $this->container['image_build_status'];
+        return $this->container['name_path'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets name_path
      *
-     * @param string $image_build_status image_build_status
+     * @param string $name_path name_path
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setNamePath($name_path)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['name_path'] = $name_path;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets path
      *
      * @return string
      */
-    public function getVersionId()
+    public function getPath()
     {
-        return $this->container['version_id'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets version_id
+     * Sets path
      *
-     * @param string $version_id version_id
+     * @param string $path path
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setPath($path)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param string $uid uid
+     *
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
 
         return $this;
     }

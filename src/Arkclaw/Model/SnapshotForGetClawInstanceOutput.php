@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, ArrayAccess
+class SnapshotForGetClawInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePrivateClawOmniSpaceTemplateResponse';
+    protected static $swaggerModelName = 'SnapshotForGetClawInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_build_status' => 'string',
-        'version_id' => 'string'
+        'created_at' => 'string',
+        'display_name' => 'string',
+        'expire_at' => 'string',
+        'recovery_time' => 'string',
+        'snapshot_record_id' => 'string',
+        'source' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -39,9 +43,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_build_status' => null,
-        'version_id' => null
+        'created_at' => null,
+        'display_name' => null,
+        'expire_at' => null,
+        'recovery_time' => null,
+        'snapshot_record_id' => null,
+        'source' => null,
+        'status' => null
     ];
 
     /**
@@ -71,9 +79,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_build_status' => 'ImageBuildStatus',
-        'version_id' => 'VersionId'
+        'created_at' => 'CreatedAt',
+        'display_name' => 'DisplayName',
+        'expire_at' => 'ExpireAt',
+        'recovery_time' => 'RecoveryTime',
+        'snapshot_record_id' => 'SnapshotRecordId',
+        'source' => 'Source',
+        'status' => 'Status'
     ];
 
     /**
@@ -82,9 +94,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_build_status' => 'setImageBuildStatus',
-        'version_id' => 'setVersionId'
+        'created_at' => 'setCreatedAt',
+        'display_name' => 'setDisplayName',
+        'expire_at' => 'setExpireAt',
+        'recovery_time' => 'setRecoveryTime',
+        'snapshot_record_id' => 'setSnapshotRecordId',
+        'source' => 'setSource',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -93,9 +109,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_build_status' => 'getImageBuildStatus',
-        'version_id' => 'getVersionId'
+        'created_at' => 'getCreatedAt',
+        'display_name' => 'getDisplayName',
+        'expire_at' => 'getExpireAt',
+        'recovery_time' => 'getRecoveryTime',
+        'snapshot_record_id' => 'getSnapshotRecordId',
+        'source' => 'getSource',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -158,9 +178,13 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
+        $this->container['recovery_time'] = isset($data['recovery_time']) ? $data['recovery_time'] : null;
+        $this->container['snapshot_record_id'] = isset($data['snapshot_record_id']) ? $data['snapshot_record_id'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -188,73 +212,169 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets id
+     * Gets created_at
      *
      * @return string
      */
-    public function getId()
+    public function getCreatedAt()
     {
-        return $this->container['id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets id
+     * Sets created_at
      *
-     * @param string $id id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['id'] = $id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets image_build_status
+     * Gets display_name
      *
      * @return string
      */
-    public function getImageBuildStatus()
+    public function getDisplayName()
     {
-        return $this->container['image_build_status'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets image_build_status
+     * Sets display_name
      *
-     * @param string $image_build_status image_build_status
+     * @param string $display_name display_name
      *
      * @return $this
      */
-    public function setImageBuildStatus($image_build_status)
+    public function setDisplayName($display_name)
     {
-        $this->container['image_build_status'] = $image_build_status;
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
 
     /**
-     * Gets version_id
+     * Gets expire_at
      *
      * @return string
      */
-    public function getVersionId()
+    public function getExpireAt()
     {
-        return $this->container['version_id'];
+        return $this->container['expire_at'];
     }
 
     /**
-     * Sets version_id
+     * Sets expire_at
      *
-     * @param string $version_id version_id
+     * @param string $expire_at expire_at
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setExpireAt($expire_at)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['expire_at'] = $expire_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets recovery_time
+     *
+     * @return string
+     */
+    public function getRecoveryTime()
+    {
+        return $this->container['recovery_time'];
+    }
+
+    /**
+     * Sets recovery_time
+     *
+     * @param string $recovery_time recovery_time
+     *
+     * @return $this
+     */
+    public function setRecoveryTime($recovery_time)
+    {
+        $this->container['recovery_time'] = $recovery_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_record_id
+     *
+     * @return string
+     */
+    public function getSnapshotRecordId()
+    {
+        return $this->container['snapshot_record_id'];
+    }
+
+    /**
+     * Sets snapshot_record_id
+     *
+     * @param string $snapshot_record_id snapshot_record_id
+     *
+     * @return $this
+     */
+    public function setSnapshotRecordId($snapshot_record_id)
+    {
+        $this->container['snapshot_record_id'] = $snapshot_record_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
