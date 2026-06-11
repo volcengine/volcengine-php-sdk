@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
+class PodAIAgentListForListPodOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetPreSignedEdgeURLRequest';
+    protected static $swaggerModelName = 'PodAIAgentListForListPodOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_body_hash' => 'string',
-        'api_path' => 'string',
-        'api_payload' => '\Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput',
-        'api_type' => 'string',
-        'pod_id' => 'string',
-        'product_id' => 'string',
-        'ttl' => 'int',
-        'timeout' => 'int'
+        'agent_id' => 'string',
+        'base_url' => 'string',
+        'model_id' => 'string',
+        'model_status' => 'string',
+        'model_type' => 'string'
     ];
 
     /**
@@ -44,14 +41,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'api_body_hash' => null,
-        'api_path' => null,
-        'api_payload' => null,
-        'api_type' => null,
-        'pod_id' => null,
-        'product_id' => null,
-        'ttl' => 'int32',
-        'timeout' => 'int32'
+        'agent_id' => null,
+        'base_url' => null,
+        'model_id' => null,
+        'model_status' => null,
+        'model_type' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_body_hash' => 'APIBodyHash',
-        'api_path' => 'APIPath',
-        'api_payload' => 'APIPayload',
-        'api_type' => 'APIType',
-        'pod_id' => 'PodId',
-        'product_id' => 'ProductId',
-        'ttl' => 'TTL',
-        'timeout' => 'Timeout'
+        'agent_id' => 'AgentId',
+        'base_url' => 'BaseUrl',
+        'model_id' => 'ModelId',
+        'model_status' => 'ModelStatus',
+        'model_type' => 'ModelType'
     ];
 
     /**
@@ -97,14 +88,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'api_body_hash' => 'setApiBodyHash',
-        'api_path' => 'setApiPath',
-        'api_payload' => 'setApiPayload',
-        'api_type' => 'setApiType',
-        'pod_id' => 'setPodId',
-        'product_id' => 'setProductId',
-        'ttl' => 'setTtl',
-        'timeout' => 'setTimeout'
+        'agent_id' => 'setAgentId',
+        'base_url' => 'setBaseUrl',
+        'model_id' => 'setModelId',
+        'model_status' => 'setModelStatus',
+        'model_type' => 'setModelType'
     ];
 
     /**
@@ -113,14 +101,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'api_body_hash' => 'getApiBodyHash',
-        'api_path' => 'getApiPath',
-        'api_payload' => 'getApiPayload',
-        'api_type' => 'getApiType',
-        'pod_id' => 'getPodId',
-        'product_id' => 'getProductId',
-        'ttl' => 'getTtl',
-        'timeout' => 'getTimeout'
+        'agent_id' => 'getAgentId',
+        'base_url' => 'getBaseUrl',
+        'model_id' => 'getModelId',
+        'model_status' => 'getModelStatus',
+        'model_type' => 'getModelType'
     ];
 
     /**
@@ -183,14 +168,11 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['api_body_hash'] = isset($data['api_body_hash']) ? $data['api_body_hash'] : null;
-        $this->container['api_path'] = isset($data['api_path']) ? $data['api_path'] : null;
-        $this->container['api_payload'] = isset($data['api_payload']) ? $data['api_payload'] : null;
-        $this->container['api_type'] = isset($data['api_type']) ? $data['api_type'] : null;
-        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
-        $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
-        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
+        $this->container['base_url'] = isset($data['base_url']) ? $data['base_url'] : null;
+        $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
+        $this->container['model_status'] = isset($data['model_status']) ? $data['model_status'] : null;
+        $this->container['model_type'] = isset($data['model_type']) ? $data['model_type'] : null;
     }
 
     /**
@@ -202,15 +184,6 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['api_type'] === null) {
-            $invalidProperties[] = "'api_type' can't be null";
-        }
-        if ($this->container['pod_id'] === null) {
-            $invalidProperties[] = "'pod_id' can't be null";
-        }
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -227,193 +200,121 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets api_body_hash
+     * Gets agent_id
      *
      * @return string
      */
-    public function getApiBodyHash()
+    public function getAgentId()
     {
-        return $this->container['api_body_hash'];
+        return $this->container['agent_id'];
     }
 
     /**
-     * Sets api_body_hash
+     * Sets agent_id
      *
-     * @param string $api_body_hash api_body_hash
+     * @param string $agent_id agent_id
      *
      * @return $this
      */
-    public function setApiBodyHash($api_body_hash)
+    public function setAgentId($agent_id)
     {
-        $this->container['api_body_hash'] = $api_body_hash;
+        $this->container['agent_id'] = $agent_id;
 
         return $this;
     }
 
     /**
-     * Gets api_path
+     * Gets base_url
      *
      * @return string
      */
-    public function getApiPath()
+    public function getBaseUrl()
     {
-        return $this->container['api_path'];
+        return $this->container['base_url'];
     }
 
     /**
-     * Sets api_path
+     * Sets base_url
      *
-     * @param string $api_path api_path
+     * @param string $base_url base_url
      *
      * @return $this
      */
-    public function setApiPath($api_path)
+    public function setBaseUrl($base_url)
     {
-        $this->container['api_path'] = $api_path;
+        $this->container['base_url'] = $base_url;
 
         return $this;
     }
 
     /**
-     * Gets api_payload
-     *
-     * @return \Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput
-     */
-    public function getApiPayload()
-    {
-        return $this->container['api_payload'];
-    }
-
-    /**
-     * Sets api_payload
-     *
-     * @param \Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput $api_payload api_payload
-     *
-     * @return $this
-     */
-    public function setApiPayload($api_payload)
-    {
-        $this->container['api_payload'] = $api_payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets api_type
+     * Gets model_id
      *
      * @return string
      */
-    public function getApiType()
+    public function getModelId()
     {
-        return $this->container['api_type'];
+        return $this->container['model_id'];
     }
 
     /**
-     * Sets api_type
+     * Sets model_id
      *
-     * @param string $api_type api_type
+     * @param string $model_id model_id
      *
      * @return $this
      */
-    public function setApiType($api_type)
+    public function setModelId($model_id)
     {
-        $this->container['api_type'] = $api_type;
+        $this->container['model_id'] = $model_id;
 
         return $this;
     }
 
     /**
-     * Gets pod_id
+     * Gets model_status
      *
      * @return string
      */
-    public function getPodId()
+    public function getModelStatus()
     {
-        return $this->container['pod_id'];
+        return $this->container['model_status'];
     }
 
     /**
-     * Sets pod_id
+     * Sets model_status
      *
-     * @param string $pod_id pod_id
+     * @param string $model_status model_status
      *
      * @return $this
      */
-    public function setPodId($pod_id)
+    public function setModelStatus($model_status)
     {
-        $this->container['pod_id'] = $pod_id;
+        $this->container['model_status'] = $model_status;
 
         return $this;
     }
 
     /**
-     * Gets product_id
+     * Gets model_type
      *
      * @return string
      */
-    public function getProductId()
+    public function getModelType()
     {
-        return $this->container['product_id'];
+        return $this->container['model_type'];
     }
 
     /**
-     * Sets product_id
+     * Sets model_type
      *
-     * @param string $product_id product_id
+     * @param string $model_type model_type
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setModelType($model_type)
     {
-        $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets ttl
-     *
-     * @return int
-     */
-    public function getTtl()
-    {
-        return $this->container['ttl'];
-    }
-
-    /**
-     * Sets ttl
-     *
-     * @param int $ttl ttl
-     *
-     * @return $this
-     */
-    public function setTtl($ttl)
-    {
-        $this->container['ttl'] = $ttl;
-
-        return $this;
-    }
-
-    /**
-     * Gets timeout
-     *
-     * @return int
-     */
-    public function getTimeout()
-    {
-        return $this->container['timeout'];
-    }
-
-    /**
-     * Sets timeout
-     *
-     * @param int $timeout timeout
-     *
-     * @return $this
-     */
-    public function setTimeout($timeout)
-    {
-        $this->container['timeout'] = $timeout;
+        $this->container['model_type'] = $model_type;
 
         return $this;
     }
