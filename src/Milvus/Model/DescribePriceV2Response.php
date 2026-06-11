@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class DescribePriceV2Response implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'DescribePriceV2Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'currency' => 'string',
+        'discount_amount' => 'string',
+        'node_price_list' => '\Volcengine\Milvus\Model\NodePriceListForDescribePriceV2Output[]',
+        'original_amount' => 'string',
+        'payable_amount' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'currency' => null,
+        'discount_amount' => null,
+        'node_price_list' => null,
+        'original_amount' => null,
+        'payable_amount' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'currency' => 'Currency',
+        'discount_amount' => 'DiscountAmount',
+        'node_price_list' => 'NodePriceList',
+        'original_amount' => 'OriginalAmount',
+        'payable_amount' => 'PayableAmount'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'currency' => 'setCurrency',
+        'discount_amount' => 'setDiscountAmount',
+        'node_price_list' => 'setNodePriceList',
+        'original_amount' => 'setOriginalAmount',
+        'payable_amount' => 'setPayableAmount'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'currency' => 'getCurrency',
+        'discount_amount' => 'getDiscountAmount',
+        'node_price_list' => 'getNodePriceList',
+        'original_amount' => 'getOriginalAmount',
+        'payable_amount' => 'getPayableAmount'
     ];
 
     /**
@@ -139,23 +149,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +168,11 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['node_price_list'] = isset($data['node_price_list']) ? $data['node_price_list'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
     }
 
     /**
@@ -186,14 +183,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +200,121 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets currency
      *
      * @return string
      */
-    public function getZoneId()
+    public function getCurrency()
     {
-        return $this->container['zone_id'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets zone_id
+     * Sets currency
      *
-     * @param string $zone_id zone_id
+     * @param string $currency currency
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setCurrency($currency)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets discount_amount
      *
      * @return string
      */
-    public function getZoneName()
+    public function getDiscountAmount()
     {
-        return $this->container['zone_name'];
+        return $this->container['discount_amount'];
     }
 
     /**
-     * Sets zone_name
+     * Sets discount_amount
      *
-     * @param string $zone_name zone_name
+     * @param string $discount_amount discount_amount
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setDiscountAmount($discount_amount)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets node_price_list
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\NodePriceListForDescribePriceV2Output[]
      */
-    public function getZoneStatus()
+    public function getNodePriceList()
     {
-        return $this->container['zone_status'];
+        return $this->container['node_price_list'];
     }
 
     /**
-     * Sets zone_status
+     * Sets node_price_list
      *
-     * @param string $zone_status zone_status
+     * @param \Volcengine\Milvus\Model\NodePriceListForDescribePriceV2Output[] $node_price_list node_price_list
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setNodePriceList($node_price_list)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['node_price_list'] = $node_price_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_amount
+     *
+     * @return string
+     */
+    public function getOriginalAmount()
+    {
+        return $this->container['original_amount'];
+    }
+
+    /**
+     * Sets original_amount
+     *
+     * @param string $original_amount original_amount
+     *
+     * @return $this
+     */
+    public function setOriginalAmount($original_amount)
+    {
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
 
         return $this;
     }

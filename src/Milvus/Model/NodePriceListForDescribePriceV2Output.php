@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAccess
+class NodePriceListForDescribePriceV2Output implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ComponentSpecListForScaleInstanceInput';
+    protected static $swaggerModelName = 'NodePriceListForDescribePriceV2Output';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cpu_num' => 'int',
-        'mem_size' => 'int',
+        'charge_item_code' => 'string',
+        'charge_item_num' => 'int',
+        'discount_amount' => 'string',
         'node_cu_type' => 'string',
         'node_num' => 'int',
         'node_type' => 'string',
-        'resource_spec_name' => 'string'
+        'original_amount' => 'string',
+        'payable_amount' => 'string'
     ];
 
     /**
@@ -42,12 +44,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cpu_num' => 'int32',
-        'mem_size' => 'int32',
+        'charge_item_code' => null,
+        'charge_item_num' => 'int32',
+        'discount_amount' => null,
         'node_cu_type' => null,
         'node_num' => 'int32',
         'node_type' => null,
-        'resource_spec_name' => null
+        'original_amount' => null,
+        'payable_amount' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'cpu_num' => 'CpuNum',
-        'mem_size' => 'MemSize',
+        'charge_item_code' => 'ChargeItemCode',
+        'charge_item_num' => 'ChargeItemNum',
+        'discount_amount' => 'DiscountAmount',
         'node_cu_type' => 'NodeCUType',
         'node_num' => 'NodeNum',
         'node_type' => 'NodeType',
-        'resource_spec_name' => 'ResourceSpecName'
+        'original_amount' => 'OriginalAmount',
+        'payable_amount' => 'PayableAmount'
     ];
 
     /**
@@ -91,12 +97,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'cpu_num' => 'setCpuNum',
-        'mem_size' => 'setMemSize',
+        'charge_item_code' => 'setChargeItemCode',
+        'charge_item_num' => 'setChargeItemNum',
+        'discount_amount' => 'setDiscountAmount',
         'node_cu_type' => 'setNodeCuType',
         'node_num' => 'setNodeNum',
         'node_type' => 'setNodeType',
-        'resource_spec_name' => 'setResourceSpecName'
+        'original_amount' => 'setOriginalAmount',
+        'payable_amount' => 'setPayableAmount'
     ];
 
     /**
@@ -105,12 +113,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'cpu_num' => 'getCpuNum',
-        'mem_size' => 'getMemSize',
+        'charge_item_code' => 'getChargeItemCode',
+        'charge_item_num' => 'getChargeItemNum',
+        'discount_amount' => 'getDiscountAmount',
         'node_cu_type' => 'getNodeCuType',
         'node_num' => 'getNodeNum',
         'node_type' => 'getNodeType',
-        'resource_spec_name' => 'getResourceSpecName'
+        'original_amount' => 'getOriginalAmount',
+        'payable_amount' => 'getPayableAmount'
     ];
 
     /**
@@ -154,8 +164,46 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
+    const NODE_CU_TYPE_PERFORMANCE = 'PERFORMANCE';
+    const NODE_CU_TYPE_CAPACITY = 'CAPACITY';
+    const NODE_TYPE_META_NODE = 'META_NODE';
+    const NODE_TYPE_DATA_NODE = 'DATA_NODE';
+    const NODE_TYPE_PROXY_NODE = 'PROXY_NODE';
+    const NODE_TYPE_INDEX_NODE = 'INDEX_NODE';
+    const NODE_TYPE_QUERY_NODE = 'QUERY_NODE';
+    const NODE_TYPE_STREAMING_NODE = 'STREAMING_NODE';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNodeCuTypeAllowableValues()
+    {
+        return [
+            self::NODE_CU_TYPE_PERFORMANCE,
+            self::NODE_CU_TYPE_CAPACITY,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNodeTypeAllowableValues()
+    {
+        return [
+            self::NODE_TYPE_META_NODE,
+            self::NODE_TYPE_DATA_NODE,
+            self::NODE_TYPE_PROXY_NODE,
+            self::NODE_TYPE_INDEX_NODE,
+            self::NODE_TYPE_QUERY_NODE,
+            self::NODE_TYPE_STREAMING_NODE,
+        ];
+    }
     
 
     /**
@@ -173,12 +221,14 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      */
     public function __construct($data = null)
     {
-        $this->container['cpu_num'] = isset($data['cpu_num']) ? $data['cpu_num'] : null;
-        $this->container['mem_size'] = isset($data['mem_size']) ? $data['mem_size'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
+        $this->container['charge_item_num'] = isset($data['charge_item_num']) ? $data['charge_item_num'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['node_cu_type'] = isset($data['node_cu_type']) ? $data['node_cu_type'] : null;
         $this->container['node_num'] = isset($data['node_num']) ? $data['node_num'] : null;
         $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
-        $this->container['resource_spec_name'] = isset($data['resource_spec_name']) ? $data['resource_spec_name'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
     }
 
     /**
@@ -189,6 +239,22 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNodeCuTypeAllowableValues();
+        if (!is_null($this->container['node_cu_type']) && !in_array($this->container['node_cu_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'node_cu_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getNodeTypeAllowableValues();
+        if (!is_null($this->container['node_type']) && !in_array($this->container['node_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'node_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -206,49 +272,73 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets cpu_num
+     * Gets charge_item_code
      *
-     * @return int
+     * @return string
      */
-    public function getCpuNum()
+    public function getChargeItemCode()
     {
-        return $this->container['cpu_num'];
+        return $this->container['charge_item_code'];
     }
 
     /**
-     * Sets cpu_num
+     * Sets charge_item_code
      *
-     * @param int $cpu_num cpu_num
+     * @param string $charge_item_code charge_item_code
      *
      * @return $this
      */
-    public function setCpuNum($cpu_num)
+    public function setChargeItemCode($charge_item_code)
     {
-        $this->container['cpu_num'] = $cpu_num;
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
 
     /**
-     * Gets mem_size
+     * Gets charge_item_num
      *
      * @return int
      */
-    public function getMemSize()
+    public function getChargeItemNum()
     {
-        return $this->container['mem_size'];
+        return $this->container['charge_item_num'];
     }
 
     /**
-     * Sets mem_size
+     * Sets charge_item_num
      *
-     * @param int $mem_size mem_size
+     * @param int $charge_item_num charge_item_num
      *
      * @return $this
      */
-    public function setMemSize($mem_size)
+    public function setChargeItemNum($charge_item_num)
     {
-        $this->container['mem_size'] = $mem_size;
+        $this->container['charge_item_num'] = $charge_item_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return string
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param string $discount_amount discount_amount
+     *
+     * @return $this
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
@@ -272,6 +362,15 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      */
     public function setNodeCuType($node_cu_type)
     {
+        $allowedValues = $this->getNodeCuTypeAllowableValues();
+        if (!is_null($node_cu_type) && !in_array($node_cu_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'node_cu_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['node_cu_type'] = $node_cu_type;
 
         return $this;
@@ -320,31 +419,64 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
      */
     public function setNodeType($node_type)
     {
+        $allowedValues = $this->getNodeTypeAllowableValues();
+        if (!is_null($node_type) && !in_array($node_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'node_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['node_type'] = $node_type;
 
         return $this;
     }
 
     /**
-     * Gets resource_spec_name
+     * Gets original_amount
      *
      * @return string
      */
-    public function getResourceSpecName()
+    public function getOriginalAmount()
     {
-        return $this->container['resource_spec_name'];
+        return $this->container['original_amount'];
     }
 
     /**
-     * Sets resource_spec_name
+     * Sets original_amount
      *
-     * @param string $resource_spec_name resource_spec_name
+     * @param string $original_amount original_amount
      *
      * @return $this
      */
-    public function setResourceSpecName($resource_spec_name)
+    public function setOriginalAmount($original_amount)
     {
-        $this->container['resource_spec_name'] = $resource_spec_name;
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
 
         return $this;
     }

@@ -29,10 +29,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'cpu_num' => 'int',
+        'display_name' => 'string',
         'mem_size' => 'int',
         'node_cu_type' => 'string',
         'node_num' => 'int',
-        'node_type' => 'string'
+        'node_type' => 'string',
+        'resource_spec_name' => 'string',
+        'spec_type' => 'string'
     ];
 
     /**
@@ -42,10 +45,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'cpu_num' => 'int32',
+        'display_name' => null,
         'mem_size' => 'int32',
         'node_cu_type' => null,
         'node_num' => 'int32',
-        'node_type' => null
+        'node_type' => null,
+        'resource_spec_name' => null,
+        'spec_type' => null
     ];
 
     /**
@@ -76,10 +82,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'cpu_num' => 'CpuNum',
+        'display_name' => 'DisplayName',
         'mem_size' => 'MemSize',
         'node_cu_type' => 'NodeCUType',
         'node_num' => 'NodeNum',
-        'node_type' => 'NodeType'
+        'node_type' => 'NodeType',
+        'resource_spec_name' => 'ResourceSpecName',
+        'spec_type' => 'SpecType'
     ];
 
     /**
@@ -89,10 +98,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
      */
     protected static $setters = [
         'cpu_num' => 'setCpuNum',
+        'display_name' => 'setDisplayName',
         'mem_size' => 'setMemSize',
         'node_cu_type' => 'setNodeCuType',
         'node_num' => 'setNodeNum',
-        'node_type' => 'setNodeType'
+        'node_type' => 'setNodeType',
+        'resource_spec_name' => 'setResourceSpecName',
+        'spec_type' => 'setSpecType'
     ];
 
     /**
@@ -102,10 +114,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
      */
     protected static $getters = [
         'cpu_num' => 'getCpuNum',
+        'display_name' => 'getDisplayName',
         'mem_size' => 'getMemSize',
         'node_cu_type' => 'getNodeCuType',
         'node_num' => 'getNodeNum',
-        'node_type' => 'getNodeType'
+        'node_type' => 'getNodeType',
+        'resource_spec_name' => 'getResourceSpecName',
+        'spec_type' => 'getSpecType'
     ];
 
     /**
@@ -169,10 +184,13 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['cpu_num'] = isset($data['cpu_num']) ? $data['cpu_num'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['mem_size'] = isset($data['mem_size']) ? $data['mem_size'] : null;
         $this->container['node_cu_type'] = isset($data['node_cu_type']) ? $data['node_cu_type'] : null;
         $this->container['node_num'] = isset($data['node_num']) ? $data['node_num'] : null;
         $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
+        $this->container['resource_spec_name'] = isset($data['resource_spec_name']) ? $data['resource_spec_name'] : null;
+        $this->container['spec_type'] = isset($data['spec_type']) ? $data['spec_type'] : null;
     }
 
     /**
@@ -219,6 +237,30 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
     public function setCpuNum($cpu_num)
     {
         $this->container['cpu_num'] = $cpu_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string $display_name display_name
+     *
+     * @return $this
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
@@ -315,6 +357,54 @@ class SpecConfigForDescribeInstanceDetailOutput implements ModelInterface, Array
     public function setNodeType($node_type)
     {
         $this->container['node_type'] = $node_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_spec_name
+     *
+     * @return string
+     */
+    public function getResourceSpecName()
+    {
+        return $this->container['resource_spec_name'];
+    }
+
+    /**
+     * Sets resource_spec_name
+     *
+     * @param string $resource_spec_name resource_spec_name
+     *
+     * @return $this
+     */
+    public function setResourceSpecName($resource_spec_name)
+    {
+        $this->container['resource_spec_name'] = $resource_spec_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets spec_type
+     *
+     * @return string
+     */
+    public function getSpecType()
+    {
+        return $this->container['spec_type'];
+    }
+
+    /**
+     * Sets spec_type
+     *
+     * @param string $spec_type spec_type
+     *
+     * @return $this
+     */
+    public function setSpecType($spec_type)
+    {
+        $this->container['spec_type'] = $spec_type;
 
         return $this;
     }

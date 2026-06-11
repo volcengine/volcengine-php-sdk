@@ -178,14 +178,8 @@ class ScaleInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['ha_enabled'] === null) {
-            $invalidProperties[] = "'ha_enabled' can't be null";
-        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['one_step'] === null) {
-            $invalidProperties[] = "'one_step' can't be null";
         }
         return $invalidProperties;
     }

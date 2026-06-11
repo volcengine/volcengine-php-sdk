@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class NodeSupportSpecListForDescribeAvailableSpecV2Output implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'NodeSupportSpecListForDescribeAvailableSpecV2Output';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'max_node_num' => 'int',
+        'node_type' => 'string',
+        'spec_name' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'max_node_num' => 'int32',
+        'node_type' => null,
+        'spec_name' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'max_node_num' => 'MaxNodeNum',
+        'node_type' => 'NodeType',
+        'spec_name' => 'SpecName'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'max_node_num' => 'setMaxNodeNum',
+        'node_type' => 'setNodeType',
+        'spec_name' => 'setSpecName'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'max_node_num' => 'getMaxNodeNum',
+        'node_type' => 'getNodeType',
+        'spec_name' => 'getSpecName'
     ];
 
     /**
@@ -139,23 +139,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +158,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['max_node_num'] = isset($data['max_node_num']) ? $data['max_node_num'] : null;
+        $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
+        $this->container['spec_name'] = isset($data['spec_name']) ? $data['spec_name'] : null;
     }
 
     /**
@@ -186,14 +171,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +188,73 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets max_node_num
      *
-     * @return string
+     * @return int
      */
-    public function getZoneId()
+    public function getMaxNodeNum()
     {
-        return $this->container['zone_id'];
+        return $this->container['max_node_num'];
     }
 
     /**
-     * Sets zone_id
+     * Sets max_node_num
      *
-     * @param string $zone_id zone_id
+     * @param int $max_node_num max_node_num
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setMaxNodeNum($max_node_num)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['max_node_num'] = $max_node_num;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets node_type
      *
      * @return string
      */
-    public function getZoneName()
+    public function getNodeType()
     {
-        return $this->container['zone_name'];
+        return $this->container['node_type'];
     }
 
     /**
-     * Sets zone_name
+     * Sets node_type
      *
-     * @param string $zone_name zone_name
+     * @param string $node_type node_type
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setNodeType($node_type)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['node_type'] = $node_type;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets spec_name
      *
-     * @return string
+     * @return string[]
      */
-    public function getZoneStatus()
+    public function getSpecName()
     {
-        return $this->container['zone_status'];
+        return $this->container['spec_name'];
     }
 
     /**
-     * Sets zone_status
+     * Sets spec_name
      *
-     * @param string $zone_status zone_status
+     * @param string[] $spec_name spec_name
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setSpecName($spec_name)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['spec_name'] = $spec_name;
 
         return $this;
     }

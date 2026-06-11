@@ -28,10 +28,10 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cpu_num' => 'float',
-        'mem_size' => 'float',
+        'cpu_num' => 'int',
+        'mem_size' => 'int',
         'node_cu_type' => 'string',
-        'node_num' => 'float',
+        'node_num' => 'int',
         'node_type' => 'string',
         'resource_spec_name' => 'string'
     ];
@@ -42,10 +42,10 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cpu_num' => 'float',
-        'mem_size' => 'float',
+        'cpu_num' => 'int32',
+        'mem_size' => 'int32',
         'node_cu_type' => null,
-        'node_num' => 'float',
+        'node_num' => 'int32',
         'node_type' => null,
         'resource_spec_name' => null
     ];
@@ -208,7 +208,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Gets cpu_num
      *
-     * @return float
+     * @return int
      */
     public function getCpuNum()
     {
@@ -218,7 +218,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Sets cpu_num
      *
-     * @param float $cpu_num cpu_num
+     * @param int $cpu_num cpu_num
      *
      * @return $this
      */
@@ -232,7 +232,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Gets mem_size
      *
-     * @return float
+     * @return int
      */
     public function getMemSize()
     {
@@ -242,7 +242,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Sets mem_size
      *
-     * @param float $mem_size mem_size
+     * @param int $mem_size mem_size
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Gets node_num
      *
-     * @return float
+     * @return int
      */
     public function getNodeNum()
     {
@@ -290,7 +290,7 @@ class ComponentSpecListForCreateInstanceOneStepInput implements ModelInterface, 
     /**
      * Sets node_num
      *
-     * @param float $node_num node_num
+     * @param int $node_num node_num
      *
      * @return $this
      */

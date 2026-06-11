@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
+class DescribeAvailableSpecV2Response implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
+    protected static $swaggerModelName = 'DescribeAvailableSpecV2Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zone_id' => 'string',
-        'zone_name' => 'string',
-        'zone_status' => 'string'
+        'node_support_spec_list' => '\Volcengine\Milvus\Model\NodeSupportSpecListForDescribeAvailableSpecV2Output[]',
+        'spec_list' => '\Volcengine\Milvus\Model\SpecListForDescribeAvailableSpecV2Output[]',
+        'zone_support_spec_list' => '\Volcengine\Milvus\Model\ZoneSupportSpecListForDescribeAvailableSpecV2Output[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zone_id' => null,
-        'zone_name' => null,
-        'zone_status' => null
+        'node_support_spec_list' => null,
+        'spec_list' => null,
+        'zone_support_spec_list' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName',
-        'zone_status' => 'ZoneStatus'
+        'node_support_spec_list' => 'NodeSupportSpecList',
+        'spec_list' => 'SpecList',
+        'zone_support_spec_list' => 'ZoneSupportSpecList'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName',
-        'zone_status' => 'setZoneStatus'
+        'node_support_spec_list' => 'setNodeSupportSpecList',
+        'spec_list' => 'setSpecList',
+        'zone_support_spec_list' => 'setZoneSupportSpecList'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName',
-        'zone_status' => 'getZoneStatus'
+        'node_support_spec_list' => 'getNodeSupportSpecList',
+        'spec_list' => 'getSpecList',
+        'zone_support_spec_list' => 'getZoneSupportSpecList'
     ];
 
     /**
@@ -139,23 +139,8 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
-    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getZoneStatusAllowableValues()
-    {
-        return [
-            self::ZONE_STATUS_AVAILABLE,
-            self::ZONE_STATUS_SOLD_OUT,
-        ];
-    }
     
 
     /**
@@ -173,9 +158,9 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
-        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
-        $this->container['zone_status'] = isset($data['zone_status']) ? $data['zone_status'] : null;
+        $this->container['node_support_spec_list'] = isset($data['node_support_spec_list']) ? $data['node_support_spec_list'] : null;
+        $this->container['spec_list'] = isset($data['spec_list']) ? $data['spec_list'] : null;
+        $this->container['zone_support_spec_list'] = isset($data['zone_support_spec_list']) ? $data['zone_support_spec_list'] : null;
     }
 
     /**
@@ -186,14 +171,6 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'zone_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +188,73 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zone_id
+     * Gets node_support_spec_list
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\NodeSupportSpecListForDescribeAvailableSpecV2Output[]
      */
-    public function getZoneId()
+    public function getNodeSupportSpecList()
     {
-        return $this->container['zone_id'];
+        return $this->container['node_support_spec_list'];
     }
 
     /**
-     * Sets zone_id
+     * Sets node_support_spec_list
      *
-     * @param string $zone_id zone_id
+     * @param \Volcengine\Milvus\Model\NodeSupportSpecListForDescribeAvailableSpecV2Output[] $node_support_spec_list node_support_spec_list
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setNodeSupportSpecList($node_support_spec_list)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['node_support_spec_list'] = $node_support_spec_list;
 
         return $this;
     }
 
     /**
-     * Gets zone_name
+     * Gets spec_list
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\SpecListForDescribeAvailableSpecV2Output[]
      */
-    public function getZoneName()
+    public function getSpecList()
     {
-        return $this->container['zone_name'];
+        return $this->container['spec_list'];
     }
 
     /**
-     * Sets zone_name
+     * Sets spec_list
      *
-     * @param string $zone_name zone_name
+     * @param \Volcengine\Milvus\Model\SpecListForDescribeAvailableSpecV2Output[] $spec_list spec_list
      *
      * @return $this
      */
-    public function setZoneName($zone_name)
+    public function setSpecList($spec_list)
     {
-        $this->container['zone_name'] = $zone_name;
+        $this->container['spec_list'] = $spec_list;
 
         return $this;
     }
 
     /**
-     * Gets zone_status
+     * Gets zone_support_spec_list
      *
-     * @return string
+     * @return \Volcengine\Milvus\Model\ZoneSupportSpecListForDescribeAvailableSpecV2Output[]
      */
-    public function getZoneStatus()
+    public function getZoneSupportSpecList()
     {
-        return $this->container['zone_status'];
+        return $this->container['zone_support_spec_list'];
     }
 
     /**
-     * Sets zone_status
+     * Sets zone_support_spec_list
      *
-     * @param string $zone_status zone_status
+     * @param \Volcengine\Milvus\Model\ZoneSupportSpecListForDescribeAvailableSpecV2Output[] $zone_support_spec_list zone_support_spec_list
      *
      * @return $this
      */
-    public function setZoneStatus($zone_status)
+    public function setZoneSupportSpecList($zone_support_spec_list)
     {
-        $allowedValues = $this->getZoneStatusAllowableValues();
-        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'zone_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['zone_status'] = $zone_status;
+        $this->container['zone_support_spec_list'] = $zone_support_spec_list;
 
         return $this;
     }
