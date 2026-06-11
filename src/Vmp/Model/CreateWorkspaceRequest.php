@@ -30,6 +30,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'auth_type' => 'string',
         'bearer_token' => 'string',
+        'charge_type' => 'string',
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
         'instance_type_id' => 'string',
@@ -49,6 +50,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'auth_type' => null,
         'bearer_token' => null,
+        'charge_type' => null,
         'delete_protection_enabled' => null,
         'description' => null,
         'instance_type_id' => null,
@@ -89,6 +91,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'auth_type' => 'AuthType',
         'bearer_token' => 'BearerToken',
+        'charge_type' => 'ChargeType',
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
         'instance_type_id' => 'InstanceTypeId',
@@ -108,6 +111,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'auth_type' => 'setAuthType',
         'bearer_token' => 'setBearerToken',
+        'charge_type' => 'setChargeType',
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
         'instance_type_id' => 'setInstanceTypeId',
@@ -127,6 +131,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'auth_type' => 'getAuthType',
         'bearer_token' => 'getBearerToken',
+        'charge_type' => 'getChargeType',
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
         'instance_type_id' => 'getInstanceTypeId',
@@ -200,6 +205,7 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
         $this->container['bearer_token'] = isset($data['bearer_token']) ? $data['bearer_token'] : null;
+        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
@@ -285,6 +291,30 @@ class CreateWorkspaceRequest implements ModelInterface, ArrayAccess
     public function setBearerToken($bearer_token)
     {
         $this->container['bearer_token'] = $bearer_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_type
+     *
+     * @return string
+     */
+    public function getChargeType()
+    {
+        return $this->container['charge_type'];
+    }
+
+    /**
+     * Sets charge_type
+     *
+     * @param string $charge_type charge_type
+     *
+     * @return $this
+     */
+    public function setChargeType($charge_type)
+    {
+        $this->container['charge_type'] = $charge_type;
 
         return $this;
     }
