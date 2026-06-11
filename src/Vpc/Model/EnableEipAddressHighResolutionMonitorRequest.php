@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateFlowLogRequest implements ModelInterface, ArrayAccess
+class EnableEipAddressHighResolutionMonitorRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateFlowLogRequest';
+    protected static $swaggerModelName = 'EnableEipAddressHighResolutionMonitorRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,19 +28,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aggregation_interval' => 'int',
-        'client_token' => 'string',
-        'description' => 'string',
+        'allocation_ids' => 'string[]',
         'enable_index' => 'bool',
-        'flow_log_name' => 'string',
         'log_project_name' => 'string',
         'log_topic_name' => 'string',
-        'project_name' => 'string',
-        'resource_id' => 'string',
-        'resource_type' => 'string',
-        'tags' => '\Volcengine\Vpc\Model\TagForCreateFlowLogInput[]',
-        'traffic_path' => 'int[]',
-        'traffic_type' => 'string'
+        'project_name' => 'string'
     ];
 
     /**
@@ -49,19 +41,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aggregation_interval' => null,
-        'client_token' => null,
-        'description' => null,
+        'allocation_ids' => null,
         'enable_index' => null,
-        'flow_log_name' => null,
         'log_project_name' => null,
         'log_topic_name' => null,
-        'project_name' => null,
-        'resource_id' => null,
-        'resource_type' => null,
-        'tags' => null,
-        'traffic_path' => null,
-        'traffic_type' => null
+        'project_name' => null
     ];
 
     /**
@@ -91,19 +75,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aggregation_interval' => 'AggregationInterval',
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
+        'allocation_ids' => 'AllocationIds',
         'enable_index' => 'EnableIndex',
-        'flow_log_name' => 'FlowLogName',
         'log_project_name' => 'LogProjectName',
         'log_topic_name' => 'LogTopicName',
-        'project_name' => 'ProjectName',
-        'resource_id' => 'ResourceId',
-        'resource_type' => 'ResourceType',
-        'tags' => 'Tags',
-        'traffic_path' => 'TrafficPath',
-        'traffic_type' => 'TrafficType'
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -112,19 +88,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aggregation_interval' => 'setAggregationInterval',
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
+        'allocation_ids' => 'setAllocationIds',
         'enable_index' => 'setEnableIndex',
-        'flow_log_name' => 'setFlowLogName',
         'log_project_name' => 'setLogProjectName',
         'log_topic_name' => 'setLogTopicName',
-        'project_name' => 'setProjectName',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'tags' => 'setTags',
-        'traffic_path' => 'setTrafficPath',
-        'traffic_type' => 'setTrafficType'
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -133,19 +101,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aggregation_interval' => 'getAggregationInterval',
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
+        'allocation_ids' => 'getAllocationIds',
         'enable_index' => 'getEnableIndex',
-        'flow_log_name' => 'getFlowLogName',
         'log_project_name' => 'getLogProjectName',
         'log_topic_name' => 'getLogTopicName',
-        'project_name' => 'getProjectName',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'tags' => 'getTags',
-        'traffic_path' => 'getTrafficPath',
-        'traffic_type' => 'getTrafficType'
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -208,19 +168,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['allocation_ids'] = isset($data['allocation_ids']) ? $data['allocation_ids'] : null;
         $this->container['enable_index'] = isset($data['enable_index']) ? $data['enable_index'] : null;
-        $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
         $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
         $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
-        $this->container['traffic_type'] = isset($data['traffic_type']) ? $data['traffic_type'] : null;
     }
 
     /**
@@ -232,26 +184,11 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['aggregation_interval'] === null) {
-            $invalidProperties[] = "'aggregation_interval' can't be null";
-        }
-        if ($this->container['flow_log_name'] === null) {
-            $invalidProperties[] = "'flow_log_name' can't be null";
-        }
         if ($this->container['log_project_name'] === null) {
             $invalidProperties[] = "'log_project_name' can't be null";
         }
         if ($this->container['log_topic_name'] === null) {
             $invalidProperties[] = "'log_topic_name' can't be null";
-        }
-        if ($this->container['resource_id'] === null) {
-            $invalidProperties[] = "'resource_id' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
-        if ($this->container['traffic_type'] === null) {
-            $invalidProperties[] = "'traffic_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -269,73 +206,25 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aggregation_interval
+     * Gets allocation_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getAggregationInterval()
+    public function getAllocationIds()
     {
-        return $this->container['aggregation_interval'];
+        return $this->container['allocation_ids'];
     }
 
     /**
-     * Sets aggregation_interval
+     * Sets allocation_ids
      *
-     * @param int $aggregation_interval aggregation_interval
+     * @param string[] $allocation_ids allocation_ids
      *
      * @return $this
      */
-    public function setAggregationInterval($aggregation_interval)
+    public function setAllocationIds($allocation_ids)
     {
-        $this->container['aggregation_interval'] = $aggregation_interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
+        $this->container['allocation_ids'] = $allocation_ids;
 
         return $this;
     }
@@ -360,30 +249,6 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     public function setEnableIndex($enable_index)
     {
         $this->container['enable_index'] = $enable_index;
-
-        return $this;
-    }
-
-    /**
-     * Gets flow_log_name
-     *
-     * @return string
-     */
-    public function getFlowLogName()
-    {
-        return $this->container['flow_log_name'];
-    }
-
-    /**
-     * Sets flow_log_name
-     *
-     * @param string $flow_log_name flow_log_name
-     *
-     * @return $this
-     */
-    public function setFlowLogName($flow_log_name)
-    {
-        $this->container['flow_log_name'] = $flow_log_name;
 
         return $this;
     }
@@ -456,126 +321,6 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_id
-     *
-     * @return string
-     */
-    public function getResourceId()
-    {
-        return $this->container['resource_id'];
-    }
-
-    /**
-     * Sets resource_id
-     *
-     * @param string $resource_id resource_id
-     *
-     * @return $this
-     */
-    public function setResourceId($resource_id)
-    {
-        $this->container['resource_id'] = $resource_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Vpc\Model\TagForCreateFlowLogInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Vpc\Model\TagForCreateFlowLogInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets traffic_path
-     *
-     * @return int[]
-     */
-    public function getTrafficPath()
-    {
-        return $this->container['traffic_path'];
-    }
-
-    /**
-     * Sets traffic_path
-     *
-     * @param int[] $traffic_path traffic_path
-     *
-     * @return $this
-     */
-    public function setTrafficPath($traffic_path)
-    {
-        $this->container['traffic_path'] = $traffic_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets traffic_type
-     *
-     * @return string
-     */
-    public function getTrafficType()
-    {
-        return $this->container['traffic_type'];
-    }
-
-    /**
-     * Sets traffic_type
-     *
-     * @param string $traffic_type traffic_type
-     *
-     * @return $this
-     */
-    public function setTrafficType($traffic_type)
-    {
-        $this->container['traffic_type'] = $traffic_type;
 
         return $this;
     }

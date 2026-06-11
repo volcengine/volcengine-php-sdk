@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
+class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyFlowLogAttributeRequest';
+    protected static $swaggerModelName = 'DescribeIpamResourceCidrsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aggregation_interval' => 'int',
-        'client_token' => 'string',
-        'description' => 'string',
-        'flow_log_id' => 'string',
-        'flow_log_name' => 'string',
-        'traffic_path' => 'int[]'
+        'ipam_pool_id' => 'string',
+        'ipam_scope_id' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'resource_id' => 'string',
+        'resource_name' => 'string',
+        'resource_type' => 'string',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -42,12 +44,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aggregation_interval' => null,
-        'client_token' => null,
-        'description' => null,
-        'flow_log_id' => null,
-        'flow_log_name' => null,
-        'traffic_path' => null
+        'ipam_pool_id' => null,
+        'ipam_scope_id' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'resource_id' => null,
+        'resource_name' => null,
+        'resource_type' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aggregation_interval' => 'AggregationInterval',
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'flow_log_id' => 'FlowLogId',
-        'flow_log_name' => 'FlowLogName',
-        'traffic_path' => 'TrafficPath'
+        'ipam_pool_id' => 'IpamPoolId',
+        'ipam_scope_id' => 'IpamScopeId',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'resource_id' => 'ResourceId',
+        'resource_name' => 'ResourceName',
+        'resource_type' => 'ResourceType',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -91,12 +97,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aggregation_interval' => 'setAggregationInterval',
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'flow_log_id' => 'setFlowLogId',
-        'flow_log_name' => 'setFlowLogName',
-        'traffic_path' => 'setTrafficPath'
+        'ipam_pool_id' => 'setIpamPoolId',
+        'ipam_scope_id' => 'setIpamScopeId',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'resource_id' => 'setResourceId',
+        'resource_name' => 'setResourceName',
+        'resource_type' => 'setResourceType',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -105,12 +113,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aggregation_interval' => 'getAggregationInterval',
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'flow_log_id' => 'getFlowLogId',
-        'flow_log_name' => 'getFlowLogName',
-        'traffic_path' => 'getTrafficPath'
+        'ipam_pool_id' => 'getIpamPoolId',
+        'ipam_scope_id' => 'getIpamScopeId',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'resource_id' => 'getResourceId',
+        'resource_name' => 'getResourceName',
+        'resource_type' => 'getResourceType',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -173,12 +183,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['flow_log_id'] = isset($data['flow_log_id']) ? $data['flow_log_id'] : null;
-        $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
-        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
+        $this->container['ipam_pool_id'] = isset($data['ipam_pool_id']) ? $data['ipam_pool_id'] : null;
+        $this->container['ipam_scope_id'] = isset($data['ipam_scope_id']) ? $data['ipam_scope_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -190,8 +202,11 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['flow_log_id'] === null) {
-            $invalidProperties[] = "'flow_log_id' can't be null";
+        if ($this->container['ipam_scope_id'] === null) {
+            $invalidProperties[] = "'ipam_scope_id' can't be null";
+        }
+        if ($this->container['vpc_id'] === null) {
+            $invalidProperties[] = "'vpc_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,145 +224,193 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aggregation_interval
+     * Gets ipam_pool_id
+     *
+     * @return string
+     */
+    public function getIpamPoolId()
+    {
+        return $this->container['ipam_pool_id'];
+    }
+
+    /**
+     * Sets ipam_pool_id
+     *
+     * @param string $ipam_pool_id ipam_pool_id
+     *
+     * @return $this
+     */
+    public function setIpamPoolId($ipam_pool_id)
+    {
+        $this->container['ipam_pool_id'] = $ipam_pool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_scope_id
+     *
+     * @return string
+     */
+    public function getIpamScopeId()
+    {
+        return $this->container['ipam_scope_id'];
+    }
+
+    /**
+     * Sets ipam_scope_id
+     *
+     * @param string $ipam_scope_id ipam_scope_id
+     *
+     * @return $this
+     */
+    public function setIpamScopeId($ipam_scope_id)
+    {
+        $this->container['ipam_scope_id'] = $ipam_scope_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
      *
      * @return int
      */
-    public function getAggregationInterval()
+    public function getMaxResults()
     {
-        return $this->container['aggregation_interval'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets aggregation_interval
+     * Sets max_results
      *
-     * @param int $aggregation_interval aggregation_interval
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setAggregationInterval($aggregation_interval)
+    public function setMaxResults($max_results)
     {
-        $this->container['aggregation_interval'] = $aggregation_interval;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets next_token
      *
      * @return string
      */
-    public function getClientToken()
+    public function getNextToken()
     {
-        return $this->container['client_token'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets client_token
+     * Sets next_token
      *
-     * @param string $client_token client_token
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setNextToken($next_token)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets resource_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getResourceId()
     {
-        return $this->container['description'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets description
+     * Sets resource_id
      *
-     * @param string $description description
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setResourceId($resource_id)
     {
-        $this->container['description'] = $description;
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_id
+     * Gets resource_name
      *
      * @return string
      */
-    public function getFlowLogId()
+    public function getResourceName()
     {
-        return $this->container['flow_log_id'];
+        return $this->container['resource_name'];
     }
 
     /**
-     * Sets flow_log_id
+     * Sets resource_name
      *
-     * @param string $flow_log_id flow_log_id
+     * @param string $resource_name resource_name
      *
      * @return $this
      */
-    public function setFlowLogId($flow_log_id)
+    public function setResourceName($resource_name)
     {
-        $this->container['flow_log_id'] = $flow_log_id;
+        $this->container['resource_name'] = $resource_name;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_name
+     * Gets resource_type
      *
      * @return string
      */
-    public function getFlowLogName()
+    public function getResourceType()
     {
-        return $this->container['flow_log_name'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets flow_log_name
+     * Sets resource_type
      *
-     * @param string $flow_log_name flow_log_name
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setFlowLogName($flow_log_name)
+    public function setResourceType($resource_type)
     {
-        $this->container['flow_log_name'] = $flow_log_name;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets traffic_path
+     * Gets vpc_id
      *
-     * @return int[]
+     * @return string
      */
-    public function getTrafficPath()
+    public function getVpcId()
     {
-        return $this->container['traffic_path'];
+        return $this->container['vpc_id'];
     }
 
     /**
-     * Sets traffic_path
+     * Sets vpc_id
      *
-     * @param int[] $traffic_path traffic_path
+     * @param string $vpc_id vpc_id
      *
      * @return $this
      */
-    public function setTrafficPath($traffic_path)
+    public function setVpcId($vpc_id)
     {
-        $this->container['traffic_path'] = $traffic_path;
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

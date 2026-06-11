@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'DescribeIpamDiscoveredResourceCidrsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'ipam_resource_discovery_id' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'resource_region_id' => 'string',
+        'resource_type' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'ipam_resource_discovery_id' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'resource_region_id' => null,
+        'resource_type' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'ipam_resource_discovery_id' => 'IpamResourceDiscoveryId',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'resource_region_id' => 'ResourceRegionId',
+        'resource_type' => 'ResourceType'
     ];
 
     /**
@@ -82,9 +88,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'ipam_resource_discovery_id' => 'setIpamResourceDiscoveryId',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'resource_region_id' => 'setResourceRegionId',
+        'resource_type' => 'setResourceType'
     ];
 
     /**
@@ -93,9 +101,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'ipam_resource_discovery_id' => 'getIpamResourceDiscoveryId',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'resource_region_id' => 'getResourceRegionId',
+        'resource_type' => 'getResourceType'
     ];
 
     /**
@@ -158,9 +168,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['ipam_resource_discovery_id'] = isset($data['ipam_resource_discovery_id']) ? $data['ipam_resource_discovery_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
 
     /**
@@ -172,11 +184,14 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['ipam_resource_discovery_id'] === null) {
+            $invalidProperties[] = "'ipam_resource_discovery_id' can't be null";
         }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        if ($this->container['resource_region_id'] === null) {
+            $invalidProperties[] = "'resource_region_id' can't be null";
+        }
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +209,121 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets ipam_resource_discovery_id
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getIpamResourceDiscoveryId()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['ipam_resource_discovery_id'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets ipam_resource_discovery_id
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $ipam_resource_discovery_id ipam_resource_discovery_id
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setIpamResourceDiscoveryId($ipam_resource_discovery_id)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['ipam_resource_discovery_id'] = $ipam_resource_discovery_id;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getInstanceId()
+    public function getMaxResults()
     {
-        return $this->container['instance_id'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets instance_id
+     * Sets max_results
      *
-     * @param string $instance_id instance_id
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setMaxResults($max_results)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getNextToken()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets next_token
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setNextToken($next_token)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

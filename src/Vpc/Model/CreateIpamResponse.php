@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class CreateIpamResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'CreateIpamResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'default_resource_discovery_id' => 'string',
+        'ipam_id' => 'string',
+        'private_default_scope_id' => 'string',
+        'public_default_scope_id' => 'string',
+        'request_id' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'default_resource_discovery_id' => null,
+        'ipam_id' => null,
+        'private_default_scope_id' => null,
+        'public_default_scope_id' => null,
+        'request_id' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'default_resource_discovery_id' => 'DefaultResourceDiscoveryId',
+        'ipam_id' => 'IpamId',
+        'private_default_scope_id' => 'PrivateDefaultScopeId',
+        'public_default_scope_id' => 'PublicDefaultScopeId',
+        'request_id' => 'RequestId'
     ];
 
     /**
@@ -82,9 +88,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'default_resource_discovery_id' => 'setDefaultResourceDiscoveryId',
+        'ipam_id' => 'setIpamId',
+        'private_default_scope_id' => 'setPrivateDefaultScopeId',
+        'public_default_scope_id' => 'setPublicDefaultScopeId',
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -93,9 +101,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'default_resource_discovery_id' => 'getDefaultResourceDiscoveryId',
+        'ipam_id' => 'getIpamId',
+        'private_default_scope_id' => 'getPrivateDefaultScopeId',
+        'public_default_scope_id' => 'getPublicDefaultScopeId',
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -158,9 +168,11 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['default_resource_discovery_id'] = isset($data['default_resource_discovery_id']) ? $data['default_resource_discovery_id'] : null;
+        $this->container['ipam_id'] = isset($data['ipam_id']) ? $data['ipam_id'] : null;
+        $this->container['private_default_scope_id'] = isset($data['private_default_scope_id']) ? $data['private_default_scope_id'] : null;
+        $this->container['public_default_scope_id'] = isset($data['public_default_scope_id']) ? $data['public_default_scope_id'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
 
     /**
@@ -172,12 +184,6 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +200,121 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets default_resource_discovery_id
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getDefaultResourceDiscoveryId()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['default_resource_discovery_id'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets default_resource_discovery_id
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $default_resource_discovery_id default_resource_discovery_id
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setDefaultResourceDiscoveryId($default_resource_discovery_id)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['default_resource_discovery_id'] = $default_resource_discovery_id;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets ipam_id
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getIpamId()
     {
-        return $this->container['instance_id'];
+        return $this->container['ipam_id'];
     }
 
     /**
-     * Sets instance_id
+     * Sets ipam_id
      *
-     * @param string $instance_id instance_id
+     * @param string $ipam_id ipam_id
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setIpamId($ipam_id)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['ipam_id'] = $ipam_id;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets private_default_scope_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getPrivateDefaultScopeId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['private_default_scope_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets private_default_scope_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $private_default_scope_id private_default_scope_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setPrivateDefaultScopeId($private_default_scope_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['private_default_scope_id'] = $private_default_scope_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_default_scope_id
+     *
+     * @return string
+     */
+    public function getPublicDefaultScopeId()
+    {
+        return $this->container['public_default_scope_id'];
+    }
+
+    /**
+     * Sets public_default_scope_id
+     *
+     * @param string $public_default_scope_id public_default_scope_id
+     *
+     * @return $this
+     */
+    public function setPublicDefaultScopeId($public_default_scope_id)
+    {
+        $this->container['public_default_scope_id'] = $public_default_scope_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_id
+     *
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->container['request_id'];
+    }
+
+    /**
+     * Sets request_id
+     *
+     * @param string $request_id request_id
+     *
+     * @return $this
+     */
+    public function setRequestId($request_id)
+    {
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }

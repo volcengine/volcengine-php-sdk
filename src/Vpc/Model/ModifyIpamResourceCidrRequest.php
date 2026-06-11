@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class ModifyIpamResourceCidrRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'ModifyIpamResourceCidrRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'current_ipam_scope_id' => 'string',
+        'destination_ipam_scope_id' => 'string',
+        'monitored' => 'bool',
+        'resource_cidr' => 'string',
+        'resource_id' => 'string',
+        'resource_region_id' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'current_ipam_scope_id' => null,
+        'destination_ipam_scope_id' => null,
+        'monitored' => null,
+        'resource_cidr' => null,
+        'resource_id' => null,
+        'resource_region_id' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'current_ipam_scope_id' => 'CurrentIpamScopeId',
+        'destination_ipam_scope_id' => 'DestinationIpamScopeId',
+        'monitored' => 'Monitored',
+        'resource_cidr' => 'ResourceCidr',
+        'resource_id' => 'ResourceId',
+        'resource_region_id' => 'ResourceRegionId'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'current_ipam_scope_id' => 'setCurrentIpamScopeId',
+        'destination_ipam_scope_id' => 'setDestinationIpamScopeId',
+        'monitored' => 'setMonitored',
+        'resource_cidr' => 'setResourceCidr',
+        'resource_id' => 'setResourceId',
+        'resource_region_id' => 'setResourceRegionId'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'current_ipam_scope_id' => 'getCurrentIpamScopeId',
+        'destination_ipam_scope_id' => 'getDestinationIpamScopeId',
+        'monitored' => 'getMonitored',
+        'resource_cidr' => 'getResourceCidr',
+        'resource_id' => 'getResourceId',
+        'resource_region_id' => 'getResourceRegionId'
     ];
 
     /**
@@ -158,9 +173,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['current_ipam_scope_id'] = isset($data['current_ipam_scope_id']) ? $data['current_ipam_scope_id'] : null;
+        $this->container['destination_ipam_scope_id'] = isset($data['destination_ipam_scope_id']) ? $data['destination_ipam_scope_id'] : null;
+        $this->container['monitored'] = isset($data['monitored']) ? $data['monitored'] : null;
+        $this->container['resource_cidr'] = isset($data['resource_cidr']) ? $data['resource_cidr'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
     }
 
     /**
@@ -172,11 +190,20 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['current_ipam_scope_id'] === null) {
+            $invalidProperties[] = "'current_ipam_scope_id' can't be null";
         }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        if ($this->container['monitored'] === null) {
+            $invalidProperties[] = "'monitored' can't be null";
+        }
+        if ($this->container['resource_cidr'] === null) {
+            $invalidProperties[] = "'resource_cidr' can't be null";
+        }
+        if ($this->container['resource_id'] === null) {
+            $invalidProperties[] = "'resource_id' can't be null";
+        }
+        if ($this->container['resource_region_id'] === null) {
+            $invalidProperties[] = "'resource_region_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +221,145 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets current_ipam_scope_id
+     *
+     * @return string
+     */
+    public function getCurrentIpamScopeId()
+    {
+        return $this->container['current_ipam_scope_id'];
+    }
+
+    /**
+     * Sets current_ipam_scope_id
+     *
+     * @param string $current_ipam_scope_id current_ipam_scope_id
+     *
+     * @return $this
+     */
+    public function setCurrentIpamScopeId($current_ipam_scope_id)
+    {
+        $this->container['current_ipam_scope_id'] = $current_ipam_scope_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_ipam_scope_id
+     *
+     * @return string
+     */
+    public function getDestinationIpamScopeId()
+    {
+        return $this->container['destination_ipam_scope_id'];
+    }
+
+    /**
+     * Sets destination_ipam_scope_id
+     *
+     * @param string $destination_ipam_scope_id destination_ipam_scope_id
+     *
+     * @return $this
+     */
+    public function setDestinationIpamScopeId($destination_ipam_scope_id)
+    {
+        $this->container['destination_ipam_scope_id'] = $destination_ipam_scope_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitored
      *
      * @return bool
      */
-    public function getDeleteOnTermination()
+    public function getMonitored()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['monitored'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets monitored
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param bool $monitored monitored
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setMonitored($monitored)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['monitored'] = $monitored;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets resource_cidr
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getResourceCidr()
     {
-        return $this->container['instance_id'];
+        return $this->container['resource_cidr'];
     }
 
     /**
-     * Sets instance_id
+     * Sets resource_cidr
      *
-     * @param string $instance_id instance_id
+     * @param string $resource_cidr resource_cidr
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setResourceCidr($resource_cidr)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['resource_cidr'] = $resource_cidr;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets resource_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getResourceId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets resource_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setResourceId($resource_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
 
         return $this;
     }

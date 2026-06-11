@@ -43,8 +43,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeFlowLogsOutput[]',
+        'traffic_path' => 'int[]',
         'traffic_type' => 'string',
         'updated_at' => 'string',
+        'version' => 'int',
         'vpc_id' => 'string'
     ];
 
@@ -69,8 +71,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => null,
         'status' => null,
         'tags' => null,
+        'traffic_path' => null,
         'traffic_type' => null,
         'updated_at' => null,
+        'version' => null,
         'vpc_id' => null
     ];
 
@@ -116,8 +120,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'ResourceType',
         'status' => 'Status',
         'tags' => 'Tags',
+        'traffic_path' => 'TrafficPath',
         'traffic_type' => 'TrafficType',
         'updated_at' => 'UpdatedAt',
+        'version' => 'Version',
         'vpc_id' => 'VpcId'
     ];
 
@@ -142,8 +148,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'setResourceType',
         'status' => 'setStatus',
         'tags' => 'setTags',
+        'traffic_path' => 'setTrafficPath',
         'traffic_type' => 'setTrafficType',
         'updated_at' => 'setUpdatedAt',
+        'version' => 'setVersion',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -168,8 +176,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'getResourceType',
         'status' => 'getStatus',
         'tags' => 'getTags',
+        'traffic_path' => 'getTrafficPath',
         'traffic_type' => 'getTrafficType',
         'updated_at' => 'getUpdatedAt',
+        'version' => 'getVersion',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -265,8 +275,10 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
         $this->container['traffic_type'] = isset($data['traffic_type']) ? $data['traffic_type'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -663,6 +675,30 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets traffic_path
+     *
+     * @return int[]
+     */
+    public function getTrafficPath()
+    {
+        return $this->container['traffic_path'];
+    }
+
+    /**
+     * Sets traffic_path
+     *
+     * @param int[] $traffic_path traffic_path
+     *
+     * @return $this
+     */
+    public function setTrafficPath($traffic_path)
+    {
+        $this->container['traffic_path'] = $traffic_path;
+
+        return $this;
+    }
+
+    /**
      * Gets traffic_type
      *
      * @return string
@@ -715,6 +751,30 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

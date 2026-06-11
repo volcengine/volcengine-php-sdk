@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
+class DescribeIpamScopesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyFlowLogAttributeRequest';
+    protected static $swaggerModelName = 'DescribeIpamScopesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'aggregation_interval' => 'int',
-        'client_token' => 'string',
-        'description' => 'string',
-        'flow_log_id' => 'string',
-        'flow_log_name' => 'string',
-        'traffic_path' => 'int[]'
+        'ipam_id' => 'string',
+        'ipam_scope_ids' => 'string[]',
+        'ipam_scope_name' => 'string',
+        'ipam_scope_type' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpamScopesInput[]'
     ];
 
     /**
@@ -42,12 +44,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'aggregation_interval' => null,
-        'client_token' => null,
-        'description' => null,
-        'flow_log_id' => null,
-        'flow_log_name' => null,
-        'traffic_path' => null
+        'ipam_id' => null,
+        'ipam_scope_ids' => null,
+        'ipam_scope_name' => null,
+        'ipam_scope_type' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'project_name' => null,
+        'tag_filters' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'aggregation_interval' => 'AggregationInterval',
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'flow_log_id' => 'FlowLogId',
-        'flow_log_name' => 'FlowLogName',
-        'traffic_path' => 'TrafficPath'
+        'ipam_id' => 'IpamId',
+        'ipam_scope_ids' => 'IpamScopeIds',
+        'ipam_scope_name' => 'IpamScopeName',
+        'ipam_scope_type' => 'IpamScopeType',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -91,12 +97,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'aggregation_interval' => 'setAggregationInterval',
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'flow_log_id' => 'setFlowLogId',
-        'flow_log_name' => 'setFlowLogName',
-        'traffic_path' => 'setTrafficPath'
+        'ipam_id' => 'setIpamId',
+        'ipam_scope_ids' => 'setIpamScopeIds',
+        'ipam_scope_name' => 'setIpamScopeName',
+        'ipam_scope_type' => 'setIpamScopeType',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -105,12 +113,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'aggregation_interval' => 'getAggregationInterval',
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'flow_log_id' => 'getFlowLogId',
-        'flow_log_name' => 'getFlowLogName',
-        'traffic_path' => 'getTrafficPath'
+        'ipam_id' => 'getIpamId',
+        'ipam_scope_ids' => 'getIpamScopeIds',
+        'ipam_scope_name' => 'getIpamScopeName',
+        'ipam_scope_type' => 'getIpamScopeType',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -173,12 +183,14 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['flow_log_id'] = isset($data['flow_log_id']) ? $data['flow_log_id'] : null;
-        $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
-        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
+        $this->container['ipam_id'] = isset($data['ipam_id']) ? $data['ipam_id'] : null;
+        $this->container['ipam_scope_ids'] = isset($data['ipam_scope_ids']) ? $data['ipam_scope_ids'] : null;
+        $this->container['ipam_scope_name'] = isset($data['ipam_scope_name']) ? $data['ipam_scope_name'] : null;
+        $this->container['ipam_scope_type'] = isset($data['ipam_scope_type']) ? $data['ipam_scope_type'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -190,9 +202,6 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['flow_log_id'] === null) {
-            $invalidProperties[] = "'flow_log_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +218,193 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets aggregation_interval
+     * Gets ipam_id
+     *
+     * @return string
+     */
+    public function getIpamId()
+    {
+        return $this->container['ipam_id'];
+    }
+
+    /**
+     * Sets ipam_id
+     *
+     * @param string $ipam_id ipam_id
+     *
+     * @return $this
+     */
+    public function setIpamId($ipam_id)
+    {
+        $this->container['ipam_id'] = $ipam_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_scope_ids
+     *
+     * @return string[]
+     */
+    public function getIpamScopeIds()
+    {
+        return $this->container['ipam_scope_ids'];
+    }
+
+    /**
+     * Sets ipam_scope_ids
+     *
+     * @param string[] $ipam_scope_ids ipam_scope_ids
+     *
+     * @return $this
+     */
+    public function setIpamScopeIds($ipam_scope_ids)
+    {
+        $this->container['ipam_scope_ids'] = $ipam_scope_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_scope_name
+     *
+     * @return string
+     */
+    public function getIpamScopeName()
+    {
+        return $this->container['ipam_scope_name'];
+    }
+
+    /**
+     * Sets ipam_scope_name
+     *
+     * @param string $ipam_scope_name ipam_scope_name
+     *
+     * @return $this
+     */
+    public function setIpamScopeName($ipam_scope_name)
+    {
+        $this->container['ipam_scope_name'] = $ipam_scope_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_scope_type
+     *
+     * @return string
+     */
+    public function getIpamScopeType()
+    {
+        return $this->container['ipam_scope_type'];
+    }
+
+    /**
+     * Sets ipam_scope_type
+     *
+     * @param string $ipam_scope_type ipam_scope_type
+     *
+     * @return $this
+     */
+    public function setIpamScopeType($ipam_scope_type)
+    {
+        $this->container['ipam_scope_type'] = $ipam_scope_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
      *
      * @return int
      */
-    public function getAggregationInterval()
+    public function getMaxResults()
     {
-        return $this->container['aggregation_interval'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets aggregation_interval
+     * Sets max_results
      *
-     * @param int $aggregation_interval aggregation_interval
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setAggregationInterval($aggregation_interval)
+    public function setMaxResults($max_results)
     {
-        $this->container['aggregation_interval'] = $aggregation_interval;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets next_token
      *
      * @return string
      */
-    public function getClientToken()
+    public function getNextToken()
     {
-        return $this->container['client_token'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets client_token
+     * Sets next_token
      *
-     * @param string $client_token client_token
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setNextToken($next_token)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets project_name
      *
      * @return string
      */
-    public function getDescription()
+    public function getProjectName()
     {
-        return $this->container['description'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets description
+     * Sets project_name
      *
-     * @param string $description description
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setProjectName($project_name)
     {
-        $this->container['description'] = $description;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
 
     /**
-     * Gets flow_log_id
+     * Gets tag_filters
      *
-     * @return string
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeIpamScopesInput[]
      */
-    public function getFlowLogId()
+    public function getTagFilters()
     {
-        return $this->container['flow_log_id'];
+        return $this->container['tag_filters'];
     }
 
     /**
-     * Sets flow_log_id
+     * Sets tag_filters
      *
-     * @param string $flow_log_id flow_log_id
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeIpamScopesInput[] $tag_filters tag_filters
      *
      * @return $this
      */
-    public function setFlowLogId($flow_log_id)
+    public function setTagFilters($tag_filters)
     {
-        $this->container['flow_log_id'] = $flow_log_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets flow_log_name
-     *
-     * @return string
-     */
-    public function getFlowLogName()
-    {
-        return $this->container['flow_log_name'];
-    }
-
-    /**
-     * Sets flow_log_name
-     *
-     * @param string $flow_log_name flow_log_name
-     *
-     * @return $this
-     */
-    public function setFlowLogName($flow_log_name)
-    {
-        $this->container['flow_log_name'] = $flow_log_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets traffic_path
-     *
-     * @return int[]
-     */
-    public function getTrafficPath()
-    {
-        return $this->container['traffic_path'];
-    }
-
-    /**
-     * Sets traffic_path
-     *
-     * @param int[] $traffic_path traffic_path
-     *
-     * @return $this
-     */
-    public function setTrafficPath($traffic_path)
-    {
-        $this->container['traffic_path'] = $traffic_path;
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class GetIpamPoolAvailableCidrRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'GetIpamPoolAvailableCidrRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'cidr_block' => 'string',
+        'cidr_mask' => 'int',
+        'ipam_pool_id' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'cidr_block' => null,
+        'cidr_mask' => null,
+        'ipam_pool_id' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'cidr_block' => 'CidrBlock',
+        'cidr_mask' => 'CidrMask',
+        'ipam_pool_id' => 'IpamPoolId'
     ];
 
     /**
@@ -82,9 +82,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'cidr_block' => 'setCidrBlock',
+        'cidr_mask' => 'setCidrMask',
+        'ipam_pool_id' => 'setIpamPoolId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'cidr_block' => 'getCidrBlock',
+        'cidr_mask' => 'getCidrMask',
+        'ipam_pool_id' => 'getIpamPoolId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
+        $this->container['cidr_mask'] = isset($data['cidr_mask']) ? $data['cidr_mask'] : null;
+        $this->container['ipam_pool_id'] = isset($data['ipam_pool_id']) ? $data['ipam_pool_id'] : null;
     }
 
     /**
@@ -172,11 +172,8 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        if ($this->container['ipam_pool_id'] === null) {
+            $invalidProperties[] = "'ipam_pool_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +191,73 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets cidr_block
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleteOnTermination()
+    public function getCidrBlock()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['cidr_block'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets cidr_block
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string $cidr_block cidr_block
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setCidrBlock($cidr_block)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['cidr_block'] = $cidr_block;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets cidr_mask
      *
-     * @return string
+     * @return int
      */
-    public function getInstanceId()
+    public function getCidrMask()
     {
-        return $this->container['instance_id'];
+        return $this->container['cidr_mask'];
     }
 
     /**
-     * Sets instance_id
+     * Sets cidr_mask
      *
-     * @param string $instance_id instance_id
+     * @param int $cidr_mask cidr_mask
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setCidrMask($cidr_mask)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['cidr_mask'] = $cidr_mask;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets ipam_pool_id
      *
      * @return string
      */
-    public function getNetworkInterfaceId()
+    public function getIpamPoolId()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['ipam_pool_id'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets ipam_pool_id
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string $ipam_pool_id ipam_pool_id
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setIpamPoolId($ipam_pool_id)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['ipam_pool_id'] = $ipam_pool_id;
 
         return $this;
     }

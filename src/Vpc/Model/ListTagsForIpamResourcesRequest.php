@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class ListTagsForIpamResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'ListTagsForIpamResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForListTagsForIpamResourcesInput[]',
+        'tag_type' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'max_results' => null,
+        'next_token' => null,
+        'resource_ids' => null,
+        'resource_type' => null,
+        'tag_filters' => null,
+        'tag_type' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'tag_filters' => 'TagFilters',
+        'tag_type' => 'TagType'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'tag_filters' => 'setTagFilters',
+        'tag_type' => 'setTagType'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'tag_filters' => 'getTagFilters',
+        'tag_type' => 'getTagType'
     ];
 
     /**
@@ -139,8 +154,21 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_TYPE_IPAM = 'ipam';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceTypeAllowableValues()
+    {
+        return [
+            self::RESOURCE_TYPE_IPAM,
+        ];
+    }
     
 
     /**
@@ -158,9 +186,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['tag_type'] = isset($data['tag_type']) ? $data['tag_type'] : null;
     }
 
     /**
@@ -172,12 +203,17 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
         }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -194,73 +230,154 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets max_results
      *
-     * @return bool
+     * @return int
      */
-    public function getDeleteOnTermination()
+    public function getMaxResults()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets max_results
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setMaxResults($max_results)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getNextToken()
     {
-        return $this->container['instance_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets instance_id
+     * Sets next_token
      *
-     * @param string $instance_id instance_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setNextToken($next_token)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets resource_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getNetworkInterfaceId()
+    public function getResourceIds()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets resource_ids
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!in_array($resource_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForListTagsForIpamResourcesInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForListTagsForIpamResourcesInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_type
+     *
+     * @return string
+     */
+    public function getTagType()
+    {
+        return $this->container['tag_type'];
+    }
+
+    /**
+     * Sets tag_type
+     *
+     * @param string $tag_type tag_type
+     *
+     * @return $this
+     */
+    public function setTagType($tag_type)
+    {
+        $this->container['tag_type'] = $tag_type;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class UntagIpamResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'UntagIpamResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'tag_keys' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'resource_ids' => null,
+        'resource_type' => null,
+        'tag_keys' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'tag_keys' => 'TagKeys'
     ];
 
     /**
@@ -82,9 +82,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'tag_keys' => 'setTagKeys'
     ];
 
     /**
@@ -93,9 +93,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'tag_keys' => 'getTagKeys'
     ];
 
     /**
@@ -139,8 +139,21 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_TYPE_IPAM = 'ipam';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceTypeAllowableValues()
+    {
+        return [
+            self::RESOURCE_TYPE_IPAM,
+        ];
+    }
     
 
     /**
@@ -158,9 +171,9 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;
     }
 
     /**
@@ -172,12 +185,17 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
         }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -194,73 +212,82 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets resource_ids
      *
-     * @return bool
+     * @return string[]
      */
-    public function getDeleteOnTermination()
+    public function getResourceIds()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets resource_ids
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['resource_ids'] = $resource_ids;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets resource_type
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getResourceType()
     {
-        return $this->container['instance_id'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets instance_id
+     * Sets resource_type
      *
-     * @param string $instance_id instance_id
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setResourceType($resource_type)
     {
-        $this->container['instance_id'] = $instance_id;
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!in_array($resource_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets tag_keys
      *
-     * @return string
+     * @return string[]
      */
-    public function getNetworkInterfaceId()
+    public function getTagKeys()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['tag_keys'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets tag_keys
      *
-     * @param string $network_interface_id network_interface_id
+     * @param string[] $tag_keys tag_keys
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setTagKeys($tag_keys)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['tag_keys'] = $tag_keys;
 
         return $this;
     }

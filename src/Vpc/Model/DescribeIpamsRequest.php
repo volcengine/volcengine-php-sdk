@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
+class DescribeIpamsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachNetworkInterfaceRequest';
+    protected static $swaggerModelName = 'DescribeIpamsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_on_termination' => 'bool',
-        'instance_id' => 'string',
-        'network_interface_id' => 'string'
+        'ipam_ids' => 'string[]',
+        'ipam_name' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpamsInput[]'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'delete_on_termination' => null,
-        'instance_id' => null,
-        'network_interface_id' => null
+        'ipam_ids' => null,
+        'ipam_name' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'project_name' => null,
+        'tag_filters' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delete_on_termination' => 'DeleteOnTermination',
-        'instance_id' => 'InstanceId',
-        'network_interface_id' => 'NetworkInterfaceId'
+        'ipam_ids' => 'IpamIds',
+        'ipam_name' => 'IpamName',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delete_on_termination' => 'setDeleteOnTermination',
-        'instance_id' => 'setInstanceId',
-        'network_interface_id' => 'setNetworkInterfaceId'
+        'ipam_ids' => 'setIpamIds',
+        'ipam_name' => 'setIpamName',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delete_on_termination' => 'getDeleteOnTermination',
-        'instance_id' => 'getInstanceId',
-        'network_interface_id' => 'getNetworkInterfaceId'
+        'ipam_ids' => 'getIpamIds',
+        'ipam_name' => 'getIpamName',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -158,9 +173,12 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['ipam_ids'] = isset($data['ipam_ids']) ? $data['ipam_ids'] : null;
+        $this->container['ipam_name'] = isset($data['ipam_name']) ? $data['ipam_name'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -172,12 +190,6 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['network_interface_id'] === null) {
-            $invalidProperties[] = "'network_interface_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +206,145 @@ class AttachNetworkInterfaceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets delete_on_termination
+     * Gets ipam_ids
      *
-     * @return bool
+     * @return string[]
      */
-    public function getDeleteOnTermination()
+    public function getIpamIds()
     {
-        return $this->container['delete_on_termination'];
+        return $this->container['ipam_ids'];
     }
 
     /**
-     * Sets delete_on_termination
+     * Sets ipam_ids
      *
-     * @param bool $delete_on_termination delete_on_termination
+     * @param string[] $ipam_ids ipam_ids
      *
      * @return $this
      */
-    public function setDeleteOnTermination($delete_on_termination)
+    public function setIpamIds($ipam_ids)
     {
-        $this->container['delete_on_termination'] = $delete_on_termination;
+        $this->container['ipam_ids'] = $ipam_ids;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets ipam_name
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getIpamName()
     {
-        return $this->container['instance_id'];
+        return $this->container['ipam_name'];
     }
 
     /**
-     * Sets instance_id
+     * Sets ipam_name
      *
-     * @param string $instance_id instance_id
+     * @param string $ipam_name ipam_name
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setIpamName($ipam_name)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['ipam_name'] = $ipam_name;
 
         return $this;
     }
 
     /**
-     * Gets network_interface_id
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getNetworkInterfaceId()
+    public function getMaxResults()
     {
-        return $this->container['network_interface_id'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets network_interface_id
+     * Sets max_results
      *
-     * @param string $network_interface_id network_interface_id
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setNetworkInterfaceId($network_interface_id)
+    public function setMaxResults($max_results)
     {
-        $this->container['network_interface_id'] = $network_interface_id;
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeIpamsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeIpamsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }
