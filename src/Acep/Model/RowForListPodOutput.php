@@ -49,8 +49,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'image_id' => 'string',
         'image_name' => 'string',
         'intranet_ip' => 'string',
+        'is_ai' => 'bool',
         'online' => 'int',
         'phone_template_id' => 'string',
+        'pod_ai_agent_list' => '\Volcengine\Acep\Model\PodAIAgentListForListPodOutput[]',
         'pod_id' => 'string',
         'pod_name' => 'string',
         'port_mapping_rule_list' => '\Volcengine\Acep\Model\PortMappingRuleListForListPodOutput[]',
@@ -88,8 +90,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'image_id' => null,
         'image_name' => null,
         'intranet_ip' => null,
+        'is_ai' => null,
         'online' => 'int32',
         'phone_template_id' => null,
+        'pod_ai_agent_list' => null,
         'pod_id' => null,
         'pod_name' => null,
         'port_mapping_rule_list' => null,
@@ -148,8 +152,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'image_id' => 'ImageId',
         'image_name' => 'ImageName',
         'intranet_ip' => 'IntranetIP',
+        'is_ai' => 'IsAI',
         'online' => 'Online',
         'phone_template_id' => 'PhoneTemplateId',
+        'pod_ai_agent_list' => 'PodAIAgentList',
         'pod_id' => 'PodId',
         'pod_name' => 'PodName',
         'port_mapping_rule_list' => 'PortMappingRuleList',
@@ -187,8 +193,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
         'intranet_ip' => 'setIntranetIp',
+        'is_ai' => 'setIsAi',
         'online' => 'setOnline',
         'phone_template_id' => 'setPhoneTemplateId',
+        'pod_ai_agent_list' => 'setPodAiAgentList',
         'pod_id' => 'setPodId',
         'pod_name' => 'setPodName',
         'port_mapping_rule_list' => 'setPortMappingRuleList',
@@ -226,8 +234,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
         'intranet_ip' => 'getIntranetIp',
+        'is_ai' => 'getIsAi',
         'online' => 'getOnline',
         'phone_template_id' => 'getPhoneTemplateId',
+        'pod_ai_agent_list' => 'getPodAiAgentList',
         'pod_id' => 'getPodId',
         'pod_name' => 'getPodName',
         'port_mapping_rule_list' => 'getPortMappingRuleList',
@@ -319,8 +329,10 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['intranet_ip'] = isset($data['intranet_ip']) ? $data['intranet_ip'] : null;
+        $this->container['is_ai'] = isset($data['is_ai']) ? $data['is_ai'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
         $this->container['phone_template_id'] = isset($data['phone_template_id']) ? $data['phone_template_id'] : null;
+        $this->container['pod_ai_agent_list'] = isset($data['pod_ai_agent_list']) ? $data['pod_ai_agent_list'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['pod_name'] = isset($data['pod_name']) ? $data['pod_name'] : null;
         $this->container['port_mapping_rule_list'] = isset($data['port_mapping_rule_list']) ? $data['port_mapping_rule_list'] : null;
@@ -860,6 +872,30 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_ai
+     *
+     * @return bool
+     */
+    public function getIsAi()
+    {
+        return $this->container['is_ai'];
+    }
+
+    /**
+     * Sets is_ai
+     *
+     * @param bool $is_ai is_ai
+     *
+     * @return $this
+     */
+    public function setIsAi($is_ai)
+    {
+        $this->container['is_ai'] = $is_ai;
+
+        return $this;
+    }
+
+    /**
      * Gets online
      *
      * @return int
@@ -903,6 +939,30 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     public function setPhoneTemplateId($phone_template_id)
     {
         $this->container['phone_template_id'] = $phone_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_ai_agent_list
+     *
+     * @return \Volcengine\Acep\Model\PodAIAgentListForListPodOutput[]
+     */
+    public function getPodAiAgentList()
+    {
+        return $this->container['pod_ai_agent_list'];
+    }
+
+    /**
+     * Sets pod_ai_agent_list
+     *
+     * @param \Volcengine\Acep\Model\PodAIAgentListForListPodOutput[] $pod_ai_agent_list pod_ai_agent_list
+     *
+     * @return $this
+     */
+    public function setPodAiAgentList($pod_ai_agent_list)
+    {
+        $this->container['pod_ai_agent_list'] = $pod_ai_agent_list;
 
         return $this;
     }
