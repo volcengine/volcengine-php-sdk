@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class ListAlertResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'ListAlertResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'alert_group_id' => 'string',
+        'data' => '\Volcengine\Cloudmonitor\Model\DataForListAlertOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'alert_group_id' => null,
+        'data' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'alert_group_id' => 'AlertGroupId',
+        'data' => 'Data',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -79,8 +88,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'alert_group_id' => 'setAlertGroupId',
+        'data' => 'setData',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -89,8 +101,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'alert_group_id' => 'getAlertGroupId',
+        'data' => 'getData',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -153,8 +168,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['alert_group_id'] = isset($data['alert_group_id']) ? $data['alert_group_id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets alert_group_id
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getAlertGroupId()
     {
-        return $this->container['timestamp'];
+        return $this->container['alert_group_id'];
     }
 
     /**
-     * Sets timestamp
+     * Sets alert_group_id
      *
-     * @param int $timestamp timestamp
+     * @param string $alert_group_id alert_group_id
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setAlertGroupId($alert_group_id)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['alert_group_id'] = $alert_group_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets data
      *
-     * @return double
+     * @return \Volcengine\Cloudmonitor\Model\DataForListAlertOutput[]
      */
-    public function getValue()
+    public function getData()
     {
-        return $this->container['value'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets value
+     * Sets data
      *
-     * @param double $value value
+     * @param \Volcengine\Cloudmonitor\Model\DataForListAlertOutput[] $data data
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setData($data)
     {
-        $this->container['value'] = $value;
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -1866,6 +1866,68 @@ class CLOUDMONITORApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listAlert($body = null)
+    {
+        list($response) = $this->listAlertWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAlertWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\ListAlertResponse';
+        $request = $this->listAlertRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAlertAsync($body = null)
+    {
+        return $this->listAlertAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAlertAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\ListAlertResponse';
+        $request = $this->listAlertRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAlertRequest($body)
+    {
+        $resourcePath = '/ListAlert/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listAlertGroup($body = null)
     {
         list($response) = $this->listAlertGroupWithHttpInfo($body);

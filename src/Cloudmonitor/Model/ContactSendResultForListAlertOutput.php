@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class ContactSendResultForListAlertOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'ContactSendResultForListAlertOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'alert_method' => 'string',
+        'alert_method_val' => 'string',
+        'err_msg' => 'string',
+        'status' => 'string',
+        'success' => 'bool'
     ];
 
     /**
@@ -38,8 +41,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'alert_method' => null,
+        'alert_method_val' => null,
+        'err_msg' => null,
+        'status' => null,
+        'success' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'alert_method' => 'AlertMethod',
+        'alert_method_val' => 'AlertMethodVal',
+        'err_msg' => 'ErrMsg',
+        'status' => 'Status',
+        'success' => 'Success'
     ];
 
     /**
@@ -79,8 +88,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'alert_method' => 'setAlertMethod',
+        'alert_method_val' => 'setAlertMethodVal',
+        'err_msg' => 'setErrMsg',
+        'status' => 'setStatus',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -89,8 +101,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'alert_method' => 'getAlertMethod',
+        'alert_method_val' => 'getAlertMethodVal',
+        'err_msg' => 'getErrMsg',
+        'status' => 'getStatus',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -153,8 +168,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['alert_method'] = isset($data['alert_method']) ? $data['alert_method'] : null;
+        $this->container['alert_method_val'] = isset($data['alert_method_val']) ? $data['alert_method_val'] : null;
+        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets alert_method
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getAlertMethod()
     {
-        return $this->container['timestamp'];
+        return $this->container['alert_method'];
     }
 
     /**
-     * Sets timestamp
+     * Sets alert_method
      *
-     * @param int $timestamp timestamp
+     * @param string $alert_method alert_method
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setAlertMethod($alert_method)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['alert_method'] = $alert_method;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets alert_method_val
      *
-     * @return double
+     * @return string
      */
-    public function getValue()
+    public function getAlertMethodVal()
     {
-        return $this->container['value'];
+        return $this->container['alert_method_val'];
     }
 
     /**
-     * Sets value
+     * Sets alert_method_val
      *
-     * @param double $value value
+     * @param string $alert_method_val alert_method_val
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setAlertMethodVal($alert_method_val)
     {
-        $this->container['value'] = $value;
+        $this->container['alert_method_val'] = $alert_method_val;
+
+        return $this;
+    }
+
+    /**
+     * Gets err_msg
+     *
+     * @return string
+     */
+    public function getErrMsg()
+    {
+        return $this->container['err_msg'];
+    }
+
+    /**
+     * Sets err_msg
+     *
+     * @param string $err_msg err_msg
+     *
+     * @return $this
+     */
+    public function setErrMsg($err_msg)
+    {
+        $this->container['err_msg'] = $err_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success success
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
 
         return $this;
     }

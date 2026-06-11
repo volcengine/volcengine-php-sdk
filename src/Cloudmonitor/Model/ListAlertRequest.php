@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class ListAlertRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'ListAlertRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'alert_group_id' => 'string',
+        'end_time' => 'int',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'start_time' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'alert_group_id' => null,
+        'end_time' => 'int32',
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'start_time' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'alert_group_id' => 'AlertGroupId',
+        'end_time' => 'EndTime',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'start_time' => 'StartTime'
     ];
 
     /**
@@ -79,8 +88,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'alert_group_id' => 'setAlertGroupId',
+        'end_time' => 'setEndTime',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'start_time' => 'setStartTime'
     ];
 
     /**
@@ -89,8 +101,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'alert_group_id' => 'getAlertGroupId',
+        'end_time' => 'getEndTime',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'start_time' => 'getStartTime'
     ];
 
     /**
@@ -153,8 +168,11 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['alert_group_id'] = isset($data['alert_group_id']) ? $data['alert_group_id'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
     }
 
     /**
@@ -166,6 +184,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['alert_group_id'] === null) {
+            $invalidProperties[] = "'alert_group_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +203,121 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets alert_group_id
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getAlertGroupId()
     {
-        return $this->container['timestamp'];
+        return $this->container['alert_group_id'];
     }
 
     /**
-     * Sets timestamp
+     * Sets alert_group_id
      *
-     * @param int $timestamp timestamp
+     * @param string $alert_group_id alert_group_id
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setAlertGroupId($alert_group_id)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['alert_group_id'] = $alert_group_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets end_time
      *
-     * @return double
+     * @return int
      */
-    public function getValue()
+    public function getEndTime()
     {
-        return $this->container['value'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets value
+     * Sets end_time
      *
-     * @param double $value value
+     * @param int $end_time end_time
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setEndTime($end_time)
     {
-        $this->container['value'] = $value;
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->container['start_time'];
+    }
+
+    /**
+     * Sets start_time
+     *
+     * @param int $start_time start_time
+     *
+     * @return $this
+     */
+    public function setStartTime($start_time)
+    {
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }

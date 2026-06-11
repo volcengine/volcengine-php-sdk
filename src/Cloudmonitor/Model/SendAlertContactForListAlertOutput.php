@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
+class SendAlertContactForListAlertOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPointForGetMetricDataOutput';
+    protected static $swaggerModelName = 'SendAlertContactForListAlertOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'timestamp' => 'int',
-        'value' => 'double'
+        'contact_name' => 'string',
+        'contact_send_results' => '\Volcengine\Cloudmonitor\Model\ContactSendResultForListAlertOutput[]',
+        'duty_schedule_id' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'timestamp' => 'int32',
-        'value' => 'double'
+        'contact_name' => null,
+        'contact_send_results' => null,
+        'duty_schedule_id' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timestamp' => 'Timestamp',
-        'value' => 'Value'
+        'contact_name' => 'ContactName',
+        'contact_send_results' => 'ContactSendResults',
+        'duty_schedule_id' => 'DutyScheduleId'
     ];
 
     /**
@@ -79,8 +82,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timestamp' => 'setTimestamp',
-        'value' => 'setValue'
+        'contact_name' => 'setContactName',
+        'contact_send_results' => 'setContactSendResults',
+        'duty_schedule_id' => 'setDutyScheduleId'
     ];
 
     /**
@@ -89,8 +93,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timestamp' => 'getTimestamp',
-        'value' => 'getValue'
+        'contact_name' => 'getContactName',
+        'contact_send_results' => 'getContactSendResults',
+        'duty_schedule_id' => 'getDutyScheduleId'
     ];
 
     /**
@@ -153,8 +158,9 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['contact_name'] = isset($data['contact_name']) ? $data['contact_name'] : null;
+        $this->container['contact_send_results'] = isset($data['contact_send_results']) ? $data['contact_send_results'] : null;
+        $this->container['duty_schedule_id'] = isset($data['duty_schedule_id']) ? $data['duty_schedule_id'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timestamp
+     * Gets contact_name
      *
-     * @return int
+     * @return string
      */
-    public function getTimestamp()
+    public function getContactName()
     {
-        return $this->container['timestamp'];
+        return $this->container['contact_name'];
     }
 
     /**
-     * Sets timestamp
+     * Sets contact_name
      *
-     * @param int $timestamp timestamp
+     * @param string $contact_name contact_name
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setContactName($contact_name)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['contact_name'] = $contact_name;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets contact_send_results
      *
-     * @return double
+     * @return \Volcengine\Cloudmonitor\Model\ContactSendResultForListAlertOutput[]
      */
-    public function getValue()
+    public function getContactSendResults()
     {
-        return $this->container['value'];
+        return $this->container['contact_send_results'];
     }
 
     /**
-     * Sets value
+     * Sets contact_send_results
      *
-     * @param double $value value
+     * @param \Volcengine\Cloudmonitor\Model\ContactSendResultForListAlertOutput[] $contact_send_results contact_send_results
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setContactSendResults($contact_send_results)
     {
-        $this->container['value'] = $value;
+        $this->container['contact_send_results'] = $contact_send_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets duty_schedule_id
+     *
+     * @return string
+     */
+    public function getDutyScheduleId()
+    {
+        return $this->container['duty_schedule_id'];
+    }
+
+    /**
+     * Sets duty_schedule_id
+     *
+     * @param string $duty_schedule_id duty_schedule_id
+     *
+     * @return $this
+     */
+    public function setDutyScheduleId($duty_schedule_id)
+    {
+        $this->container['duty_schedule_id'] = $duty_schedule_id;
 
         return $this;
     }
