@@ -39,6 +39,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => 'string',
         'resource_type' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateFlowLogInput[]',
+        'traffic_path' => 'int[]',
         'traffic_type' => 'string'
     ];
 
@@ -59,6 +60,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => null,
         'resource_type' => null,
         'tags' => null,
+        'traffic_path' => null,
         'traffic_type' => null
     ];
 
@@ -100,6 +102,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => 'ResourceId',
         'resource_type' => 'ResourceType',
         'tags' => 'Tags',
+        'traffic_path' => 'TrafficPath',
         'traffic_type' => 'TrafficType'
     ];
 
@@ -120,6 +123,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
         'tags' => 'setTags',
+        'traffic_path' => 'setTrafficPath',
         'traffic_type' => 'setTrafficType'
     ];
 
@@ -140,6 +144,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
         'tags' => 'getTags',
+        'traffic_path' => 'getTrafficPath',
         'traffic_type' => 'getTrafficType'
     ];
 
@@ -214,6 +219,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['traffic_path'] = isset($data['traffic_path']) ? $data['traffic_path'] : null;
         $this->container['traffic_type'] = isset($data['traffic_type']) ? $data['traffic_type'] : null;
     }
 
@@ -522,6 +528,30 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets traffic_path
+     *
+     * @return int[]
+     */
+    public function getTrafficPath()
+    {
+        return $this->container['traffic_path'];
+    }
+
+    /**
+     * Sets traffic_path
+     *
+     * @param int[] $traffic_path traffic_path
+     *
+     * @return $this
+     */
+    public function setTrafficPath($traffic_path)
+    {
+        $this->container['traffic_path'] = $traffic_path;
 
         return $this;
     }

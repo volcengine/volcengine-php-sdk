@@ -28,7 +28,8 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'origin_v2' => 'bool'
+        'origin_v2' => 'bool',
+        'rule_engine' => 'bool'
     ];
 
     /**
@@ -37,7 +38,8 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'origin_v2' => null
+        'origin_v2' => null,
+        'rule_engine' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'origin_v2' => 'OriginV2'
+        'origin_v2' => 'OriginV2',
+        'rule_engine' => 'RuleEngine'
     ];
 
     /**
@@ -76,7 +79,8 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'origin_v2' => 'setOriginV2'
+        'origin_v2' => 'setOriginV2',
+        'rule_engine' => 'setRuleEngine'
     ];
 
     /**
@@ -85,7 +89,8 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'origin_v2' => 'getOriginV2'
+        'origin_v2' => 'getOriginV2',
+        'rule_engine' => 'getRuleEngine'
     ];
 
     /**
@@ -149,6 +154,7 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
     public function __construct($data = null)
     {
         $this->container['origin_v2'] = isset($data['origin_v2']) ? $data['origin_v2'] : null;
+        $this->container['rule_engine'] = isset($data['rule_engine']) ? $data['rule_engine'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class FeatureConfigForListCdnDomainsOutput implements ModelInterface, ArrayAcces
     public function setOriginV2($origin_v2)
     {
         $this->container['origin_v2'] = $origin_v2;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_engine
+     *
+     * @return bool
+     */
+    public function getRuleEngine()
+    {
+        return $this->container['rule_engine'];
+    }
+
+    /**
+     * Sets rule_engine
+     *
+     * @param bool $rule_engine rule_engine
+     *
+     * @return $this
+     */
+    public function setRuleEngine($rule_engine)
+    {
+        $this->container['rule_engine'] = $rule_engine;
 
         return $this;
     }

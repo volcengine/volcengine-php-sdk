@@ -28,7 +28,8 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_tags' => '\Volcengine\Cdn\Model\ResourceTagForListResourceTagsOutput[]'
+        'resource_tags' => '\Volcengine\Cdn\Model\ResourceTagForListResourceTagsOutput[]',
+        'system_tags' => '\Volcengine\Cdn\Model\SystemTagForListResourceTagsOutput[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_tags' => null
+        'resource_tags' => null,
+        'system_tags' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_tags' => 'ResourceTags'
+        'resource_tags' => 'ResourceTags',
+        'system_tags' => 'SystemTags'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_tags' => 'setResourceTags'
+        'resource_tags' => 'setResourceTags',
+        'system_tags' => 'setSystemTags'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_tags' => 'getResourceTags'
+        'resource_tags' => 'getResourceTags',
+        'system_tags' => 'getSystemTags'
     ];
 
     /**
@@ -149,6 +154,7 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['resource_tags'] = isset($data['resource_tags']) ? $data['resource_tags'] : null;
+        $this->container['system_tags'] = isset($data['system_tags']) ? $data['system_tags'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class ListResourceTagsResponse implements ModelInterface, ArrayAccess
     public function setResourceTags($resource_tags)
     {
         $this->container['resource_tags'] = $resource_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets system_tags
+     *
+     * @return \Volcengine\Cdn\Model\SystemTagForListResourceTagsOutput[]
+     */
+    public function getSystemTags()
+    {
+        return $this->container['system_tags'];
+    }
+
+    /**
+     * Sets system_tags
+     *
+     * @param \Volcengine\Cdn\Model\SystemTagForListResourceTagsOutput[] $system_tags system_tags
+     *
+     * @return $this
+     */
+    public function setSystemTags($system_tags)
+    {
+        $this->container['system_tags'] = $system_tags;
 
         return $this;
     }

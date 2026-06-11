@@ -30,6 +30,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     protected static $swaggerTypes = [
         'backup_point_id' => 'string',
         'backup_point_name' => 'string',
+        'backup_progress' => 'int',
         'backup_strategy' => 'string',
         'backup_type' => 'string',
         'end_time' => 'string',
@@ -52,6 +53,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     protected static $swaggerFormats = [
         'backup_point_id' => null,
         'backup_point_name' => null,
+        'backup_progress' => 'int32',
         'backup_strategy' => null,
         'backup_type' => null,
         'end_time' => null,
@@ -95,6 +97,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     protected static $attributeMap = [
         'backup_point_id' => 'BackupPointId',
         'backup_point_name' => 'BackupPointName',
+        'backup_progress' => 'BackupProgress',
         'backup_strategy' => 'BackupStrategy',
         'backup_type' => 'BackupType',
         'end_time' => 'EndTime',
@@ -117,6 +120,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     protected static $setters = [
         'backup_point_id' => 'setBackupPointId',
         'backup_point_name' => 'setBackupPointName',
+        'backup_progress' => 'setBackupProgress',
         'backup_strategy' => 'setBackupStrategy',
         'backup_type' => 'setBackupType',
         'end_time' => 'setEndTime',
@@ -139,6 +143,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     protected static $getters = [
         'backup_point_id' => 'getBackupPointId',
         'backup_point_name' => 'getBackupPointName',
+        'backup_progress' => 'getBackupProgress',
         'backup_strategy' => 'getBackupStrategy',
         'backup_type' => 'getBackupType',
         'end_time' => 'getEndTime',
@@ -272,6 +277,7 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     {
         $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
         $this->container['backup_point_name'] = isset($data['backup_point_name']) ? $data['backup_point_name'] : null;
+        $this->container['backup_progress'] = isset($data['backup_progress']) ? $data['backup_progress'] : null;
         $this->container['backup_strategy'] = isset($data['backup_strategy']) ? $data['backup_strategy'] : null;
         $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
@@ -378,6 +384,30 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     public function setBackupPointName($backup_point_name)
     {
         $this->container['backup_point_name'] = $backup_point_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets backup_progress
+     *
+     * @return int
+     */
+    public function getBackupProgress()
+    {
+        return $this->container['backup_progress'];
+    }
+
+    /**
+     * Sets backup_progress
+     *
+     * @param int $backup_progress backup_progress
+     *
+     * @return $this
+     */
+    public function setBackupProgress($backup_progress)
+    {
+        $this->container['backup_progress'] = $backup_progress;
 
         return $this;
     }

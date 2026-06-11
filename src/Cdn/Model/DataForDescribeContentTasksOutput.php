@@ -28,13 +28,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cache_shared' => 'bool',
         'create_time' => 'int',
         'delete' => 'bool',
         'layer' => 'string',
         'process' => 'string',
         'refresh_prefix' => 'bool',
         'remark' => 'string',
+        'request_header_instances' => '\Volcengine\Cdn\Model\RequestHeaderInstanceForDescribeContentTasksOutput[]',
         'status' => 'string',
+        'status_code' => 'int',
         'task_id' => 'string',
         'task_type' => 'string',
         'url' => 'string'
@@ -46,13 +49,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cache_shared' => null,
         'create_time' => 'int64',
         'delete' => null,
         'layer' => null,
         'process' => null,
         'refresh_prefix' => null,
         'remark' => null,
+        'request_header_instances' => null,
         'status' => null,
+        'status_code' => 'int64',
         'task_id' => null,
         'task_type' => null,
         'url' => null
@@ -85,13 +91,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cache_shared' => 'CacheShared',
         'create_time' => 'CreateTime',
         'delete' => 'Delete',
         'layer' => 'Layer',
         'process' => 'Process',
         'refresh_prefix' => 'RefreshPrefix',
         'remark' => 'Remark',
+        'request_header_instances' => 'RequestHeaderInstances',
         'status' => 'Status',
+        'status_code' => 'StatusCode',
         'task_id' => 'TaskID',
         'task_type' => 'TaskType',
         'url' => 'Url'
@@ -103,13 +112,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cache_shared' => 'setCacheShared',
         'create_time' => 'setCreateTime',
         'delete' => 'setDelete',
         'layer' => 'setLayer',
         'process' => 'setProcess',
         'refresh_prefix' => 'setRefreshPrefix',
         'remark' => 'setRemark',
+        'request_header_instances' => 'setRequestHeaderInstances',
         'status' => 'setStatus',
+        'status_code' => 'setStatusCode',
         'task_id' => 'setTaskId',
         'task_type' => 'setTaskType',
         'url' => 'setUrl'
@@ -121,13 +133,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cache_shared' => 'getCacheShared',
         'create_time' => 'getCreateTime',
         'delete' => 'getDelete',
         'layer' => 'getLayer',
         'process' => 'getProcess',
         'refresh_prefix' => 'getRefreshPrefix',
         'remark' => 'getRemark',
+        'request_header_instances' => 'getRequestHeaderInstances',
         'status' => 'getStatus',
+        'status_code' => 'getStatusCode',
         'task_id' => 'getTaskId',
         'task_type' => 'getTaskType',
         'url' => 'getUrl'
@@ -193,13 +208,16 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['cache_shared'] = isset($data['cache_shared']) ? $data['cache_shared'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
         $this->container['layer'] = isset($data['layer']) ? $data['layer'] : null;
         $this->container['process'] = isset($data['process']) ? $data['process'] : null;
         $this->container['refresh_prefix'] = isset($data['refresh_prefix']) ? $data['refresh_prefix'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
+        $this->container['request_header_instances'] = isset($data['request_header_instances']) ? $data['request_header_instances'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -228,6 +246,30 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cache_shared
+     *
+     * @return bool
+     */
+    public function getCacheShared()
+    {
+        return $this->container['cache_shared'];
+    }
+
+    /**
+     * Sets cache_shared
+     *
+     * @param bool $cache_shared cache_shared
+     *
+     * @return $this
+     */
+    public function setCacheShared($cache_shared)
+    {
+        $this->container['cache_shared'] = $cache_shared;
+
+        return $this;
+    }
 
     /**
      * Gets create_time
@@ -374,6 +416,30 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets request_header_instances
+     *
+     * @return \Volcengine\Cdn\Model\RequestHeaderInstanceForDescribeContentTasksOutput[]
+     */
+    public function getRequestHeaderInstances()
+    {
+        return $this->container['request_header_instances'];
+    }
+
+    /**
+     * Sets request_header_instances
+     *
+     * @param \Volcengine\Cdn\Model\RequestHeaderInstanceForDescribeContentTasksOutput[] $request_header_instances request_header_instances
+     *
+     * @return $this
+     */
+    public function setRequestHeaderInstances($request_header_instances)
+    {
+        $this->container['request_header_instances'] = $request_header_instances;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -393,6 +459,30 @@ class DataForDescribeContentTasksOutput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_code
+     *
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param int $status_code status_code
+     *
+     * @return $this
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }

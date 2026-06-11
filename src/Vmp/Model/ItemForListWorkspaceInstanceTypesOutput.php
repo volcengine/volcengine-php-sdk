@@ -31,9 +31,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         'active_series' => 'int',
         'availability_zone_replicas' => 'int',
         'calculate_price_params' => '\Volcengine\Vmp\Model\CalculatePriceParamForListWorkspaceInstanceTypesOutput[]',
+        'calculate_volume_price_params' => '\Volcengine\Vmp\Model\CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput[]',
         'downsampling_periods' => 'string[]',
+        'federate_per_second' => 'int',
         'id' => 'string',
         'ingest_samples_per_second' => 'int',
+        'max_federate_series' => 'int',
         'query_concurrency' => 'int',
         'query_per_second' => 'int',
         'replicas_per_zone' => 'int',
@@ -51,9 +54,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         'active_series' => 'int32',
         'availability_zone_replicas' => 'int32',
         'calculate_price_params' => null,
+        'calculate_volume_price_params' => null,
         'downsampling_periods' => null,
+        'federate_per_second' => 'int32',
         'id' => null,
         'ingest_samples_per_second' => 'int32',
+        'max_federate_series' => 'int32',
         'query_concurrency' => 'int32',
         'query_per_second' => 'int32',
         'replicas_per_zone' => 'int32',
@@ -92,9 +98,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         'active_series' => 'ActiveSeries',
         'availability_zone_replicas' => 'AvailabilityZoneReplicas',
         'calculate_price_params' => 'CalculatePriceParams',
+        'calculate_volume_price_params' => 'CalculateVolumePriceParams',
         'downsampling_periods' => 'DownsamplingPeriods',
+        'federate_per_second' => 'FederatePerSecond',
         'id' => 'Id',
         'ingest_samples_per_second' => 'IngestSamplesPerSecond',
+        'max_federate_series' => 'MaxFederateSeries',
         'query_concurrency' => 'QueryConcurrency',
         'query_per_second' => 'QueryPerSecond',
         'replicas_per_zone' => 'ReplicasPerZone',
@@ -112,9 +121,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         'active_series' => 'setActiveSeries',
         'availability_zone_replicas' => 'setAvailabilityZoneReplicas',
         'calculate_price_params' => 'setCalculatePriceParams',
+        'calculate_volume_price_params' => 'setCalculateVolumePriceParams',
         'downsampling_periods' => 'setDownsamplingPeriods',
+        'federate_per_second' => 'setFederatePerSecond',
         'id' => 'setId',
         'ingest_samples_per_second' => 'setIngestSamplesPerSecond',
+        'max_federate_series' => 'setMaxFederateSeries',
         'query_concurrency' => 'setQueryConcurrency',
         'query_per_second' => 'setQueryPerSecond',
         'replicas_per_zone' => 'setReplicasPerZone',
@@ -132,9 +144,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         'active_series' => 'getActiveSeries',
         'availability_zone_replicas' => 'getAvailabilityZoneReplicas',
         'calculate_price_params' => 'getCalculatePriceParams',
+        'calculate_volume_price_params' => 'getCalculateVolumePriceParams',
         'downsampling_periods' => 'getDownsamplingPeriods',
+        'federate_per_second' => 'getFederatePerSecond',
         'id' => 'getId',
         'ingest_samples_per_second' => 'getIngestSamplesPerSecond',
+        'max_federate_series' => 'getMaxFederateSeries',
         'query_concurrency' => 'getQueryConcurrency',
         'query_per_second' => 'getQueryPerSecond',
         'replicas_per_zone' => 'getReplicasPerZone',
@@ -206,9 +221,12 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
         $this->container['active_series'] = isset($data['active_series']) ? $data['active_series'] : null;
         $this->container['availability_zone_replicas'] = isset($data['availability_zone_replicas']) ? $data['availability_zone_replicas'] : null;
         $this->container['calculate_price_params'] = isset($data['calculate_price_params']) ? $data['calculate_price_params'] : null;
+        $this->container['calculate_volume_price_params'] = isset($data['calculate_volume_price_params']) ? $data['calculate_volume_price_params'] : null;
         $this->container['downsampling_periods'] = isset($data['downsampling_periods']) ? $data['downsampling_periods'] : null;
+        $this->container['federate_per_second'] = isset($data['federate_per_second']) ? $data['federate_per_second'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['ingest_samples_per_second'] = isset($data['ingest_samples_per_second']) ? $data['ingest_samples_per_second'] : null;
+        $this->container['max_federate_series'] = isset($data['max_federate_series']) ? $data['max_federate_series'] : null;
         $this->container['query_concurrency'] = isset($data['query_concurrency']) ? $data['query_concurrency'] : null;
         $this->container['query_per_second'] = isset($data['query_per_second']) ? $data['query_per_second'] : null;
         $this->container['replicas_per_zone'] = isset($data['replicas_per_zone']) ? $data['replicas_per_zone'] : null;
@@ -314,6 +332,30 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets calculate_volume_price_params
+     *
+     * @return \Volcengine\Vmp\Model\CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput[]
+     */
+    public function getCalculateVolumePriceParams()
+    {
+        return $this->container['calculate_volume_price_params'];
+    }
+
+    /**
+     * Sets calculate_volume_price_params
+     *
+     * @param \Volcengine\Vmp\Model\CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput[] $calculate_volume_price_params calculate_volume_price_params
+     *
+     * @return $this
+     */
+    public function setCalculateVolumePriceParams($calculate_volume_price_params)
+    {
+        $this->container['calculate_volume_price_params'] = $calculate_volume_price_params;
+
+        return $this;
+    }
+
+    /**
      * Gets downsampling_periods
      *
      * @return string[]
@@ -333,6 +375,30 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
     public function setDownsamplingPeriods($downsampling_periods)
     {
         $this->container['downsampling_periods'] = $downsampling_periods;
+
+        return $this;
+    }
+
+    /**
+     * Gets federate_per_second
+     *
+     * @return int
+     */
+    public function getFederatePerSecond()
+    {
+        return $this->container['federate_per_second'];
+    }
+
+    /**
+     * Sets federate_per_second
+     *
+     * @param int $federate_per_second federate_per_second
+     *
+     * @return $this
+     */
+    public function setFederatePerSecond($federate_per_second)
+    {
+        $this->container['federate_per_second'] = $federate_per_second;
 
         return $this;
     }
@@ -381,6 +447,30 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
     public function setIngestSamplesPerSecond($ingest_samples_per_second)
     {
         $this->container['ingest_samples_per_second'] = $ingest_samples_per_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_federate_series
+     *
+     * @return int
+     */
+    public function getMaxFederateSeries()
+    {
+        return $this->container['max_federate_series'];
+    }
+
+    /**
+     * Sets max_federate_series
+     *
+     * @param int $max_federate_series max_federate_series
+     *
+     * @return $this
+     */
+    public function setMaxFederateSeries($max_federate_series)
+    {
+        $this->container['max_federate_series'] = $max_federate_series;
 
         return $this;
     }

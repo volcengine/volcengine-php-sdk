@@ -202,9 +202,6 @@ class CreateInstanceOneStepRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['region'] === null) {
-            $invalidProperties[] = "'region' can't be null";
-        }
         return $invalidProperties;
     }
 

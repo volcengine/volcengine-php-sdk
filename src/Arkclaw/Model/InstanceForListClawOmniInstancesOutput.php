@@ -28,6 +28,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'agent_md' => 'string',
         'cpu_milli' => 'int',
         'created_at' => 'string',
         'description' => 'string',
@@ -55,6 +56,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'agent_md' => null,
         'cpu_milli' => 'int32',
         'created_at' => null,
         'description' => null,
@@ -103,6 +105,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'agent_md' => 'AgentMd',
         'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
@@ -130,6 +133,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'agent_md' => 'setAgentMd',
         'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
@@ -157,6 +161,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'agent_md' => 'getAgentMd',
         'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
@@ -238,6 +243,7 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
      */
     public function __construct($data = null)
     {
+        $this->container['agent_md'] = isset($data['agent_md']) ? $data['agent_md'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -282,6 +288,30 @@ class InstanceForListClawOmniInstancesOutput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets agent_md
+     *
+     * @return string
+     */
+    public function getAgentMd()
+    {
+        return $this->container['agent_md'];
+    }
+
+    /**
+     * Sets agent_md
+     *
+     * @param string $agent_md agent_md
+     *
+     * @return $this
+     */
+    public function setAgentMd($agent_md)
+    {
+        $this->container['agent_md'] = $agent_md;
+
+        return $this;
+    }
 
     /**
      * Gets cpu_milli

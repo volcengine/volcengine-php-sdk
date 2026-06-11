@@ -2486,6 +2486,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeDBInstanceSlots($body = null)
+    {
+        list($response) = $this->describeDBInstanceSlotsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeDBInstanceSlotsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBInstanceSlotsResponse';
+        $request = $this->describeDBInstanceSlotsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeDBInstanceSlotsAsync($body = null)
+    {
+        return $this->describeDBInstanceSlotsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeDBInstanceSlotsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeDBInstanceSlotsResponse';
+        $request = $this->describeDBInstanceSlotsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeDBInstanceSlotsRequest($body)
+    {
+        $resourcePath = '/DescribeDBInstanceSlots/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeDBInstanceSpecs($body = null)
     {
         list($response) = $this->describeDBInstanceSpecsWithHttpInfo($body);
@@ -2830,6 +2892,68 @@ class REDISApi
     protected function describeEnterpriseZonesRequest($body)
     {
         $resourcePath = '/DescribeEnterpriseZones/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeFatLogs($body = null)
+    {
+        list($response) = $this->describeFatLogsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeFatLogsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeFatLogsResponse';
+        $request = $this->describeFatLogsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeFatLogsAsync($body = null)
+    {
+        return $this->describeFatLogsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeFatLogsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeFatLogsResponse';
+        $request = $this->describeFatLogsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeFatLogsRequest($body)
+    {
+        $resourcePath = '/DescribeFatLogs/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

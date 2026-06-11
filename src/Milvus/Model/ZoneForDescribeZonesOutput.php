@@ -139,8 +139,23 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ZONE_STATUS_AVAILABLE = 'AVAILABLE';
+    const ZONE_STATUS_SOLD_OUT = 'SOLD_OUT';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getZoneStatusAllowableValues()
+    {
+        return [
+            self::ZONE_STATUS_AVAILABLE,
+            self::ZONE_STATUS_SOLD_OUT,
+        ];
+    }
     
 
     /**
@@ -171,6 +186,14 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getZoneStatusAllowableValues();
+        if (!is_null($this->container['zone_status']) && !in_array($this->container['zone_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'zone_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -254,6 +277,15 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      */
     public function setZoneStatus($zone_status)
     {
+        $allowedValues = $this->getZoneStatusAllowableValues();
+        if (!is_null($zone_status) && !in_array($zone_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'zone_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['zone_status'] = $zone_status;
 
         return $this;

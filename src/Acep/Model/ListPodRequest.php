@@ -33,6 +33,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         'configuration_code_list' => 'string[]',
         'dnsid' => 'string',
         'dc_list' => 'string[]',
+        'filter_ai' => 'bool',
         'host_id' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
@@ -58,6 +59,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         'configuration_code_list' => null,
         'dnsid' => null,
         'dc_list' => null,
+        'filter_ai' => null,
         'host_id' => null,
         'max_results' => 'int32',
         'next_token' => null,
@@ -104,6 +106,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         'configuration_code_list' => 'ConfigurationCodeList',
         'dnsid' => 'DNSId',
         'dc_list' => 'DcList',
+        'filter_ai' => 'FilterAI',
         'host_id' => 'HostId',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
@@ -129,6 +132,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         'configuration_code_list' => 'setConfigurationCodeList',
         'dnsid' => 'setDnsid',
         'dc_list' => 'setDcList',
+        'filter_ai' => 'setFilterAi',
         'host_id' => 'setHostId',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
@@ -154,6 +158,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         'configuration_code_list' => 'getConfigurationCodeList',
         'dnsid' => 'getDnsid',
         'dc_list' => 'getDcList',
+        'filter_ai' => 'getFilterAi',
         'host_id' => 'getHostId',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
@@ -233,6 +238,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         $this->container['configuration_code_list'] = isset($data['configuration_code_list']) ? $data['configuration_code_list'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
         $this->container['dc_list'] = isset($data['dc_list']) ? $data['dc_list'] : null;
+        $this->container['filter_ai'] = isset($data['filter_ai']) ? $data['filter_ai'] : null;
         $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
@@ -390,6 +396,30 @@ class ListPodRequest implements ModelInterface, ArrayAccess
     public function setDcList($dc_list)
     {
         $this->container['dc_list'] = $dc_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_ai
+     *
+     * @return bool
+     */
+    public function getFilterAi()
+    {
+        return $this->container['filter_ai'];
+    }
+
+    /**
+     * Sets filter_ai
+     *
+     * @param bool $filter_ai filter_ai
+     *
+     * @return $this
+     */
+    public function setFilterAi($filter_ai)
+    {
+        $this->container['filter_ai'] = $filter_ai;
 
         return $this;
     }

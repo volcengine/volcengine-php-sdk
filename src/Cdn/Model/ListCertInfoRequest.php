@@ -36,6 +36,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'page_num' => 'int',
         'page_size' => 'int',
+        'search_cert_name' => 'string',
         'sort_rule' => '\Volcengine\Cdn\Model\SortRuleForListCertInfoInput',
         'source' => 'string',
         'status' => 'string'
@@ -55,6 +56,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'page_num' => 'int32',
         'page_size' => 'int32',
+        'search_cert_name' => null,
         'sort_rule' => null,
         'source' => null,
         'status' => null
@@ -95,6 +97,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'page_num' => 'PageNum',
         'page_size' => 'PageSize',
+        'search_cert_name' => 'SearchCertName',
         'sort_rule' => 'SortRule',
         'source' => 'Source',
         'status' => 'Status'
@@ -114,6 +117,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'page_num' => 'setPageNum',
         'page_size' => 'setPageSize',
+        'search_cert_name' => 'setSearchCertName',
         'sort_rule' => 'setSortRule',
         'source' => 'setSource',
         'status' => 'setStatus'
@@ -133,6 +137,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'page_num' => 'getPageNum',
         'page_size' => 'getPageSize',
+        'search_cert_name' => 'getSearchCertName',
         'sort_rule' => 'getSortRule',
         'source' => 'getSource',
         'status' => 'getStatus'
@@ -206,6 +211,7 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['page_num'] = isset($data['page_num']) ? $data['page_num'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['search_cert_name'] = isset($data['search_cert_name']) ? $data['search_cert_name'] : null;
         $this->container['sort_rule'] = isset($data['sort_rule']) ? $data['sort_rule'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -426,6 +432,30 @@ class ListCertInfoRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_cert_name
+     *
+     * @return string
+     */
+    public function getSearchCertName()
+    {
+        return $this->container['search_cert_name'];
+    }
+
+    /**
+     * Sets search_cert_name
+     *
+     * @param string $search_cert_name search_cert_name
+     *
+     * @return $this
+     */
+    public function setSearchCertName($search_cert_name)
+    {
+        $this->container['search_cert_name'] = $search_cert_name;
 
         return $this;
     }

@@ -76,6 +76,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         'request_header' => '\Volcengine\Cdn\Model\RequestHeaderForDescribeCdnConfigOutput[]',
         'response_header' => '\Volcengine\Cdn\Model\ResponseHeaderForDescribeCdnConfigOutput[]',
         'rewrite_hls' => '\Volcengine\Cdn\Model\RewriteHLSForDescribeCdnConfigOutput',
+        'rule_engine' => '\Volcengine\Cdn\Model\RuleEngineForDescribeCdnConfigOutput',
         'service_region' => 'string',
         'service_type' => 'string',
         'signed_url_auth' => '\Volcengine\Cdn\Model\SignedUrlAuthForDescribeCdnConfigOutput',
@@ -141,6 +142,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         'request_header' => null,
         'response_header' => null,
         'rewrite_hls' => null,
+        'rule_engine' => null,
         'service_region' => null,
         'service_type' => null,
         'signed_url_auth' => null,
@@ -227,6 +229,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         'request_header' => 'RequestHeader',
         'response_header' => 'ResponseHeader',
         'rewrite_hls' => 'RewriteHLS',
+        'rule_engine' => 'RuleEngine',
         'service_region' => 'ServiceRegion',
         'service_type' => 'ServiceType',
         'signed_url_auth' => 'SignedUrlAuth',
@@ -292,6 +295,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         'request_header' => 'setRequestHeader',
         'response_header' => 'setResponseHeader',
         'rewrite_hls' => 'setRewriteHls',
+        'rule_engine' => 'setRuleEngine',
         'service_region' => 'setServiceRegion',
         'service_type' => 'setServiceType',
         'signed_url_auth' => 'setSignedUrlAuth',
@@ -357,6 +361,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         'request_header' => 'getRequestHeader',
         'response_header' => 'getResponseHeader',
         'rewrite_hls' => 'getRewriteHls',
+        'rule_engine' => 'getRuleEngine',
         'service_region' => 'getServiceRegion',
         'service_type' => 'getServiceType',
         'signed_url_auth' => 'getSignedUrlAuth',
@@ -476,6 +481,7 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
         $this->container['request_header'] = isset($data['request_header']) ? $data['request_header'] : null;
         $this->container['response_header'] = isset($data['response_header']) ? $data['response_header'] : null;
         $this->container['rewrite_hls'] = isset($data['rewrite_hls']) ? $data['rewrite_hls'] : null;
+        $this->container['rule_engine'] = isset($data['rule_engine']) ? $data['rule_engine'] : null;
         $this->container['service_region'] = isset($data['service_region']) ? $data['service_region'] : null;
         $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
         $this->container['signed_url_auth'] = isset($data['signed_url_auth']) ? $data['signed_url_auth'] : null;
@@ -1659,6 +1665,30 @@ class DomainConfigForDescribeCdnConfigOutput implements ModelInterface, ArrayAcc
     public function setRewriteHls($rewrite_hls)
     {
         $this->container['rewrite_hls'] = $rewrite_hls;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_engine
+     *
+     * @return \Volcengine\Cdn\Model\RuleEngineForDescribeCdnConfigOutput
+     */
+    public function getRuleEngine()
+    {
+        return $this->container['rule_engine'];
+    }
+
+    /**
+     * Sets rule_engine
+     *
+     * @param \Volcengine\Cdn\Model\RuleEngineForDescribeCdnConfigOutput $rule_engine rule_engine
+     *
+     * @return $this
+     */
+    public function setRuleEngine($rule_engine)
+    {
+        $this->container['rule_engine'] = $rule_engine;
 
         return $this;
     }

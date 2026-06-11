@@ -29,15 +29,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auth_type' => 'string',
+        'charge_type' => 'string',
         'create_time' => 'string',
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
+        'exclusive_resource_config' => '\Volcengine\Vmp\Model\ExclusiveResourceConfigForGetWorkspaceOutput',
         'id' => 'string',
         'instance_type' => '\Volcengine\Vmp\Model\InstanceTypeForGetWorkspaceOutput',
         'instance_type_id' => 'string',
         'name' => 'string',
         'overdue_reclaim_time' => 'string',
         'project_name' => 'string',
+        'prometheus_federate_endpoint' => 'string',
         'prometheus_push_endpoint' => 'string',
         'prometheus_push_intranet_endpoint' => 'string',
         'prometheus_query_endpoint' => 'string',
@@ -61,15 +64,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auth_type' => null,
+        'charge_type' => null,
         'create_time' => null,
         'delete_protection_enabled' => null,
         'description' => null,
+        'exclusive_resource_config' => null,
         'id' => null,
         'instance_type' => null,
         'instance_type_id' => null,
         'name' => null,
         'overdue_reclaim_time' => null,
         'project_name' => null,
+        'prometheus_federate_endpoint' => null,
         'prometheus_push_endpoint' => null,
         'prometheus_push_intranet_endpoint' => null,
         'prometheus_query_endpoint' => null,
@@ -114,15 +120,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auth_type' => 'AuthType',
+        'charge_type' => 'ChargeType',
         'create_time' => 'CreateTime',
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
+        'exclusive_resource_config' => 'ExclusiveResourceConfig',
         'id' => 'Id',
         'instance_type' => 'InstanceType',
         'instance_type_id' => 'InstanceTypeId',
         'name' => 'Name',
         'overdue_reclaim_time' => 'OverdueReclaimTime',
         'project_name' => 'ProjectName',
+        'prometheus_federate_endpoint' => 'PrometheusFederateEndpoint',
         'prometheus_push_endpoint' => 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'PrometheusPushIntranetEndpoint',
         'prometheus_query_endpoint' => 'PrometheusQueryEndpoint',
@@ -146,15 +155,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auth_type' => 'setAuthType',
+        'charge_type' => 'setChargeType',
         'create_time' => 'setCreateTime',
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
+        'exclusive_resource_config' => 'setExclusiveResourceConfig',
         'id' => 'setId',
         'instance_type' => 'setInstanceType',
         'instance_type_id' => 'setInstanceTypeId',
         'name' => 'setName',
         'overdue_reclaim_time' => 'setOverdueReclaimTime',
         'project_name' => 'setProjectName',
+        'prometheus_federate_endpoint' => 'setPrometheusFederateEndpoint',
         'prometheus_push_endpoint' => 'setPrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'setPrometheusPushIntranetEndpoint',
         'prometheus_query_endpoint' => 'setPrometheusQueryEndpoint',
@@ -178,15 +190,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auth_type' => 'getAuthType',
+        'charge_type' => 'getChargeType',
         'create_time' => 'getCreateTime',
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
+        'exclusive_resource_config' => 'getExclusiveResourceConfig',
         'id' => 'getId',
         'instance_type' => 'getInstanceType',
         'instance_type_id' => 'getInstanceTypeId',
         'name' => 'getName',
         'overdue_reclaim_time' => 'getOverdueReclaimTime',
         'project_name' => 'getProjectName',
+        'prometheus_federate_endpoint' => 'getPrometheusFederateEndpoint',
         'prometheus_push_endpoint' => 'getPrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'getPrometheusPushIntranetEndpoint',
         'prometheus_query_endpoint' => 'getPrometheusQueryEndpoint',
@@ -264,15 +279,18 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
+        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['exclusive_resource_config'] = isset($data['exclusive_resource_config']) ? $data['exclusive_resource_config'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['overdue_reclaim_time'] = isset($data['overdue_reclaim_time']) ? $data['overdue_reclaim_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['prometheus_federate_endpoint'] = isset($data['prometheus_federate_endpoint']) ? $data['prometheus_federate_endpoint'] : null;
         $this->container['prometheus_push_endpoint'] = isset($data['prometheus_push_endpoint']) ? $data['prometheus_push_endpoint'] : null;
         $this->container['prometheus_push_intranet_endpoint'] = isset($data['prometheus_push_intranet_endpoint']) ? $data['prometheus_push_intranet_endpoint'] : null;
         $this->container['prometheus_query_endpoint'] = isset($data['prometheus_query_endpoint']) ? $data['prometheus_query_endpoint'] : null;
@@ -333,6 +351,30 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
     public function setAuthType($auth_type)
     {
         $this->container['auth_type'] = $auth_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_type
+     *
+     * @return string
+     */
+    public function getChargeType()
+    {
+        return $this->container['charge_type'];
+    }
+
+    /**
+     * Sets charge_type
+     *
+     * @param string $charge_type charge_type
+     *
+     * @return $this
+     */
+    public function setChargeType($charge_type)
+    {
+        $this->container['charge_type'] = $charge_type;
 
         return $this;
     }
@@ -405,6 +447,30 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclusive_resource_config
+     *
+     * @return \Volcengine\Vmp\Model\ExclusiveResourceConfigForGetWorkspaceOutput
+     */
+    public function getExclusiveResourceConfig()
+    {
+        return $this->container['exclusive_resource_config'];
+    }
+
+    /**
+     * Sets exclusive_resource_config
+     *
+     * @param \Volcengine\Vmp\Model\ExclusiveResourceConfigForGetWorkspaceOutput $exclusive_resource_config exclusive_resource_config
+     *
+     * @return $this
+     */
+    public function setExclusiveResourceConfig($exclusive_resource_config)
+    {
+        $this->container['exclusive_resource_config'] = $exclusive_resource_config;
 
         return $this;
     }
@@ -549,6 +615,30 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets prometheus_federate_endpoint
+     *
+     * @return string
+     */
+    public function getPrometheusFederateEndpoint()
+    {
+        return $this->container['prometheus_federate_endpoint'];
+    }
+
+    /**
+     * Sets prometheus_federate_endpoint
+     *
+     * @param string $prometheus_federate_endpoint prometheus_federate_endpoint
+     *
+     * @return $this
+     */
+    public function setPrometheusFederateEndpoint($prometheus_federate_endpoint)
+    {
+        $this->container['prometheus_federate_endpoint'] = $prometheus_federate_endpoint;
 
         return $this;
     }

@@ -35,15 +35,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         'default_model_source' => 'string',
         'description' => 'string',
         'id' => 'string',
+        'image_build_error' => 'string',
+        'image_build_status' => 'string',
         'image_id' => 'string',
+        'image_url' => 'string',
+        'input' => 'string',
+        'is_imaged' => 'bool',
         'memory_mb' => 'int',
         'name' => 'string',
         'plugin_config' => 'string',
         'project_name' => 'string',
+        'reasoning' => 'string',
         'skill_config' => 'string',
         'soul' => 'string',
         'template_current_version_id' => 'string',
-        'template_label' => 'string',
+        'template_pending_version_id' => 'string',
         'template_version_id' => 'string',
         'type' => 'string',
         'version' => 'string'
@@ -62,15 +68,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         'default_model_source' => null,
         'description' => null,
         'id' => null,
+        'image_build_error' => null,
+        'image_build_status' => null,
         'image_id' => null,
+        'image_url' => null,
+        'input' => null,
+        'is_imaged' => null,
         'memory_mb' => 'int32',
         'name' => null,
         'plugin_config' => null,
         'project_name' => null,
+        'reasoning' => null,
         'skill_config' => null,
         'soul' => null,
         'template_current_version_id' => null,
-        'template_label' => null,
+        'template_pending_version_id' => null,
         'template_version_id' => null,
         'type' => null,
         'version' => null
@@ -110,15 +122,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         'default_model_source' => 'DefaultModelSource',
         'description' => 'Description',
         'id' => 'Id',
+        'image_build_error' => 'ImageBuildError',
+        'image_build_status' => 'ImageBuildStatus',
         'image_id' => 'ImageId',
+        'image_url' => 'ImageUrl',
+        'input' => 'Input',
+        'is_imaged' => 'IsImaged',
         'memory_mb' => 'MemoryMb',
         'name' => 'Name',
         'plugin_config' => 'PluginConfig',
         'project_name' => 'ProjectName',
+        'reasoning' => 'Reasoning',
         'skill_config' => 'SkillConfig',
         'soul' => 'Soul',
         'template_current_version_id' => 'TemplateCurrentVersionId',
-        'template_label' => 'TemplateLabel',
+        'template_pending_version_id' => 'TemplatePendingVersionId',
         'template_version_id' => 'TemplateVersionId',
         'type' => 'Type',
         'version' => 'Version'
@@ -137,15 +155,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         'default_model_source' => 'setDefaultModelSource',
         'description' => 'setDescription',
         'id' => 'setId',
+        'image_build_error' => 'setImageBuildError',
+        'image_build_status' => 'setImageBuildStatus',
         'image_id' => 'setImageId',
+        'image_url' => 'setImageUrl',
+        'input' => 'setInput',
+        'is_imaged' => 'setIsImaged',
         'memory_mb' => 'setMemoryMb',
         'name' => 'setName',
         'plugin_config' => 'setPluginConfig',
         'project_name' => 'setProjectName',
+        'reasoning' => 'setReasoning',
         'skill_config' => 'setSkillConfig',
         'soul' => 'setSoul',
         'template_current_version_id' => 'setTemplateCurrentVersionId',
-        'template_label' => 'setTemplateLabel',
+        'template_pending_version_id' => 'setTemplatePendingVersionId',
         'template_version_id' => 'setTemplateVersionId',
         'type' => 'setType',
         'version' => 'setVersion'
@@ -164,15 +188,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         'default_model_source' => 'getDefaultModelSource',
         'description' => 'getDescription',
         'id' => 'getId',
+        'image_build_error' => 'getImageBuildError',
+        'image_build_status' => 'getImageBuildStatus',
         'image_id' => 'getImageId',
+        'image_url' => 'getImageUrl',
+        'input' => 'getInput',
+        'is_imaged' => 'getIsImaged',
         'memory_mb' => 'getMemoryMb',
         'name' => 'getName',
         'plugin_config' => 'getPluginConfig',
         'project_name' => 'getProjectName',
+        'reasoning' => 'getReasoning',
         'skill_config' => 'getSkillConfig',
         'soul' => 'getSoul',
         'template_current_version_id' => 'getTemplateCurrentVersionId',
-        'template_label' => 'getTemplateLabel',
+        'template_pending_version_id' => 'getTemplatePendingVersionId',
         'template_version_id' => 'getTemplateVersionId',
         'type' => 'getType',
         'version' => 'getVersion'
@@ -245,15 +275,21 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
         $this->container['default_model_source'] = isset($data['default_model_source']) ? $data['default_model_source'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image_build_error'] = isset($data['image_build_error']) ? $data['image_build_error'] : null;
+        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_url'] = isset($data['image_url']) ? $data['image_url'] : null;
+        $this->container['input'] = isset($data['input']) ? $data['input'] : null;
+        $this->container['is_imaged'] = isset($data['is_imaged']) ? $data['is_imaged'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['plugin_config'] = isset($data['plugin_config']) ? $data['plugin_config'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['reasoning'] = isset($data['reasoning']) ? $data['reasoning'] : null;
         $this->container['skill_config'] = isset($data['skill_config']) ? $data['skill_config'] : null;
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['template_current_version_id'] = isset($data['template_current_version_id']) ? $data['template_current_version_id'] : null;
-        $this->container['template_label'] = isset($data['template_label']) ? $data['template_label'] : null;
+        $this->container['template_pending_version_id'] = isset($data['template_pending_version_id']) ? $data['template_pending_version_id'] : null;
         $this->container['template_version_id'] = isset($data['template_version_id']) ? $data['template_version_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -452,6 +488,54 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets image_build_error
+     *
+     * @return string
+     */
+    public function getImageBuildError()
+    {
+        return $this->container['image_build_error'];
+    }
+
+    /**
+     * Sets image_build_error
+     *
+     * @param string $image_build_error image_build_error
+     *
+     * @return $this
+     */
+    public function setImageBuildError($image_build_error)
+    {
+        $this->container['image_build_error'] = $image_build_error;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_build_status
+     *
+     * @return string
+     */
+    public function getImageBuildStatus()
+    {
+        return $this->container['image_build_status'];
+    }
+
+    /**
+     * Sets image_build_status
+     *
+     * @param string $image_build_status image_build_status
+     *
+     * @return $this
+     */
+    public function setImageBuildStatus($image_build_status)
+    {
+        $this->container['image_build_status'] = $image_build_status;
+
+        return $this;
+    }
+
+    /**
      * Gets image_id
      *
      * @return string
@@ -471,6 +555,78 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
     public function setImageId($image_id)
     {
         $this->container['image_id'] = $image_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_url
+     *
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->container['image_url'];
+    }
+
+    /**
+     * Sets image_url
+     *
+     * @param string $image_url image_url
+     *
+     * @return $this
+     */
+    public function setImageUrl($image_url)
+    {
+        $this->container['image_url'] = $image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets input
+     *
+     * @return string
+     */
+    public function getInput()
+    {
+        return $this->container['input'];
+    }
+
+    /**
+     * Sets input
+     *
+     * @param string $input input
+     *
+     * @return $this
+     */
+    public function setInput($input)
+    {
+        $this->container['input'] = $input;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_imaged
+     *
+     * @return bool
+     */
+    public function getIsImaged()
+    {
+        return $this->container['is_imaged'];
+    }
+
+    /**
+     * Sets is_imaged
+     *
+     * @param bool $is_imaged is_imaged
+     *
+     * @return $this
+     */
+    public function setIsImaged($is_imaged)
+    {
+        $this->container['is_imaged'] = $is_imaged;
 
         return $this;
     }
@@ -572,6 +728,30 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets reasoning
+     *
+     * @return string
+     */
+    public function getReasoning()
+    {
+        return $this->container['reasoning'];
+    }
+
+    /**
+     * Sets reasoning
+     *
+     * @param string $reasoning reasoning
+     *
+     * @return $this
+     */
+    public function setReasoning($reasoning)
+    {
+        $this->container['reasoning'] = $reasoning;
+
+        return $this;
+    }
+
+    /**
      * Gets skill_config
      *
      * @return string
@@ -644,25 +824,25 @@ class TemplateForGetClawOmniSpaceTemplateOutput implements ModelInterface, Array
     }
 
     /**
-     * Gets template_label
+     * Gets template_pending_version_id
      *
      * @return string
      */
-    public function getTemplateLabel()
+    public function getTemplatePendingVersionId()
     {
-        return $this->container['template_label'];
+        return $this->container['template_pending_version_id'];
     }
 
     /**
-     * Sets template_label
+     * Sets template_pending_version_id
      *
-     * @param string $template_label template_label
+     * @param string $template_pending_version_id template_pending_version_id
      *
      * @return $this
      */
-    public function setTemplateLabel($template_label)
+    public function setTemplatePendingVersionId($template_pending_version_id)
     {
-        $this->container['template_label'] = $template_label;
+        $this->container['template_pending_version_id'] = $template_pending_version_id;
 
         return $this;
     }
