@@ -28,6 +28,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'string',
         'action_name' => 'string',
         'can_cancel' => 'bool',
         'can_modify_time' => 'bool',
@@ -47,6 +48,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => null,
         'action_name' => null,
         'can_cancel' => null,
         'can_modify_time' => null,
@@ -87,6 +89,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
         'action_name' => 'ActionName',
         'can_cancel' => 'CanCancel',
         'can_modify_time' => 'CanModifyTime',
@@ -106,6 +109,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
         'action_name' => 'setActionName',
         'can_cancel' => 'setCanCancel',
         'can_modify_time' => 'setCanModifyTime',
@@ -125,6 +129,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
         'action_name' => 'getActionName',
         'can_cancel' => 'getCanCancel',
         'can_modify_time' => 'getCanModifyTime',
@@ -223,6 +228,7 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['action_name'] = isset($data['action_name']) ? $data['action_name'] : null;
         $this->container['can_cancel'] = isset($data['can_cancel']) ? $data['can_cancel'] : null;
         $this->container['can_modify_time'] = isset($data['can_modify_time']) ? $data['can_modify_time'] : null;
@@ -267,6 +273,30 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
 
     /**
      * Gets action_name

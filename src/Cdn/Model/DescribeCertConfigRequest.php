@@ -32,7 +32,8 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         'cert_id2' => 'string',
         'cert_type' => 'string',
         'encry_type' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'target_config' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         'cert_id2' => null,
         'cert_type' => null,
         'encry_type' => null,
-        'status' => null
+        'status' => null,
+        'target_config' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         'cert_id2' => 'CertId2',
         'cert_type' => 'CertType',
         'encry_type' => 'EncryType',
-        'status' => 'Status'
+        'status' => 'Status',
+        'target_config' => 'TargetConfig'
     ];
 
     /**
@@ -92,7 +95,8 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         'cert_id2' => 'setCertId2',
         'cert_type' => 'setCertType',
         'encry_type' => 'setEncryType',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'target_config' => 'setTargetConfig'
     ];
 
     /**
@@ -105,7 +109,8 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         'cert_id2' => 'getCertId2',
         'cert_type' => 'getCertType',
         'encry_type' => 'getEncryType',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'target_config' => 'getTargetConfig'
     ];
 
     /**
@@ -173,6 +178,7 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
         $this->container['cert_type'] = isset($data['cert_type']) ? $data['cert_type'] : null;
         $this->container['encry_type'] = isset($data['encry_type']) ? $data['encry_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['target_config'] = isset($data['target_config']) ? $data['target_config'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class DescribeCertConfigRequest implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_config
+     *
+     * @return string
+     */
+    public function getTargetConfig()
+    {
+        return $this->container['target_config'];
+    }
+
+    /**
+     * Sets target_config
+     *
+     * @param string $target_config target_config
+     *
+     * @return $this
+     */
+    public function setTargetConfig($target_config)
+    {
+        $this->container['target_config'] = $target_config;
 
         return $this;
     }

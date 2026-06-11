@@ -32,7 +32,8 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         'mem_size' => 'int',
         'node_cu_type' => 'string',
         'node_num' => 'int',
-        'node_type' => 'string'
+        'node_type' => 'string',
+        'resource_spec_name' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         'mem_size' => 'int32',
         'node_cu_type' => null,
         'node_num' => 'int32',
-        'node_type' => null
+        'node_type' => null,
+        'resource_spec_name' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         'mem_size' => 'MemSize',
         'node_cu_type' => 'NodeCUType',
         'node_num' => 'NodeNum',
-        'node_type' => 'NodeType'
+        'node_type' => 'NodeType',
+        'resource_spec_name' => 'ResourceSpecName'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         'mem_size' => 'setMemSize',
         'node_cu_type' => 'setNodeCuType',
         'node_num' => 'setNodeNum',
-        'node_type' => 'setNodeType'
+        'node_type' => 'setNodeType',
+        'resource_spec_name' => 'setResourceSpecName'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         'mem_size' => 'getMemSize',
         'node_cu_type' => 'getNodeCuType',
         'node_num' => 'getNodeNum',
-        'node_type' => 'getNodeType'
+        'node_type' => 'getNodeType',
+        'resource_spec_name' => 'getResourceSpecName'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
         $this->container['node_cu_type'] = isset($data['node_cu_type']) ? $data['node_cu_type'] : null;
         $this->container['node_num'] = isset($data['node_num']) ? $data['node_num'] : null;
         $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
+        $this->container['resource_spec_name'] = isset($data['resource_spec_name']) ? $data['resource_spec_name'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class ComponentSpecListForScaleInstanceInput implements ModelInterface, ArrayAcc
     public function setNodeType($node_type)
     {
         $this->container['node_type'] = $node_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_spec_name
+     *
+     * @return string
+     */
+    public function getResourceSpecName()
+    {
+        return $this->container['resource_spec_name'];
+    }
+
+    /**
+     * Sets resource_spec_name
+     *
+     * @param string $resource_spec_name resource_spec_name
+     *
+     * @return $this
+     */
+    public function setResourceSpecName($resource_spec_name)
+    {
+        $this->container['resource_spec_name'] = $resource_spec_name;
 
         return $this;
     }

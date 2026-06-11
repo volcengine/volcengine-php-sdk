@@ -28,7 +28,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'blue_green_deployment' => '\Volcengine\Redis\Model\BlueGreenDeploymentForCreateBlueGreenDeploymentOutput'
+        'create_time' => 'string',
+        'data_sync_progress' => 'double',
+        'end_time' => 'string',
+        'name' => 'string',
+        'source_engine_version' => 'string',
+        'source_instance_id' => 'string',
+        'source_instance_name' => 'string',
+        'status' => 'string',
+        'target_engine_version' => 'string',
+        'target_instance_id' => 'string',
+        'target_instance_name' => 'string'
     ];
 
     /**
@@ -37,7 +47,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'blue_green_deployment' => null
+        'create_time' => null,
+        'data_sync_progress' => 'double',
+        'end_time' => null,
+        'name' => null,
+        'source_engine_version' => null,
+        'source_instance_id' => null,
+        'source_instance_name' => null,
+        'status' => null,
+        'target_engine_version' => null,
+        'target_instance_id' => null,
+        'target_instance_name' => null
     ];
 
     /**
@@ -67,7 +87,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'blue_green_deployment' => 'BlueGreenDeployment'
+        'create_time' => 'CreateTime',
+        'data_sync_progress' => 'DataSyncProgress',
+        'end_time' => 'EndTime',
+        'name' => 'Name',
+        'source_engine_version' => 'SourceEngineVersion',
+        'source_instance_id' => 'SourceInstanceId',
+        'source_instance_name' => 'SourceInstanceName',
+        'status' => 'Status',
+        'target_engine_version' => 'TargetEngineVersion',
+        'target_instance_id' => 'TargetInstanceId',
+        'target_instance_name' => 'TargetInstanceName'
     ];
 
     /**
@@ -76,7 +106,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'blue_green_deployment' => 'setBlueGreenDeployment'
+        'create_time' => 'setCreateTime',
+        'data_sync_progress' => 'setDataSyncProgress',
+        'end_time' => 'setEndTime',
+        'name' => 'setName',
+        'source_engine_version' => 'setSourceEngineVersion',
+        'source_instance_id' => 'setSourceInstanceId',
+        'source_instance_name' => 'setSourceInstanceName',
+        'status' => 'setStatus',
+        'target_engine_version' => 'setTargetEngineVersion',
+        'target_instance_id' => 'setTargetInstanceId',
+        'target_instance_name' => 'setTargetInstanceName'
     ];
 
     /**
@@ -85,7 +125,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'blue_green_deployment' => 'getBlueGreenDeployment'
+        'create_time' => 'getCreateTime',
+        'data_sync_progress' => 'getDataSyncProgress',
+        'end_time' => 'getEndTime',
+        'name' => 'getName',
+        'source_engine_version' => 'getSourceEngineVersion',
+        'source_instance_id' => 'getSourceInstanceId',
+        'source_instance_name' => 'getSourceInstanceName',
+        'status' => 'getStatus',
+        'target_engine_version' => 'getTargetEngineVersion',
+        'target_instance_id' => 'getTargetInstanceId',
+        'target_instance_name' => 'getTargetInstanceName'
     ];
 
     /**
@@ -148,7 +198,17 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['blue_green_deployment'] = isset($data['blue_green_deployment']) ? $data['blue_green_deployment'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['data_sync_progress'] = isset($data['data_sync_progress']) ? $data['data_sync_progress'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['source_engine_version'] = isset($data['source_engine_version']) ? $data['source_engine_version'] : null;
+        $this->container['source_instance_id'] = isset($data['source_instance_id']) ? $data['source_instance_id'] : null;
+        $this->container['source_instance_name'] = isset($data['source_instance_name']) ? $data['source_instance_name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['target_engine_version'] = isset($data['target_engine_version']) ? $data['target_engine_version'] : null;
+        $this->container['target_instance_id'] = isset($data['target_instance_id']) ? $data['target_instance_id'] : null;
+        $this->container['target_instance_name'] = isset($data['target_instance_name']) ? $data['target_instance_name'] : null;
     }
 
     /**
@@ -176,25 +236,265 @@ class CreateBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets blue_green_deployment
+     * Gets create_time
      *
-     * @return \Volcengine\Redis\Model\BlueGreenDeploymentForCreateBlueGreenDeploymentOutput
+     * @return string
      */
-    public function getBlueGreenDeployment()
+    public function getCreateTime()
     {
-        return $this->container['blue_green_deployment'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets blue_green_deployment
+     * Sets create_time
      *
-     * @param \Volcengine\Redis\Model\BlueGreenDeploymentForCreateBlueGreenDeploymentOutput $blue_green_deployment blue_green_deployment
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setBlueGreenDeployment($blue_green_deployment)
+    public function setCreateTime($create_time)
     {
-        $this->container['blue_green_deployment'] = $blue_green_deployment;
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_sync_progress
+     *
+     * @return double
+     */
+    public function getDataSyncProgress()
+    {
+        return $this->container['data_sync_progress'];
+    }
+
+    /**
+     * Sets data_sync_progress
+     *
+     * @param double $data_sync_progress data_sync_progress
+     *
+     * @return $this
+     */
+    public function setDataSyncProgress($data_sync_progress)
+    {
+        $this->container['data_sync_progress'] = $data_sync_progress;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_time
+     *
+     * @return string
+     */
+    public function getEndTime()
+    {
+        return $this->container['end_time'];
+    }
+
+    /**
+     * Sets end_time
+     *
+     * @param string $end_time end_time
+     *
+     * @return $this
+     */
+    public function setEndTime($end_time)
+    {
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_engine_version
+     *
+     * @return string
+     */
+    public function getSourceEngineVersion()
+    {
+        return $this->container['source_engine_version'];
+    }
+
+    /**
+     * Sets source_engine_version
+     *
+     * @param string $source_engine_version source_engine_version
+     *
+     * @return $this
+     */
+    public function setSourceEngineVersion($source_engine_version)
+    {
+        $this->container['source_engine_version'] = $source_engine_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_instance_id
+     *
+     * @return string
+     */
+    public function getSourceInstanceId()
+    {
+        return $this->container['source_instance_id'];
+    }
+
+    /**
+     * Sets source_instance_id
+     *
+     * @param string $source_instance_id source_instance_id
+     *
+     * @return $this
+     */
+    public function setSourceInstanceId($source_instance_id)
+    {
+        $this->container['source_instance_id'] = $source_instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_instance_name
+     *
+     * @return string
+     */
+    public function getSourceInstanceName()
+    {
+        return $this->container['source_instance_name'];
+    }
+
+    /**
+     * Sets source_instance_name
+     *
+     * @param string $source_instance_name source_instance_name
+     *
+     * @return $this
+     */
+    public function setSourceInstanceName($source_instance_name)
+    {
+        $this->container['source_instance_name'] = $source_instance_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_engine_version
+     *
+     * @return string
+     */
+    public function getTargetEngineVersion()
+    {
+        return $this->container['target_engine_version'];
+    }
+
+    /**
+     * Sets target_engine_version
+     *
+     * @param string $target_engine_version target_engine_version
+     *
+     * @return $this
+     */
+    public function setTargetEngineVersion($target_engine_version)
+    {
+        $this->container['target_engine_version'] = $target_engine_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_instance_id
+     *
+     * @return string
+     */
+    public function getTargetInstanceId()
+    {
+        return $this->container['target_instance_id'];
+    }
+
+    /**
+     * Sets target_instance_id
+     *
+     * @param string $target_instance_id target_instance_id
+     *
+     * @return $this
+     */
+    public function setTargetInstanceId($target_instance_id)
+    {
+        $this->container['target_instance_id'] = $target_instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_instance_name
+     *
+     * @return string
+     */
+    public function getTargetInstanceName()
+    {
+        return $this->container['target_instance_name'];
+    }
+
+    /**
+     * Sets target_instance_name
+     *
+     * @param string $target_instance_name target_instance_name
+     *
+     * @return $this
+     */
+    public function setTargetInstanceName($target_instance_name)
+    {
+        $this->container['target_instance_name'] = $target_instance_name;
 
         return $this;
     }

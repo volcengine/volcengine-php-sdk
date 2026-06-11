@@ -29,7 +29,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'timestamp' => 'int',
-        'value' => 'float'
+        'value' => 'double'
     ];
 
     /**
@@ -39,7 +39,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'timestamp' => 'int32',
-        'value' => 'float'
+        'value' => 'double'
     ];
 
     /**
@@ -208,7 +208,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
     /**
      * Gets value
      *
-     * @return float
+     * @return double
      */
     public function getValue()
     {
@@ -218,7 +218,7 @@ class DataPointForGetMetricDataOutput implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float $value value
+     * @param double $value value
      *
      * @return $this
      */

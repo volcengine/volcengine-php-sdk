@@ -28,9 +28,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cache_shared' => 'bool',
         'delete' => 'bool',
         'prefix' => 'bool',
+        'request_header_instances' => '\Volcengine\Cdn\Model\RequestHeaderInstanceForSubmitRefreshTaskInput[]',
         'type' => 'string',
+        'url_list' => 'string[]',
         'urls' => 'string'
     ];
 
@@ -40,9 +43,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cache_shared' => null,
         'delete' => null,
         'prefix' => null,
+        'request_header_instances' => null,
         'type' => null,
+        'url_list' => null,
         'urls' => null
     ];
 
@@ -73,9 +79,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cache_shared' => 'CacheShared',
         'delete' => 'Delete',
         'prefix' => 'Prefix',
+        'request_header_instances' => 'RequestHeaderInstances',
         'type' => 'Type',
+        'url_list' => 'UrlList',
         'urls' => 'Urls'
     ];
 
@@ -85,9 +94,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cache_shared' => 'setCacheShared',
         'delete' => 'setDelete',
         'prefix' => 'setPrefix',
+        'request_header_instances' => 'setRequestHeaderInstances',
         'type' => 'setType',
+        'url_list' => 'setUrlList',
         'urls' => 'setUrls'
     ];
 
@@ -97,9 +109,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cache_shared' => 'getCacheShared',
         'delete' => 'getDelete',
         'prefix' => 'getPrefix',
+        'request_header_instances' => 'getRequestHeaderInstances',
         'type' => 'getType',
+        'url_list' => 'getUrlList',
         'urls' => 'getUrls'
     ];
 
@@ -163,9 +178,12 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['cache_shared'] = isset($data['cache_shared']) ? $data['cache_shared'] : null;
         $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
         $this->container['prefix'] = isset($data['prefix']) ? $data['prefix'] : null;
+        $this->container['request_header_instances'] = isset($data['request_header_instances']) ? $data['request_header_instances'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['url_list'] = isset($data['url_list']) ? $data['url_list'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
@@ -178,9 +196,6 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -195,6 +210,30 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cache_shared
+     *
+     * @return bool
+     */
+    public function getCacheShared()
+    {
+        return $this->container['cache_shared'];
+    }
+
+    /**
+     * Sets cache_shared
+     *
+     * @param bool $cache_shared cache_shared
+     *
+     * @return $this
+     */
+    public function setCacheShared($cache_shared)
+    {
+        $this->container['cache_shared'] = $cache_shared;
+
+        return $this;
+    }
 
     /**
      * Gets delete
@@ -245,6 +284,30 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets request_header_instances
+     *
+     * @return \Volcengine\Cdn\Model\RequestHeaderInstanceForSubmitRefreshTaskInput[]
+     */
+    public function getRequestHeaderInstances()
+    {
+        return $this->container['request_header_instances'];
+    }
+
+    /**
+     * Sets request_header_instances
+     *
+     * @param \Volcengine\Cdn\Model\RequestHeaderInstanceForSubmitRefreshTaskInput[] $request_header_instances request_header_instances
+     *
+     * @return $this
+     */
+    public function setRequestHeaderInstances($request_header_instances)
+    {
+        $this->container['request_header_instances'] = $request_header_instances;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -264,6 +327,30 @@ class SubmitRefreshTaskRequest implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_list
+     *
+     * @return string[]
+     */
+    public function getUrlList()
+    {
+        return $this->container['url_list'];
+    }
+
+    /**
+     * Sets url_list
+     *
+     * @param string[] $url_list url_list
+     *
+     * @return $this
+     */
+    public function setUrlList($url_list)
+    {
+        $this->container['url_list'] = $url_list;
 
         return $this;
     }

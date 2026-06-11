@@ -28,6 +28,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action_type' => 'string',
         'create_time' => 'string',
         'db_name' => 'string',
         'key_info' => 'string',
@@ -43,6 +44,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action_type' => null,
         'create_time' => null,
         'db_name' => null,
         'key_info' => null,
@@ -79,6 +81,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action_type' => 'ActionType',
         'create_time' => 'CreateTime',
         'db_name' => 'DBName',
         'key_info' => 'KeyInfo',
@@ -94,6 +97,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action_type' => 'setActionType',
         'create_time' => 'setCreateTime',
         'db_name' => 'setDbName',
         'key_info' => 'setKeyInfo',
@@ -109,6 +113,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action_type' => 'getActionType',
         'create_time' => 'getCreateTime',
         'db_name' => 'getDbName',
         'key_info' => 'getKeyInfo',
@@ -178,6 +183,7 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
         $this->container['key_info'] = isset($data['key_info']) ? $data['key_info'] : null;
@@ -210,6 +216,30 @@ class HotKeyForDescribeHotKeysOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets action_type
+     *
+     * @return string
+     */
+    public function getActionType()
+    {
+        return $this->container['action_type'];
+    }
+
+    /**
+     * Sets action_type
+     *
+     * @param string $action_type action_type
+     *
+     * @return $this
+     */
+    public function setActionType($action_type)
+    {
+        $this->container['action_type'] = $action_type;
+
+        return $this;
+    }
 
     /**
      * Gets create_time

@@ -28,12 +28,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'api_body_hash' => 'string',
         'api_path' => 'string',
         'api_payload' => '\Volcengine\Acep\Model\APIPayloadForGetPreSignedEdgeURLInput',
         'api_type' => 'string',
         'pod_id' => 'string',
         'product_id' => 'string',
-        'single_use' => 'bool',
         'ttl' => 'int',
         'timeout' => 'int'
     ];
@@ -44,12 +44,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'api_body_hash' => null,
         'api_path' => null,
         'api_payload' => null,
         'api_type' => null,
         'pod_id' => null,
         'product_id' => null,
-        'single_use' => null,
         'ttl' => 'int32',
         'timeout' => 'int32'
     ];
@@ -81,12 +81,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'api_body_hash' => 'APIBodyHash',
         'api_path' => 'APIPath',
         'api_payload' => 'APIPayload',
         'api_type' => 'APIType',
         'pod_id' => 'PodId',
         'product_id' => 'ProductId',
-        'single_use' => 'SingleUse',
         'ttl' => 'TTL',
         'timeout' => 'Timeout'
     ];
@@ -97,12 +97,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'api_body_hash' => 'setApiBodyHash',
         'api_path' => 'setApiPath',
         'api_payload' => 'setApiPayload',
         'api_type' => 'setApiType',
         'pod_id' => 'setPodId',
         'product_id' => 'setProductId',
-        'single_use' => 'setSingleUse',
         'ttl' => 'setTtl',
         'timeout' => 'setTimeout'
     ];
@@ -113,12 +113,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'api_body_hash' => 'getApiBodyHash',
         'api_path' => 'getApiPath',
         'api_payload' => 'getApiPayload',
         'api_type' => 'getApiType',
         'pod_id' => 'getPodId',
         'product_id' => 'getProductId',
-        'single_use' => 'getSingleUse',
         'ttl' => 'getTtl',
         'timeout' => 'getTimeout'
     ];
@@ -183,12 +183,12 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['api_body_hash'] = isset($data['api_body_hash']) ? $data['api_body_hash'] : null;
         $this->container['api_path'] = isset($data['api_path']) ? $data['api_path'] : null;
         $this->container['api_payload'] = isset($data['api_payload']) ? $data['api_payload'] : null;
         $this->container['api_type'] = isset($data['api_type']) ? $data['api_type'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
-        $this->container['single_use'] = isset($data['single_use']) ? $data['single_use'] : null;
         $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
@@ -225,6 +225,30 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets api_body_hash
+     *
+     * @return string
+     */
+    public function getApiBodyHash()
+    {
+        return $this->container['api_body_hash'];
+    }
+
+    /**
+     * Sets api_body_hash
+     *
+     * @param string $api_body_hash api_body_hash
+     *
+     * @return $this
+     */
+    public function setApiBodyHash($api_body_hash)
+    {
+        $this->container['api_body_hash'] = $api_body_hash;
+
+        return $this;
+    }
 
     /**
      * Gets api_path
@@ -342,30 +366,6 @@ class GetPreSignedEdgeURLRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets single_use
-     *
-     * @return bool
-     */
-    public function getSingleUse()
-    {
-        return $this->container['single_use'];
-    }
-
-    /**
-     * Sets single_use
-     *
-     * @param bool $single_use single_use
-     *
-     * @return $this
-     */
-    public function setSingleUse($single_use)
-    {
-        $this->container['single_use'] = $single_use;
 
         return $this;
     }

@@ -28,7 +28,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'id' => 'string',
+        'image_build_status' => 'string',
+        'version_id' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'id' => null,
+        'image_build_status' => null,
+        'version_id' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'id' => 'Id',
+        'image_build_status' => 'ImageBuildStatus',
+        'version_id' => 'VersionId'
     ];
 
     /**
@@ -76,7 +82,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'id' => 'setId',
+        'image_build_status' => 'setImageBuildStatus',
+        'version_id' => 'setVersionId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'id' => 'getId',
+        'image_build_status' => 'getImageBuildStatus',
+        'version_id' => 'getVersionId'
     ];
 
     /**
@@ -149,6 +159,8 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     public function __construct($data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image_build_status'] = isset($data['image_build_status']) ? $data['image_build_status'] : null;
+        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
     }
 
     /**
@@ -195,6 +207,54 @@ class CreatePrivateClawOmniSpaceTemplateResponse implements ModelInterface, Arra
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_build_status
+     *
+     * @return string
+     */
+    public function getImageBuildStatus()
+    {
+        return $this->container['image_build_status'];
+    }
+
+    /**
+     * Sets image_build_status
+     *
+     * @param string $image_build_status image_build_status
+     *
+     * @return $this
+     */
+    public function setImageBuildStatus($image_build_status)
+    {
+        $this->container['image_build_status'] = $image_build_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_id
+     *
+     * @return string
+     */
+    public function getVersionId()
+    {
+        return $this->container['version_id'];
+    }
+
+    /**
+     * Sets version_id
+     *
+     * @param string $version_id version_id
+     *
+     * @return $this
+     */
+    public function setVersionId($version_id)
+    {
+        $this->container['version_id'] = $version_id;
 
         return $this;
     }

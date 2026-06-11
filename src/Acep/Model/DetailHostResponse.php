@@ -46,7 +46,8 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         'resource_set_id' => 'string',
         'server_type_code' => 'string',
         'status' => 'int',
-        'volc_region' => 'string'
+        'volc_region' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         'resource_set_id' => null,
         'server_type_code' => null,
         'status' => 'int32',
-        'volc_region' => null
+        'volc_region' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         'resource_set_id' => 'ResourceSetId',
         'server_type_code' => 'ServerTypeCode',
         'status' => 'Status',
-        'volc_region' => 'VolcRegion'
+        'volc_region' => 'VolcRegion',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -148,7 +151,8 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         'resource_set_id' => 'setResourceSetId',
         'server_type_code' => 'setServerTypeCode',
         'status' => 'setStatus',
-        'volc_region' => 'setVolcRegion'
+        'volc_region' => 'setVolcRegion',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -175,7 +179,8 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         'resource_set_id' => 'getResourceSetId',
         'server_type_code' => 'getServerTypeCode',
         'status' => 'getStatus',
-        'volc_region' => 'getVolcRegion'
+        'volc_region' => 'getVolcRegion',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -257,6 +262,7 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
         $this->container['server_type_code'] = isset($data['server_type_code']) ? $data['server_type_code'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -735,6 +741,30 @@ class DetailHostResponse implements ModelInterface, ArrayAccess
     public function setVolcRegion($volc_region)
     {
         $this->container['volc_region'] = $volc_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

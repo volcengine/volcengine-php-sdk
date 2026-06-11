@@ -28,7 +28,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'inner_endpoint_enabled' => 'bool',
         'subnet_info' => '\Volcengine\Milvus\Model\SubnetInfoForDescribeInstanceDetailOutput',
         'vpc_info' => '\Volcengine\Milvus\Model\VpcInfoForDescribeInstanceDetailOutput'
     ];
@@ -39,7 +38,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'inner_endpoint_enabled' => null,
         'subnet_info' => null,
         'vpc_info' => null
     ];
@@ -71,7 +69,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'inner_endpoint_enabled' => 'InnerEndpointEnabled',
         'subnet_info' => 'SubnetInfo',
         'vpc_info' => 'VpcInfo'
     ];
@@ -82,7 +79,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'inner_endpoint_enabled' => 'setInnerEndpointEnabled',
         'subnet_info' => 'setSubnetInfo',
         'vpc_info' => 'setVpcInfo'
     ];
@@ -93,7 +89,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'inner_endpoint_enabled' => 'getInnerEndpointEnabled',
         'subnet_info' => 'getSubnetInfo',
         'vpc_info' => 'getVpcInfo'
     ];
@@ -158,7 +153,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
-        $this->container['inner_endpoint_enabled'] = isset($data['inner_endpoint_enabled']) ? $data['inner_endpoint_enabled'] : null;
         $this->container['subnet_info'] = isset($data['subnet_info']) ? $data['subnet_info'] : null;
         $this->container['vpc_info'] = isset($data['vpc_info']) ? $data['vpc_info'] : null;
     }
@@ -186,30 +180,6 @@ class NetworkConfigForDescribeInstanceDetailOutput implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets inner_endpoint_enabled
-     *
-     * @return bool
-     */
-    public function getInnerEndpointEnabled()
-    {
-        return $this->container['inner_endpoint_enabled'];
-    }
-
-    /**
-     * Sets inner_endpoint_enabled
-     *
-     * @param bool $inner_endpoint_enabled inner_endpoint_enabled
-     *
-     * @return $this
-     */
-    public function setInnerEndpointEnabled($inner_endpoint_enabled)
-    {
-        $this->container['inner_endpoint_enabled'] = $inner_endpoint_enabled;
-
-        return $this;
-    }
 
     /**
      * Gets subnet_info

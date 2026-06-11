@@ -29,18 +29,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
       */
     protected static $swaggerTypes = [
         'account_id' => 'string',
-        'deploy_cluster_id' => 'string',
-        'id' => 'int',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_version' => 'string',
-        'namespace' => 'string',
         'project_name' => 'string',
         'region' => 'string',
         'status' => 'string',
-        'sub_account_id' => 'string',
-        'task_id' => 'string',
-        'version' => 'int'
+        'sub_account_id' => 'string'
     ];
 
     /**
@@ -50,18 +45,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'account_id' => null,
-        'deploy_cluster_id' => null,
-        'id' => 'int32',
         'instance_id' => null,
         'instance_name' => null,
         'instance_version' => null,
-        'namespace' => null,
         'project_name' => null,
         'region' => null,
         'status' => null,
-        'sub_account_id' => null,
-        'task_id' => null,
-        'version' => 'int32'
+        'sub_account_id' => null
     ];
 
     /**
@@ -92,18 +82,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
      */
     protected static $attributeMap = [
         'account_id' => 'AccountId',
-        'deploy_cluster_id' => 'DeployClusterId',
-        'id' => 'Id',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_version' => 'InstanceVersion',
-        'namespace' => 'Namespace',
         'project_name' => 'ProjectName',
         'region' => 'Region',
         'status' => 'Status',
-        'sub_account_id' => 'SubAccountId',
-        'task_id' => 'TaskId',
-        'version' => 'Version'
+        'sub_account_id' => 'SubAccountId'
     ];
 
     /**
@@ -113,18 +98,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
-        'deploy_cluster_id' => 'setDeployClusterId',
-        'id' => 'setId',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_version' => 'setInstanceVersion',
-        'namespace' => 'setNamespace',
         'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'status' => 'setStatus',
-        'sub_account_id' => 'setSubAccountId',
-        'task_id' => 'setTaskId',
-        'version' => 'setVersion'
+        'sub_account_id' => 'setSubAccountId'
     ];
 
     /**
@@ -134,18 +114,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
-        'deploy_cluster_id' => 'getDeployClusterId',
-        'id' => 'getId',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_version' => 'getInstanceVersion',
-        'namespace' => 'getNamespace',
         'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'status' => 'getStatus',
-        'sub_account_id' => 'getSubAccountId',
-        'task_id' => 'getTaskId',
-        'version' => 'getVersion'
+        'sub_account_id' => 'getSubAccountId'
     ];
 
     /**
@@ -209,18 +184,13 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
     public function __construct($data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['deploy_cluster_id'] = isset($data['deploy_cluster_id']) ? $data['deploy_cluster_id'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_version'] = isset($data['instance_version']) ? $data['instance_version'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['sub_account_id'] = isset($data['sub_account_id']) ? $data['sub_account_id'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -267,54 +237,6 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets deploy_cluster_id
-     *
-     * @return string
-     */
-    public function getDeployClusterId()
-    {
-        return $this->container['deploy_cluster_id'];
-    }
-
-    /**
-     * Sets deploy_cluster_id
-     *
-     * @param string $deploy_cluster_id deploy_cluster_id
-     *
-     * @return $this
-     */
-    public function setDeployClusterId($deploy_cluster_id)
-    {
-        $this->container['deploy_cluster_id'] = $deploy_cluster_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
 
         return $this;
     }
@@ -387,30 +309,6 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
     public function setInstanceVersion($instance_version)
     {
         $this->container['instance_version'] = $instance_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets namespace
-     *
-     * @return string
-     */
-    public function getNamespace()
-    {
-        return $this->container['namespace'];
-    }
-
-    /**
-     * Sets namespace
-     *
-     * @param string $namespace namespace
-     *
-     * @return $this
-     */
-    public function setNamespace($namespace)
-    {
-        $this->container['namespace'] = $namespace;
 
         return $this;
     }
@@ -507,54 +405,6 @@ class BaseInstanceForDescribeInstanceDetailOutput implements ModelInterface, Arr
     public function setSubAccountId($sub_account_id)
     {
         $this->container['sub_account_id'] = $sub_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_id
-     *
-     * @return string
-     */
-    public function getTaskId()
-    {
-        return $this->container['task_id'];
-    }
-
-    /**
-     * Sets task_id
-     *
-     * @param string $task_id task_id
-     *
-     * @return $this
-     */
-    public function setTaskId($task_id)
-    {
-        $this->container['task_id'] = $task_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param int $version version
-     *
-     * @return $this
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
 
         return $this;
     }
