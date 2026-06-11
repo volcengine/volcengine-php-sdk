@@ -32,6 +32,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         'concurrent_limit' => 'int',
         'layer' => 'string',
         'request_header_instances' => '\Volcengine\Cdn\Model\RequestHeaderInstanceForSubmitPreloadTaskInput[]',
+        'url_list' => 'string[]',
         'urls' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         'concurrent_limit' => 'int64',
         'layer' => null,
         'request_header_instances' => null,
+        'url_list' => null,
         'urls' => null
     ];
 
@@ -79,6 +81,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         'concurrent_limit' => 'ConcurrentLimit',
         'layer' => 'Layer',
         'request_header_instances' => 'RequestHeaderInstances',
+        'url_list' => 'UrlList',
         'urls' => 'Urls'
     ];
 
@@ -92,6 +95,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         'concurrent_limit' => 'setConcurrentLimit',
         'layer' => 'setLayer',
         'request_header_instances' => 'setRequestHeaderInstances',
+        'url_list' => 'setUrlList',
         'urls' => 'setUrls'
     ];
 
@@ -105,6 +109,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         'concurrent_limit' => 'getConcurrentLimit',
         'layer' => 'getLayer',
         'request_header_instances' => 'getRequestHeaderInstances',
+        'url_list' => 'getUrlList',
         'urls' => 'getUrls'
     ];
 
@@ -172,6 +177,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         $this->container['concurrent_limit'] = isset($data['concurrent_limit']) ? $data['concurrent_limit'] : null;
         $this->container['layer'] = isset($data['layer']) ? $data['layer'] : null;
         $this->container['request_header_instances'] = isset($data['request_header_instances']) ? $data['request_header_instances'] : null;
+        $this->container['url_list'] = isset($data['url_list']) ? $data['url_list'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
@@ -184,9 +190,6 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -294,6 +297,30 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
     public function setRequestHeaderInstances($request_header_instances)
     {
         $this->container['request_header_instances'] = $request_header_instances;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_list
+     *
+     * @return string[]
+     */
+    public function getUrlList()
+    {
+        return $this->container['url_list'];
+    }
+
+    /**
+     * Sets url_list
+     *
+     * @param string[] $url_list url_list
+     *
+     * @return $this
+     */
+    public function setUrlList($url_list)
+    {
+        $this->container['url_list'] = $url_list;
 
         return $this;
     }

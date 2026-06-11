@@ -37,7 +37,8 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         'status' => 'string',
         'task_id' => 'string',
         'task_type' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'url_list' => 'string[]'
     ];
 
     /**
@@ -55,7 +56,8 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         'status' => null,
         'task_id' => null,
         'task_type' => null,
-        'url' => null
+        'url' => null,
+        'url_list' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'task_id' => 'TaskID',
         'task_type' => 'TaskType',
-        'url' => 'Url'
+        'url' => 'Url',
+        'url_list' => 'UrlList'
     ];
 
     /**
@@ -112,7 +115,8 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'task_id' => 'setTaskId',
         'task_type' => 'setTaskType',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'url_list' => 'setUrlList'
     ];
 
     /**
@@ -130,7 +134,8 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'task_id' => 'getTaskId',
         'task_type' => 'getTaskType',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'url_list' => 'getUrlList'
     ];
 
     /**
@@ -203,6 +208,7 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['url_list'] = isset($data['url_list']) ? $data['url_list'] : null;
     }
 
     /**
@@ -468,6 +474,30 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_list
+     *
+     * @return string[]
+     */
+    public function getUrlList()
+    {
+        return $this->container['url_list'];
+    }
+
+    /**
+     * Sets url_list
+     *
+     * @param string[] $url_list url_list
+     *
+     * @return $this
+     */
+    public function setUrlList($url_list)
+    {
+        $this->container['url_list'] = $url_list;
 
         return $this;
     }

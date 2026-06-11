@@ -30,7 +30,8 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cert_id' => 'string',
         'cert_id2' => 'string',
-        'domain' => 'string'
+        'domain' => 'string',
+        'target_config' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cert_id' => null,
         'cert_id2' => null,
-        'domain' => null
+        'domain' => null,
+        'target_config' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cert_id' => 'CertId',
         'cert_id2' => 'CertId2',
-        'domain' => 'Domain'
+        'domain' => 'Domain',
+        'target_config' => 'TargetConfig'
     ];
 
     /**
@@ -84,7 +87,8 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cert_id' => 'setCertId',
         'cert_id2' => 'setCertId2',
-        'domain' => 'setDomain'
+        'domain' => 'setDomain',
+        'target_config' => 'setTargetConfig'
     ];
 
     /**
@@ -95,7 +99,8 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cert_id' => 'getCertId',
         'cert_id2' => 'getCertId2',
-        'domain' => 'getDomain'
+        'domain' => 'getDomain',
+        'target_config' => 'getTargetConfig'
     ];
 
     /**
@@ -161,6 +166,7 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
         $this->container['cert_id'] = isset($data['cert_id']) ? $data['cert_id'] : null;
         $this->container['cert_id2'] = isset($data['cert_id2']) ? $data['cert_id2'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['target_config'] = isset($data['target_config']) ? $data['target_config'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class BatchDeployCertRequest implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_config
+     *
+     * @return string
+     */
+    public function getTargetConfig()
+    {
+        return $this->container['target_config'];
+    }
+
+    /**
+     * Sets target_config
+     *
+     * @param string $target_config target_config
+     *
+     * @return $this
+     */
+    public function setTargetConfig($target_config)
+    {
+        $this->container['target_config'] = $target_config;
 
         return $this;
     }

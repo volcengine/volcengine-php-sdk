@@ -29,6 +29,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
+        'url_list' => 'string[]',
         'urls' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'type' => null,
+        'url_list' => null,
         'urls' => null
     ];
 
@@ -70,6 +72,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'type' => 'Type',
+        'url_list' => 'UrlList',
         'urls' => 'Urls'
     ];
 
@@ -80,6 +83,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'type' => 'setType',
+        'url_list' => 'setUrlList',
         'urls' => 'setUrls'
     ];
 
@@ -90,6 +94,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'type' => 'getType',
+        'url_list' => 'getUrlList',
         'urls' => 'getUrls'
     ];
 
@@ -154,6 +159,7 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['url_list'] = isset($data['url_list']) ? $data['url_list'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
@@ -166,9 +172,6 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -204,6 +207,30 @@ class SubmitBlockTaskRequest implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_list
+     *
+     * @return string[]
+     */
+    public function getUrlList()
+    {
+        return $this->container['url_list'];
+    }
+
+    /**
+     * Sets url_list
+     *
+     * @param string[] $url_list url_list
+     *
+     * @return $this
+     */
+    public function setUrlList($url_list)
+    {
+        $this->container['url_list'] = $url_list;
 
         return $this;
     }
