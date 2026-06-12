@@ -2,84 +2,95 @@
 
 ---
 
-## EndPoint 配置
+## Endpoint 配置
 
-> **默认**
->
-> 不指定 Endpoint 时，走 [自动化 Endpoint 寻址](#自动化-endpoint-寻址)。
+PHP SDK 当前支持三种 Endpoint 配置方式：
 
-### 自定义 Endpoint
+1. 直接 `setHost()`
+2. 使用固定域名的 `HostEndpointProvider`
+3. 使用自动解析的 `DefaultEndpointProvider` / `StandardEndpointProvider`
 
-用户可以通过在初始化客户端时指定 Endpoint：
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
-    ->setAk("Your ak")
-    ->setSk("Your sk")
-    ->setHost('https://open.volcengineapi.com');  # 自定义Endpoint，可填写带协议前缀的完整域名（如示例），也可仅填写域名主体（不含 http/https 前缀）
-```
-
-### 自定义 RegionId
+### 固定 Host
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
-    ->setAk("Your ak")
-    ->setSk("Your sk")
-    ->setRegion("cn-beijing"); #自定义RegionId
+    ->setHost('https://open.volcengineapi.com');
 ```
 
-### 自动化 Endpoint 寻址
-
-> **默认**
->
-> 默认支持自动寻址，无需手动指定 Endpoint。
-
-为了简化用户配置，Volcengine 提供了灵活的 Endpoint 自动寻址机制。用户无需手动指定服务地址，SDK 会根据服务名称、区域（Region）等信息自动拼接出合理的访问地址，并支持用户自定义 DualStack（双栈）。
-
-#### Endpoint 默认寻址
-
-##### 寻址逻辑
-
-1. **是否自动寻址 Region**
-
-    内置自动寻址 Region 列表代码：[`./src/Common/Endpoint/Providers/DefaultEndpointProvider.php`](src/Common/Endpoint/Providers/DefaultEndpointProvider.php)
-
-    SDK 仅对部分预设区域（如 `cn-beijing-autodriving`、`ap-southeast-2`）或用户配置的区域执行自动寻址；其他区域默认返回 Endpoint：`open.volcengineapi.com`。
-
-    用户可通过环境变量 `VOLC_BOOTSTRAP_REGION_LIST_CONF` 或代码中自定义 `customBootstrapRegion` 来扩展控制区域列表。
-
-2. **DualStack 支持（IPv6）**
-
-    SDK 支持双栈网络（IPv4 + IPv6）访问地址。在常规 `ApiClient` 配置路径中，默认 `useDualStack=false` 会作为显式配置传递给 Endpoint Provider；因此要启用 DualStack，请调用 `setUseDualStack(true)`。`VOLC_ENABLE_DUALSTACK=true` 仅在 Endpoint Provider 收到的 `useDualStack` 为 `null` 时生效。
-
-    启用后，域名后缀将从 `volcengineapi.com` 切换为 `volcengine-api.com`。
-
-3. **根据服务名和区域自动构造 Endpoint 地址**
-
-    - **全局服务（如 `CDN`、`IAM`）**：使用 `<服务名>.volcengineapi.com`（或启用双栈时使用 `volcengine-api.com`）。示例：`cdn.volcengineapi.com`。
-    - **区域服务（如 `ECS`、`RDS`）**：使用 `<服务名>.<区域名>.volcengineapi.com` 作为默认 Endpoint。示例：`ecs.cn-beijing.volcengineapi.com`。
-
-##### 代码示例
+### Host Endpoint Provider
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
-    ->setAk("Your ak")
-    ->setSk("Your sk")
-    ->setUseDualStack(True)  # // 定义是否启用双栈网络（IPv4 + IPv6）访问地址，默认false
-    ->setCustomBootstrapRegion([
-        'custom_example_region1' => [],
-        'custom_example_region2' => []
-    ]);  # 自定义自动寻址Region列表
+    ->setEndpointProvider(
+        new \Volcengine\Common\Endpoint\Providers\HostEndpointProvider('custom.volcengineapi.com')
+    );
 ```
+
+### Standard Endpoint Provider
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setUseDualStack(true)
+    ->setEndpointProvider(new \Volcengine\Common\Endpoint\Providers\StandardEndpointProvider());
+```
+
+`StandardEndpointProvider` 会校验 region，并在失败时抛出带类型化错误码的
+`StandProviderError`，例如 `InvalidRegion`、`ServiceNotFound`、
+`TemplateExecuteError`。
+
+### Endpoint 解析选项
+
+`Configuration` 直接暴露了常用的解析选项：
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('ap-singapore-1')
+    ->setStrictEndpointMatching(true)
+    ->setResolveUnknownService(false)
+    ->setEndpointSite('volcengine-api')
+    ->setEndpointIpVersion('DualStack');
+```
+
+- `setStrictEndpointMatching(true)` 要求 region 必须存在于内置规则中。
+- `setResolveUnknownService(true)` 允许对未内置的 service 使用兜底 host 模板。
+- `setEndpointSite()` 可覆盖 `volcengineapi` / `volcengine-api` 这类站点后缀片段。
+- `setEndpointIpVersion('IPv4'|'DualStack')` 控制 IPv4 或双栈 host。
+
+### 基于文件的 Endpoint 规则
+
+当你需要在不升级 SDK 的情况下补充 service 或 region host 时，可以启用
+文件规则：
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setEndpointConfigState(true)
+    ->setEndpointConfigPath('/path/to/endpoints.json');
+```
+
+支持的 JSON 结构：
+
+```json
+{
+  "services": {
+    "ecs": {
+      "regions": {
+        "cn-beijing": "ecs-cn-beijing.example.com"
+      },
+      "global": "ecs.example.com",
+      "template": "{service}.{region}.{site}.example.com"
+    }
+  }
+}
+```
+
+一旦文件规则返回 host，会优先于内置标准解析器。
 
 ---
 

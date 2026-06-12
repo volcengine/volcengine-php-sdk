@@ -4,9 +4,7 @@
 
 ## Debugging
 
-Enable debug mode on `Configuration` to pass Guzzle's debug output option to
-HTTP requests. By default, debug output is written to `php://output`; use
-`setDebugFile()` to write it to a file.
+The PHP SDK now supports both Guzzle wire debug output and structured SDK logs.
 
 ```php
 <?php
@@ -17,20 +15,47 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSk("Your sk")
     ->setRegion('cn-beijing')
     ->setDebug(true)
-    ->setDebugFile('/tmp/volcengine-php-sdk-debug.log');
-
-$apiInstance = new \Volcengine\Vpc\Api\VPCApi(null, $config);
-
-try {
-    $result = $apiInstance->describeVpcs(new \Volcengine\Vpc\Model\DescribeVpcsRequest());
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VPCApi->describeVpcs: ', $e->getMessage(), PHP_EOL;
-}
+    ->setDebugFile('/tmp/volcengine-php-sdk-debug.log')
+    ->setLogLevel(
+        \Volcengine\Common\SdkLogger::LOG_REQUEST
+        | \Volcengine\Common\SdkLogger::LOG_RESPONSE
+        | \Volcengine\Common\SdkLogger::LOG_RETRY
+    );
 ```
 
-You can also print environment information with
-`Configuration::toDebugReport()` when collecting diagnostics.
+Available bitmask categories include `LOG_REQUEST`, `LOG_REQUEST_BODY`,
+`LOG_REQUEST_ID`, `LOG_ENDPOINT`, `LOG_CONFIG`, `LOG_SIGNING`, `LOG_RETRY`,
+`LOG_RESPONSE`, `LOG_RESPONSE_BODY`, and `LOG_ERROR`.
+
+`setLogger()` accepts the SDK's own `LoggerInterface`, `SdkLogger`, or a PSR-3
+style object exposing `debug/info/warning/error` or `log()`.
+
+```php
+<?php
+$config->setLogger(new Monolog\Logger('volcengine'));
+```
+
+You can also override the default SDK user agent or inject a custom signer:
+
+```php
+<?php
+$config->setUserAgent('my-app/1.0 volcstack-php-sdk')
+    ->setSigner(new \Volcengine\Common\Sign\V4Signer());
+```
+
+Advanced per-request hooks are also available from `Configuration` for
+instrumentation and protocol extension:
+
+- `setDynamicCredentials()` / `setDynamicCredentialsWithMeta()`
+- `setExtendHttpRequest()` / `setExtendHttpRequestWithMeta()`
+- `setExtraHttpParameters()` / `setExtraHttpJsonBody()`
+- `setCustomUnmarshalError()` / `setCustomUnmarshalData()`
+- `setExtendContextWithMeta()`
+- `setLogSensitives()` to redact configured keys from SDK log context
+- `setLogAccount()` to attach an account identifier to structured log context
+- `setForceJsonNumberDecode()` for safer large-number JSON decoding
+
+You can still use `Configuration::toDebugReport()` for environment diagnostics.
 
 ---
 

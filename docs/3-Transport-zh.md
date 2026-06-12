@@ -36,6 +36,17 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setVerifySsl(false); #非必填，默认为true需要验证ssl，false为不需要验证
 ```
 
+### 配置自定义 CA 与客户端证书
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setSslCaCert('/etc/ssl/certs/ca-bundle.crt')
+    ->setCertFile('/path/to/client.crt')
+    ->setKeyFile('/path/to/client.key')
+    ->setAssertHostname(true);
+```
+
 ### 指定 TLS 协议版本
 
 > **默认**
@@ -73,6 +84,29 @@ try {
     echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
 }
 ```
+
+### 调整 HTTP 连接池
+
+通过 `Configuration::createHttpClient()` 创建的默认 Guzzle client 支持
+连接池调优：
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setNumPools(4)
+    ->setConnectionPoolMaxsize(20);
+
+$client = $config->createHttpClient();
+```
+
+- `setNumPools()` 用于控制 SDK 管理的 HTTP client 使用的 curl multi
+  handle 数量。
+- `setConnectionPoolMaxsize()` 会映射到 `CURLOPT_MAXCONNECTS`，限制可复用
+  的 keep-alive 连接上限。
+- `setProgressListener()` 会透传 Guzzle 的 `progress` 回调，可用于上传/
+  下载进度监听。
+- 如果你需要自己创建 `GuzzleHttp\Client`，可以通过 `toHttpClientConfig()`
+  导出整理后的 Guzzle 配置。
 
 ---
 

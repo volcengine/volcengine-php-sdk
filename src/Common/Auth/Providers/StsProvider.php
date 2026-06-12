@@ -4,9 +4,11 @@ namespace Volcengine\Common\Auth\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Psr7\Request;
-use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
+use Volcengine\Common\Error\ApiExceptionFactory;
+use Volcengine\Common\Retry\Retryer;
 use Volcengine\Common\Utils;
 
 class StsProvider extends Provider
@@ -22,6 +24,9 @@ class StsProvider extends Provider
     private $policy;
     private $headerSelector;
     private $config;
+    private $retryer;
+    private $connectTimeout;
+    private $readTimeout;
 
     public function __construct(
         $ak,
@@ -47,6 +52,9 @@ class StsProvider extends Provider
         $this->policy = $policy;
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->config = \Volcengine\Common\Configuration::getDefaultConfiguration();
+        $this->retryer = clone $this->config->getRetryer();
+        $this->connectTimeout = 5;
+        $this->readTimeout = 30;
     }
 
     public function getCredentials()
@@ -80,7 +88,7 @@ class StsProvider extends Provider
         }
         $query = substr($query, 0, -1);
 
-        $headers = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
+        $headers = $this->config->getSigner()->sign($this->ak, $this->sk, $this->region, 'sts',
             '', $query, 'GET', '/', $headers);
 
         $request = new Request('GET',
@@ -88,55 +96,90 @@ class StsProvider extends Provider
             $headers, '');
 
         $client = new Client([
-            'timeout' => 30,
-            'connect_timeout' => 5,
-            'verify' => true,
+            'timeout' => $this->readTimeout,
+            'connect_timeout' => $this->connectTimeout,
+            'verify' => $this->config->getSslCaCert() ?: $this->config->getVerifySsl(),
+            'http_errors' => false,
         ]);
-        try {
-            $response = $client->send($request, [
-                'timeout' => 30,
-                'connect_timeout' => 5,
-            ]);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-        $statusCode = $response->getStatusCode();
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)(%s)',
-                    $statusCode,
-                    $request->getUri(),
-                    $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
 
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)(%s)',
-                    $statusCode,
-                    $request->getUri(),
-                    $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
+        $retryCount = 0;
+        $lastError = null;
+        $lastResponse = null;
+        $responseContent = null;
+        while (true) {
+            try {
+                $response = $client->send($request, [
+                    'timeout' => $this->readTimeout,
+                    'connect_timeout' => $this->connectTimeout,
+                    'http_errors' => false,
+                ]);
+                $lastResponse = $response;
+                $responseContent = (string) $response->getBody();
+                $statusCode = $response->getStatusCode();
+                if ($statusCode < 200 || $statusCode > 299) {
+                    $lastError = ApiExceptionFactory::fromHttpResponse(
+                        $statusCode,
+                        $request->getUri(),
+                        $response->getHeaders(),
+                        $responseContent
+                    );
+                    $retryCandidate = $lastError;
+                } else {
+                    $decoded = json_decode($responseContent);
+                    if (isset($decoded->{'ResponseMetadata'}->{'Error'})) {
+                        $lastError = ApiExceptionFactory::fromServiceError(
+                            $statusCode,
+                            $request->getUri(),
+                            $response->getHeaders(),
+                            $responseContent
+                        );
+                        $retryCandidate = $lastError;
+                    } else {
+                        break;
+                    }
+                }
+            } catch (RequestException $e) {
+                $lastResponse = $e->getResponse();
+                $lastError = ApiExceptionFactory::fromRequestException($e);
+                $retryCandidate = $e;
+            } catch (TransferException $e) {
+                $lastError = ApiExceptionFactory::fromTransferException($e);
+                $retryCandidate = $e;
+            }
+
+            if ($this->retryer === null || !$this->retryer->shouldRetry($lastResponse, $retryCount, $retryCandidate)) {
+                throw $lastError;
+            }
+
+            $delayMs = $this->retryer->getRetryDelay($retryCount, $lastResponse);
+            if ($delayMs > 0) {
+                usleep((int) ($delayMs * 1000));
+            }
+            $retryCount++;
         }
+
+        $content = json_decode($responseContent);
         $content = $content->{'Result'};
 
         return (array)$content->Credentials;
+    }
+
+    public function setRetryer(Retryer $retryer)
+    {
+        $this->retryer = $retryer;
+        return $this;
+    }
+
+    public function setConnectTimeout($connectTimeout)
+    {
+        $this->connectTimeout = $connectTimeout;
+        return $this;
+    }
+
+    public function setReadTimeout($readTimeout)
+    {
+        $this->readTimeout = $readTimeout;
+        return $this;
     }
 }
 

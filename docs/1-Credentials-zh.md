@@ -12,12 +12,16 @@
 | --- | --- | --- | --- |
 | 直接在 `Configuration` 中设置 `AK/SK` 或 `AK/SK/Token` | 显式传入固定或临时凭证 | 否 | 简单服务端接入 |
 | `StsProvider` | STS AssumeRole | 否 | 基于角色的临时凭证（每次调用都请求 STS，需调用方自行缓存） |
+| `StaticCredentialProvider` | 把静态 `AK/SK(/Token)` 封装成 provider | 否 | 作为凭证链输入复用 |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
 | `EnvironmentVariableCredentialProvider` | 从环境变量读取 | 否 | CI/CD、容器注入 |
 | `CLIConfigCredentialProvider` | 从 `~/.volcengine/config.json` 读取 | 视 mode 而定 | 复用 CLI 登录态或 profile |
 | `EcsRoleCredentialProvider` | 从 ECS IMDS 读取 | 是 | ECS 实例角色凭证 |
 | `DefaultCredentialProvider` | 默认凭证链封装 | 取决于实际命中的 provider | 业务代码不显式写 AK/SK |
+
+`DefaultCredentialProvider` 默认会缓存上一次成功的 provider，下次优先尝试；
+如果整条链仍然失败，抛出的异常会包含每个 provider 的失败详情，便于排查。
 
 ### AK、SK 设置
 
@@ -108,6 +112,66 @@ try {
 ?>
 ```
 
+### StaticCredentialProvider
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\StaticCredentialProvider(
+    'Your AK',
+    'Your SK',
+    'Optional session token'
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
+### ProcessCredentialsProvider
+
+`ProcessCredentialsProvider` 会执行外部命令，从标准输出解析 JSON，并在
+`Expiration` 到期前缓存凭证。
+
+期望的 JSON 结构：
+
+```json
+{
+  "AccessKeyId": "AK...",
+  "SecretAccessKey": "SK...",
+  "SessionToken": "token",
+  "Expiration": "2026-06-12T12:00:00Z"
+}
+```
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\ProcessCredentialsProvider(
+    'volc-credential-helper --profile prod',
+    30
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
+### EndpointCredentialsProvider
+
+`EndpointCredentialsProvider` 会从自定义 HTTP 端点拉取凭证，并在过期前复用。
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\EndpointCredentialsProvider(
+    'http://127.0.0.1:8080/credentials',
+    'Bearer token',
+    ['X-Source' => 'volcengine-php-sdk']
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
 ### AssumeRole
 
 动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。
@@ -133,6 +197,13 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "sts.volcengineapi.com", # 非必填，请求域名，默认sts.volcengineapi.com
     '{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
 );
+
+// 可选：复用全局 retryer，或单独设置 AssumeRole 请求超时
+// $sts->setRetryer(
+//         \Volcengine\Common\Configuration::getDefaultConfiguration()->getRetryer()
+//     )
+//     ->setConnectTimeout(3)
+//     ->setReadTimeout(30);
 
 try {
     $result = $sts->getCredentials();

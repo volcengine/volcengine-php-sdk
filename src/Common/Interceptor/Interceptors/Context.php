@@ -56,6 +56,12 @@ class Context
     {
         return $this->attributes;
     }
+
+    public function mergeAttributes(array $attributes)
+    {
+        $this->attributes = array_merge($this->attributes, $attributes);
+        return $this;
+    }
 }
 
 ?>

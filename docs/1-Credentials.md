@@ -12,12 +12,18 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | --- | --- | --- | --- |
 | Direct `Configuration` (`AK/SK` or `AK/SK/Token`) | Explicit static or temporary credentials | No | Simple server-side integration |
 | `StsProvider` | STS AssumeRole | Yes | Role-based temporary credentials |
+| `StaticCredentialProvider` | Wrap static `AK/SK(/Token)` as a provider | No | Reusable provider chain input |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
 | `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
 | `CLIConfigCredentialProvider` | Read from `~/.volcengine/config.json` | Depends on mode | Reuse CLI login/profile |
 | `EcsRoleCredentialProvider` | Read from ECS IMDS | Yes | ECS instance role credentials |
 | `DefaultCredentialProvider` | Chain wrapper | Depends on delegated provider | No AK/SK in application code |
+
+`DefaultCredentialProvider` caches the last successful provider by default and
+tries it first on the next resolution. When the chain still fails, the thrown
+error includes provider-by-provider failure details to help diagnose credential
+setup problems.
 
 ### AK/SK
 
@@ -106,6 +112,67 @@ try {
 ?>
 ```
 
+### Static Credential Provider
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\StaticCredentialProvider(
+    'Your AK',
+    'Your SK',
+    'Optional session token'
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
+### Process Credential Provider
+
+`ProcessCredentialsProvider` executes an external command, parses JSON from
+stdout, and caches the returned credentials until `Expiration`.
+
+Expected JSON shape:
+
+```json
+{
+  "AccessKeyId": "AK...",
+  "SecretAccessKey": "SK...",
+  "SessionToken": "token",
+  "Expiration": "2026-06-12T12:00:00Z"
+}
+```
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\ProcessCredentialsProvider(
+    'volc-credential-helper --profile prod',
+    30
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
+### Endpoint Credential Provider
+
+`EndpointCredentialsProvider` pulls credentials from a custom HTTP endpoint and
+reuses them until expiry.
+
+```php
+<?php
+$provider = new \Volcengine\Common\Auth\Providers\EndpointCredentialsProvider(
+    'http://127.0.0.1:8080/credentials',
+    'Bearer token',
+    ['X-Source' => 'volcengine-php-sdk']
+);
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion('cn-beijing')
+    ->setCredentialProvider($provider);
+```
+
 ### AssumeRole
 
 AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response.
@@ -131,6 +198,13 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "sts.volcengineapi.com", // optional
     '{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' // optional
 );
+
+// Optional: use the shared retryer or dedicated transport tuning
+// $sts->setRetryer(
+//         \Volcengine\Common\Configuration::getDefaultConfiguration()->getRetryer()
+//     )
+//     ->setConnectTimeout(3)
+//     ->setReadTimeout(30);
 
 try {
     $result = $sts->getCredentials();

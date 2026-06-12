@@ -14,6 +14,7 @@ class Request
     public $resourcePath;
     public $md;
     public $files;
+    public $apiName;
     public $truePath;
     public $service;
     public $ak;
@@ -29,6 +30,23 @@ class Request
     public $retryer;
     public $credentialProvider;
     public $runtimeOptions;
+    public $connectTimeout;
+    public $readTimeout;
+    public $verifySsl;
+    public $sslCaCert;
+    public $certFile;
+    public $keyFile;
+    public $assertHostname;
+    public $proxy;
+    public $httpProxy;
+    public $httpsProxy;
+    public $logger;
+    public $logLevel;
+    public $signer;
+    public $endpointOptions;
+    public $enableRequestGzip;
+    public $gzipMinLength;
+    public $progressListener;
     public $model;
     public $realRequest;
     public $options;
@@ -39,6 +57,24 @@ class Request
     public $query;
     public $isPresigned = false;
     public $presignedUrl;
+    public $extraQueryParameters = [];
+    public $extraJsonBody = [];
+    public $dynamicCredentials;
+    public $dynamicCredentialsWithMeta;
+    public $dynamicCredentialsIncludeError;
+    public $extendHttpRequest;
+    public $extendHttpRequestWithMeta;
+    public $extraHttpParameters;
+    public $extraHttpParametersWithMeta;
+    public $extraHttpJsonBody;
+    public $extraHttpJsonBodyWithMeta;
+    public $customUnmarshalError;
+    public $customUnmarshalData;
+    public $extendContextWithMeta;
+    public $logSensitives = [];
+    public $logAccount;
+    public $forceJsonNumberDecode = false;
+    public $simpleError = false;
 
 
     public function getMethod()

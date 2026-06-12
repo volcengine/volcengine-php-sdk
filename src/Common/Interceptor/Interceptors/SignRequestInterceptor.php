@@ -3,7 +3,9 @@
 namespace Volcengine\Common\Interceptor\Interceptors;
 
 use GuzzleHttp\RequestOptions;
-use Volcengine\Common\Utils;
+use Volcengine\Common\LogHelper;
+use Volcengine\Common\SdkLogger;
+use Volcengine\Common\Sign\V4Signer;
 
 class SignRequestInterceptor extends Interceptor
 {
@@ -12,6 +14,11 @@ class SignRequestInterceptor extends Interceptor
     public function __construct($credentialProvider)
     {
         $this->credentialProvider = $credentialProvider;
+    }
+
+    public function name()
+    {
+        return 'volcengine-sign-request-interceptor';
     }
 
     public function intercept(Context $context)
@@ -29,7 +36,8 @@ class SignRequestInterceptor extends Interceptor
         }
 
         if ($request->isPresigned) {
-            $signedPath = Utils::signRequestToUrl(
+            $signer = $request->signer ?: new V4Signer();
+            $signedPath = $signer->presign(
                 $request->ak,
                 $request->sk,
                 $request->region,
@@ -48,11 +56,45 @@ class SignRequestInterceptor extends Interceptor
                 $request->presignedUrl = $pos !== false ? substr($signedPath, $pos + 1) : $signedPath;
             }
         } else {
-            $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
+            if (!isset($request->headers['Host']) && !empty($request->host)) {
+                $request->headers['Host'] = $request->host;
+            }
+
+            $signer = $request->signer ?: new V4Signer();
+            $request->headers = $signer->sign($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
+            LogHelper::debug($request->logger, SdkLogger::LOG_SIGNING, 'Sign',
+                'service={service} region={region} signed_headers={headers}', [
+                    'service' => $request->service,
+                    'region' => $request->region,
+                    'headers' => isset($request->headers['Authorization']) ? 'Authorization' : '',
+                    '__log_account' => $request->logAccount,
+                    '__log_sensitives' => $request->logSensitives,
+                ]
+            );
             $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
                 $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
                 $request->headers, $request->httpBody);
+
+            if (is_callable($request->extendHttpRequest)) {
+                $extended = call_user_func($request->extendHttpRequest, $realRequest, $context);
+                if ($extended instanceof \Psr\Http\Message\RequestInterface) {
+                    $realRequest = $extended;
+                }
+            }
+            if (is_callable($request->extendHttpRequestWithMeta)) {
+                $meta = [
+                    'service' => $request->service,
+                    'region' => $request->region,
+                    'method' => $request->method,
+                    'api_name' => $request->apiName,
+                    'context_attributes' => $context->getAttributes(),
+                ];
+                $extended = call_user_func($request->extendHttpRequestWithMeta, $realRequest, $meta, $context);
+                if ($extended instanceof \Psr\Http\Message\RequestInterface) {
+                    $realRequest = $extended;
+                }
+            }
 
             $request->realRequest = $realRequest;
 

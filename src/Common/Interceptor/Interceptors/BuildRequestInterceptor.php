@@ -8,6 +8,11 @@ use Volcengine\Common\Utils;
 
 class BuildRequestInterceptor extends Interceptor
 {
+    public function name()
+    {
+        return 'volcengine-build-request-interceptor';
+    }
+
     public function intercept(Context $context)
     {
         // 构建请求逻辑
@@ -36,13 +41,24 @@ class BuildRequestInterceptor extends Interceptor
             $httpBody = Utils::transRequest($httpBody);
             $httpBody = http_build_query($httpBody);
         } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            $payload = ObjectSerializer::sanitizeForSerialization($body);
+            if (!empty($request->extraJsonBody) && is_array($request->extraJsonBody)) {
+                if (is_object($payload)) {
+                    $payload = (array) $payload;
+                }
+                if (is_array($payload)) {
+                    $payload = array_merge($payload, $request->extraJsonBody);
+                }
+            }
+            $httpBody = json_encode($payload);
+        }
+
+        if (!empty($request->extraQueryParameters) && is_array($request->extraQueryParameters)) {
+            $queryParams = array_merge($queryParams, $request->extraQueryParameters);
         }
 
         $queryParams['Action'] = $paths[1];
         $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
         $query = '';
         ksort($queryParams);  // sort query first
         foreach ($queryParams as $k => $v) {
@@ -54,8 +70,7 @@ class BuildRequestInterceptor extends Interceptor
         $request->query = $query ? $query : '';
 
         $request->headers = $headers;
-        $request->httpBody = $httpBody;
-        //没有配置realRequest和options
+        $request->httpBody = $httpBody === null ? '' : $httpBody;
         return $context;
     }
 }

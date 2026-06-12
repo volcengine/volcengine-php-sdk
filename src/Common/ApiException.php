@@ -3,8 +3,9 @@
 namespace Volcengine\Common;
 
 use Exception;
+use Volcengine\Common\Error\SdkErrorInterface;
 
-class ApiException extends Exception
+class ApiException extends Exception implements SdkErrorInterface
 {
 
     /**
@@ -27,6 +28,10 @@ class ApiException extends Exception
      * @var $responseObject ;
      */
     protected $responseObject;
+    protected $statusCode;
+    protected $errorCode;
+    protected $errorMessage;
+    protected $originalError;
 
     /**
      * Constructor
@@ -39,6 +44,8 @@ class ApiException extends Exception
     public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
         parent::__construct($message, $code);
+        $this->statusCode = (int) $code;
+        $this->errorMessage = $message;
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;
     }
@@ -83,5 +90,74 @@ class ApiException extends Exception
     public function getResponseObject()
     {
         return $this->responseObject;
+    }
+
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = (int) $statusCode;
+        return $this;
+    }
+
+    public function getErrorCode()
+    {
+        return $this->errorCode;
+    }
+
+    public function setErrorCode($errorCode)
+    {
+        $this->errorCode = $errorCode;
+        return $this;
+    }
+
+    public function getErrorMessage()
+    {
+        return $this->errorMessage !== null ? $this->errorMessage : $this->getMessage();
+    }
+
+    public function setErrorMessage($errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
+        return $this;
+    }
+
+    public function getOriginalError()
+    {
+        return $this->originalError;
+    }
+
+    public function setOriginalError($originalError)
+    {
+        $this->originalError = $originalError;
+        return $this;
+    }
+
+    public function origErr()
+    {
+        return $this->getOriginalError();
+    }
+
+    public function statusCode()
+    {
+        return $this->getStatusCode();
+    }
+
+    public function errorCode()
+    {
+        return $this->getErrorCode();
+    }
+
+    public function code()
+    {
+        return $this->getErrorCode();
+    }
+
+    public function message()
+    {
+        return $this->getErrorMessage();
     }
 }

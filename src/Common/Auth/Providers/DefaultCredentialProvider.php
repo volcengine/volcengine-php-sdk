@@ -22,10 +22,12 @@ class DefaultCredentialProvider extends Provider
     private $providers;
     private $reuseLastProviderEnabled;
     private $lastProvider;
+    private $verboseErrors;
 
-    public function __construct($roleName = null, $reuseLastProviderEnabled = true, $providers = null)
+    public function __construct($roleName = null, $reuseLastProviderEnabled = true, $providers = null, $verboseErrors = true)
     {
         $this->reuseLastProviderEnabled = $reuseLastProviderEnabled;
+        $this->verboseErrors = (bool) $verboseErrors;
         if ($providers !== null) {
             // Custom provider chain
             $this->providers = $providers;
@@ -66,11 +68,26 @@ class DefaultCredentialProvider extends Provider
             }
         }
 
-        $errorDetails = empty($errors) ? 'no providers configured' : implode("\n  ", $errors);
-        throw new ApiException(
-            self::PROVIDER_NAME . ": unable to resolve credentials from any provider in the chain.\n"
-            . "Attempted providers:\n  " . $errorDetails
-        );
+        if ($this->verboseErrors) {
+            $errorDetails = empty($errors) ? 'no providers configured' : implode("\n  ", $errors);
+            throw new ApiException(
+                self::PROVIDER_NAME . ": unable to resolve credentials from any provider in the chain.\n"
+                . "Attempted providers:\n  " . $errorDetails
+            );
+        }
+
+        throw new ApiException(self::PROVIDER_NAME . ': unable to resolve credentials from any provider in the chain.');
+    }
+
+    public function setVerboseErrors($verboseErrors)
+    {
+        $this->verboseErrors = (bool) $verboseErrors;
+        return $this;
+    }
+
+    public function getVerboseErrors()
+    {
+        return $this->verboseErrors;
     }
 
     private function buildProviderChain($roleName)

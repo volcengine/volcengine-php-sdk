@@ -4,11 +4,11 @@ namespace Volcengine\Common\Interceptor\Interceptors;
 
 abstract class Interceptor
 {
-    abstract public function intercept(Context $context);
-}
+    public function name()
+    {
+        return get_class($this);
+    }
 
-abstract class ResponseInterceptor
-{
     abstract public function intercept(Context $context);
 }
 
