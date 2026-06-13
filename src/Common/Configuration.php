@@ -45,7 +45,7 @@ class Configuration
 
     protected $userAgent;
     protected $debug = false;
-    protected $debugFile = 'php://output';
+    protected $debugFile = 'php://stderr';
     protected $tempFolderPath;
     protected $logger;
     protected $logLevel = 0;
@@ -193,7 +193,7 @@ class Configuration
     public function setUseDualStack($useDualStack)
     {
         $this->useDualStack = (bool) $useDualStack;
-        $this->endpointOptions->ipVersion = $useDualStack ? 'DualStack' : 'IPv4';
+        $this->endpointOptions->ipVersion = $this->useDualStack ? 'DualStack' : 'IPv4';
         return $this;
     }
 

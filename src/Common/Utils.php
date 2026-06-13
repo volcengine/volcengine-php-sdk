@@ -91,9 +91,9 @@ class Utils
 
         $signedHeaders = [];
         foreach ($headers as $key => $value) {
-            if ($key == "Host" || $key == "Content-Md5" || $key == "Content-Type" || substr($key, 0, 2) == "X-") {
-                $key = strtolower($key);
-                $signedHeaders[$key] = $value;
+            $lowerKey = strtolower($key);
+            if ($lowerKey == "host" || $lowerKey == "content-md5" || $lowerKey == "content-type" || substr($lowerKey, 0, 2) == "x-") {
+                $signedHeaders[$lowerKey] = is_array($value) ? implode(',', array_map('trim', $value)) : trim((string) $value);
             }
         }
         ksort($signedHeaders);

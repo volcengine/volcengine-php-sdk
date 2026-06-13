@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common\Interceptor\Interceptors;
 
+use Volcengine\Common\Retry\Retryer;
+
 class RuntimeOptionsInterceptor extends Interceptor
 {
     public function name()
@@ -29,6 +31,17 @@ class RuntimeOptionsInterceptor extends Interceptor
         if ($opt->endpointProvider !== null) {
             $request->endpointProvider = $opt->endpointProvider;
             $request->host = null;
+        }
+
+        if ($request->retryer === null && (
+            $opt->numMaxRetries !== null
+            || $opt->backoffStrategy !== null
+            || $opt->retryCondition !== null
+            || $opt->minRetryDelayMs !== null
+            || $opt->maxRetryDelayMs !== null
+            || $opt->retryErrorCodes !== null
+        )) {
+            $request->retryer = new Retryer();
         }
 
         if ($request->retryer !== null) {
@@ -62,10 +75,10 @@ class RuntimeOptionsInterceptor extends Interceptor
         }
 
         if ($opt->extraQueryParameters !== null) {
-            $request->extraQueryParameters = $opt->extraQueryParameters;
+            $request->extraQueryParameters = array_merge($request->extraQueryParameters, $opt->extraQueryParameters);
         }
         if ($opt->extraJsonBody !== null) {
-            $request->extraJsonBody = $opt->extraJsonBody;
+            $request->extraJsonBody = array_merge($request->extraJsonBody, $opt->extraJsonBody);
         }
         if ($opt->simpleError !== null) {
             $request->simpleError = (bool) $opt->simpleError;

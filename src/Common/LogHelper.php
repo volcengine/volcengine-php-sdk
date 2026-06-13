@@ -127,7 +127,7 @@ class LogHelper
             }
 
             if (method_exists($value, 'getHeaders')) {
-                return self::sanitizeValue((array) $value, $sensitiveLookup, $parentKey);
+                return self::sanitizeValue($value->getHeaders(), $sensitiveLookup, $parentKey);
             }
         }
 

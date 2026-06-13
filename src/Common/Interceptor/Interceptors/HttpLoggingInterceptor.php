@@ -60,6 +60,10 @@ class HttpLoggingInterceptor extends ResponseInterceptor
                 '__log_account' => $request->logAccount,
                 '__log_sensitives' => $request->logSensitives,
             ]);
+            $bodyStream = $httpResponse->getBody();
+            if (method_exists($bodyStream, 'isSeekable') && $bodyStream->isSeekable()) {
+                $bodyStream->seek(0);
+            }
         }
 
         return $context;

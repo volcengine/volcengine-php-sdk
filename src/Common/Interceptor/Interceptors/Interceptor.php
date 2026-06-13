@@ -11,5 +11,3 @@ abstract class Interceptor
 
     abstract public function intercept(Context $context);
 }
-
-?>

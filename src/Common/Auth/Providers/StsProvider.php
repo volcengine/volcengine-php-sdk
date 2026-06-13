@@ -182,5 +182,3 @@ class StsProvider extends Provider
         return $this;
     }
 }
-
-?>

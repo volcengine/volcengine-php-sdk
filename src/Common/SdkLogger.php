@@ -25,7 +25,7 @@ class SdkLogger implements LoggerInterface
     {
         $this->debug = (bool) $debug;
         $this->logLevel = $logLevel;
-        $this->stream = $stream ?: fopen('php://output', 'a');
+        $this->stream = $stream ?: fopen('php://stderr', 'a');
     }
 
     public function setDebug($debug)

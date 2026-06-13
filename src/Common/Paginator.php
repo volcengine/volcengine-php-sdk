@@ -8,7 +8,7 @@ class Paginator
     private $hasMore;
     private $pageNumber = 1;
     private $pageSize = 20;
-    private $maxPages;
+    private $maxPages = 1000;
 
     public function __construct(callable $fetchPage, callable $hasMore = null)
     {

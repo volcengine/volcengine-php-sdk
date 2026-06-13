@@ -101,6 +101,9 @@ class SignRequestInterceptor extends Interceptor
             //配置options添加
             $options = [];
             if ($request->getDebug) {
+                if (isset($request->options[RequestOptions::DEBUG]) && is_resource($request->options[RequestOptions::DEBUG])) {
+                    fclose($request->options[RequestOptions::DEBUG]);
+                }
                 $options[RequestOptions::DEBUG] = fopen($request->getDebugFile, 'a');
                 if (!$options[RequestOptions::DEBUG]) {
                     throw new \RuntimeException('Failed to open the debug file: ' . $request->getDebugFile);
@@ -112,5 +115,3 @@ class SignRequestInterceptor extends Interceptor
         return $context;
     }
 }
-
-?>

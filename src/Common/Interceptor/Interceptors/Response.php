@@ -44,5 +44,3 @@ class Response
         return $this;
     }
 }
-
-?>

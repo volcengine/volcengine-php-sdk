@@ -537,10 +537,10 @@ class ApiClient
             return;
         }
 
-        if (!empty($creds['AccessKeyId'])) {
+        if (isset($creds['AccessKeyId'])) {
             $request->ak = $creds['AccessKeyId'];
         }
-        if (!empty($creds['SecretAccessKey'])) {
+        if (isset($creds['SecretAccessKey'])) {
             $request->sk = $creds['SecretAccessKey'];
         }
         if (isset($creds['SessionToken'])) {

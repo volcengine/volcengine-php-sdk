@@ -26,6 +26,9 @@ class ResolveEndpointInterceptor extends Interceptor
         $pathParts = explode('/', $context->request->resourcePath);
         $service = isset($pathParts[3]) ? $pathParts[3] : '';
         if (!$host) {
+            if ($context->request->endpointProvider === null) {
+                throw new \InvalidArgumentException('EndpointProvider must be set when request host is empty');
+            }
             $options = $context->request->endpointOptions && method_exists($context->request->endpointOptions, 'toArray')
                 ? $context->request->endpointOptions->toArray()
                 : [];
@@ -56,5 +59,3 @@ class ResolveEndpointInterceptor extends Interceptor
         return $context;
     }
 }
-
-?>

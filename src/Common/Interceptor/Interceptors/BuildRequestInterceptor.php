@@ -75,5 +75,3 @@ class BuildRequestInterceptor extends Interceptor
         return $context;
     }
 }
-
-?>
