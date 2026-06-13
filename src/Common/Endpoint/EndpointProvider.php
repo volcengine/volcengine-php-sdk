@@ -1,9 +1,11 @@
 <?php
 namespace Volcengine\Common\Endpoint;
 
+require_once __DIR__ . '/ResolvedEndpoint.php';
+
 abstract class EndpointProvider
 {
-    abstract public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = []);
+    abstract public function endpointFor($service, $region);
 }
 
 

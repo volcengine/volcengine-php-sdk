@@ -14,7 +14,7 @@ class HostEndpointProvider extends EndpointProvider
         $this->host = $host;
     }
 
-    public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
+    public function endpointFor($service, $region)
     {
         return new ResolvedEndpoint($this->host);
     }

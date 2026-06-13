@@ -157,7 +157,12 @@ class StandardEndpointProvider extends EndpointProvider
         'rec-sg',
     ];
 
-    public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
+    public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null)
+    {
+        return $this->endpointForWithOptions($service, $region, $customBootstrapRegion, $useDualStack, []);
+    }
+
+    public function endpointForWithOptions($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
     {
         $strictMatching = !empty($options['strictMatching']);
         $resolveUnknownService = !empty($options['resolveUnknownService']);

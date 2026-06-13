@@ -29,15 +29,19 @@ class ApiClient
     private $tempFolderPath;
     private $interceptorChain;
     private $client;
+    private $usesCustomClient = false;
+    private $clientConfig = [];
     private $signRequestInterceptor;
 
     public function __construct($config = null, $client = null)
     {
         $config = $config ?: new Configuration();
+        $this->usesCustomClient = $client !== null;
         $client = $client ?: new Client($this->buildClientConfig($config));
 
         $this->configuration = $config;
         $this->client = $client;
+        $this->clientConfig = $client->getConfig();
         $this->setUserAgent($config->getUserAgent());
         $this->tempFolderPath = $config->getTempFolderPath();
 
@@ -305,9 +309,20 @@ class ApiClient
     private function buildRequestOptions(Request $request)
     {
         $options = $request->options ?: [];
-        $options['timeout'] = $request->readTimeout;
-        $options['connect_timeout'] = $request->connectTimeout;
-        $options['verify'] = $request->sslCaCert ?: $request->verifySsl;
+        $runtimeOptions = $request->runtimeOptions;
+        $this->setClientOption(
+            $options,
+            'timeout',
+            $request->readTimeout,
+            $runtimeOptions && $runtimeOptions->readTimeout !== null
+        );
+        $this->setClientOption(
+            $options,
+            'connect_timeout',
+            $request->connectTimeout,
+            $runtimeOptions && $runtimeOptions->connectTimeout !== null
+        );
+        $options['verify'] = $this->resolveVerifyOption($request);
         $options['http_errors'] = false;
         if ($request->assertHostname === false && defined('CURLOPT_SSL_VERIFYHOST')) {
             $options['curl'][CURLOPT_SSL_VERIFYHOST] = 0;
@@ -338,9 +353,72 @@ class ApiClient
         return $options;
     }
 
+    private function setClientOption(array &$options, $name, $value, $runtimeOverride)
+    {
+        if ($this->usesCustomClient
+            && !$runtimeOverride) {
+            if (isset($this->clientConfig[$name]) && $this->clientConfig[$name] !== null) {
+                $options[$name] = $this->clientConfig[$name];
+            }
+            return;
+        }
+
+        $options[$name] = $value;
+    }
+
+    private function resolveVerifyOption(Request $request)
+    {
+        if ($request->sslCaCert) {
+            return $request->sslCaCert;
+        }
+
+        if ($this->usesCustomClient
+            && isset($this->clientConfig['verify'])
+            && $this->clientConfig['verify'] !== true) {
+            return $this->clientConfig['verify'];
+        }
+
+        return $request->verifySsl;
+    }
+
     private function buildClientConfig(Configuration $config)
     {
         return $config->toHttpClientConfig();
+    }
+
+    public function setNewClientConfig()
+    {
+        $config = [];
+        $clientConfig = $this->client->getConfig();
+
+        $clientVerify = isset($clientConfig['verify']) ? $clientConfig['verify'] : true;
+        if ($this->configuration->getVerifySsl() != $clientVerify) {
+            if ($clientVerify != true) {
+                $config['verify'] = $clientVerify;
+            } else {
+                $config['verify'] = $this->configuration->getVerifySsl();
+            }
+        }
+
+        if (isset($clientConfig['timeout']) && $this->configuration->getReadTimeout() != $clientConfig['timeout']) {
+            if ($clientConfig['timeout'] != null) {
+                $config['timeout'] = $clientConfig['timeout'];
+            } else {
+                $config['timeout'] = $this->configuration->getReadTimeout();
+            }
+        }
+
+        if (isset($clientConfig['connect_timeout']) && $this->configuration->getConnectTimeout() != $clientConfig['connect_timeout']) {
+            if ($clientConfig['connect_timeout'] != null) {
+                $config['connect_timeout'] = $clientConfig['connect_timeout'];
+            } else {
+                $config['connect_timeout'] = $this->configuration->getConnectTimeout();
+            }
+        }
+
+        $handler = isset($clientConfig['handler']) ? $clientConfig['handler'] : \GuzzleHttp\HandlerStack::create();
+        $this->client = new Client(array_merge($clientConfig, $config, ['handler' => $handler]));
+        $this->clientConfig = $this->client->getConfig();
     }
 
     private function logRetry(Request $request, $retryCount, $delayMs, $error)

@@ -5,6 +5,7 @@ namespace Volcengine\Common\Endpoint\Providers;
 use Volcengine\Common\Endpoint\EndpointProvider;
 use Volcengine\Common\Endpoint\ResolvedEndpoint;
 
+require_once __DIR__ . '/HostEndpointProvider.php';
 
 class DefaultEndpointProvider extends EndpointProvider
 {
@@ -587,11 +588,16 @@ class DefaultEndpointProvider extends EndpointProvider
         return $useDualStack;
     }
 
-    public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
+    public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null)
+    {
+        return $this->endpointForWithOptions($service, $region, $customBootstrapRegion, $useDualStack, []);
+    }
+
+    public function endpointForWithOptions($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
     {
         if ($this->shouldUseStandardResolver($options)) {
             $standardProvider = new StandardEndpointProvider();
-            return $standardProvider->endpointFor($service, $region, $customBootstrapRegion, $useDualStack, $options);
+            return $standardProvider->endpointForWithOptions($service, $region, $customBootstrapRegion, $useDualStack, $options);
         }
 
         if (isset($this->customEndpoints[$service])) {

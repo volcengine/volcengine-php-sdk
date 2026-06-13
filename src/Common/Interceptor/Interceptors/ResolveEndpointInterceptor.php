@@ -32,13 +32,7 @@ class ResolveEndpointInterceptor extends Interceptor
             $options = $context->request->endpointOptions && method_exists($context->request->endpointOptions, 'toArray')
                 ? $context->request->endpointOptions->toArray()
                 : [];
-            $endpointResolver = $context->request->endpointProvider->endpointFor(
-                $service,
-                $context->request->region,
-                $context->request->customBootstrapRegion,
-                $context->request->useDualStack,
-                $options
-            );
+            $endpointResolver = $this->resolveEndpoint($context, $service, $options);
             $context->request->host = $endpointResolver->host;
             $prefix = $endpointResolver->urlFor($schema);
         } else {
@@ -57,5 +51,21 @@ class ResolveEndpointInterceptor extends Interceptor
 
         $context->request->url = $prefix . $context->request->truePath;
         return $context;
+    }
+
+    private function resolveEndpoint(Context $context, $service, array $options)
+    {
+        $provider = $context->request->endpointProvider;
+        if (method_exists($provider, 'endpointForWithOptions')) {
+            return $provider->endpointForWithOptions(
+                $service,
+                $context->request->region,
+                $context->request->customBootstrapRegion,
+                $context->request->useDualStack,
+                $options
+            );
+        }
+
+        return $provider->endpointFor($service, $context->request->region);
     }
 }
