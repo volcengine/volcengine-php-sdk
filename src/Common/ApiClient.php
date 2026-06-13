@@ -566,7 +566,7 @@ class ApiClient
             }
         }
 
-        if (is_array($request->extraHttpParameters)) {
+        if (is_array($request->extraHttpParameters) && !is_callable($request->extraHttpParameters)) {
             $request->extraQueryParameters = array_merge($request->extraQueryParameters, $request->extraHttpParameters);
         }
 
@@ -584,7 +584,7 @@ class ApiClient
             }
         }
 
-        if (is_array($request->extraHttpJsonBody)) {
+        if (is_array($request->extraHttpJsonBody) && !is_callable($request->extraHttpJsonBody)) {
             $request->extraJsonBody = array_merge($request->extraJsonBody, $request->extraHttpJsonBody);
         }
     }

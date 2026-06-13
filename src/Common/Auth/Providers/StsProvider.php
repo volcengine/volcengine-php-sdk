@@ -88,13 +88,6 @@ class StsProvider extends Provider
         }
         $query = substr($query, 0, -1);
 
-        $headers = $this->config->getSigner()->sign($this->ak, $this->sk, $this->region, 'sts',
-            '', $query, 'GET', '/', $headers);
-
-        $request = new Request('GET',
-            $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
-            $headers, '');
-
         $client = new Client([
             'timeout' => $this->readTimeout,
             'connect_timeout' => $this->connectTimeout,
@@ -107,6 +100,13 @@ class StsProvider extends Provider
         $lastResponse = null;
         $responseContent = null;
         while (true) {
+            $signedHeaders = $this->config->getSigner()->sign($this->ak, $this->sk, $this->region, 'sts',
+                '', $query, 'GET', '/', $headers);
+
+            $request = new Request('GET',
+                $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
+                $signedHeaders, '');
+
             try {
                 $response = $client->send($request, [
                     'timeout' => $this->readTimeout,

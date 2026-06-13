@@ -93,6 +93,12 @@ class ProcessCredentialsProvider extends Provider
 
             if ((microtime(true) - $start) >= $timeout) {
                 proc_terminate($process);
+                usleep(100000);
+                $status = proc_get_status($process);
+                if (isset($status['running']) && $status['running']) {
+                    proc_terminate($process, 9);
+                    usleep(100000);
+                }
                 foreach ($pipes as $pipe) {
                     fclose($pipe);
                 }

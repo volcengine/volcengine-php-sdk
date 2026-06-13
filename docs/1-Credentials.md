@@ -11,7 +11,7 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
 | Direct `Configuration` (`AK/SK` or `AK/SK/Token`) | Explicit static or temporary credentials | No | Simple server-side integration |
-| `StsProvider` | STS AssumeRole | Yes | Role-based temporary credentials |
+| `StsProvider` | STS AssumeRole | No | Role-based temporary credentials |
 | `StaticCredentialProvider` | Wrap static `AK/SK(/Token)` as a provider | No | Reusable provider chain input |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |

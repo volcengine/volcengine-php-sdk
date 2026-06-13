@@ -68,6 +68,7 @@ class BuildRequestInterceptor extends Interceptor
 
         $request->service = $service;
         $request->query = $query ? $query : '';
+        $request->queryParams = $queryParams;
 
         $request->headers = $headers;
         $request->httpBody = $httpBody === null ? '' : $httpBody;

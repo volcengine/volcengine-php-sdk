@@ -8,6 +8,7 @@ use GuzzleHttp\HandlerStack;
 use Volcengine\Common\Endpoint\EndpointOptions;
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
 use Volcengine\Common\Retry\Retryer;
+use Volcengine\Common\Sign\Signer;
 use Volcengine\Common\Sign\V4Signer;
 
 class Configuration
@@ -180,7 +181,7 @@ class Configuration
 
     public function setCustomBootstrapRegion($customBootstrapRegion)
     {
-        $this->customBootstrapRegion = $customBootstrapRegion ?: [];
+        $this->customBootstrapRegion = is_array($customBootstrapRegion) ? $customBootstrapRegion : [];
         return $this;
     }
 
@@ -752,6 +753,9 @@ class Configuration
 
     public function setSigner($signer)
     {
+        if (!$signer instanceof Signer) {
+            throw new \InvalidArgumentException('Signer must implement Volcengine\\Common\\Sign\\Signer');
+        }
         $this->signer = $signer;
         return $this;
     }

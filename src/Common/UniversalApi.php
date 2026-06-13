@@ -19,7 +19,7 @@ class UniversalApi
 
     public function doRequest(UniversalRequest $request, RuntimeOptions $runtimeOptions = null)
     {
-        return $this->doCall($request, $request->body, $runtimeOptions);
+        return $this->doCall($request, (array) $request->body, $runtimeOptions);
     }
 
     public function doCallWithHttpInfo(UniversalInfo $info, array $body = [], RuntimeOptions $runtimeOptions = null)

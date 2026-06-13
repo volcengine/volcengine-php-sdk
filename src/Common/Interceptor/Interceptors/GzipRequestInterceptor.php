@@ -38,6 +38,11 @@ class GzipRequestInterceptor extends Interceptor
         $request->httpBody = gzencode($body);
         $request->headers['Content-Encoding'] = 'gzip';
         $request->headers['Accept-Encoding'] = 'gzip';
+        foreach (array_keys($request->headers) as $headerName) {
+            if (strtolower($headerName) === 'content-length') {
+                unset($request->headers[$headerName]);
+            }
+        }
 
         return $context;
     }
