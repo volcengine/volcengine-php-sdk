@@ -21,7 +21,6 @@ When calling APIs, it is recommended to integrate the SDK in your project. Using
 6. [Retry](6-Retry.md) — Retry Strategy
 7. [Error Handling](7-ErrorHandling.md) — Exception Handling
 8. [Debugging](8-Debugging.md) — Debug Mode
-9. [Core Capability Parity](CoreCapabilityParity.md) — Go/Python/Java evidence and PHP scope
 
 ---
 

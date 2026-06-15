@@ -18,8 +18,7 @@ This document has been split and migrated to the [`docs/`](./docs/) directory. S
 6. [Retries](./docs/6-Retry.md) — Retry conditions, retry delay, Retry-After
 7. [Error Handling](./docs/7-ErrorHandling.md) — Exception handling
 8. [Debugging](./docs/8-Debugging.md) — Debug mode
-9. [Core Capability Parity](./docs/CoreCapabilityParity.md) — Go/Python/Java evidence and PHP scope
-- [Environment Variables](./docs/EnvironmentVariables.md) — All environment variables supported by the SDK
+9. [Environment Variables](./docs/EnvironmentVariables.md) — All environment variables supported by the SDK
 
 ---
 

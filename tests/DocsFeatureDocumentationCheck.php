@@ -139,28 +139,9 @@ assert_contains($credentials, 'EcsRoleCredentialProvider', 'credentials docs ecs
 $overview = read_file_or_fail($root . '/docs/0-Overview.md');
 assert_contains($overview, 'ECS Role', 'overview ecs role');
 assert_contains($overview, 'Automatic Resolution', 'overview endpoint automatic resolution');
-assert_contains($overview, 'CoreCapabilityParity.md', 'overview parity doc link');
 
 $sdkIntegration = read_file_or_fail($root . '/SDK_Integration.md');
-assert_contains($sdkIntegration, './docs/CoreCapabilityParity.md', 'sdk integration parity doc link');
-
-$parity = read_file_or_fail($root . '/docs/CoreCapabilityParity.md');
-assert_contains($parity, '../volcengine-go-sdk', 'parity doc go source root');
-assert_contains($parity, '../volcengine-python-sdk', 'parity doc python source root');
-assert_contains($parity, '../volcengine-java-sdk', 'parity doc java source root');
-assert_contains($parity, 'StaticCredentialProvider', 'parity doc static credentials');
-assert_contains($parity, 'Retry for business API calls', 'parity doc retry');
-assert_contains($parity, 'HTTP request/response debug logging', 'parity doc debug logging');
-assert_contains($parity, 'Universal API helpers', 'parity doc universal');
-assert_contains($parity, 'No runtime options, progress listener, or custom interceptor API is added', 'parity doc minimal universal scope');
-assert_contains($parity, 'does not log request or response body', 'parity doc no body logging');
-assert_contains($parity, 'Do not add dependencies for logging integration', 'parity doc no logging dependency');
-assert_contains($parity, 'ProcessCredentialsProvider', 'parity doc process provider exclusion');
-assert_contains($parity, 'EndpointCredentialsProvider', 'parity doc endpoint credentials exclusion');
-assert_contains($parity, 'Runtime options interceptor', 'parity doc runtime options exclusion');
-assert_contains($parity, 'Public signer replacement API', 'parity doc signer exclusion');
-assert_contains($parity, 'Public custom request/response interceptor API', 'parity doc custom interceptor exclusion');
-assert_contains($parity, 'Gzip request interceptor', 'parity doc gzip exclusion');
+assert_contains($sdkIntegration, './docs/EnvironmentVariables.md', 'sdk integration environment variables link');
 
 $configuration = read_file_or_fail($root . '/src/Common/Configuration.php');
 assert_contains($configuration, 'function setAutoRetry', 'configuration auto retry setter');
