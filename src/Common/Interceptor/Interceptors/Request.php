@@ -42,7 +42,6 @@ class Request
     public $httpsProxy;
     public $logger;
     public $logLevel;
-    public $signer;
     public $enableRequestGzip;
     public $gzipMinLength;
     public $progressListener;
@@ -58,22 +57,6 @@ class Request
     public $presignedUrl;
     public $extraQueryParameters = [];
     public $extraJsonBody = [];
-    public $dynamicCredentials;
-    public $dynamicCredentialsWithMeta;
-    public $dynamicCredentialsIncludeError;
-    public $extendHttpRequest;
-    public $extendHttpRequestWithMeta;
-    public $extraHttpParameters;
-    public $extraHttpParametersWithMeta;
-    public $extraHttpJsonBody;
-    public $extraHttpJsonBodyWithMeta;
-    public $customUnmarshalError;
-    public $customUnmarshalData;
-    public $extendContextWithMeta;
-    public $logSensitives = [];
-    public $logAccount;
-    public $forceJsonNumberDecode = false;
-    public $simpleError = false;
 
 
     public function getMethod()

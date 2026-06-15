@@ -2,7 +2,6 @@
 
 namespace Volcengine\Common\Interceptor\Interceptors;
 
-use Volcengine\Common\ApiException;
 use Volcengine\Common\Error\ApiExceptionFactory;
 use Volcengine\Common\Error\SerializationException;
 use Volcengine\Common\LogHelper;
@@ -39,38 +38,19 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
                 $statusCode,
                 $request->realRequest->getUri(),
                 $headers,
-                $body,
-                null,
-                !empty($request->simpleError)
+                $body
             );
-            if (is_callable($request->customUnmarshalError)) {
-                $custom = call_user_func($request->customUnmarshalError, $exception, $context);
-                if ($custom instanceof ApiException) {
-                    throw $custom;
-                }
-            }
             throw $exception;
         }
 
-        if (!empty($request->forceJsonNumberDecode) && defined('JSON_BIGINT_AS_STRING')) {
-            $decoded = json_decode($body, false, 512, JSON_BIGINT_AS_STRING);
-        } else {
-            $decoded = json_decode($body);
-        }
+        $decoded = json_decode($body);
         if (is_object($decoded) && isset($decoded->{'ResponseMetadata'}->{'Error'})) {
             $exception = ApiExceptionFactory::fromServiceError(
                 $statusCode,
                 $request->realRequest->getUri(),
                 $headers,
-                $body,
-                !empty($request->simpleError)
+                $body
             );
-            if (is_callable($request->customUnmarshalError)) {
-                $custom = call_user_func($request->customUnmarshalError, $exception, $context);
-                if ($custom instanceof ApiException) {
-                    throw $custom;
-                }
-            }
             throw $exception;
         }
 
@@ -85,12 +65,6 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
                 $exception->setErrorMessage($e->getMessage());
                 $exception->setOriginalError($e);
             }
-            if (is_callable($request->customUnmarshalError)) {
-                $custom = call_user_func($request->customUnmarshalError, $exception, $context);
-                if ($custom instanceof ApiException) {
-                    throw $custom;
-                }
-            }
             throw $exception;
         }
 
@@ -98,18 +72,9 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
             $deserialized->offsetSet('ResponseMetadata', $metadata);
         }
 
-        if (is_callable($request->customUnmarshalData)) {
-            $custom = call_user_func($request->customUnmarshalData, $deserialized, $context);
-            if ($custom !== null) {
-                $deserialized = $custom;
-            }
-        }
-
         if (is_object($metadata) && isset($metadata->RequestId)) {
             LogHelper::debug($request->logger, SdkLogger::LOG_REQUEST_ID, 'Response', 'request_id: {request_id}', [
                 'request_id' => $metadata->RequestId,
-                '__log_account' => $request->logAccount,
-                '__log_sensitives' => $request->logSensitives,
             ]);
         }
 

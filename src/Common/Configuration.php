@@ -7,8 +7,6 @@ use GuzzleHttp\Handler\CurlMultiHandler;
 use GuzzleHttp\HandlerStack;
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
 use Volcengine\Common\Retry\Retryer;
-use Volcengine\Common\Sign\Signer;
-use Volcengine\Common\Sign\V4Signer;
 
 class Configuration
 {
@@ -48,30 +46,11 @@ class Configuration
     protected $logger;
     protected $logLevel = 0;
     protected $retryer;
-    protected $signer;
     protected $enableRequestGzip = false;
     protected $gzipMinLength = 1024;
     protected $progressListener;
-    protected $requestInterceptors = [];
-    protected $responseInterceptors = [];
     protected $numPools = 4;
     protected $connectionPoolMaxsize = 20;
-    protected $dynamicCredentials;
-    protected $dynamicCredentialsWithMeta;
-    protected $dynamicCredentialsIncludeError;
-    protected $extendHttpRequest;
-    protected $extendHttpRequestWithMeta;
-    protected $extraHttpParameters;
-    protected $extraHttpParametersWithMeta;
-    protected $extraHttpJsonBody;
-    protected $extraHttpJsonBodyWithMeta;
-    protected $customUnmarshalError;
-    protected $customUnmarshalData;
-    protected $extendContextWithMeta;
-    protected $logSensitives = [];
-    protected $logAccount;
-    protected $forceJsonNumberDecode = false;
-    protected $simpleError = false;
 
     public function __construct()
     {
@@ -80,7 +59,6 @@ class Configuration
         $this->retryer = new Retryer();
         $this->userAgent = Version::userAgent();
         $this->logger = new SdkLogger($this->debug, $this->logLevel);
-        $this->signer = new V4Signer();
     }
 
     /**
@@ -566,204 +544,6 @@ class Configuration
         return $config;
     }
 
-    public function setDynamicCredentials($dynamicCredentials)
-    {
-        $this->dynamicCredentials = $dynamicCredentials;
-        return $this;
-    }
-
-    public function getDynamicCredentials()
-    {
-        return $this->dynamicCredentials;
-    }
-
-    public function setDynamicCredentialsWithMeta($dynamicCredentialsWithMeta)
-    {
-        $this->dynamicCredentialsWithMeta = $dynamicCredentialsWithMeta;
-        return $this;
-    }
-
-    public function getDynamicCredentialsWithMeta()
-    {
-        return $this->dynamicCredentialsWithMeta;
-    }
-
-    public function setDynamicCredentialsIncludeError($dynamicCredentialsIncludeError)
-    {
-        $this->dynamicCredentialsIncludeError = $dynamicCredentialsIncludeError;
-        return $this;
-    }
-
-    public function getDynamicCredentialsIncludeError()
-    {
-        return $this->dynamicCredentialsIncludeError;
-    }
-
-    public function setExtendHttpRequest($extendHttpRequest)
-    {
-        $this->extendHttpRequest = $extendHttpRequest;
-        return $this;
-    }
-
-    public function getExtendHttpRequest()
-    {
-        return $this->extendHttpRequest;
-    }
-
-    public function setExtendHttpRequestWithMeta($extendHttpRequestWithMeta)
-    {
-        $this->extendHttpRequestWithMeta = $extendHttpRequestWithMeta;
-        return $this;
-    }
-
-    public function getExtendHttpRequestWithMeta()
-    {
-        return $this->extendHttpRequestWithMeta;
-    }
-
-    public function setExtraHttpParameters($extraHttpParameters)
-    {
-        $this->extraHttpParameters = $extraHttpParameters;
-        return $this;
-    }
-
-    public function getExtraHttpParameters()
-    {
-        return $this->extraHttpParameters;
-    }
-
-    public function setExtraHttpParametersWithMeta($extraHttpParametersWithMeta)
-    {
-        $this->extraHttpParametersWithMeta = $extraHttpParametersWithMeta;
-        return $this;
-    }
-
-    public function getExtraHttpParametersWithMeta()
-    {
-        return $this->extraHttpParametersWithMeta;
-    }
-
-    public function setExtraHttpJsonBody($extraHttpJsonBody)
-    {
-        $this->extraHttpJsonBody = $extraHttpJsonBody;
-        return $this;
-    }
-
-    public function getExtraHttpJsonBody()
-    {
-        return $this->extraHttpJsonBody;
-    }
-
-    public function setExtraHttpJsonBodyWithMeta($extraHttpJsonBodyWithMeta)
-    {
-        $this->extraHttpJsonBodyWithMeta = $extraHttpJsonBodyWithMeta;
-        return $this;
-    }
-
-    public function getExtraHttpJsonBodyWithMeta()
-    {
-        return $this->extraHttpJsonBodyWithMeta;
-    }
-
-    public function setCustomUnmarshalError($customUnmarshalError)
-    {
-        $this->customUnmarshalError = $customUnmarshalError;
-        return $this;
-    }
-
-    public function getCustomUnmarshalError()
-    {
-        return $this->customUnmarshalError;
-    }
-
-    public function setCustomUnmarshalData($customUnmarshalData)
-    {
-        $this->customUnmarshalData = $customUnmarshalData;
-        return $this;
-    }
-
-    public function getCustomUnmarshalData()
-    {
-        return $this->customUnmarshalData;
-    }
-
-    public function setExtendContextWithMeta($extendContextWithMeta)
-    {
-        $this->extendContextWithMeta = $extendContextWithMeta;
-        return $this;
-    }
-
-    public function getExtendContextWithMeta()
-    {
-        return $this->extendContextWithMeta;
-    }
-
-    public function setLogSensitives(array $logSensitives)
-    {
-        $this->logSensitives = $logSensitives;
-        return $this;
-    }
-
-    public function getLogSensitives()
-    {
-        return $this->logSensitives;
-    }
-
-    public function setLogAccount($logAccount)
-    {
-        $this->logAccount = $logAccount;
-        return $this;
-    }
-
-    public function getLogAccount()
-    {
-        return $this->logAccount;
-    }
-
-    public function setForceJsonNumberDecode($forceJsonNumberDecode)
-    {
-        $this->forceJsonNumberDecode = (bool) $forceJsonNumberDecode;
-        return $this;
-    }
-
-    public function getForceJsonNumberDecode()
-    {
-        return $this->forceJsonNumberDecode;
-    }
-
-    public function setSimpleError($simpleError)
-    {
-        $this->simpleError = (bool) $simpleError;
-        return $this;
-    }
-
-    public function getSimpleError()
-    {
-        return $this->simpleError;
-    }
-
-    public function addRequestInterceptor($interceptor)
-    {
-        $this->requestInterceptors[] = $interceptor;
-        return $this;
-    }
-
-    public function getRequestInterceptors()
-    {
-        return $this->requestInterceptors;
-    }
-
-    public function addResponseInterceptor($interceptor)
-    {
-        $this->responseInterceptors[] = $interceptor;
-        return $this;
-    }
-
-    public function getResponseInterceptors()
-    {
-        return $this->responseInterceptors;
-    }
-
     public function setRetryer(Retryer $retryer)
     {
         $this->retryer = $retryer;
@@ -773,20 +553,6 @@ class Configuration
     public function getRetryer()
     {
         return $this->retryer;
-    }
-
-    public function setSigner($signer)
-    {
-        if (!$signer instanceof Signer) {
-            throw new \InvalidArgumentException('Signer must implement Volcengine\\Common\\Sign\\Signer');
-        }
-        $this->signer = $signer;
-        return $this;
-    }
-
-    public function getSigner()
-    {
-        return $this->signer;
     }
 
     public function setNumMaxRetries($numMaxRetries)

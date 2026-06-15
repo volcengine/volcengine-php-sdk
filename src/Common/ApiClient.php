@@ -54,43 +54,11 @@ class ApiClient
         $this->interceptorChain->appendRequestInterceptor($this->signRequestInterceptor);
         $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
-
-        foreach ($config->getRequestInterceptors() as $interceptor) {
-            $this->interceptorChain->appendRequestInterceptor($interceptor);
-        }
-        foreach ($config->getResponseInterceptors() as $interceptor) {
-            $this->interceptorChain->appendResponseInterceptor($interceptor);
-        }
     }
 
     public function getConfig()
     {
         return $this->configuration;
-    }
-
-    public function getInterceptorChain()
-    {
-        return $this->interceptorChain;
-    }
-
-    public function addRequestInterceptor($interceptor, $afterName = '')
-    {
-        if ($afterName === '') {
-            $this->interceptorChain->appendRequestInterceptor($interceptor);
-        } else {
-            $this->interceptorChain->insertRequestInterceptor($interceptor, $afterName);
-        }
-        return $this;
-    }
-
-    public function addResponseInterceptor($interceptor, $afterName = '')
-    {
-        if ($afterName === '') {
-            $this->interceptorChain->appendResponseInterceptor($interceptor);
-        } else {
-            $this->interceptorChain->insertResponseInterceptor($interceptor, $afterName);
-        }
-        return $this;
     }
 
     public function setUserAgent($userAgent)
@@ -169,12 +137,6 @@ class ApiClient
         $request->credentialProvider = $this->configuration->getCredentialProvider();
         $request->region = $this->configuration->getRegion();
         $request->schema = $this->configuration->getSchema();
-        $request->dynamicCredentials = $this->configuration->getDynamicCredentials();
-        $request->dynamicCredentialsWithMeta = $this->configuration->getDynamicCredentialsWithMeta();
-        $request->dynamicCredentialsIncludeError = $this->configuration->getDynamicCredentialsIncludeError();
-
-        $this->applyDynamicCredentials($request, $context, null);
-
         if (empty($request->ak) && empty($request->sk)) {
             $credentialProvider = $request->credentialProvider;
             if ($credentialProvider === null) {
@@ -205,29 +167,13 @@ class ApiClient
         $request->httpsProxy = $this->configuration->getHttpsProxy();
         $request->logger = $this->configuration->getLogger();
         $request->logLevel = $this->configuration->getLogLevel();
-        $request->signer = $this->configuration->getSigner();
         $request->enableRequestGzip = $this->configuration->getEnableRequestGzip();
         $request->gzipMinLength = $this->configuration->getGzipMinLength();
         $request->progressListener = $this->configuration->getProgressListener();
-        $request->extendHttpRequest = $this->configuration->getExtendHttpRequest();
-        $request->extendHttpRequestWithMeta = $this->configuration->getExtendHttpRequestWithMeta();
-        $request->extraHttpParameters = $this->configuration->getExtraHttpParameters();
-        $request->extraHttpParametersWithMeta = $this->configuration->getExtraHttpParametersWithMeta();
-        $request->extraHttpJsonBody = $this->configuration->getExtraHttpJsonBody();
-        $request->extraHttpJsonBodyWithMeta = $this->configuration->getExtraHttpJsonBodyWithMeta();
-        $request->customUnmarshalError = $this->configuration->getCustomUnmarshalError();
-        $request->customUnmarshalData = $this->configuration->getCustomUnmarshalData();
-        $request->extendContextWithMeta = $this->configuration->getExtendContextWithMeta();
-        $request->logSensitives = $this->configuration->getLogSensitives();
-        $request->logAccount = $this->configuration->getLogAccount();
-        $request->forceJsonNumberDecode = $this->configuration->getForceJsonNumberDecode();
-        $request->simpleError = $this->configuration->getSimpleError();
 
         $request->getDebug = $this->configuration->getDebug();
         $request->getDebugFile = $this->configuration->getDebugFile();
 
-        $this->applyHttpExtensions($request, $context);
-        $this->applyContextExtension($request, $context);
         return $context;
     }
 
@@ -263,7 +209,7 @@ class ApiClient
             } catch (RequestException $e) {
                 $retryError = $e;
                 $lastResponse = $e->getResponse();
-                $lastError = ApiExceptionFactory::fromRequestException($e, !empty($request->simpleError));
+                $lastError = ApiExceptionFactory::fromRequestException($e);
             } catch (TransferException $e) {
                 $retryError = $e;
                 $lastError = ApiExceptionFactory::fromTransferException($e);
@@ -426,8 +372,6 @@ class ApiClient
             'count' => $retryCount + 1,
             'delay' => $delayMs,
             'message' => $error instanceof \Exception ? $error->getMessage() : 'unknown error',
-            '__log_account' => $request->logAccount,
-            '__log_sensitives' => $request->logSensitives,
         ]);
     }
 
@@ -437,9 +381,9 @@ class ApiClient
         $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         if ($retryCount > 0) {
             $this->prepareRetryAttempt($context, $previousError);
-            } else {
-                $this->logConfig($request);
-            }
+        } else {
+            $this->logConfig($request);
+        }
 
         $context->setAttribute('attempt_start_time', microtime(true));
         return $this->client
@@ -474,7 +418,7 @@ class ApiClient
                 $response = null;
                 if ($exception instanceof RequestException) {
                     $response = $exception->getResponse();
-                    $apiException = ApiExceptionFactory::fromRequestException($exception, !empty($request->simpleError));
+                    $apiException = ApiExceptionFactory::fromRequestException($exception);
                 } elseif ($exception instanceof TransferException) {
                     $apiException = ApiExceptionFactory::fromTransferException($exception);
                 } elseif ($exception instanceof ApiException) {
@@ -509,8 +453,6 @@ class ApiClient
                 'read_timeout' => $request->readTimeout,
                 'auto_retry' => $request->autoRetry ? 'true' : 'false',
                 'gzip' => $request->enableRequestGzip ? 'true' : 'false',
-                '__log_account' => $request->logAccount,
-                '__log_sensitives' => $request->logSensitives,
             ]
         );
     }
@@ -524,8 +466,6 @@ class ApiClient
         LogHelper::error($request->logger, SdkLogger::LOG_ERROR, 'Error', '{class}: {message}', [
             'class' => get_class($error),
             'message' => $error->getMessage(),
-            '__log_account' => $request->logAccount,
-            '__log_sensitives' => $request->logSensitives,
         ]);
     }
 
@@ -533,7 +473,6 @@ class ApiClient
     {
         $request = $context->getRequest();
 
-        $this->applyDynamicCredentials($request, $context, $error);
         if ($this->shouldRefreshCredentials($error)) {
             $this->refreshRequestCredentials($request);
         }
@@ -543,15 +482,6 @@ class ApiClient
 
     private function refreshRequestCredentials(Request $request)
     {
-        if ($request->dynamicCredentialsIncludeError !== null) {
-            return;
-        }
-        if ($request->dynamicCredentialsWithMeta !== null) {
-            return;
-        }
-        if ($request->dynamicCredentials !== null) {
-            return;
-        }
         if ($request->credentialProvider === null) {
             return;
         }
@@ -598,115 +528,4 @@ class ApiClient
         return DefaultRetryCondition::isCredentialExpiryError($code);
     }
 
-    private function applyDynamicCredentials(Request $request, Context $context, $error)
-    {
-        $meta = $this->buildRequestMeta($request, $context, $error);
-        $creds = null;
-        if (is_callable($request->dynamicCredentialsWithMeta)) {
-            $creds = call_user_func($request->dynamicCredentialsWithMeta, $meta, $error);
-        } elseif (is_callable($request->dynamicCredentialsIncludeError)) {
-            $creds = call_user_func($request->dynamicCredentialsIncludeError, $error);
-        } elseif (is_callable($request->dynamicCredentials)) {
-            $creds = call_user_func($request->dynamicCredentials);
-        }
-
-        if (!is_array($creds)) {
-            return;
-        }
-
-        if (isset($creds['AccessKeyId'])) {
-            $request->ak = $creds['AccessKeyId'];
-        }
-        if (isset($creds['SecretAccessKey'])) {
-            $request->sk = $creds['SecretAccessKey'];
-        }
-        if (isset($creds['SessionToken'])) {
-            $request->sessionToken = $creds['SessionToken'];
-        }
-    }
-
-    private function applyHttpExtensions(Request $request, Context $context)
-    {
-        $meta = $this->buildRequestMeta($request, $context, null);
-
-        if (is_callable($request->extraHttpParameters)) {
-            $extra = call_user_func($request->extraHttpParameters);
-            if (is_array($extra)) {
-                $request->extraQueryParameters = array_merge($request->extraQueryParameters, $extra);
-            }
-        }
-
-        if (is_callable($request->extraHttpParametersWithMeta)) {
-            $extra = call_user_func($request->extraHttpParametersWithMeta, $meta, $context);
-            if (is_array($extra)) {
-                $request->extraQueryParameters = array_merge($request->extraQueryParameters, $extra);
-            }
-        }
-
-        if (is_array($request->extraHttpParameters) && !is_callable($request->extraHttpParameters)) {
-            $request->extraQueryParameters = array_merge($request->extraQueryParameters, $request->extraHttpParameters);
-        }
-
-        if (is_callable($request->extraHttpJsonBody)) {
-            $extra = call_user_func($request->extraHttpJsonBody);
-            if (is_array($extra)) {
-                $request->extraJsonBody = array_merge($request->extraJsonBody, $extra);
-            }
-        }
-
-        if (is_callable($request->extraHttpJsonBodyWithMeta)) {
-            $extra = call_user_func($request->extraHttpJsonBodyWithMeta, $meta, $context);
-            if (is_array($extra)) {
-                $request->extraJsonBody = array_merge($request->extraJsonBody, $extra);
-            }
-        }
-
-        if (is_array($request->extraHttpJsonBody) && !is_callable($request->extraHttpJsonBody)) {
-            $request->extraJsonBody = array_merge($request->extraJsonBody, $request->extraHttpJsonBody);
-        }
-    }
-
-    private function applyContextExtension(Request $request, Context $context)
-    {
-        if (!is_callable($request->extendContextWithMeta)) {
-            return;
-        }
-
-        $meta = $this->buildRequestMeta($request, $context, null);
-        $result = call_user_func($request->extendContextWithMeta, $meta, $context);
-        if (is_array($result)) {
-            $context->mergeAttributes($result);
-        }
-    }
-
-    private function buildRequestMeta(Request $request, Context $context, $error)
-    {
-        $service = $request->service;
-        $action = $request->apiName;
-        $version = null;
-        if (!empty($request->resourcePath)) {
-            $parts = explode('/', trim($request->resourcePath, '/'));
-            if ($action === null && isset($parts[0])) {
-                $action = $parts[0];
-            }
-            if ($version === null && isset($parts[1])) {
-                $version = $parts[1];
-            }
-            if (empty($service) && isset($parts[2])) {
-                $service = $parts[2];
-            }
-        }
-
-        return [
-            'service' => $service,
-            'region' => $request->region,
-            'method' => $request->method,
-            'resource_path' => $request->resourcePath,
-            'api_name' => $action,
-            'action' => $action,
-            'version' => $version,
-            'attributes' => $context->getAttributes(),
-            'error' => $error,
-        ];
-    }
 }

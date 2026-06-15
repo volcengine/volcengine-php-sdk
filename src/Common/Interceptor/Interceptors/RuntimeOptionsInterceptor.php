@@ -80,21 +80,6 @@ class RuntimeOptionsInterceptor extends Interceptor
         if ($opt->extraJsonBody !== null) {
             $request->extraJsonBody = array_merge($request->extraJsonBody, $opt->extraJsonBody);
         }
-        if ($opt->simpleError !== null) {
-            $request->simpleError = (bool) $opt->simpleError;
-        }
-        if ($opt->customUnmarshalData !== null) {
-            $request->customUnmarshalData = $opt->customUnmarshalData;
-        }
-        if ($opt->customUnmarshalError !== null) {
-            $request->customUnmarshalError = $opt->customUnmarshalError;
-        }
-        if ($opt->extendContext !== null) {
-            $contextResult = call_user_func($opt->extendContext, $context, $request);
-            if (is_array($contextResult)) {
-                $context->mergeAttributes($contextResult);
-            }
-        }
 
         return $context;
     }

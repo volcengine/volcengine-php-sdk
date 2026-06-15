@@ -20,13 +20,6 @@
 `getErrorCode()`、`getErrorMessage()`、`getOriginalError()`，同时仍可通过
 `getResponseHeaders()` 获取响应头、通过 `getResponseBody()` 获取原始响应体。
 
-如果你希望服务端错误消息更精简，可以开启简化错误格式：
-
-```php
-<?php
-$config->setSimpleError(true);
-```
-
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');

@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\TransferException;
 
 class ApiExceptionFactory
 {
-    public static function fromRequestException(RequestException $e, $simpleError = false)
+    public static function fromRequestException(RequestException $e)
     {
         $response = $e->getResponse();
         $request = $e->getRequest();
@@ -20,8 +20,7 @@ class ApiExceptionFactory
                 $request !== null ? $request->getUri() : null,
                 $response->getHeaders(),
                 $body,
-                sprintf('[%d] %s%s', $statusCode, $e->getMessage(), $body),
-                $simpleError
+                sprintf('[%d] %s%s', $statusCode, $e->getMessage(), $body)
             );
             $exception->setOriginalError($e);
             return $exception;
@@ -52,7 +51,7 @@ class ApiExceptionFactory
         return self::hydrateException(new ReadException($message, $statusCode, $headers, $body), $statusCode, null, $message, $originalError);
     }
 
-    public static function fromHttpResponse($statusCode, $uri, $headers, $body, $message = null, $simpleError = false)
+    public static function fromHttpResponse($statusCode, $uri, $headers, $body, $message = null)
     {
         $statusCode = (int) $statusCode;
         $headers = $headers === null ? [] : $headers;
@@ -60,11 +59,7 @@ class ApiExceptionFactory
         $uriString = $uri ? (string) $uri : '';
         $serviceError = self::extractServiceError($bodyString);
         if ($message === null) {
-            if ($simpleError && $serviceError !== null) {
-                $message = self::formatSimpleMessage($statusCode, $serviceError);
-            } else {
-                $message = sprintf('[%d] Error connecting to the API (%s)(%s)', $statusCode, $uriString, $bodyString);
-            }
+            $message = sprintf('[%d] Error connecting to the API (%s)(%s)', $statusCode, $uriString, $bodyString);
         }
 
         if ($statusCode >= 500) {
@@ -78,14 +73,12 @@ class ApiExceptionFactory
         return self::hydrateException(new ServiceException($message, $statusCode, $headers, $bodyString), $statusCode, $serviceError ? $serviceError['code'] : null, $serviceError ? $serviceError['message'] : $message);
     }
 
-    public static function fromServiceError($statusCode, $uri, $headers, $body, $simpleError = false)
+    public static function fromServiceError($statusCode, $uri, $headers, $body)
     {
         $statusCode = (int) $statusCode;
         $bodyString = self::normalizeBody($body);
         $serviceError = self::extractServiceError($bodyString);
-        $message = $simpleError && $serviceError !== null
-            ? self::formatSimpleMessage($statusCode, $serviceError)
-            : sprintf('[%d] Return Error From the API (%s)(%s)', $statusCode, (string) $uri, $bodyString);
+        $message = sprintf('[%d] Return Error From the API (%s)(%s)', $statusCode, (string) $uri, $bodyString);
 
         if ($statusCode >= 500) {
             return self::hydrateException(new ServerException($message, $statusCode, $headers, $bodyString), $statusCode, $serviceError ? $serviceError['code'] : null, $serviceError ? $serviceError['message'] : $message);
@@ -150,12 +143,5 @@ class ApiExceptionFactory
             $exception->setOriginalError($originalError);
         }
         return $exception;
-    }
-
-    private static function formatSimpleMessage($statusCode, array $serviceError)
-    {
-        $code = isset($serviceError['code']) && $serviceError['code'] ? $serviceError['code'] : 'ServiceError';
-        $message = isset($serviceError['message']) && $serviceError['message'] ? $serviceError['message'] : 'request failed';
-        return sprintf('[%d] %s: %s', $statusCode, $code, $message);
     }
 }

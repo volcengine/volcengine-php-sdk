@@ -35,24 +35,12 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 $config->setLogger(new Monolog\Logger('volcengine'));
 ```
 
-也可以覆盖默认 SDK User-Agent，或注入自定义 signer：
+也可以覆盖默认 SDK User-Agent：
 
 ```php
 <?php
-$config->setUserAgent('my-app/1.0 volcstack-php-sdk')
-    ->setSigner(new \Volcengine\Common\Sign\V4Signer());
+$config->setUserAgent('my-app/1.0 volcstack-php-sdk');
 ```
-
-`Configuration` 还提供了一组便于调试、埋点和协议扩展的高级 Hook：
-
-- `setDynamicCredentials()` / `setDynamicCredentialsWithMeta()`
-- `setExtendHttpRequest()` / `setExtendHttpRequestWithMeta()`
-- `setExtraHttpParameters()` / `setExtraHttpJsonBody()`
-- `setCustomUnmarshalError()` / `setCustomUnmarshalData()`
-- `setExtendContextWithMeta()`
-- `setLogSensitives()` 用于对 SDK 日志上下文中的敏感字段做脱敏
-- `setLogAccount()` 用于为结构化日志附加账号标识
-- `setForceJsonNumberDecode()` 用于更安全地处理大整数 JSON 解码
 
 同时仍然可以使用 `Configuration::toDebugReport()` 收集运行环境信息。
 

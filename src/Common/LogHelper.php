@@ -64,40 +64,13 @@ class LogHelper
 
     private static function normalizeContext(array $context)
     {
-        $sensitiveKeys = [];
-        if (isset($context['__log_sensitives']) && is_array($context['__log_sensitives'])) {
-            $sensitiveKeys = $context['__log_sensitives'];
-        }
-        unset($context['__log_sensitives']);
-
-        if (isset($context['__log_account'])) {
-            $account = self::resolveLogAccount($context['__log_account']);
-            unset($context['__log_account']);
-            if ($account !== null && $account !== '') {
-                $context['account_id'] = $account;
-            }
-        }
-
-        return self::sanitizeValue($context, self::buildSensitiveLookup($sensitiveKeys));
+        return self::sanitizeValue($context, self::buildSensitiveLookup());
     }
 
-    private static function resolveLogAccount($logAccount)
-    {
-        if (is_callable($logAccount)) {
-            $logAccount = call_user_func($logAccount);
-        }
-
-        if (is_scalar($logAccount) || $logAccount === null) {
-            return $logAccount;
-        }
-
-        return json_encode($logAccount);
-    }
-
-    private static function buildSensitiveLookup(array $sensitiveKeys)
+    private static function buildSensitiveLookup()
     {
         $lookup = [];
-        foreach (array_merge(self::$defaultSensitiveKeys, $sensitiveKeys) as $key) {
+        foreach (self::$defaultSensitiveKeys as $key) {
             $lookup[strtolower((string) $key)] = true;
         }
         return $lookup;

@@ -43,8 +43,6 @@ class ResolveEndpointInterceptor extends Interceptor
                 'service' => $context->request->service ?: $service,
                 'region' => $context->request->region,
                 'host' => $context->request->host,
-                '__log_account' => $context->request->logAccount,
-                '__log_sensitives' => $context->request->logSensitives,
             ]
         );
 

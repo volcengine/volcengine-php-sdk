@@ -9,7 +9,7 @@ use GuzzleHttp\Psr7\Request;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\Error\ApiExceptionFactory;
 use Volcengine\Common\Retry\Retryer;
-use Volcengine\Common\Utils;
+use Volcengine\Common\Sign\V4Signer;
 
 class StsProvider extends Provider
 {
@@ -99,8 +99,9 @@ class StsProvider extends Provider
         $lastError = null;
         $lastResponse = null;
         $responseContent = null;
+        $signer = new V4Signer();
         while (true) {
-            $signedHeaders = $this->config->getSigner()->sign($this->ak, $this->sk, $this->region, 'sts',
+            $signedHeaders = $signer->sign($this->ak, $this->sk, $this->region, 'sts',
                 '', $query, 'GET', '/', $headers);
 
             $request = new Request('GET',

@@ -36,7 +36,7 @@ class SignRequestInterceptor extends Interceptor
         }
 
         if ($request->isPresigned) {
-            $signer = $request->signer ?: new V4Signer();
+            $signer = new V4Signer();
             $signedPath = $signer->presign(
                 $request->ak,
                 $request->sk,
@@ -60,7 +60,7 @@ class SignRequestInterceptor extends Interceptor
                 $request->headers['Host'] = $request->host;
             }
 
-            $signer = $request->signer ?: new V4Signer();
+            $signer = new V4Signer();
             $request->headers = $signer->sign($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
             LogHelper::debug($request->logger, SdkLogger::LOG_SIGNING, 'Sign',
@@ -68,33 +68,11 @@ class SignRequestInterceptor extends Interceptor
                     'service' => $request->service,
                     'region' => $request->region,
                     'headers' => isset($request->headers['Authorization']) ? 'Authorization' : '',
-                    '__log_account' => $request->logAccount,
-                    '__log_sensitives' => $request->logSensitives,
                 ]
             );
             $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
                 $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
                 $request->headers, $request->httpBody);
-
-            if (is_callable($request->extendHttpRequest)) {
-                $extended = call_user_func($request->extendHttpRequest, $realRequest, $context);
-                if ($extended instanceof \Psr\Http\Message\RequestInterface) {
-                    $realRequest = $extended;
-                }
-            }
-            if (is_callable($request->extendHttpRequestWithMeta)) {
-                $meta = [
-                    'service' => $request->service,
-                    'region' => $request->region,
-                    'method' => $request->method,
-                    'api_name' => $request->apiName,
-                    'context_attributes' => $context->getAttributes(),
-                ];
-                $extended = call_user_func($request->extendHttpRequestWithMeta, $realRequest, $meta, $context);
-                if ($extended instanceof \Psr\Http\Message\RequestInterface) {
-                    $realRequest = $extended;
-                }
-            }
 
             $request->realRequest = $realRequest;
 

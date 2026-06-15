@@ -35,25 +35,12 @@ style object exposing `debug/info/warning/error` or `log()`.
 $config->setLogger(new Monolog\Logger('volcengine'));
 ```
 
-You can also override the default SDK user agent or inject a custom signer:
+You can also override the default SDK user agent:
 
 ```php
 <?php
-$config->setUserAgent('my-app/1.0 volcstack-php-sdk')
-    ->setSigner(new \Volcengine\Common\Sign\V4Signer());
+$config->setUserAgent('my-app/1.0 volcstack-php-sdk');
 ```
-
-Advanced per-request hooks are also available from `Configuration` for
-instrumentation and protocol extension:
-
-- `setDynamicCredentials()` / `setDynamicCredentialsWithMeta()`
-- `setExtendHttpRequest()` / `setExtendHttpRequestWithMeta()`
-- `setExtraHttpParameters()` / `setExtraHttpJsonBody()`
-- `setCustomUnmarshalError()` / `setCustomUnmarshalData()`
-- `setExtendContextWithMeta()`
-- `setLogSensitives()` to redact configured keys from SDK log context
-- `setLogAccount()` to attach an account identifier to structured log context
-- `setForceJsonNumberDecode()` for safer large-number JSON decoding
 
 You can still use `Configuration::toDebugReport()` for environment diagnostics.
 

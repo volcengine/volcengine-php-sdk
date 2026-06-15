@@ -21,10 +21,6 @@ class RuntimeOptions
     public $maxRetryDelayMs;
     public $extraQueryParameters;
     public $extraJsonBody;
-    public $simpleError;
-    public $customUnmarshalData;
-    public $customUnmarshalError;
-    public $extendContext;
 
     public function setAk($ak)
     {
@@ -128,27 +124,4 @@ class RuntimeOptions
         return $this;
     }
 
-    public function setSimpleError($simpleError)
-    {
-        $this->simpleError = (bool) $simpleError;
-        return $this;
-    }
-
-    public function setCustomUnmarshalData($customUnmarshalData)
-    {
-        $this->customUnmarshalData = $customUnmarshalData;
-        return $this;
-    }
-
-    public function setCustomUnmarshalError($customUnmarshalError)
-    {
-        $this->customUnmarshalError = $customUnmarshalError;
-        return $this;
-    }
-
-    public function setExtendContext($extendContext)
-    {
-        $this->extendContext = $extendContext;
-        return $this;
-    }
 }

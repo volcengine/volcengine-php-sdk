@@ -21,13 +21,6 @@ All `ApiException` variants expose structured helpers including
 `getOriginalError()`, in addition to `getResponseHeaders()` and
 `getResponseBody()`.
 
-When you prefer shorter service-side messages, enable simple error formatting:
-
-```php
-<?php
-$config->setSimpleError(true);
-```
-
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
