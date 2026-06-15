@@ -206,8 +206,8 @@ assert_contains($retryer, 'function isCredentialExpiryError', 'retryer credentia
 assert_contains($retryer, 'function extractErrorCode', 'retryer extract error code');
 
 $defaultProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/DefaultCredentialProvider.php');
-assert_not_contains($defaultProvider, 'reuseLastProvider', 'default provider last provider cache');
-assert_not_contains($defaultProvider, 'lastProvider', 'default provider last provider cache field');
+assert_contains($defaultProvider, 'reuseLastProviderEnabled', 'default provider last provider cache switch');
+assert_contains($defaultProvider, 'lastProvider', 'default provider last provider cache field');
 
 $staticProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/StaticCredentialProvider.php');
 assert_contains($staticProvider, 'class StaticCredentialProvider extends Provider', 'static credential provider class');
