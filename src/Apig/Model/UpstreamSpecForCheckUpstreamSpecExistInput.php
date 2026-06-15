@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class UpstreamSpecForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpstreamSpecForListUpstreamsOutput';
+    protected static $swaggerModelName = 'UpstreamSpecForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,13 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ai_provider' => '\Volcengine\Apig\Model\AIProviderForListUpstreamsOutput',
-        'domain' => '\Volcengine\Apig\Model\DomainForListUpstreamsOutput',
-        'ecs_list' => '\Volcengine\Apig\Model\EcsListForListUpstreamsOutput[]',
-        'fixed_ip_list' => '\Volcengine\Apig\Model\FixedIPListForListUpstreamsOutput[]',
-        'k8_s_service' => '\Volcengine\Apig\Model\K8SServiceForListUpstreamsOutput',
-        'nacos_service' => '\Volcengine\Apig\Model\NacosServiceForListUpstreamsOutput',
-        've_faas' => '\Volcengine\Apig\Model\VeFaasForListUpstreamsOutput'
+        'ai_provider' => '\Volcengine\Apig\Model\AIProviderForCheckUpstreamSpecExistInput',
+        'domain' => '\Volcengine\Apig\Model\DomainForCheckUpstreamSpecExistInput',
+        'ecs_list' => '\Volcengine\Apig\Model\EcsListForCheckUpstreamSpecExistInput[]',
+        'fixed_ip_list' => '\Volcengine\Apig\Model\FixedIPListForCheckUpstreamSpecExistInput[]',
+        'k8_s_service' => '\Volcengine\Apig\Model\K8SServiceForCheckUpstreamSpecExistInput',
+        'nacos_service' => '\Volcengine\Apig\Model\NacosServiceForCheckUpstreamSpecExistInput',
+        've_faas' => '\Volcengine\Apig\Model\VeFaasForCheckUpstreamSpecExistInput'
     ];
 
     /**
@@ -214,7 +214,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets ai_provider
      *
-     * @return \Volcengine\Apig\Model\AIProviderForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\AIProviderForCheckUpstreamSpecExistInput
      */
     public function getAiProvider()
     {
@@ -224,7 +224,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets ai_provider
      *
-     * @param \Volcengine\Apig\Model\AIProviderForListUpstreamsOutput $ai_provider ai_provider
+     * @param \Volcengine\Apig\Model\AIProviderForCheckUpstreamSpecExistInput $ai_provider ai_provider
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets domain
      *
-     * @return \Volcengine\Apig\Model\DomainForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\DomainForCheckUpstreamSpecExistInput
      */
     public function getDomain()
     {
@@ -248,7 +248,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets domain
      *
-     * @param \Volcengine\Apig\Model\DomainForListUpstreamsOutput $domain domain
+     * @param \Volcengine\Apig\Model\DomainForCheckUpstreamSpecExistInput $domain domain
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets ecs_list
      *
-     * @return \Volcengine\Apig\Model\EcsListForListUpstreamsOutput[]
+     * @return \Volcengine\Apig\Model\EcsListForCheckUpstreamSpecExistInput[]
      */
     public function getEcsList()
     {
@@ -272,7 +272,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets ecs_list
      *
-     * @param \Volcengine\Apig\Model\EcsListForListUpstreamsOutput[] $ecs_list ecs_list
+     * @param \Volcengine\Apig\Model\EcsListForCheckUpstreamSpecExistInput[] $ecs_list ecs_list
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets fixed_ip_list
      *
-     * @return \Volcengine\Apig\Model\FixedIPListForListUpstreamsOutput[]
+     * @return \Volcengine\Apig\Model\FixedIPListForCheckUpstreamSpecExistInput[]
      */
     public function getFixedIpList()
     {
@@ -296,7 +296,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets fixed_ip_list
      *
-     * @param \Volcengine\Apig\Model\FixedIPListForListUpstreamsOutput[] $fixed_ip_list fixed_ip_list
+     * @param \Volcengine\Apig\Model\FixedIPListForCheckUpstreamSpecExistInput[] $fixed_ip_list fixed_ip_list
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets k8_s_service
      *
-     * @return \Volcengine\Apig\Model\K8SServiceForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\K8SServiceForCheckUpstreamSpecExistInput
      */
     public function getK8SService()
     {
@@ -320,7 +320,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets k8_s_service
      *
-     * @param \Volcengine\Apig\Model\K8SServiceForListUpstreamsOutput $k8_s_service k8_s_service
+     * @param \Volcengine\Apig\Model\K8SServiceForCheckUpstreamSpecExistInput $k8_s_service k8_s_service
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets nacos_service
      *
-     * @return \Volcengine\Apig\Model\NacosServiceForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\NacosServiceForCheckUpstreamSpecExistInput
      */
     public function getNacosService()
     {
@@ -344,7 +344,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets nacos_service
      *
-     * @param \Volcengine\Apig\Model\NacosServiceForListUpstreamsOutput $nacos_service nacos_service
+     * @param \Volcengine\Apig\Model\NacosServiceForCheckUpstreamSpecExistInput $nacos_service nacos_service
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets ve_faas
      *
-     * @return \Volcengine\Apig\Model\VeFaasForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\VeFaasForCheckUpstreamSpecExistInput
      */
     public function getVeFaas()
     {
@@ -368,7 +368,7 @@ class UpstreamSpecForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets ve_faas
      *
-     * @param \Volcengine\Apig\Model\VeFaasForListUpstreamsOutput $ve_faas ve_faas
+     * @param \Volcengine\Apig\Model\VeFaasForCheckUpstreamSpecExistInput $ve_faas ve_faas
      *
      * @return $this
      */

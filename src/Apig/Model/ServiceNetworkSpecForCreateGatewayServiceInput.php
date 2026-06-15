@@ -30,7 +30,8 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     protected static $swaggerTypes = [
         'enable_private_network' => 'bool',
         'enable_public_network' => 'bool',
-        'private_network_ip' => 'string[]'
+        'private_network_ip' => 'string[]',
+        'public_network_ip' => 'string[]'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     protected static $swaggerFormats = [
         'enable_private_network' => null,
         'enable_public_network' => null,
-        'private_network_ip' => null
+        'private_network_ip' => null,
+        'public_network_ip' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     protected static $attributeMap = [
         'enable_private_network' => 'EnablePrivateNetwork',
         'enable_public_network' => 'EnablePublicNetwork',
-        'private_network_ip' => 'PrivateNetworkIP'
+        'private_network_ip' => 'PrivateNetworkIP',
+        'public_network_ip' => 'PublicNetworkIP'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     protected static $setters = [
         'enable_private_network' => 'setEnablePrivateNetwork',
         'enable_public_network' => 'setEnablePublicNetwork',
-        'private_network_ip' => 'setPrivateNetworkIp'
+        'private_network_ip' => 'setPrivateNetworkIp',
+        'public_network_ip' => 'setPublicNetworkIp'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     protected static $getters = [
         'enable_private_network' => 'getEnablePrivateNetwork',
         'enable_public_network' => 'getEnablePublicNetwork',
-        'private_network_ip' => 'getPrivateNetworkIp'
+        'private_network_ip' => 'getPrivateNetworkIp',
+        'public_network_ip' => 'getPublicNetworkIp'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
         $this->container['enable_private_network'] = isset($data['enable_private_network']) ? $data['enable_private_network'] : null;
         $this->container['enable_public_network'] = isset($data['enable_public_network']) ? $data['enable_public_network'] : null;
         $this->container['private_network_ip'] = isset($data['private_network_ip']) ? $data['private_network_ip'] : null;
+        $this->container['public_network_ip'] = isset($data['public_network_ip']) ? $data['public_network_ip'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, 
     public function setPrivateNetworkIp($private_network_ip)
     {
         $this->container['private_network_ip'] = $private_network_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_network_ip
+     *
+     * @return string[]
+     */
+    public function getPublicNetworkIp()
+    {
+        return $this->container['public_network_ip'];
+    }
+
+    /**
+     * Sets public_network_ip
+     *
+     * @param string[] $public_network_ip public_network_ip
+     *
+     * @return $this
+     */
+    public function setPublicNetworkIp($public_network_ip)
+    {
+        $this->container['public_network_ip'] = $public_network_ip;
 
         return $this;
     }

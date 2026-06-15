@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
+class EcsListForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateConsumerCredentialRequest';
+    protected static $swaggerModelName = 'EcsListForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'consumer_id' => 'string',
-        'credential_type' => 'string',
-        'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput',
-        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput'
+        'ecs_id' => 'string',
+        'ip' => 'string',
+        'port' => 'int'
     ];
 
     /**
@@ -40,10 +39,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'consumer_id' => null,
-        'credential_type' => null,
-        'hmac_auth_credential' => null,
-        'key_auth_credential' => null
+        'ecs_id' => null,
+        'ip' => null,
+        'port' => 'int32'
     ];
 
     /**
@@ -73,10 +71,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'consumer_id' => 'ConsumerId',
-        'credential_type' => 'CredentialType',
-        'hmac_auth_credential' => 'HmacAuthCredential',
-        'key_auth_credential' => 'KeyAuthCredential'
+        'ecs_id' => 'EcsId',
+        'ip' => 'IP',
+        'port' => 'Port'
     ];
 
     /**
@@ -85,10 +82,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'consumer_id' => 'setConsumerId',
-        'credential_type' => 'setCredentialType',
-        'hmac_auth_credential' => 'setHmacAuthCredential',
-        'key_auth_credential' => 'setKeyAuthCredential'
+        'ecs_id' => 'setEcsId',
+        'ip' => 'setIp',
+        'port' => 'setPort'
     ];
 
     /**
@@ -97,10 +93,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'consumer_id' => 'getConsumerId',
-        'credential_type' => 'getCredentialType',
-        'hmac_auth_credential' => 'getHmacAuthCredential',
-        'key_auth_credential' => 'getKeyAuthCredential'
+        'ecs_id' => 'getEcsId',
+        'ip' => 'getIp',
+        'port' => 'getPort'
     ];
 
     /**
@@ -163,10 +158,9 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['consumer_id'] = isset($data['consumer_id']) ? $data['consumer_id'] : null;
-        $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;
-        $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
-        $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
+        $this->container['ecs_id'] = isset($data['ecs_id']) ? $data['ecs_id'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
     }
 
     /**
@@ -178,12 +172,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['consumer_id'] === null) {
-            $invalidProperties[] = "'consumer_id' can't be null";
-        }
-        if ($this->container['credential_type'] === null) {
-            $invalidProperties[] = "'credential_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,97 +188,73 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets consumer_id
+     * Gets ecs_id
      *
      * @return string
      */
-    public function getConsumerId()
+    public function getEcsId()
     {
-        return $this->container['consumer_id'];
+        return $this->container['ecs_id'];
     }
 
     /**
-     * Sets consumer_id
+     * Sets ecs_id
      *
-     * @param string $consumer_id consumer_id
+     * @param string $ecs_id ecs_id
      *
      * @return $this
      */
-    public function setConsumerId($consumer_id)
+    public function setEcsId($ecs_id)
     {
-        $this->container['consumer_id'] = $consumer_id;
+        $this->container['ecs_id'] = $ecs_id;
 
         return $this;
     }
 
     /**
-     * Gets credential_type
+     * Gets ip
      *
      * @return string
      */
-    public function getCredentialType()
+    public function getIp()
     {
-        return $this->container['credential_type'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets credential_type
+     * Sets ip
      *
-     * @param string $credential_type credential_type
+     * @param string $ip ip
      *
      * @return $this
      */
-    public function setCredentialType($credential_type)
+    public function setIp($ip)
     {
-        $this->container['credential_type'] = $credential_type;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
 
     /**
-     * Gets hmac_auth_credential
+     * Gets port
      *
-     * @return \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput
+     * @return int
      */
-    public function getHmacAuthCredential()
+    public function getPort()
     {
-        return $this->container['hmac_auth_credential'];
+        return $this->container['port'];
     }
 
     /**
-     * Sets hmac_auth_credential
+     * Sets port
      *
-     * @param \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput $hmac_auth_credential hmac_auth_credential
+     * @param int $port port
      *
      * @return $this
      */
-    public function setHmacAuthCredential($hmac_auth_credential)
+    public function setPort($port)
     {
-        $this->container['hmac_auth_credential'] = $hmac_auth_credential;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_auth_credential
-     *
-     * @return \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput
-     */
-    public function getKeyAuthCredential()
-    {
-        return $this->container['key_auth_credential'];
-    }
-
-    /**
-     * Sets key_auth_credential
-     *
-     * @param \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput $key_auth_credential key_auth_credential
-     *
-     * @return $this
-     */
-    public function setKeyAuthCredential($key_auth_credential)
-    {
-        $this->container['key_auth_credential'] = $key_auth_credential;
+        $this->container['port'] = $port;
 
         return $this;
     }

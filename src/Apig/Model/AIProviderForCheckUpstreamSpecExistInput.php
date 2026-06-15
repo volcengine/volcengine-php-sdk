@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class AIProviderForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderForListUpstreamsOutput';
+    protected static $swaggerModelName = 'AIProviderForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -30,9 +30,9 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'api_protocol' => 'string',
         'base_url' => 'string',
-        'custom_body_params' => '\Volcengine\Apig\Model\CustomBodyParamsForListUpstreamsOutput',
-        'custom_header_params' => '\Volcengine\Apig\Model\CustomHeaderParamsForListUpstreamsOutput',
-        'custom_model_service' => '\Volcengine\Apig\Model\CustomModelServiceForListUpstreamsOutput',
+        'custom_body_params' => '\Volcengine\Apig\Model\CustomBodyParamsForCheckUpstreamSpecExistInput',
+        'custom_header_params' => '\Volcengine\Apig\Model\CustomHeaderParamsForCheckUpstreamSpecExistInput',
+        'custom_model_service' => '\Volcengine\Apig\Model\CustomModelServiceForCheckUpstreamSpecExistInput',
         'max_retries' => 'int',
         'name' => 'string',
         'token' => 'string',
@@ -274,7 +274,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets custom_body_params
      *
-     * @return \Volcengine\Apig\Model\CustomBodyParamsForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\CustomBodyParamsForCheckUpstreamSpecExistInput
      */
     public function getCustomBodyParams()
     {
@@ -284,7 +284,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets custom_body_params
      *
-     * @param \Volcengine\Apig\Model\CustomBodyParamsForListUpstreamsOutput $custom_body_params custom_body_params
+     * @param \Volcengine\Apig\Model\CustomBodyParamsForCheckUpstreamSpecExistInput $custom_body_params custom_body_params
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets custom_header_params
      *
-     * @return \Volcengine\Apig\Model\CustomHeaderParamsForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\CustomHeaderParamsForCheckUpstreamSpecExistInput
      */
     public function getCustomHeaderParams()
     {
@@ -308,7 +308,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets custom_header_params
      *
-     * @param \Volcengine\Apig\Model\CustomHeaderParamsForListUpstreamsOutput $custom_header_params custom_header_params
+     * @param \Volcengine\Apig\Model\CustomHeaderParamsForCheckUpstreamSpecExistInput $custom_header_params custom_header_params
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets custom_model_service
      *
-     * @return \Volcengine\Apig\Model\CustomModelServiceForListUpstreamsOutput
+     * @return \Volcengine\Apig\Model\CustomModelServiceForCheckUpstreamSpecExistInput
      */
     public function getCustomModelService()
     {
@@ -332,7 +332,7 @@ class AIProviderForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets custom_model_service
      *
-     * @param \Volcengine\Apig\Model\CustomModelServiceForListUpstreamsOutput $custom_model_service custom_model_service
+     * @param \Volcengine\Apig\Model\CustomModelServiceForCheckUpstreamSpecExistInput $custom_model_service custom_model_service
      *
      * @return $this
      */

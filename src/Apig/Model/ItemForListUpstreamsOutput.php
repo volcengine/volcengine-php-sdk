@@ -28,7 +28,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backend_target_list' => '\Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[]',
         'circuit_breaking_settings' => '\Volcengine\Apig\Model\CircuitBreakingSettingsForListUpstreamsOutput',
         'comments' => 'string',
         'connection_pool_settings' => '\Volcengine\Apig\Model\ConnectionPoolSettingsForListUpstreamsOutput',
@@ -51,7 +50,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backend_target_list' => null,
         'circuit_breaking_settings' => null,
         'comments' => null,
         'connection_pool_settings' => null,
@@ -95,7 +93,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backend_target_list' => 'BackendTargetList',
         'circuit_breaking_settings' => 'CircuitBreakingSettings',
         'comments' => 'Comments',
         'connection_pool_settings' => 'ConnectionPoolSettings',
@@ -118,7 +115,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backend_target_list' => 'setBackendTargetList',
         'circuit_breaking_settings' => 'setCircuitBreakingSettings',
         'comments' => 'setComments',
         'connection_pool_settings' => 'setConnectionPoolSettings',
@@ -141,7 +137,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backend_target_list' => 'getBackendTargetList',
         'circuit_breaking_settings' => 'getCircuitBreakingSettings',
         'comments' => 'getComments',
         'connection_pool_settings' => 'getConnectionPoolSettings',
@@ -218,7 +213,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['backend_target_list'] = isset($data['backend_target_list']) ? $data['backend_target_list'] : null;
         $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['connection_pool_settings'] = isset($data['connection_pool_settings']) ? $data['connection_pool_settings'] : null;
@@ -258,30 +252,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets backend_target_list
-     *
-     * @return \Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[]
-     */
-    public function getBackendTargetList()
-    {
-        return $this->container['backend_target_list'];
-    }
-
-    /**
-     * Sets backend_target_list
-     *
-     * @param \Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[] $backend_target_list backend_target_list
-     *
-     * @return $this
-     */
-    public function setBackendTargetList($backend_target_list)
-    {
-        $this->container['backend_target_list'] = $backend_target_list;
-
-        return $this;
-    }
 
     /**
      * Gets circuit_breaking_settings

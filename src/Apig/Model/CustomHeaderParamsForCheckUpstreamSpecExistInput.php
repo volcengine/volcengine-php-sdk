@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface, ArrayAccess
+class CustomHeaderParamsForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForListConsumerCredentialsOutput';
+    protected static $swaggerModelName = 'CustomHeaderParamsForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string',
-        'enable' => 'bool'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null,
-        'enable' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId',
-        'enable' => 'Enable'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId',
-        'enable' => 'setEnable'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId',
-        'enable' => 'getEnable'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets client_id
-     *
-     * @return string
-     */
-    public function getClientId()
-    {
-        return $this->container['client_id'];
-    }
-
-    /**
-     * Sets client_id
-     *
-     * @param string $client_id client_id
-     *
-     * @return $this
-     */
-    public function setClientId($client_id)
-    {
-        $this->container['client_id'] = $client_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

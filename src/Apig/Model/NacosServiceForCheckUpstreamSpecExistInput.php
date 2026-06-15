@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
+class NacosServiceForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateConsumerCredentialRequest';
+    protected static $swaggerModelName = 'NacosServiceForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'consumer_id' => 'string',
-        'credential_type' => 'string',
-        'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput',
-        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput'
+        'group' => 'string',
+        'namespace' => 'string',
+        'namespace_id' => 'string',
+        'service' => 'string',
+        'upstream_source_id' => 'string'
     ];
 
     /**
@@ -40,10 +41,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'consumer_id' => null,
-        'credential_type' => null,
-        'hmac_auth_credential' => null,
-        'key_auth_credential' => null
+        'group' => null,
+        'namespace' => null,
+        'namespace_id' => null,
+        'service' => null,
+        'upstream_source_id' => null
     ];
 
     /**
@@ -73,10 +75,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'consumer_id' => 'ConsumerId',
-        'credential_type' => 'CredentialType',
-        'hmac_auth_credential' => 'HmacAuthCredential',
-        'key_auth_credential' => 'KeyAuthCredential'
+        'group' => 'Group',
+        'namespace' => 'Namespace',
+        'namespace_id' => 'NamespaceId',
+        'service' => 'Service',
+        'upstream_source_id' => 'UpstreamSourceId'
     ];
 
     /**
@@ -85,10 +88,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'consumer_id' => 'setConsumerId',
-        'credential_type' => 'setCredentialType',
-        'hmac_auth_credential' => 'setHmacAuthCredential',
-        'key_auth_credential' => 'setKeyAuthCredential'
+        'group' => 'setGroup',
+        'namespace' => 'setNamespace',
+        'namespace_id' => 'setNamespaceId',
+        'service' => 'setService',
+        'upstream_source_id' => 'setUpstreamSourceId'
     ];
 
     /**
@@ -97,10 +101,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'consumer_id' => 'getConsumerId',
-        'credential_type' => 'getCredentialType',
-        'hmac_auth_credential' => 'getHmacAuthCredential',
-        'key_auth_credential' => 'getKeyAuthCredential'
+        'group' => 'getGroup',
+        'namespace' => 'getNamespace',
+        'namespace_id' => 'getNamespaceId',
+        'service' => 'getService',
+        'upstream_source_id' => 'getUpstreamSourceId'
     ];
 
     /**
@@ -163,10 +168,11 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['consumer_id'] = isset($data['consumer_id']) ? $data['consumer_id'] : null;
-        $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;
-        $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
-        $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['service'] = isset($data['service']) ? $data['service'] : null;
+        $this->container['upstream_source_id'] = isset($data['upstream_source_id']) ? $data['upstream_source_id'] : null;
     }
 
     /**
@@ -178,12 +184,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['consumer_id'] === null) {
-            $invalidProperties[] = "'consumer_id' can't be null";
-        }
-        if ($this->container['credential_type'] === null) {
-            $invalidProperties[] = "'credential_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,97 +200,121 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets consumer_id
+     * Gets group
      *
      * @return string
      */
-    public function getConsumerId()
+    public function getGroup()
     {
-        return $this->container['consumer_id'];
+        return $this->container['group'];
     }
 
     /**
-     * Sets consumer_id
+     * Sets group
      *
-     * @param string $consumer_id consumer_id
+     * @param string $group group
      *
      * @return $this
      */
-    public function setConsumerId($consumer_id)
+    public function setGroup($group)
     {
-        $this->container['consumer_id'] = $consumer_id;
+        $this->container['group'] = $group;
 
         return $this;
     }
 
     /**
-     * Gets credential_type
+     * Gets namespace
      *
      * @return string
      */
-    public function getCredentialType()
+    public function getNamespace()
     {
-        return $this->container['credential_type'];
+        return $this->container['namespace'];
     }
 
     /**
-     * Sets credential_type
+     * Sets namespace
      *
-     * @param string $credential_type credential_type
+     * @param string $namespace namespace
      *
      * @return $this
      */
-    public function setCredentialType($credential_type)
+    public function setNamespace($namespace)
     {
-        $this->container['credential_type'] = $credential_type;
+        $this->container['namespace'] = $namespace;
 
         return $this;
     }
 
     /**
-     * Gets hmac_auth_credential
+     * Gets namespace_id
      *
-     * @return \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput
+     * @return string
      */
-    public function getHmacAuthCredential()
+    public function getNamespaceId()
     {
-        return $this->container['hmac_auth_credential'];
+        return $this->container['namespace_id'];
     }
 
     /**
-     * Sets hmac_auth_credential
+     * Sets namespace_id
      *
-     * @param \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput $hmac_auth_credential hmac_auth_credential
+     * @param string $namespace_id namespace_id
      *
      * @return $this
      */
-    public function setHmacAuthCredential($hmac_auth_credential)
+    public function setNamespaceId($namespace_id)
     {
-        $this->container['hmac_auth_credential'] = $hmac_auth_credential;
+        $this->container['namespace_id'] = $namespace_id;
 
         return $this;
     }
 
     /**
-     * Gets key_auth_credential
+     * Gets service
      *
-     * @return \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput
+     * @return string
      */
-    public function getKeyAuthCredential()
+    public function getService()
     {
-        return $this->container['key_auth_credential'];
+        return $this->container['service'];
     }
 
     /**
-     * Sets key_auth_credential
+     * Sets service
      *
-     * @param \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput $key_auth_credential key_auth_credential
+     * @param string $service service
      *
      * @return $this
      */
-    public function setKeyAuthCredential($key_auth_credential)
+    public function setService($service)
     {
-        $this->container['key_auth_credential'] = $key_auth_credential;
+        $this->container['service'] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Gets upstream_source_id
+     *
+     * @return string
+     */
+    public function getUpstreamSourceId()
+    {
+        return $this->container['upstream_source_id'];
+    }
+
+    /**
+     * Sets upstream_source_id
+     *
+     * @param string $upstream_source_id upstream_source_id
+     *
+     * @return $this
+     */
+    public function setUpstreamSourceId($upstream_source_id)
+    {
+        $this->container['upstream_source_id'] = $upstream_source_id;
 
         return $this;
     }
