@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class RedirectSettingForGetRouteOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'RedirectSettingForGetRouteOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        'authority' => 'string',
+        'path' => 'string',
+        'status' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        'authority' => null,
+        'path' => null,
+        'status' => 'int64'
     ];
 
     /**
@@ -71,9 +71,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        'authority' => 'Authority',
+        'path' => 'Path',
+        'status' => 'Status'
     ];
 
     /**
@@ -82,9 +82,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        'authority' => 'setAuthority',
+        'path' => 'setPath',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -93,9 +93,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        'authority' => 'getAuthority',
+        'path' => 'getPath',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -158,9 +158,9 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
+        $this->container['authority'] = isset($data['authority']) ? $data['authority'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets model
+     * Gets authority
      *
      * @return string
      */
-    public function getModel()
+    public function getAuthority()
     {
-        return $this->container['model'];
+        return $this->container['authority'];
     }
 
     /**
-     * Sets model
+     * Sets authority
      *
-     * @param string $model model
+     * @param string $authority authority
      *
      * @return $this
      */
-    public function setModel($model)
+    public function setAuthority($authority)
     {
-        $this->container['model'] = $model;
+        $this->container['authority'] = $authority;
 
         return $this;
     }
 
     /**
-     * Gets prefix_path
+     * Gets path
      *
      * @return string
      */
-    public function getPrefixPath()
+    public function getPath()
     {
-        return $this->container['prefix_path'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets prefix_path
+     * Sets path
      *
-     * @param string $prefix_path prefix_path
+     * @param string $path path
      *
      * @return $this
      */
-    public function setPrefixPath($prefix_path)
+    public function setPath($path)
     {
-        $this->container['prefix_path'] = $prefix_path;
+        $this->container['path'] = $path;
 
         return $this;
     }
 
     /**
-     * Gets target_path
+     * Gets status
      *
-     * @return string
+     * @return int
      */
-    public function getTargetPath()
+    public function getStatus()
     {
-        return $this->container['target_path'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets target_path
+     * Sets status
      *
-     * @param string $target_path target_path
+     * @param int $status status
      *
      * @return $this
      */
-    public function setTargetPath($target_path)
+    public function setStatus($status)
     {
-        $this->container['target_path'] = $target_path;
+        $this->container['status'] = $status;
 
         return $this;
     }

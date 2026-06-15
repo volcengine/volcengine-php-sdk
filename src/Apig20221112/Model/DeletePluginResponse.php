@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class DeletePluginResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'DeletePluginResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
     }
 
     /**
@@ -186,78 +173,6 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets model
-     *
-     * @return string
-     */
-    public function getModel()
-    {
-        return $this->container['model'];
-    }
-
-    /**
-     * Sets model
-     *
-     * @param string $model model
-     *
-     * @return $this
-     */
-    public function setModel($model)
-    {
-        $this->container['model'] = $model;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix_path
-     *
-     * @return string
-     */
-    public function getPrefixPath()
-    {
-        return $this->container['prefix_path'];
-    }
-
-    /**
-     * Sets prefix_path
-     *
-     * @param string $prefix_path prefix_path
-     *
-     * @return $this
-     */
-    public function setPrefixPath($prefix_path)
-    {
-        $this->container['prefix_path'] = $prefix_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_path
-     *
-     * @return string
-     */
-    public function getTargetPath()
-    {
-        return $this->container['target_path'];
-    }
-
-    /**
-     * Sets target_path
-     *
-     * @param string $target_path target_path
-     *
-     * @return $this
-     */
-    public function setTargetPath($target_path)
-    {
-        $this->container['target_path'] = $target_path;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

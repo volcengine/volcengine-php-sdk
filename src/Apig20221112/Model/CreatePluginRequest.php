@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class CreatePluginRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'CreatePluginRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        'enable' => 'bool',
+        'gateway_id' => 'string',
+        'plugin_config' => 'string',
+        'plugin_name' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        'enable' => null,
+        'gateway_id' => null,
+        'plugin_config' => null,
+        'plugin_name' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        'enable' => 'Enable',
+        'gateway_id' => 'GatewayId',
+        'plugin_config' => 'PluginConfig',
+        'plugin_name' => 'PluginName'
     ];
 
     /**
@@ -82,9 +85,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        'enable' => 'setEnable',
+        'gateway_id' => 'setGatewayId',
+        'plugin_config' => 'setPluginConfig',
+        'plugin_name' => 'setPluginName'
     ];
 
     /**
@@ -93,9 +97,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        'enable' => 'getEnable',
+        'gateway_id' => 'getGatewayId',
+        'plugin_config' => 'getPluginConfig',
+        'plugin_name' => 'getPluginName'
     ];
 
     /**
@@ -158,9 +163,10 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['plugin_config'] = isset($data['plugin_config']) ? $data['plugin_config'] : null;
+        $this->container['plugin_name'] = isset($data['plugin_name']) ? $data['plugin_name'] : null;
     }
 
     /**
@@ -172,6 +178,15 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['enable'] === null) {
+            $invalidProperties[] = "'enable' can't be null";
+        }
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
+        if ($this->container['plugin_name'] === null) {
+            $invalidProperties[] = "'plugin_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +203,97 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets model
+     * Gets enable
      *
-     * @return string
+     * @return bool
      */
-    public function getModel()
+    public function getEnable()
     {
-        return $this->container['model'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets model
+     * Sets enable
      *
-     * @param string $model model
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setModel($model)
+    public function setEnable($enable)
     {
-        $this->container['model'] = $model;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets prefix_path
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getPrefixPath()
+    public function getGatewayId()
     {
-        return $this->container['prefix_path'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets prefix_path
+     * Sets gateway_id
      *
-     * @param string $prefix_path prefix_path
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setPrefixPath($prefix_path)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['prefix_path'] = $prefix_path;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }
 
     /**
-     * Gets target_path
+     * Gets plugin_config
      *
      * @return string
      */
-    public function getTargetPath()
+    public function getPluginConfig()
     {
-        return $this->container['target_path'];
+        return $this->container['plugin_config'];
     }
 
     /**
-     * Sets target_path
+     * Sets plugin_config
      *
-     * @param string $target_path target_path
+     * @param string $plugin_config plugin_config
      *
      * @return $this
      */
-    public function setTargetPath($target_path)
+    public function setPluginConfig($plugin_config)
     {
-        $this->container['target_path'] = $target_path;
+        $this->container['plugin_config'] = $plugin_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets plugin_name
+     *
+     * @return string
+     */
+    public function getPluginName()
+    {
+        return $this->container['plugin_name'];
+    }
+
+    /**
+     * Sets plugin_name
+     *
+     * @param string $plugin_name plugin_name
+     *
+     * @return $this
+     */
+    public function setPluginName($plugin_name)
+    {
+        $this->container['plugin_name'] = $plugin_name;
 
         return $this;
     }

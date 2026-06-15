@@ -29,6 +29,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'model' => 'string',
+        'prefix_path' => 'string',
         'target_path' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'model' => null,
+        'prefix_path' => null,
         'target_path' => null
     ];
 
@@ -70,6 +72,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'model' => 'Model',
+        'prefix_path' => 'PrefixPath',
         'target_path' => 'TargetPath'
     ];
 
@@ -80,6 +83,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'model' => 'setModel',
+        'prefix_path' => 'setPrefixPath',
         'target_path' => 'setTargetPath'
     ];
 
@@ -90,6 +94,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'model' => 'getModel',
+        'prefix_path' => 'getPrefixPath',
         'target_path' => 'getTargetPath'
     ];
 
@@ -154,6 +159,7 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
     public function __construct($data = null)
     {
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
+        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
         $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
     }
 
@@ -201,6 +207,30 @@ class AIProviderSettingsForListRoutesOutput implements ModelInterface, ArrayAcce
     public function setModel($model)
     {
         $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_path
+     *
+     * @return string
+     */
+    public function getPrefixPath()
+    {
+        return $this->container['prefix_path'];
+    }
+
+    /**
+     * Sets prefix_path
+     *
+     * @param string $prefix_path prefix_path
+     *
+     * @return $this
+     */
+    public function setPrefixPath($prefix_path)
+    {
+        $this->container['prefix_path'] = $prefix_path;
 
         return $this;
     }
