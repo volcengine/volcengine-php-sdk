@@ -189,7 +189,6 @@ class ApiClient
         }
 
         $request->endpointProvider = $this->configuration->getEndpointProvider();
-        $request->endpointOptions = $this->configuration->getEndpointOptions();
         $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
         $request->useDualStack = $this->configuration->getUseDualStack();
         $request->autoRetry = $this->configuration->getAutoRetry();

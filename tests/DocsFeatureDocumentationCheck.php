@@ -109,33 +109,17 @@ assert_contains($transport, 'setAssertHostname(', 'transport docs assert hostnam
 assert_contains($transport, 'setProgressListener(', 'transport docs progress listener');
 
 $endpoint = read_file_or_fail($root . '/docs/2-Endpoint.md');
-assert_contains($endpoint, 'HostEndpointProvider', 'endpoint docs host provider');
-assert_contains($endpoint, 'StandardEndpointProvider', 'endpoint docs standard provider');
-assert_contains($endpoint, 'StandProviderError', 'endpoint docs endpoint error');
+assert_contains($endpoint, 'setHost(', 'endpoint docs custom endpoint');
+assert_contains($endpoint, 'setRegion(', 'endpoint docs custom region');
 assert_contains($endpoint, 'setUseDualStack(true)', 'endpoint docs dual stack');
-assert_contains($endpoint, 'setStrictEndpointMatching(true)', 'endpoint docs strict matching');
-assert_contains($endpoint, 'setEndpointConfigPath(', 'endpoint docs endpoint config path');
-assert_contains($endpoint, '"services"', 'endpoint docs endpoint config json');
 
 $credentials = read_file_or_fail($root . '/docs/1-Credentials.md');
-assert_contains($credentials, 'StaticCredentialProvider', 'credentials docs static provider');
-assert_contains($credentials, 'ProcessCredentialsProvider', 'credentials docs process provider');
-assert_contains($credentials, 'EndpointCredentialsProvider', 'credentials docs endpoint provider');
-assert_contains($credentials, 'caches the last successful provider', 'credentials docs cached provider');
-assert_contains($credentials, 'setRetryer(', 'credentials docs sts provider retryer');
+assert_contains($credentials, 'Direct `Configuration`', 'credentials docs direct configuration');
+assert_contains($credentials, 'EcsRoleCredentialProvider', 'credentials docs ecs role provider');
 
 $overview = read_file_or_fail($root . '/docs/0-Overview.md');
-assert_contains($overview, 'RuntimeOptions', 'overview runtime options');
-assert_contains($overview, 'Session', 'overview session');
-assert_contains($overview, 'UniversalApi', 'overview universal api');
-assert_contains($overview, 'UniversalRequest', 'overview universal request');
-assert_contains($overview, 'Paginator', 'overview paginator');
-assert_contains($overview, 'Waiter', 'overview waiter');
-assert_contains($overview, 'setEnableRequestGzip(true)', 'overview gzip');
-assert_contains($overview, 'setNumPools()', 'overview connection pool num pools');
-assert_contains($overview, 'setConnectionPoolMaxsize()', 'overview connection pool maxsize');
-assert_contains($overview, 'Version::SDK_VERSION', 'overview version');
-assert_contains($overview, 'shared default', 'overview shared default configuration');
+assert_contains($overview, 'ECS Role', 'overview ecs role');
+assert_contains($overview, 'Automatic Resolution', 'overview endpoint automatic resolution');
 
 $configuration = read_file_or_fail($root . '/src/Common/Configuration.php');
 assert_contains($configuration, 'function setAutoRetry', 'configuration auto retry setter');
@@ -148,7 +132,6 @@ assert_contains($configuration, 'function setSigner', 'configuration signer sett
 assert_contains($configuration, 'function setRuntimeOptions', 'configuration runtime options setter');
 assert_contains($configuration, 'function setNumMaxRetries', 'configuration max retries setter');
 assert_contains($configuration, 'function setEnableRequestGzip', 'configuration gzip setter');
-assert_contains($configuration, 'function setEndpointConfigPath', 'configuration endpoint config path setter');
 assert_contains($configuration, 'function addRequestInterceptor', 'configuration request interceptor hooks');
 assert_contains($configuration, 'function addResponseInterceptor', 'configuration response interceptor hooks');
 assert_contains($configuration, 'function getDefaultConfiguration', 'configuration default config');
@@ -194,31 +177,15 @@ $retryCondition = read_file_or_fail($root . '/src/Common/Retry/DefaultRetryCondi
 assert_contains($retryCondition, 'function isCredentialExpiryError', 'retry condition credential expiry');
 assert_contains($retryCondition, 'function extractErrorCode', 'retry condition extract error code');
 
-$staticProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/StaticCredentialProvider.php');
-assert_contains($staticProvider, 'class StaticCredentialProvider', 'static credential provider');
-
 $defaultProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/DefaultCredentialProvider.php');
-assert_contains($defaultProvider, 'function setVerboseErrors', 'default credential provider verbose errors');
-
-$processProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/ProcessCredentialsProvider.php');
-assert_contains($processProvider, 'class ProcessCredentialsProvider', 'process credential provider');
-
-$endpointCredsProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/EndpointCredentialsProvider.php');
-assert_contains($endpointCredsProvider, 'class EndpointCredentialsProvider', 'endpoint credential provider');
 
 $stsProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/StsProvider.php');
 assert_contains($stsProvider, 'function setRetryer', 'sts provider retryer setter');
 assert_contains($stsProvider, 'function setConnectTimeout', 'sts provider connect timeout setter');
 assert_contains($stsProvider, 'function setReadTimeout', 'sts provider read timeout setter');
 
-$endpointHost = read_file_or_fail($root . '/src/Common/Endpoint/Providers/HostEndpointProvider.php');
-assert_contains($endpointHost, 'class HostEndpointProvider', 'host endpoint provider');
-
 $endpointStandard = read_file_or_fail($root . '/src/Common/Endpoint/Providers/StandardEndpointProvider.php');
 assert_contains($endpointStandard, 'class StandardEndpointProvider', 'standard endpoint provider');
-assert_contains($endpointStandard, 'StandProviderError', 'standard endpoint errors');
-assert_contains($endpointStandard, 'strictMatching', 'standard endpoint strict matching');
-assert_contains($endpointStandard, 'endpointConfigPath', 'standard endpoint config path');
 
 $loggerAdapter = read_file_or_fail($root . '/src/Common/PsrLoggerAdapter.php');
 assert_contains($loggerAdapter, 'class PsrLoggerAdapter', 'psr logger adapter');

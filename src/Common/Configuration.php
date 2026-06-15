@@ -5,7 +5,6 @@ namespace Volcengine\Common;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlMultiHandler;
 use GuzzleHttp\HandlerStack;
-use Volcengine\Common\Endpoint\EndpointOptions;
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
 use Volcengine\Common\Retry\Retryer;
 use Volcengine\Common\Sign\Signer;
@@ -20,7 +19,6 @@ class Configuration
     protected $endpointProvider;
     protected $customBootstrapRegion = [];
     protected $useDualStack = false;
-    protected $endpointOptions;
     protected $autoRetry = false;
     protected $credentialProvider;
     protected $runtimeOptions;
@@ -79,41 +77,64 @@ class Configuration
     {
         $this->tempFolderPath = sys_get_temp_dir();
         $this->endpointProvider = new DefaultEndpointProvider();
-        $this->endpointOptions = new EndpointOptions();
         $this->retryer = new Retryer();
         $this->userAgent = Version::userAgent();
         $this->logger = new SdkLogger($this->debug, $this->logLevel);
         $this->signer = new V4Signer();
     }
 
+    /**
+     * Sets the host
+     *
+     * @param string $host Host
+     *
+     * @return $this
+     */
     public function setHost($host)
     {
         $this->host = $host;
         return $this;
     }
 
+    /**
+     * Gets the host
+     *
+     * @return string Host
+     */
     public function getHost()
     {
         return $this->host;
     }
 
+    /**
+     * @param string $ak
+     */
     public function setAk($ak)
     {
         $this->ak = $ak;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getAk()
     {
         return $this->ak;
     }
 
+    /**
+     * @param string $sk
+     */
     public function setSk($sk)
     {
         $this->sk = $sk;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSk()
     {
         return $this->sk;
@@ -125,28 +146,43 @@ class Configuration
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSessionToken()
     {
         return $this->sessionToken;
     }
 
+    /**
+     * @param string $region
+     */
     public function setRegion($region)
     {
         $this->region = $region;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getRegion()
     {
         return $this->region;
     }
 
+    /**
+     * @param string $schema
+     */
     public function setSchema($schema)
     {
         $this->schema = $schema;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSchema()
     {
         return $this->schema;
@@ -161,17 +197,6 @@ class Configuration
     public function getEndpointProvider()
     {
         return $this->endpointProvider;
-    }
-
-    public function setEndpointOptions(EndpointOptions $endpointOptions)
-    {
-        $this->endpointOptions = $endpointOptions;
-        return $this;
-    }
-
-    public function getEndpointOptions()
-    {
-        return $this->endpointOptions;
     }
 
     public function getCustomBootstrapRegion()
@@ -193,7 +218,6 @@ class Configuration
     public function setUseDualStack($useDualStack)
     {
         $this->useDualStack = (bool) $useDualStack;
-        $this->endpointOptions->ipVersion = $this->useDualStack ? 'DualStack' : 'IPv4';
         return $this;
     }
 
@@ -765,72 +789,6 @@ class Configuration
         return $this->signer;
     }
 
-    public function setStrictEndpointMatching($strictMatching)
-    {
-        $this->endpointOptions->strictMatching = (bool) $strictMatching;
-        return $this;
-    }
-
-    public function getStrictEndpointMatching()
-    {
-        return $this->endpointOptions->strictMatching;
-    }
-
-    public function setResolveUnknownService($resolveUnknownService)
-    {
-        $this->endpointOptions->resolveUnknownService = (bool) $resolveUnknownService;
-        return $this;
-    }
-
-    public function getResolveUnknownService()
-    {
-        return $this->endpointOptions->resolveUnknownService;
-    }
-
-    public function setEndpointSite($site)
-    {
-        $this->endpointOptions->site = $site;
-        return $this;
-    }
-
-    public function getEndpointSite()
-    {
-        return $this->endpointOptions->site;
-    }
-
-    public function setEndpointIpVersion($ipVersion)
-    {
-        $this->endpointOptions->ipVersion = $ipVersion;
-        return $this;
-    }
-
-    public function getEndpointIpVersion()
-    {
-        return $this->endpointOptions->ipVersion;
-    }
-
-    public function setEndpointConfigState($enabled)
-    {
-        $this->endpointOptions->endpointConfigState = (bool) $enabled;
-        return $this;
-    }
-
-    public function getEndpointConfigState()
-    {
-        return $this->endpointOptions->endpointConfigState;
-    }
-
-    public function setEndpointConfigPath($path)
-    {
-        $this->endpointOptions->endpointConfigPath = $path;
-        return $this;
-    }
-
-    public function getEndpointConfigPath()
-    {
-        return $this->endpointOptions->endpointConfigPath;
-    }
-
     public function setNumMaxRetries($numMaxRetries)
     {
         $this->retryer->setNumMaxRetries($numMaxRetries);
@@ -909,38 +867,42 @@ class Configuration
         return $backoff !== null ? $backoff->getMaxRetryDelayMs() : null;
     }
 
+    /**
+     * Gets the default configuration instance
+     *
+     * @return Configuration
+     */
     public static function getDefaultConfiguration()
     {
-        if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
-        }
+        self::$defaultConfiguration = new Configuration();
 
         return self::$defaultConfiguration;
     }
 
+    /**
+     * Sets the detault configuration instance
+     *
+     * @param Configuration $config An instance of the Configuration Object
+     *
+     * @return void
+     */
     public static function setDefaultConfiguration(Configuration $config)
     {
         self::$defaultConfiguration = $config;
     }
 
+    /**
+     * Gets the essential information for debugging
+     *
+     * @return string The report for debugging
+     */
     public static function toDebugReport()
     {
-        $config = self::getDefaultConfiguration();
         $report = 'PHP SDK (Volcengine\Common) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: ' . Version::SDK_VERSION . PHP_EOL;
-        $report .= '    Temp Folder Path: ' . $config->getTempFolderPath() . PHP_EOL;
-        $report .= '    Region: ' . $config->getRegion() . PHP_EOL;
-        $report .= '    Schema: ' . $config->getSchema() . PHP_EOL;
-        $report .= '    Connect Timeout: ' . $config->getConnectTimeout() . PHP_EOL;
-        $report .= '    Read Timeout: ' . $config->getReadTimeout() . PHP_EOL;
-        $report .= '    Auto Retry: ' . ($config->getAutoRetry() ? 'true' : 'false') . PHP_EOL;
-        $report .= '    Max Retries: ' . $config->getNumMaxRetries() . PHP_EOL;
-        $report .= '    Num Pools: ' . $config->getNumPools() . PHP_EOL;
-        $report .= '    Connection Pool Maxsize: ' . $config->getConnectionPoolMaxsize() . PHP_EOL;
-        $report .= '    HTTP Proxy: ' . ($config->getHttpProxy() ?: '') . PHP_EOL;
-        $report .= '    HTTPS Proxy: ' . ($config->getHttpsProxy() ?: '') . PHP_EOL;
+        $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
     }

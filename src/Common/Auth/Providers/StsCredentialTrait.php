@@ -10,8 +10,8 @@ namespace Volcengine\Common\Auth\Providers;
 trait StsCredentialTrait
 {
     private $schema = 'https';
-    private $maxRetries = 3;
-    private $retryInterval = 1;
+    private $maxRetries = StsFormRequest::DEFAULT_MAX_RETRIES;
+    private $retryInterval = StsFormRequest::DEFAULT_RETRY_INTERVAL;
 
     /**
      * @param string $schema 'http' or 'https'

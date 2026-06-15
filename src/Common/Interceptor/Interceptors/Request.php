@@ -43,7 +43,6 @@ class Request
     public $logger;
     public $logLevel;
     public $signer;
-    public $endpointOptions;
     public $enableRequestGzip;
     public $gzipMinLength;
     public $progressListener;

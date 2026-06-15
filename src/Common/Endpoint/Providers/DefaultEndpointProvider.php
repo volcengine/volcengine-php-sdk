@@ -5,8 +5,6 @@ namespace Volcengine\Common\Endpoint\Providers;
 use Volcengine\Common\Endpoint\EndpointProvider;
 use Volcengine\Common\Endpoint\ResolvedEndpoint;
 
-require_once __DIR__ . '/HostEndpointProvider.php';
-
 class DefaultEndpointProvider extends EndpointProvider
 {
     // 默认端点配置
@@ -590,16 +588,6 @@ class DefaultEndpointProvider extends EndpointProvider
 
     public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null)
     {
-        return $this->endpointForWithOptions($service, $region, $customBootstrapRegion, $useDualStack, []);
-    }
-
-    public function endpointForWithOptions($service, $region, $customBootstrapRegion = null, $useDualStack = null, array $options = [])
-    {
-        if ($this->shouldUseStandardResolver($options)) {
-            $standardProvider = new StandardEndpointProvider();
-            return $standardProvider->endpointForWithOptions($service, $region, $customBootstrapRegion, $useDualStack, $options);
-        }
-
         if (isset($this->customEndpoints[$service])) {
             $conf = $this->customEndpoints[$service];
             $host = $conf->getEndpointFor($region);
@@ -617,23 +605,6 @@ class DefaultEndpointProvider extends EndpointProvider
         $host = $this->getDefaultEndpoint($service, $region, $suffix);
 
         return new ResolvedEndpoint($host);
-    }
-
-    private function shouldUseStandardResolver(array $options)
-    {
-        foreach (['strictMatching', 'resolveUnknownService', 'endpointConfigState'] as $key) {
-            if (!empty($options[$key])) {
-                return true;
-            }
-        }
-
-        foreach (['site', 'ipVersion', 'endpointConfigPath'] as $key) {
-            if (isset($options[$key]) && $options[$key] !== null && $options[$key] !== '') {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
 
@@ -689,5 +660,20 @@ define('REGION_CODE_CN_SHANGHAI_AUTO_DRIVING', 'cn-shanghai-autodriving');
 define('REGION_CODE_CN_BEIJING_SELFDRIVE', 'cn-beijing-selfdrive');
 define('REGION_CODE_AP_SOUTHEAST2', 'ap-southeast-2');
 define('REGION_CODE_AP_SOUTHEAST3', 'ap-southeast-3');
+
+class HostEndpointProvider extends EndpointProvider
+{
+    private $host;
+
+    public function __construct($host)
+    {
+        $this->host = $host;
+    }
+
+    public function endpointFor($service, $region)
+    {
+        return new ResolvedEndpoint($this->host);
+    }
+}
 
 ?>
