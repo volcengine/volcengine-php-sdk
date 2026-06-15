@@ -14,7 +14,6 @@ class Request
     public $resourcePath;
     public $md;
     public $files;
-    public $apiName;
     public $truePath;
     public $service;
     public $ak;
@@ -29,7 +28,6 @@ class Request
     public $autoRetry = true;
     public $retryer;
     public $credentialProvider;
-    public $runtimeOptions;
     public $connectTimeout;
     public $readTimeout;
     public $verifySsl;
@@ -40,11 +38,6 @@ class Request
     public $proxy;
     public $httpProxy;
     public $httpsProxy;
-    public $logger;
-    public $logLevel;
-    public $enableRequestGzip;
-    public $gzipMinLength;
-    public $progressListener;
     public $model;
     public $realRequest;
     public $options;
@@ -55,8 +48,6 @@ class Request
     public $query;
     public $isPresigned = false;
     public $presignedUrl;
-    public $extraQueryParameters = [];
-    public $extraJsonBody = [];
 
 
     public function getMethod()

@@ -4,22 +4,11 @@
 
 ## Error Handling
 
-Service API calls raise typed subclasses of `Volcengine\Common\ApiException`.
+Service API failures throw `Volcengine\Common\ApiException`.
 
-### Error Categories
-
-- `ClientException`: HTTP `4xx` responses and service-side client errors.
-- `ServerException`: HTTP `5xx` responses and service-side server errors.
-- `ReadException`: network read failures and transport-level errors.
-- `ResponseTimeoutException`: timeout-specific read errors.
-- `RequestCanceledException`: locally canceled requests.
-- `SerializationException`: response deserialization failures.
-- `ServiceException`: shared base class for service-returned errors.
-
-All `ApiException` variants expose structured helpers including
-`getStatusCode()`, `getErrorCode()`, `getErrorMessage()`, and
-`getOriginalError()`, in addition to `getResponseHeaders()` and
-`getResponseBody()`.
+`ApiException` exposes `getStatusCode()`, `getErrorCode()`,
+`getErrorMessage()`, and `getOriginalError()`, in addition to
+`getResponseHeaders()` and `getResponseBody()`.
 
 ```php
 <?php
@@ -35,16 +24,6 @@ $apiInstance = new \Volcengine\Vpc\Api\VPCApi(null, $config);
 try {
     $result = $apiInstance->describeVpcs(new \Volcengine\Vpc\Model\DescribeVpcsRequest());
     print_r($result);
-} catch (\Volcengine\Common\Error\ClientException $e) {
-    echo 'Client error: ', $e->getMessage(), PHP_EOL;
-} catch (\Volcengine\Common\Error\ServerException $e) {
-    echo 'Server error: ', $e->getMessage(), PHP_EOL;
-} catch (\Volcengine\Common\Error\ResponseTimeoutException $e) {
-    echo 'Timeout: ', $e->getMessage(), PHP_EOL;
-} catch (\Volcengine\Common\Error\ReadException $e) {
-    echo 'Transport error: ', $e->getMessage(), PHP_EOL;
-} catch (\Volcengine\Common\Error\SerializationException $e) {
-    echo 'Decode error: ', $e->getMessage(), PHP_EOL;
 } catch (\Volcengine\Common\ApiException $e) {
     echo 'Status code: ', $e->getStatusCode(), PHP_EOL;
     echo 'Service code: ', $e->getErrorCode(), PHP_EOL;

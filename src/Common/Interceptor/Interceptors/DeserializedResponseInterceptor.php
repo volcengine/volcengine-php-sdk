@@ -2,11 +2,8 @@
 
 namespace Volcengine\Common\Interceptor\Interceptors;
 
-use Volcengine\Common\Error\ApiExceptionFactory;
-use Volcengine\Common\Error\SerializationException;
-use Volcengine\Common\LogHelper;
+use Volcengine\Common\ApiException;
 use Volcengine\Common\ObjectSerializer;
-use Volcengine\Common\SdkLogger;
 
 class DeserializedResponseInterceptor extends ResponseInterceptor
 {
@@ -34,7 +31,7 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
         $response->body = $body;
 
         if ($statusCode < 200 || $statusCode > 299) {
-            $exception = ApiExceptionFactory::fromHttpResponse(
+            $exception = ApiException::fromHttpResponse(
                 $statusCode,
                 $request->realRequest->getUri(),
                 $headers,
@@ -45,7 +42,7 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
 
         $decoded = json_decode($body);
         if (is_object($decoded) && isset($decoded->{'ResponseMetadata'}->{'Error'})) {
-            $exception = ApiExceptionFactory::fromServiceError(
+            $exception = ApiException::fromServiceError(
                 $statusCode,
                 $request->realRequest->getUri(),
                 $headers,
@@ -59,23 +56,15 @@ class DeserializedResponseInterceptor extends ResponseInterceptor
         try {
             $deserialized = ObjectSerializer::deserialize($result, $request->returnType, $headers);
         } catch (\Exception $e) {
-            $exception = new SerializationException($e->getMessage(), 0, $headers, $body);
-            if (method_exists($exception, 'setErrorCode')) {
-                $exception->setErrorCode('SerializationError');
-                $exception->setErrorMessage($e->getMessage());
-                $exception->setOriginalError($e);
-            }
+            $exception = new ApiException($e->getMessage(), 0, $headers, $body);
+            $exception->setErrorCode('SerializationError');
+            $exception->setErrorMessage($e->getMessage());
+            $exception->setOriginalError($e);
             throw $exception;
         }
 
         if (is_object($deserialized) && method_exists($deserialized, 'offsetSet')) {
             $deserialized->offsetSet('ResponseMetadata', $metadata);
-        }
-
-        if (is_object($metadata) && isset($metadata->RequestId)) {
-            LogHelper::debug($request->logger, SdkLogger::LOG_REQUEST_ID, 'Response', 'request_id: {request_id}', [
-                'request_id' => $metadata->RequestId,
-            ]);
         }
 
         $response->metadata = $metadata;

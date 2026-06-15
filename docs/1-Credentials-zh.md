@@ -180,7 +180,7 @@ $provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
     "sts.volcengineapi.com"                  // stsEndpoint（可选）
 );
 
-// 可选：通过 fluent setter 调整重试和传输参数
+// 可选：通过 fluent setter 调整重试参数
 // $provider->setSchema('https')       // 'http' 或 'https'，默认 'https'
 //          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
 //          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
@@ -229,7 +229,7 @@ $provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
     "sts.volcengineapi.com"                    // sts endpoint（可选）
 );
 
-// 可选：通过 fluent setter 调整重试和传输参数
+// 可选：通过 fluent setter 调整重试参数
 // $provider->setSchema('https')       // 'http' 或 'https'，默认 'https'
 //          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
 //          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
@@ -299,12 +299,9 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 #### 运行时刷新行为（sso / console-login）
 
-`sso` 与 `console-login` 模式下，SDK 在当前 PHP 进程中会在 access token 进入到期窗口（到期前 60 秒）时自动续期。由于 PHP 进程通常很短命，本 SDK 的刷新契约与 Go / Java / Python SDK 略有不同：
-
-- **对象级内存缓存**：单个 `CLIConfigCredentialProvider` 实例会在对象生命周期内（同一次 PHP 请求中）缓存已解析的凭证，同一请求内多次调用 API 复用同一份 STS。
-- **磁盘协同跨进程刷新**：SDK **会**通过 atomic rename 将刷新后的 token 写回缓存文件（`~/.volcengine/sso/cache/<sha1>.json` 或 `~/.volcengine/login/cache/<sha1(login_session)>.json`），让并发 PHP 进程和 `ve` CLI 之间共享最新的 `refresh_token`。这与长生命周期的 Go / Java / Python SDK（纯内存维护刷新状态）相反，是 PHP 短请求生命周期下的正确折中。
-- **`refresh_token` 轮换**：当服务端返回 HTTP 400 `invalid_grant` 时，SDK 会重新读取一次缓存文件，比较磁盘 `refresh_token` 与内存中的差异，若不同则用磁盘上的最新 token 再尝试一次刷新。这覆盖了并发 `ve login`（或其他 PHP 进程）刚刚轮换过 token 的场景；若磁盘上同样没有更新的 token，SDK 会抛出 `ApiException` 并附带 `please run 've login'` / `'ve sso login'` 提示。
-- **可操作的错误信息**：所有需要重新登录的错误路径都包含 `'ve login'`（console-login）或 `'ve sso login'`（sso），便于调用方向用户清晰说明下一步。
+`sso` 与 `console-login` 模式下，SDK 会在 access token 临近过期时刷新缓存。
+刷新后的 token 会写回 CLI 缓存文件，供后续 PHP 请求复用。如果登录态失效，
+异常信息会包含 `ve login` 或 `ve sso login`。
 
 ### ECS 角色凭证提供者
 

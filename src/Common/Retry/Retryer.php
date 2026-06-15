@@ -2,20 +2,41 @@
 
 namespace Volcengine\Common\Retry;
 
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
+use Volcengine\Common\ApiException;
+
 class Retryer
 {
-    private $numMaxRetries;
-    private $backoffStrategy;
-    private $retryCondition;
+    private static $retryStatusCodes = [429, 500, 502, 503, 504];
+    private static $defaultRetryErrorCodes = [
+        'Throttling',
+        'TooManyRequests',
+        'TooManyRequestsException',
+        'RequestLimitExceeded',
+        'RequestThrottled',
+        'ServiceUnavailable',
+    ];
+    private static $credentialExpiryErrorCodes = [
+        'ExpiredToken',
+        'ExpiredTokenException',
+        'RequestExpired',
+        'InvalidAccessKey',
+        'InvalidAccessKeyId',
+    ];
 
-    public function __construct(
-        $numMaxRetries = 3,
-        BackoffStrategy $backoffStrategy = null,
-        RetryCondition $retryCondition = null
-    ) {
+    private $numMaxRetries;
+    private $minRetryDelayMs;
+    private $maxRetryDelayMs;
+    private $retryErrorCodes;
+
+    public function __construct($numMaxRetries = 3, $minRetryDelayMs = 300, $maxRetryDelayMs = 300000, $retryErrorCodes = [])
+    {
         $this->numMaxRetries = $numMaxRetries;
-        $this->backoffStrategy = $backoffStrategy ?: new ExponentialWithRandomJitterBackoffStrategy();
-        $this->retryCondition = $retryCondition ?: new DefaultRetryCondition();
+        $this->minRetryDelayMs = $minRetryDelayMs;
+        $this->maxRetryDelayMs = $maxRetryDelayMs;
+        $this->retryErrorCodes = array_values(array_unique($retryErrorCodes ?: []));
     }
 
     public function getNumMaxRetries()
@@ -29,33 +50,90 @@ class Retryer
         return $this;
     }
 
-    public function getBackoffStrategy()
+    public function getMinRetryDelayMs()
     {
-        return $this->backoffStrategy;
+        return $this->minRetryDelayMs;
     }
 
-    public function setBackoffStrategy(BackoffStrategy $backoffStrategy = null)
+    public function setMinRetryDelayMs($minRetryDelayMs)
     {
-        $this->backoffStrategy = $backoffStrategy;
+        $this->minRetryDelayMs = $minRetryDelayMs;
         return $this;
     }
 
-    public function getRetryCondition()
+    public function getMaxRetryDelayMs()
     {
-        return $this->retryCondition;
+        return $this->maxRetryDelayMs;
     }
 
-    public function setRetryCondition(RetryCondition $retryCondition = null)
+    public function setMaxRetryDelayMs($maxRetryDelayMs)
     {
-        $this->retryCondition = $retryCondition;
+        $this->maxRetryDelayMs = $maxRetryDelayMs;
+        return $this;
+    }
+
+    public function getRetryErrorCodes()
+    {
+        return $this->retryErrorCodes;
+    }
+
+    public function setRetryErrorCodes($retryErrorCodes)
+    {
+        $this->retryErrorCodes = array_values(array_unique($retryErrorCodes ?: []));
         return $this;
     }
 
     public function shouldRetry($response, $retryCount, $error)
     {
-        if ($retryCount < $this->numMaxRetries && $this->retryCondition !== null) {
-            return $this->retryCondition->shouldRetry($response, $error);
+        if ($retryCount >= $this->numMaxRetries) {
+            return false;
         }
+
+        if ($error !== null) {
+            if ($error instanceof ConnectException) {
+                return true;
+            }
+
+            if ($error instanceof RequestException && $error->getResponse() === null) {
+                return true;
+            }
+
+            if ($error instanceof TransferException && !$error instanceof RequestException) {
+                return true;
+            }
+
+            if ($error instanceof ApiException) {
+                $statusCode = (int) $error->getCode();
+                if (in_array($statusCode, self::$retryStatusCodes, true)) {
+                    return true;
+                }
+
+                $errorCode = self::extractErrorCode($error->getResponseBody());
+                if ($errorCode !== null && (
+                    in_array($errorCode, $this->getEffectiveRetryErrorCodes(), true)
+                    || self::isCredentialExpiryError($errorCode)
+                )) {
+                    return true;
+                }
+            }
+        }
+
+        if ($response !== null) {
+            $statusCode = method_exists($response, 'getStatusCode') ? (int) $response->getStatusCode() : null;
+            if ($statusCode !== null && in_array($statusCode, self::$retryStatusCodes, true)) {
+                return true;
+            }
+
+            $body = method_exists($response, 'getBody') ? (string) $response->getBody() : null;
+            $errorCode = self::extractErrorCode($body);
+            if ($errorCode !== null && (
+                in_array($errorCode, $this->getEffectiveRetryErrorCodes(), true)
+                || self::isCredentialExpiryError($errorCode)
+            )) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -65,11 +143,12 @@ class Retryer
             throw new \InvalidArgumentException('Retry count exceeds maximum limit');
         }
 
-        if ($this->backoffStrategy === null) {
+        $base = min($this->minRetryDelayMs * pow(2, $retryCount), $this->maxRetryDelayMs);
+        if ($base <= 0) {
             return 0.0;
         }
 
-        return $this->backoffStrategy->computeDelay($retryCount);
+        return min($this->maxRetryDelayMs, $base + mt_rand(0, (int) $base));
     }
 
     public function getRetryDelay($retryCount, $response = null)
@@ -111,13 +190,39 @@ class Retryer
         return (float) $delaySeconds * 1000;
     }
 
-    public function __clone()
+    public static function extractErrorCode($body)
     {
-        if (is_object($this->backoffStrategy)) {
-            $this->backoffStrategy = clone $this->backoffStrategy;
+        if (empty($body)) {
+            return null;
         }
-        if (is_object($this->retryCondition)) {
-            $this->retryCondition = clone $this->retryCondition;
+
+        if (is_object($body)) {
+            $body = json_encode($body);
         }
+
+        if (!is_string($body) || $body === '') {
+            return null;
+        }
+
+        $decoded = json_decode($body, true);
+        if (!is_array($decoded)) {
+            return null;
+        }
+
+        if (isset($decoded['ResponseMetadata']['Error']['Code'])) {
+            return $decoded['ResponseMetadata']['Error']['Code'];
+        }
+
+        return null;
+    }
+
+    public static function isCredentialExpiryError($errorCode)
+    {
+        return in_array($errorCode, self::$credentialExpiryErrorCodes, true);
+    }
+
+    private function getEffectiveRetryErrorCodes()
+    {
+        return array_values(array_unique(array_merge(self::$defaultRetryErrorCodes, $this->retryErrorCodes)));
     }
 }

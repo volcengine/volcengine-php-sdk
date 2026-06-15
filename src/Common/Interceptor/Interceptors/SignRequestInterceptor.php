@@ -3,9 +3,7 @@
 namespace Volcengine\Common\Interceptor\Interceptors;
 
 use GuzzleHttp\RequestOptions;
-use Volcengine\Common\LogHelper;
-use Volcengine\Common\SdkLogger;
-use Volcengine\Common\Sign\V4Signer;
+use Volcengine\Common\Utils;
 
 class SignRequestInterceptor extends Interceptor
 {
@@ -36,8 +34,7 @@ class SignRequestInterceptor extends Interceptor
         }
 
         if ($request->isPresigned) {
-            $signer = new V4Signer();
-            $signedPath = $signer->presign(
+            $signedPath = Utils::signRequestToUrl(
                 $request->ak,
                 $request->sk,
                 $request->region,
@@ -60,16 +57,8 @@ class SignRequestInterceptor extends Interceptor
                 $request->headers['Host'] = $request->host;
             }
 
-            $signer = new V4Signer();
-            $request->headers = $signer->sign($request->ak, $request->sk, $request->region, $request->service,
+            $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
-            LogHelper::debug($request->logger, SdkLogger::LOG_SIGNING, 'Sign',
-                'service={service} region={region} signed_headers={headers}', [
-                    'service' => $request->service,
-                    'region' => $request->region,
-                    'headers' => isset($request->headers['Authorization']) ? 'Authorization' : '',
-                ]
-            );
             $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
                 $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
                 $request->headers, $request->httpBody);

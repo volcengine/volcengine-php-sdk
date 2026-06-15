@@ -23,15 +23,9 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 ```
 
 `StsProvider` also supports dedicated retry customization through
-`setRetryer()`, `setConnectTimeout()`, and `setReadTimeout()`.
+`setConnectTimeout()` and `setReadTimeout()`.
 
-Use `NoOpRetryer` when you want a concrete retryer instance that always
-disables retries:
-
-```php
-<?php
-$config->setRetryer(new \Volcengine\Common\Retry\NoOpRetryer());
-```
+Use `setAutoRetry(false)` to disable business API retries.
 
 Default retry behavior covers transient network failures and HTTP `429/500/502/503/504`.
 

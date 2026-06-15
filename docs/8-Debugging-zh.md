@@ -4,7 +4,7 @@
 
 ## Debug 机制
 
-PHP SDK 现在同时支持 Guzzle 线级调试输出和结构化 SDK 日志。
+PHP SDK 支持 Guzzle 线级调试输出。
 
 ```php
 <?php
@@ -15,24 +15,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSk("Your sk")
     ->setRegion('cn-beijing')
     ->setDebug(true)
-    ->setDebugFile('/tmp/volcengine-php-sdk-debug.log')
-    ->setLogLevel(
-        \Volcengine\Common\SdkLogger::LOG_REQUEST
-        | \Volcengine\Common\SdkLogger::LOG_RESPONSE
-        | \Volcengine\Common\SdkLogger::LOG_RETRY
-    );
-```
-
-可用的 bitmask 日志类别包括 `LOG_REQUEST`、`LOG_REQUEST_BODY`、
-`LOG_REQUEST_ID`、`LOG_ENDPOINT`、`LOG_CONFIG`、`LOG_SIGNING`、
-`LOG_RETRY`、`LOG_RESPONSE`、`LOG_RESPONSE_BODY`、`LOG_ERROR`。
-
-`setLogger()` 支持 SDK 自带的 `LoggerInterface` / `SdkLogger`，也支持暴露
-`debug/info/warning/error` 或 `log()` 的 PSR-3 风格对象。
-
-```php
-<?php
-$config->setLogger(new Monolog\Logger('volcengine'));
+    ->setDebugFile('/tmp/volcengine-php-sdk-debug.log');
 ```
 
 也可以覆盖默认 SDK User-Agent：

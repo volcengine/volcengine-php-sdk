@@ -6,10 +6,9 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Psr7\Request;
+use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
-use Volcengine\Common\Error\ApiExceptionFactory;
-use Volcengine\Common\Retry\Retryer;
-use Volcengine\Common\Sign\V4Signer;
+use Volcengine\Common\Utils;
 
 class StsProvider extends Provider
 {
@@ -99,9 +98,8 @@ class StsProvider extends Provider
         $lastError = null;
         $lastResponse = null;
         $responseContent = null;
-        $signer = new V4Signer();
         while (true) {
-            $signedHeaders = $signer->sign($this->ak, $this->sk, $this->region, 'sts',
+            $signedHeaders = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
                 '', $query, 'GET', '/', $headers);
 
             $request = new Request('GET',
@@ -118,7 +116,7 @@ class StsProvider extends Provider
                 $responseContent = (string) $response->getBody();
                 $statusCode = $response->getStatusCode();
                 if ($statusCode < 200 || $statusCode > 299) {
-                    $lastError = ApiExceptionFactory::fromHttpResponse(
+                    $lastError = ApiException::fromHttpResponse(
                         $statusCode,
                         $request->getUri(),
                         $response->getHeaders(),
@@ -128,7 +126,7 @@ class StsProvider extends Provider
                 } else {
                     $decoded = json_decode($responseContent);
                     if (isset($decoded->{'ResponseMetadata'}->{'Error'})) {
-                        $lastError = ApiExceptionFactory::fromServiceError(
+                        $lastError = ApiException::fromServiceError(
                             $statusCode,
                             $request->getUri(),
                             $response->getHeaders(),
@@ -141,10 +139,10 @@ class StsProvider extends Provider
                 }
             } catch (RequestException $e) {
                 $lastResponse = $e->getResponse();
-                $lastError = ApiExceptionFactory::fromRequestException($e);
+                $lastError = ApiException::fromRequestException($e);
                 $retryCandidate = $e;
             } catch (TransferException $e) {
-                $lastError = ApiExceptionFactory::fromTransferException($e);
+                $lastError = ApiException::fromTransferException($e);
                 $retryCandidate = $e;
             }
 
@@ -163,12 +161,6 @@ class StsProvider extends Provider
         $content = $content->{'Result'};
 
         return (array)$content->Credentials;
-    }
-
-    public function setRetryer(Retryer $retryer)
-    {
-        $this->retryer = $retryer;
-        return $this;
     }
 
     public function setConnectTimeout($connectTimeout)

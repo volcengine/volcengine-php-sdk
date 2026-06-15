@@ -41,20 +41,7 @@ class BuildRequestInterceptor extends Interceptor
             $httpBody = Utils::transRequest($httpBody);
             $httpBody = http_build_query($httpBody);
         } else {
-            $payload = ObjectSerializer::sanitizeForSerialization($body);
-            if (!empty($request->extraJsonBody) && is_array($request->extraJsonBody)) {
-                if (is_object($payload)) {
-                    $payload = (array) $payload;
-                }
-                if (is_array($payload)) {
-                    $payload = array_merge($payload, $request->extraJsonBody);
-                }
-            }
-            $httpBody = json_encode($payload);
-        }
-
-        if (!empty($request->extraQueryParameters) && is_array($request->extraQueryParameters)) {
-            $queryParams = array_merge($queryParams, $request->extraQueryParameters);
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
         }
 
         $queryParams['Action'] = $paths[1];

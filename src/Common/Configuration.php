@@ -2,9 +2,6 @@
 
 namespace Volcengine\Common;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Handler\CurlMultiHandler;
-use GuzzleHttp\HandlerStack;
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
 use Volcengine\Common\Retry\Retryer;
 
@@ -19,7 +16,6 @@ class Configuration
     protected $useDualStack = false;
     protected $autoRetry = false;
     protected $credentialProvider;
-    protected $runtimeOptions;
 
     protected $sessionToken = '';
     protected $ak = '';
@@ -43,14 +39,7 @@ class Configuration
     protected $debug = false;
     protected $debugFile = 'php://stderr';
     protected $tempFolderPath;
-    protected $logger;
-    protected $logLevel = 0;
     protected $retryer;
-    protected $enableRequestGzip = false;
-    protected $gzipMinLength = 1024;
-    protected $progressListener;
-    protected $numPools = 4;
-    protected $connectionPoolMaxsize = 20;
 
     public function __construct()
     {
@@ -58,7 +47,6 @@ class Configuration
         $this->endpointProvider = new DefaultEndpointProvider();
         $this->retryer = new Retryer();
         $this->userAgent = Version::userAgent();
-        $this->logger = new SdkLogger($this->debug, $this->logLevel);
     }
 
     /**
@@ -221,17 +209,6 @@ class Configuration
         return $this;
     }
 
-    public function getRuntimeOptions()
-    {
-        return $this->runtimeOptions;
-    }
-
-    public function setRuntimeOptions($runtimeOptions)
-    {
-        $this->runtimeOptions = $runtimeOptions;
-        return $this;
-    }
-
     public function setVerifySsl($verifySsl)
     {
         $this->verifySsl = (bool) $verifySsl;
@@ -356,9 +333,6 @@ class Configuration
     public function setDebug($debug)
     {
         $this->debug = (bool) $debug;
-        if ($this->logger !== null && method_exists($this->logger, 'setDebug')) {
-            $this->logger->setDebug($this->debug);
-        }
         return $this;
     }
 
@@ -370,12 +344,6 @@ class Configuration
     public function setDebugFile($debugFile)
     {
         $this->debugFile = $debugFile;
-        if ($this->logger instanceof SdkLogger) {
-            $stream = fopen($this->debugFile, 'a');
-            if ($stream !== false) {
-                $this->logger->setStream($stream);
-            }
-        }
         return $this;
     }
 
@@ -395,161 +363,6 @@ class Configuration
         return $this->tempFolderPath;
     }
 
-    public function setLogger($logger)
-    {
-        if ($logger !== null && !$logger instanceof LoggerInterface) {
-            if (PsrLoggerAdapter::supports($logger)) {
-                $logger = new PsrLoggerAdapter($logger, $this->debug, $this->logLevel);
-            } else {
-                throw new \InvalidArgumentException('Logger must implement Volcengine\\Common\\LoggerInterface or expose a PSR-3 compatible API');
-            }
-        }
-
-        $this->logger = $logger;
-        if ($this->logger !== null && method_exists($this->logger, 'setDebug')) {
-            $this->logger->setDebug($this->debug);
-        }
-        if ($this->logger !== null && method_exists($this->logger, 'setLogLevel')) {
-            $this->logger->setLogLevel($this->logLevel);
-        }
-        return $this;
-    }
-
-    public function getLogger()
-    {
-        return $this->logger;
-    }
-
-    public function setLogLevel($logLevel)
-    {
-        $this->logLevel = $logLevel;
-        if ($this->logger !== null && method_exists($this->logger, 'setLogLevel')) {
-            $this->logger->setLogLevel($logLevel);
-        }
-        return $this;
-    }
-
-    public function getLogLevel()
-    {
-        return $this->logLevel;
-    }
-
-    public function setEnableRequestGzip($enableRequestGzip)
-    {
-        $this->enableRequestGzip = (bool) $enableRequestGzip;
-        return $this;
-    }
-
-    public function getEnableRequestGzip()
-    {
-        return $this->enableRequestGzip;
-    }
-
-    public function setGzipMinLength($gzipMinLength)
-    {
-        $this->gzipMinLength = $gzipMinLength;
-        return $this;
-    }
-
-    public function getGzipMinLength()
-    {
-        return $this->gzipMinLength;
-    }
-
-    public function setProgressListener($progressListener)
-    {
-        $this->progressListener = $progressListener;
-        return $this;
-    }
-
-    public function getProgressListener()
-    {
-        return $this->progressListener;
-    }
-
-    public function setNumPools($numPools)
-    {
-        $this->numPools = (int) $numPools;
-        return $this;
-    }
-
-    public function getNumPools()
-    {
-        return $this->numPools;
-    }
-
-    public function setConnectionPoolMaxsize($connectionPoolMaxsize)
-    {
-        $this->connectionPoolMaxsize = (int) $connectionPoolMaxsize;
-        return $this;
-    }
-
-    public function getConnectionPoolMaxsize()
-    {
-        return $this->connectionPoolMaxsize;
-    }
-
-    public function createHttpClient()
-    {
-        return new Client($this->toHttpClientConfig());
-    }
-
-    public function toHttpClientConfig()
-    {
-        $config = [
-            'timeout' => $this->getReadTimeout(),
-            'connect_timeout' => $this->getConnectTimeout(),
-            'verify' => $this->getSslCaCert() ?: $this->getVerifySsl(),
-            'http_errors' => false,
-        ];
-
-        if ($this->getAssertHostname() === false && defined('CURLOPT_SSL_VERIFYHOST')) {
-            $config['curl'][CURLOPT_SSL_VERIFYHOST] = 0;
-        }
-
-        $maxConnects = max(1, (int) $this->getConnectionPoolMaxsize());
-        if (defined('CURLOPT_MAXCONNECTS')) {
-            $config['curl'][CURLOPT_MAXCONNECTS] = $maxConnects;
-        }
-
-        if (class_exists('GuzzleHttp\\Handler\\CurlMultiHandler') && class_exists('GuzzleHttp\\HandlerStack')) {
-            $maxHandles = max(1, (int) $this->getNumPools()) * $maxConnects;
-            $config['handler'] = HandlerStack::create(new CurlMultiHandler([
-                'max_handles' => $maxHandles,
-            ]));
-        }
-
-        if ($this->getCertFile() !== null) {
-            $config['cert'] = $this->getCertFile();
-        }
-        if ($this->getKeyFile() !== null) {
-            $config['ssl_key'] = $this->getKeyFile();
-        }
-        if ($this->getProxy() !== null) {
-            $config['proxy'] = $this->getProxy();
-        } elseif ($this->getHttpProxy() !== null || $this->getHttpsProxy() !== null) {
-            $proxy = [];
-            if ($this->getHttpProxy() !== null) {
-                $proxy['http'] = $this->getHttpProxy();
-            }
-            if ($this->getHttpsProxy() !== null) {
-                $proxy['https'] = $this->getHttpsProxy();
-            }
-            $config['proxy'] = $proxy;
-        }
-        if ($this->getProgressListener() !== null) {
-            $config['progress'] = $this->getProgressListener();
-        }
-
-        return $config;
-    }
-
-    public function setRetryer(Retryer $retryer)
-    {
-        $this->retryer = $retryer;
-        return $this;
-    }
-
     public function getRetryer()
     {
         return $this->retryer;
@@ -566,71 +379,37 @@ class Configuration
         return $this->retryer->getNumMaxRetries();
     }
 
-    public function setBackoffStrategy($backoffStrategy)
-    {
-        $this->retryer->setBackoffStrategy($backoffStrategy);
-        return $this;
-    }
-
-    public function getBackoffStrategy()
-    {
-        return $this->retryer->getBackoffStrategy();
-    }
-
-    public function setRetryCondition($retryCondition)
-    {
-        $this->retryer->setRetryCondition($retryCondition);
-        return $this;
-    }
-
-    public function getRetryCondition()
-    {
-        return $this->retryer->getRetryCondition();
-    }
-
     public function setRetryErrorCodes($retryErrorCodes)
     {
-        $condition = $this->retryer->getRetryCondition();
-        if ($condition !== null) {
-            $condition->setRetryErrorCodes($retryErrorCodes);
-        }
+        $this->retryer->setRetryErrorCodes($retryErrorCodes);
         return $this;
     }
 
     public function getRetryErrorCodes()
     {
-        $condition = $this->retryer->getRetryCondition();
-        return $condition !== null ? $condition->getRetryErrorCodes() : [];
+        return $this->retryer->getRetryErrorCodes();
     }
 
     public function setMinRetryDelayMs($minRetryDelayMs)
     {
-        $backoff = $this->retryer->getBackoffStrategy();
-        if ($backoff !== null) {
-            $backoff->setMinRetryDelayMs($minRetryDelayMs);
-        }
+        $this->retryer->setMinRetryDelayMs($minRetryDelayMs);
         return $this;
     }
 
     public function getMinRetryDelayMs()
     {
-        $backoff = $this->retryer->getBackoffStrategy();
-        return $backoff !== null ? $backoff->getMinRetryDelayMs() : null;
+        return $this->retryer->getMinRetryDelayMs();
     }
 
     public function setMaxRetryDelayMs($maxRetryDelayMs)
     {
-        $backoff = $this->retryer->getBackoffStrategy();
-        if ($backoff !== null) {
-            $backoff->setMaxRetryDelayMs($maxRetryDelayMs);
-        }
+        $this->retryer->setMaxRetryDelayMs($maxRetryDelayMs);
         return $this;
     }
 
     public function getMaxRetryDelayMs()
     {
-        $backoff = $this->retryer->getBackoffStrategy();
-        return $backoff !== null ? $backoff->getMaxRetryDelayMs() : null;
+        return $this->retryer->getMaxRetryDelayMs();
     }
 
     /**

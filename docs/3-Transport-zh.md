@@ -85,29 +85,6 @@ try {
 }
 ```
 
-### 调整 HTTP 连接池
-
-通过 `Configuration::createHttpClient()` 创建的默认 Guzzle client 支持
-连接池调优：
-
-```php
-<?php
-$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
-    ->setNumPools(4)
-    ->setConnectionPoolMaxsize(20);
-
-$client = $config->createHttpClient();
-```
-
-- `setNumPools()` 用于控制 SDK 管理的 HTTP client 使用的 curl multi
-  handle 数量。
-- `setConnectionPoolMaxsize()` 会映射到 `CURLOPT_MAXCONNECTS`，限制可复用
-  的 keep-alive 连接上限。
-- `setProgressListener()` 会透传 Guzzle 的 `progress` 回调，可用于上传/
-  下载进度监听。
-- 如果你需要自己创建 `GuzzleHttp\Client`，可以通过 `toHttpClientConfig()`
-  导出整理后的 Guzzle 配置。
-
 ---
 
 [← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)

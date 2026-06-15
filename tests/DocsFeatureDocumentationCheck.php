@@ -58,33 +58,35 @@ assert_contains($timeout, 'setReadTimeout(', 'timeout docs read timeout');
 
 $retry = read_file_or_fail($root . '/docs/6-Retry.md');
 assert_contains($retry, 'setAutoRetry(true)', 'retry docs auto retry');
+assert_contains($retry, 'setAutoRetry(false)', 'retry docs disable retry');
 assert_contains($retry, 'setNumMaxRetries(3)', 'retry docs max retries');
 assert_contains($retry, 'setMinRetryDelayMs(300)', 'retry docs min retry delay');
 assert_contains($retry, 'setMaxRetryDelayMs(3000)', 'retry docs max retry delay');
 assert_contains($retry, 'setRetryErrorCodes(', 'retry docs retry error codes');
-assert_contains($retry, 'NoOpRetryer', 'retry docs no-op retryer');
+assert_not_contains($retry, 'NoOpRetryer', 'retry docs no-op retryer');
 assert_contains($retry, 'Retry-After', 'retry docs retry-after');
 assert_contains($retry, 'ExpiredToken', 'retry docs credential expiry retry');
 
 $errorHandling = read_file_or_fail($root . '/docs/7-ErrorHandling.md');
-assert_contains($errorHandling, 'ClientException', 'error docs client exception');
-assert_contains($errorHandling, 'ServerException', 'error docs server exception');
-assert_contains($errorHandling, 'ReadException', 'error docs read exception');
-assert_contains($errorHandling, 'SerializationException', 'error docs serialization exception');
+assert_contains($errorHandling, 'Volcengine\\Common\\ApiException', 'error docs api exception');
 assert_contains($errorHandling, 'getStatusCode()', 'error docs status helper');
 assert_contains($errorHandling, 'getErrorCode()', 'error docs code helper');
 assert_contains($errorHandling, 'getErrorMessage()', 'error docs message helper');
 assert_contains($errorHandling, 'getOriginalError()', 'error docs original error helper');
+assert_not_contains($errorHandling, 'ClientException', 'error docs client exception');
+assert_not_contains($errorHandling, 'ServerException', 'error docs server exception');
+assert_not_contains($errorHandling, 'ReadException', 'error docs read exception');
+assert_not_contains($errorHandling, 'SerializationException', 'error docs serialization exception');
 assert_not_contains($errorHandling, 'setSimpleError(true)', 'error docs simple error');
 
 $debugging = read_file_or_fail($root . '/docs/8-Debugging.md');
-assert_contains($debugging, 'setLogLevel(', 'debug docs log level');
-assert_contains($debugging, 'setLogger(', 'debug docs custom logger');
 assert_contains($debugging, 'setUserAgent(', 'debug docs user agent');
-assert_contains($debugging, 'LOG_REQUEST', 'debug docs request log level');
-assert_contains($debugging, 'LOG_ENDPOINT', 'debug docs endpoint log level');
-assert_contains($debugging, 'PSR-3', 'debug docs psr-3');
 assert_contains($debugging, 'Configuration::toDebugReport()', 'debug report docs');
+assert_not_contains($debugging, 'setLogLevel(', 'debug docs log level');
+assert_not_contains($debugging, 'setLogger(', 'debug docs custom logger');
+assert_not_contains($debugging, 'LOG_REQUEST', 'debug docs request log level');
+assert_not_contains($debugging, 'LOG_ENDPOINT', 'debug docs endpoint log level');
+assert_not_contains($debugging, 'PSR-3', 'debug docs psr-3');
 assert_not_contains($debugging, 'setSigner(', 'debug docs signer');
 assert_not_contains($debugging, 'setDynamicCredentials()', 'debug docs dynamic credentials hook');
 assert_not_contains($debugging, 'setExtendHttpRequest()', 'debug docs extend request hook');
@@ -98,15 +100,15 @@ assert_not_contains($debugging, 'setLogAccount()', 'debug docs log account');
 assert_not_contains($debugging, 'setForceJsonNumberDecode()', 'debug docs force json number decode');
 
 $transport = read_file_or_fail($root . '/docs/3-Transport.md');
-assert_contains($transport, 'setNumPools(', 'transport docs num pools');
-assert_contains($transport, 'setConnectionPoolMaxsize(', 'transport docs connection pool maxsize');
-assert_contains($transport, 'createHttpClient()', 'transport docs create http client');
-assert_contains($transport, 'toHttpClientConfig()', 'transport docs export http config');
 assert_contains($transport, 'setSslCaCert(', 'transport docs ca cert');
 assert_contains($transport, 'setCertFile(', 'transport docs client cert');
 assert_contains($transport, 'setKeyFile(', 'transport docs client key');
 assert_contains($transport, 'setAssertHostname(', 'transport docs assert hostname');
-assert_contains($transport, 'setProgressListener(', 'transport docs progress listener');
+assert_not_contains($transport, 'setNumPools(', 'transport docs num pools');
+assert_not_contains($transport, 'setConnectionPoolMaxsize(', 'transport docs connection pool maxsize');
+assert_not_contains($transport, 'createHttpClient()', 'transport docs create http client');
+assert_not_contains($transport, 'toHttpClientConfig()', 'transport docs export http config');
+assert_not_contains($transport, 'setProgressListener(', 'transport docs progress listener');
 
 $endpoint = read_file_or_fail($root . '/docs/2-Endpoint.md');
 assert_contains($endpoint, 'setHost(', 'endpoint docs custom endpoint');
@@ -126,16 +128,16 @@ assert_contains($configuration, 'function setAutoRetry', 'configuration auto ret
 assert_contains($configuration, 'function setProxy', 'configuration proxy setter');
 assert_contains($configuration, 'function setHttpProxy', 'configuration http proxy setter');
 assert_contains($configuration, 'function setHttpsProxy', 'configuration https proxy setter');
-assert_contains($configuration, 'function setLogger', 'configuration logger setter');
-assert_contains($configuration, 'function setLogLevel', 'configuration log level setter');
-assert_contains($configuration, 'function setRuntimeOptions', 'configuration runtime options setter');
 assert_contains($configuration, 'function setNumMaxRetries', 'configuration max retries setter');
-assert_contains($configuration, 'function setEnableRequestGzip', 'configuration gzip setter');
 assert_contains($configuration, 'function getDefaultConfiguration', 'configuration default config');
-assert_contains($configuration, 'function setNumPools', 'configuration num pools setter');
-assert_contains($configuration, 'function setConnectionPoolMaxsize', 'configuration connection pool maxsize setter');
-assert_contains($configuration, 'function createHttpClient', 'configuration create http client');
-assert_contains($configuration, 'function toHttpClientConfig', 'configuration http client config export');
+assert_not_contains($configuration, 'function setLogger', 'configuration logger setter');
+assert_not_contains($configuration, 'function setLogLevel', 'configuration log level setter');
+assert_not_contains($configuration, 'function setRuntimeOptions', 'configuration runtime options setter');
+assert_not_contains($configuration, 'function setEnableRequestGzip', 'configuration gzip setter');
+assert_not_contains($configuration, 'function setNumPools', 'configuration num pools setter');
+assert_not_contains($configuration, 'function setConnectionPoolMaxsize', 'configuration connection pool maxsize setter');
+assert_not_contains($configuration, 'function createHttpClient', 'configuration create http client');
+assert_not_contains($configuration, 'function toHttpClientConfig', 'configuration http client config export');
 assert_not_contains($configuration, 'function setSigner', 'configuration signer setter');
 assert_not_contains($configuration, 'function addRequestInterceptor', 'configuration request interceptor hooks');
 assert_not_contains($configuration, 'function addResponseInterceptor', 'configuration response interceptor hooks');
@@ -148,12 +150,12 @@ assert_not_contains($configuration, 'function setForceJsonNumberDecode', 'config
 assert_not_contains($configuration, 'function setSimpleError', 'configuration simple error setter');
 
 $apiClient = read_file_or_fail($root . '/src/Common/ApiClient.php');
-assert_contains($apiClient, 'RuntimeOptionsInterceptor', 'api client runtime options interceptor');
-assert_contains($apiClient, 'GzipRequestInterceptor', 'api client gzip interceptor');
-assert_contains($apiClient, 'HttpLoggingInterceptor', 'api client http logging interceptor');
 assert_contains($apiClient, 'DeserializedResponseInterceptor', 'api client deserialized response interceptor');
 assert_contains($apiClient, 'sendAsyncAttempt', 'api client async retry');
 assert_contains($apiClient, 'shouldRetry', 'api client retryer integration');
+assert_not_contains($apiClient, 'RuntimeOptionsInterceptor', 'api client runtime options interceptor');
+assert_not_contains($apiClient, 'GzipRequestInterceptor', 'api client gzip interceptor');
+assert_not_contains($apiClient, 'HttpLoggingInterceptor', 'api client http logging interceptor');
 assert_not_contains($apiClient, 'function getInterceptorChain', 'api client interceptor chain getter');
 assert_not_contains($apiClient, 'function addRequestInterceptor', 'api client custom request interceptor API');
 assert_not_contains($apiClient, 'function addResponseInterceptor', 'api client custom response interceptor API');
@@ -162,8 +164,9 @@ assert_not_contains($apiClient, 'applyHttpExtensions', 'api client http extensio
 assert_not_contains($apiClient, 'buildRequestMeta', 'api client request meta');
 
 $signInterceptor = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/SignRequestInterceptor.php');
-assert_contains($signInterceptor, 'V4Signer', 'sign interceptor signer implementation');
+assert_contains($signInterceptor, 'Utils::signv4', 'sign interceptor direct signer call');
 assert_contains($signInterceptor, 'presign(', 'sign interceptor presign support');
+assert_not_contains($signInterceptor, 'V4Signer', 'sign interceptor signer wrapper');
 
 $retryer = read_file_or_fail($root . '/src/Common/Retry/Retryer.php');
 assert_contains($retryer, 'class Retryer', 'retryer class');
@@ -171,76 +174,52 @@ assert_contains($retryer, 'function shouldRetry', 'retryer should retry');
 assert_contains($retryer, 'function getBackoffDelay', 'retryer backoff delay');
 assert_contains($retryer, 'function getRetryDelay', 'retryer retry delay');
 
-$noOpRetryer = read_file_or_fail($root . '/src/Common/Retry/NoOpRetryer.php');
-assert_contains($noOpRetryer, 'class NoOpRetryer', 'no-op retryer class');
-
-$retryCondition = read_file_or_fail($root . '/src/Common/Retry/DefaultRetryCondition.php');
-assert_contains($retryCondition, 'function isCredentialExpiryError', 'retry condition credential expiry');
-assert_contains($retryCondition, 'function extractErrorCode', 'retry condition extract error code');
+assert_contains($retryer, 'function isCredentialExpiryError', 'retryer credential expiry');
+assert_contains($retryer, 'function extractErrorCode', 'retryer extract error code');
 
 $defaultProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/DefaultCredentialProvider.php');
 
 $stsProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/StsProvider.php');
-assert_contains($stsProvider, 'function setRetryer', 'sts provider retryer setter');
+assert_not_contains($stsProvider, 'function setRetryer', 'sts provider retryer setter');
 assert_contains($stsProvider, 'function setConnectTimeout', 'sts provider connect timeout setter');
 assert_contains($stsProvider, 'function setReadTimeout', 'sts provider read timeout setter');
 
 $endpointStandard = read_file_or_fail($root . '/src/Common/Endpoint/Providers/StandardEndpointProvider.php');
 assert_contains($endpointStandard, 'class StandardEndpointProvider', 'standard endpoint provider');
 
-$loggerAdapter = read_file_or_fail($root . '/src/Common/PsrLoggerAdapter.php');
-assert_contains($loggerAdapter, 'class PsrLoggerAdapter', 'psr logger adapter');
-
-$logHelper = read_file_or_fail($root . '/src/Common/LogHelper.php');
-assert_contains($logHelper, 'class LogHelper', 'log helper');
-assert_contains($logHelper, 'defaultSensitiveKeys', 'log helper sensitive keys');
-assert_not_contains($logHelper, '__log_account', 'log helper account context');
-
-$apiExceptionFactory = read_file_or_fail($root . '/src/Common/Error/ApiExceptionFactory.php');
-assert_contains($apiExceptionFactory, 'class ApiExceptionFactory', 'api exception factory');
-
-$sdkErrorInterface = read_file_or_fail($root . '/src/Common/Error/SdkErrorInterface.php');
-assert_contains($sdkErrorInterface, 'interface SdkErrorInterface', 'sdk error interface');
+$endpointProvidersAutoload = read_file_or_fail($root . '/src/Common/Endpoint/Providers/autoload.php');
+assert_contains($endpointProvidersAutoload, 'StandardEndpointProvider.php', 'standard endpoint provider autoload');
 
 $apiException = read_file_or_fail($root . '/src/Common/ApiException.php');
 assert_contains($apiException, 'function getStatusCode', 'api exception status helper');
 assert_contains($apiException, 'function getErrorCode', 'api exception code helper');
 assert_contains($apiException, 'function getErrorMessage', 'api exception message helper');
 assert_contains($apiException, 'function getOriginalError', 'api exception original error helper');
-assert_contains($apiException, 'function code', 'api exception code alias');
-assert_contains($apiException, 'function message', 'api exception message alias');
+assert_contains($apiException, 'function fromHttpResponse', 'api exception http response factory');
+assert_not_contains($apiException, 'function code', 'api exception code alias');
+assert_not_contains($apiException, 'function message', 'api exception message alias');
 
-$clientException = read_file_or_fail($root . '/src/Common/Error/ClientException.php');
-assert_contains($clientException, 'class ClientException', 'client exception class');
+$commonAutoload = read_file_or_fail($root . '/src/Common/autoload.php');
+assert_not_contains($commonAutoload, 'Error/autoload.php', 'common autoload typed error classes');
+assert_not_contains($commonAutoload, 'SdkErrorInterface.php', 'common autoload sdk error interface');
+assert_not_contains($commonAutoload, 'RuntimeOptions.php', 'common autoload runtime options');
+assert_not_contains($commonAutoload, 'Universal', 'common autoload universal helpers');
+assert_not_contains($commonAutoload, 'Paginator.php', 'common autoload paginator');
+assert_not_contains($commonAutoload, 'Waiter.php', 'common autoload waiter');
+assert_not_contains($commonAutoload, 'Session.php', 'common autoload session helper');
+assert_not_contains($commonAutoload, 'Sign/autoload.php', 'common autoload sign wrappers');
+assert_not_contains($commonAutoload, 'LoggerInterface.php', 'common autoload logger interface');
+assert_not_contains($commonAutoload, 'SdkLogger.php', 'common autoload sdk logger');
+assert_not_contains($commonAutoload, 'LogHelper.php', 'common autoload log helper');
+assert_not_contains($commonAutoload, 'PsrLoggerAdapter.php', 'common autoload psr logger adapter');
 
-$serverException = read_file_or_fail($root . '/src/Common/Error/ServerException.php');
-assert_contains($serverException, 'class ServerException', 'server exception class');
-
-$universal = read_file_or_fail($root . '/src/Common/UniversalApi.php');
-assert_contains($universal, 'class UniversalApi', 'universal api');
-assert_contains($universal, 'function doRequest', 'universal api request method');
-
-$universalInfo = read_file_or_fail($root . '/src/Common/UniversalInfo.php');
-assert_contains($universalInfo, 'class UniversalInfo', 'universal info');
-
-$universalRequest = read_file_or_fail($root . '/src/Common/UniversalRequest.php');
-assert_contains($universalRequest, 'class UniversalRequest', 'universal request');
-
-$paginator = read_file_or_fail($root . '/src/Common/Paginator.php');
-assert_contains($paginator, 'class Paginator', 'paginator class');
-assert_contains($paginator, 'eachPage', 'paginator each page');
-
-$waiter = read_file_or_fail($root . '/src/Common/Waiter.php');
-assert_contains($waiter, 'class Waiter', 'waiter class');
-assert_contains($waiter, 'constantDelay', 'waiter delay helper');
-
-$session = read_file_or_fail($root . '/src/Common/Session.php');
-assert_contains($session, 'class Session', 'session class');
+$retryAutoload = read_file_or_fail($root . '/src/Common/Retry/autoload.php');
+assert_not_contains($retryAutoload, 'BackoffStrategy.php', 'retry autoload backoff strategy');
+assert_not_contains($retryAutoload, 'RetryCondition.php', 'retry autoload retry condition');
+assert_not_contains($retryAutoload, 'DefaultRetryCondition.php', 'retry autoload retry condition implementation');
+assert_not_contains($retryAutoload, 'NoOpRetryer.php', 'retry autoload no-op retryer');
 
 $version = read_file_or_fail($root . '/src/Common/Version.php');
 assert_contains($version, 'SDK_VERSION', 'version constant');
-
-$gzip = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/GzipRequestInterceptor.php');
-assert_contains($gzip, 'class GzipRequestInterceptor', 'gzip interceptor');
 
 echo "Docs feature documentation check passed.\n";

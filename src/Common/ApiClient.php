@@ -6,19 +6,14 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use Volcengine\Common\Auth\Providers\DefaultCredentialProvider;
-use Volcengine\Common\Error\ApiExceptionFactory;
 use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
 use Volcengine\Common\Interceptor\Interceptors\DeserializedResponseInterceptor;
-use Volcengine\Common\Interceptor\Interceptors\GzipRequestInterceptor;
-use Volcengine\Common\Interceptor\Interceptors\HttpLoggingInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Request;
 use Volcengine\Common\Interceptor\Interceptors\Response;
 use Volcengine\Common\Interceptor\Interceptors\ResolveEndpointInterceptor;
-use Volcengine\Common\Interceptor\Interceptors\RuntimeOptionsInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\SignRequestInterceptor;
-use Volcengine\Common\Retry\DefaultRetryCondition;
 use Volcengine\Common\Retry\Retryer;
 
 class ApiClient
@@ -37,7 +32,7 @@ class ApiClient
     {
         $config = $config ?: new Configuration();
         $this->usesCustomClient = $client !== null;
-        $client = $client ?: new Client($this->buildClientConfig($config));
+        $client = $client ?: new Client();
 
         $this->configuration = $config;
         $this->client = $client;
@@ -47,12 +42,9 @@ class ApiClient
 
         $this->interceptorChain = new InterceptorChain();
         $this->signRequestInterceptor = new SignRequestInterceptor(null);
-        $this->interceptorChain->appendRequestInterceptor(new RuntimeOptionsInterceptor());
         $this->interceptorChain->appendRequestInterceptor(new BuildRequestInterceptor());
-        $this->interceptorChain->appendRequestInterceptor(new GzipRequestInterceptor());
         $this->interceptorChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
         $this->interceptorChain->appendRequestInterceptor($this->signRequestInterceptor);
-        $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
     }
 
@@ -90,18 +82,14 @@ class ApiClient
         $method,
         $headerParams = null,
         $responseType = null,
-        $async = false,
-        $runtimeOptions = null,
-        $apiName = null
+        $async = false
     ) {
         $context = $this->createContextAndRequest(
             $body,
             $resourcePath,
             $method,
             $headerParams,
-            $responseType,
-            $runtimeOptions,
-            $apiName
+            $responseType
         );
         $this->interceptorChain->executeRequest($context);
 
@@ -112,7 +100,7 @@ class ApiClient
         return $this->sendSync($context);
     }
 
-    private function createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType, $runtimeOptions = null, $apiName = null)
+    private function createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType)
     {
         $context = new Context();
         $request = new Request();
@@ -122,11 +110,9 @@ class ApiClient
 
         $request->resourcePath = $resourcePath;
         $request->method = $method;
-        $request->apiName = $apiName;
         $request->headers = $headerParams;
         $request->body = $body;
         $request->returnType = $responseType ?: 'object';
-        $request->runtimeOptions = $runtimeOptions ?: $this->configuration->getRuntimeOptions();
 
         $request->host = $this->configuration->getHost();
         $request->truePath = '/';
@@ -165,12 +151,6 @@ class ApiClient
         $request->proxy = $this->configuration->getProxy();
         $request->httpProxy = $this->configuration->getHttpProxy();
         $request->httpsProxy = $this->configuration->getHttpsProxy();
-        $request->logger = $this->configuration->getLogger();
-        $request->logLevel = $this->configuration->getLogLevel();
-        $request->enableRequestGzip = $this->configuration->getEnableRequestGzip();
-        $request->gzipMinLength = $this->configuration->getGzipMinLength();
-        $request->progressListener = $this->configuration->getProgressListener();
-
         $request->getDebug = $this->configuration->getDebug();
         $request->getDebugFile = $this->configuration->getDebugFile();
 
@@ -189,8 +169,6 @@ class ApiClient
         while (true) {
             if ($retryCount > 0) {
                 $this->prepareRetryAttempt($context, $lastError);
-            } else {
-                $this->logConfig($request);
             }
 
             try {
@@ -209,23 +187,21 @@ class ApiClient
             } catch (RequestException $e) {
                 $retryError = $e;
                 $lastResponse = $e->getResponse();
-                $lastError = ApiExceptionFactory::fromRequestException($e);
+                $lastError = ApiException::fromRequestException($e);
             } catch (TransferException $e) {
                 $retryError = $e;
-                $lastError = ApiExceptionFactory::fromTransferException($e);
+                $lastError = ApiException::fromTransferException($e);
             } catch (ApiException $e) {
                 $retryError = $e;
                 $lastError = $e;
             }
 
-            $this->logError($request, $lastError);
             $retryCandidate = $retryError ?: $lastError;
             if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($lastResponse, $retryCount, $retryCandidate)) {
                 throw $lastError;
             }
 
             $delayMs = $retryer->getRetryDelay($retryCount, $lastResponse);
-            $this->logRetry($request, $retryCount, $delayMs, $lastError);
             if ($delayMs > 0) {
                 usleep((int) ($delayMs * 1000));
             }
@@ -254,18 +230,15 @@ class ApiClient
     private function buildRequestOptions(Request $request)
     {
         $options = $request->options ?: [];
-        $runtimeOptions = $request->runtimeOptions;
         $this->setClientOption(
             $options,
             'timeout',
-            $request->readTimeout,
-            $runtimeOptions && $runtimeOptions->readTimeout !== null
+            $request->readTimeout
         );
         $this->setClientOption(
             $options,
             'connect_timeout',
-            $request->connectTimeout,
-            $runtimeOptions && $runtimeOptions->connectTimeout !== null
+            $request->connectTimeout
         );
         $options['verify'] = $this->resolveVerifyOption($request);
         $options['http_errors'] = false;
@@ -291,17 +264,12 @@ class ApiClient
             }
             $options['proxy'] = $proxy;
         }
-        if ($request->progressListener !== null) {
-            $options['progress'] = $request->progressListener;
-        }
-
         return $options;
     }
 
-    private function setClientOption(array &$options, $name, $value, $runtimeOverride)
+    private function setClientOption(array &$options, $name, $value)
     {
-        if ($this->usesCustomClient
-            && !$runtimeOverride) {
+        if ($this->usesCustomClient) {
             if (isset($this->clientConfig[$name]) && $this->clientConfig[$name] !== null) {
                 $options[$name] = $this->clientConfig[$name];
             }
@@ -324,11 +292,6 @@ class ApiClient
         }
 
         return $request->verifySsl;
-    }
-
-    private function buildClientConfig(Configuration $config)
-    {
-        return $config->toHttpClientConfig();
     }
 
     public function setNewClientConfig()
@@ -366,23 +329,12 @@ class ApiClient
         $this->clientConfig = $this->client->getConfig();
     }
 
-    private function logRetry(Request $request, $retryCount, $delayMs, $error)
-    {
-        LogHelper::debug($request->logger, SdkLogger::LOG_RETRY, 'Retry', 'retry #{count} in {delay}ms: {message}', [
-            'count' => $retryCount + 1,
-            'delay' => $delayMs,
-            'message' => $error instanceof \Exception ? $error->getMessage() : 'unknown error',
-        ]);
-    }
-
     private function sendAsyncAttempt(Context $context, $retryCount, $previousError = null)
     {
         $request = $context->getRequest();
         $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         if ($retryCount > 0) {
             $this->prepareRetryAttempt($context, $previousError);
-        } else {
-            $this->logConfig($request);
         }
 
         $context->setAttribute('attempt_start_time', microtime(true));
@@ -407,7 +359,6 @@ class ApiClient
                     }
 
                     $delayMs = $retryer->getRetryDelay($retryCount, $httpResponse);
-                    $this->logRetry($request, $retryCount, $delayMs, $e);
                     if ($delayMs > 0) {
                         usleep((int) ($delayMs * 1000));
                     }
@@ -418,55 +369,27 @@ class ApiClient
                 $response = null;
                 if ($exception instanceof RequestException) {
                     $response = $exception->getResponse();
-                    $apiException = ApiExceptionFactory::fromRequestException($exception);
+                    $apiException = ApiException::fromRequestException($exception);
                 } elseif ($exception instanceof TransferException) {
-                    $apiException = ApiExceptionFactory::fromTransferException($exception);
+                    $apiException = ApiException::fromTransferException($exception);
                 } elseif ($exception instanceof ApiException) {
                     $apiException = $exception;
                 } else {
                     throw $exception;
                 }
 
-                $this->logError($request, $apiException);
-                if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($response, $retryCount, $apiException)) {
+                $retryCandidate = $exception instanceof TransferException ? $exception : $apiException;
+                if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($response, $retryCount, $retryCandidate)) {
                     throw $apiException;
                 }
 
                 $delayMs = $retryer->getRetryDelay($retryCount, $response);
-                $this->logRetry($request, $retryCount, $delayMs, $apiException);
                 if ($delayMs > 0) {
                     usleep((int) ($delayMs * 1000));
                 }
 
                 return $this->sendAsyncAttempt($context, $retryCount + 1, $apiException);
             });
-    }
-
-    private function logConfig(Request $request)
-    {
-        LogHelper::debug($request->logger, SdkLogger::LOG_CONFIG, 'Config',
-            'region={region} schema={schema} connect_timeout={connect_timeout} read_timeout={read_timeout} auto_retry={auto_retry} gzip={gzip}',
-            [
-                'region' => $request->region,
-                'schema' => $request->schema,
-                'connect_timeout' => $request->connectTimeout,
-                'read_timeout' => $request->readTimeout,
-                'auto_retry' => $request->autoRetry ? 'true' : 'false',
-                'gzip' => $request->enableRequestGzip ? 'true' : 'false',
-            ]
-        );
-    }
-
-    private function logError(Request $request, $error)
-    {
-        if (!$error instanceof \Exception) {
-            return;
-        }
-
-        LogHelper::error($request->logger, SdkLogger::LOG_ERROR, 'Error', '{class}: {message}', [
-            'class' => get_class($error),
-            'message' => $error->getMessage(),
-        ]);
     }
 
     private function prepareRetryAttempt(Context $context, $error)
@@ -520,12 +443,12 @@ class ApiClient
             return false;
         }
 
-        $code = DefaultRetryCondition::extractErrorCode($error->getResponseBody());
+        $code = Retryer::extractErrorCode($error->getResponseBody());
         if ($code === null) {
             return false;
         }
 
-        return DefaultRetryCondition::isCredentialExpiryError($code);
+        return Retryer::isCredentialExpiryError($code);
     }
 
 }

@@ -661,19 +661,4 @@ define('REGION_CODE_CN_BEIJING_SELFDRIVE', 'cn-beijing-selfdrive');
 define('REGION_CODE_AP_SOUTHEAST2', 'ap-southeast-2');
 define('REGION_CODE_AP_SOUTHEAST3', 'ap-southeast-3');
 
-class HostEndpointProvider extends EndpointProvider
-{
-    private $host;
-
-    public function __construct($host)
-    {
-        $this->host = $host;
-    }
-
-    public function endpointFor($service, $region)
-    {
-        return new ResolvedEndpoint($this->host);
-    }
-}
-
 ?>

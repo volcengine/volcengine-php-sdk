@@ -21,15 +21,10 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRetryErrorCodes(['Throttling', 'TooManyRequests']);
 ```
 
-`StsProvider` 也支持通过 `setRetryer()`、`setConnectTimeout()` 和
-`setReadTimeout()` 单独调整 AssumeRole 请求。
+`StsProvider` 也支持通过 `setConnectTimeout()` 和 `setReadTimeout()` 单独调整
+AssumeRole 请求。
 
-如果你需要显式传入一个“永不重试”的重试器，可使用 `NoOpRetryer`：
-
-```php
-<?php
-$config->setRetryer(new \Volcengine\Common\Retry\NoOpRetryer());
-```
+如果需要关闭业务 API 重试，直接调用 `setAutoRetry(false)`。
 
 默认重试条件覆盖瞬时网络错误，以及 HTTP `429/500/502/503/504`。
 
