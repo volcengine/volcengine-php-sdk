@@ -11,21 +11,15 @@ use Volcengine\Common\ApiException;
  * 2. OidcCredentialProvider                 (env OIDC)
  * 3. CLIConfigCredentialProvider            (CLI config.json)
  * 4. EcsRoleCredentialProvider              (IMDS)
- *
- * When reuseLastProviderEnabled is true (default), the chain caches the
- * last successful provider and tries it first on subsequent calls.
  */
 class DefaultCredentialProvider extends Provider
 {
     const PROVIDER_NAME = 'DefaultCredentialProvider';
 
     private $providers;
-    private $reuseLastProviderEnabled;
-    private $lastProvider;
 
-    public function __construct($roleName = null, $reuseLastProviderEnabled = true, $providers = null)
+    public function __construct($roleName = null, $providers = null)
     {
-        $this->reuseLastProviderEnabled = $reuseLastProviderEnabled;
         if ($providers !== null) {
             // Custom provider chain
             $this->providers = $providers;
@@ -37,28 +31,11 @@ class DefaultCredentialProvider extends Provider
 
     public function getCredentials()
     {
-        // Fast path: reuse last successful provider
-        if ($this->reuseLastProviderEnabled && $this->lastProvider !== null) {
-            try {
-                $creds = $this->lastProvider->getCredentials();
-                if ($creds !== null) {
-                    return $creds;
-                }
-            } catch (\Exception $e) {
-                // Clear cached provider and fall through to full chain
-                $this->lastProvider = null;
-            }
-        }
-
-        // Full chain traversal
         $errors = [];
         foreach ($this->providers as $provider) {
             try {
                 $creds = $provider->getCredentials();
                 if ($creds !== null) {
-                    if ($this->reuseLastProviderEnabled) {
-                        $this->lastProvider = $provider;
-                    }
                     return $creds;
                 }
             } catch (\Exception $e) {

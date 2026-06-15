@@ -11,6 +11,7 @@
 | Provider | 用途 | 是否自动刷新 | 典型场景 |
 | --- | --- | --- | --- |
 | 直接在 `Configuration` 中设置 `AK/SK` 或 `AK/SK/Token` | 显式传入固定或临时凭证 | 否 | 简单服务端接入 |
+| `StaticCredentialProvider` | 通过 Provider 接口传入固定凭证 | 否 | 自定义凭证链或要求使用 provider 的客户端初始化 |
 | `StsProvider` | STS AssumeRole | 否 | 基于角色的临时凭证（每次调用都请求 STS，需调用方自行缓存） |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | 是 | OIDC 联邦身份 |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | 是 | SAML 联邦身份 |
@@ -106,6 +107,25 @@ try {
 }
 
 ?>
+```
+
+### Static Credential Provider
+
+直接使用 `setAk()` / `setSk()` 仍是最简单的方式。只有当代码需要传入 `CredentialProvider` 时，再使用 `StaticCredentialProvider`。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\StaticCredentialProvider(
+            "Your AK",
+            "Your SK",
+            "Your session token" // 可选
+        )
+    );
 ```
 
 ### AssumeRole

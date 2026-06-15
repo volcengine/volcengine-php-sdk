@@ -2,6 +2,9 @@
 
 namespace Volcengine\Common\Interceptor\Interceptors;
 
+use Volcengine\Common\LogHelper;
+use Volcengine\Common\SdkLogger;
+
 class ResolveEndpointInterceptor extends Interceptor
 {
     public $endpointProvider;
@@ -34,6 +37,14 @@ class ResolveEndpointInterceptor extends Interceptor
         } else {
             $prefix = $schema . '://' . $host;
         }
+
+        LogHelper::debug($context->request->logger, $context->request->logLevel, SdkLogger::LOG_ENDPOINT,
+            'Endpoint service={service} region={region} host={host}', [
+                'service' => $context->request->service ?: (isset($service) ? $service : ''),
+                'region' => $context->request->region,
+                'host' => $context->request->host,
+            ]
+        );
 
         $context->request->url = $prefix . $context->request->truePath;
         return $context;

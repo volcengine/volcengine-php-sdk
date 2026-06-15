@@ -3,7 +3,11 @@
 namespace Volcengine\Common;
 
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
+use Volcengine\Common\Interceptor\Interceptors\Interceptor;
+use Volcengine\Common\Interceptor\Interceptors\ResponseInterceptor;
 use Volcengine\Common\Retry\Retryer;
+use Volcengine\Common\Sign\Signer;
+use Volcengine\Common\Sign\V4Signer;
 
 class Configuration
 {
@@ -40,12 +44,19 @@ class Configuration
     protected $debugFile = 'php://stderr';
     protected $tempFolderPath;
     protected $retryer;
+    protected $signer;
+    protected $logger;
+    protected $logLevel = 0;
+    protected $requestInterceptors = [];
+    protected $responseInterceptors = [];
 
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
         $this->endpointProvider = new DefaultEndpointProvider();
         $this->retryer = new Retryer();
+        $this->signer = new V4Signer();
+        $this->logger = new SdkLogger();
         $this->userAgent = Version::userAgent();
     }
 
@@ -344,6 +355,12 @@ class Configuration
     public function setDebugFile($debugFile)
     {
         $this->debugFile = $debugFile;
+        if ($this->logger instanceof SdkLogger) {
+            $stream = fopen($debugFile, 'a');
+            if ($stream !== false) {
+                $this->logger->setStream($stream);
+            }
+        }
         return $this;
     }
 
@@ -366,6 +383,76 @@ class Configuration
     public function getRetryer()
     {
         return $this->retryer;
+    }
+
+    public function getSigner()
+    {
+        return $this->signer;
+    }
+
+    public function setSigner($signer)
+    {
+        if (!$signer instanceof Signer) {
+            throw new \InvalidArgumentException('Signer must implement Volcengine\\Common\\Sign\\Signer');
+        }
+        $this->signer = $signer;
+        return $this;
+    }
+
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    public function setLogger($logger)
+    {
+        if ($logger !== null && !$logger instanceof LoggerInterface) {
+            if (!PsrLoggerAdapter::supports($logger)) {
+                throw new \InvalidArgumentException('Logger must implement Volcengine\\Common\\LoggerInterface or expose a PSR-3 compatible API');
+            }
+            $logger = new PsrLoggerAdapter($logger);
+        }
+        $this->logger = $logger;
+        return $this;
+    }
+
+    public function getLogLevel()
+    {
+        return $this->logLevel;
+    }
+
+    public function setLogLevel($logLevel)
+    {
+        $this->logLevel = (int) $logLevel;
+        return $this;
+    }
+
+    public function addRequestInterceptor($interceptor)
+    {
+        if (!$interceptor instanceof Interceptor) {
+            throw new \InvalidArgumentException('Request interceptor must extend Volcengine\\Common\\Interceptor\\Interceptors\\Interceptor');
+        }
+        $this->requestInterceptors[] = $interceptor;
+        return $this;
+    }
+
+    public function getRequestInterceptors()
+    {
+        return $this->requestInterceptors;
+    }
+
+    public function addResponseInterceptor($interceptor)
+    {
+        if (!$interceptor instanceof ResponseInterceptor) {
+            throw new \InvalidArgumentException('Response interceptor must extend Volcengine\\Common\\Interceptor\\Interceptors\\ResponseInterceptor');
+        }
+        $this->responseInterceptors[] = $interceptor;
+        return $this;
+    }
+
+    public function getResponseInterceptors()
+    {
+        return $this->responseInterceptors;
     }
 
     public function setNumMaxRetries($numMaxRetries)
@@ -419,7 +506,9 @@ class Configuration
      */
     public static function getDefaultConfiguration()
     {
-        self::$defaultConfiguration = new Configuration();
+        if (self::$defaultConfiguration === null) {
+            self::$defaultConfiguration = new Configuration();
+        }
 
         return self::$defaultConfiguration;
     }

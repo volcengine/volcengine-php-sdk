@@ -3,15 +3,24 @@
 namespace Volcengine\Common\Interceptor\Interceptors;
 
 use GuzzleHttp\RequestOptions;
-use Volcengine\Common\Utils;
+use Volcengine\Common\LogHelper;
+use Volcengine\Common\SdkLogger;
+use Volcengine\Common\Sign\Signer;
+use Volcengine\Common\Sign\V4Signer;
 
 class SignRequestInterceptor extends Interceptor
 {
-    public $credentialProvider;
+    private $signer;
 
-    public function __construct($credentialProvider)
+    public function __construct($signer = null)
     {
-        $this->credentialProvider = $credentialProvider;
+        if ($signer === null) {
+            $signer = new V4Signer();
+        }
+        if (!$signer instanceof Signer) {
+            throw new \InvalidArgumentException('Signer must implement Volcengine\\Common\\Sign\\Signer');
+        }
+        $this->signer = $signer;
     }
 
     public function name()
@@ -34,7 +43,7 @@ class SignRequestInterceptor extends Interceptor
         }
 
         if ($request->isPresigned) {
-            $signedPath = Utils::signRequestToUrl(
+            $signedPath = $this->signer->presign(
                 $request->ak,
                 $request->sk,
                 $request->region,
@@ -57,8 +66,14 @@ class SignRequestInterceptor extends Interceptor
                 $request->headers['Host'] = $request->host;
             }
 
-            $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
+            $request->headers = $this->signer->sign($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
+            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_SIGNING,
+                'Signed request service={service} region={region}', [
+                    'service' => $request->service,
+                    'region' => $request->region,
+                ]
+            );
             $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
                 $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
                 $request->headers, $request->httpBody);

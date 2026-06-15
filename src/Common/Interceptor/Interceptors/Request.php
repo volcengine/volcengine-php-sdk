@@ -38,6 +38,8 @@ class Request
     public $proxy;
     public $httpProxy;
     public $httpsProxy;
+    public $logger;
+    public $logLevel;
     public $model;
     public $realRequest;
     public $options;

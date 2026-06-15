@@ -10,6 +10,7 @@ use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
 use Volcengine\Common\Interceptor\Interceptors\DeserializedResponseInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\HttpLoggingInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Request;
 use Volcengine\Common\Interceptor\Interceptors\Response;
 use Volcengine\Common\Interceptor\Interceptors\ResolveEndpointInterceptor;
@@ -26,7 +27,6 @@ class ApiClient
     private $client;
     private $usesCustomClient = false;
     private $clientConfig = [];
-    private $signRequestInterceptor;
 
     public function __construct($config = null, $client = null)
     {
@@ -41,11 +41,17 @@ class ApiClient
         $this->tempFolderPath = $config->getTempFolderPath();
 
         $this->interceptorChain = new InterceptorChain();
-        $this->signRequestInterceptor = new SignRequestInterceptor(null);
         $this->interceptorChain->appendRequestInterceptor(new BuildRequestInterceptor());
         $this->interceptorChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
-        $this->interceptorChain->appendRequestInterceptor($this->signRequestInterceptor);
+        foreach ($config->getRequestInterceptors() as $interceptor) {
+            $this->interceptorChain->appendRequestInterceptor($interceptor);
+        }
+        $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor($config->getSigner()));
+        $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
+        foreach ($config->getResponseInterceptors() as $interceptor) {
+            $this->interceptorChain->appendResponseInterceptor($interceptor);
+        }
     }
 
     public function getConfig()
@@ -91,7 +97,7 @@ class ApiClient
             $headerParams,
             $responseType
         );
-        $this->interceptorChain->executeRequest($context);
+        $context = $this->interceptorChain->executeRequest($context);
 
         if ($async) {
             return $this->sendAsync($context);
@@ -151,6 +157,8 @@ class ApiClient
         $request->proxy = $this->configuration->getProxy();
         $request->httpProxy = $this->configuration->getHttpProxy();
         $request->httpsProxy = $this->configuration->getHttpsProxy();
+        $request->logger = $this->configuration->getLogger();
+        $request->logLevel = $this->configuration->getLogLevel();
         $request->getDebug = $this->configuration->getDebug();
         $request->getDebugFile = $this->configuration->getDebugFile();
 
@@ -168,16 +176,19 @@ class ApiClient
 
         while (true) {
             if ($retryCount > 0) {
-                $this->prepareRetryAttempt($context, $lastError);
+                $context = $this->prepareRetryAttempt($context, $lastError);
+                $request = $context->getRequest();
+                $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
             }
 
             try {
                 $start = microtime(true);
+                HttpLoggingInterceptor::logRequest($request);
                 $response = $this->client->send($request->realRequest, $this->buildRequestOptions($request));
                 $lastResponse = $response;
                 $responseContext = $this->buildResponseContext($context, $response);
                 $responseContext->setAttribute('elapsed_ms', (int) ((microtime(true) - $start) * 1000));
-                $this->interceptorChain->executeResponse($responseContext);
+                $responseContext = $this->interceptorChain->executeResponse($responseContext);
 
                 return [
                     $responseContext->getResponse()->result,
@@ -202,6 +213,12 @@ class ApiClient
             }
 
             $delayMs = $retryer->getRetryDelay($retryCount, $lastResponse);
+            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                'Retry attempt={attempt} delay_ms={delay_ms}', [
+                    'attempt' => $retryCount + 1,
+                    'delay_ms' => $delayMs,
+                ]
+            );
             if ($delayMs > 0) {
                 usleep((int) ($delayMs * 1000));
             }
@@ -334,10 +351,13 @@ class ApiClient
         $request = $context->getRequest();
         $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         if ($retryCount > 0) {
-            $this->prepareRetryAttempt($context, $previousError);
+            $context = $this->prepareRetryAttempt($context, $previousError);
+            $request = $context->getRequest();
+            $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         }
 
         $context->setAttribute('attempt_start_time', microtime(true));
+        HttpLoggingInterceptor::logRequest($request);
         return $this->client
             ->sendAsync($request->realRequest, $this->buildRequestOptions($request))
             ->then(function ($httpResponse) use ($context, $request, $retryer, $retryCount) {
@@ -347,7 +367,7 @@ class ApiClient
                     if ($start !== null) {
                         $responseContext->setAttribute('elapsed_ms', (int) ((microtime(true) - $start) * 1000));
                     }
-                    $this->interceptorChain->executeResponse($responseContext);
+                    $responseContext = $this->interceptorChain->executeResponse($responseContext);
                     return [
                         $responseContext->getResponse()->result,
                         $responseContext->getResponse()->statusCode,
@@ -359,6 +379,12 @@ class ApiClient
                     }
 
                     $delayMs = $retryer->getRetryDelay($retryCount, $httpResponse);
+                    LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                        'Retry attempt={attempt} delay_ms={delay_ms}', [
+                            'attempt' => $retryCount + 1,
+                            'delay_ms' => $delayMs,
+                        ]
+                    );
                     if ($delayMs > 0) {
                         usleep((int) ($delayMs * 1000));
                     }
@@ -384,6 +410,12 @@ class ApiClient
                 }
 
                 $delayMs = $retryer->getRetryDelay($retryCount, $response);
+                LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                    'Retry attempt={attempt} delay_ms={delay_ms}', [
+                        'attempt' => $retryCount + 1,
+                        'delay_ms' => $delayMs,
+                    ]
+                );
                 if ($delayMs > 0) {
                     usleep((int) ($delayMs * 1000));
                 }
@@ -400,7 +432,7 @@ class ApiClient
             $this->refreshRequestCredentials($request);
         }
 
-        $this->resignRequest($context);
+        return $this->rebuildRequest($context);
     }
 
     private function refreshRequestCredentials(Request $request)
@@ -423,7 +455,7 @@ class ApiClient
         $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
     }
 
-    private function resignRequest(Context $context)
+    private function rebuildRequest(Context $context)
     {
         $request = $context->getRequest();
         unset(
@@ -434,7 +466,7 @@ class ApiClient
         );
         $request->realRequest = null;
         $request->options = [];
-        $this->signRequestInterceptor->intercept($context);
+        return $this->interceptorChain->executeRequest($context);
     }
 
     private function shouldRefreshCredentials($error)

@@ -11,6 +11,7 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
 | Direct `Configuration` (`AK/SK` or `AK/SK/Token`) | Explicit static or temporary credentials | No | Simple server-side integration |
+| `StaticCredentialProvider` | Static credentials through the provider interface | No | Custom provider chains or provider-based client setup |
 | `StsProvider` | STS AssumeRole | No | Role-based temporary credentials |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
@@ -104,6 +105,25 @@ try {
 }
 
 ?>
+```
+
+### Static Credential Provider
+
+Direct `setAk()` / `setSk()` remains the simplest path. Use `StaticCredentialProvider` when your code expects a `CredentialProvider`.
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\StaticCredentialProvider(
+            "Your AK",
+            "Your SK",
+            "Your session token" // optional
+        )
+    );
 ```
 
 ### AssumeRole
