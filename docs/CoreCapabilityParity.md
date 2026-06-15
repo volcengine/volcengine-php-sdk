@@ -11,6 +11,18 @@ Local source roots used as evidence:
 - Python: `../volcengine-python-sdk`
 - Java: `../volcengine-java-sdk`
 
+## Current Implemented Scope
+
+PHP keeps only the common, already-implemented public core surface:
+
+- Credentials: `setAk()` / `setSk()` / `setSessionToken()`, `StaticCredentialProvider`, `EcsRoleCredentialProvider`
+- Endpoint: automatic resolution, `setHost()`, `setRegion()`, bootstrap regions, `setUseDualStack()`
+- Retry: `setAutoRetry()`, max retries, retry delay bounds, retry error codes, `Retry-After`, credential-refresh retry
+- Transport: proxy, SSL, connect/read timeout, `setUserAgent()`
+- Debugging: `setLogLevel()` with method, URL, status, request ID, and elapsed time only; no request or response body logging
+- Universal API: `UniversalInfo`, `UniversalRequest`, `UniversalApi`
+- Configuration: `Configuration::getDefaultConfiguration()` shared default instance
+
 ## Implemented Public Surface
 
 | Capability | PHP status | Go evidence | Python evidence | Java evidence |
@@ -35,7 +47,7 @@ Local source roots used as evidence:
 | Public signer replacement API | All three SDKs have V4 signing implementations, but not a common public `setSigner()` style API. PHP keeps signing internal through `Utils::signv4()` and `Utils::signRequestToUrl()`. | Go: `volcengine/signer/volc/volc.go`; Python: `volcenginesdkcore/signv4.py`; Java: `com/volcengine/sign/VolcstackSign.java`. |
 | Public custom request/response interceptor API | Go exposes `Config.AddInterceptor()`, but Python and Java expose chains internally without a stable client/config-level public API. PHP keeps the interceptor chain internal. | Go: `volcengine/config.go`; Python: `volcenginesdkcore/api_client.py`; Java: `com/volcengine/ApiClient.java`. |
 | Gzip request interceptor | Java-only capability. | Java: `volcengine-java-sdk-core/src/main/java/com/volcengine/GzipRequestInterceptor.java`; no Go/Python equivalent public core API. |
-| Rich endpoint options: endpoint config file, strict matching, unknown service resolution, site, IP version | Go-specific expanded endpoint resolver options. PHP only keeps automatic resolution, custom host, region, bootstrap region, and DualStack. | Go: `volcengine/endpoints/endpoint_config_resolver.go`, `volcengine/config.go`; no matching Python/Java public surface for the full option set. |
+| Rich endpoint options: endpoint config file, strict matching, unknown service resolution, site, IP version | Not added as PHP public API. Go endpoint resolving has this expanded surface through `FileEndpointConfigResolver` and `StrictMatching` / `ResolveUnknownService` / `Site` / `IPVersion`. Python core exposes default/standard providers, and Java core exposes `ResolveEndpointOption` with only service, region, custom bootstrap region, and DualStack. PHP keeps automatic resolution, custom host, region, bootstrap region, and DualStack only. | Go: `volcengine/endpoints/endpoint_config_resolver.go`, `volcengine/endpoints/endpoints.go`, `volcengine/config.go`; Python: `volcenginesdkcore/endpoint/providers/default_provider.py`, `standard_provider.py`; Java: `volcengine-java-sdk-core/src/main/java/com/volcengine/endpoint/ResolveEndpointOption.java`. |
 | Default credential chain cache of last successful provider | Struck through in the requirement notes, so PHP does not implement it even though current Go/Python/Java code contains similar reuse behavior. | Go: `volcengine/credentials/default_provider.go`; Python: `volcenginesdkcore/auth/providers/default_provider.py`; Java: `com/volcengine/auth/DefaultCredentialProvider.java`. |
 | Session helper | Struck through and Go-only. | Go: `volcengine/session/session.go`; no Python/Java common equivalent. |
 | Upload/download progress listener | Struck through and Java-only. | Java: `ProgressRequestBody`; no Go/Python common equivalent. |
