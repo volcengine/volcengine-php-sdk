@@ -104,7 +104,7 @@ class ConnectUtils
 
         // Sign request (host is null, won't be included in signature)
         $signChain = new InterceptorChain();
-        $signChain->appendRequestInterceptor(new SignRequestInterceptor());
+        $signChain->appendRequestInterceptor(new SignRequestInterceptor(null));
         $signChain->executeRequest($context);
 
         return $context->getRequest()->presignedUrl;

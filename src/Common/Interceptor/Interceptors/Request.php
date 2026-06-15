@@ -28,6 +28,7 @@ class Request
     public $autoRetry = true;
     public $retryer;
     public $credentialProvider;
+    public $runtimeOptions;
     public $connectTimeout;
     public $readTimeout;
     public $verifySsl;

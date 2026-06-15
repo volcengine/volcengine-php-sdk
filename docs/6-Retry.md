@@ -22,8 +22,8 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRetryErrorCodes(['Throttling', 'TooManyRequests']);
 ```
 
-`StsProvider` also supports dedicated retry customization through
-`setConnectTimeout()` and `setReadTimeout()`.
+`StsProvider` exposes dedicated timeout setters through `setConnectTimeout()`
+and `setReadTimeout()`.
 
 Use `setAutoRetry(false)` to disable business API retries.
 

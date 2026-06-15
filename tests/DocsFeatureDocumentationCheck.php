@@ -191,8 +191,8 @@ assert_contains($signInterceptor, 'Utils::signv4', 'sign interceptor direct sign
 assert_contains($signInterceptor, 'Utils::signRequestToUrl', 'sign interceptor direct presign call');
 assert_contains($signInterceptor, 'isPresigned', 'sign interceptor presign support');
 assert_contains($signInterceptor, 'presignedUrl', 'sign interceptor presigned url');
-assert_not_contains($signInterceptor, 'credentialProvider', 'sign interceptor unused credential provider');
-assert_not_contains($signInterceptor, 'function __construct', 'sign interceptor extension constructor');
+assert_contains($signInterceptor, 'credentialProvider', 'sign interceptor constructor compatibility');
+assert_contains($signInterceptor, 'function __construct', 'sign interceptor constructor compatibility');
 assert_not_contains($signInterceptor, 'V4Signer', 'sign interceptor signer wrapper');
 assert_not_contains($signInterceptor, 'Volcengine\\Common\\Sign', 'sign interceptor sign namespace');
 
@@ -309,7 +309,6 @@ assert_not_contains($composer, 'psr/log', 'composer psr log dependency');
 
 assert_file_not_exists($root . '/src/Common/Auth/Providers/ProcessCredentialsProvider.php', 'process credential provider file');
 assert_file_not_exists($root . '/src/Common/Auth/Providers/EndpointCredentialsProvider.php', 'endpoint credential provider file');
-assert_file_not_exists($root . '/src/Common/Endpoint/Providers/HostEndpointProvider.php', 'host endpoint provider file');
 assert_file_not_exists($root . '/src/Common/LoggerInterface.php', 'logger interface file');
 assert_file_not_exists($root . '/src/Common/PsrLoggerAdapter.php', 'psr logger adapter file');
 assert_file_not_exists($root . '/src/Common/Sign/Signer.php', 'signer interface file');

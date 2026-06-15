@@ -22,7 +22,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 ```
 
 `StsProvider` 也支持通过 `setConnectTimeout()` 和 `setReadTimeout()` 单独调整
-AssumeRole 请求。
+AssumeRole 请求超时。
 
 如果需要关闭业务 API 重试，直接调用 `setAutoRetry(false)`。
 

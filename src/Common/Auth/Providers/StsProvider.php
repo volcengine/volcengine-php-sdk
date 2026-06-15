@@ -4,7 +4,6 @@ namespace Volcengine\Common\Auth\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Psr7\Request;
 use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
@@ -23,9 +22,8 @@ class StsProvider extends Provider
     private $policy;
     private $headerSelector;
     private $config;
-    private $retryer;
-    private $connectTimeout;
-    private $readTimeout;
+    private $connectTimeout = 5;
+    private $readTimeout = 30;
 
     public function __construct(
         $ak,
@@ -51,9 +49,6 @@ class StsProvider extends Provider
         $this->policy = $policy;
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->config = \Volcengine\Common\Configuration::getDefaultConfiguration();
-        $this->retryer = clone $this->config->getRetryer();
-        $this->connectTimeout = 5;
-        $this->readTimeout = 30;
     }
 
     public function getCredentials()
@@ -87,77 +82,61 @@ class StsProvider extends Provider
         }
         $query = substr($query, 0, -1);
 
+        $headers = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
+            '', $query, 'GET', '/', $headers);
+
+        $request = new Request('GET',
+            $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
+            $headers, '');
+
         $client = new Client([
             'timeout' => $this->readTimeout,
             'connect_timeout' => $this->connectTimeout,
-            'verify' => $this->config->getSslCaCert() ?: $this->config->getVerifySsl(),
-            'http_errors' => false,
+            'verify' => true,
         ]);
+        try {
+            $response = $client->send($request, [
+                'timeout' => $this->readTimeout,
+                'connect_timeout' => $this->connectTimeout,
+            ]);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+        $statusCode = $response->getStatusCode();
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)(%s)',
+                    $statusCode,
+                    $request->getUri(),
+                    $response->getBody()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
 
-        $retryCount = 0;
-        $lastError = null;
-        $lastResponse = null;
-        $responseContent = null;
-        while (true) {
-            $signedHeaders = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
-                '', $query, 'GET', '/', $headers);
-
-            $request = new Request('GET',
-                $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
-                $signedHeaders, '');
-
-            try {
-                $response = $client->send($request, [
-                    'timeout' => $this->readTimeout,
-                    'connect_timeout' => $this->connectTimeout,
-                    'http_errors' => false,
-                ]);
-                $lastResponse = $response;
-                $responseContent = (string) $response->getBody();
-                $statusCode = $response->getStatusCode();
-                if ($statusCode < 200 || $statusCode > 299) {
-                    $lastError = ApiException::fromHttpResponse(
-                        $statusCode,
-                        $request->getUri(),
-                        $response->getHeaders(),
-                        $responseContent
-                    );
-                    $retryCandidate = $lastError;
-                } else {
-                    $decoded = json_decode($responseContent);
-                    if (isset($decoded->{'ResponseMetadata'}->{'Error'})) {
-                        $lastError = ApiException::fromServiceError(
-                            $statusCode,
-                            $request->getUri(),
-                            $response->getHeaders(),
-                            $responseContent
-                        );
-                        $retryCandidate = $lastError;
-                    } else {
-                        break;
-                    }
-                }
-            } catch (RequestException $e) {
-                $lastResponse = $e->getResponse();
-                $lastError = ApiException::fromRequestException($e);
-                $retryCandidate = $e;
-            } catch (TransferException $e) {
-                $lastError = ApiException::fromTransferException($e);
-                $retryCandidate = $e;
-            }
-
-            if ($this->retryer === null || !$this->retryer->shouldRetry($lastResponse, $retryCount, $retryCandidate)) {
-                throw $lastError;
-            }
-
-            $delayMs = $this->retryer->getRetryDelay($retryCount, $lastResponse);
-            if ($delayMs > 0) {
-                usleep((int) ($delayMs * 1000));
-            }
-            $retryCount++;
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)(%s)',
+                    $statusCode,
+                    $request->getUri(),
+                    $response->getBody()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
         }
 
-        $content = json_decode($responseContent);
         $content = $content->{'Result'};
 
         return (array)$content->Credentials;

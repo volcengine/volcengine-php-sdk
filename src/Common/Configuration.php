@@ -12,10 +12,11 @@ class Configuration
     protected $region = 'cn-beijing';
     protected $schema = 'https';
     protected $endpointProvider;
-    protected $customBootstrapRegion = [];
+    protected $customBootstrapRegion = '';
     protected $useDualStack = false;
     protected $autoRetry = false;
     protected $credentialProvider;
+    protected $runtimeOptions = '';
 
     protected $sessionToken = '';
     protected $ak = '';
@@ -37,7 +38,7 @@ class Configuration
 
     protected $userAgent;
     protected $debug = false;
-    protected $debugFile = 'php://stderr';
+    protected $debugFile = 'php://output';
     protected $tempFolderPath;
     protected $retryer;
     protected $logger;
@@ -175,7 +176,7 @@ class Configuration
 
     public function setCustomBootstrapRegion($customBootstrapRegion)
     {
-        $this->customBootstrapRegion = is_array($customBootstrapRegion) ? $customBootstrapRegion : [];
+        $this->customBootstrapRegion = $customBootstrapRegion;
         return $this;
     }
 
@@ -186,7 +187,7 @@ class Configuration
 
     public function setUseDualStack($useDualStack)
     {
-        $this->useDualStack = (bool) $useDualStack;
+        $this->useDualStack = $useDualStack;
         return $this;
     }
 
@@ -212,9 +213,14 @@ class Configuration
         return $this;
     }
 
+    public function getRuntimeOptions()
+    {
+        return $this->runtimeOptions;
+    }
+
     public function setVerifySsl($verifySsl)
     {
-        $this->verifySsl = (bool) $verifySsl;
+        $this->verifySsl = $verifySsl;
         return $this;
     }
 
@@ -335,7 +341,7 @@ class Configuration
 
     public function setDebug($debug)
     {
-        $this->debug = (bool) $debug;
+        $this->debug = $debug;
         return $this;
     }
 

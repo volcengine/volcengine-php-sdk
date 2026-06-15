@@ -9,6 +9,13 @@ use Volcengine\Common\Utils;
 
 class SignRequestInterceptor extends Interceptor
 {
+    public $credentialProvider;
+
+    public function __construct($credentialProvider = null)
+    {
+        $this->credentialProvider = $credentialProvider;
+    }
+
     public function name()
     {
         return 'volcengine-sign-request-interceptor';
