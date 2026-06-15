@@ -30,27 +30,11 @@ $config->setLogLevel(
 );
 ```
 
-可以通过实现 `Volcengine\Common\LoggerInterface` 注入自定义 logger。已有 PSR-3 风格 logger 会按方法形态兼容接入；SDK 不依赖 `psr/log`。
-
-```php
-<?php
-$config->setLogger($logger);
-```
-
 也可以覆盖默认 SDK User-Agent：
 
 ```php
 <?php
 $config->setUserAgent('my-app/1.0 volcstack-php-sdk');
-```
-
-高级场景可以接入现有请求链路，或替换签名器：
-
-```php
-<?php
-$config->addRequestInterceptor($requestInterceptor)
-       ->addResponseInterceptor($responseInterceptor)
-       ->setSigner($signer);
 ```
 
 同时仍然可以使用 `Configuration::toDebugReport()` 收集运行环境信息。

@@ -2,7 +2,7 @@
 
 namespace Volcengine\Common;
 
-class SdkLogger implements LoggerInterface
+class SdkLogger
 {
     const LOG_NONE = 0;
     const LOG_REQUEST = 1;

@@ -26,6 +26,6 @@ class LogHelper
 
     private static function shouldLog($logger, $enabledLevel, $level)
     {
-        return $logger instanceof LoggerInterface && (((int) $enabledLevel & $level) !== 0);
+        return $logger instanceof SdkLogger && (((int) $enabledLevel & $level) !== 0);
     }
 }

@@ -18,6 +18,7 @@
 6. [重试策略](./docs/6-Retry-zh.md) — 重试条件、重试延迟、Retry-After
 7. [错误处理](./docs/7-ErrorHandling-zh.md) — 异常处理
 8. [调试模式](./docs/8-Debugging-zh.md) — Debug 模式
+9. [核心能力对齐](./docs/CoreCapabilityParity.md) — Go/Python/Java 代码证据与 PHP 范围
 - [环境变量参考](./docs/EnvironmentVariables-zh.md) — 所有 SDK 支持的环境变量
 
 ---

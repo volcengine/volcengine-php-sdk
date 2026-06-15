@@ -30,9 +30,13 @@ class ApiClient
 
     public function __construct($config = null, $client = null)
     {
-        $config = $config ?: new Configuration();
+        if ($config === null) {
+            $config = new Configuration();
+        }
         $this->usesCustomClient = $client !== null;
-        $client = $client ?: new Client();
+        if ($client === null) {
+            $client = new Client();
+        }
 
         $this->configuration = $config;
         $this->client = $client;
@@ -43,15 +47,9 @@ class ApiClient
         $this->interceptorChain = new InterceptorChain();
         $this->interceptorChain->appendRequestInterceptor(new BuildRequestInterceptor());
         $this->interceptorChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
-        foreach ($config->getRequestInterceptors() as $interceptor) {
-            $this->interceptorChain->appendRequestInterceptor($interceptor);
-        }
-        $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor($config->getSigner()));
+        $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
-        foreach ($config->getResponseInterceptors() as $interceptor) {
-            $this->interceptorChain->appendResponseInterceptor($interceptor);
-        }
     }
 
     public function getConfig()

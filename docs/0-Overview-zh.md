@@ -21,6 +21,7 @@
 6. [重试策略](6-Retry-zh.md) — 重试策略
 7. [错误处理](7-ErrorHandling-zh.md) — 异常处理
 8. [调试模式](8-Debugging-zh.md) — Debug 模式
+9. [核心能力对齐](CoreCapabilityParity.md) — Go/Python/Java 代码证据与 PHP 范围
 
 ---
 

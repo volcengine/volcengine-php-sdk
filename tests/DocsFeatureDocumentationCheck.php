@@ -28,6 +28,13 @@ function assert_not_contains($content, $needle, $label)
     }
 }
 
+function assert_file_not_exists($path, $label)
+{
+    if (file_exists($path)) {
+        throw new RuntimeException("Unexpected {$label}: {$path}");
+    }
+}
+
 $docs = [
     'docs/4-Proxy.md',
     'docs/4-Proxy-zh.md',
@@ -83,17 +90,17 @@ $debugging = read_file_or_fail($root . '/docs/8-Debugging.md');
 assert_contains($debugging, 'setUserAgent(', 'debug docs user agent');
 assert_contains($debugging, 'Configuration::toDebugReport()', 'debug report docs');
 assert_contains($debugging, 'setLogLevel(', 'debug docs log level');
-assert_contains($debugging, 'setLogger(', 'debug docs custom logger');
 assert_contains($debugging, 'LOG_REQUEST', 'debug docs request log level');
 assert_contains($debugging, 'LOG_RESPONSE', 'debug docs response log level');
 assert_contains($debugging, 'LOG_RETRY', 'debug docs retry log level');
 assert_contains($debugging, 'LOG_ENDPOINT', 'debug docs endpoint log level');
-assert_contains($debugging, 'PSR-3', 'debug docs psr-3');
-assert_contains($debugging, 'psr/log', 'debug docs no psr dependency note');
 assert_contains($debugging, 'do not record request or response body', 'debug docs no body logging');
-assert_contains($debugging, 'setSigner(', 'debug docs signer');
-assert_contains($debugging, 'addRequestInterceptor(', 'debug docs request interceptor hook');
-assert_contains($debugging, 'addResponseInterceptor(', 'debug docs response interceptor hook');
+assert_not_contains($debugging, 'setLogger(', 'debug docs custom logger');
+assert_not_contains($debugging, 'PSR-3', 'debug docs psr-3');
+assert_not_contains($debugging, 'psr/log', 'debug docs psr dependency');
+assert_not_contains($debugging, 'setSigner(', 'debug docs signer');
+assert_not_contains($debugging, 'addRequestInterceptor(', 'debug docs request interceptor hook');
+assert_not_contains($debugging, 'addResponseInterceptor(', 'debug docs response interceptor hook');
 assert_not_contains($debugging, 'LOG_REQUEST_BODY', 'debug docs request body log level');
 assert_not_contains($debugging, 'LOG_RESPONSE_BODY', 'debug docs response body log level');
 assert_not_contains($debugging, 'LOG_HTTP_BODY', 'debug docs http body log level');
@@ -132,6 +139,28 @@ assert_contains($credentials, 'EcsRoleCredentialProvider', 'credentials docs ecs
 $overview = read_file_or_fail($root . '/docs/0-Overview.md');
 assert_contains($overview, 'ECS Role', 'overview ecs role');
 assert_contains($overview, 'Automatic Resolution', 'overview endpoint automatic resolution');
+assert_contains($overview, 'CoreCapabilityParity.md', 'overview parity doc link');
+
+$sdkIntegration = read_file_or_fail($root . '/SDK_Integration.md');
+assert_contains($sdkIntegration, './docs/CoreCapabilityParity.md', 'sdk integration parity doc link');
+
+$parity = read_file_or_fail($root . '/docs/CoreCapabilityParity.md');
+assert_contains($parity, '../volcengine-go-sdk', 'parity doc go source root');
+assert_contains($parity, '../volcengine-python-sdk', 'parity doc python source root');
+assert_contains($parity, '../volcengine-java-sdk', 'parity doc java source root');
+assert_contains($parity, 'StaticCredentialProvider', 'parity doc static credentials');
+assert_contains($parity, 'Retry for business API calls', 'parity doc retry');
+assert_contains($parity, 'HTTP request/response debug logging', 'parity doc debug logging');
+assert_contains($parity, 'Universal API helpers', 'parity doc universal');
+assert_contains($parity, 'No runtime options, progress listener, or custom interceptor API is added', 'parity doc minimal universal scope');
+assert_contains($parity, 'does not log request or response body', 'parity doc no body logging');
+assert_contains($parity, 'Do not add dependencies for logging integration', 'parity doc no logging dependency');
+assert_contains($parity, 'ProcessCredentialsProvider', 'parity doc process provider exclusion');
+assert_contains($parity, 'EndpointCredentialsProvider', 'parity doc endpoint credentials exclusion');
+assert_contains($parity, 'Runtime options interceptor', 'parity doc runtime options exclusion');
+assert_contains($parity, 'Public signer replacement API', 'parity doc signer exclusion');
+assert_contains($parity, 'Public custom request/response interceptor API', 'parity doc custom interceptor exclusion');
+assert_contains($parity, 'Gzip request interceptor', 'parity doc gzip exclusion');
 
 $configuration = read_file_or_fail($root . '/src/Common/Configuration.php');
 assert_contains($configuration, 'function setAutoRetry', 'configuration auto retry setter');
@@ -140,18 +169,18 @@ assert_contains($configuration, 'function setHttpProxy', 'configuration http pro
 assert_contains($configuration, 'function setHttpsProxy', 'configuration https proxy setter');
 assert_contains($configuration, 'function setNumMaxRetries', 'configuration max retries setter');
 assert_contains($configuration, 'function getDefaultConfiguration', 'configuration default config');
-assert_contains($configuration, 'function setLogger', 'configuration logger setter');
 assert_contains($configuration, 'function setLogLevel', 'configuration log level setter');
 assert_contains($configuration, 'self::$defaultConfiguration === null', 'configuration shared default config');
+assert_not_contains($configuration, 'function setLogger', 'configuration logger setter');
 assert_not_contains($configuration, 'function setRuntimeOptions', 'configuration runtime options setter');
 assert_not_contains($configuration, 'function setEnableRequestGzip', 'configuration gzip setter');
 assert_not_contains($configuration, 'function setNumPools', 'configuration num pools setter');
 assert_not_contains($configuration, 'function setConnectionPoolMaxsize', 'configuration connection pool maxsize setter');
 assert_not_contains($configuration, 'function createHttpClient', 'configuration create http client');
 assert_not_contains($configuration, 'function toHttpClientConfig', 'configuration http client config export');
-assert_contains($configuration, 'function setSigner', 'configuration signer setter');
-assert_contains($configuration, 'function addRequestInterceptor', 'configuration request interceptor hooks');
-assert_contains($configuration, 'function addResponseInterceptor', 'configuration response interceptor hooks');
+assert_not_contains($configuration, 'function setSigner', 'configuration signer setter');
+assert_not_contains($configuration, 'function addRequestInterceptor', 'configuration request interceptor hooks');
+assert_not_contains($configuration, 'function addResponseInterceptor', 'configuration response interceptor hooks');
 assert_not_contains($configuration, 'function setDynamicCredentials', 'configuration dynamic credentials setter');
 assert_not_contains($configuration, 'function setExtendHttpRequest', 'configuration extend request setter');
 assert_not_contains($configuration, 'function setCustomUnmarshalData', 'configuration custom unmarshal data setter');
@@ -164,6 +193,8 @@ $apiClient = read_file_or_fail($root . '/src/Common/ApiClient.php');
 assert_contains($apiClient, 'DeserializedResponseInterceptor', 'api client deserialized response interceptor');
 assert_contains($apiClient, 'sendAsyncAttempt', 'api client async retry');
 assert_contains($apiClient, 'shouldRetry', 'api client retryer integration');
+assert_contains($apiClient, '$config === null', 'api client explicit null config default');
+assert_contains($apiClient, '$client === null', 'api client explicit null client default');
 assert_not_contains($apiClient, 'RuntimeOptionsInterceptor', 'api client runtime options interceptor');
 assert_not_contains($apiClient, 'GzipRequestInterceptor', 'api client gzip interceptor');
 assert_contains($apiClient, 'HttpLoggingInterceptor', 'api client http logging interceptor');
@@ -175,10 +206,14 @@ assert_not_contains($apiClient, 'applyHttpExtensions', 'api client http extensio
 assert_not_contains($apiClient, 'buildRequestMeta', 'api client request meta');
 
 $signInterceptor = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/SignRequestInterceptor.php');
-assert_contains($signInterceptor, 'Signer', 'sign interceptor signer interface');
-assert_contains($signInterceptor, 'V4Signer', 'sign interceptor default signer');
-assert_contains($signInterceptor, '->sign(', 'sign interceptor signer call');
-assert_contains($signInterceptor, 'presign(', 'sign interceptor presign support');
+assert_contains($signInterceptor, 'Utils::signv4', 'sign interceptor direct signer call');
+assert_contains($signInterceptor, 'Utils::signRequestToUrl', 'sign interceptor direct presign call');
+assert_contains($signInterceptor, 'isPresigned', 'sign interceptor presign support');
+assert_contains($signInterceptor, 'presignedUrl', 'sign interceptor presigned url');
+assert_not_contains($signInterceptor, 'credentialProvider', 'sign interceptor unused credential provider');
+assert_not_contains($signInterceptor, 'function __construct', 'sign interceptor extension constructor');
+assert_not_contains($signInterceptor, 'V4Signer', 'sign interceptor signer wrapper');
+assert_not_contains($signInterceptor, 'Volcengine\\Common\\Sign', 'sign interceptor sign namespace');
 
 $retryer = read_file_or_fail($root . '/src/Common/Retry/Retryer.php');
 assert_contains($retryer, 'class Retryer', 'retryer class');
@@ -208,16 +243,6 @@ assert_contains($endpointStandard, 'class StandardEndpointProvider', 'standard e
 $endpointProvidersAutoload = read_file_or_fail($root . '/src/Common/Endpoint/Providers/autoload.php');
 assert_contains($endpointProvidersAutoload, 'StandardEndpointProvider.php', 'standard endpoint provider autoload');
 
-$signer = read_file_or_fail($root . '/src/Common/Sign/Signer.php');
-assert_contains($signer, 'interface Signer', 'signer interface');
-assert_contains($signer, 'function sign', 'signer sign method');
-assert_contains($signer, 'function presign', 'signer presign method');
-
-$v4Signer = read_file_or_fail($root . '/src/Common/Sign/V4Signer.php');
-assert_contains($v4Signer, 'implements Signer', 'v4 signer implements signer');
-assert_contains($v4Signer, 'Utils::signv4', 'v4 signer signv4');
-assert_contains($v4Signer, 'Utils::signRequestToUrl', 'v4 signer presign');
-
 $httpLoggingInterceptor = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/HttpLoggingInterceptor.php');
 assert_contains($httpLoggingInterceptor, 'LOG_REQUEST', 'http logging request level');
 assert_contains($httpLoggingInterceptor, 'LOG_RESPONSE', 'http logging response level');
@@ -226,10 +251,6 @@ assert_contains($httpLoggingInterceptor, 'getHeaderLine', 'http logging request 
 assert_not_contains($httpLoggingInterceptor, 'getBody()', 'http logging no body read');
 assert_not_contains($httpLoggingInterceptor, '->body', 'http logging no response body');
 assert_not_contains($httpLoggingInterceptor, 'httpBody', 'http logging no request body');
-
-$loggerInterface = read_file_or_fail($root . '/src/Common/LoggerInterface.php');
-assert_contains($loggerInterface, 'interface LoggerInterface', 'logger interface');
-assert_contains($loggerInterface, 'function debug', 'logger interface debug');
 
 $sdkLogger = read_file_or_fail($root . '/src/Common/SdkLogger.php');
 assert_contains($sdkLogger, 'LOG_REQUEST', 'sdk logger request level');
@@ -241,9 +262,9 @@ assert_not_contains($sdkLogger, 'LOG_REQUEST_BODY', 'sdk logger request body lev
 assert_not_contains($sdkLogger, 'LOG_RESPONSE_BODY', 'sdk logger response body level');
 assert_not_contains($sdkLogger, 'LOG_HTTP_BODY', 'sdk logger http body level');
 
-$psrLoggerAdapter = read_file_or_fail($root . '/src/Common/PsrLoggerAdapter.php');
-assert_contains($psrLoggerAdapter, 'method_exists($logger, \'debug\')', 'psr logger adapter debug method');
-assert_contains($psrLoggerAdapter, 'method_exists($logger, \'log\')', 'psr logger adapter log method');
+$logHelper = read_file_or_fail($root . '/src/Common/LogHelper.php');
+assert_contains($logHelper, '$logger instanceof SdkLogger', 'log helper sdk logger only');
+assert_not_contains($logHelper, 'method_exists', 'log helper no method-shape logger injection');
 
 $apiException = read_file_or_fail($root . '/src/Common/ApiException.php');
 assert_contains($apiException, 'function getStatusCode', 'api exception status helper');
@@ -254,19 +275,47 @@ assert_contains($apiException, 'function fromHttpResponse', 'api exception http 
 assert_not_contains($apiException, 'function code', 'api exception code alias');
 assert_not_contains($apiException, 'function message', 'api exception message alias');
 
+$universalInfo = read_file_or_fail($root . '/src/Common/UniversalInfo.php');
+assert_contains($universalInfo, 'class UniversalInfo', 'universal info class');
+assert_contains($universalInfo, 'CONTENT_TYPE_JSON', 'universal info json content type');
+assert_contains($universalInfo, 'CONTENT_TYPE_FORM', 'universal info form content type');
+assert_contains($universalInfo, 'x-www-form-urlencoded', 'universal info form content type value');
+
+$universalRequest = read_file_or_fail($root . '/src/Common/UniversalRequest.php');
+assert_contains($universalRequest, 'class UniversalRequest extends UniversalInfo', 'universal request class');
+assert_not_contains($universalRequest, 'function setBody', 'universal request no body shortcut');
+assert_not_contains($universalRequest, 'public $body', 'universal request no body property');
+
+$universalApi = read_file_or_fail($root . '/src/Common/UniversalApi.php');
+assert_contains($universalApi, 'class UniversalApi', 'universal api class');
+assert_contains($universalApi, 'function doCall', 'universal api do call');
+assert_contains($universalApi, 'function doCallWithHttpInfo', 'universal api http info');
+assert_contains($universalApi, 'ApiClient', 'universal api uses api client');
+assert_contains($universalApi, 'callApi(', 'universal api call api');
+assert_not_contains($universalApi, 'function doRequest', 'universal api no extra request shortcut');
+assert_not_contains($universalApi, 'RuntimeOptions', 'universal api no runtime options');
+assert_not_contains($universalApi, 'Progress', 'universal api no progress listener');
+assert_not_contains($universalApi, 'addRequestInterceptor', 'universal api no custom request interceptor');
+assert_not_contains($universalApi, 'addResponseInterceptor', 'universal api no custom response interceptor');
+
 $commonAutoload = read_file_or_fail($root . '/src/Common/autoload.php');
 assert_not_contains($commonAutoload, 'Error/autoload.php', 'common autoload typed error classes');
 assert_not_contains($commonAutoload, 'SdkErrorInterface.php', 'common autoload sdk error interface');
 assert_not_contains($commonAutoload, 'RuntimeOptions.php', 'common autoload runtime options');
-assert_not_contains($commonAutoload, 'Universal', 'common autoload universal helpers');
+assert_contains($commonAutoload, 'UniversalInfo.php', 'common autoload universal info');
+assert_contains($commonAutoload, 'UniversalRequest.php', 'common autoload universal request');
+assert_contains($commonAutoload, 'UniversalApi.php', 'common autoload universal api');
 assert_not_contains($commonAutoload, 'Paginator.php', 'common autoload paginator');
 assert_not_contains($commonAutoload, 'Waiter.php', 'common autoload waiter');
 assert_not_contains($commonAutoload, 'Session.php', 'common autoload session helper');
-assert_contains($commonAutoload, 'Sign/autoload.php', 'common autoload sign wrappers');
-assert_contains($commonAutoload, 'LoggerInterface.php', 'common autoload logger interface');
+assert_not_contains($commonAutoload, 'Sign/autoload.php', 'common autoload sign wrappers');
+assert_not_contains($commonAutoload, 'LoggerInterface.php', 'common autoload logger interface');
 assert_contains($commonAutoload, 'SdkLogger.php', 'common autoload sdk logger');
 assert_contains($commonAutoload, 'LogHelper.php', 'common autoload log helper');
-assert_contains($commonAutoload, 'PsrLoggerAdapter.php', 'common autoload psr logger adapter');
+assert_not_contains($commonAutoload, 'PsrLoggerAdapter.php', 'common autoload psr logger adapter');
+
+$buildRequestInterceptor = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/BuildRequestInterceptor.php');
+assert_contains($buildRequestInterceptor, "x-www-form-urlencoded", 'build request universal form content type');
 
 $authProvidersAutoload = read_file_or_fail($root . '/src/Common/Auth/Providers/autoload.php');
 assert_contains($authProvidersAutoload, 'StaticCredentialProvider.php', 'auth providers autoload static credential provider');
@@ -274,12 +323,21 @@ assert_contains($authProvidersAutoload, 'StaticCredentialProvider.php', 'auth pr
 $interceptorsAutoload = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/autoload.php');
 assert_contains($interceptorsAutoload, 'HttpLoggingInterceptor.php', 'interceptors autoload http logging');
 
-$signAutoload = read_file_or_fail($root . '/src/Common/Sign/autoload.php');
-assert_contains($signAutoload, 'Signer.php', 'sign autoload signer');
-assert_contains($signAutoload, 'V4Signer.php', 'sign autoload v4 signer');
-
 $composer = read_file_or_fail($root . '/composer.json');
 assert_not_contains($composer, 'psr/log', 'composer psr log dependency');
+
+assert_file_not_exists($root . '/src/Common/Auth/Providers/ProcessCredentialsProvider.php', 'process credential provider file');
+assert_file_not_exists($root . '/src/Common/Auth/Providers/EndpointCredentialsProvider.php', 'endpoint credential provider file');
+assert_file_not_exists($root . '/src/Common/Endpoint/Providers/HostEndpointProvider.php', 'host endpoint provider file');
+assert_file_not_exists($root . '/src/Common/LoggerInterface.php', 'logger interface file');
+assert_file_not_exists($root . '/src/Common/PsrLoggerAdapter.php', 'psr logger adapter file');
+assert_file_not_exists($root . '/src/Common/Sign/Signer.php', 'signer interface file');
+assert_file_not_exists($root . '/src/Common/Sign/V4Signer.php', 'v4 signer file');
+assert_file_not_exists($root . '/src/Common/Sign/autoload.php', 'sign autoload file');
+assert_file_not_exists($root . '/src/Common/RuntimeOptions.php', 'runtime options file');
+assert_file_not_exists($root . '/src/Common/Paginator.php', 'paginator helper file');
+assert_file_not_exists($root . '/src/Common/Waiter.php', 'waiter helper file');
+assert_file_not_exists($root . '/src/Common/Session.php', 'session helper file');
 
 $retryAutoload = read_file_or_fail($root . '/src/Common/Retry/autoload.php');
 assert_not_contains($retryAutoload, 'BackoffStrategy.php', 'retry autoload backoff strategy');

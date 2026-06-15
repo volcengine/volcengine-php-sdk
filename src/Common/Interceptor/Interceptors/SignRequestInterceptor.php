@@ -5,24 +5,10 @@ namespace Volcengine\Common\Interceptor\Interceptors;
 use GuzzleHttp\RequestOptions;
 use Volcengine\Common\LogHelper;
 use Volcengine\Common\SdkLogger;
-use Volcengine\Common\Sign\Signer;
-use Volcengine\Common\Sign\V4Signer;
+use Volcengine\Common\Utils;
 
 class SignRequestInterceptor extends Interceptor
 {
-    private $signer;
-
-    public function __construct($signer = null)
-    {
-        if ($signer === null) {
-            $signer = new V4Signer();
-        }
-        if (!$signer instanceof Signer) {
-            throw new \InvalidArgumentException('Signer must implement Volcengine\\Common\\Sign\\Signer');
-        }
-        $this->signer = $signer;
-    }
-
     public function name()
     {
         return 'volcengine-sign-request-interceptor';
@@ -43,7 +29,7 @@ class SignRequestInterceptor extends Interceptor
         }
 
         if ($request->isPresigned) {
-            $signedPath = $this->signer->presign(
+            $signedPath = Utils::signRequestToUrl(
                 $request->ak,
                 $request->sk,
                 $request->region,
@@ -66,7 +52,7 @@ class SignRequestInterceptor extends Interceptor
                 $request->headers['Host'] = $request->host;
             }
 
-            $request->headers = $this->signer->sign($request->ak, $request->sk, $request->region, $request->service,
+            $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
             LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_SIGNING,
                 'Signed request service={service} region={region}', [
