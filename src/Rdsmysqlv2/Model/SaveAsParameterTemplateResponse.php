@@ -28,7 +28,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'template_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'template_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'template_id' => 'TemplateId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'template_id' => 'setTemplateId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'template_id' => 'getTemplateId'
     ];
 
     /**
@@ -148,6 +148,7 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class SaveAsParameterTemplateResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

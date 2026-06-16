@@ -31,6 +31,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         'auto_add_new_nodes' => 'bool',
         'connect_all_slave_nodes' => 'bool',
         'connection_pool_type' => 'string',
+        'custom_route_strategy' => '\Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointInput',
         'description' => 'string',
         'enable_connection_persistent' => 'bool',
         'endpoint_id' => 'string',
@@ -59,6 +60,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         'auto_add_new_nodes' => null,
         'connect_all_slave_nodes' => null,
         'connection_pool_type' => null,
+        'custom_route_strategy' => null,
         'description' => null,
         'enable_connection_persistent' => null,
         'endpoint_id' => null,
@@ -108,6 +110,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         'auto_add_new_nodes' => 'AutoAddNewNodes',
         'connect_all_slave_nodes' => 'ConnectAllSlaveNodes',
         'connection_pool_type' => 'ConnectionPoolType',
+        'custom_route_strategy' => 'CustomRouteStrategy',
         'description' => 'Description',
         'enable_connection_persistent' => 'EnableConnectionPersistent',
         'endpoint_id' => 'EndpointId',
@@ -136,6 +139,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         'auto_add_new_nodes' => 'setAutoAddNewNodes',
         'connect_all_slave_nodes' => 'setConnectAllSlaveNodes',
         'connection_pool_type' => 'setConnectionPoolType',
+        'custom_route_strategy' => 'setCustomRouteStrategy',
         'description' => 'setDescription',
         'enable_connection_persistent' => 'setEnableConnectionPersistent',
         'endpoint_id' => 'setEndpointId',
@@ -164,6 +168,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         'auto_add_new_nodes' => 'getAutoAddNewNodes',
         'connect_all_slave_nodes' => 'getConnectAllSlaveNodes',
         'connection_pool_type' => 'getConnectionPoolType',
+        'custom_route_strategy' => 'getCustomRouteStrategy',
         'description' => 'getDescription',
         'enable_connection_persistent' => 'getEnableConnectionPersistent',
         'endpoint_id' => 'getEndpointId',
@@ -246,6 +251,7 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
         $this->container['auto_add_new_nodes'] = isset($data['auto_add_new_nodes']) ? $data['auto_add_new_nodes'] : null;
         $this->container['connect_all_slave_nodes'] = isset($data['connect_all_slave_nodes']) ? $data['connect_all_slave_nodes'] : null;
         $this->container['connection_pool_type'] = isset($data['connection_pool_type']) ? $data['connection_pool_type'] : null;
+        $this->container['custom_route_strategy'] = isset($data['custom_route_strategy']) ? $data['custom_route_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_connection_persistent'] = isset($data['enable_connection_persistent']) ? $data['enable_connection_persistent'] : null;
         $this->container['endpoint_id'] = isset($data['endpoint_id']) ? $data['endpoint_id'] : null;
@@ -363,6 +369,30 @@ class ModifyDBEndpointRequest implements ModelInterface, ArrayAccess
     public function setConnectionPoolType($connection_pool_type)
     {
         $this->container['connection_pool_type'] = $connection_pool_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_route_strategy
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointInput
+     */
+    public function getCustomRouteStrategy()
+    {
+        return $this->container['custom_route_strategy'];
+    }
+
+    /**
+     * Sets custom_route_strategy
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointInput $custom_route_strategy custom_route_strategy
+     *
+     * @return $this
+     */
+    public function setCustomRouteStrategy($custom_route_strategy)
+    {
+        $this->container['custom_route_strategy'] = $custom_route_strategy;
 
         return $this;
     }

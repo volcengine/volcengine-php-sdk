@@ -36,6 +36,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         'allow_list_type' => 'string',
         'associated_instance_num' => 'int',
         'ip_list' => 'string[]',
+        'project_name' => 'string',
         'security_group_bind_infos' => '\Volcengine\Rdsmysqlv2\Model\SecurityGroupBindInfoForDescribeAllowListsOutput[]'
     ];
 
@@ -53,6 +54,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         'allow_list_type' => null,
         'associated_instance_num' => 'int32',
         'ip_list' => null,
+        'project_name' => null,
         'security_group_bind_infos' => null
     ];
 
@@ -91,6 +93,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         'allow_list_type' => 'AllowListType',
         'associated_instance_num' => 'AssociatedInstanceNum',
         'ip_list' => 'IpList',
+        'project_name' => 'ProjectName',
         'security_group_bind_infos' => 'SecurityGroupBindInfos'
     ];
 
@@ -108,6 +111,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         'allow_list_type' => 'setAllowListType',
         'associated_instance_num' => 'setAssociatedInstanceNum',
         'ip_list' => 'setIpList',
+        'project_name' => 'setProjectName',
         'security_group_bind_infos' => 'setSecurityGroupBindInfos'
     ];
 
@@ -125,6 +129,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         'allow_list_type' => 'getAllowListType',
         'associated_instance_num' => 'getAssociatedInstanceNum',
         'ip_list' => 'getIpList',
+        'project_name' => 'getProjectName',
         'security_group_bind_infos' => 'getSecurityGroupBindInfos'
     ];
 
@@ -196,6 +201,7 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         $this->container['allow_list_type'] = isset($data['allow_list_type']) ? $data['allow_list_type'] : null;
         $this->container['associated_instance_num'] = isset($data['associated_instance_num']) ? $data['associated_instance_num'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['security_group_bind_infos'] = isset($data['security_group_bind_infos']) ? $data['security_group_bind_infos'] : null;
     }
 
@@ -411,6 +417,30 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
     public function setIpList($ip_list)
     {
         $this->container['ip_list'] = $ip_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

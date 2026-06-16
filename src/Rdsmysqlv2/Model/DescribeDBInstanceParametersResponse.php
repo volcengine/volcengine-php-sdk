@@ -28,6 +28,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'apply_param_template_info' => '\Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput',
         'db_engine' => 'string',
         'db_engine_version' => 'string',
         'instance_id' => 'string',
@@ -41,6 +42,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'apply_param_template_info' => null,
         'db_engine' => null,
         'db_engine_version' => null,
         'instance_id' => null,
@@ -75,6 +77,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'apply_param_template_info' => 'ApplyParamTemplateInfo',
         'db_engine' => 'DBEngine',
         'db_engine_version' => 'DBEngineVersion',
         'instance_id' => 'InstanceId',
@@ -88,6 +91,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'apply_param_template_info' => 'setApplyParamTemplateInfo',
         'db_engine' => 'setDbEngine',
         'db_engine_version' => 'setDbEngineVersion',
         'instance_id' => 'setInstanceId',
@@ -101,6 +105,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'apply_param_template_info' => 'getApplyParamTemplateInfo',
         'db_engine' => 'getDbEngine',
         'db_engine_version' => 'getDbEngineVersion',
         'instance_id' => 'getInstanceId',
@@ -168,6 +173,7 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['apply_param_template_info'] = isset($data['apply_param_template_info']) ? $data['apply_param_template_info'] : null;
         $this->container['db_engine'] = isset($data['db_engine']) ? $data['db_engine'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -198,6 +204,30 @@ class DescribeDBInstanceParametersResponse implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets apply_param_template_info
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput
+     */
+    public function getApplyParamTemplateInfo()
+    {
+        return $this->container['apply_param_template_info'];
+    }
+
+    /**
+     * Sets apply_param_template_info
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput $apply_param_template_info apply_param_template_info
+     *
+     * @return $this
+     */
+    public function setApplyParamTemplateInfo($apply_param_template_info)
+    {
+        $this->container['apply_param_template_info'] = $apply_param_template_info;
+
+        return $this;
+    }
 
     /**
      * Gets db_engine

@@ -178,6 +178,9 @@ class ModifyDBProxyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['enable_db_proxy'] === null) {
+            $invalidProperties[] = "'enable_db_proxy' can't be null";
+        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
         }

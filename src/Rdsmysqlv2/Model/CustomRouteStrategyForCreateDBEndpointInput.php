@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
+class CustomRouteStrategyForCreateDBEndpointInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaveAsParameterTemplateRequest';
+    protected static $swaggerModelName = 'CustomRouteStrategyForCreateDBEndpointInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'project_name' => 'string',
-        'template_desc' => 'string',
-        'template_name' => 'string'
+        'keyword_route_strategy' => '\Volcengine\Rdsmysqlv2\Model\KeywordRouteStrategyForCreateDBEndpointInput[]'
     ];
 
     /**
@@ -40,10 +37,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'project_name' => null,
-        'template_desc' => null,
-        'template_name' => null
+        'keyword_route_strategy' => null
     ];
 
     /**
@@ -73,10 +67,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'project_name' => 'ProjectName',
-        'template_desc' => 'TemplateDesc',
-        'template_name' => 'TemplateName'
+        'keyword_route_strategy' => 'KeywordRouteStrategy'
     ];
 
     /**
@@ -85,10 +76,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'project_name' => 'setProjectName',
-        'template_desc' => 'setTemplateDesc',
-        'template_name' => 'setTemplateName'
+        'keyword_route_strategy' => 'setKeywordRouteStrategy'
     ];
 
     /**
@@ -97,10 +85,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'project_name' => 'getProjectName',
-        'template_desc' => 'getTemplateDesc',
-        'template_name' => 'getTemplateName'
+        'keyword_route_strategy' => 'getKeywordRouteStrategy'
     ];
 
     /**
@@ -163,10 +148,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['template_desc'] = isset($data['template_desc']) ? $data['template_desc'] : null;
-        $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
+        $this->container['keyword_route_strategy'] = isset($data['keyword_route_strategy']) ? $data['keyword_route_strategy'] : null;
     }
 
     /**
@@ -178,12 +160,6 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['template_name'] === null) {
-            $invalidProperties[] = "'template_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,97 +176,25 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets keyword_route_strategy
      *
-     * @return string
+     * @return \Volcengine\Rdsmysqlv2\Model\KeywordRouteStrategyForCreateDBEndpointInput[]
      */
-    public function getInstanceId()
+    public function getKeywordRouteStrategy()
     {
-        return $this->container['instance_id'];
+        return $this->container['keyword_route_strategy'];
     }
 
     /**
-     * Sets instance_id
+     * Sets keyword_route_strategy
      *
-     * @param string $instance_id instance_id
+     * @param \Volcengine\Rdsmysqlv2\Model\KeywordRouteStrategyForCreateDBEndpointInput[] $keyword_route_strategy keyword_route_strategy
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setKeywordRouteStrategy($keyword_route_strategy)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_desc
-     *
-     * @return string
-     */
-    public function getTemplateDesc()
-    {
-        return $this->container['template_desc'];
-    }
-
-    /**
-     * Sets template_desc
-     *
-     * @param string $template_desc template_desc
-     *
-     * @return $this
-     */
-    public function setTemplateDesc($template_desc)
-    {
-        $this->container['template_desc'] = $template_desc;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_name
-     *
-     * @return string
-     */
-    public function getTemplateName()
-    {
-        return $this->container['template_name'];
-    }
-
-    /**
-     * Sets template_name
-     *
-     * @param string $template_name template_name
-     *
-     * @return $this
-     */
-    public function setTemplateName($template_name)
-    {
-        $this->container['template_name'] = $template_name;
+        $this->container['keyword_route_strategy'] = $keyword_route_strategy;
 
         return $this;
     }

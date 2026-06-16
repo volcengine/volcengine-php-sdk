@@ -28,7 +28,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'spec_family' => 'string',
+        'storage_type' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'spec_family' => null,
+        'storage_type' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'spec_family' => 'SpecFamily',
+        'storage_type' => 'StorageType'
     ];
 
     /**
@@ -76,7 +79,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'spec_family' => 'setSpecFamily',
+        'storage_type' => 'setStorageType'
     ];
 
     /**
@@ -85,7 +89,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'spec_family' => 'getSpecFamily',
+        'storage_type' => 'getStorageType'
     ];
 
     /**
@@ -148,6 +153,8 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['spec_family'] = isset($data['spec_family']) ? $data['spec_family'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class DescribeAvailabilityZonesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets spec_family
+     *
+     * @return string
+     */
+    public function getSpecFamily()
+    {
+        return $this->container['spec_family'];
+    }
+
+    /**
+     * Sets spec_family
+     *
+     * @param string $spec_family spec_family
+     *
+     * @return $this
+     */
+    public function setSpecFamily($spec_family)
+    {
+        $this->container['spec_family'] = $spec_family;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $this->container['storage_type'] = $storage_type;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

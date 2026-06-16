@@ -30,7 +30,8 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'description' => 'string',
         'zone_id' => 'string',
-        'zone_name' => 'string'
+        'zone_name' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'description' => null,
         'zone_id' => null,
-        'zone_name' => null
+        'zone_name' => null,
+        'status' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'description' => 'Description',
         'zone_id' => 'ZoneId',
-        'zone_name' => 'ZoneName'
+        'zone_name' => 'ZoneName',
+        'status' => 'status'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     protected static $setters = [
         'description' => 'setDescription',
         'zone_id' => 'setZoneId',
-        'zone_name' => 'setZoneName'
+        'zone_name' => 'setZoneName',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     protected static $getters = [
         'description' => 'getDescription',
         'zone_id' => 'getZoneId',
-        'zone_name' => 'getZoneName'
+        'zone_name' => 'getZoneName',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
         $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class ZoneForDescribeAvailabilityZonesOutput implements ModelInterface, ArrayAcc
     public function setZoneName($zone_name)
     {
         $this->container['zone_name'] = $zone_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

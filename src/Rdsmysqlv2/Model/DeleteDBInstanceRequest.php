@@ -30,7 +30,8 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'data_keep_days' => 'int',
         'data_keep_policy' => 'string',
-        'instance_id' => 'string'
+        'instance_id' => 'string',
+        'keep_cross_backup_enable_after_released' => 'bool'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'data_keep_days' => 'int32',
         'data_keep_policy' => null,
-        'instance_id' => null
+        'instance_id' => null,
+        'keep_cross_backup_enable_after_released' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'data_keep_days' => 'DataKeepDays',
         'data_keep_policy' => 'DataKeepPolicy',
-        'instance_id' => 'InstanceId'
+        'instance_id' => 'InstanceId',
+        'keep_cross_backup_enable_after_released' => 'KeepCrossBackupEnableAfterReleased'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'data_keep_days' => 'setDataKeepDays',
         'data_keep_policy' => 'setDataKeepPolicy',
-        'instance_id' => 'setInstanceId'
+        'instance_id' => 'setInstanceId',
+        'keep_cross_backup_enable_after_released' => 'setKeepCrossBackupEnableAfterReleased'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'data_keep_days' => 'getDataKeepDays',
         'data_keep_policy' => 'getDataKeepPolicy',
-        'instance_id' => 'getInstanceId'
+        'instance_id' => 'getInstanceId',
+        'keep_cross_backup_enable_after_released' => 'getKeepCrossBackupEnableAfterReleased'
     ];
 
     /**
@@ -161,6 +166,7 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['data_keep_days'] = isset($data['data_keep_days']) ? $data['data_keep_days'] : null;
         $this->container['data_keep_policy'] = isset($data['data_keep_policy']) ? $data['data_keep_policy'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['keep_cross_backup_enable_after_released'] = isset($data['keep_cross_backup_enable_after_released']) ? $data['keep_cross_backup_enable_after_released'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets keep_cross_backup_enable_after_released
+     *
+     * @return bool
+     */
+    public function getKeepCrossBackupEnableAfterReleased()
+    {
+        return $this->container['keep_cross_backup_enable_after_released'];
+    }
+
+    /**
+     * Sets keep_cross_backup_enable_after_released
+     *
+     * @param bool $keep_cross_backup_enable_after_released keep_cross_backup_enable_after_released
+     *
+     * @return $this
+     */
+    public function setKeepCrossBackupEnableAfterReleased($keep_cross_backup_enable_after_released)
+    {
+        $this->container['keep_cross_backup_enable_after_released'] = $keep_cross_backup_enable_after_released;
 
         return $this;
     }

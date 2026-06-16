@@ -30,6 +30,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'allow_list_ids' => 'string[]',
         'auto_storage_scaling_config' => '\Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput',
+        'auto_upgrade_minor_version' => 'string',
         'backup_id' => 'string',
         'charge_info' => '\Volcengine\Rdsmysqlv2\Model\ChargeInfoForRestoreToCrossRegionInstanceInput',
         'db_param_group_id' => 'string',
@@ -59,6 +60,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'allow_list_ids' => null,
         'auto_storage_scaling_config' => null,
+        'auto_upgrade_minor_version' => null,
         'backup_id' => null,
         'charge_info' => null,
         'db_param_group_id' => null,
@@ -109,6 +111,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'allow_list_ids' => 'AllowListIds',
         'auto_storage_scaling_config' => 'AutoStorageScalingConfig',
+        'auto_upgrade_minor_version' => 'AutoUpgradeMinorVersion',
         'backup_id' => 'BackupId',
         'charge_info' => 'ChargeInfo',
         'db_param_group_id' => 'DBParamGroupId',
@@ -138,6 +141,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'allow_list_ids' => 'setAllowListIds',
         'auto_storage_scaling_config' => 'setAutoStorageScalingConfig',
+        'auto_upgrade_minor_version' => 'setAutoUpgradeMinorVersion',
         'backup_id' => 'setBackupId',
         'charge_info' => 'setChargeInfo',
         'db_param_group_id' => 'setDbParamGroupId',
@@ -167,6 +171,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'allow_list_ids' => 'getAllowListIds',
         'auto_storage_scaling_config' => 'getAutoStorageScalingConfig',
+        'auto_upgrade_minor_version' => 'getAutoUpgradeMinorVersion',
         'backup_id' => 'getBackupId',
         'charge_info' => 'getChargeInfo',
         'db_param_group_id' => 'getDbParamGroupId',
@@ -250,6 +255,7 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['allow_list_ids'] = isset($data['allow_list_ids']) ? $data['allow_list_ids'] : null;
         $this->container['auto_storage_scaling_config'] = isset($data['auto_storage_scaling_config']) ? $data['auto_storage_scaling_config'] : null;
+        $this->container['auto_upgrade_minor_version'] = isset($data['auto_upgrade_minor_version']) ? $data['auto_upgrade_minor_version'] : null;
         $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
         $this->container['charge_info'] = isset($data['charge_info']) ? $data['charge_info'] : null;
         $this->container['db_param_group_id'] = isset($data['db_param_group_id']) ? $data['db_param_group_id'] : null;
@@ -357,6 +363,30 @@ class RestoreToCrossRegionInstanceRequest implements ModelInterface, ArrayAccess
     public function setAutoStorageScalingConfig($auto_storage_scaling_config)
     {
         $this->container['auto_storage_scaling_config'] = $auto_storage_scaling_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_upgrade_minor_version
+     *
+     * @return string
+     */
+    public function getAutoUpgradeMinorVersion()
+    {
+        return $this->container['auto_upgrade_minor_version'];
+    }
+
+    /**
+     * Sets auto_upgrade_minor_version
+     *
+     * @param string $auto_upgrade_minor_version auto_upgrade_minor_version
+     *
+     * @return $this
+     */
+    public function setAutoUpgradeMinorVersion($auto_upgrade_minor_version)
+    {
+        $this->container['auto_upgrade_minor_version'] = $auto_upgrade_minor_version;
 
         return $this;
     }

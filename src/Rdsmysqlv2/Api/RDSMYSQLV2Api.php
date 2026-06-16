@@ -6053,13 +6053,13 @@ class RDSMYSQLV2Api
 
     protected function modifyBackupNameRequest($body)
     {
-        $resourcePath = '/ModifyBackupName/2022-01-01/rds_mysql/get/text_plain/';
+        $resourcePath = '/ModifyBackupName/2022-01-01/rds_mysql/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];

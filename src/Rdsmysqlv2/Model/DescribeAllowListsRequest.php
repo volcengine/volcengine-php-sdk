@@ -32,6 +32,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'string',
         'project_name' => 'string',
         'query_default' => 'bool',
+        'query_instance' => 'bool',
         'region_id' => 'string',
         'with_ip_list' => 'bool'
     ];
@@ -46,6 +47,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         'instance_id' => null,
         'project_name' => null,
         'query_default' => null,
+        'query_instance' => null,
         'region_id' => null,
         'with_ip_list' => null
     ];
@@ -81,6 +83,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'query_default' => 'QueryDefault',
+        'query_instance' => 'QueryInstance',
         'region_id' => 'RegionId',
         'with_ip_list' => 'WithIpList'
     ];
@@ -95,6 +98,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'query_default' => 'setQueryDefault',
+        'query_instance' => 'setQueryInstance',
         'region_id' => 'setRegionId',
         'with_ip_list' => 'setWithIpList'
     ];
@@ -109,6 +113,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'query_default' => 'getQueryDefault',
+        'query_instance' => 'getQueryInstance',
         'region_id' => 'getRegionId',
         'with_ip_list' => 'getWithIpList'
     ];
@@ -177,6 +182,7 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['query_default'] = isset($data['query_default']) ? $data['query_default'] : null;
+        $this->container['query_instance'] = isset($data['query_instance']) ? $data['query_instance'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['with_ip_list'] = isset($data['with_ip_list']) ? $data['with_ip_list'] : null;
     }
@@ -297,6 +303,30 @@ class DescribeAllowListsRequest implements ModelInterface, ArrayAccess
     public function setQueryDefault($query_default)
     {
         $this->container['query_default'] = $query_default;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_instance
+     *
+     * @return bool
+     */
+    public function getQueryInstance()
+    {
+        return $this->container['query_instance'];
+    }
+
+    /**
+     * Sets query_instance
+     *
+     * @param bool $query_instance query_instance
+     *
+     * @return $this
+     */
+    public function setQueryInstance($query_instance)
+    {
+        $this->container['query_instance'] = $query_instance;
 
         return $this;
     }
