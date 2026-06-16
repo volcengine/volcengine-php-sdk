@@ -4,6 +4,7 @@ namespace Volcengine\Common\Auth\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Psr7\Request;
 use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
@@ -24,6 +25,8 @@ class StsProvider extends Provider
     private $config;
     private $connectTimeout = 5;
     private $readTimeout = 30;
+    private $maxRetries = 3;
+    private $retryInterval = 1;
 
     public function __construct(
         $ak,
@@ -89,37 +92,10 @@ class StsProvider extends Provider
             $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
             $headers, '');
 
-        $client = new Client([
-            'timeout' => $this->readTimeout,
-            'connect_timeout' => $this->connectTimeout,
-            'verify' => true,
-        ]);
-        try {
-            $response = $client->send($request, [
-                'timeout' => $this->readTimeout,
-                'connect_timeout' => $this->connectTimeout,
-            ]);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
+        $response = $this->sendWithRetry($request);
         $statusCode = $response->getStatusCode();
         if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)(%s)',
-                    $statusCode,
-                    $request->getUri(),
-                    $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
+            throw $this->apiExceptionFromResponse($request, $response);
         }
         $responseContent = $response->getBody()->getContents();
         $content = json_decode($responseContent);
@@ -152,5 +128,107 @@ class StsProvider extends Provider
     {
         $this->readTimeout = $readTimeout;
         return $this;
+    }
+
+    public function setMaxRetries($maxRetries)
+    {
+        if ($maxRetries < 0) {
+            throw new \InvalidArgumentException('maxRetries must be >= 0');
+        }
+        $this->maxRetries = $maxRetries;
+        return $this;
+    }
+
+    public function setRetryInterval($retryInterval)
+    {
+        if ($retryInterval < 0) {
+            throw new \InvalidArgumentException('retryInterval must be >= 0');
+        }
+        $this->retryInterval = $retryInterval;
+        return $this;
+    }
+
+    private function sendWithRetry(Request $request)
+    {
+        $client = new Client([
+            'timeout' => $this->readTimeout,
+            'connect_timeout' => $this->connectTimeout,
+            'verify' => true,
+            'http_errors' => false,
+        ]);
+        $lastException = null;
+
+        for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
+            try {
+                $response = $client->send($request, [
+                    'timeout' => $this->readTimeout,
+                    'connect_timeout' => $this->connectTimeout,
+                    'http_errors' => false,
+                ]);
+
+                if (!$this->isRetryableStatusCode($response->getStatusCode()) || $attempt >= $this->maxRetries) {
+                    return $response;
+                }
+
+                $lastException = $this->apiExceptionFromResponse($request, $response);
+            } catch (RequestException $e) {
+                $lastException = $this->apiExceptionFromRequestException($e);
+                if (!$this->isRetryableRequestException($e) || $attempt >= $this->maxRetries) {
+                    throw $lastException;
+                }
+            } catch (TransferException $e) {
+                $lastException = new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), null, null);
+                if ($attempt >= $this->maxRetries) {
+                    throw $lastException;
+                }
+            }
+
+            if ($attempt < $this->maxRetries && $this->retryInterval > 0) {
+                sleep($this->retryInterval);
+            }
+        }
+
+        throw $lastException;
+    }
+
+    private function isRetryableStatusCode($statusCode)
+    {
+        $statusCode = (int) $statusCode;
+        return $statusCode === 429 || ($statusCode >= 500 && $statusCode < 600);
+    }
+
+    private function isRetryableRequestException(RequestException $e)
+    {
+        $response = $e->getResponse();
+        if ($response === null) {
+            return true;
+        }
+        return $this->isRetryableStatusCode($response->getStatusCode());
+    }
+
+    private function apiExceptionFromRequestException(RequestException $e)
+    {
+        return new ApiException(
+            "[{$e->getCode()}] {$e->getMessage()}",
+            $e->getCode(),
+            $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+            $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+        );
+    }
+
+    private function apiExceptionFromResponse(Request $request, $response)
+    {
+        $body = (string) $response->getBody();
+        return new ApiException(
+            sprintf(
+                '[%d] Error connecting to the API (%s)(%s)',
+                $response->getStatusCode(),
+                $request->getUri(),
+                $body
+            ),
+            $response->getStatusCode(),
+            $response->getHeaders(),
+            $body
+        );
     }
 }

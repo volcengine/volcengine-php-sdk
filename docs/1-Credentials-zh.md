@@ -130,7 +130,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### AssumeRole
 
-动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。
+动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。默认会重试临时 STS 失败：网络/传输错误、HTTP `429` 和 HTTP `5xx`。
 
 > ⚠️ **注意事项**
 >
@@ -153,6 +153,10 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "sts.volcengineapi.com", # 非必填，请求域名，默认sts.volcengineapi.com
     '{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' # 非必填，授权策略，默认为空
 );
+
+// 可选：调整重试配置。maxRetries 表示额外重试次数。
+// $sts->setMaxRetries(3)
+//     ->setRetryInterval(1);
 
 try {
     $result = $sts->getCredentials();

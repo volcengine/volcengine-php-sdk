@@ -217,9 +217,14 @@ $stsProvider = read_file_or_fail($root . '/src/Common/Auth/Providers/StsProvider
 assert_not_contains($stsProvider, 'function setRetryer', 'sts provider retryer setter');
 assert_contains($stsProvider, 'function setConnectTimeout', 'sts provider connect timeout setter');
 assert_contains($stsProvider, 'function setReadTimeout', 'sts provider read timeout setter');
+assert_contains($stsProvider, 'function setMaxRetries', 'sts provider max retries setter');
+assert_contains($stsProvider, 'function setRetryInterval', 'sts provider retry interval setter');
 
 $endpointStandard = read_file_or_fail($root . '/src/Common/Endpoint/Providers/StandardEndpointProvider.php');
 assert_contains($endpointStandard, 'class StandardEndpointProvider', 'standard endpoint provider');
+assert_contains($endpointStandard, 'ServiceNotFound', 'standard endpoint service not found error');
+assert_contains($endpointStandard, 'InvalidRegion', 'standard endpoint invalid region error');
+assert_contains($endpointStandard, 'SITE_STACK_VOLC_DUAL_STACK', 'standard endpoint dualstack site stack');
 
 $endpointProvidersAutoload = read_file_or_fail($root . '/src/Common/Endpoint/Providers/autoload.php');
 assert_contains($endpointProvidersAutoload, 'StandardEndpointProvider.php', 'standard endpoint provider autoload');
