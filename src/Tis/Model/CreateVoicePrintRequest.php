@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, ArrayAccess
+class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeviceListForCreateDeviceWithoutApprovalInput';
+    protected static $swaggerModelName = 'CreateVoicePrintRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,8 +29,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerTypes = [
         'device_name' => 'string',
-        'device_secret' => 'string',
-        'nick_name' => 'string'
+        'file_key' => 'string',
+        'file_url' => 'string',
+        'nick_name' => 'string',
+        'product_key' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -40,8 +43,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'device_name' => null,
-        'device_secret' => null,
-        'nick_name' => null
+        'file_key' => null,
+        'file_url' => null,
+        'nick_name' => null,
+        'product_key' => null,
+        'type' => null
     ];
 
     /**
@@ -72,8 +78,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $attributeMap = [
         'device_name' => 'DeviceName',
-        'device_secret' => 'DeviceSecret',
-        'nick_name' => 'NickName'
+        'file_key' => 'FileKey',
+        'file_url' => 'FileUrl',
+        'nick_name' => 'NickName',
+        'product_key' => 'ProductKey',
+        'type' => 'Type'
     ];
 
     /**
@@ -83,8 +92,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $setters = [
         'device_name' => 'setDeviceName',
-        'device_secret' => 'setDeviceSecret',
-        'nick_name' => 'setNickName'
+        'file_key' => 'setFileKey',
+        'file_url' => 'setFileUrl',
+        'nick_name' => 'setNickName',
+        'product_key' => 'setProductKey',
+        'type' => 'setType'
     ];
 
     /**
@@ -94,8 +106,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $getters = [
         'device_name' => 'getDeviceName',
-        'device_secret' => 'getDeviceSecret',
-        'nick_name' => 'getNickName'
+        'file_key' => 'getFileKey',
+        'file_url' => 'getFileUrl',
+        'nick_name' => 'getNickName',
+        'product_key' => 'getProductKey',
+        'type' => 'getType'
     ];
 
     /**
@@ -159,8 +174,11 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     public function __construct($data = null)
     {
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
-        $this->container['device_secret'] = isset($data['device_secret']) ? $data['device_secret'] : null;
+        $this->container['file_key'] = isset($data['file_key']) ? $data['file_key'] : null;
+        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
         $this->container['nick_name'] = isset($data['nick_name']) ? $data['nick_name'] : null;
+        $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -172,6 +190,12 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['device_name'] === null) {
+            $invalidProperties[] = "'device_name' can't be null";
+        }
+        if ($this->container['product_key'] === null) {
+            $invalidProperties[] = "'product_key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,25 +236,49 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     }
 
     /**
-     * Gets device_secret
+     * Gets file_key
      *
      * @return string
      */
-    public function getDeviceSecret()
+    public function getFileKey()
     {
-        return $this->container['device_secret'];
+        return $this->container['file_key'];
     }
 
     /**
-     * Sets device_secret
+     * Sets file_key
      *
-     * @param string $device_secret device_secret
+     * @param string $file_key file_key
      *
      * @return $this
      */
-    public function setDeviceSecret($device_secret)
+    public function setFileKey($file_key)
     {
-        $this->container['device_secret'] = $device_secret;
+        $this->container['file_key'] = $file_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_url
+     *
+     * @return string
+     */
+    public function getFileUrl()
+    {
+        return $this->container['file_url'];
+    }
+
+    /**
+     * Sets file_url
+     *
+     * @param string $file_url file_url
+     *
+     * @return $this
+     */
+    public function setFileUrl($file_url)
+    {
+        $this->container['file_url'] = $file_url;
 
         return $this;
     }
@@ -255,6 +303,54 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     public function setNickName($nick_name)
     {
         $this->container['nick_name'] = $nick_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_key
+     *
+     * @return string
+     */
+    public function getProductKey()
+    {
+        return $this->container['product_key'];
+    }
+
+    /**
+     * Sets product_key
+     *
+     * @param string $product_key product_key
+     *
+     * @return $this
+     */
+    public function setProductKey($product_key)
+    {
+        $this->container['product_key'] = $product_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
