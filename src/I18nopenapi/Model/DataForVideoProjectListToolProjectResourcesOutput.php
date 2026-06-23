@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class DataForVideoProjectListToolProjectResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'dataForVideoProjectListToolProjectResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'tool_resources' => '\Volcengine\I18nopenapi\Model\ToolResourceForVideoProjectListToolProjectResourcesOutput[]',
+        'total_count' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'tool_resources' => null,
+        'total_count' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'tool_resources' => 'toolResources',
+        'total_count' => 'totalCount'
     ];
 
     /**
@@ -85,10 +79,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'tool_resources' => 'setToolResources',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -97,10 +89,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'tool_resources' => 'getToolResources',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -163,10 +153,8 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['tool_resources'] = isset($data['tool_resources']) ? $data['tool_resources'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -178,9 +166,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +182,49 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
+     * Gets tool_resources
+     *
+     * @return \Volcengine\I18nopenapi\Model\ToolResourceForVideoProjectListToolProjectResourcesOutput[]
+     */
+    public function getToolResources()
+    {
+        return $this->container['tool_resources'];
+    }
+
+    /**
+     * Sets tool_resources
+     *
+     * @param \Volcengine\I18nopenapi\Model\ToolResourceForVideoProjectListToolProjectResourcesOutput[] $tool_resources tool_resources
+     *
+     * @return $this
+     */
+    public function setToolResources($tool_resources)
+    {
+        $this->container['tool_resources'] = $tool_resources;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
      *
      * @return string
      */
-    public function getProjectId()
+    public function getTotalCount()
     {
-        return $this->container['project_id'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets project_id
+     * Sets total_count
      *
-     * @param string $project_id project_id
+     * @param string $total_count total_count
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setTotalCount($total_count)
     {
-        $this->container['project_id'] = $project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_type
-     *
-     * @return int
-     */
-    public function getTaskType()
-    {
-        return $this->container['task_type'];
-    }
-
-    /**
-     * Sets task_type
-     *
-     * @param int $task_type task_type
-     *
-     * @return $this
-     */
-    public function setTaskType($task_type)
-    {
-        $this->container['task_type'] = $task_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tool_params_json
-     *
-     * @return string
-     */
-    public function getToolParamsJson()
-    {
-        return $this->container['tool_params_json'];
-    }
-
-    /**
-     * Sets tool_params_json
-     *
-     * @param string $tool_params_json tool_params_json
-     *
-     * @return $this
-     */
-    public function setToolParamsJson($tool_params_json)
-    {
-        $this->container['tool_params_json'] = $tool_params_json;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_ids
-     *
-     * @return string[]
-     */
-    public function getVideoIds()
-    {
-        return $this->container['video_ids'];
-    }
-
-    /**
-     * Sets video_ids
-     *
-     * @param string[] $video_ids video_ids
-     *
-     * @return $this
-     */
-    public function setVideoIds($video_ids)
-    {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

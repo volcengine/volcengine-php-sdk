@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'episode_num' => 'int',
+        'target_lang2_subtitle' => '\Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]',
+        'video_id' => 'string',
+        'video_name' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'episode_num' => 'int32',
+        'target_lang2_subtitle' => null,
+        'video_id' => null,
+        'video_name' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'episode_num' => 'episodeNum',
+        'target_lang2_subtitle' => 'targetLang2Subtitle',
+        'video_id' => 'videoId',
+        'video_name' => 'videoName'
     ];
 
     /**
@@ -85,10 +85,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'episode_num' => 'setEpisodeNum',
+        'target_lang2_subtitle' => 'setTargetLang2Subtitle',
+        'video_id' => 'setVideoId',
+        'video_name' => 'setVideoName'
     ];
 
     /**
@@ -97,10 +97,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'episode_num' => 'getEpisodeNum',
+        'target_lang2_subtitle' => 'getTargetLang2Subtitle',
+        'video_id' => 'getVideoId',
+        'video_name' => 'getVideoName'
     ];
 
     /**
@@ -163,10 +163,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
+        $this->container['target_lang2_subtitle'] = isset($data['target_lang2_subtitle']) ? $data['target_lang2_subtitle'] : null;
+        $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
+        $this->container['video_name'] = isset($data['video_name']) ? $data['video_name'] : null;
     }
 
     /**
@@ -178,9 +178,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +194,97 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
-     *
-     * @return string
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param string $project_id project_id
-     *
-     * @return $this
-     */
-    public function setProjectId($project_id)
-    {
-        $this->container['project_id'] = $project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_type
+     * Gets episode_num
      *
      * @return int
      */
-    public function getTaskType()
+    public function getEpisodeNum()
     {
-        return $this->container['task_type'];
+        return $this->container['episode_num'];
     }
 
     /**
-     * Sets task_type
+     * Sets episode_num
      *
-     * @param int $task_type task_type
+     * @param int $episode_num episode_num
      *
      * @return $this
      */
-    public function setTaskType($task_type)
+    public function setEpisodeNum($episode_num)
     {
-        $this->container['task_type'] = $task_type;
+        $this->container['episode_num'] = $episode_num;
 
         return $this;
     }
 
     /**
-     * Gets tool_params_json
+     * Gets target_lang2_subtitle
+     *
+     * @return \Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]
+     */
+    public function getTargetLang2Subtitle()
+    {
+        return $this->container['target_lang2_subtitle'];
+    }
+
+    /**
+     * Sets target_lang2_subtitle
+     *
+     * @param \Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[] $target_lang2_subtitle target_lang2_subtitle
+     *
+     * @return $this
+     */
+    public function setTargetLang2Subtitle($target_lang2_subtitle)
+    {
+        $this->container['target_lang2_subtitle'] = $target_lang2_subtitle;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_id
      *
      * @return string
      */
-    public function getToolParamsJson()
+    public function getVideoId()
     {
-        return $this->container['tool_params_json'];
+        return $this->container['video_id'];
     }
 
     /**
-     * Sets tool_params_json
+     * Sets video_id
      *
-     * @param string $tool_params_json tool_params_json
+     * @param string $video_id video_id
      *
      * @return $this
      */
-    public function setToolParamsJson($tool_params_json)
+    public function setVideoId($video_id)
     {
-        $this->container['tool_params_json'] = $tool_params_json;
+        $this->container['video_id'] = $video_id;
 
         return $this;
     }
 
     /**
-     * Gets video_ids
+     * Gets video_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getVideoIds()
+    public function getVideoName()
     {
-        return $this->container['video_ids'];
+        return $this->container['video_name'];
     }
 
     /**
-     * Sets video_ids
+     * Sets video_name
      *
-     * @param string[] $video_ids video_ids
+     * @param string $video_name video_name
      *
      * @return $this
      */
-    public function setVideoIds($video_ids)
+    public function setVideoName($video_name)
     {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['video_name'] = $video_name;
 
         return $this;
     }

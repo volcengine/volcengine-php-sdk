@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class VideoProjectListVideoDramaRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'VideoProjectListVideoDramaRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'drama_id' => 'string',
+        'limit' => 'int',
+        'offset' => 'int',
         'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'task_type' => 'int'
     ];
 
     /**
@@ -40,10 +41,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'drama_id' => null,
+        'limit' => 'int32',
+        'offset' => 'int32',
         'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'task_type' => 'int32'
     ];
 
     /**
@@ -73,10 +75,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'drama_id' => 'dramaId',
+        'limit' => 'limit',
+        'offset' => 'offset',
         'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'task_type' => 'taskType'
     ];
 
     /**
@@ -85,10 +88,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'drama_id' => 'setDramaId',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
         'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'task_type' => 'setTaskType'
     ];
 
     /**
@@ -97,10 +101,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'drama_id' => 'getDramaId',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
         'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'task_type' => 'getTaskType'
     ];
 
     /**
@@ -163,10 +168,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['drama_id'] = isset($data['drama_id']) ? $data['drama_id'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
     }
 
     /**
@@ -178,8 +184,17 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['task_type'] === null) {
+            $invalidProperties[] = "'task_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -195,6 +210,78 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets drama_id
+     *
+     * @return string
+     */
+    public function getDramaId()
+    {
+        return $this->container['drama_id'];
+    }
+
+    /**
+     * Sets drama_id
+     *
+     * @param string $drama_id drama_id
+     *
+     * @return $this
+     */
+    public function setDramaId($drama_id)
+    {
+        $this->container['drama_id'] = $drama_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
 
     /**
      * Gets project_id
@@ -240,54 +327,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     public function setTaskType($task_type)
     {
         $this->container['task_type'] = $task_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tool_params_json
-     *
-     * @return string
-     */
-    public function getToolParamsJson()
-    {
-        return $this->container['tool_params_json'];
-    }
-
-    /**
-     * Sets tool_params_json
-     *
-     * @param string $tool_params_json tool_params_json
-     *
-     * @return $this
-     */
-    public function setToolParamsJson($tool_params_json)
-    {
-        $this->container['tool_params_json'] = $tool_params_json;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_ids
-     *
-     * @return string[]
-     */
-    public function getVideoIds()
-    {
-        return $this->container['video_ids'];
-    }
-
-    /**
-     * Sets video_ids
-     *
-     * @param string[] $video_ids video_ids
-     *
-     * @return $this
-     */
-    public function setVideoIds($video_ids)
-    {
-        $this->container['video_ids'] = $video_ids;
 
         return $this;
     }
