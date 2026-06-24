@@ -316,10 +316,6 @@ differs slightly from the Go / Java / Python SDKs:
 
 ### ECS Role Credential Provider
 
-> 🚨 **Current version limitation**
->
-> **Auto-detection of the role name from IMDS is not yet supported in the current release.** You must pass the role name explicitly via the constructor argument or the `VOLCENGINE_ECS_METADATA` environment variable. Auto-detection will be supported in a future version — please watch the release notes.
-
 `EcsRoleCredentialProvider` reads temporary credentials from ECS IMDS.
 
 - `roleName` priority: constructor arg > `VOLCENGINE_ECS_METADATA` > auto-detect from IMDS
@@ -329,6 +325,7 @@ differs slightly from the Go / Java / Python SDKs:
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Omit the argument to read VOLCENGINE_ECS_METADATA or auto-detect the role name from IMDS.
 $provider = \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name");
 
 // Optional: tune retry and timeout settings via fluent setters

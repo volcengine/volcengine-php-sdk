@@ -308,10 +308,6 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### ECS 角色凭证提供者
 
-> 🚨 **当前版本限制**
->
-> **当前版本暂不支持从 IMDS 自动探测角色名**，请通过构造参数或 `VOLCENGINE_ECS_METADATA` 环境变量显式传入角色名。后续版本将支持自动探测，敬请关注版本发布通知。
-
 `EcsRoleCredentialProvider` 从 ECS IMDS 中读取临时凭证。
 
 - `roleName` 优先级：构造参数 > `VOLCENGINE_ECS_METADATA` > 从 IMDS 自动探测
@@ -321,6 +317,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// 省略参数时，将读取 VOLCENGINE_ECS_METADATA 或从 IMDS 自动探测角色名。
 $provider = \Volcengine\Common\Auth\Providers\EcsRoleCredentialProvider::create("your-ecs-role-name");
 
 // 可选：通过 fluent setter 调整重试和超时参数
