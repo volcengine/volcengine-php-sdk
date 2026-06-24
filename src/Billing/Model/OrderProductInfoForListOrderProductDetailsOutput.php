@@ -31,6 +31,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'string',
         'configuration_code' => 'string',
         'coupon_amount' => 'string',
+        'deduction_count' => 'string',
+        'deduction_count_unit' => 'string',
         'discount_amount' => 'string',
         'end_time' => 'string',
         'instance_id' => 'string',
@@ -42,6 +44,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payer_id' => 'int',
         'payment_method' => 'string',
         'period' => 'string',
+        'pickup_voucher_id' => 'string',
         'product' => 'string',
         'status' => 'string',
         'times' => 'string'
@@ -56,6 +59,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => null,
         'configuration_code' => null,
         'coupon_amount' => null,
+        'deduction_count' => null,
+        'deduction_count_unit' => null,
         'discount_amount' => null,
         'end_time' => null,
         'instance_id' => null,
@@ -67,6 +72,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payer_id' => 'int32',
         'payment_method' => null,
         'period' => null,
+        'pickup_voucher_id' => null,
         'product' => null,
         'status' => null,
         'times' => null
@@ -102,6 +108,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'BeginTime',
         'configuration_code' => 'ConfigurationCode',
         'coupon_amount' => 'CouponAmount',
+        'deduction_count' => 'DeductionCount',
+        'deduction_count_unit' => 'DeductionCountUnit',
         'discount_amount' => 'DiscountAmount',
         'end_time' => 'EndTime',
         'instance_id' => 'InstanceID',
@@ -113,6 +121,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payer_id' => 'PayerID',
         'payment_method' => 'PaymentMethod',
         'period' => 'Period',
+        'pickup_voucher_id' => 'PickupVoucherID',
         'product' => 'Product',
         'status' => 'Status',
         'times' => 'Times'
@@ -127,6 +136,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'setBeginTime',
         'configuration_code' => 'setConfigurationCode',
         'coupon_amount' => 'setCouponAmount',
+        'deduction_count' => 'setDeductionCount',
+        'deduction_count_unit' => 'setDeductionCountUnit',
         'discount_amount' => 'setDiscountAmount',
         'end_time' => 'setEndTime',
         'instance_id' => 'setInstanceId',
@@ -138,6 +149,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payer_id' => 'setPayerId',
         'payment_method' => 'setPaymentMethod',
         'period' => 'setPeriod',
+        'pickup_voucher_id' => 'setPickupVoucherId',
         'product' => 'setProduct',
         'status' => 'setStatus',
         'times' => 'setTimes'
@@ -152,6 +164,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'getBeginTime',
         'configuration_code' => 'getConfigurationCode',
         'coupon_amount' => 'getCouponAmount',
+        'deduction_count' => 'getDeductionCount',
+        'deduction_count_unit' => 'getDeductionCountUnit',
         'discount_amount' => 'getDiscountAmount',
         'end_time' => 'getEndTime',
         'instance_id' => 'getInstanceId',
@@ -163,6 +177,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payer_id' => 'getPayerId',
         'payment_method' => 'getPaymentMethod',
         'period' => 'getPeriod',
+        'pickup_voucher_id' => 'getPickupVoucherId',
         'product' => 'getProduct',
         'status' => 'getStatus',
         'times' => 'getTimes'
@@ -231,6 +246,8 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
+        $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
+        $this->container['deduction_count_unit'] = isset($data['deduction_count_unit']) ? $data['deduction_count_unit'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -242,6 +259,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['pickup_voucher_id'] = isset($data['pickup_voucher_id']) ? $data['pickup_voucher_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['times'] = isset($data['times']) ? $data['times'] : null;
@@ -339,6 +357,54 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     public function setCouponAmount($coupon_amount)
     {
         $this->container['coupon_amount'] = $coupon_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets deduction_count
+     *
+     * @return string
+     */
+    public function getDeductionCount()
+    {
+        return $this->container['deduction_count'];
+    }
+
+    /**
+     * Sets deduction_count
+     *
+     * @param string $deduction_count deduction_count
+     *
+     * @return $this
+     */
+    public function setDeductionCount($deduction_count)
+    {
+        $this->container['deduction_count'] = $deduction_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets deduction_count_unit
+     *
+     * @return string
+     */
+    public function getDeductionCountUnit()
+    {
+        return $this->container['deduction_count_unit'];
+    }
+
+    /**
+     * Sets deduction_count_unit
+     *
+     * @param string $deduction_count_unit deduction_count_unit
+     *
+     * @return $this
+     */
+    public function setDeductionCountUnit($deduction_count_unit)
+    {
+        $this->container['deduction_count_unit'] = $deduction_count_unit;
 
         return $this;
     }
@@ -603,6 +669,30 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     public function setPeriod($period)
     {
         $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_voucher_id
+     *
+     * @return string
+     */
+    public function getPickupVoucherId()
+    {
+        return $this->container['pickup_voucher_id'];
+    }
+
+    /**
+     * Sets pickup_voucher_id
+     *
+     * @param string $pickup_voucher_id pickup_voucher_id
+     *
+     * @return $this
+     */
+    public function setPickupVoucherId($pickup_voucher_id)
+    {
+        $this->container['pickup_voucher_id'] = $pickup_voucher_id;
 
         return $this;
     }

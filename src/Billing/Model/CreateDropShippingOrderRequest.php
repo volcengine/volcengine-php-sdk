@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterface, ArrayAccess
+class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderFailRefundInfoForListOrderProductDetailsOutput';
+    protected static $swaggerModelName = 'CreateDropShippingOrderRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'coupon_amount' => 'string',
-        'deduction_count' => 'string',
-        'discount_amount' => 'string',
-        'original_amount' => 'string',
-        'paid_amount' => 'string',
-        'payable_amount' => 'string'
+        'account_id' => 'int',
+        'biz_no' => 'string',
+        'config_items' => '\Volcengine\Billing\Model\ConfigItemForCreateDropShippingOrderInput[]',
+        'security_tel' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -42,12 +41,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'coupon_amount' => null,
-        'deduction_count' => null,
-        'discount_amount' => null,
-        'original_amount' => null,
-        'paid_amount' => null,
-        'payable_amount' => null
+        'account_id' => 'int64',
+        'biz_no' => null,
+        'config_items' => null,
+        'security_tel' => null,
+        'source' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'coupon_amount' => 'CouponAmount',
-        'deduction_count' => 'DeductionCount',
-        'discount_amount' => 'DiscountAmount',
-        'original_amount' => 'OriginalAmount',
-        'paid_amount' => 'PaidAmount',
-        'payable_amount' => 'PayableAmount'
+        'account_id' => 'AccountID',
+        'biz_no' => 'BizNo',
+        'config_items' => 'ConfigItems',
+        'security_tel' => 'SecurityTel',
+        'source' => 'Source'
     ];
 
     /**
@@ -91,12 +88,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'coupon_amount' => 'setCouponAmount',
-        'deduction_count' => 'setDeductionCount',
-        'discount_amount' => 'setDiscountAmount',
-        'original_amount' => 'setOriginalAmount',
-        'paid_amount' => 'setPaidAmount',
-        'payable_amount' => 'setPayableAmount'
+        'account_id' => 'setAccountId',
+        'biz_no' => 'setBizNo',
+        'config_items' => 'setConfigItems',
+        'security_tel' => 'setSecurityTel',
+        'source' => 'setSource'
     ];
 
     /**
@@ -105,12 +101,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'coupon_amount' => 'getCouponAmount',
-        'deduction_count' => 'getDeductionCount',
-        'discount_amount' => 'getDiscountAmount',
-        'original_amount' => 'getOriginalAmount',
-        'paid_amount' => 'getPaidAmount',
-        'payable_amount' => 'getPayableAmount'
+        'account_id' => 'getAccountId',
+        'biz_no' => 'getBizNo',
+        'config_items' => 'getConfigItems',
+        'security_tel' => 'getSecurityTel',
+        'source' => 'getSource'
     ];
 
     /**
@@ -173,12 +168,11 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      */
     public function __construct($data = null)
     {
-        $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
-        $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
-        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
-        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
-        $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
-        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['biz_no'] = isset($data['biz_no']) ? $data['biz_no'] : null;
+        $this->container['config_items'] = isset($data['config_items']) ? $data['config_items'] : null;
+        $this->container['security_tel'] = isset($data['security_tel']) ? $data['security_tel'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -206,145 +200,121 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
 
 
     /**
-     * Gets coupon_amount
+     * Gets account_id
      *
-     * @return string
+     * @return int
      */
-    public function getCouponAmount()
+    public function getAccountId()
     {
-        return $this->container['coupon_amount'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets coupon_amount
+     * Sets account_id
      *
-     * @param string $coupon_amount coupon_amount
+     * @param int $account_id account_id
      *
      * @return $this
      */
-    public function setCouponAmount($coupon_amount)
+    public function setAccountId($account_id)
     {
-        $this->container['coupon_amount'] = $coupon_amount;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets deduction_count
+     * Gets biz_no
      *
      * @return string
      */
-    public function getDeductionCount()
+    public function getBizNo()
     {
-        return $this->container['deduction_count'];
+        return $this->container['biz_no'];
     }
 
     /**
-     * Sets deduction_count
+     * Sets biz_no
      *
-     * @param string $deduction_count deduction_count
+     * @param string $biz_no biz_no
      *
      * @return $this
      */
-    public function setDeductionCount($deduction_count)
+    public function setBizNo($biz_no)
     {
-        $this->container['deduction_count'] = $deduction_count;
+        $this->container['biz_no'] = $biz_no;
 
         return $this;
     }
 
     /**
-     * Gets discount_amount
+     * Gets config_items
      *
-     * @return string
+     * @return \Volcengine\Billing\Model\ConfigItemForCreateDropShippingOrderInput[]
      */
-    public function getDiscountAmount()
+    public function getConfigItems()
     {
-        return $this->container['discount_amount'];
+        return $this->container['config_items'];
     }
 
     /**
-     * Sets discount_amount
+     * Sets config_items
      *
-     * @param string $discount_amount discount_amount
+     * @param \Volcengine\Billing\Model\ConfigItemForCreateDropShippingOrderInput[] $config_items config_items
      *
      * @return $this
      */
-    public function setDiscountAmount($discount_amount)
+    public function setConfigItems($config_items)
     {
-        $this->container['discount_amount'] = $discount_amount;
+        $this->container['config_items'] = $config_items;
 
         return $this;
     }
 
     /**
-     * Gets original_amount
+     * Gets security_tel
      *
      * @return string
      */
-    public function getOriginalAmount()
+    public function getSecurityTel()
     {
-        return $this->container['original_amount'];
+        return $this->container['security_tel'];
     }
 
     /**
-     * Sets original_amount
+     * Sets security_tel
      *
-     * @param string $original_amount original_amount
+     * @param string $security_tel security_tel
      *
      * @return $this
      */
-    public function setOriginalAmount($original_amount)
+    public function setSecurityTel($security_tel)
     {
-        $this->container['original_amount'] = $original_amount;
+        $this->container['security_tel'] = $security_tel;
 
         return $this;
     }
 
     /**
-     * Gets paid_amount
+     * Gets source
      *
      * @return string
      */
-    public function getPaidAmount()
+    public function getSource()
     {
-        return $this->container['paid_amount'];
+        return $this->container['source'];
     }
 
     /**
-     * Sets paid_amount
+     * Sets source
      *
-     * @param string $paid_amount paid_amount
+     * @param string $source source
      *
      * @return $this
      */
-    public function setPaidAmount($paid_amount)
+    public function setSource($source)
     {
-        $this->container['paid_amount'] = $paid_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payable_amount
-     *
-     * @return string
-     */
-    public function getPayableAmount()
-    {
-        return $this->container['payable_amount'];
-    }
-
-    /**
-     * Sets payable_amount
-     *
-     * @param string $payable_amount payable_amount
-     *
-     * @return $this
-     */
-    public function setPayableAmount($payable_amount)
-    {
-        $this->container['payable_amount'] = $payable_amount;
+        $this->container['source'] = $source;
 
         return $this;
     }

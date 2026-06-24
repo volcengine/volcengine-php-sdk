@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterface, ArrayAccess
+class ChargeItemForGetDropShippingOrderOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderFailRefundInfoForListOrderProductDetailsOutput';
+    protected static $swaggerModelName = 'ChargeItemForGetDropShippingOrderOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'coupon_amount' => 'string',
-        'deduction_count' => 'string',
-        'discount_amount' => 'string',
-        'original_amount' => 'string',
-        'paid_amount' => 'string',
-        'payable_amount' => 'string'
+        'charge_item_code' => 'string',
+        'count' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'coupon_amount' => null,
-        'deduction_count' => null,
-        'discount_amount' => null,
-        'original_amount' => null,
-        'paid_amount' => null,
-        'payable_amount' => null
+        'charge_item_code' => null,
+        'count' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'coupon_amount' => 'CouponAmount',
-        'deduction_count' => 'DeductionCount',
-        'discount_amount' => 'DiscountAmount',
-        'original_amount' => 'OriginalAmount',
-        'paid_amount' => 'PaidAmount',
-        'payable_amount' => 'PayableAmount'
+        'charge_item_code' => 'ChargeItemCode',
+        'count' => 'Count'
     ];
 
     /**
@@ -91,12 +79,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'coupon_amount' => 'setCouponAmount',
-        'deduction_count' => 'setDeductionCount',
-        'discount_amount' => 'setDiscountAmount',
-        'original_amount' => 'setOriginalAmount',
-        'paid_amount' => 'setPaidAmount',
-        'payable_amount' => 'setPayableAmount'
+        'charge_item_code' => 'setChargeItemCode',
+        'count' => 'setCount'
     ];
 
     /**
@@ -105,12 +89,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'coupon_amount' => 'getCouponAmount',
-        'deduction_count' => 'getDeductionCount',
-        'discount_amount' => 'getDiscountAmount',
-        'original_amount' => 'getOriginalAmount',
-        'paid_amount' => 'getPaidAmount',
-        'payable_amount' => 'getPayableAmount'
+        'charge_item_code' => 'getChargeItemCode',
+        'count' => 'getCount'
     ];
 
     /**
@@ -173,12 +153,8 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
      */
     public function __construct($data = null)
     {
-        $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
-        $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
-        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
-        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
-        $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
-        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class OrderFailRefundInfoForListOrderProductDetailsOutput implements ModelInterf
 
 
     /**
-     * Gets coupon_amount
+     * Gets charge_item_code
      *
      * @return string
      */
-    public function getCouponAmount()
+    public function getChargeItemCode()
     {
-        return $this->container['coupon_amount'];
+        return $this->container['charge_item_code'];
     }
 
     /**
-     * Sets coupon_amount
+     * Sets charge_item_code
      *
-     * @param string $coupon_amount coupon_amount
+     * @param string $charge_item_code charge_item_code
      *
      * @return $this
      */
-    public function setCouponAmount($coupon_amount)
+    public function setChargeItemCode($charge_item_code)
     {
-        $this->container['coupon_amount'] = $coupon_amount;
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
 
     /**
-     * Gets deduction_count
+     * Gets count
      *
      * @return string
      */
-    public function getDeductionCount()
+    public function getCount()
     {
-        return $this->container['deduction_count'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets deduction_count
+     * Sets count
      *
-     * @param string $deduction_count deduction_count
+     * @param string $count count
      *
      * @return $this
      */
-    public function setDeductionCount($deduction_count)
+    public function setCount($count)
     {
-        $this->container['deduction_count'] = $deduction_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets discount_amount
-     *
-     * @return string
-     */
-    public function getDiscountAmount()
-    {
-        return $this->container['discount_amount'];
-    }
-
-    /**
-     * Sets discount_amount
-     *
-     * @param string $discount_amount discount_amount
-     *
-     * @return $this
-     */
-    public function setDiscountAmount($discount_amount)
-    {
-        $this->container['discount_amount'] = $discount_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets original_amount
-     *
-     * @return string
-     */
-    public function getOriginalAmount()
-    {
-        return $this->container['original_amount'];
-    }
-
-    /**
-     * Sets original_amount
-     *
-     * @param string $original_amount original_amount
-     *
-     * @return $this
-     */
-    public function setOriginalAmount($original_amount)
-    {
-        $this->container['original_amount'] = $original_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets paid_amount
-     *
-     * @return string
-     */
-    public function getPaidAmount()
-    {
-        return $this->container['paid_amount'];
-    }
-
-    /**
-     * Sets paid_amount
-     *
-     * @param string $paid_amount paid_amount
-     *
-     * @return $this
-     */
-    public function setPaidAmount($paid_amount)
-    {
-        $this->container['paid_amount'] = $paid_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payable_amount
-     *
-     * @return string
-     */
-    public function getPayableAmount()
-    {
-        return $this->container['payable_amount'];
-    }
-
-    /**
-     * Sets payable_amount
-     *
-     * @param string $payable_amount payable_amount
-     *
-     * @return $this
-     */
-    public function setPayableAmount($payable_amount)
-    {
-        $this->container['payable_amount'] = $payable_amount;
+        $this->container['count'] = $count;
 
         return $this;
     }

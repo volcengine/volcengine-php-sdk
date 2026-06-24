@@ -54,6 +54,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'point_deduct_amount' => 'string',
         'posttax_amount' => 'string',
         'pre_tax_payable_amount' => 'string',
         'preferential_bill_amount' => 'string',
@@ -114,6 +115,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'point_deduct_amount' => null,
         'posttax_amount' => null,
         'pre_tax_payable_amount' => null,
         'preferential_bill_amount' => null,
@@ -195,6 +197,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'point_deduct_amount' => 'PointDeductAmount',
         'posttax_amount' => 'PosttaxAmount',
         'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'preferential_bill_amount' => 'PreferentialBillAmount',
@@ -255,6 +258,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'point_deduct_amount' => 'setPointDeductAmount',
         'posttax_amount' => 'setPosttaxAmount',
         'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
@@ -315,6 +319,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'point_deduct_amount' => 'getPointDeductAmount',
         'posttax_amount' => 'getPosttaxAmount',
         'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
@@ -429,6 +434,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
         $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
         $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
@@ -1101,6 +1107,30 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
     public function setPayerUserName($payer_user_name)
     {
         $this->container['payer_user_name'] = $payer_user_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
 
         return $this;
     }

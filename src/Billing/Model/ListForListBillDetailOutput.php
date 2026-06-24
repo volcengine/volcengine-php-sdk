@@ -83,6 +83,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pickup_voucher_count_unit' => 'string',
         'pickup_voucher_deduct_count' => 'string',
         'pickup_voucher_id' => 'string',
+        'point_deduct_amount' => 'string',
         'posttax_amount' => 'string',
         'pre_tax_payable_amount' => 'string',
         'preferential_bill_amount' => 'string',
@@ -96,6 +97,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'string',
         'project' => 'string',
         'project_display_name' => 'string',
+        'project_remark' => 'string',
         'real_value' => 'string',
         'region' => 'string',
         'region_code' => 'string',
@@ -121,6 +123,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'solution_zh' => 'string',
         'subject_name' => 'string',
         'tag' => 'string',
+        'tag_remark' => 'string',
         'tax' => 'string',
         'tax_rate' => 'string',
         'trade_time' => 'string',
@@ -193,6 +196,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pickup_voucher_count_unit' => null,
         'pickup_voucher_deduct_count' => null,
         'pickup_voucher_id' => null,
+        'point_deduct_amount' => null,
         'posttax_amount' => null,
         'pre_tax_payable_amount' => null,
         'preferential_bill_amount' => null,
@@ -206,6 +210,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => null,
         'project' => null,
         'project_display_name' => null,
+        'project_remark' => null,
         'real_value' => null,
         'region' => null,
         'region_code' => null,
@@ -231,6 +236,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'solution_zh' => null,
         'subject_name' => null,
         'tag' => null,
+        'tag_remark' => null,
         'tax' => null,
         'tax_rate' => null,
         'trade_time' => null,
@@ -324,6 +330,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pickup_voucher_count_unit' => 'PickupVoucherCountUnit',
         'pickup_voucher_deduct_count' => 'PickupVoucherDeductCount',
         'pickup_voucher_id' => 'PickupVoucherID',
+        'point_deduct_amount' => 'PointDeductAmount',
         'posttax_amount' => 'PosttaxAmount',
         'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'preferential_bill_amount' => 'PreferentialBillAmount',
@@ -337,6 +344,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'ProductZh',
         'project' => 'Project',
         'project_display_name' => 'ProjectDisplayName',
+        'project_remark' => 'ProjectRemark',
         'real_value' => 'RealValue',
         'region' => 'Region',
         'region_code' => 'RegionCode',
@@ -362,6 +370,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'solution_zh' => 'SolutionZh',
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
+        'tag_remark' => 'TagRemark',
         'tax' => 'Tax',
         'tax_rate' => 'TaxRate',
         'trade_time' => 'TradeTime',
@@ -434,6 +443,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pickup_voucher_count_unit' => 'setPickupVoucherCountUnit',
         'pickup_voucher_deduct_count' => 'setPickupVoucherDeductCount',
         'pickup_voucher_id' => 'setPickupVoucherId',
+        'point_deduct_amount' => 'setPointDeductAmount',
         'posttax_amount' => 'setPosttaxAmount',
         'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
@@ -447,6 +457,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
         'project_display_name' => 'setProjectDisplayName',
+        'project_remark' => 'setProjectRemark',
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
@@ -472,6 +483,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'solution_zh' => 'setSolutionZh',
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
+        'tag_remark' => 'setTagRemark',
         'tax' => 'setTax',
         'tax_rate' => 'setTaxRate',
         'trade_time' => 'setTradeTime',
@@ -544,6 +556,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'pickup_voucher_count_unit' => 'getPickupVoucherCountUnit',
         'pickup_voucher_deduct_count' => 'getPickupVoucherDeductCount',
         'pickup_voucher_id' => 'getPickupVoucherId',
+        'point_deduct_amount' => 'getPointDeductAmount',
         'posttax_amount' => 'getPosttaxAmount',
         'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
@@ -557,6 +570,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
         'project_display_name' => 'getProjectDisplayName',
+        'project_remark' => 'getProjectRemark',
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
@@ -582,6 +596,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'solution_zh' => 'getSolutionZh',
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
+        'tag_remark' => 'getTagRemark',
         'tax' => 'getTax',
         'tax_rate' => 'getTaxRate',
         'trade_time' => 'getTradeTime',
@@ -708,6 +723,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['pickup_voucher_count_unit'] = isset($data['pickup_voucher_count_unit']) ? $data['pickup_voucher_count_unit'] : null;
         $this->container['pickup_voucher_deduct_count'] = isset($data['pickup_voucher_deduct_count']) ? $data['pickup_voucher_deduct_count'] : null;
         $this->container['pickup_voucher_id'] = isset($data['pickup_voucher_id']) ? $data['pickup_voucher_id'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
         $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
         $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
@@ -721,6 +737,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
+        $this->container['project_remark'] = isset($data['project_remark']) ? $data['project_remark'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
@@ -746,6 +763,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['solution_zh'] = isset($data['solution_zh']) ? $data['solution_zh'] : null;
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tag_remark'] = isset($data['tag_remark']) ? $data['tag_remark'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['trade_time'] = isset($data['trade_time']) ? $data['trade_time'] : null;
@@ -2102,6 +2120,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets posttax_amount
      *
      * @return string
@@ -2409,6 +2451,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setProjectDisplayName($project_display_name)
     {
         $this->container['project_display_name'] = $project_display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_remark
+     *
+     * @return string
+     */
+    public function getProjectRemark()
+    {
+        return $this->container['project_remark'];
+    }
+
+    /**
+     * Sets project_remark
+     *
+     * @param string $project_remark project_remark
+     *
+     * @return $this
+     */
+    public function setProjectRemark($project_remark)
+    {
+        $this->container['project_remark'] = $project_remark;
 
         return $this;
     }
@@ -3009,6 +3075,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setTag($tag)
     {
         $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_remark
+     *
+     * @return string
+     */
+    public function getTagRemark()
+    {
+        return $this->container['tag_remark'];
+    }
+
+    /**
+     * Sets tag_remark
+     *
+     * @param string $tag_remark tag_remark
+     *
+     * @return $this
+     */
+    public function setTagRemark($tag_remark)
+    {
+        $this->container['tag_remark'] = $tag_remark;
 
         return $this;
     }

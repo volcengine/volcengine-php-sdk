@@ -56,6 +56,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_original_bill_amount' => 'string',
         'daily_amortized_paid_amount' => 'string',
         'daily_amortized_payable_amount' => 'string',
+        'daily_amortized_point_deduct_amount' => 'string',
         'daily_amortized_posttax_amount' => 'string',
         'daily_amortized_pre_tax_payable_amount' => 'string',
         'daily_amortized_pre_tax_real_value' => 'string',
@@ -101,6 +102,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'point_deduct_amount' => 'string',
         'posttax_amount' => 'string',
         'pre_tax_payable_amount' => 'string',
         'pre_tax_real_value' => 'string',
@@ -113,6 +115,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'product_zh' => 'string',
         'project' => 'string',
         'project_display_name' => 'string',
+        'project_remark' => 'string',
         'real_value' => 'string',
         'region' => 'string',
         'resource_id' => 'string',
@@ -134,6 +137,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'split_item_name' => 'string',
         'subject_name' => 'string',
         'tag' => 'string',
+        'tag_remark' => 'string',
         'tax' => 'string',
         'tax_amount' => 'string',
         'tax_rate' => 'string',
@@ -178,6 +182,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_original_bill_amount' => null,
         'daily_amortized_paid_amount' => null,
         'daily_amortized_payable_amount' => null,
+        'daily_amortized_point_deduct_amount' => null,
         'daily_amortized_posttax_amount' => null,
         'daily_amortized_pre_tax_payable_amount' => null,
         'daily_amortized_pre_tax_real_value' => null,
@@ -223,6 +228,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'point_deduct_amount' => null,
         'posttax_amount' => null,
         'pre_tax_payable_amount' => null,
         'pre_tax_real_value' => null,
@@ -235,6 +241,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'product_zh' => null,
         'project' => null,
         'project_display_name' => null,
+        'project_remark' => null,
         'real_value' => null,
         'region' => null,
         'resource_id' => null,
@@ -256,6 +263,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'split_item_name' => null,
         'subject_name' => null,
         'tag' => null,
+        'tag_remark' => null,
         'tax' => null,
         'tax_amount' => null,
         'tax_rate' => null,
@@ -321,6 +329,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_original_bill_amount' => 'DailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'DailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'DailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'DailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'DailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'DailyAmortizedPreTaxRealValue',
@@ -366,6 +375,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'point_deduct_amount' => 'PointDeductAmount',
         'posttax_amount' => 'PosttaxAmount',
         'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'pre_tax_real_value' => 'PreTaxRealValue',
@@ -378,6 +388,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'product_zh' => 'ProductZh',
         'project' => 'Project',
         'project_display_name' => 'ProjectDisplayName',
+        'project_remark' => 'ProjectRemark',
         'real_value' => 'RealValue',
         'region' => 'Region',
         'resource_id' => 'ResourceID',
@@ -399,6 +410,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'split_item_name' => 'SplitItemName',
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
+        'tag_remark' => 'TagRemark',
         'tax' => 'Tax',
         'tax_amount' => 'TaxAmount',
         'tax_rate' => 'TaxRate',
@@ -443,6 +455,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_original_bill_amount' => 'setDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'setDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'setDailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'setDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'setDailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'setDailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'setDailyAmortizedPreTaxRealValue',
@@ -488,6 +501,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'point_deduct_amount' => 'setPointDeductAmount',
         'posttax_amount' => 'setPosttaxAmount',
         'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'pre_tax_real_value' => 'setPreTaxRealValue',
@@ -500,6 +514,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
         'project_display_name' => 'setProjectDisplayName',
+        'project_remark' => 'setProjectRemark',
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
         'resource_id' => 'setResourceId',
@@ -521,6 +536,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'split_item_name' => 'setSplitItemName',
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
+        'tag_remark' => 'setTagRemark',
         'tax' => 'setTax',
         'tax_amount' => 'setTaxAmount',
         'tax_rate' => 'setTaxRate',
@@ -565,6 +581,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_original_bill_amount' => 'getDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'getDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'getDailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'getDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'getDailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'getDailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'getDailyAmortizedPreTaxRealValue',
@@ -610,6 +627,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'point_deduct_amount' => 'getPointDeductAmount',
         'posttax_amount' => 'getPosttaxAmount',
         'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'pre_tax_real_value' => 'getPreTaxRealValue',
@@ -622,6 +640,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
         'project_display_name' => 'getProjectDisplayName',
+        'project_remark' => 'getProjectRemark',
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
         'resource_id' => 'getResourceId',
@@ -643,6 +662,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'split_item_name' => 'getSplitItemName',
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
+        'tag_remark' => 'getTagRemark',
         'tax' => 'getTax',
         'tax_amount' => 'getTaxAmount',
         'tax_rate' => 'getTaxRate',
@@ -741,6 +761,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['daily_amortized_original_bill_amount'] = isset($data['daily_amortized_original_bill_amount']) ? $data['daily_amortized_original_bill_amount'] : null;
         $this->container['daily_amortized_paid_amount'] = isset($data['daily_amortized_paid_amount']) ? $data['daily_amortized_paid_amount'] : null;
         $this->container['daily_amortized_payable_amount'] = isset($data['daily_amortized_payable_amount']) ? $data['daily_amortized_payable_amount'] : null;
+        $this->container['daily_amortized_point_deduct_amount'] = isset($data['daily_amortized_point_deduct_amount']) ? $data['daily_amortized_point_deduct_amount'] : null;
         $this->container['daily_amortized_posttax_amount'] = isset($data['daily_amortized_posttax_amount']) ? $data['daily_amortized_posttax_amount'] : null;
         $this->container['daily_amortized_pre_tax_payable_amount'] = isset($data['daily_amortized_pre_tax_payable_amount']) ? $data['daily_amortized_pre_tax_payable_amount'] : null;
         $this->container['daily_amortized_pre_tax_real_value'] = isset($data['daily_amortized_pre_tax_real_value']) ? $data['daily_amortized_pre_tax_real_value'] : null;
@@ -786,6 +807,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
         $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
         $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['pre_tax_real_value'] = isset($data['pre_tax_real_value']) ? $data['pre_tax_real_value'] : null;
@@ -798,6 +820,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
+        $this->container['project_remark'] = isset($data['project_remark']) ? $data['project_remark'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
@@ -819,6 +842,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['split_item_name'] = isset($data['split_item_name']) ? $data['split_item_name'] : null;
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tag_remark'] = isset($data['tag_remark']) ? $data['tag_remark'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
@@ -1521,6 +1545,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setDailyAmortizedPayableAmount($daily_amortized_payable_amount)
     {
         $this->container['daily_amortized_payable_amount'] = $daily_amortized_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_point_deduct_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPointDeductAmount()
+    {
+        return $this->container['daily_amortized_point_deduct_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_point_deduct_amount
+     *
+     * @param string $daily_amortized_point_deduct_amount daily_amortized_point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPointDeductAmount($daily_amortized_point_deduct_amount)
+    {
+        $this->container['daily_amortized_point_deduct_amount'] = $daily_amortized_point_deduct_amount;
 
         return $this;
     }
@@ -2606,6 +2654,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets posttax_amount
      *
      * @return string
@@ -2889,6 +2961,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setProjectDisplayName($project_display_name)
     {
         $this->container['project_display_name'] = $project_display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_remark
+     *
+     * @return string
+     */
+    public function getProjectRemark()
+    {
+        return $this->container['project_remark'];
+    }
+
+    /**
+     * Sets project_remark
+     *
+     * @param string $project_remark project_remark
+     *
+     * @return $this
+     */
+    public function setProjectRemark($project_remark)
+    {
+        $this->container['project_remark'] = $project_remark;
 
         return $this;
     }
@@ -3393,6 +3489,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setTag($tag)
     {
         $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_remark
+     *
+     * @return string
+     */
+    public function getTagRemark()
+    {
+        return $this->container['tag_remark'];
+    }
+
+    /**
+     * Sets tag_remark
+     *
+     * @param string $tag_remark tag_remark
+     *
+     * @return $this
+     */
+    public function setTagRemark($tag_remark)
+    {
+        $this->container['tag_remark'] = $tag_remark;
 
         return $this;
     }

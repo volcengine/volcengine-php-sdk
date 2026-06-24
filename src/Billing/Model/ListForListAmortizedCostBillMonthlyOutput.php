@@ -38,6 +38,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'string',
         'before_amortized_paid_amount' => 'string',
         'before_amortized_payable_amount' => 'string',
+        'before_amortized_point_deduct_amount' => 'string',
         'before_amortized_posttax_amount' => 'string',
         'before_amortized_pre_tax_payable_amount' => 'string',
         'before_amortized_pre_tax_real_value' => 'string',
@@ -75,6 +76,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_original_bill_amount' => 'string',
         'daily_amortized_paid_amount' => 'string',
         'daily_amortized_payable_amount' => 'string',
+        'daily_amortized_point_deduct_amount' => 'string',
         'daily_amortized_posttax_amount' => 'string',
         'daily_amortized_pre_tax_payable_amount' => 'string',
         'daily_amortized_pre_tax_real_value' => 'string',
@@ -112,6 +114,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'string',
         'now_amortized_paid_amount' => 'string',
         'now_amortized_payable_amount' => 'string',
+        'now_amortized_point_deduct_amount' => 'string',
         'now_amortized_posttax_amount' => 'string',
         'now_amortized_pre_tax_payable_amount' => 'string',
         'now_amortized_pre_tax_real_value' => 'string',
@@ -138,6 +141,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'point_deduct_amount' => 'string',
         'posttax_amount' => 'string',
         'pre_tax_payable_amount' => 'string',
         'pre_tax_real_value' => 'string',
@@ -177,6 +181,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'unamortized_original_bill_amount' => 'string',
         'unamortized_paid_amount' => 'string',
         'unamortized_payable_amount' => 'string',
+        'unamortized_point_deduct_amount' => 'string',
         'unamortized_posttax_amount' => 'string',
         'unamortized_pre_tax_payable_amount' => 'string',
         'unamortized_pre_tax_real_value' => 'string',
@@ -214,6 +219,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => null,
         'before_amortized_paid_amount' => null,
         'before_amortized_payable_amount' => null,
+        'before_amortized_point_deduct_amount' => null,
         'before_amortized_posttax_amount' => null,
         'before_amortized_pre_tax_payable_amount' => null,
         'before_amortized_pre_tax_real_value' => null,
@@ -251,6 +257,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_original_bill_amount' => null,
         'daily_amortized_paid_amount' => null,
         'daily_amortized_payable_amount' => null,
+        'daily_amortized_point_deduct_amount' => null,
         'daily_amortized_posttax_amount' => null,
         'daily_amortized_pre_tax_payable_amount' => null,
         'daily_amortized_pre_tax_real_value' => null,
@@ -288,6 +295,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => null,
         'now_amortized_paid_amount' => null,
         'now_amortized_payable_amount' => null,
+        'now_amortized_point_deduct_amount' => null,
         'now_amortized_posttax_amount' => null,
         'now_amortized_pre_tax_payable_amount' => null,
         'now_amortized_pre_tax_real_value' => null,
@@ -314,6 +322,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'point_deduct_amount' => null,
         'posttax_amount' => null,
         'pre_tax_payable_amount' => null,
         'pre_tax_real_value' => null,
@@ -353,6 +362,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'unamortized_original_bill_amount' => null,
         'unamortized_paid_amount' => null,
         'unamortized_payable_amount' => null,
+        'unamortized_point_deduct_amount' => null,
         'unamortized_posttax_amount' => null,
         'unamortized_pre_tax_payable_amount' => null,
         'unamortized_pre_tax_real_value' => null,
@@ -411,6 +421,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'BeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'BeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'BeforeAmortizedPayableAmount',
+        'before_amortized_point_deduct_amount' => 'BeforeAmortizedPointDeductAmount',
         'before_amortized_posttax_amount' => 'BeforeAmortizedPosttaxAmount',
         'before_amortized_pre_tax_payable_amount' => 'BeforeAmortizedPreTaxPayableAmount',
         'before_amortized_pre_tax_real_value' => 'BeforeAmortizedPreTaxRealValue',
@@ -448,6 +459,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_original_bill_amount' => 'DailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'DailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'DailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'DailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'DailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'DailyAmortizedPreTaxRealValue',
@@ -485,6 +497,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'NowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'NowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'NowAmortizedPayableAmount',
+        'now_amortized_point_deduct_amount' => 'NowAmortizedPointDeductAmount',
         'now_amortized_posttax_amount' => 'NowAmortizedPosttaxAmount',
         'now_amortized_pre_tax_payable_amount' => 'NowAmortizedPreTaxPayableAmount',
         'now_amortized_pre_tax_real_value' => 'NowAmortizedPreTaxRealValue',
@@ -511,6 +524,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'point_deduct_amount' => 'PointDeductAmount',
         'posttax_amount' => 'PosttaxAmount',
         'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'pre_tax_real_value' => 'PreTaxRealValue',
@@ -550,6 +564,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'unamortized_original_bill_amount' => 'UnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'UnamortizedPaidAmount',
         'unamortized_payable_amount' => 'UnamortizedPayableAmount',
+        'unamortized_point_deduct_amount' => 'UnamortizedPointDeductAmount',
         'unamortized_posttax_amount' => 'UnamortizedPosttaxAmount',
         'unamortized_pre_tax_payable_amount' => 'UnamortizedPreTaxPayableAmount',
         'unamortized_pre_tax_real_value' => 'UnamortizedPreTaxRealValue',
@@ -587,6 +602,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'setBeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'setBeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'setBeforeAmortizedPayableAmount',
+        'before_amortized_point_deduct_amount' => 'setBeforeAmortizedPointDeductAmount',
         'before_amortized_posttax_amount' => 'setBeforeAmortizedPosttaxAmount',
         'before_amortized_pre_tax_payable_amount' => 'setBeforeAmortizedPreTaxPayableAmount',
         'before_amortized_pre_tax_real_value' => 'setBeforeAmortizedPreTaxRealValue',
@@ -624,6 +640,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_original_bill_amount' => 'setDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'setDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'setDailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'setDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'setDailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'setDailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'setDailyAmortizedPreTaxRealValue',
@@ -661,6 +678,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'setNowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'setNowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'setNowAmortizedPayableAmount',
+        'now_amortized_point_deduct_amount' => 'setNowAmortizedPointDeductAmount',
         'now_amortized_posttax_amount' => 'setNowAmortizedPosttaxAmount',
         'now_amortized_pre_tax_payable_amount' => 'setNowAmortizedPreTaxPayableAmount',
         'now_amortized_pre_tax_real_value' => 'setNowAmortizedPreTaxRealValue',
@@ -687,6 +705,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'point_deduct_amount' => 'setPointDeductAmount',
         'posttax_amount' => 'setPosttaxAmount',
         'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'pre_tax_real_value' => 'setPreTaxRealValue',
@@ -726,6 +745,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'unamortized_original_bill_amount' => 'setUnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'setUnamortizedPaidAmount',
         'unamortized_payable_amount' => 'setUnamortizedPayableAmount',
+        'unamortized_point_deduct_amount' => 'setUnamortizedPointDeductAmount',
         'unamortized_posttax_amount' => 'setUnamortizedPosttaxAmount',
         'unamortized_pre_tax_payable_amount' => 'setUnamortizedPreTaxPayableAmount',
         'unamortized_pre_tax_real_value' => 'setUnamortizedPreTaxRealValue',
@@ -763,6 +783,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'getBeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'getBeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'getBeforeAmortizedPayableAmount',
+        'before_amortized_point_deduct_amount' => 'getBeforeAmortizedPointDeductAmount',
         'before_amortized_posttax_amount' => 'getBeforeAmortizedPosttaxAmount',
         'before_amortized_pre_tax_payable_amount' => 'getBeforeAmortizedPreTaxPayableAmount',
         'before_amortized_pre_tax_real_value' => 'getBeforeAmortizedPreTaxRealValue',
@@ -800,6 +821,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_original_bill_amount' => 'getDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'getDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'getDailyAmortizedPayableAmount',
+        'daily_amortized_point_deduct_amount' => 'getDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'getDailyAmortizedPosttaxAmount',
         'daily_amortized_pre_tax_payable_amount' => 'getDailyAmortizedPreTaxPayableAmount',
         'daily_amortized_pre_tax_real_value' => 'getDailyAmortizedPreTaxRealValue',
@@ -837,6 +859,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'getNowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'getNowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'getNowAmortizedPayableAmount',
+        'now_amortized_point_deduct_amount' => 'getNowAmortizedPointDeductAmount',
         'now_amortized_posttax_amount' => 'getNowAmortizedPosttaxAmount',
         'now_amortized_pre_tax_payable_amount' => 'getNowAmortizedPreTaxPayableAmount',
         'now_amortized_pre_tax_real_value' => 'getNowAmortizedPreTaxRealValue',
@@ -863,6 +886,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'point_deduct_amount' => 'getPointDeductAmount',
         'posttax_amount' => 'getPosttaxAmount',
         'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'pre_tax_real_value' => 'getPreTaxRealValue',
@@ -902,6 +926,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'unamortized_original_bill_amount' => 'getUnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'getUnamortizedPaidAmount',
         'unamortized_payable_amount' => 'getUnamortizedPayableAmount',
+        'unamortized_point_deduct_amount' => 'getUnamortizedPointDeductAmount',
         'unamortized_posttax_amount' => 'getUnamortizedPosttaxAmount',
         'unamortized_pre_tax_payable_amount' => 'getUnamortizedPreTaxPayableAmount',
         'unamortized_pre_tax_real_value' => 'getUnamortizedPreTaxRealValue',
@@ -993,6 +1018,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['before_amortized_original_bill_amount'] = isset($data['before_amortized_original_bill_amount']) ? $data['before_amortized_original_bill_amount'] : null;
         $this->container['before_amortized_paid_amount'] = isset($data['before_amortized_paid_amount']) ? $data['before_amortized_paid_amount'] : null;
         $this->container['before_amortized_payable_amount'] = isset($data['before_amortized_payable_amount']) ? $data['before_amortized_payable_amount'] : null;
+        $this->container['before_amortized_point_deduct_amount'] = isset($data['before_amortized_point_deduct_amount']) ? $data['before_amortized_point_deduct_amount'] : null;
         $this->container['before_amortized_posttax_amount'] = isset($data['before_amortized_posttax_amount']) ? $data['before_amortized_posttax_amount'] : null;
         $this->container['before_amortized_pre_tax_payable_amount'] = isset($data['before_amortized_pre_tax_payable_amount']) ? $data['before_amortized_pre_tax_payable_amount'] : null;
         $this->container['before_amortized_pre_tax_real_value'] = isset($data['before_amortized_pre_tax_real_value']) ? $data['before_amortized_pre_tax_real_value'] : null;
@@ -1030,6 +1056,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['daily_amortized_original_bill_amount'] = isset($data['daily_amortized_original_bill_amount']) ? $data['daily_amortized_original_bill_amount'] : null;
         $this->container['daily_amortized_paid_amount'] = isset($data['daily_amortized_paid_amount']) ? $data['daily_amortized_paid_amount'] : null;
         $this->container['daily_amortized_payable_amount'] = isset($data['daily_amortized_payable_amount']) ? $data['daily_amortized_payable_amount'] : null;
+        $this->container['daily_amortized_point_deduct_amount'] = isset($data['daily_amortized_point_deduct_amount']) ? $data['daily_amortized_point_deduct_amount'] : null;
         $this->container['daily_amortized_posttax_amount'] = isset($data['daily_amortized_posttax_amount']) ? $data['daily_amortized_posttax_amount'] : null;
         $this->container['daily_amortized_pre_tax_payable_amount'] = isset($data['daily_amortized_pre_tax_payable_amount']) ? $data['daily_amortized_pre_tax_payable_amount'] : null;
         $this->container['daily_amortized_pre_tax_real_value'] = isset($data['daily_amortized_pre_tax_real_value']) ? $data['daily_amortized_pre_tax_real_value'] : null;
@@ -1067,6 +1094,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['now_amortized_original_bill_amount'] = isset($data['now_amortized_original_bill_amount']) ? $data['now_amortized_original_bill_amount'] : null;
         $this->container['now_amortized_paid_amount'] = isset($data['now_amortized_paid_amount']) ? $data['now_amortized_paid_amount'] : null;
         $this->container['now_amortized_payable_amount'] = isset($data['now_amortized_payable_amount']) ? $data['now_amortized_payable_amount'] : null;
+        $this->container['now_amortized_point_deduct_amount'] = isset($data['now_amortized_point_deduct_amount']) ? $data['now_amortized_point_deduct_amount'] : null;
         $this->container['now_amortized_posttax_amount'] = isset($data['now_amortized_posttax_amount']) ? $data['now_amortized_posttax_amount'] : null;
         $this->container['now_amortized_pre_tax_payable_amount'] = isset($data['now_amortized_pre_tax_payable_amount']) ? $data['now_amortized_pre_tax_payable_amount'] : null;
         $this->container['now_amortized_pre_tax_real_value'] = isset($data['now_amortized_pre_tax_real_value']) ? $data['now_amortized_pre_tax_real_value'] : null;
@@ -1093,6 +1121,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
         $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
         $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['pre_tax_real_value'] = isset($data['pre_tax_real_value']) ? $data['pre_tax_real_value'] : null;
@@ -1132,6 +1161,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['unamortized_original_bill_amount'] = isset($data['unamortized_original_bill_amount']) ? $data['unamortized_original_bill_amount'] : null;
         $this->container['unamortized_paid_amount'] = isset($data['unamortized_paid_amount']) ? $data['unamortized_paid_amount'] : null;
         $this->container['unamortized_payable_amount'] = isset($data['unamortized_payable_amount']) ? $data['unamortized_payable_amount'] : null;
+        $this->container['unamortized_point_deduct_amount'] = isset($data['unamortized_point_deduct_amount']) ? $data['unamortized_point_deduct_amount'] : null;
         $this->container['unamortized_posttax_amount'] = isset($data['unamortized_posttax_amount']) ? $data['unamortized_posttax_amount'] : null;
         $this->container['unamortized_pre_tax_payable_amount'] = isset($data['unamortized_pre_tax_payable_amount']) ? $data['unamortized_pre_tax_payable_amount'] : null;
         $this->container['unamortized_pre_tax_real_value'] = isset($data['unamortized_pre_tax_real_value']) ? $data['unamortized_pre_tax_real_value'] : null;
@@ -1413,6 +1443,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setBeforeAmortizedPayableAmount($before_amortized_payable_amount)
     {
         $this->container['before_amortized_payable_amount'] = $before_amortized_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_point_deduct_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedPointDeductAmount()
+    {
+        return $this->container['before_amortized_point_deduct_amount'];
+    }
+
+    /**
+     * Sets before_amortized_point_deduct_amount
+     *
+     * @param string $before_amortized_point_deduct_amount before_amortized_point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedPointDeductAmount($before_amortized_point_deduct_amount)
+    {
+        $this->container['before_amortized_point_deduct_amount'] = $before_amortized_point_deduct_amount;
 
         return $this;
     }
@@ -2306,6 +2360,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets daily_amortized_point_deduct_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPointDeductAmount()
+    {
+        return $this->container['daily_amortized_point_deduct_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_point_deduct_amount
+     *
+     * @param string $daily_amortized_point_deduct_amount daily_amortized_point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPointDeductAmount($daily_amortized_point_deduct_amount)
+    {
+        $this->container['daily_amortized_point_deduct_amount'] = $daily_amortized_point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets daily_amortized_posttax_amount
      *
      * @return string
@@ -3194,6 +3272,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets now_amortized_point_deduct_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedPointDeductAmount()
+    {
+        return $this->container['now_amortized_point_deduct_amount'];
+    }
+
+    /**
+     * Sets now_amortized_point_deduct_amount
+     *
+     * @param string $now_amortized_point_deduct_amount now_amortized_point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedPointDeductAmount($now_amortized_point_deduct_amount)
+    {
+        $this->container['now_amortized_point_deduct_amount'] = $now_amortized_point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets now_amortized_posttax_amount
      *
      * @return string
@@ -3813,6 +3915,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setPayerUserName($payer_user_name)
     {
         $this->container['payer_user_name'] = $payer_user_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
 
         return $this;
     }
@@ -4749,6 +4875,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setUnamortizedPayableAmount($unamortized_payable_amount)
     {
         $this->container['unamortized_payable_amount'] = $unamortized_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_point_deduct_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedPointDeductAmount()
+    {
+        return $this->container['unamortized_point_deduct_amount'];
+    }
+
+    /**
+     * Sets unamortized_point_deduct_amount
+     *
+     * @param string $unamortized_point_deduct_amount unamortized_point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedPointDeductAmount($unamortized_point_deduct_amount)
+    {
+        $this->container['unamortized_point_deduct_amount'] = $unamortized_point_deduct_amount;
 
         return $this;
     }
