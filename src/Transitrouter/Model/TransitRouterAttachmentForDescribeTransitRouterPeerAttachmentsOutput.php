@@ -30,9 +30,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     protected static $swaggerTypes = [
         'auto_publish_route_enabled' => 'bool',
         'bandwidth' => 'int',
+        'bandwidth_type' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'ipv6_enabled' => 'bool',
+        'line_operator' => 'string',
         'peer_transit_router_id' => 'string',
         'peer_transit_router_owner_id' => 'string',
         'peer_transit_router_region_id' => 'string',
@@ -58,9 +60,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     protected static $swaggerFormats = [
         'auto_publish_route_enabled' => null,
         'bandwidth' => 'int32',
+        'bandwidth_type' => null,
         'creation_time' => null,
         'description' => null,
         'ipv6_enabled' => null,
+        'line_operator' => null,
         'peer_transit_router_id' => null,
         'peer_transit_router_owner_id' => null,
         'peer_transit_router_region_id' => null,
@@ -107,9 +111,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     protected static $attributeMap = [
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'bandwidth' => 'Bandwidth',
+        'bandwidth_type' => 'BandwidthType',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'ipv6_enabled' => 'Ipv6Enabled',
+        'line_operator' => 'LineOperator',
         'peer_transit_router_id' => 'PeerTransitRouterId',
         'peer_transit_router_owner_id' => 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'PeerTransitRouterRegionId',
@@ -135,9 +141,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     protected static $setters = [
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'bandwidth' => 'setBandwidth',
+        'bandwidth_type' => 'setBandwidthType',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'ipv6_enabled' => 'setIpv6Enabled',
+        'line_operator' => 'setLineOperator',
         'peer_transit_router_id' => 'setPeerTransitRouterId',
         'peer_transit_router_owner_id' => 'setPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'setPeerTransitRouterRegionId',
@@ -163,9 +171,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     protected static $getters = [
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'bandwidth' => 'getBandwidth',
+        'bandwidth_type' => 'getBandwidthType',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'ipv6_enabled' => 'getIpv6Enabled',
+        'line_operator' => 'getLineOperator',
         'peer_transit_router_id' => 'getPeerTransitRouterId',
         'peer_transit_router_owner_id' => 'getPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'getPeerTransitRouterRegionId',
@@ -245,9 +255,11 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     {
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
+        $this->container['bandwidth_type'] = isset($data['bandwidth_type']) ? $data['bandwidth_type'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
+        $this->container['line_operator'] = isset($data['line_operator']) ? $data['line_operator'] : null;
         $this->container['peer_transit_router_id'] = isset($data['peer_transit_router_id']) ? $data['peer_transit_router_id'] : null;
         $this->container['peer_transit_router_owner_id'] = isset($data['peer_transit_router_owner_id']) ? $data['peer_transit_router_owner_id'] : null;
         $this->container['peer_transit_router_region_id'] = isset($data['peer_transit_router_region_id']) ? $data['peer_transit_router_region_id'] : null;
@@ -338,6 +350,30 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     }
 
     /**
+     * Gets bandwidth_type
+     *
+     * @return string
+     */
+    public function getBandwidthType()
+    {
+        return $this->container['bandwidth_type'];
+    }
+
+    /**
+     * Sets bandwidth_type
+     *
+     * @param string $bandwidth_type bandwidth_type
+     *
+     * @return $this
+     */
+    public function setBandwidthType($bandwidth_type)
+    {
+        $this->container['bandwidth_type'] = $bandwidth_type;
+
+        return $this;
+    }
+
+    /**
      * Gets creation_time
      *
      * @return string
@@ -405,6 +441,30 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     public function setIpv6Enabled($ipv6_enabled)
     {
         $this->container['ipv6_enabled'] = $ipv6_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_operator
+     *
+     * @return string
+     */
+    public function getLineOperator()
+    {
+        return $this->container['line_operator'];
+    }
+
+    /**
+     * Sets line_operator
+     *
+     * @param string $line_operator line_operator
+     *
+     * @return $this
+     */
+    public function setLineOperator($line_operator)
+    {
+        $this->container['line_operator'] = $line_operator;
 
         return $this;
     }

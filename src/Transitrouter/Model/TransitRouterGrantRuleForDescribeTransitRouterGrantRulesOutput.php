@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAccess
+class TransitRouterGrantRuleForDescribeTransitRouterGrantRulesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterVpnAttachmentRequest';
+    protected static $swaggerModelName = 'TransitRouterGrantRuleForDescribeTransitRouterGrantRulesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
+        'creation_time' => 'string',
         'description' => 'string',
-        'secondary_zone_id' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]',
-        'transit_router_attachment_name' => 'string',
+        'grant_account_id' => 'string',
+        'status' => 'string',
         'transit_router_id' => 'string',
-        'transit_router_route_table_id' => 'string',
-        'vpn_connection_id' => 'string',
-        'zone_id' => 'string'
+        'update_time' => 'string'
     ];
 
     /**
@@ -45,15 +42,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
+        'creation_time' => null,
         'description' => null,
-        'secondary_zone_id' => null,
-        'tags' => null,
-        'transit_router_attachment_name' => null,
+        'grant_account_id' => null,
+        'status' => null,
         'transit_router_id' => null,
-        'transit_router_route_table_id' => null,
-        'vpn_connection_id' => null,
-        'zone_id' => null
+        'update_time' => null
     ];
 
     /**
@@ -83,15 +77,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
+        'creation_time' => 'CreationTime',
         'description' => 'Description',
-        'secondary_zone_id' => 'SecondaryZoneId',
-        'tags' => 'Tags',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
+        'grant_account_id' => 'GrantAccountId',
+        'status' => 'Status',
         'transit_router_id' => 'TransitRouterId',
-        'transit_router_route_table_id' => 'TransitRouterRouteTableId',
-        'vpn_connection_id' => 'VpnConnectionId',
-        'zone_id' => 'ZoneId'
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -100,15 +91,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
+        'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
-        'secondary_zone_id' => 'setSecondaryZoneId',
-        'tags' => 'setTags',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
+        'grant_account_id' => 'setGrantAccountId',
+        'status' => 'setStatus',
         'transit_router_id' => 'setTransitRouterId',
-        'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
-        'vpn_connection_id' => 'setVpnConnectionId',
-        'zone_id' => 'setZoneId'
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -117,15 +105,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
+        'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
-        'secondary_zone_id' => 'getSecondaryZoneId',
-        'tags' => 'getTags',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
+        'grant_account_id' => 'getGrantAccountId',
+        'status' => 'getStatus',
         'transit_router_id' => 'getTransitRouterId',
-        'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
-        'vpn_connection_id' => 'getVpnConnectionId',
-        'zone_id' => 'getZoneId'
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -188,15 +173,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      */
     public function __construct($data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['secondary_zone_id'] = isset($data['secondary_zone_id']) ? $data['secondary_zone_id'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
+        $this->container['grant_account_id'] = isset($data['grant_account_id']) ? $data['grant_account_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
-        $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
-        $this->container['vpn_connection_id'] = isset($data['vpn_connection_id']) ? $data['vpn_connection_id'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -208,15 +190,6 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_id'] === null) {
-            $invalidProperties[] = "'transit_router_id' can't be null";
-        }
-        if ($this->container['vpn_connection_id'] === null) {
-            $invalidProperties[] = "'vpn_connection_id' can't be null";
-        }
-        if ($this->container['zone_id'] === null) {
-            $invalidProperties[] = "'zone_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,25 +206,25 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets client_token
+     * Gets creation_time
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCreationTime()
     {
-        return $this->container['client_token'];
+        return $this->container['creation_time'];
     }
 
     /**
-     * Sets client_token
+     * Sets creation_time
      *
-     * @param string $client_token client_token
+     * @param string $creation_time creation_time
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCreationTime($creation_time)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['creation_time'] = $creation_time;
 
         return $this;
     }
@@ -281,73 +254,49 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets secondary_zone_id
+     * Gets grant_account_id
      *
      * @return string
      */
-    public function getSecondaryZoneId()
+    public function getGrantAccountId()
     {
-        return $this->container['secondary_zone_id'];
+        return $this->container['grant_account_id'];
     }
 
     /**
-     * Sets secondary_zone_id
+     * Sets grant_account_id
      *
-     * @param string $secondary_zone_id secondary_zone_id
+     * @param string $grant_account_id grant_account_id
      *
      * @return $this
      */
-    public function setSecondaryZoneId($secondary_zone_id)
+    public function setGrantAccountId($grant_account_id)
     {
-        $this->container['secondary_zone_id'] = $secondary_zone_id;
+        $this->container['grant_account_id'] = $grant_account_id;
 
         return $this;
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_name
+     * Gets status
      *
      * @return string
      */
-    public function getTransitRouterAttachmentName()
+    public function getStatus()
     {
-        return $this->container['transit_router_attachment_name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets transit_router_attachment_name
+     * Sets status
      *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
+     * @param string $status status
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
+    public function setStatus($status)
     {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -377,73 +326,25 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets transit_router_route_table_id
+     * Gets update_time
      *
      * @return string
      */
-    public function getTransitRouterRouteTableId()
+    public function getUpdateTime()
     {
-        return $this->container['transit_router_route_table_id'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets transit_router_route_table_id
+     * Sets update_time
      *
-     * @param string $transit_router_route_table_id transit_router_route_table_id
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setTransitRouterRouteTableId($transit_router_route_table_id)
+    public function setUpdateTime($update_time)
     {
-        $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpn_connection_id
-     *
-     * @return string
-     */
-    public function getVpnConnectionId()
-    {
-        return $this->container['vpn_connection_id'];
-    }
-
-    /**
-     * Sets vpn_connection_id
-     *
-     * @param string $vpn_connection_id vpn_connection_id
-     *
-     * @return $this
-     */
-    public function setVpnConnectionId($vpn_connection_id)
-    {
-        $this->container['vpn_connection_id'] = $vpn_connection_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
