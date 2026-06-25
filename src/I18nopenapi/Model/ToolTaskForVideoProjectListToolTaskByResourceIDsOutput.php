@@ -39,6 +39,7 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         'task_status' => 'int',
         'task_type' => 'int',
         'tool_resource' => '\Volcengine\I18nopenapi\Model\ToolResourceForVideoProjectListToolTaskByResourceIDsOutput',
+        'tool_task_results' => '\Volcengine\I18nopenapi\Model\ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput[]',
         'update_time' => 'string',
         'user_id' => 'string'
     ];
@@ -60,6 +61,7 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         'task_status' => 'int32',
         'task_type' => 'int32',
         'tool_resource' => null,
+        'tool_task_results' => null,
         'update_time' => null,
         'user_id' => null
     ];
@@ -94,16 +96,17 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         'create_time' => 'createTime',
         'input_vid' => 'inputVid',
         'output_vid' => 'outputVid',
-        'project_id' => 'projectID',
-        'resource_id' => 'resourceID',
-        'task_id' => 'taskID',
+        'project_id' => 'projectId',
+        'resource_id' => 'resourceId',
+        'task_id' => 'taskId',
         'task_params' => 'taskParams',
         'task_result' => 'taskResult',
         'task_status' => 'taskStatus',
         'task_type' => 'taskType',
         'tool_resource' => 'toolResource',
+        'tool_task_results' => 'toolTaskResults',
         'update_time' => 'updateTime',
-        'user_id' => 'userID'
+        'user_id' => 'userId'
     ];
 
     /**
@@ -123,6 +126,7 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         'task_status' => 'setTaskStatus',
         'task_type' => 'setTaskType',
         'tool_resource' => 'setToolResource',
+        'tool_task_results' => 'setToolTaskResults',
         'update_time' => 'setUpdateTime',
         'user_id' => 'setUserId'
     ];
@@ -144,6 +148,7 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         'task_status' => 'getTaskStatus',
         'task_type' => 'getTaskType',
         'tool_resource' => 'getToolResource',
+        'tool_task_results' => 'getToolTaskResults',
         'update_time' => 'getUpdateTime',
         'user_id' => 'getUserId'
     ];
@@ -219,6 +224,7 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
         $this->container['task_status'] = isset($data['task_status']) ? $data['task_status'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
         $this->container['tool_resource'] = isset($data['tool_resource']) ? $data['tool_resource'] : null;
+        $this->container['tool_task_results'] = isset($data['tool_task_results']) ? $data['tool_task_results'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
     }
@@ -507,6 +513,30 @@ class ToolTaskForVideoProjectListToolTaskByResourceIDsOutput implements ModelInt
     public function setToolResource($tool_resource)
     {
         $this->container['tool_resource'] = $tool_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool_task_results
+     *
+     * @return \Volcengine\I18nopenapi\Model\ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput[]
+     */
+    public function getToolTaskResults()
+    {
+        return $this->container['tool_task_results'];
+    }
+
+    /**
+     * Sets tool_task_results
+     *
+     * @param \Volcengine\I18nopenapi\Model\ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput[] $tool_task_results tool_task_results
+     *
+     * @return $this
+     */
+    public function setToolTaskResults($tool_task_results)
+    {
+        $this->container['tool_task_results'] = $tool_task_results;
 
         return $this;
     }

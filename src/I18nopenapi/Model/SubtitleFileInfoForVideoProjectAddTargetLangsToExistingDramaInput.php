@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'file_name' => 'string',
+        'file_type' => 'int',
+        'file_url' => 'string',
+        'subtitle_lang' => 'int'
     ];
 
     /**
@@ -40,10 +40,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'file_name' => null,
+        'file_type' => 'int32',
+        'file_url' => null,
+        'subtitle_lang' => 'int32'
     ];
 
     /**
@@ -73,10 +73,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'file_name' => 'fileName',
+        'file_type' => 'fileType',
+        'file_url' => 'fileUrl',
+        'subtitle_lang' => 'subtitleLang'
     ];
 
     /**
@@ -85,10 +85,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'file_name' => 'setFileName',
+        'file_type' => 'setFileType',
+        'file_url' => 'setFileUrl',
+        'subtitle_lang' => 'setSubtitleLang'
     ];
 
     /**
@@ -97,10 +97,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'file_name' => 'getFileName',
+        'file_type' => 'getFileType',
+        'file_url' => 'getFileUrl',
+        'subtitle_lang' => 'getSubtitleLang'
     ];
 
     /**
@@ -163,10 +163,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
+        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
     }
 
     /**
@@ -178,9 +178,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +194,97 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
+     * Gets file_name
      *
      * @return string
      */
-    public function getProjectId()
+    public function getFileName()
     {
-        return $this->container['project_id'];
+        return $this->container['file_name'];
     }
 
     /**
-     * Sets project_id
+     * Sets file_name
      *
-     * @param string $project_id project_id
+     * @param string $file_name file_name
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setFileName($file_name)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
 
     /**
-     * Gets task_type
+     * Gets file_type
      *
      * @return int
      */
-    public function getTaskType()
+    public function getFileType()
     {
-        return $this->container['task_type'];
+        return $this->container['file_type'];
     }
 
     /**
-     * Sets task_type
+     * Sets file_type
      *
-     * @param int $task_type task_type
+     * @param int $file_type file_type
      *
      * @return $this
      */
-    public function setTaskType($task_type)
+    public function setFileType($file_type)
     {
-        $this->container['task_type'] = $task_type;
+        $this->container['file_type'] = $file_type;
 
         return $this;
     }
 
     /**
-     * Gets tool_params_json
+     * Gets file_url
      *
      * @return string
      */
-    public function getToolParamsJson()
+    public function getFileUrl()
     {
-        return $this->container['tool_params_json'];
+        return $this->container['file_url'];
     }
 
     /**
-     * Sets tool_params_json
+     * Sets file_url
      *
-     * @param string $tool_params_json tool_params_json
+     * @param string $file_url file_url
      *
      * @return $this
      */
-    public function setToolParamsJson($tool_params_json)
+    public function setFileUrl($file_url)
     {
-        $this->container['tool_params_json'] = $tool_params_json;
+        $this->container['file_url'] = $file_url;
 
         return $this;
     }
 
     /**
-     * Gets video_ids
+     * Gets subtitle_lang
      *
-     * @return string[]
+     * @return int
      */
-    public function getVideoIds()
+    public function getSubtitleLang()
     {
-        return $this->container['video_ids'];
+        return $this->container['subtitle_lang'];
     }
 
     /**
-     * Sets video_ids
+     * Sets subtitle_lang
      *
-     * @param string[] $video_ids video_ids
+     * @param int $subtitle_lang subtitle_lang
      *
      * @return $this
      */
-    public function setVideoIds($video_ids)
+    public function setSubtitleLang($subtitle_lang)
     {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['subtitle_lang'] = $subtitle_lang;
 
         return $this;
     }

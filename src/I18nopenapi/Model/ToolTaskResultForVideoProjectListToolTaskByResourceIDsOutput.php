@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class ToolTaskResultForVideoProjectListToolTaskByResourceIDsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'toolTaskResultForVideoProjectListToolTaskByResourceIDsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'episode_num' => 'string',
+        'input_vid' => 'string',
+        'input_video_info' => '\Volcengine\I18nopenapi\Model\InputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput',
+        'output_vid' => 'string',
+        'output_video_info' => '\Volcengine\I18nopenapi\Model\OutputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput'
     ];
 
     /**
@@ -40,10 +41,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'episode_num' => null,
+        'input_vid' => null,
+        'input_video_info' => null,
+        'output_vid' => null,
+        'output_video_info' => null
     ];
 
     /**
@@ -73,10 +75,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'episode_num' => 'episodeNum',
+        'input_vid' => 'inputVid',
+        'input_video_info' => 'inputVideoInfo',
+        'output_vid' => 'outputVid',
+        'output_video_info' => 'outputVideoInfo'
     ];
 
     /**
@@ -85,10 +88,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'episode_num' => 'setEpisodeNum',
+        'input_vid' => 'setInputVid',
+        'input_video_info' => 'setInputVideoInfo',
+        'output_vid' => 'setOutputVid',
+        'output_video_info' => 'setOutputVideoInfo'
     ];
 
     /**
@@ -97,10 +101,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'episode_num' => 'getEpisodeNum',
+        'input_vid' => 'getInputVid',
+        'input_video_info' => 'getInputVideoInfo',
+        'output_vid' => 'getOutputVid',
+        'output_video_info' => 'getOutputVideoInfo'
     ];
 
     /**
@@ -163,10 +168,11 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
+        $this->container['input_vid'] = isset($data['input_vid']) ? $data['input_vid'] : null;
+        $this->container['input_video_info'] = isset($data['input_video_info']) ? $data['input_video_info'] : null;
+        $this->container['output_vid'] = isset($data['output_vid']) ? $data['output_vid'] : null;
+        $this->container['output_video_info'] = isset($data['output_video_info']) ? $data['output_video_info'] : null;
     }
 
     /**
@@ -178,9 +184,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +200,121 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
+     * Gets episode_num
      *
      * @return string
      */
-    public function getProjectId()
+    public function getEpisodeNum()
     {
-        return $this->container['project_id'];
+        return $this->container['episode_num'];
     }
 
     /**
-     * Sets project_id
+     * Sets episode_num
      *
-     * @param string $project_id project_id
+     * @param string $episode_num episode_num
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setEpisodeNum($episode_num)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['episode_num'] = $episode_num;
 
         return $this;
     }
 
     /**
-     * Gets task_type
-     *
-     * @return int
-     */
-    public function getTaskType()
-    {
-        return $this->container['task_type'];
-    }
-
-    /**
-     * Sets task_type
-     *
-     * @param int $task_type task_type
-     *
-     * @return $this
-     */
-    public function setTaskType($task_type)
-    {
-        $this->container['task_type'] = $task_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tool_params_json
+     * Gets input_vid
      *
      * @return string
      */
-    public function getToolParamsJson()
+    public function getInputVid()
     {
-        return $this->container['tool_params_json'];
+        return $this->container['input_vid'];
     }
 
     /**
-     * Sets tool_params_json
+     * Sets input_vid
      *
-     * @param string $tool_params_json tool_params_json
+     * @param string $input_vid input_vid
      *
      * @return $this
      */
-    public function setToolParamsJson($tool_params_json)
+    public function setInputVid($input_vid)
     {
-        $this->container['tool_params_json'] = $tool_params_json;
+        $this->container['input_vid'] = $input_vid;
 
         return $this;
     }
 
     /**
-     * Gets video_ids
+     * Gets input_video_info
      *
-     * @return string[]
+     * @return \Volcengine\I18nopenapi\Model\InputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput
      */
-    public function getVideoIds()
+    public function getInputVideoInfo()
     {
-        return $this->container['video_ids'];
+        return $this->container['input_video_info'];
     }
 
     /**
-     * Sets video_ids
+     * Sets input_video_info
      *
-     * @param string[] $video_ids video_ids
+     * @param \Volcengine\I18nopenapi\Model\InputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput $input_video_info input_video_info
      *
      * @return $this
      */
-    public function setVideoIds($video_ids)
+    public function setInputVideoInfo($input_video_info)
     {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['input_video_info'] = $input_video_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_vid
+     *
+     * @return string
+     */
+    public function getOutputVid()
+    {
+        return $this->container['output_vid'];
+    }
+
+    /**
+     * Sets output_vid
+     *
+     * @param string $output_vid output_vid
+     *
+     * @return $this
+     */
+    public function setOutputVid($output_vid)
+    {
+        $this->container['output_vid'] = $output_vid;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_video_info
+     *
+     * @return \Volcengine\I18nopenapi\Model\OutputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput
+     */
+    public function getOutputVideoInfo()
+    {
+        return $this->container['output_video_info'];
+    }
+
+    /**
+     * Sets output_video_info
+     *
+     * @param \Volcengine\I18nopenapi\Model\OutputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput $output_video_info output_video_info
+     *
+     * @return $this
+     */
+    public function setOutputVideoInfo($output_video_info)
+    {
+        $this->container['output_video_info'] = $output_video_info;
 
         return $this;
     }

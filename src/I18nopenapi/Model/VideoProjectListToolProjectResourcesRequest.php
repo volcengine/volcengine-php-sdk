@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class VideoProjectListToolProjectResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'VideoProjectListToolProjectResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'limit' => 'int',
+        'offset' => 'int',
         'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'resource_type' => 'int'
     ];
 
     /**
@@ -40,10 +40,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'limit' => 'int32',
+        'offset' => 'int32',
         'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'resource_type' => 'int32'
     ];
 
     /**
@@ -73,10 +73,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'limit' => 'limit',
+        'offset' => 'offset',
         'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'resource_type' => 'resourceType'
     ];
 
     /**
@@ -85,10 +85,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
         'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'resource_type' => 'setResourceType'
     ];
 
     /**
@@ -97,10 +97,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
         'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'resource_type' => 'getResourceType'
     ];
 
     /**
@@ -163,10 +163,10 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
 
     /**
@@ -197,6 +197,54 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
      * Gets project_id
      *
      * @return string
@@ -221,73 +269,25 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets task_type
+     * Gets resource_type
      *
      * @return int
      */
-    public function getTaskType()
+    public function getResourceType()
     {
-        return $this->container['task_type'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets task_type
+     * Sets resource_type
      *
-     * @param int $task_type task_type
+     * @param int $resource_type resource_type
      *
      * @return $this
      */
-    public function setTaskType($task_type)
+    public function setResourceType($resource_type)
     {
-        $this->container['task_type'] = $task_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tool_params_json
-     *
-     * @return string
-     */
-    public function getToolParamsJson()
-    {
-        return $this->container['tool_params_json'];
-    }
-
-    /**
-     * Sets tool_params_json
-     *
-     * @param string $tool_params_json tool_params_json
-     *
-     * @return $this
-     */
-    public function setToolParamsJson($tool_params_json)
-    {
-        $this->container['tool_params_json'] = $tool_params_json;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_ids
-     *
-     * @return string[]
-     */
-    public function getVideoIds()
-    {
-        return $this->container['video_ids'];
-    }
-
-    /**
-     * Sets video_ids
-     *
-     * @param string[] $video_ids video_ids
-     *
-     * @return $this
-     */
-    public function setVideoIds($video_ids)
-    {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

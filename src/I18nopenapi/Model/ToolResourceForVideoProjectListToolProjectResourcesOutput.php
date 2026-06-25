@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
+class ToolResourceForVideoProjectListToolProjectResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectCreateToolTaskRequest';
+    protected static $swaggerModelName = 'toolResourceForVideoProjectListToolProjectResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'string',
-        'task_type' => 'int',
-        'tool_params_json' => 'string',
-        'video_ids' => 'string[]'
+        'create_time' => 'string',
+        'name' => 'string',
+        'resource_id' => 'string',
+        'resource_type' => 'int',
+        'update_time' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => null,
-        'task_type' => 'int32',
-        'tool_params_json' => null,
-        'video_ids' => null
+        'create_time' => null,
+        'name' => null,
+        'resource_id' => null,
+        'resource_type' => 'int32',
+        'update_time' => null,
+        'url' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'task_type' => 'taskType',
-        'tool_params_json' => 'toolParamsJson',
-        'video_ids' => 'videoIDs'
+        'create_time' => 'createTime',
+        'name' => 'name',
+        'resource_id' => 'resourceID',
+        'resource_type' => 'resourceType',
+        'update_time' => 'updateTime',
+        'url' => 'url'
     ];
 
     /**
@@ -85,10 +91,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'task_type' => 'setTaskType',
-        'tool_params_json' => 'setToolParamsJson',
-        'video_ids' => 'setVideoIds'
+        'create_time' => 'setCreateTime',
+        'name' => 'setName',
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
+        'update_time' => 'setUpdateTime',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -97,10 +105,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'task_type' => 'getTaskType',
-        'tool_params_json' => 'getToolParamsJson',
-        'video_ids' => 'getVideoIds'
+        'create_time' => 'getCreateTime',
+        'name' => 'getName',
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
+        'update_time' => 'getUpdateTime',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -163,10 +173,12 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -178,9 +190,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +206,145 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
+     * Gets create_time
      *
      * @return string
      */
-    public function getProjectId()
+    public function getCreateTime()
     {
-        return $this->container['project_id'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets project_id
+     * Sets create_time
      *
-     * @param string $project_id project_id
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setCreateTime($create_time)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets task_type
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
      *
      * @return int
      */
-    public function getTaskType()
+    public function getResourceType()
     {
-        return $this->container['task_type'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets task_type
+     * Sets resource_type
      *
-     * @param int $task_type task_type
+     * @param int $resource_type resource_type
      *
      * @return $this
      */
-    public function setTaskType($task_type)
+    public function setResourceType($resource_type)
     {
-        $this->container['task_type'] = $task_type;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets tool_params_json
+     * Gets update_time
      *
      * @return string
      */
-    public function getToolParamsJson()
+    public function getUpdateTime()
     {
-        return $this->container['tool_params_json'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets tool_params_json
+     * Sets update_time
      *
-     * @param string $tool_params_json tool_params_json
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setToolParamsJson($tool_params_json)
+    public function setUpdateTime($update_time)
     {
-        $this->container['tool_params_json'] = $tool_params_json;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
 
     /**
-     * Gets video_ids
+     * Gets url
      *
-     * @return string[]
+     * @return string
      */
-    public function getVideoIds()
+    public function getUrl()
     {
-        return $this->container['video_ids'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets video_ids
+     * Sets url
      *
-     * @param string[] $video_ids video_ids
+     * @param string $url url
      *
      * @return $this
      */
-    public function setVideoIds($video_ids)
+    public function setUrl($url)
     {
-        $this->container['video_ids'] = $video_ids;
+        $this->container['url'] = $url;
 
         return $this;
     }

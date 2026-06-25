@@ -28,6 +28,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'project_id' => 'string',
         'task_id' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'project_id' => null,
         'task_id' => null
     ];
 
@@ -67,6 +69,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'project_id' => 'projectId',
         'task_id' => 'taskId'
     ];
 
@@ -76,6 +79,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'project_id' => 'setProjectId',
         'task_id' => 'setTaskId'
     ];
 
@@ -85,6 +89,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'project_id' => 'getProjectId',
         'task_id' => 'getTaskId'
     ];
 
@@ -148,6 +153,7 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
@@ -160,6 +166,9 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         if ($this->container['task_id'] === null) {
             $invalidProperties[] = "'task_id' can't be null";
         }
@@ -177,6 +186,30 @@ class VideoProjectGetToolTaskRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets project_id
+     *
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string $project_id project_id
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
 
     /**
      * Gets task_id

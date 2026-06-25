@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class InputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'suppressionVideoInfoForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'inputVideoInfoForVideoProjectListToolTaskByResourceIDsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -33,8 +33,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         'source_name' => 'string',
         'source_vid' => 'string',
         'source_video_url' => 'string',
-        'target_audio_download_url' => 'string',
-        'target_audio_url' => 'string',
         'target_download_url' => 'string',
         'target_last_time' => 'string',
         'target_name' => 'string',
@@ -53,8 +51,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         'source_name' => null,
         'source_vid' => null,
         'source_video_url' => null,
-        'target_audio_download_url' => null,
-        'target_audio_url' => null,
         'target_download_url' => null,
         'target_last_time' => null,
         'target_name' => null,
@@ -94,8 +90,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         'source_name' => 'sourceName',
         'source_vid' => 'sourceVid',
         'source_video_url' => 'sourceVideoUrl',
-        'target_audio_download_url' => 'targetAudioDownloadUrl',
-        'target_audio_url' => 'targetAudioUrl',
         'target_download_url' => 'targetDownloadUrl',
         'target_last_time' => 'targetLastTime',
         'target_name' => 'targetName',
@@ -114,8 +108,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         'source_name' => 'setSourceName',
         'source_vid' => 'setSourceVid',
         'source_video_url' => 'setSourceVideoUrl',
-        'target_audio_download_url' => 'setTargetAudioDownloadUrl',
-        'target_audio_url' => 'setTargetAudioUrl',
         'target_download_url' => 'setTargetDownloadUrl',
         'target_last_time' => 'setTargetLastTime',
         'target_name' => 'setTargetName',
@@ -134,8 +126,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         'source_name' => 'getSourceName',
         'source_vid' => 'getSourceVid',
         'source_video_url' => 'getSourceVideoUrl',
-        'target_audio_download_url' => 'getTargetAudioDownloadUrl',
-        'target_audio_url' => 'getTargetAudioUrl',
         'target_download_url' => 'getTargetDownloadUrl',
         'target_last_time' => 'getTargetLastTime',
         'target_name' => 'getTargetName',
@@ -208,8 +198,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         $this->container['source_name'] = isset($data['source_name']) ? $data['source_name'] : null;
         $this->container['source_vid'] = isset($data['source_vid']) ? $data['source_vid'] : null;
         $this->container['source_video_url'] = isset($data['source_video_url']) ? $data['source_video_url'] : null;
-        $this->container['target_audio_download_url'] = isset($data['target_audio_download_url']) ? $data['target_audio_download_url'] : null;
-        $this->container['target_audio_url'] = isset($data['target_audio_url']) ? $data['target_audio_url'] : null;
         $this->container['target_download_url'] = isset($data['target_download_url']) ? $data['target_download_url'] : null;
         $this->container['target_last_time'] = isset($data['target_last_time']) ? $data['target_last_time'] : null;
         $this->container['target_name'] = isset($data['target_name']) ? $data['target_name'] : null;
@@ -357,54 +345,6 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
     public function setSourceVideoUrl($source_video_url)
     {
         $this->container['source_video_url'] = $source_video_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_audio_download_url
-     *
-     * @return string
-     */
-    public function getTargetAudioDownloadUrl()
-    {
-        return $this->container['target_audio_download_url'];
-    }
-
-    /**
-     * Sets target_audio_download_url
-     *
-     * @param string $target_audio_download_url target_audio_download_url
-     *
-     * @return $this
-     */
-    public function setTargetAudioDownloadUrl($target_audio_download_url)
-    {
-        $this->container['target_audio_download_url'] = $target_audio_download_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_audio_url
-     *
-     * @return string
-     */
-    public function getTargetAudioUrl()
-    {
-        return $this->container['target_audio_url'];
-    }
-
-    /**
-     * Sets target_audio_url
-     *
-     * @param string $target_audio_url target_audio_url
-     *
-     * @return $this
-     */
-    public function setTargetAudioUrl($target_audio_url)
-    {
-        $this->container['target_audio_url'] = $target_audio_url;
 
         return $this;
     }
