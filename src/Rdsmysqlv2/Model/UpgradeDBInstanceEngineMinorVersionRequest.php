@@ -30,6 +30,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     protected static $swaggerTypes = [
         'estimate_only' => 'bool',
         'instance_id' => 'string',
+        'observation_hours' => 'int',
         'specified_switch_end_time' => 'string',
         'specified_switch_start_time' => 'string',
         'switch_type' => 'string',
@@ -44,6 +45,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     protected static $swaggerFormats = [
         'estimate_only' => null,
         'instance_id' => null,
+        'observation_hours' => 'int32',
         'specified_switch_end_time' => null,
         'specified_switch_start_time' => null,
         'switch_type' => null,
@@ -79,6 +81,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     protected static $attributeMap = [
         'estimate_only' => 'EstimateOnly',
         'instance_id' => 'InstanceId',
+        'observation_hours' => 'ObservationHours',
         'specified_switch_end_time' => 'SpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'SpecifiedSwitchStartTime',
         'switch_type' => 'SwitchType',
@@ -93,6 +96,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     protected static $setters = [
         'estimate_only' => 'setEstimateOnly',
         'instance_id' => 'setInstanceId',
+        'observation_hours' => 'setObservationHours',
         'specified_switch_end_time' => 'setSpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'setSpecifiedSwitchStartTime',
         'switch_type' => 'setSwitchType',
@@ -107,6 +111,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     protected static $getters = [
         'estimate_only' => 'getEstimateOnly',
         'instance_id' => 'getInstanceId',
+        'observation_hours' => 'getObservationHours',
         'specified_switch_end_time' => 'getSpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'getSpecifiedSwitchStartTime',
         'switch_type' => 'getSwitchType',
@@ -175,6 +180,7 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     {
         $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['observation_hours'] = isset($data['observation_hours']) ? $data['observation_hours'] : null;
         $this->container['specified_switch_end_time'] = isset($data['specified_switch_end_time']) ? $data['specified_switch_end_time'] : null;
         $this->container['specified_switch_start_time'] = isset($data['specified_switch_start_time']) ? $data['specified_switch_start_time'] : null;
         $this->container['switch_type'] = isset($data['switch_type']) ? $data['switch_type'] : null;
@@ -255,6 +261,30 @@ class UpgradeDBInstanceEngineMinorVersionRequest implements ModelInterface, Arra
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets observation_hours
+     *
+     * @return int
+     */
+    public function getObservationHours()
+    {
+        return $this->container['observation_hours'];
+    }
+
+    /**
+     * Sets observation_hours
+     *
+     * @param int $observation_hours observation_hours
+     *
+     * @return $this
+     */
+    public function setObservationHours($observation_hours)
+    {
+        $this->container['observation_hours'] = $observation_hours;
 
         return $this;
     }

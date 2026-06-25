@@ -30,6 +30,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     protected static $swaggerTypes = [
         'auto_add_new_nodes' => 'bool',
         'connection_pool_type' => 'string',
+        'custom_route_strategy' => '\Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointConnectionModeInput',
         'description' => 'string',
         'endpoint_name' => 'string',
         'endpoint_type' => 'string',
@@ -56,6 +57,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     protected static $swaggerFormats = [
         'auto_add_new_nodes' => null,
         'connection_pool_type' => null,
+        'custom_route_strategy' => null,
         'description' => null,
         'endpoint_name' => null,
         'endpoint_type' => null,
@@ -103,6 +105,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     protected static $attributeMap = [
         'auto_add_new_nodes' => 'AutoAddNewNodes',
         'connection_pool_type' => 'ConnectionPoolType',
+        'custom_route_strategy' => 'CustomRouteStrategy',
         'description' => 'Description',
         'endpoint_name' => 'EndpointName',
         'endpoint_type' => 'EndpointType',
@@ -129,6 +132,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     protected static $setters = [
         'auto_add_new_nodes' => 'setAutoAddNewNodes',
         'connection_pool_type' => 'setConnectionPoolType',
+        'custom_route_strategy' => 'setCustomRouteStrategy',
         'description' => 'setDescription',
         'endpoint_name' => 'setEndpointName',
         'endpoint_type' => 'setEndpointType',
@@ -155,6 +159,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     protected static $getters = [
         'auto_add_new_nodes' => 'getAutoAddNewNodes',
         'connection_pool_type' => 'getConnectionPoolType',
+        'custom_route_strategy' => 'getCustomRouteStrategy',
         'description' => 'getDescription',
         'endpoint_name' => 'getEndpointName',
         'endpoint_type' => 'getEndpointType',
@@ -235,6 +240,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     {
         $this->container['auto_add_new_nodes'] = isset($data['auto_add_new_nodes']) ? $data['auto_add_new_nodes'] : null;
         $this->container['connection_pool_type'] = isset($data['connection_pool_type']) ? $data['connection_pool_type'] : null;
+        $this->container['custom_route_strategy'] = isset($data['custom_route_strategy']) ? $data['custom_route_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['endpoint_name'] = isset($data['endpoint_name']) ? $data['endpoint_name'] : null;
         $this->container['endpoint_type'] = isset($data['endpoint_type']) ? $data['endpoint_type'] : null;
@@ -321,6 +327,30 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
     public function setConnectionPoolType($connection_pool_type)
     {
         $this->container['connection_pool_type'] = $connection_pool_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_route_strategy
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointConnectionModeInput
+     */
+    public function getCustomRouteStrategy()
+    {
+        return $this->container['custom_route_strategy'];
+    }
+
+    /**
+     * Sets custom_route_strategy
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForModifyDBEndpointConnectionModeInput $custom_route_strategy custom_route_strategy
+     *
+     * @return $this
+     */
+    public function setCustomRouteStrategy($custom_route_strategy)
+    {
+        $this->container['custom_route_strategy'] = $custom_route_strategy;
 
         return $this;
     }

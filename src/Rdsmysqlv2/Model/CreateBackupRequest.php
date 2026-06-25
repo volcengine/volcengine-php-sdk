@@ -30,6 +30,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'backup_meta' => '\Volcengine\Rdsmysqlv2\Model\BackupMetaForCreateBackupInput[]',
         'backup_method' => 'string',
+        'backup_name' => 'string',
         'backup_type' => 'string',
         'instance_id' => 'string'
     ];
@@ -42,6 +43,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'backup_meta' => null,
         'backup_method' => null,
+        'backup_name' => null,
         'backup_type' => null,
         'instance_id' => null
     ];
@@ -75,6 +77,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'backup_meta' => 'BackupMeta',
         'backup_method' => 'BackupMethod',
+        'backup_name' => 'BackupName',
         'backup_type' => 'BackupType',
         'instance_id' => 'InstanceId'
     ];
@@ -87,6 +90,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'backup_meta' => 'setBackupMeta',
         'backup_method' => 'setBackupMethod',
+        'backup_name' => 'setBackupName',
         'backup_type' => 'setBackupType',
         'instance_id' => 'setInstanceId'
     ];
@@ -99,6 +103,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'backup_meta' => 'getBackupMeta',
         'backup_method' => 'getBackupMethod',
+        'backup_name' => 'getBackupName',
         'backup_type' => 'getBackupType',
         'instance_id' => 'getInstanceId'
     ];
@@ -165,6 +170,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     {
         $this->container['backup_meta'] = isset($data['backup_meta']) ? $data['backup_meta'] : null;
         $this->container['backup_method'] = isset($data['backup_method']) ? $data['backup_method'] : null;
+        $this->container['backup_name'] = isset($data['backup_name']) ? $data['backup_name'] : null;
         $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
@@ -240,6 +246,30 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
     public function setBackupMethod($backup_method)
     {
         $this->container['backup_method'] = $backup_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets backup_name
+     *
+     * @return string
+     */
+    public function getBackupName()
+    {
+        return $this->container['backup_name'];
+    }
+
+    /**
+     * Sets backup_name
+     *
+     * @param string $backup_name backup_name
+     *
+     * @return $this
+     */
+    public function setBackupName($backup_name)
+    {
+        $this->container['backup_name'] = $backup_name;
 
         return $this;
     }

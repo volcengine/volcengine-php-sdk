@@ -28,6 +28,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_upgrade_minor_version' => 'string',
         'charge_info' => '\Volcengine\Rdsmysqlv2\Model\ChargeInfoForCreateDBBlueGreenInstanceInput',
         'db_engine_version' => 'string',
         'db_param_group_id' => 'string',
@@ -50,6 +51,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_upgrade_minor_version' => null,
         'charge_info' => null,
         'db_engine_version' => null,
         'db_param_group_id' => null,
@@ -93,6 +95,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_upgrade_minor_version' => 'AutoUpgradeMinorVersion',
         'charge_info' => 'ChargeInfo',
         'db_engine_version' => 'DBEngineVersion',
         'db_param_group_id' => 'DBParamGroupId',
@@ -115,6 +118,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_upgrade_minor_version' => 'setAutoUpgradeMinorVersion',
         'charge_info' => 'setChargeInfo',
         'db_engine_version' => 'setDbEngineVersion',
         'db_param_group_id' => 'setDbParamGroupId',
@@ -137,6 +141,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_upgrade_minor_version' => 'getAutoUpgradeMinorVersion',
         'charge_info' => 'getChargeInfo',
         'db_engine_version' => 'getDbEngineVersion',
         'db_param_group_id' => 'getDbParamGroupId',
@@ -213,6 +218,7 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['auto_upgrade_minor_version'] = isset($data['auto_upgrade_minor_version']) ? $data['auto_upgrade_minor_version'] : null;
         $this->container['charge_info'] = isset($data['charge_info']) ? $data['charge_info'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['db_param_group_id'] = isset($data['db_param_group_id']) ? $data['db_param_group_id'] : null;
@@ -264,6 +270,30 @@ class CreateDBBlueGreenInstanceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_upgrade_minor_version
+     *
+     * @return string
+     */
+    public function getAutoUpgradeMinorVersion()
+    {
+        return $this->container['auto_upgrade_minor_version'];
+    }
+
+    /**
+     * Sets auto_upgrade_minor_version
+     *
+     * @param string $auto_upgrade_minor_version auto_upgrade_minor_version
+     *
+     * @return $this
+     */
+    public function setAutoUpgradeMinorVersion($auto_upgrade_minor_version)
+    {
+        $this->container['auto_upgrade_minor_version'] = $auto_upgrade_minor_version;
+
+        return $this;
+    }
 
     /**
      * Gets charge_info

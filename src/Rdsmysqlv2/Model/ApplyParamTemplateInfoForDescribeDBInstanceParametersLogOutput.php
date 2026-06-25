@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
+class ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaveAsParameterTemplateRequest';
+    protected static $swaggerModelName = 'ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'project_name' => 'string',
-        'template_desc' => 'string',
-        'template_name' => 'string'
+        'template_id' => 'string',
+        'template_name' => 'string',
+        'template_source' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'project_name' => null,
-        'template_desc' => null,
-        'template_name' => null
+        'template_id' => null,
+        'template_name' => null,
+        'template_source' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'project_name' => 'ProjectName',
-        'template_desc' => 'TemplateDesc',
-        'template_name' => 'TemplateName'
+        'template_id' => 'TemplateId',
+        'template_name' => 'TemplateName',
+        'template_source' => 'TemplateSource'
     ];
 
     /**
@@ -85,10 +82,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'project_name' => 'setProjectName',
-        'template_desc' => 'setTemplateDesc',
-        'template_name' => 'setTemplateName'
+        'template_id' => 'setTemplateId',
+        'template_name' => 'setTemplateName',
+        'template_source' => 'setTemplateSource'
     ];
 
     /**
@@ -97,10 +93,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'project_name' => 'getProjectName',
-        'template_desc' => 'getTemplateDesc',
-        'template_name' => 'getTemplateName'
+        'template_id' => 'getTemplateId',
+        'template_name' => 'getTemplateName',
+        'template_source' => 'getTemplateSource'
     ];
 
     /**
@@ -163,10 +158,9 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['template_desc'] = isset($data['template_desc']) ? $data['template_desc'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
+        $this->container['template_source'] = isset($data['template_source']) ? $data['template_source'] : null;
     }
 
     /**
@@ -178,12 +172,6 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['template_name'] === null) {
-            $invalidProperties[] = "'template_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,73 +188,25 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets template_id
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getTemplateId()
     {
-        return $this->container['instance_id'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets instance_id
+     * Sets template_id
      *
-     * @param string $instance_id instance_id
+     * @param string $template_id template_id
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setTemplateId($template_id)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_desc
-     *
-     * @return string
-     */
-    public function getTemplateDesc()
-    {
-        return $this->container['template_desc'];
-    }
-
-    /**
-     * Sets template_desc
-     *
-     * @param string $template_desc template_desc
-     *
-     * @return $this
-     */
-    public function setTemplateDesc($template_desc)
-    {
-        $this->container['template_desc'] = $template_desc;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
@@ -291,6 +231,30 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
     public function setTemplateName($template_name)
     {
         $this->container['template_name'] = $template_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_source
+     *
+     * @return string
+     */
+    public function getTemplateSource()
+    {
+        return $this->container['template_source'];
+    }
+
+    /**
+     * Sets template_source
+     *
+     * @param string $template_source template_source
+     *
+     * @return $this
+     */
+    public function setTemplateSource($template_source)
+    {
+        $this->container['template_source'] = $template_source;
 
         return $this;
     }

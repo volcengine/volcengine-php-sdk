@@ -28,6 +28,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'apply_param_template_info' => '\Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput',
         'custom_node_ids' => 'string[]',
         'modify_time' => 'string',
         'new_parameter_value' => 'string',
@@ -43,6 +44,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'apply_param_template_info' => null,
         'custom_node_ids' => null,
         'modify_time' => null,
         'new_parameter_value' => null,
@@ -79,6 +81,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
      * @var string[]
      */
     protected static $attributeMap = [
+        'apply_param_template_info' => 'ApplyParamTemplateInfo',
         'custom_node_ids' => 'CustomNodeIds',
         'modify_time' => 'ModifyTime',
         'new_parameter_value' => 'NewParameterValue',
@@ -94,6 +97,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
      * @var string[]
      */
     protected static $setters = [
+        'apply_param_template_info' => 'setApplyParamTemplateInfo',
         'custom_node_ids' => 'setCustomNodeIds',
         'modify_time' => 'setModifyTime',
         'new_parameter_value' => 'setNewParameterValue',
@@ -109,6 +113,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
      * @var string[]
      */
     protected static $getters = [
+        'apply_param_template_info' => 'getApplyParamTemplateInfo',
         'custom_node_ids' => 'getCustomNodeIds',
         'modify_time' => 'getModifyTime',
         'new_parameter_value' => 'getNewParameterValue',
@@ -178,6 +183,7 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
      */
     public function __construct($data = null)
     {
+        $this->container['apply_param_template_info'] = isset($data['apply_param_template_info']) ? $data['apply_param_template_info'] : null;
         $this->container['custom_node_ids'] = isset($data['custom_node_ids']) ? $data['custom_node_ids'] : null;
         $this->container['modify_time'] = isset($data['modify_time']) ? $data['modify_time'] : null;
         $this->container['new_parameter_value'] = isset($data['new_parameter_value']) ? $data['new_parameter_value'] : null;
@@ -210,6 +216,30 @@ class ParameterChangeLogForDescribeDBInstanceParametersLogOutput implements Mode
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets apply_param_template_info
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput
+     */
+    public function getApplyParamTemplateInfo()
+    {
+        return $this->container['apply_param_template_info'];
+    }
+
+    /**
+     * Sets apply_param_template_info
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput $apply_param_template_info apply_param_template_info
+     *
+     * @return $this
+     */
+    public function setApplyParamTemplateInfo($apply_param_template_info)
+    {
+        $this->container['apply_param_template_info'] = $apply_param_template_info;
+
+        return $this;
+    }
 
     /**
      * Gets custom_node_ids

@@ -28,6 +28,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_upgrade_minor_version' => 'string',
         'deletion_protection' => 'string',
         'instance_name' => 'string',
         'master_instance_id' => 'string',
@@ -47,6 +48,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_upgrade_minor_version' => null,
         'deletion_protection' => null,
         'instance_name' => null,
         'master_instance_id' => null,
@@ -87,6 +89,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_upgrade_minor_version' => 'AutoUpgradeMinorVersion',
         'deletion_protection' => 'DeletionProtection',
         'instance_name' => 'InstanceName',
         'master_instance_id' => 'MasterInstanceId',
@@ -106,6 +109,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_upgrade_minor_version' => 'setAutoUpgradeMinorVersion',
         'deletion_protection' => 'setDeletionProtection',
         'instance_name' => 'setInstanceName',
         'master_instance_id' => 'setMasterInstanceId',
@@ -125,6 +129,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_upgrade_minor_version' => 'getAutoUpgradeMinorVersion',
         'deletion_protection' => 'getDeletionProtection',
         'instance_name' => 'getInstanceName',
         'master_instance_id' => 'getMasterInstanceId',
@@ -198,6 +203,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['auto_upgrade_minor_version'] = isset($data['auto_upgrade_minor_version']) ? $data['auto_upgrade_minor_version'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['master_instance_id'] = isset($data['master_instance_id']) ? $data['master_instance_id'] : null;
@@ -249,6 +255,30 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_upgrade_minor_version
+     *
+     * @return string
+     */
+    public function getAutoUpgradeMinorVersion()
+    {
+        return $this->container['auto_upgrade_minor_version'];
+    }
+
+    /**
+     * Sets auto_upgrade_minor_version
+     *
+     * @param string $auto_upgrade_minor_version auto_upgrade_minor_version
+     *
+     * @return $this
+     */
+    public function setAutoUpgradeMinorVersion($auto_upgrade_minor_version)
+    {
+        $this->container['auto_upgrade_minor_version'] = $auto_upgrade_minor_version;
+
+        return $this;
+    }
 
     /**
      * Gets deletion_protection
