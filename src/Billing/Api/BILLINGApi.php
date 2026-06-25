@@ -378,6 +378,68 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createDropShippingOrder($body = null)
+    {
+        list($response) = $this->createDropShippingOrderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDropShippingOrderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\CreateDropShippingOrderResponse';
+        $request = $this->createDropShippingOrderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDropShippingOrderAsync($body = null)
+    {
+        return $this->createDropShippingOrderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDropShippingOrderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\CreateDropShippingOrderResponse';
+        $request = $this->createDropShippingOrderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDropShippingOrderRequest($body)
+    {
+        $resourcePath = '/CreateDropShippingOrder/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createFinancialRelation($body = null)
     {
         list($response) = $this->createFinancialRelationWithHttpInfo($body);
@@ -536,6 +598,68 @@ class BILLINGApi
     protected function deleteFinancialRelationRequest($body)
     {
         $resourcePath = '/DeleteFinancialRelation/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDropShippingOrder($body = null)
+    {
+        list($response) = $this->getDropShippingOrderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDropShippingOrderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\GetDropShippingOrderResponse';
+        $request = $this->getDropShippingOrderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDropShippingOrderAsync($body = null)
+    {
+        return $this->getDropShippingOrderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDropShippingOrderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\GetDropShippingOrderResponse';
+        $request = $this->getDropShippingOrderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDropShippingOrderRequest($body)
+    {
+        $resourcePath = '/GetDropShippingOrder/2022-01-01/billing/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2706,6 +2830,68 @@ class BILLINGApi
     protected function payOrderRequest($body)
     {
         $resourcePath = '/PayOrder/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function preCheckDropShippingOrder($body = null)
+    {
+        list($response) = $this->preCheckDropShippingOrderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function preCheckDropShippingOrderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\PreCheckDropShippingOrderResponse';
+        $request = $this->preCheckDropShippingOrderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function preCheckDropShippingOrderAsync($body = null)
+    {
+        return $this->preCheckDropShippingOrderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function preCheckDropShippingOrderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\PreCheckDropShippingOrderResponse';
+        $request = $this->preCheckDropShippingOrderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function preCheckDropShippingOrderRequest($body)
+    {
+        $resourcePath = '/PreCheckDropShippingOrder/2022-01-01/billing/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
