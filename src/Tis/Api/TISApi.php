@@ -316,6 +316,130 @@ class TISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createVoicePrint($body = null)
+    {
+        list($response) = $this->createVoicePrintWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createVoicePrintWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateVoicePrintResponse';
+        $request = $this->createVoicePrintRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createVoicePrintAsync($body = null)
+    {
+        return $this->createVoicePrintAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createVoicePrintAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateVoicePrintResponse';
+        $request = $this->createVoicePrintRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createVoicePrintRequest($body)
+    {
+        $resourcePath = '/CreateVoicePrint/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteVoicePrint($body = null)
+    {
+        list($response) = $this->deleteVoicePrintWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteVoicePrintWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\DeleteVoicePrintResponse';
+        $request = $this->deleteVoicePrintRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteVoicePrintAsync($body = null)
+    {
+        return $this->deleteVoicePrintAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteVoicePrintAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\DeleteVoicePrintResponse';
+        $request = $this->deleteVoicePrintRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteVoicePrintRequest($body)
+    {
+        $resourcePath = '/DeleteVoicePrint/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getAgentList($body = null)
     {
         list($response) = $this->getAgentListWithHttpInfo($body);
@@ -750,6 +874,68 @@ class TISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function queryVoicePrint($body = null)
+    {
+        list($response) = $this->queryVoicePrintWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryVoicePrintWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\QueryVoicePrintResponse';
+        $request = $this->queryVoicePrintRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function queryVoicePrintAsync($body = null)
+    {
+        return $this->queryVoicePrintAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryVoicePrintAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\QueryVoicePrintResponse';
+        $request = $this->queryVoicePrintRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function queryVoicePrintRequest($body)
+    {
+        $resourcePath = '/QueryVoicePrint/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function topActionDispatch($body = null)
     {
         list($response) = $this->topActionDispatchWithHttpInfo($body);
@@ -784,6 +970,68 @@ class TISApi
     protected function topActionDispatchRequest($body)
     {
         $resourcePath = '/TopActionDispatch/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateVoicePrint($body = null)
+    {
+        list($response) = $this->updateVoicePrintWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateVoicePrintWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\UpdateVoicePrintResponse';
+        $request = $this->updateVoicePrintRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateVoicePrintAsync($body = null)
+    {
+        return $this->updateVoicePrintAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateVoicePrintAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\UpdateVoicePrintResponse';
+        $request = $this->updateVoicePrintRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateVoicePrintRequest($body)
+    {
+        $resourcePath = '/UpdateVoicePrint/2024-07-31/tis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, ArrayAccess
+class DeleteVoicePrintRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeviceListForCreateDeviceWithoutApprovalInput';
+    protected static $swaggerModelName = 'DeleteVoicePrintRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,8 +29,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerTypes = [
         'device_name' => 'string',
-        'device_secret' => 'string',
-        'nick_name' => 'string'
+        'product_key' => 'string',
+        'voice_print_id' => 'string'
     ];
 
     /**
@@ -40,8 +40,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'device_name' => null,
-        'device_secret' => null,
-        'nick_name' => null
+        'product_key' => null,
+        'voice_print_id' => null
     ];
 
     /**
@@ -72,8 +72,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $attributeMap = [
         'device_name' => 'DeviceName',
-        'device_secret' => 'DeviceSecret',
-        'nick_name' => 'NickName'
+        'product_key' => 'ProductKey',
+        'voice_print_id' => 'VoicePrintId'
     ];
 
     /**
@@ -83,8 +83,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $setters = [
         'device_name' => 'setDeviceName',
-        'device_secret' => 'setDeviceSecret',
-        'nick_name' => 'setNickName'
+        'product_key' => 'setProductKey',
+        'voice_print_id' => 'setVoicePrintId'
     ];
 
     /**
@@ -94,8 +94,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $getters = [
         'device_name' => 'getDeviceName',
-        'device_secret' => 'getDeviceSecret',
-        'nick_name' => 'getNickName'
+        'product_key' => 'getProductKey',
+        'voice_print_id' => 'getVoicePrintId'
     ];
 
     /**
@@ -159,8 +159,8 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     public function __construct($data = null)
     {
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
-        $this->container['device_secret'] = isset($data['device_secret']) ? $data['device_secret'] : null;
-        $this->container['nick_name'] = isset($data['nick_name']) ? $data['nick_name'] : null;
+        $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
+        $this->container['voice_print_id'] = isset($data['voice_print_id']) ? $data['voice_print_id'] : null;
     }
 
     /**
@@ -172,6 +172,12 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['device_name'] === null) {
+            $invalidProperties[] = "'device_name' can't be null";
+        }
+        if ($this->container['product_key'] === null) {
+            $invalidProperties[] = "'product_key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,49 +218,49 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     }
 
     /**
-     * Gets device_secret
+     * Gets product_key
      *
      * @return string
      */
-    public function getDeviceSecret()
+    public function getProductKey()
     {
-        return $this->container['device_secret'];
+        return $this->container['product_key'];
     }
 
     /**
-     * Sets device_secret
+     * Sets product_key
      *
-     * @param string $device_secret device_secret
+     * @param string $product_key product_key
      *
      * @return $this
      */
-    public function setDeviceSecret($device_secret)
+    public function setProductKey($product_key)
     {
-        $this->container['device_secret'] = $device_secret;
+        $this->container['product_key'] = $product_key;
 
         return $this;
     }
 
     /**
-     * Gets nick_name
+     * Gets voice_print_id
      *
      * @return string
      */
-    public function getNickName()
+    public function getVoicePrintId()
     {
-        return $this->container['nick_name'];
+        return $this->container['voice_print_id'];
     }
 
     /**
-     * Sets nick_name
+     * Sets voice_print_id
      *
-     * @param string $nick_name nick_name
+     * @param string $voice_print_id voice_print_id
      *
      * @return $this
      */
-    public function setNickName($nick_name)
+    public function setVoicePrintId($voice_print_id)
     {
-        $this->container['nick_name'] = $nick_name;
+        $this->container['voice_print_id'] = $voice_print_id;
 
         return $this;
     }

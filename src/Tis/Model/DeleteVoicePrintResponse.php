@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, ArrayAccess
+class DeleteVoicePrintResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeviceListForCreateDeviceWithoutApprovalInput';
+    protected static $swaggerModelName = 'DeleteVoicePrintResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_name' => 'string',
-        'device_secret' => 'string',
-        'nick_name' => 'string'
+        'success' => 'bool'
     ];
 
     /**
@@ -39,9 +37,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_name' => null,
-        'device_secret' => null,
-        'nick_name' => null
+        'success' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_name' => 'DeviceName',
-        'device_secret' => 'DeviceSecret',
-        'nick_name' => 'NickName'
+        'success' => 'Success'
     ];
 
     /**
@@ -82,9 +76,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'device_name' => 'setDeviceName',
-        'device_secret' => 'setDeviceSecret',
-        'nick_name' => 'setNickName'
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -93,9 +85,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'device_name' => 'getDeviceName',
-        'device_secret' => 'getDeviceSecret',
-        'nick_name' => 'getNickName'
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -158,9 +148,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
-        $this->container['device_secret'] = isset($data['device_secret']) ? $data['device_secret'] : null;
-        $this->container['nick_name'] = isset($data['nick_name']) ? $data['nick_name'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
 
 
     /**
-     * Gets device_name
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getDeviceName()
+    public function getSuccess()
     {
-        return $this->container['device_name'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets device_name
+     * Sets success
      *
-     * @param string $device_name device_name
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setDeviceName($device_name)
+    public function setSuccess($success)
     {
-        $this->container['device_name'] = $device_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets device_secret
-     *
-     * @return string
-     */
-    public function getDeviceSecret()
-    {
-        return $this->container['device_secret'];
-    }
-
-    /**
-     * Sets device_secret
-     *
-     * @param string $device_secret device_secret
-     *
-     * @return $this
-     */
-    public function setDeviceSecret($device_secret)
-    {
-        $this->container['device_secret'] = $device_secret;
-
-        return $this;
-    }
-
-    /**
-     * Gets nick_name
-     *
-     * @return string
-     */
-    public function getNickName()
-    {
-        return $this->container['nick_name'];
-    }
-
-    /**
-     * Sets nick_name
-     *
-     * @param string $nick_name nick_name
-     *
-     * @return $this
-     */
-    public function setNickName($nick_name)
-    {
-        $this->container['nick_name'] = $nick_name;
+        $this->container['success'] = $success;
 
         return $this;
     }
