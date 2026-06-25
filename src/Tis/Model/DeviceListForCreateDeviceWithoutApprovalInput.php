@@ -29,6 +29,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerTypes = [
         'device_name' => 'string',
+        'device_secret' => 'string',
         'nick_name' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'device_name' => null,
+        'device_secret' => null,
         'nick_name' => null
     ];
 
@@ -70,6 +72,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $attributeMap = [
         'device_name' => 'DeviceName',
+        'device_secret' => 'DeviceSecret',
         'nick_name' => 'NickName'
     ];
 
@@ -80,6 +83,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $setters = [
         'device_name' => 'setDeviceName',
+        'device_secret' => 'setDeviceSecret',
         'nick_name' => 'setNickName'
     ];
 
@@ -90,6 +94,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
      */
     protected static $getters = [
         'device_name' => 'getDeviceName',
+        'device_secret' => 'getDeviceSecret',
         'nick_name' => 'getNickName'
     ];
 
@@ -154,6 +159,7 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     public function __construct($data = null)
     {
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
+        $this->container['device_secret'] = isset($data['device_secret']) ? $data['device_secret'] : null;
         $this->container['nick_name'] = isset($data['nick_name']) ? $data['nick_name'] : null;
     }
 
@@ -201,6 +207,30 @@ class DeviceListForCreateDeviceWithoutApprovalInput implements ModelInterface, A
     public function setDeviceName($device_name)
     {
         $this->container['device_name'] = $device_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets device_secret
+     *
+     * @return string
+     */
+    public function getDeviceSecret()
+    {
+        return $this->container['device_secret'];
+    }
+
+    /**
+     * Sets device_secret
+     *
+     * @param string $device_secret device_secret
+     *
+     * @return $this
+     */
+    public function setDeviceSecret($device_secret)
+    {
+        $this->container['device_secret'] = $device_secret;
 
         return $this;
     }

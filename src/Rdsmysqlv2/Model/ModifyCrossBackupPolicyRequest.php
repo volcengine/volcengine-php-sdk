@@ -29,6 +29,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'backup_enabled' => 'bool',
+        'cross_backup_all_retention' => 'bool',
         'cross_backup_region' => 'string',
         'instance_id' => 'string',
         'log_backup_enabled' => 'bool',
@@ -42,6 +43,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'backup_enabled' => null,
+        'cross_backup_all_retention' => null,
         'cross_backup_region' => null,
         'instance_id' => null,
         'log_backup_enabled' => null,
@@ -76,6 +78,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'backup_enabled' => 'BackupEnabled',
+        'cross_backup_all_retention' => 'CrossBackupAllRetention',
         'cross_backup_region' => 'CrossBackupRegion',
         'instance_id' => 'InstanceId',
         'log_backup_enabled' => 'LogBackupEnabled',
@@ -89,6 +92,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'backup_enabled' => 'setBackupEnabled',
+        'cross_backup_all_retention' => 'setCrossBackupAllRetention',
         'cross_backup_region' => 'setCrossBackupRegion',
         'instance_id' => 'setInstanceId',
         'log_backup_enabled' => 'setLogBackupEnabled',
@@ -102,6 +106,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'backup_enabled' => 'getBackupEnabled',
+        'cross_backup_all_retention' => 'getCrossBackupAllRetention',
         'cross_backup_region' => 'getCrossBackupRegion',
         'instance_id' => 'getInstanceId',
         'log_backup_enabled' => 'getLogBackupEnabled',
@@ -169,6 +174,7 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['backup_enabled'] = isset($data['backup_enabled']) ? $data['backup_enabled'] : null;
+        $this->container['cross_backup_all_retention'] = isset($data['cross_backup_all_retention']) ? $data['cross_backup_all_retention'] : null;
         $this->container['cross_backup_region'] = isset($data['cross_backup_region']) ? $data['cross_backup_region'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['log_backup_enabled'] = isset($data['log_backup_enabled']) ? $data['log_backup_enabled'] : null;
@@ -222,6 +228,30 @@ class ModifyCrossBackupPolicyRequest implements ModelInterface, ArrayAccess
     public function setBackupEnabled($backup_enabled)
     {
         $this->container['backup_enabled'] = $backup_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_backup_all_retention
+     *
+     * @return bool
+     */
+    public function getCrossBackupAllRetention()
+    {
+        return $this->container['cross_backup_all_retention'];
+    }
+
+    /**
+     * Sets cross_backup_all_retention
+     *
+     * @param bool $cross_backup_all_retention cross_backup_all_retention
+     *
+     * @return $this
+     */
+    public function setCrossBackupAllRetention($cross_backup_all_retention)
+    {
+        $this->container['cross_backup_all_retention'] = $cross_backup_all_retention;
 
         return $this;
     }

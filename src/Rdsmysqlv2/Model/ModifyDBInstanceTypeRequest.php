@@ -30,6 +30,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'instance_id' => 'string',
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForModifyDBInstanceTypeInput[]',
+        'specified_switch_end_time' => 'string',
+        'specified_switch_start_time' => 'string',
         'switch_type' => 'string',
         'type_convert_path' => 'string'
     ];
@@ -42,6 +44,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'instance_id' => null,
         'node_info' => null,
+        'specified_switch_end_time' => null,
+        'specified_switch_start_time' => null,
         'switch_type' => null,
         'type_convert_path' => null
     ];
@@ -75,6 +79,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
         'node_info' => 'NodeInfo',
+        'specified_switch_end_time' => 'SpecifiedSwitchEndTime',
+        'specified_switch_start_time' => 'SpecifiedSwitchStartTime',
         'switch_type' => 'SwitchType',
         'type_convert_path' => 'TypeConvertPath'
     ];
@@ -87,6 +93,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'instance_id' => 'setInstanceId',
         'node_info' => 'setNodeInfo',
+        'specified_switch_end_time' => 'setSpecifiedSwitchEndTime',
+        'specified_switch_start_time' => 'setSpecifiedSwitchStartTime',
         'switch_type' => 'setSwitchType',
         'type_convert_path' => 'setTypeConvertPath'
     ];
@@ -99,6 +107,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'instance_id' => 'getInstanceId',
         'node_info' => 'getNodeInfo',
+        'specified_switch_end_time' => 'getSpecifiedSwitchEndTime',
+        'specified_switch_start_time' => 'getSpecifiedSwitchStartTime',
         'switch_type' => 'getSwitchType',
         'type_convert_path' => 'getTypeConvertPath'
     ];
@@ -165,6 +175,8 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
+        $this->container['specified_switch_end_time'] = isset($data['specified_switch_end_time']) ? $data['specified_switch_end_time'] : null;
+        $this->container['specified_switch_start_time'] = isset($data['specified_switch_start_time']) ? $data['specified_switch_start_time'] : null;
         $this->container['switch_type'] = isset($data['switch_type']) ? $data['switch_type'] : null;
         $this->container['type_convert_path'] = isset($data['type_convert_path']) ? $data['type_convert_path'] : null;
     }
@@ -243,6 +255,54 @@ class ModifyDBInstanceTypeRequest implements ModelInterface, ArrayAccess
     public function setNodeInfo($node_info)
     {
         $this->container['node_info'] = $node_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_switch_end_time
+     *
+     * @return string
+     */
+    public function getSpecifiedSwitchEndTime()
+    {
+        return $this->container['specified_switch_end_time'];
+    }
+
+    /**
+     * Sets specified_switch_end_time
+     *
+     * @param string $specified_switch_end_time specified_switch_end_time
+     *
+     * @return $this
+     */
+    public function setSpecifiedSwitchEndTime($specified_switch_end_time)
+    {
+        $this->container['specified_switch_end_time'] = $specified_switch_end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets specified_switch_start_time
+     *
+     * @return string
+     */
+    public function getSpecifiedSwitchStartTime()
+    {
+        return $this->container['specified_switch_start_time'];
+    }
+
+    /**
+     * Sets specified_switch_start_time
+     *
+     * @param string $specified_switch_start_time specified_switch_start_time
+     *
+     * @return $this
+     */
+    public function setSpecifiedSwitchStartTime($specified_switch_start_time)
+    {
+        $this->container['specified_switch_start_time'] = $specified_switch_start_time;
 
         return $this;
     }

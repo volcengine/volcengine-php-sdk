@@ -31,7 +31,8 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         'custom_node_ids' => 'string[]',
         'instance_id' => 'string',
         'param_apply_scope' => 'string',
-        'parameters' => '\Volcengine\Rdsmysqlv2\Model\ParameterForModifyDBInstanceParametersInput[]'
+        'parameters' => '\Volcengine\Rdsmysqlv2\Model\ParameterForModifyDBInstanceParametersInput[]',
+        'template_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         'custom_node_ids' => null,
         'instance_id' => null,
         'param_apply_scope' => null,
-        'parameters' => null
+        'parameters' => null,
+        'template_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         'custom_node_ids' => 'CustomNodeIds',
         'instance_id' => 'InstanceId',
         'param_apply_scope' => 'ParamApplyScope',
-        'parameters' => 'Parameters'
+        'parameters' => 'Parameters',
+        'template_id' => 'TemplateId'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         'custom_node_ids' => 'setCustomNodeIds',
         'instance_id' => 'setInstanceId',
         'param_apply_scope' => 'setParamApplyScope',
-        'parameters' => 'setParameters'
+        'parameters' => 'setParameters',
+        'template_id' => 'setTemplateId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         'custom_node_ids' => 'getCustomNodeIds',
         'instance_id' => 'getInstanceId',
         'param_apply_scope' => 'getParamApplyScope',
-        'parameters' => 'getParameters'
+        'parameters' => 'getParameters',
+        'template_id' => 'getTemplateId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['param_apply_scope'] = isset($data['param_apply_scope']) ? $data['param_apply_scope'] : null;
         $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
     /**
@@ -288,6 +294,30 @@ class ModifyDBInstanceParametersRequest implements ModelInterface, ArrayAccess
     public function setParameters($parameters)
     {
         $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }

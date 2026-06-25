@@ -31,7 +31,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         'project_id' => 'string',
         'task_type' => 'int',
         'tool_params_json' => 'string',
-        'user_id' => 'string',
         'video_ids' => 'string[]'
     ];
 
@@ -44,7 +43,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         'project_id' => null,
         'task_type' => 'int32',
         'tool_params_json' => null,
-        'user_id' => null,
         'video_ids' => null
     ];
 
@@ -78,7 +76,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         'project_id' => 'projectId',
         'task_type' => 'taskType',
         'tool_params_json' => 'toolParamsJson',
-        'user_id' => 'userId',
         'video_ids' => 'videoIDs'
     ];
 
@@ -91,7 +88,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         'project_id' => 'setProjectId',
         'task_type' => 'setTaskType',
         'tool_params_json' => 'setToolParamsJson',
-        'user_id' => 'setUserId',
         'video_ids' => 'setVideoIds'
     ];
 
@@ -104,7 +100,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         'project_id' => 'getProjectId',
         'task_type' => 'getTaskType',
         'tool_params_json' => 'getToolParamsJson',
-        'user_id' => 'getUserId',
         'video_ids' => 'getVideoIds'
     ];
 
@@ -171,7 +166,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
         $this->container['tool_params_json'] = isset($data['tool_params_json']) ? $data['tool_params_json'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
     }
 
@@ -270,30 +264,6 @@ class VideoProjectCreateToolTaskRequest implements ModelInterface, ArrayAccess
     public function setToolParamsJson($tool_params_json)
     {
         $this->container['tool_params_json'] = $tool_params_json;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
 
         return $this;
     }

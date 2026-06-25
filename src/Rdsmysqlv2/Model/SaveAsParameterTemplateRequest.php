@@ -29,6 +29,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_id' => 'string',
+        'project_name' => 'string',
         'template_desc' => 'string',
         'template_name' => 'string'
     ];
@@ -40,6 +41,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_id' => null,
+        'project_name' => null,
         'template_desc' => null,
         'template_name' => null
     ];
@@ -72,6 +74,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
+        'project_name' => 'ProjectName',
         'template_desc' => 'TemplateDesc',
         'template_name' => 'TemplateName'
     ];
@@ -83,6 +86,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_id' => 'setInstanceId',
+        'project_name' => 'setProjectName',
         'template_desc' => 'setTemplateDesc',
         'template_name' => 'setTemplateName'
     ];
@@ -94,6 +98,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_id' => 'getInstanceId',
+        'project_name' => 'getProjectName',
         'template_desc' => 'getTemplateDesc',
         'template_name' => 'getTemplateName'
     ];
@@ -159,6 +164,7 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['template_desc'] = isset($data['template_desc']) ? $data['template_desc'] : null;
         $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
     }
@@ -213,6 +219,30 @@ class SaveAsParameterTemplateRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
