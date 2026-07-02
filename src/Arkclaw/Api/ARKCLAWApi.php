@@ -502,6 +502,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createScheduledJob($body = null)
+    {
+        list($response) = $this->createScheduledJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createScheduledJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreateScheduledJobResponse';
+        $request = $this->createScheduledJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createScheduledJobAsync($body = null)
+    {
+        return $this->createScheduledJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createScheduledJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreateScheduledJobResponse';
+        $request = $this->createScheduledJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createScheduledJobRequest($body)
+    {
+        $resourcePath = '/CreateScheduledJob/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteClawInstance($body = null)
     {
         list($response) = $this->deleteClawInstanceWithHttpInfo($body);
@@ -660,6 +722,68 @@ class ARKCLAWApi
     protected function deleteClawOmniInstanceRequest($body)
     {
         $resourcePath = '/DeleteClawOmniInstance/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteScheduledJob($body = null)
+    {
+        list($response) = $this->deleteScheduledJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteScheduledJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeleteScheduledJobResponse';
+        $request = $this->deleteScheduledJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteScheduledJobAsync($body = null)
+    {
+        return $this->deleteScheduledJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteScheduledJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeleteScheduledJobResponse';
+        $request = $this->deleteScheduledJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteScheduledJobRequest($body)
+    {
+        $resourcePath = '/DeleteScheduledJob/2026-03-01/arkclaw/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1156,6 +1280,68 @@ class ARKCLAWApi
     protected function getClawOmniSpaceTemplateRequest($body)
     {
         $resourcePath = '/GetClawOmniSpaceTemplate/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getScheduledJob($body = null)
+    {
+        list($response) = $this->getScheduledJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getScheduledJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetScheduledJobResponse';
+        $request = $this->getScheduledJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getScheduledJobAsync($body = null)
+    {
+        return $this->getScheduledJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getScheduledJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetScheduledJobResponse';
+        $request = $this->getScheduledJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getScheduledJobRequest($body)
+    {
+        $resourcePath = '/GetScheduledJob/2026-03-01/arkclaw/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1782,6 +1968,130 @@ class ARKCLAWApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listScheduledJobRuns($body = null)
+    {
+        list($response) = $this->listScheduledJobRunsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listScheduledJobRunsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListScheduledJobRunsResponse';
+        $request = $this->listScheduledJobRunsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listScheduledJobRunsAsync($body = null)
+    {
+        return $this->listScheduledJobRunsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listScheduledJobRunsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListScheduledJobRunsResponse';
+        $request = $this->listScheduledJobRunsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listScheduledJobRunsRequest($body)
+    {
+        $resourcePath = '/ListScheduledJobRuns/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listScheduledJobs($body = null)
+    {
+        list($response) = $this->listScheduledJobsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listScheduledJobsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListScheduledJobsResponse';
+        $request = $this->listScheduledJobsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listScheduledJobsAsync($body = null)
+    {
+        return $this->listScheduledJobsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listScheduledJobsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListScheduledJobsResponse';
+        $request = $this->listScheduledJobsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listScheduledJobsRequest($body)
+    {
+        $resourcePath = '/ListScheduledJobs/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -2464,6 +2774,68 @@ class ARKCLAWApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateScheduledJob($body = null)
+    {
+        list($response) = $this->updateScheduledJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateScheduledJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdateScheduledJobResponse';
+        $request = $this->updateScheduledJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateScheduledJobAsync($body = null)
+    {
+        return $this->updateScheduledJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateScheduledJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdateScheduledJobResponse';
+        $request = $this->updateScheduledJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateScheduledJobRequest($body)
+    {
+        $resourcePath = '/UpdateScheduledJob/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
