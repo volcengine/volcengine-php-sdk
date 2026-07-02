@@ -30,6 +30,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'description' => 'string',
+        'secondary_zone_id' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]',
         'transit_router_attachment_name' => 'string',
         'transit_router_id' => 'string',
@@ -46,6 +47,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'client_token' => null,
         'description' => null,
+        'secondary_zone_id' => null,
         'tags' => null,
         'transit_router_attachment_name' => null,
         'transit_router_id' => null,
@@ -83,6 +85,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'secondary_zone_id' => 'SecondaryZoneId',
         'tags' => 'Tags',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName',
         'transit_router_id' => 'TransitRouterId',
@@ -99,6 +102,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     protected static $setters = [
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'secondary_zone_id' => 'setSecondaryZoneId',
         'tags' => 'setTags',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
         'transit_router_id' => 'setTransitRouterId',
@@ -115,6 +119,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     protected static $getters = [
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'secondary_zone_id' => 'getSecondaryZoneId',
         'tags' => 'getTags',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
         'transit_router_id' => 'getTransitRouterId',
@@ -185,6 +190,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['secondary_zone_id'] = isset($data['secondary_zone_id']) ? $data['secondary_zone_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
@@ -270,6 +276,30 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_zone_id
+     *
+     * @return string
+     */
+    public function getSecondaryZoneId()
+    {
+        return $this->container['secondary_zone_id'];
+    }
+
+    /**
+     * Sets secondary_zone_id
+     *
+     * @param string $secondary_zone_id secondary_zone_id
+     *
+     * @return $this
+     */
+    public function setSecondaryZoneId($secondary_zone_id)
+    {
+        $this->container['secondary_zone_id'] = $secondary_zone_id;
 
         return $this;
     }

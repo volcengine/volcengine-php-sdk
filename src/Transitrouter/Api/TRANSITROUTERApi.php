@@ -68,6 +68,68 @@ class TRANSITROUTERApi
         return $this->config;
     }
 
+    public function acceptSharedTransitRouter($body = null)
+    {
+        list($response) = $this->acceptSharedTransitRouterWithHttpInfo($body);
+        return $response;
+    }
+
+    public function acceptSharedTransitRouterWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\AcceptSharedTransitRouterResponse';
+        $request = $this->acceptSharedTransitRouterRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function acceptSharedTransitRouterAsync($body = null)
+    {
+        return $this->acceptSharedTransitRouterAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function acceptSharedTransitRouterAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\AcceptSharedTransitRouterResponse';
+        $request = $this->acceptSharedTransitRouterRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function acceptSharedTransitRouterRequest($body)
+    {
+        $resourcePath = '/AcceptSharedTransitRouter/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function acceptTransitRouterPeerAttachment($body = null)
     {
         list($response) = $this->acceptTransitRouterPeerAttachmentWithHttpInfo($body);
@@ -846,6 +908,68 @@ class TRANSITROUTERApi
     protected function createTransitRouterForwardPolicyTableRequest($body)
     {
         $resourcePath = '/CreateTransitRouterForwardPolicyTable/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTransitRouterGrantRule($body = null)
+    {
+        list($response) = $this->createTransitRouterGrantRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTransitRouterGrantRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\CreateTransitRouterGrantRuleResponse';
+        $request = $this->createTransitRouterGrantRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTransitRouterGrantRuleAsync($body = null)
+    {
+        return $this->createTransitRouterGrantRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTransitRouterGrantRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\CreateTransitRouterGrantRuleResponse';
+        $request = $this->createTransitRouterGrantRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTransitRouterGrantRuleRequest($body)
+    {
+        $resourcePath = '/CreateTransitRouterGrantRule/2020-04-01/transitrouter/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2086,6 +2210,68 @@ class TRANSITROUTERApi
     protected function deleteTransitRouterForwardPolicyTableRequest($body)
     {
         $resourcePath = '/DeleteTransitRouterForwardPolicyTable/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteTransitRouterGrantRule($body = null)
+    {
+        list($response) = $this->deleteTransitRouterGrantRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteTransitRouterGrantRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\DeleteTransitRouterGrantRuleResponse';
+        $request = $this->deleteTransitRouterGrantRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteTransitRouterGrantRuleAsync($body = null)
+    {
+        return $this->deleteTransitRouterGrantRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteTransitRouterGrantRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\DeleteTransitRouterGrantRuleResponse';
+        $request = $this->deleteTransitRouterGrantRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteTransitRouterGrantRuleRequest($body)
+    {
+        $resourcePath = '/DeleteTransitRouterGrantRule/2020-04-01/transitrouter/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3388,6 +3574,68 @@ class TRANSITROUTERApi
     protected function describeTransitRouterForwardPolicyTablesRequest($body)
     {
         $resourcePath = '/DescribeTransitRouterForwardPolicyTables/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeTransitRouterGrantRules($body = null)
+    {
+        list($response) = $this->describeTransitRouterGrantRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeTransitRouterGrantRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\DescribeTransitRouterGrantRulesResponse';
+        $request = $this->describeTransitRouterGrantRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeTransitRouterGrantRulesAsync($body = null)
+    {
+        return $this->describeTransitRouterGrantRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeTransitRouterGrantRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\DescribeTransitRouterGrantRulesResponse';
+        $request = $this->describeTransitRouterGrantRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeTransitRouterGrantRulesRequest($body)
+    {
+        $resourcePath = '/DescribeTransitRouterGrantRules/2020-04-01/transitrouter/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5524,6 +5772,68 @@ class TRANSITROUTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function modifyTransitRouterGrantRuleAttributes($body = null)
+    {
+        list($response) = $this->modifyTransitRouterGrantRuleAttributesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyTransitRouterGrantRuleAttributesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\ModifyTransitRouterGrantRuleAttributesResponse';
+        $request = $this->modifyTransitRouterGrantRuleAttributesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyTransitRouterGrantRuleAttributesAsync($body = null)
+    {
+        return $this->modifyTransitRouterGrantRuleAttributesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyTransitRouterGrantRuleAttributesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\ModifyTransitRouterGrantRuleAttributesResponse';
+        $request = $this->modifyTransitRouterGrantRuleAttributesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyTransitRouterGrantRuleAttributesRequest($body)
+    {
+        $resourcePath = '/ModifyTransitRouterGrantRuleAttributes/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function modifyTransitRouterMulticastDomainAttributes($body = null)
     {
         list($response) = $this->modifyTransitRouterMulticastDomainAttributesWithHttpInfo($body);
@@ -6426,6 +6736,68 @@ class TRANSITROUTERApi
     protected function modifyTransitRouterVpnAttachmentAttributesRequest($body)
     {
         $resourcePath = '/ModifyTransitRouterVpnAttachmentAttributes/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function rejectSharedTransitRouter($body = null)
+    {
+        list($response) = $this->rejectSharedTransitRouterWithHttpInfo($body);
+        return $response;
+    }
+
+    public function rejectSharedTransitRouterWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\RejectSharedTransitRouterResponse';
+        $request = $this->rejectSharedTransitRouterRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function rejectSharedTransitRouterAsync($body = null)
+    {
+        return $this->rejectSharedTransitRouterAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function rejectSharedTransitRouterAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\RejectSharedTransitRouterResponse';
+        $request = $this->rejectSharedTransitRouterRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function rejectSharedTransitRouterRequest($body)
+    {
+        $resourcePath = '/RejectSharedTransitRouter/2020-04-01/transitrouter/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

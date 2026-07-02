@@ -31,6 +31,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         'batch_id' => 'string',
         'project_id' => 'string',
         'status' => 'int',
+        'subtitle_id' => 'string',
         'video_id' => 'string',
         'video_url' => 'string'
     ];
@@ -44,6 +45,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         'batch_id' => null,
         'project_id' => null,
         'status' => 'int32',
+        'subtitle_id' => null,
         'video_id' => null,
         'video_url' => null
     ];
@@ -78,6 +80,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         'batch_id' => 'batchId',
         'project_id' => 'projectId',
         'status' => 'status',
+        'subtitle_id' => 'subtitleId',
         'video_id' => 'videoId',
         'video_url' => 'videoUrl'
     ];
@@ -91,6 +94,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         'batch_id' => 'setBatchId',
         'project_id' => 'setProjectId',
         'status' => 'setStatus',
+        'subtitle_id' => 'setSubtitleId',
         'video_id' => 'setVideoId',
         'video_url' => 'setVideoUrl'
     ];
@@ -104,6 +108,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         'batch_id' => 'getBatchId',
         'project_id' => 'getProjectId',
         'status' => 'getStatus',
+        'subtitle_id' => 'getSubtitleId',
         'video_id' => 'getVideoId',
         'video_url' => 'getVideoUrl'
     ];
@@ -171,6 +176,7 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
         $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
         $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
         $this->container['video_url'] = isset($data['video_url']) ? $data['video_url'] : null;
     }
@@ -267,6 +273,30 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_id
+     *
+     * @return string
+     */
+    public function getSubtitleId()
+    {
+        return $this->container['subtitle_id'];
+    }
+
+    /**
+     * Sets subtitle_id
+     *
+     * @param string $subtitle_id subtitle_id
+     *
+     * @return $this
+     */
+    public function setSubtitleId($subtitle_id)
+    {
+        $this->container['subtitle_id'] = $subtitle_id;
 
         return $this;
     }

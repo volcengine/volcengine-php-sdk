@@ -30,6 +30,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     protected static $swaggerTypes = [
         'description' => 'string',
         'destination_cidr_block' => 'string',
+        'destination_prefix_list_id' => 'string',
         'transit_router_route_entry_name' => 'string',
         'transit_router_route_entry_next_hop_id' => 'string',
         'transit_router_route_entry_next_hop_type' => 'string',
@@ -44,6 +45,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     protected static $swaggerFormats = [
         'description' => null,
         'destination_cidr_block' => null,
+        'destination_prefix_list_id' => null,
         'transit_router_route_entry_name' => null,
         'transit_router_route_entry_next_hop_id' => null,
         'transit_router_route_entry_next_hop_type' => null,
@@ -79,6 +81,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'description' => 'Description',
         'destination_cidr_block' => 'DestinationCidrBlock',
+        'destination_prefix_list_id' => 'DestinationPrefixListId',
         'transit_router_route_entry_name' => 'TransitRouterRouteEntryName',
         'transit_router_route_entry_next_hop_id' => 'TransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_type' => 'TransitRouterRouteEntryNextHopType',
@@ -93,6 +96,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     protected static $setters = [
         'description' => 'setDescription',
         'destination_cidr_block' => 'setDestinationCidrBlock',
+        'destination_prefix_list_id' => 'setDestinationPrefixListId',
         'transit_router_route_entry_name' => 'setTransitRouterRouteEntryName',
         'transit_router_route_entry_next_hop_id' => 'setTransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_type' => 'setTransitRouterRouteEntryNextHopType',
@@ -107,6 +111,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     protected static $getters = [
         'description' => 'getDescription',
         'destination_cidr_block' => 'getDestinationCidrBlock',
+        'destination_prefix_list_id' => 'getDestinationPrefixListId',
         'transit_router_route_entry_name' => 'getTransitRouterRouteEntryName',
         'transit_router_route_entry_next_hop_id' => 'getTransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_type' => 'getTransitRouterRouteEntryNextHopType',
@@ -175,6 +180,7 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
+        $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
         $this->container['transit_router_route_entry_name'] = isset($data['transit_router_route_entry_name']) ? $data['transit_router_route_entry_name'] : null;
         $this->container['transit_router_route_entry_next_hop_id'] = isset($data['transit_router_route_entry_next_hop_id']) ? $data['transit_router_route_entry_next_hop_id'] : null;
         $this->container['transit_router_route_entry_next_hop_type'] = isset($data['transit_router_route_entry_next_hop_type']) ? $data['transit_router_route_entry_next_hop_type'] : null;
@@ -190,9 +196,6 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_cidr_block'] === null) {
-            $invalidProperties[] = "'destination_cidr_block' can't be null";
-        }
         if ($this->container['transit_router_route_entry_next_hop_type'] === null) {
             $invalidProperties[] = "'transit_router_route_entry_next_hop_type' can't be null";
         }
@@ -258,6 +261,30 @@ class CreateTransitRouterRouteEntryRequest implements ModelInterface, ArrayAcces
     public function setDestinationCidrBlock($destination_cidr_block)
     {
         $this->container['destination_cidr_block'] = $destination_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_prefix_list_id
+     *
+     * @return string
+     */
+    public function getDestinationPrefixListId()
+    {
+        return $this->container['destination_prefix_list_id'];
+    }
+
+    /**
+     * Sets destination_prefix_list_id
+     *
+     * @param string $destination_prefix_list_id destination_prefix_list_id
+     *
+     * @return $this
+     */
+    public function setDestinationPrefixListId($destination_prefix_list_id)
+    {
+        $this->container['destination_prefix_list_id'] = $destination_prefix_list_id;
 
         return $this;
     }

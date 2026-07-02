@@ -29,7 +29,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
       */
     protected static $swaggerTypes = [
         'meta_condition' => '\Volcengine\Cloudmonitor20251201\Model\MetaConditionForUpdateSilencePolicyInput',
-        'metric_names' => 'string[]',
         'namespace' => 'string',
         'rule_id' => 'string'
     ];
@@ -41,7 +40,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
       */
     protected static $swaggerFormats = [
         'meta_condition' => null,
-        'metric_names' => null,
         'namespace' => null,
         'rule_id' => null
     ];
@@ -74,7 +72,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
      */
     protected static $attributeMap = [
         'meta_condition' => 'MetaCondition',
-        'metric_names' => 'MetricNames',
         'namespace' => 'Namespace',
         'rule_id' => 'RuleID'
     ];
@@ -86,7 +83,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
      */
     protected static $setters = [
         'meta_condition' => 'setMetaCondition',
-        'metric_names' => 'setMetricNames',
         'namespace' => 'setNamespace',
         'rule_id' => 'setRuleId'
     ];
@@ -98,7 +94,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
      */
     protected static $getters = [
         'meta_condition' => 'getMetaCondition',
-        'metric_names' => 'getMetricNames',
         'namespace' => 'getNamespace',
         'rule_id' => 'getRuleId'
     ];
@@ -164,7 +159,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
     public function __construct($data = null)
     {
         $this->container['meta_condition'] = isset($data['meta_condition']) ? $data['meta_condition'] : null;
-        $this->container['metric_names'] = isset($data['metric_names']) ? $data['metric_names'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
     }
@@ -213,30 +207,6 @@ class CloudMonitorForUpdateSilencePolicyInput implements ModelInterface, ArrayAc
     public function setMetaCondition($meta_condition)
     {
         $this->container['meta_condition'] = $meta_condition;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_names
-     *
-     * @return string[]
-     */
-    public function getMetricNames()
-    {
-        return $this->container['metric_names'];
-    }
-
-    /**
-     * Sets metric_names
-     *
-     * @param string[] $metric_names metric_names
-     *
-     * @return $this
-     */
-    public function setMetricNames($metric_names)
-    {
-        $this->container['metric_names'] = $metric_names;
 
         return $this;
     }

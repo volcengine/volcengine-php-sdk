@@ -43,6 +43,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'string',
         'space_id' => 'string',
         'spec' => 'string',
+        'template_id' => 'string',
         'user_pool_user_uid' => 'string'
     ];
 
@@ -67,6 +68,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => null,
         'space_id' => null,
         'spec' => null,
+        'template_id' => null,
         'user_pool_user_uid' => null
     ];
 
@@ -112,6 +114,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'Soul',
         'space_id' => 'SpaceId',
         'spec' => 'Spec',
+        'template_id' => 'TemplateId',
         'user_pool_user_uid' => 'UserPoolUserUid'
     ];
 
@@ -136,6 +139,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'setSoul',
         'space_id' => 'setSpaceId',
         'spec' => 'setSpec',
+        'template_id' => 'setTemplateId',
         'user_pool_user_uid' => 'setUserPoolUserUid'
     ];
 
@@ -160,6 +164,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'soul' => 'getSoul',
         'space_id' => 'getSpaceId',
         'spec' => 'getSpec',
+        'template_id' => 'getTemplateId',
         'user_pool_user_uid' => 'getUserPoolUserUid'
     ];
 
@@ -238,6 +243,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
         $this->container['spec'] = isset($data['spec']) ? $data['spec'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['user_pool_user_uid'] = isset($data['user_pool_user_uid']) ? $data['user_pool_user_uid'] : null;
     }
 
@@ -630,6 +636,30 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
     public function setSpec($spec)
     {
         $this->container['spec'] = $spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return $this
+     */
+    public function setTemplateId($template_id)
+    {
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }

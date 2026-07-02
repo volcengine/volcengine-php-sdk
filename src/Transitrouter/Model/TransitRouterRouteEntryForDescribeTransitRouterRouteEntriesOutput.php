@@ -32,6 +32,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'creation_time' => 'string',
         'description' => 'string',
         'destination_cidr_block' => 'string',
+        'destination_prefix_list_id' => 'string',
         'status' => 'string',
         'transit_router_route_entry_id' => 'string',
         'transit_router_route_entry_name' => 'string',
@@ -39,6 +40,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'transit_router_route_entry_next_hop_resource_id' => 'string',
         'transit_router_route_entry_next_hop_resource_type' => 'string',
         'transit_router_route_entry_next_hop_type' => 'string',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id' => 'string',
         'transit_router_route_entry_type' => 'string',
         'update_time' => 'string'
     ];
@@ -53,6 +55,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'creation_time' => null,
         'description' => null,
         'destination_cidr_block' => null,
+        'destination_prefix_list_id' => null,
         'status' => null,
         'transit_router_route_entry_id' => null,
         'transit_router_route_entry_name' => null,
@@ -60,6 +63,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'transit_router_route_entry_next_hop_resource_id' => null,
         'transit_router_route_entry_next_hop_resource_type' => null,
         'transit_router_route_entry_next_hop_type' => null,
+        'transit_router_route_entry_next_hop_vpn_tunnel_id' => null,
         'transit_router_route_entry_type' => null,
         'update_time' => null
     ];
@@ -95,6 +99,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'destination_cidr_block' => 'DestinationCidrBlock',
+        'destination_prefix_list_id' => 'DestinationPrefixListId',
         'status' => 'Status',
         'transit_router_route_entry_id' => 'TransitRouterRouteEntryId',
         'transit_router_route_entry_name' => 'TransitRouterRouteEntryName',
@@ -102,6 +107,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'transit_router_route_entry_next_hop_resource_id' => 'TransitRouterRouteEntryNextHopResourceId',
         'transit_router_route_entry_next_hop_resource_type' => 'TransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'TransitRouterRouteEntryNextHopType',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id' => 'TransitRouterRouteEntryNextHopVpnTunnelId',
         'transit_router_route_entry_type' => 'TransitRouterRouteEntryType',
         'update_time' => 'UpdateTime'
     ];
@@ -116,6 +122,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'destination_cidr_block' => 'setDestinationCidrBlock',
+        'destination_prefix_list_id' => 'setDestinationPrefixListId',
         'status' => 'setStatus',
         'transit_router_route_entry_id' => 'setTransitRouterRouteEntryId',
         'transit_router_route_entry_name' => 'setTransitRouterRouteEntryName',
@@ -123,6 +130,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'transit_router_route_entry_next_hop_resource_id' => 'setTransitRouterRouteEntryNextHopResourceId',
         'transit_router_route_entry_next_hop_resource_type' => 'setTransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'setTransitRouterRouteEntryNextHopType',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id' => 'setTransitRouterRouteEntryNextHopVpnTunnelId',
         'transit_router_route_entry_type' => 'setTransitRouterRouteEntryType',
         'update_time' => 'setUpdateTime'
     ];
@@ -137,6 +145,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'destination_cidr_block' => 'getDestinationCidrBlock',
+        'destination_prefix_list_id' => 'getDestinationPrefixListId',
         'status' => 'getStatus',
         'transit_router_route_entry_id' => 'getTransitRouterRouteEntryId',
         'transit_router_route_entry_name' => 'getTransitRouterRouteEntryName',
@@ -144,6 +153,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         'transit_router_route_entry_next_hop_resource_id' => 'getTransitRouterRouteEntryNextHopResourceId',
         'transit_router_route_entry_next_hop_resource_type' => 'getTransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'getTransitRouterRouteEntryNextHopType',
+        'transit_router_route_entry_next_hop_vpn_tunnel_id' => 'getTransitRouterRouteEntryNextHopVpnTunnelId',
         'transit_router_route_entry_type' => 'getTransitRouterRouteEntryType',
         'update_time' => 'getUpdateTime'
     ];
@@ -212,6 +222,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
+        $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transit_router_route_entry_id'] = isset($data['transit_router_route_entry_id']) ? $data['transit_router_route_entry_id'] : null;
         $this->container['transit_router_route_entry_name'] = isset($data['transit_router_route_entry_name']) ? $data['transit_router_route_entry_name'] : null;
@@ -219,6 +230,7 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
         $this->container['transit_router_route_entry_next_hop_resource_id'] = isset($data['transit_router_route_entry_next_hop_resource_id']) ? $data['transit_router_route_entry_next_hop_resource_id'] : null;
         $this->container['transit_router_route_entry_next_hop_resource_type'] = isset($data['transit_router_route_entry_next_hop_resource_type']) ? $data['transit_router_route_entry_next_hop_resource_type'] : null;
         $this->container['transit_router_route_entry_next_hop_type'] = isset($data['transit_router_route_entry_next_hop_type']) ? $data['transit_router_route_entry_next_hop_type'] : null;
+        $this->container['transit_router_route_entry_next_hop_vpn_tunnel_id'] = isset($data['transit_router_route_entry_next_hop_vpn_tunnel_id']) ? $data['transit_router_route_entry_next_hop_vpn_tunnel_id'] : null;
         $this->container['transit_router_route_entry_type'] = isset($data['transit_router_route_entry_type']) ? $data['transit_router_route_entry_type'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -339,6 +351,30 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
     public function setDestinationCidrBlock($destination_cidr_block)
     {
         $this->container['destination_cidr_block'] = $destination_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_prefix_list_id
+     *
+     * @return string
+     */
+    public function getDestinationPrefixListId()
+    {
+        return $this->container['destination_prefix_list_id'];
+    }
+
+    /**
+     * Sets destination_prefix_list_id
+     *
+     * @param string $destination_prefix_list_id destination_prefix_list_id
+     *
+     * @return $this
+     */
+    public function setDestinationPrefixListId($destination_prefix_list_id)
+    {
+        $this->container['destination_prefix_list_id'] = $destination_prefix_list_id;
 
         return $this;
     }
@@ -507,6 +543,30 @@ class TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput implemen
     public function setTransitRouterRouteEntryNextHopType($transit_router_route_entry_next_hop_type)
     {
         $this->container['transit_router_route_entry_next_hop_type'] = $transit_router_route_entry_next_hop_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_route_entry_next_hop_vpn_tunnel_id
+     *
+     * @return string
+     */
+    public function getTransitRouterRouteEntryNextHopVpnTunnelId()
+    {
+        return $this->container['transit_router_route_entry_next_hop_vpn_tunnel_id'];
+    }
+
+    /**
+     * Sets transit_router_route_entry_next_hop_vpn_tunnel_id
+     *
+     * @param string $transit_router_route_entry_next_hop_vpn_tunnel_id transit_router_route_entry_next_hop_vpn_tunnel_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterRouteEntryNextHopVpnTunnelId($transit_router_route_entry_next_hop_vpn_tunnel_id)
+    {
+        $this->container['transit_router_route_entry_next_hop_vpn_tunnel_id'] = $transit_router_route_entry_next_hop_vpn_tunnel_id;
 
         return $this;
     }

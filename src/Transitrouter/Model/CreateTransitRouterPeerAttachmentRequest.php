@@ -29,8 +29,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'bandwidth' => 'int',
+        'bandwidth_type' => 'string',
         'client_token' => 'string',
         'description' => 'string',
+        'line_operator' => 'string',
         'peer_transit_router_id' => 'string',
         'peer_transit_router_owner_id' => 'string',
         'peer_transit_router_region_id' => 'string',
@@ -47,8 +49,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'bandwidth' => 'int32',
+        'bandwidth_type' => null,
         'client_token' => null,
         'description' => null,
+        'line_operator' => null,
         'peer_transit_router_id' => null,
         'peer_transit_router_owner_id' => null,
         'peer_transit_router_region_id' => null,
@@ -86,8 +90,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'bandwidth' => 'Bandwidth',
+        'bandwidth_type' => 'BandwidthType',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'line_operator' => 'LineOperator',
         'peer_transit_router_id' => 'PeerTransitRouterId',
         'peer_transit_router_owner_id' => 'PeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'PeerTransitRouterRegionId',
@@ -104,8 +110,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'bandwidth' => 'setBandwidth',
+        'bandwidth_type' => 'setBandwidthType',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'line_operator' => 'setLineOperator',
         'peer_transit_router_id' => 'setPeerTransitRouterId',
         'peer_transit_router_owner_id' => 'setPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'setPeerTransitRouterRegionId',
@@ -122,8 +130,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'bandwidth' => 'getBandwidth',
+        'bandwidth_type' => 'getBandwidthType',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'line_operator' => 'getLineOperator',
         'peer_transit_router_id' => 'getPeerTransitRouterId',
         'peer_transit_router_owner_id' => 'getPeerTransitRouterOwnerId',
         'peer_transit_router_region_id' => 'getPeerTransitRouterRegionId',
@@ -194,8 +204,10 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
+        $this->container['bandwidth_type'] = isset($data['bandwidth_type']) ? $data['bandwidth_type'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['line_operator'] = isset($data['line_operator']) ? $data['line_operator'] : null;
         $this->container['peer_transit_router_id'] = isset($data['peer_transit_router_id']) ? $data['peer_transit_router_id'] : null;
         $this->container['peer_transit_router_owner_id'] = isset($data['peer_transit_router_owner_id']) ? $data['peer_transit_router_owner_id'] : null;
         $this->container['peer_transit_router_region_id'] = isset($data['peer_transit_router_region_id']) ? $data['peer_transit_router_region_id'] : null;
@@ -263,6 +275,30 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets bandwidth_type
+     *
+     * @return string
+     */
+    public function getBandwidthType()
+    {
+        return $this->container['bandwidth_type'];
+    }
+
+    /**
+     * Sets bandwidth_type
+     *
+     * @param string $bandwidth_type bandwidth_type
+     *
+     * @return $this
+     */
+    public function setBandwidthType($bandwidth_type)
+    {
+        $this->container['bandwidth_type'] = $bandwidth_type;
+
+        return $this;
+    }
+
+    /**
      * Gets client_token
      *
      * @return string
@@ -306,6 +342,30 @@ class CreateTransitRouterPeerAttachmentRequest implements ModelInterface, ArrayA
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_operator
+     *
+     * @return string
+     */
+    public function getLineOperator()
+    {
+        return $this->container['line_operator'];
+    }
+
+    /**
+     * Sets line_operator
+     *
+     * @param string $line_operator line_operator
+     *
+     * @return $this
+     */
+    public function setLineOperator($line_operator)
+    {
+        $this->container['line_operator'] = $line_operator;
 
         return $this;
     }

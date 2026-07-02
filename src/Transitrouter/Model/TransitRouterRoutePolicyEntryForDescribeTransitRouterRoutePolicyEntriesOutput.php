@@ -37,6 +37,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         'destination_resource_types' => 'string[]',
         'ip_prefix_match_mode' => 'string',
         'ip_prefixes' => 'string[]',
+        'prefix_list_id' => 'string',
         'priority' => 'int',
         'source_resource_ids' => 'string[]',
         'source_resource_types' => 'string[]',
@@ -61,6 +62,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         'destination_resource_types' => null,
         'ip_prefix_match_mode' => null,
         'ip_prefixes' => null,
+        'prefix_list_id' => null,
         'priority' => 'int32',
         'source_resource_ids' => null,
         'source_resource_types' => null,
@@ -106,6 +108,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         'destination_resource_types' => 'DestinationResourceTypes',
         'ip_prefix_match_mode' => 'IpPrefixMatchMode',
         'ip_prefixes' => 'IpPrefixes',
+        'prefix_list_id' => 'PrefixListId',
         'priority' => 'Priority',
         'source_resource_ids' => 'SourceResourceIds',
         'source_resource_types' => 'SourceResourceTypes',
@@ -130,6 +133,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         'destination_resource_types' => 'setDestinationResourceTypes',
         'ip_prefix_match_mode' => 'setIpPrefixMatchMode',
         'ip_prefixes' => 'setIpPrefixes',
+        'prefix_list_id' => 'setPrefixListId',
         'priority' => 'setPriority',
         'source_resource_ids' => 'setSourceResourceIds',
         'source_resource_types' => 'setSourceResourceTypes',
@@ -154,6 +158,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         'destination_resource_types' => 'getDestinationResourceTypes',
         'ip_prefix_match_mode' => 'getIpPrefixMatchMode',
         'ip_prefixes' => 'getIpPrefixes',
+        'prefix_list_id' => 'getPrefixListId',
         'priority' => 'getPriority',
         'source_resource_ids' => 'getSourceResourceIds',
         'source_resource_types' => 'getSourceResourceTypes',
@@ -232,6 +237,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
         $this->container['destination_resource_types'] = isset($data['destination_resource_types']) ? $data['destination_resource_types'] : null;
         $this->container['ip_prefix_match_mode'] = isset($data['ip_prefix_match_mode']) ? $data['ip_prefix_match_mode'] : null;
         $this->container['ip_prefixes'] = isset($data['ip_prefixes']) ? $data['ip_prefixes'] : null;
+        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['source_resource_ids'] = isset($data['source_resource_ids']) ? $data['source_resource_ids'] : null;
         $this->container['source_resource_types'] = isset($data['source_resource_types']) ? $data['source_resource_types'] : null;
@@ -477,6 +483,30 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
     public function setIpPrefixes($ip_prefixes)
     {
         $this->container['ip_prefixes'] = $ip_prefixes;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_id
+     *
+     * @return string
+     */
+    public function getPrefixListId()
+    {
+        return $this->container['prefix_list_id'];
+    }
+
+    /**
+     * Sets prefix_list_id
+     *
+     * @param string $prefix_list_id prefix_list_id
+     *
+     * @return $this
+     */
+    public function setPrefixListId($prefix_list_id)
+    {
+        $this->container['prefix_list_id'] = $prefix_list_id;
 
         return $this;
     }

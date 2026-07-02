@@ -29,7 +29,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
       */
     protected static $swaggerTypes = [
         'bandwidth' => 'int',
+        'bandwidth_type' => 'string',
         'description' => 'string',
+        'line_operator' => 'string',
         'transit_router_attachment_id' => 'string',
         'transit_router_attachment_name' => 'string',
         'transit_router_bandwidth_package_id' => 'string'
@@ -42,7 +44,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
       */
     protected static $swaggerFormats = [
         'bandwidth' => 'int32',
+        'bandwidth_type' => null,
         'description' => null,
+        'line_operator' => null,
         'transit_router_attachment_id' => null,
         'transit_router_attachment_name' => null,
         'transit_router_bandwidth_package_id' => null
@@ -76,7 +80,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
      */
     protected static $attributeMap = [
         'bandwidth' => 'Bandwidth',
+        'bandwidth_type' => 'BandwidthType',
         'description' => 'Description',
+        'line_operator' => 'LineOperator',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'TransitRouterBandwidthPackageId'
@@ -89,7 +95,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
      */
     protected static $setters = [
         'bandwidth' => 'setBandwidth',
+        'bandwidth_type' => 'setBandwidthType',
         'description' => 'setDescription',
+        'line_operator' => 'setLineOperator',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'setTransitRouterBandwidthPackageId'
@@ -102,7 +110,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
      */
     protected static $getters = [
         'bandwidth' => 'getBandwidth',
+        'bandwidth_type' => 'getBandwidthType',
         'description' => 'getDescription',
+        'line_operator' => 'getLineOperator',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
         'transit_router_bandwidth_package_id' => 'getTransitRouterBandwidthPackageId'
@@ -169,7 +179,9 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
     public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
+        $this->container['bandwidth_type'] = isset($data['bandwidth_type']) ? $data['bandwidth_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['line_operator'] = isset($data['line_operator']) ? $data['line_operator'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
         $this->container['transit_router_bandwidth_package_id'] = isset($data['transit_router_bandwidth_package_id']) ? $data['transit_router_bandwidth_package_id'] : null;
@@ -227,6 +239,30 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
     }
 
     /**
+     * Gets bandwidth_type
+     *
+     * @return string
+     */
+    public function getBandwidthType()
+    {
+        return $this->container['bandwidth_type'];
+    }
+
+    /**
+     * Sets bandwidth_type
+     *
+     * @param string $bandwidth_type bandwidth_type
+     *
+     * @return $this
+     */
+    public function setBandwidthType($bandwidth_type)
+    {
+        $this->container['bandwidth_type'] = $bandwidth_type;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string
@@ -246,6 +282,30 @@ class ModifyTransitRouterPeerAttachmentAttributesRequest implements ModelInterfa
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_operator
+     *
+     * @return string
+     */
+    public function getLineOperator()
+    {
+        return $this->container['line_operator'];
+    }
+
+    /**
+     * Sets line_operator
+     *
+     * @param string $line_operator line_operator
+     *
+     * @return $this
+     */
+    public function setLineOperator($line_operator)
+    {
+        $this->container['line_operator'] = $line_operator;
 
         return $this;
     }

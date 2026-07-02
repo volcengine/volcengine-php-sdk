@@ -29,6 +29,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'project_id' => 'string',
+        'upload_video_infos' => '\Volcengine\I18nopenapi\Model\UploadVideoInfoForVideoProjectVideoUploadInput[]',
         'video_urls' => 'string[]',
         'video_upload_type' => 'int'
     ];
@@ -40,6 +41,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'project_id' => null,
+        'upload_video_infos' => null,
         'video_urls' => null,
         'video_upload_type' => 'int32'
     ];
@@ -72,6 +74,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'project_id' => 'projectId',
+        'upload_video_infos' => 'uploadVideoInfos',
         'video_urls' => 'videoURLs',
         'video_upload_type' => 'videoUploadType'
     ];
@@ -83,6 +86,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'project_id' => 'setProjectId',
+        'upload_video_infos' => 'setUploadVideoInfos',
         'video_urls' => 'setVideoUrls',
         'video_upload_type' => 'setVideoUploadType'
     ];
@@ -94,6 +98,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'project_id' => 'getProjectId',
+        'upload_video_infos' => 'getUploadVideoInfos',
         'video_urls' => 'getVideoUrls',
         'video_upload_type' => 'getVideoUploadType'
     ];
@@ -159,6 +164,7 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['upload_video_infos'] = isset($data['upload_video_infos']) ? $data['upload_video_infos'] : null;
         $this->container['video_urls'] = isset($data['video_urls']) ? $data['video_urls'] : null;
         $this->container['video_upload_type'] = isset($data['video_upload_type']) ? $data['video_upload_type'] : null;
     }
@@ -213,6 +219,30 @@ class VideoProjectVideoUploadRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_video_infos
+     *
+     * @return \Volcengine\I18nopenapi\Model\UploadVideoInfoForVideoProjectVideoUploadInput[]
+     */
+    public function getUploadVideoInfos()
+    {
+        return $this->container['upload_video_infos'];
+    }
+
+    /**
+     * Sets upload_video_infos
+     *
+     * @param \Volcengine\I18nopenapi\Model\UploadVideoInfoForVideoProjectVideoUploadInput[] $upload_video_infos upload_video_infos
+     *
+     * @return $this
+     */
+    public function setUploadVideoInfos($upload_video_infos)
+    {
+        $this->container['upload_video_infos'] = $upload_video_infos;
 
         return $this;
     }
