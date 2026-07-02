@@ -6330,6 +6330,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectGetUploadSubtitleStatus($body = null)
+    {
+        list($response) = $this->videoProjectGetUploadSubtitleStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectGetUploadSubtitleStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectGetUploadSubtitleStatusResponse';
+        $request = $this->videoProjectGetUploadSubtitleStatusRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectGetUploadSubtitleStatusAsync($body = null)
+    {
+        return $this->videoProjectGetUploadSubtitleStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectGetUploadSubtitleStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectGetUploadSubtitleStatusResponse';
+        $request = $this->videoProjectGetUploadSubtitleStatusRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectGetUploadSubtitleStatusRequest($body)
+    {
+        $resourcePath = '/VideoProjectGetUploadSubtitleStatus/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectGetVideoUploadStatus($body = null)
     {
         list($response) = $this->videoProjectGetVideoUploadStatusWithHttpInfo($body);
@@ -6736,6 +6798,68 @@ class I18NOPENAPIApi
     protected function videoProjectSerialTaskCreateRequest($body)
     {
         $resourcePath = '/VideoProjectSerialTaskCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function videoProjectSubtitleUpload($body = null)
+    {
+        list($response) = $this->videoProjectSubtitleUploadWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectSubtitleUploadWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSubtitleUploadResponse';
+        $request = $this->videoProjectSubtitleUploadRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectSubtitleUploadAsync($body = null)
+    {
+        return $this->videoProjectSubtitleUploadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectSubtitleUploadAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSubtitleUploadResponse';
+        $request = $this->videoProjectSubtitleUploadRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectSubtitleUploadRequest($body)
+    {
+        $resourcePath = '/VideoProjectSubtitleUpload/2021-05-21/i18n_openapi/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -31,6 +31,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         'arrangement' => 'int',
         'file_type' => 'int',
         'name' => 'string',
+        'subtitle_id' => 'string',
         'subtitle_lang' => 'int',
         'target_lang' => 'string',
         'uri' => 'string'
@@ -45,6 +46,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         'arrangement' => 'int32',
         'file_type' => 'int32',
         'name' => null,
+        'subtitle_id' => null,
         'subtitle_lang' => 'int32',
         'target_lang' => null,
         'uri' => null
@@ -80,6 +82,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         'arrangement' => 'arrangement',
         'file_type' => 'fileType',
         'name' => 'name',
+        'subtitle_id' => 'subtitleId',
         'subtitle_lang' => 'subtitleLang',
         'target_lang' => 'targetLang',
         'uri' => 'uri'
@@ -94,6 +97,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         'arrangement' => 'setArrangement',
         'file_type' => 'setFileType',
         'name' => 'setName',
+        'subtitle_id' => 'setSubtitleId',
         'subtitle_lang' => 'setSubtitleLang',
         'target_lang' => 'setTargetLang',
         'uri' => 'setUri'
@@ -108,6 +112,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         'arrangement' => 'getArrangement',
         'file_type' => 'getFileType',
         'name' => 'getName',
+        'subtitle_id' => 'getSubtitleId',
         'subtitle_lang' => 'getSubtitleLang',
         'target_lang' => 'getTargetLang',
         'uri' => 'getUri'
@@ -176,6 +181,7 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
         $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
         $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
         $this->container['target_lang'] = isset($data['target_lang']) ? $data['target_lang'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
@@ -273,6 +279,30 @@ class ConvertsubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInt
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_id
+     *
+     * @return string
+     */
+    public function getSubtitleId()
+    {
+        return $this->container['subtitle_id'];
+    }
+
+    /**
+     * Sets subtitle_id
+     *
+     * @param string $subtitle_id subtitle_id
+     *
+     * @return $this
+     */
+    public function setSubtitleId($subtitle_id)
+    {
+        $this->container['subtitle_id'] = $subtitle_id;
 
         return $this;
     }
