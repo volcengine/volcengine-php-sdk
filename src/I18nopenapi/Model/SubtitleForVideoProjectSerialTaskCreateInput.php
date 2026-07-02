@@ -31,6 +31,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'arrangement' => 'int',
         'file_type' => 'int',
         'name' => 'string',
+        'subtitle_id' => 'string',
         'subtitle_lang' => 'int',
         'uri' => 'string'
     ];
@@ -44,6 +45,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'arrangement' => 'int32',
         'file_type' => 'int32',
         'name' => null,
+        'subtitle_id' => null,
         'subtitle_lang' => 'int32',
         'uri' => null
     ];
@@ -78,6 +80,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'arrangement' => 'arrangement',
         'file_type' => 'fileType',
         'name' => 'name',
+        'subtitle_id' => 'subtitleId',
         'subtitle_lang' => 'subtitleLang',
         'uri' => 'uri'
     ];
@@ -91,6 +94,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'arrangement' => 'setArrangement',
         'file_type' => 'setFileType',
         'name' => 'setName',
+        'subtitle_id' => 'setSubtitleId',
         'subtitle_lang' => 'setSubtitleLang',
         'uri' => 'setUri'
     ];
@@ -104,6 +108,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'arrangement' => 'getArrangement',
         'file_type' => 'getFileType',
         'name' => 'getName',
+        'subtitle_id' => 'getSubtitleId',
         'subtitle_lang' => 'getSubtitleLang',
         'uri' => 'getUri'
     ];
@@ -171,6 +176,7 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
         $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
@@ -267,6 +273,30 @@ class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_id
+     *
+     * @return string
+     */
+    public function getSubtitleId()
+    {
+        return $this->container['subtitle_id'];
+    }
+
+    /**
+     * Sets subtitle_id
+     *
+     * @param string $subtitle_id subtitle_id
+     *
+     * @return $this
+     */
+    public function setSubtitleId($subtitle_id)
+    {
+        $this->container['subtitle_id'] = $subtitle_id;
 
         return $this;
     }

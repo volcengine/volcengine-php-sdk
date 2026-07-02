@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
+class UploadVideoInfoForVideoProjectVideoUploadInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleForVideoProjectSerialDubTaskCreateInput';
+    protected static $swaggerModelName = 'uploadVideoInfoForVideoProjectVideoUploadInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'file_type' => 'int',
-        'name' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int',
-        'uri' => 'string'
+        'bind_subtitle_ids' => 'string[]',
+        'video_name' => 'string',
+        'video_url' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'file_type' => 'int32',
-        'name' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32',
-        'uri' => null
+        'bind_subtitle_ids' => null,
+        'video_name' => null,
+        'video_url' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'file_type' => 'fileType',
-        'name' => 'name',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang',
-        'uri' => 'uri'
+        'bind_subtitle_ids' => 'bindSubtitleIDs',
+        'video_name' => 'videoName',
+        'video_url' => 'videoURL'
     ];
 
     /**
@@ -91,12 +82,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'file_type' => 'setFileType',
-        'name' => 'setName',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang',
-        'uri' => 'setUri'
+        'bind_subtitle_ids' => 'setBindSubtitleIds',
+        'video_name' => 'setVideoName',
+        'video_url' => 'setVideoUrl'
     ];
 
     /**
@@ -105,12 +93,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'file_type' => 'getFileType',
-        'name' => 'getName',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang',
-        'uri' => 'getUri'
+        'bind_subtitle_ids' => 'getBindSubtitleIds',
+        'video_name' => 'getVideoName',
+        'video_url' => 'getVideoUrl'
     ];
 
     /**
@@ -173,12 +158,9 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['bind_subtitle_ids'] = isset($data['bind_subtitle_ids']) ? $data['bind_subtitle_ids'] : null;
+        $this->container['video_name'] = isset($data['video_name']) ? $data['video_name'] : null;
+        $this->container['video_url'] = isset($data['video_url']) ? $data['video_url'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class SubtitleForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
 
 
     /**
-     * Gets arrangement
+     * Gets bind_subtitle_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getArrangement()
+    public function getBindSubtitleIds()
     {
-        return $this->container['arrangement'];
+        return $this->container['bind_subtitle_ids'];
     }
 
     /**
-     * Sets arrangement
+     * Sets bind_subtitle_ids
      *
-     * @param int $arrangement arrangement
+     * @param string[] $bind_subtitle_ids bind_subtitle_ids
      *
      * @return $this
      */
-    public function setArrangement($arrangement)
+    public function setBindSubtitleIds($bind_subtitle_ids)
     {
-        $this->container['arrangement'] = $arrangement;
+        $this->container['bind_subtitle_ids'] = $bind_subtitle_ids;
 
         return $this;
     }
 
     /**
-     * Gets file_type
-     *
-     * @return int
-     */
-    public function getFileType()
-    {
-        return $this->container['file_type'];
-    }
-
-    /**
-     * Sets file_type
-     *
-     * @param int $file_type file_type
-     *
-     * @return $this
-     */
-    public function setFileType($file_type)
-    {
-        $this->container['file_type'] = $file_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets video_name
      *
      * @return string
      */
-    public function getName()
+    public function getVideoName()
     {
-        return $this->container['name'];
+        return $this->container['video_name'];
     }
 
     /**
-     * Sets name
+     * Sets video_name
      *
-     * @param string $name name
+     * @param string $video_name video_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setVideoName($video_name)
     {
-        $this->container['name'] = $name;
+        $this->container['video_name'] = $video_name;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_id
+     * Gets video_url
      *
      * @return string
      */
-    public function getSubtitleId()
+    public function getVideoUrl()
     {
-        return $this->container['subtitle_id'];
+        return $this->container['video_url'];
     }
 
     /**
-     * Sets subtitle_id
+     * Sets video_url
      *
-     * @param string $subtitle_id subtitle_id
+     * @param string $video_url video_url
      *
      * @return $this
      */
-    public function setSubtitleId($subtitle_id)
+    public function setVideoUrl($video_url)
     {
-        $this->container['subtitle_id'] = $subtitle_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_lang
-     *
-     * @return int
-     */
-    public function getSubtitleLang()
-    {
-        return $this->container['subtitle_lang'];
-    }
-
-    /**
-     * Sets subtitle_lang
-     *
-     * @param int $subtitle_lang subtitle_lang
-     *
-     * @return $this
-     */
-    public function setSubtitleLang($subtitle_lang)
-    {
-        $this->container['subtitle_lang'] = $subtitle_lang;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
-     *
-     * @return string
-     */
-    public function getUri()
-    {
-        return $this->container['uri'];
-    }
-
-    /**
-     * Sets uri
-     *
-     * @param string $uri uri
-     *
-     * @return $this
-     */
-    public function setUri($uri)
-    {
-        $this->container['uri'] = $uri;
+        $this->container['video_url'] = $video_url;
 
         return $this;
     }
