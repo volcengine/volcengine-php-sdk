@@ -33,6 +33,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         'create_client_token' => 'string',
         'enabled' => 'bool',
         'id' => 'string',
+        'name' => 'string',
         'node_pool_id' => 'string',
         'scheduled_instance_policy' => '\Volcengine\Vke\Model\ScheduledInstancePolicyForListScalingPoliciesOutput',
         'scheduled_policy' => '\Volcengine\Vke\Model\ScheduledPolicyForListScalingPoliciesOutput',
@@ -51,6 +52,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         'create_client_token' => null,
         'enabled' => null,
         'id' => null,
+        'name' => null,
         'node_pool_id' => null,
         'scheduled_instance_policy' => null,
         'scheduled_policy' => null,
@@ -90,6 +92,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         'create_client_token' => 'CreateClientToken',
         'enabled' => 'Enabled',
         'id' => 'Id',
+        'name' => 'Name',
         'node_pool_id' => 'NodePoolId',
         'scheduled_instance_policy' => 'ScheduledInstancePolicy',
         'scheduled_policy' => 'ScheduledPolicy',
@@ -108,6 +111,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         'create_client_token' => 'setCreateClientToken',
         'enabled' => 'setEnabled',
         'id' => 'setId',
+        'name' => 'setName',
         'node_pool_id' => 'setNodePoolId',
         'scheduled_instance_policy' => 'setScheduledInstancePolicy',
         'scheduled_policy' => 'setScheduledPolicy',
@@ -126,6 +130,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         'create_client_token' => 'getCreateClientToken',
         'enabled' => 'getEnabled',
         'id' => 'getId',
+        'name' => 'getName',
         'node_pool_id' => 'getNodePoolId',
         'scheduled_instance_policy' => 'getScheduledInstancePolicy',
         'scheduled_policy' => 'getScheduledPolicy',
@@ -213,6 +218,7 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
         $this->container['scheduled_instance_policy'] = isset($data['scheduled_instance_policy']) ? $data['scheduled_instance_policy'] : null;
         $this->container['scheduled_policy'] = isset($data['scheduled_policy']) ? $data['scheduled_policy'] : null;
@@ -368,6 +374,30 @@ class ItemForListScalingPoliciesOutput implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }
