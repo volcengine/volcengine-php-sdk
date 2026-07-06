@@ -563,6 +563,68 @@ class IAMApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createApiKey($body = null)
+    {
+        list($response) = $this->createApiKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createApiKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\CreateApiKeyResponse';
+        $request = $this->createApiKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createApiKeyAsync($body = null)
+    {
+        return $this->createApiKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createApiKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\CreateApiKeyResponse';
+        $request = $this->createApiKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createApiKeyRequest($body)
+    {
+        $resourcePath = '/CreateApiKey/2018-01-01/iam/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createGroup($body = null)
     {
         list($response) = $this->createGroupWithHttpInfo($body);
@@ -1154,6 +1216,68 @@ class IAMApi
     protected function deleteAccessKeyRequest($body)
     {
         $resourcePath = '/DeleteAccessKey/2018-01-01/iam/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteApiKey($body = null)
+    {
+        list($response) = $this->deleteApiKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteApiKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\DeleteApiKeyResponse';
+        $request = $this->deleteApiKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteApiKeyAsync($body = null)
+    {
+        return $this->deleteApiKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteApiKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\DeleteApiKeyResponse';
+        $request = $this->deleteApiKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteApiKeyRequest($body)
+    {
+        $resourcePath = '/DeleteApiKey/2018-01-01/iam/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2794,6 +2918,68 @@ class IAMApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listApiKeys($body = null)
+    {
+        list($response) = $this->listApiKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listApiKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\ListApiKeysResponse';
+        $request = $this->listApiKeysRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listApiKeysAsync($body = null)
+    {
+        return $this->listApiKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listApiKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\ListApiKeysResponse';
+        $request = $this->listApiKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listApiKeysRequest($body)
+    {
+        $resourcePath = '/ListApiKeys/2018-01-01/iam/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listAttachedRolePolicies($body = null)
     {
         list($response) = $this->listAttachedRolePoliciesWithHttpInfo($body);
@@ -4260,6 +4446,68 @@ class IAMApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateApiKey($body = null)
+    {
+        list($response) = $this->updateApiKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateApiKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\UpdateApiKeyResponse';
+        $request = $this->updateApiKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateApiKeyAsync($body = null)
+    {
+        return $this->updateApiKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateApiKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Iam\Model\UpdateApiKeyResponse';
+        $request = $this->updateApiKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateApiKeyRequest($body)
+    {
+        $resourcePath = '/UpdateApiKey/2018-01-01/iam/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
