@@ -30,6 +30,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
         'path_name' => 'string',
+        'private_ip' => 'string',
         'protocol' => 'string',
         'save' => 'bool',
         'source_ip' => 'string',
@@ -49,6 +50,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'description' => null,
         'path_name' => null,
+        'private_ip' => null,
         'protocol' => null,
         'save' => null,
         'source_ip' => null,
@@ -89,6 +91,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'Description',
         'path_name' => 'PathName',
+        'private_ip' => 'PrivateIP',
         'protocol' => 'Protocol',
         'save' => 'Save',
         'source_ip' => 'SourceIP',
@@ -108,6 +111,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'path_name' => 'setPathName',
+        'private_ip' => 'setPrivateIp',
         'protocol' => 'setProtocol',
         'save' => 'setSave',
         'source_ip' => 'setSourceIp',
@@ -127,6 +131,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'path_name' => 'getPathName',
+        'private_ip' => 'getPrivateIp',
         'protocol' => 'getProtocol',
         'save' => 'getSave',
         'source_ip' => 'getSourceIp',
@@ -200,6 +205,7 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['path_name'] = isset($data['path_name']) ? $data['path_name'] : null;
+        $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['save'] = isset($data['save']) ? $data['save'] : null;
         $this->container['source_ip'] = isset($data['source_ip']) ? $data['source_ip'] : null;
@@ -297,6 +303,30 @@ class CreatePathAnalysisRequest implements ModelInterface, ArrayAccess
     public function setPathName($path_name)
     {
         $this->container['path_name'] = $path_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_ip
+     *
+     * @return string
+     */
+    public function getPrivateIp()
+    {
+        return $this->container['private_ip'];
+    }
+
+    /**
+     * Sets private_ip
+     *
+     * @param string $private_ip private_ip
+     *
+     * @return $this
+     */
+    public function setPrivateIp($private_ip)
+    {
+        $this->container['private_ip'] = $private_ip;
 
         return $this;
     }
