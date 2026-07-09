@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
+class TagKVForListAmortizedCostBillDailyInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAmortizedCostBillDailyResponse';
+    protected static $swaggerModelName = 'TagKVForListAmortizedCostBillDailyInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'list' => '\Volcengine\Billing\Model\ListForListAmortizedCostBillDailyOutput[]',
-        'offset' => 'int',
-        'total' => 'int',
-        'warning' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'list' => null,
-        'offset' => 'int32',
-        'total' => 'int32',
-        'warning' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'list' => 'List',
-        'offset' => 'Offset',
-        'total' => 'Total',
-        'warning' => 'Warning'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -88,11 +79,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'list' => 'setList',
-        'offset' => 'setOffset',
-        'total' => 'setTotal',
-        'warning' => 'setWarning'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -101,11 +89,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'list' => 'getList',
-        'offset' => 'getOffset',
-        'total' => 'getTotal',
-        'warning' => 'getWarning'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -168,11 +153,8 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['list'] = isset($data['list']) ? $data['list'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class ListAmortizedCostBillDailyResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit limit
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets list
-     *
-     * @return \Volcengine\Billing\Model\ListForListAmortizedCostBillDailyOutput[]
-     */
-    public function getList()
-    {
-        return $this->container['list'];
-    }
-
-    /**
-     * Sets list
-     *
-     * @param \Volcengine\Billing\Model\ListForListAmortizedCostBillDailyOutput[] $list list
-     *
-     * @return $this
-     */
-    public function setList($list)
-    {
-        $this->container['list'] = $list;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
+     * Gets key
      *
      * @return string
      */
-    public function getWarning()
+    public function getKey()
     {
-        return $this->container['warning'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets warning
+     * Sets key
      *
-     * @param string $warning warning
+     * @param string $key key
      *
      * @return $this
      */
-    public function setWarning($warning)
+    public function setKey($key)
     {
-        $this->container['warning'] = $warning;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
