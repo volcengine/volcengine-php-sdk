@@ -502,6 +502,68 @@ class VEFAASApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createSandboxSnapshot($body = null)
+    {
+        list($response) = $this->createSandboxSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createSandboxSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\CreateSandboxSnapshotResponse';
+        $request = $this->createSandboxSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createSandboxSnapshotAsync($body = null)
+    {
+        return $this->createSandboxSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createSandboxSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\CreateSandboxSnapshotResponse';
+        $request = $this->createSandboxSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createSandboxSnapshotRequest($body)
+    {
+        $resourcePath = '/CreateSandboxSnapshot/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createTimer($body = null)
     {
         list($response) = $this->createTimerWithHttpInfo($body);
@@ -750,6 +812,68 @@ class VEFAASApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteSandboxSnapshot($body = null)
+    {
+        list($response) = $this->deleteSandboxSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteSandboxSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DeleteSandboxSnapshotResponse';
+        $request = $this->deleteSandboxSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteSandboxSnapshotAsync($body = null)
+    {
+        return $this->deleteSandboxSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteSandboxSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DeleteSandboxSnapshotResponse';
+        $request = $this->deleteSandboxSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteSandboxSnapshotRequest($body)
+    {
+        $resourcePath = '/DeleteSandboxSnapshot/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteTimer($body = null)
     {
         list($response) = $this->deleteTimerWithHttpInfo($body);
@@ -846,6 +970,68 @@ class VEFAASApi
     protected function describeSandboxRequest($body)
     {
         $resourcePath = '/DescribeSandbox/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeSandboxSnapshot($body = null)
+    {
+        list($response) = $this->describeSandboxSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeSandboxSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DescribeSandboxSnapshotResponse';
+        $request = $this->describeSandboxSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeSandboxSnapshotAsync($body = null)
+    {
+        return $this->describeSandboxSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeSandboxSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DescribeSandboxSnapshotResponse';
+        $request = $this->describeSandboxSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeSandboxSnapshotRequest($body)
+    {
+        $resourcePath = '/DescribeSandboxSnapshot/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2520,6 +2706,68 @@ class VEFAASApi
     protected function listSandboxImagesRequest($body)
     {
         $resourcePath = '/ListSandboxImages/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSandboxSnapshots($body = null)
+    {
+        list($response) = $this->listSandboxSnapshotsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSandboxSnapshotsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\ListSandboxSnapshotsResponse';
+        $request = $this->listSandboxSnapshotsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSandboxSnapshotsAsync($body = null)
+    {
+        return $this->listSandboxSnapshotsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSandboxSnapshotsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\ListSandboxSnapshotsResponse';
+        $request = $this->listSandboxSnapshotsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSandboxSnapshotsRequest($body)
+    {
+        $resourcePath = '/ListSandboxSnapshots/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

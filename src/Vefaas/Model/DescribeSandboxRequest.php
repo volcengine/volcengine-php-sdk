@@ -29,6 +29,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'function_id' => 'string',
+        'metadata' => '\Volcengine\Vefaas\Model\MetadataForDescribeSandboxInput',
         'sandbox_id' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'function_id' => null,
+        'metadata' => null,
         'sandbox_id' => null
     ];
 
@@ -70,6 +72,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'function_id' => 'FunctionId',
+        'metadata' => 'Metadata',
         'sandbox_id' => 'SandboxId'
     ];
 
@@ -80,6 +83,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'function_id' => 'setFunctionId',
+        'metadata' => 'setMetadata',
         'sandbox_id' => 'setSandboxId'
     ];
 
@@ -90,6 +94,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'function_id' => 'getFunctionId',
+        'metadata' => 'getMetadata',
         'sandbox_id' => 'getSandboxId'
     ];
 
@@ -154,6 +159,7 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
     }
 
@@ -207,6 +213,30 @@ class DescribeSandboxRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \Volcengine\Vefaas\Model\MetadataForDescribeSandboxInput
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \Volcengine\Vefaas\Model\MetadataForDescribeSandboxInput $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

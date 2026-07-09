@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, ArrayAccess
+class SnapshotForDescribeSandboxSnapshotOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForDescribeSandboxOutput';
+    protected static $swaggerModelName = 'SnapshotForDescribeSandboxSnapshotOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]'
+        'created_at' => 'string',
+        'sandbox_id' => 'string',
+        'snapshot_id' => 'string',
+        'snapshot_type' => 'string',
+        'source' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -41,11 +42,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'created_at' => null,
+        'sandbox_id' => null,
+        'snapshot_id' => null,
+        'snapshot_type' => null,
+        'source' => null,
+        'status' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'created_at' => 'CreatedAt',
+        'sandbox_id' => 'SandboxId',
+        'snapshot_id' => 'SnapshotId',
+        'snapshot_type' => 'SnapshotType',
+        'source' => 'Source',
+        'status' => 'Status'
     ];
 
     /**
@@ -88,11 +91,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'created_at' => 'setCreatedAt',
+        'sandbox_id' => 'setSandboxId',
+        'snapshot_id' => 'setSnapshotId',
+        'snapshot_type' => 'setSnapshotType',
+        'source' => 'setSource',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -101,11 +105,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'created_at' => 'getCreatedAt',
+        'sandbox_id' => 'getSandboxId',
+        'snapshot_id' => 'getSnapshotId',
+        'snapshot_type' => 'getSnapshotType',
+        'source' => 'getSource',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -168,11 +173,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
+        $this->container['snapshot_type'] = isset($data['snapshot_type']) ? $data['snapshot_type'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -200,121 +206,145 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
 
 
     /**
-     * Gets auth_mode
+     * Gets created_at
      *
      * @return string
      */
-    public function getAuthMode()
+    public function getCreatedAt()
     {
-        return $this->container['auth_mode'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets created_at
      *
-     * @param string $auth_mode auth_mode
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setCreatedAt($created_at)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
+     * Gets sandbox_id
      *
      * @return string
      */
-    public function getMode()
+    public function getSandboxId()
     {
-        return $this->container['mode'];
+        return $this->container['sandbox_id'];
     }
 
     /**
-     * Sets mode
+     * Sets sandbox_id
      *
-     * @param string $mode mode
+     * @param string $sandbox_id sandbox_id
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setSandboxId($sandbox_id)
     {
-        $this->container['mode'] = $mode;
+        $this->container['sandbox_id'] = $sandbox_id;
 
         return $this;
     }
 
     /**
-     * Gets tos_mount_points
+     * Gets snapshot_id
      *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]
+     * @return string
      */
-    public function getTosMountPoints()
+    public function getSnapshotId()
     {
-        return $this->container['tos_mount_points'];
+        return $this->container['snapshot_id'];
     }
 
     /**
-     * Sets tos_mount_points
+     * Sets snapshot_id
      *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[] $tos_mount_points tos_mount_points
+     * @param string $snapshot_id snapshot_id
      *
      * @return $this
      */
-    public function setTosMountPoints($tos_mount_points)
+    public function setSnapshotId($snapshot_id)
     {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['snapshot_id'] = $snapshot_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_type
+     *
+     * @return string
+     */
+    public function getSnapshotType()
+    {
+        return $this->container['snapshot_type'];
+    }
+
+    /**
+     * Sets snapshot_type
+     *
+     * @param string $snapshot_type snapshot_type
+     *
+     * @return $this
+     */
+    public function setSnapshotType($snapshot_type)
+    {
+        $this->container['snapshot_type'] = $snapshot_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
