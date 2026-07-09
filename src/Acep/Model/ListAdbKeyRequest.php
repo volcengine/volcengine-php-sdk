@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class ListAdbKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'ListAdbKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'auth_type' => 'int',
+        'effect_type' => 'int',
+        'fuzzy_key' => 'string',
+        'key_id' => 'string',
+        'key_name' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'product_id' => 'string'
     ];
 
     /**
@@ -40,10 +44,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'auth_type' => 'int32',
+        'effect_type' => 'int32',
+        'fuzzy_key' => null,
+        'key_id' => null,
+        'key_name' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
+        'product_id' => null
     ];
 
     /**
@@ -73,10 +81,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'auth_type' => 'AuthType',
+        'effect_type' => 'EffectType',
+        'fuzzy_key' => 'FuzzyKey',
+        'key_id' => 'KeyId',
+        'key_name' => 'KeyName',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -85,10 +97,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'auth_type' => 'setAuthType',
+        'effect_type' => 'setEffectType',
+        'fuzzy_key' => 'setFuzzyKey',
+        'key_id' => 'setKeyId',
+        'key_name' => 'setKeyName',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -97,10 +113,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'auth_type' => 'getAuthType',
+        'effect_type' => 'getEffectType',
+        'fuzzy_key' => 'getFuzzyKey',
+        'key_id' => 'getKeyId',
+        'key_name' => 'getKeyName',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -163,10 +183,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
+        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
+        $this->container['fuzzy_key'] = isset($data['fuzzy_key']) ? $data['fuzzy_key'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -178,6 +202,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +221,193 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets auth_type
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getAuthType()
     {
-        return $this->container['page_number'];
+        return $this->container['auth_type'];
     }
 
     /**
-     * Sets page_number
+     * Sets auth_type
      *
-     * @param int $page_number page_number
+     * @param int $auth_type auth_type
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setAuthType($auth_type)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['auth_type'] = $auth_type;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets effect_type
      *
      * @return int
      */
-    public function getPageSize()
+    public function getEffectType()
     {
-        return $this->container['page_size'];
+        return $this->container['effect_type'];
     }
 
     /**
-     * Sets page_size
+     * Sets effect_type
      *
-     * @param int $page_size page_size
+     * @param int $effect_type effect_type
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setEffectType($effect_type)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['effect_type'] = $effect_type;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets fuzzy_key
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getFuzzyKey()
     {
-        return $this->container['total_count'];
+        return $this->container['fuzzy_key'];
     }
 
     /**
-     * Sets total_count
+     * Sets fuzzy_key
      *
-     * @param int $total_count total_count
+     * @param string $fuzzy_key fuzzy_key
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setFuzzyKey($fuzzy_key)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['fuzzy_key'] = $fuzzy_key;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_multicast_domains
+     * Gets key_id
      *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return string
      */
-    public function getTransitRouterMulticastDomains()
+    public function getKeyId()
     {
-        return $this->container['transit_router_multicast_domains'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets transit_router_multicast_domains
+     * Sets key_id
      *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
+    public function setKeyId($key_id)
     {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_name
+     *
+     * @return string
+     */
+    public function getKeyName()
+    {
+        return $this->container['key_name'];
+    }
+
+    /**
+     * Sets key_name
+     *
+     * @param string $key_name key_name
+     *
+     * @return $this
+     */
+    public function setKeyName($key_name)
+    {
+        $this->container['key_name'] = $key_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

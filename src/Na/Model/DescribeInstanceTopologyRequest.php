@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Na\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class DescribeInstanceTopologyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'DescribeInstanceTopologyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'instance_ids' => 'string[]',
+        'network_type' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'instance_ids' => null,
+        'network_type' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'instance_ids' => 'InstanceIds',
+        'network_type' => 'NetworkType'
     ];
 
     /**
@@ -85,10 +79,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'instance_ids' => 'setInstanceIds',
+        'network_type' => 'setNetworkType'
     ];
 
     /**
@@ -97,10 +89,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'instance_ids' => 'getInstanceIds',
+        'network_type' => 'getNetworkType'
     ];
 
     /**
@@ -144,8 +134,23 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
         return self::$swaggerModelName;
     }
 
+    const NETWORK_TYPE_DCN = 'DCN';
+    const NETWORK_TYPE_HPN = 'HPN';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNetworkTypeAllowableValues()
+    {
+        return [
+            self::NETWORK_TYPE_DCN,
+            self::NETWORK_TYPE_HPN,
+        ];
+    }
     
 
     /**
@@ -163,10 +168,8 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
     }
 
     /**
@@ -177,6 +180,17 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['network_type'] === null) {
+            $invalidProperties[] = "'network_type' can't be null";
+        }
+        $allowedValues = $this->getNetworkTypeAllowableValues();
+        if (!is_null($this->container['network_type']) && !in_array($this->container['network_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'network_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -194,97 +208,58 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets instance_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getPageNumber()
+    public function getInstanceIds()
     {
-        return $this->container['page_number'];
+        return $this->container['instance_ids'];
     }
 
     /**
-     * Sets page_number
+     * Sets instance_ids
      *
-     * @param int $page_number page_number
+     * @param string[] $instance_ids instance_ids
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setInstanceIds($instance_ids)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['instance_ids'] = $instance_ids;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets network_type
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getNetworkType()
     {
-        return $this->container['page_size'];
+        return $this->container['network_type'];
     }
 
     /**
-     * Sets page_size
+     * Sets network_type
      *
-     * @param int $page_size page_size
+     * @param string $network_type network_type
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setNetworkType($network_type)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_multicast_domains
-     *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
-     */
-    public function getTransitRouterMulticastDomains()
-    {
-        return $this->container['transit_router_multicast_domains'];
-    }
-
-    /**
-     * Sets transit_router_multicast_domains
-     *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
-     *
-     * @return $this
-     */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
-    {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $allowedValues = $this->getNetworkTypeAllowableValues();
+        if (!in_array($network_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'network_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['network_type'] = $network_type;
 
         return $this;
     }

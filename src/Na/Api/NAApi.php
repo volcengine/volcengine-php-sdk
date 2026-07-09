@@ -502,6 +502,68 @@ class NAApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeInstanceTopology($body = null)
+    {
+        list($response) = $this->describeInstanceTopologyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeInstanceTopologyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Na\Model\DescribeInstanceTopologyResponse';
+        $request = $this->describeInstanceTopologyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeInstanceTopologyAsync($body = null)
+    {
+        return $this->describeInstanceTopologyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeInstanceTopologyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Na\Model\DescribeInstanceTopologyResponse';
+        $request = $this->describeInstanceTopologyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeInstanceTopologyRequest($body)
+    {
+        $resourcePath = '/DescribeInstanceTopology/2020-04-01/na/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getAnalysisPathReport($body = null)
     {
         list($response) = $this->getAnalysisPathReportWithHttpInfo($body);

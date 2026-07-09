@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class ListAdbKeyPodBindingsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'ListAdbKeyPodBindingsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'key_id' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'pod_id' => 'string',
+        'product_id' => 'string'
     ];
 
     /**
@@ -40,10 +41,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'key_id' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
+        'pod_id' => null,
+        'product_id' => null
     ];
 
     /**
@@ -73,10 +75,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'key_id' => 'KeyId',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'pod_id' => 'PodId',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -85,10 +88,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'key_id' => 'setKeyId',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'pod_id' => 'setPodId',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -97,10 +101,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'key_id' => 'getKeyId',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'pod_id' => 'getPodId',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -163,10 +168,11 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -178,6 +184,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +203,121 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets key_id
      *
-     * @return int
+     * @return string
      */
-    public function getPageNumber()
+    public function getKeyId()
     {
-        return $this->container['page_number'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets page_number
+     * Sets key_id
      *
-     * @param int $page_number page_number
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setKeyId($key_id)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets max_results
      *
      * @return int
      */
-    public function getPageSize()
+    public function getMaxResults()
     {
-        return $this->container['page_size'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets page_size
+     * Sets max_results
      *
-     * @param int $page_size page_size
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setMaxResults($max_results)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets next_token
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getNextToken()
     {
-        return $this->container['total_count'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets total_count
+     * Sets next_token
      *
-     * @param int $total_count total_count
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setNextToken($next_token)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_multicast_domains
+     * Gets pod_id
      *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return string
      */
-    public function getTransitRouterMulticastDomains()
+    public function getPodId()
     {
-        return $this->container['transit_router_multicast_domains'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets transit_router_multicast_domains
+     * Sets pod_id
      *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
+    public function setPodId($pod_id)
     {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

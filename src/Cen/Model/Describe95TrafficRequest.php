@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Cen\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class Describe95TrafficRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'Describe95TrafficRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'day' => 'string',
+        'instance_id' => 'string',
+        'resource_type' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'day' => null,
+        'instance_id' => null,
+        'resource_type' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'day' => 'Day',
+        'instance_id' => 'InstanceId',
+        'resource_type' => 'ResourceType'
     ];
 
     /**
@@ -85,10 +82,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'day' => 'setDay',
+        'instance_id' => 'setInstanceId',
+        'resource_type' => 'setResourceType'
     ];
 
     /**
@@ -97,10 +93,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'day' => 'getDay',
+        'instance_id' => 'getInstanceId',
+        'resource_type' => 'getResourceType'
     ];
 
     /**
@@ -163,10 +158,9 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['day'] = isset($data['day']) ? $data['day'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
 
     /**
@@ -178,6 +172,15 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['day'] === null) {
+            $invalidProperties[] = "'day' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +197,73 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets day
      *
-     * @return int
+     * @return string
      */
-    public function getPageNumber()
+    public function getDay()
     {
-        return $this->container['page_number'];
+        return $this->container['day'];
     }
 
     /**
-     * Sets page_number
+     * Sets day
      *
-     * @param int $page_number page_number
+     * @param string $day day
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setDay($day)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['day'] = $day;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets instance_id
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getInstanceId()
     {
-        return $this->container['page_size'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets page_size
+     * Sets instance_id
      *
-     * @param int $page_size page_size
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setInstanceId($instance_id)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets resource_type
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getResourceType()
     {
-        return $this->container['total_count'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets total_count
+     * Sets resource_type
      *
-     * @param int $total_count total_count
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setResourceType($resource_type)
     {
-        $this->container['total_count'] = $total_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_multicast_domains
-     *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
-     */
-    public function getTransitRouterMulticastDomains()
-    {
-        return $this->container['transit_router_multicast_domains'];
-    }
-
-    /**
-     * Sets transit_router_multicast_domains
-     *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
-     *
-     * @return $this
-     */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
-    {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

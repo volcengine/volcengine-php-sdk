@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class UpdateAdbKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'UpdateAdbKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'annotation' => 'string',
+        'key_id' => 'string',
+        'key_name' => 'string',
+        'product_id' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'annotation' => null,
+        'key_id' => null,
+        'key_name' => null,
+        'product_id' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'annotation' => 'Annotation',
+        'key_id' => 'KeyId',
+        'key_name' => 'KeyName',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -85,10 +85,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'annotation' => 'setAnnotation',
+        'key_id' => 'setKeyId',
+        'key_name' => 'setKeyName',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -97,10 +97,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'annotation' => 'getAnnotation',
+        'key_id' => 'getKeyId',
+        'key_name' => 'getKeyName',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -163,10 +163,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['annotation'] = isset($data['annotation']) ? $data['annotation'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -178,6 +178,12 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['key_id'] === null) {
+            $invalidProperties[] = "'key_id' can't be null";
+        }
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +200,97 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets annotation
      *
-     * @return int
+     * @return string
      */
-    public function getPageNumber()
+    public function getAnnotation()
     {
-        return $this->container['page_number'];
+        return $this->container['annotation'];
     }
 
     /**
-     * Sets page_number
+     * Sets annotation
      *
-     * @param int $page_number page_number
+     * @param string $annotation annotation
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setAnnotation($annotation)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['annotation'] = $annotation;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets key_id
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getKeyId()
     {
-        return $this->container['page_size'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets page_size
+     * Sets key_id
      *
-     * @param int $page_size page_size
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setKeyId($key_id)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets key_name
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getKeyName()
     {
-        return $this->container['total_count'];
+        return $this->container['key_name'];
     }
 
     /**
-     * Sets total_count
+     * Sets key_name
      *
-     * @param int $total_count total_count
+     * @param string $key_name key_name
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setKeyName($key_name)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['key_name'] = $key_name;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_multicast_domains
+     * Gets product_id
      *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return string
      */
-    public function getTransitRouterMulticastDomains()
+    public function getProductId()
     {
-        return $this->container['transit_router_multicast_domains'];
+        return $this->container['product_id'];
     }
 
     /**
-     * Sets transit_router_multicast_domains
+     * Sets product_id
      *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
+     * @param string $product_id product_id
      *
      * @return $this
      */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
+    public function setProductId($product_id)
     {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

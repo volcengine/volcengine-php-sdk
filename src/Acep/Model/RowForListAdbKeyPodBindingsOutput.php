@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput implements ModelInterface, ArrayAccess
+class RowForListAdbKeyPodBindingsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput';
+    protected static $swaggerModelName = 'RowForListAdbKeyPodBindingsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'creation_time' => 'string',
-        'description' => 'string',
-        'status' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterMulticastDomainsOutput[]',
-        'transit_router_multicast_domain_id' => 'string',
-        'transit_router_multicast_domain_name' => 'string',
-        'update_time' => 'string'
+        'create_at' => 'int',
+        'key_id' => 'string',
+        'last_error' => 'string',
+        'last_task_id' => 'string',
+        'pod_id' => 'string',
+        'product_id' => 'string',
+        'status' => 'int',
+        'update_at' => 'int'
     ];
 
     /**
@@ -43,13 +44,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'creation_time' => null,
-        'description' => null,
-        'status' => null,
-        'tags' => null,
-        'transit_router_multicast_domain_id' => null,
-        'transit_router_multicast_domain_name' => null,
-        'update_time' => null
+        'create_at' => 'int64',
+        'key_id' => null,
+        'last_error' => null,
+        'last_task_id' => null,
+        'pod_id' => null,
+        'product_id' => null,
+        'status' => 'int32',
+        'update_at' => 'int64'
     ];
 
     /**
@@ -79,13 +81,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_time' => 'CreationTime',
-        'description' => 'Description',
+        'create_at' => 'CreateAt',
+        'key_id' => 'KeyId',
+        'last_error' => 'LastError',
+        'last_task_id' => 'LastTaskId',
+        'pod_id' => 'PodId',
+        'product_id' => 'ProductId',
         'status' => 'Status',
-        'tags' => 'Tags',
-        'transit_router_multicast_domain_id' => 'TransitRouterMulticastDomainId',
-        'transit_router_multicast_domain_name' => 'TransitRouterMulticastDomainName',
-        'update_time' => 'UpdateTime'
+        'update_at' => 'UpdateAt'
     ];
 
     /**
@@ -94,13 +97,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
      * @var string[]
      */
     protected static $setters = [
-        'creation_time' => 'setCreationTime',
-        'description' => 'setDescription',
+        'create_at' => 'setCreateAt',
+        'key_id' => 'setKeyId',
+        'last_error' => 'setLastError',
+        'last_task_id' => 'setLastTaskId',
+        'pod_id' => 'setPodId',
+        'product_id' => 'setProductId',
         'status' => 'setStatus',
-        'tags' => 'setTags',
-        'transit_router_multicast_domain_id' => 'setTransitRouterMulticastDomainId',
-        'transit_router_multicast_domain_name' => 'setTransitRouterMulticastDomainName',
-        'update_time' => 'setUpdateTime'
+        'update_at' => 'setUpdateAt'
     ];
 
     /**
@@ -109,13 +113,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
      * @var string[]
      */
     protected static $getters = [
-        'creation_time' => 'getCreationTime',
-        'description' => 'getDescription',
+        'create_at' => 'getCreateAt',
+        'key_id' => 'getKeyId',
+        'last_error' => 'getLastError',
+        'last_task_id' => 'getLastTaskId',
+        'pod_id' => 'getPodId',
+        'product_id' => 'getProductId',
         'status' => 'getStatus',
-        'tags' => 'getTags',
-        'transit_router_multicast_domain_id' => 'getTransitRouterMulticastDomainId',
-        'transit_router_multicast_domain_name' => 'getTransitRouterMulticastDomainName',
-        'update_time' => 'getUpdateTime'
+        'update_at' => 'getUpdateAt'
     ];
 
     /**
@@ -178,13 +183,14 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
      */
     public function __construct($data = null)
     {
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['last_error'] = isset($data['last_error']) ? $data['last_error'] : null;
+        $this->container['last_task_id'] = isset($data['last_task_id']) ? $data['last_task_id'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_multicast_domain_id'] = isset($data['transit_router_multicast_domain_id']) ? $data['transit_router_multicast_domain_id'] : null;
-        $this->container['transit_router_multicast_domain_name'] = isset($data['transit_router_multicast_domain_name']) ? $data['transit_router_multicast_domain_name'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['update_at'] = isset($data['update_at']) ? $data['update_at'] : null;
     }
 
     /**
@@ -212,49 +218,145 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
 
 
     /**
-     * Gets creation_time
+     * Gets create_at
      *
-     * @return string
+     * @return int
      */
-    public function getCreationTime()
+    public function getCreateAt()
     {
-        return $this->container['creation_time'];
+        return $this->container['create_at'];
     }
 
     /**
-     * Sets creation_time
+     * Sets create_at
      *
-     * @param string $creation_time creation_time
+     * @param int $create_at create_at
      *
      * @return $this
      */
-    public function setCreationTime($creation_time)
+    public function setCreateAt($create_at)
     {
-        $this->container['creation_time'] = $creation_time;
+        $this->container['create_at'] = $create_at;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets key_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getKeyId()
     {
-        return $this->container['description'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets description
+     * Sets key_id
      *
-     * @param string $description description
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setKeyId($key_id)
     {
-        $this->container['description'] = $description;
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_error
+     *
+     * @return string
+     */
+    public function getLastError()
+    {
+        return $this->container['last_error'];
+    }
+
+    /**
+     * Sets last_error
+     *
+     * @param string $last_error last_error
+     *
+     * @return $this
+     */
+    public function setLastError($last_error)
+    {
+        $this->container['last_error'] = $last_error;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_task_id
+     *
+     * @return string
+     */
+    public function getLastTaskId()
+    {
+        return $this->container['last_task_id'];
+    }
+
+    /**
+     * Sets last_task_id
+     *
+     * @param string $last_task_id last_task_id
+     *
+     * @return $this
+     */
+    public function setLastTaskId($last_task_id)
+    {
+        $this->container['last_task_id'] = $last_task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id
+     *
+     * @return string
+     */
+    public function getPodId()
+    {
+        return $this->container['pod_id'];
+    }
+
+    /**
+     * Sets pod_id
+     *
+     * @param string $pod_id pod_id
+     *
+     * @return $this
+     */
+    public function setPodId($pod_id)
+    {
+        $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }
@@ -262,7 +364,7 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
     /**
      * Gets status
      *
-     * @return string
+     * @return int
      */
     public function getStatus()
     {
@@ -272,7 +374,7 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param int $status status
      *
      * @return $this
      */
@@ -284,97 +386,25 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
     }
 
     /**
-     * Gets tags
+     * Gets update_at
      *
-     * @return \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return int
      */
-    public function getTags()
+    public function getUpdateAt()
     {
-        return $this->container['tags'];
+        return $this->container['update_at'];
     }
 
     /**
-     * Sets tags
+     * Sets update_at
      *
-     * @param \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterMulticastDomainsOutput[] $tags tags
+     * @param int $update_at update_at
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setUpdateAt($update_at)
     {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_multicast_domain_id
-     *
-     * @return string
-     */
-    public function getTransitRouterMulticastDomainId()
-    {
-        return $this->container['transit_router_multicast_domain_id'];
-    }
-
-    /**
-     * Sets transit_router_multicast_domain_id
-     *
-     * @param string $transit_router_multicast_domain_id transit_router_multicast_domain_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterMulticastDomainId($transit_router_multicast_domain_id)
-    {
-        $this->container['transit_router_multicast_domain_id'] = $transit_router_multicast_domain_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_multicast_domain_name
-     *
-     * @return string
-     */
-    public function getTransitRouterMulticastDomainName()
-    {
-        return $this->container['transit_router_multicast_domain_name'];
-    }
-
-    /**
-     * Sets transit_router_multicast_domain_name
-     *
-     * @param string $transit_router_multicast_domain_name transit_router_multicast_domain_name
-     *
-     * @return $this
-     */
-    public function setTransitRouterMulticastDomainName($transit_router_multicast_domain_name)
-    {
-        $this->container['transit_router_multicast_domain_name'] = $transit_router_multicast_domain_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['update_at'] = $update_at;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Na\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class InstanceTopologyInfoForDescribeInstanceTopologyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'InstanceTopologyInfoForDescribeInstanceTopologyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'error' => '\Volcengine\Na\Model\ErrorForDescribeInstanceTopologyOutput',
+        'host' => 'string',
+        'instance_id' => 'string',
+        's0' => 'string',
+        's1' => 'string',
+        's2' => 'string',
+        's3' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -40,10 +44,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'error' => null,
+        'host' => null,
+        'instance_id' => null,
+        's0' => null,
+        's1' => null,
+        's2' => null,
+        's3' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -73,10 +81,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'error' => 'Error',
+        'host' => 'Host',
+        'instance_id' => 'InstanceId',
+        's0' => 'S0',
+        's1' => 'S1',
+        's2' => 'S2',
+        's3' => 'S3',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -85,10 +97,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'error' => 'setError',
+        'host' => 'setHost',
+        'instance_id' => 'setInstanceId',
+        's0' => 'setS0',
+        's1' => 'setS1',
+        's2' => 'setS2',
+        's3' => 'setS3',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -97,10 +113,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'error' => 'getError',
+        'host' => 'getHost',
+        'instance_id' => 'getInstanceId',
+        's0' => 'getS0',
+        's1' => 'getS1',
+        's2' => 'getS2',
+        's3' => 'getS3',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -163,10 +183,14 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['s0'] = isset($data['s0']) ? $data['s0'] : null;
+        $this->container['s1'] = isset($data['s1']) ? $data['s1'] : null;
+        $this->container['s2'] = isset($data['s2']) ? $data['s2'] : null;
+        $this->container['s3'] = isset($data['s3']) ? $data['s3'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -194,97 +218,193 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets error
      *
-     * @return int
+     * @return \Volcengine\Na\Model\ErrorForDescribeInstanceTopologyOutput
      */
-    public function getPageNumber()
+    public function getError()
     {
-        return $this->container['page_number'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets page_number
+     * Sets error
      *
-     * @param int $page_number page_number
+     * @param \Volcengine\Na\Model\ErrorForDescribeInstanceTopologyOutput $error error
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setError($error)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets host
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getHost()
     {
-        return $this->container['page_size'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets page_size
+     * Sets host
      *
-     * @param int $page_size page_size
+     * @param string $host host
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setHost($host)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets instance_id
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getInstanceId()
     {
-        return $this->container['total_count'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets total_count
+     * Sets instance_id
      *
-     * @param int $total_count total_count
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setInstanceId($instance_id)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_multicast_domains
+     * Gets s0
      *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return string
      */
-    public function getTransitRouterMulticastDomains()
+    public function getS0()
     {
-        return $this->container['transit_router_multicast_domains'];
+        return $this->container['s0'];
     }
 
     /**
-     * Sets transit_router_multicast_domains
+     * Sets s0
      *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
+     * @param string $s0 s0
      *
      * @return $this
      */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
+    public function setS0($s0)
     {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['s0'] = $s0;
+
+        return $this;
+    }
+
+    /**
+     * Gets s1
+     *
+     * @return string
+     */
+    public function getS1()
+    {
+        return $this->container['s1'];
+    }
+
+    /**
+     * Sets s1
+     *
+     * @param string $s1 s1
+     *
+     * @return $this
+     */
+    public function setS1($s1)
+    {
+        $this->container['s1'] = $s1;
+
+        return $this;
+    }
+
+    /**
+     * Gets s2
+     *
+     * @return string
+     */
+    public function getS2()
+    {
+        return $this->container['s2'];
+    }
+
+    /**
+     * Sets s2
+     *
+     * @param string $s2 s2
+     *
+     * @return $this
+     */
+    public function setS2($s2)
+    {
+        $this->container['s2'] = $s2;
+
+        return $this;
+    }
+
+    /**
+     * Gets s3
+     *
+     * @return string
+     */
+    public function getS3()
+    {
+        return $this->container['s3'];
+    }
+
+    /**
+     * Sets s3
+     *
+     * @param string $s3 s3
+     *
+     * @return $this
+     */
+    public function setS3($s3)
+    {
+        $this->container['s3'] = $s3;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }
