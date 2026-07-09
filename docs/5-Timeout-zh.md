@@ -18,6 +18,10 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setReadTimeout(30);
 ```
 
+当生成的 API 传入自定义 `GuzzleHttp\Client` 时，client 上直接配置的
+`timeout` 和 `connect_timeout` 优先。如果自定义 client 没有配置这些值，
+SDK 会使用 `Configuration::setReadTimeout()` 和 `Configuration::setConnectTimeout()`。
+
 `StsProvider` 和 `EcsRoleCredentialProvider` 也提供了各自的超时 setter，
 用于凭证拉取流程。
 

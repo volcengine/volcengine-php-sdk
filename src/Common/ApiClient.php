@@ -284,10 +284,10 @@ class ApiClient
 
     private function setClientOption(array &$options, $name, $value)
     {
-        if ($this->usesCustomClient) {
-            if (isset($this->clientConfig[$name]) && $this->clientConfig[$name] !== null) {
-                $options[$name] = $this->clientConfig[$name];
-            }
+        if ($this->usesCustomClient
+            && array_key_exists($name, $this->clientConfig)
+            && $this->clientConfig[$name] !== null) {
+            $options[$name] = $this->clientConfig[$name];
             return;
         }
 
