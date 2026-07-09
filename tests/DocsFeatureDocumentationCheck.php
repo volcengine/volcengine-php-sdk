@@ -88,6 +88,8 @@ assert_not_contains($errorHandling, 'setSimpleError(true)', 'error docs simple e
 
 $debugging = read_file_or_fail($root . '/docs/8-Debugging.md');
 assert_contains($debugging, 'setUserAgent(', 'debug docs user agent');
+assert_contains($debugging, 'append your application identifier', 'debug docs user agent append');
+assert_contains($debugging, 'remains the prefix', 'debug docs user agent prefix');
 assert_contains($debugging, 'Configuration::toDebugReport()', 'debug report docs');
 assert_contains($debugging, 'setLogLevel(', 'debug docs log level');
 assert_contains($debugging, 'LOG_REQUEST', 'debug docs request log level');

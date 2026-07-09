@@ -330,7 +330,17 @@ class Configuration
 
     public function setUserAgent($userAgent)
     {
-        $this->userAgent = $userAgent;
+        $sdkUserAgent = Version::userAgent();
+        $userAgent = trim((string) $userAgent);
+        if ($userAgent === '') {
+            $this->userAgent = $sdkUserAgent;
+            return $this;
+        }
+        if ($userAgent === $sdkUserAgent || strpos($userAgent, $sdkUserAgent . ' ') === 0) {
+            $this->userAgent = $userAgent;
+            return $this;
+        }
+        $this->userAgent = $sdkUserAgent . ' ' . $userAgent;
         return $this;
     }
 

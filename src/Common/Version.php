@@ -4,7 +4,7 @@ namespace Volcengine\Common;
 
 class Version
 {
-    const SDK_VERSION = '1.0.119';
+    const SDK_VERSION = '1.0.123';
 
     public static function userAgent()
     {

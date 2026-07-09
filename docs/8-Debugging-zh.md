@@ -30,11 +30,11 @@ $config->setLogLevel(
 );
 ```
 
-也可以覆盖默认 SDK User-Agent：
+也可以追加业务 User-Agent。SDK User-Agent 会始终保留为前缀：
 
 ```php
 <?php
-$config->setUserAgent('my-app/1.0 volcstack-php-sdk');
+$config->setUserAgent('my-app/1.0');
 ```
 
 同时仍然可以使用 `Configuration::toDebugReport()` 收集运行环境信息。

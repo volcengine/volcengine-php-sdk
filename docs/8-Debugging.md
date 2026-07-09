@@ -30,11 +30,12 @@ $config->setLogLevel(
 );
 ```
 
-You can also override the default SDK user agent:
+You can append your application identifier to the SDK User-Agent. The SDK
+User-Agent remains the prefix:
 
 ```php
 <?php
-$config->setUserAgent('my-app/1.0 volcstack-php-sdk');
+$config->setUserAgent('my-app/1.0');
 ```
 
 You can still use `Configuration::toDebugReport()` for environment diagnostics.
