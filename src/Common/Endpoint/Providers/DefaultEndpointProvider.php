@@ -517,6 +517,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'na' => new ServiceEndpointInfo(
+                    'na',
+                    true,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
