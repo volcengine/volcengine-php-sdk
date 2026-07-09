@@ -2486,6 +2486,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function scaleNodePool($body = null)
+    {
+        list($response) = $this->scaleNodePoolWithHttpInfo($body);
+        return $response;
+    }
+
+    public function scaleNodePoolWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ScaleNodePoolResponse';
+        $request = $this->scaleNodePoolRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function scaleNodePoolAsync($body = null)
+    {
+        return $this->scaleNodePoolAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function scaleNodePoolAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ScaleNodePoolResponse';
+        $request = $this->scaleNodePoolRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function scaleNodePoolRequest($body)
+    {
+        $resourcePath = '/ScaleNodePool/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function setGlobalDefaultDeleteOption($body = null)
     {
         list($response) = $this->setGlobalDefaultDeleteOptionWithHttpInfo($body);
