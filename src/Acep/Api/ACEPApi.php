@@ -68,6 +68,68 @@ class ACEPApi
         return $this->config;
     }
 
+    public function addAdbKey($body = null)
+    {
+        list($response) = $this->addAdbKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addAdbKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\AddAdbKeyResponse';
+        $request = $this->addAdbKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addAdbKeyAsync($body = null)
+    {
+        return $this->addAdbKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addAdbKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\AddAdbKeyResponse';
+        $request = $this->addAdbKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addAdbKeyRequest($body)
+    {
+        $resourcePath = '/AddAdbKey/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function addCustomRoute($body = null)
     {
         list($response) = $this->addCustomRouteWithHttpInfo($body);
@@ -536,6 +598,68 @@ class ACEPApi
     protected function batchScreenShotRequest($body)
     {
         $resourcePath = '/BatchScreenShot/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function bindAdbKeyPods($body = null)
+    {
+        list($response) = $this->bindAdbKeyPodsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function bindAdbKeyPodsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BindAdbKeyPodsResponse';
+        $request = $this->bindAdbKeyPodsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function bindAdbKeyPodsAsync($body = null)
+    {
+        return $this->bindAdbKeyPodsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function bindAdbKeyPodsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\BindAdbKeyPodsResponse';
+        $request = $this->bindAdbKeyPodsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function bindAdbKeyPodsRequest($body)
+    {
+        $resourcePath = '/BindAdbKeyPods/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1342,6 +1466,68 @@ class ACEPApi
     protected function deleteAOSPImageRequest($body)
     {
         $resourcePath = '/DeleteAOSPImage/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAdbKey($body = null)
+    {
+        list($response) = $this->deleteAdbKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAdbKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteAdbKeyResponse';
+        $request = $this->deleteAdbKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAdbKeyAsync($body = null)
+    {
+        return $this->deleteAdbKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAdbKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeleteAdbKeyResponse';
+        $request = $this->deleteAdbKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAdbKeyRequest($body)
+    {
+        $resourcePath = '/DeleteAdbKey/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3140,6 +3326,130 @@ class ACEPApi
     protected function listAOSPImageRequest($body)
     {
         $resourcePath = '/ListAOSPImage/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAdbKey($body = null)
+    {
+        list($response) = $this->listAdbKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAdbKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ListAdbKeyResponse';
+        $request = $this->listAdbKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAdbKeyAsync($body = null)
+    {
+        return $this->listAdbKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAdbKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ListAdbKeyResponse';
+        $request = $this->listAdbKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAdbKeyRequest($body)
+    {
+        $resourcePath = '/ListAdbKey/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAdbKeyPodBindings($body = null)
+    {
+        list($response) = $this->listAdbKeyPodBindingsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAdbKeyPodBindingsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ListAdbKeyPodBindingsResponse';
+        $request = $this->listAdbKeyPodBindingsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAdbKeyPodBindingsAsync($body = null)
+    {
+        return $this->listAdbKeyPodBindingsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAdbKeyPodBindingsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ListAdbKeyPodBindingsResponse';
+        $request = $this->listAdbKeyPodBindingsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAdbKeyPodBindingsRequest($body)
+    {
+        $resourcePath = '/ListAdbKeyPodBindings/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5834,6 +6144,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function unbindAdbKeyPods($body = null)
+    {
+        list($response) = $this->unbindAdbKeyPodsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unbindAdbKeyPodsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UnbindAdbKeyPodsResponse';
+        $request = $this->unbindAdbKeyPodsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function unbindAdbKeyPodsAsync($body = null)
+    {
+        return $this->unbindAdbKeyPodsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unbindAdbKeyPodsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UnbindAdbKeyPodsResponse';
+        $request = $this->unbindAdbKeyPodsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function unbindAdbKeyPodsRequest($body)
+    {
+        $resourcePath = '/UnbindAdbKeyPods/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function unbindPortMappingRule($body = null)
     {
         list($response) = $this->unbindPortMappingRuleWithHttpInfo($body);
@@ -6054,6 +6426,68 @@ class ACEPApi
     protected function updateAOSPImageRequest($body)
     {
         $resourcePath = '/UpdateAOSPImage/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAdbKey($body = null)
+    {
+        list($response) = $this->updateAdbKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAdbKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateAdbKeyResponse';
+        $request = $this->updateAdbKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAdbKeyAsync($body = null)
+    {
+        return $this->updateAdbKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAdbKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\UpdateAdbKeyResponse';
+        $request = $this->updateAdbKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAdbKeyRequest($body)
+    {
+        $resourcePath = '/UpdateAdbKey/2025-05-01/acep/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
