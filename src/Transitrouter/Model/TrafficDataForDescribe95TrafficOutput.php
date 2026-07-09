@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
+class TrafficDataForDescribe95TrafficOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
+    protected static $swaggerModelName = 'TrafficDataForDescribe95TrafficOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int',
-        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]'
+        'bandwidth' => 'int',
+        'guaranteed_ratio' => 'int',
+        'instance_id' => 'string',
+        'traffic_detail_datas' => '\Volcengine\Transitrouter\Model\TrafficDetailDataForDescribe95TrafficOutput[]'
     ];
 
     /**
@@ -40,10 +40,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32',
-        'transit_router_multicast_domains' => null
+        'bandwidth' => 'int32',
+        'guaranteed_ratio' => 'int32',
+        'instance_id' => null,
+        'traffic_detail_datas' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount',
-        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
+        'bandwidth' => 'Bandwidth',
+        'guaranteed_ratio' => 'GuaranteedRatio',
+        'instance_id' => 'InstanceId',
+        'traffic_detail_datas' => 'TrafficDetailDatas'
     ];
 
     /**
@@ -85,10 +85,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount',
-        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
+        'bandwidth' => 'setBandwidth',
+        'guaranteed_ratio' => 'setGuaranteedRatio',
+        'instance_id' => 'setInstanceId',
+        'traffic_detail_datas' => 'setTrafficDetailDatas'
     ];
 
     /**
@@ -97,10 +97,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount',
-        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
+        'bandwidth' => 'getBandwidth',
+        'guaranteed_ratio' => 'getGuaranteedRatio',
+        'instance_id' => 'getInstanceId',
+        'traffic_detail_datas' => 'getTrafficDetailDatas'
     ];
 
     /**
@@ -163,10 +163,10 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
-        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
+        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
+        $this->container['guaranteed_ratio'] = isset($data['guaranteed_ratio']) ? $data['guaranteed_ratio'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['traffic_detail_datas'] = isset($data['traffic_detail_datas']) ? $data['traffic_detail_datas'] : null;
     }
 
     /**
@@ -194,97 +194,97 @@ class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, A
 
 
     /**
-     * Gets page_number
+     * Gets bandwidth
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getBandwidth()
     {
-        return $this->container['page_number'];
+        return $this->container['bandwidth'];
     }
 
     /**
-     * Sets page_number
+     * Sets bandwidth
      *
-     * @param int $page_number page_number
+     * @param int $bandwidth bandwidth
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setBandwidth($bandwidth)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['bandwidth'] = $bandwidth;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets guaranteed_ratio
      *
      * @return int
      */
-    public function getPageSize()
+    public function getGuaranteedRatio()
     {
-        return $this->container['page_size'];
+        return $this->container['guaranteed_ratio'];
     }
 
     /**
-     * Sets page_size
+     * Sets guaranteed_ratio
      *
-     * @param int $page_size page_size
+     * @param int $guaranteed_ratio guaranteed_ratio
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setGuaranteedRatio($guaranteed_ratio)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['guaranteed_ratio'] = $guaranteed_ratio;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets instance_id
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getInstanceId()
     {
-        return $this->container['total_count'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets total_count
+     * Sets instance_id
      *
-     * @param int $total_count total_count
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setInstanceId($instance_id)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_multicast_domains
+     * Gets traffic_detail_datas
      *
-     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[]
+     * @return \Volcengine\Transitrouter\Model\TrafficDetailDataForDescribe95TrafficOutput[]
      */
-    public function getTransitRouterMulticastDomains()
+    public function getTrafficDetailDatas()
     {
-        return $this->container['transit_router_multicast_domains'];
+        return $this->container['traffic_detail_datas'];
     }
 
     /**
-     * Sets transit_router_multicast_domains
+     * Sets traffic_detail_datas
      *
-     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput[] $transit_router_multicast_domains transit_router_multicast_domains
+     * @param \Volcengine\Transitrouter\Model\TrafficDetailDataForDescribe95TrafficOutput[] $traffic_detail_datas traffic_detail_datas
      *
      * @return $this
      */
-    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
+    public function setTrafficDetailDatas($traffic_detail_datas)
     {
-        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
+        $this->container['traffic_detail_datas'] = $traffic_detail_datas;
 
         return $this;
     }

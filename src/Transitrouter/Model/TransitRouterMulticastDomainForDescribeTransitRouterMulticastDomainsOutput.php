@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput implements ModelInterface, ArrayAccess
+class TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutpu
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput';
+    protected static $swaggerModelName = 'TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

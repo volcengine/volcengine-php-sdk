@@ -33,6 +33,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'description' => 'string',
         'health_check_revoke_route_enabled' => 'bool',
         'ipv6_enabled' => 'bool',
+        'secondary_zone_id' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterVpnAttachmentsOutput[]',
         'transit_router_attachment_id' => 'string',
@@ -54,6 +55,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'description' => null,
         'health_check_revoke_route_enabled' => null,
         'ipv6_enabled' => null,
+        'secondary_zone_id' => null,
         'status' => null,
         'tags' => null,
         'transit_router_attachment_id' => null,
@@ -96,6 +98,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'description' => 'Description',
         'health_check_revoke_route_enabled' => 'HealthCheckRevokeRouteEnabled',
         'ipv6_enabled' => 'Ipv6Enabled',
+        'secondary_zone_id' => 'SecondaryZoneId',
         'status' => 'Status',
         'tags' => 'Tags',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
@@ -117,6 +120,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'description' => 'setDescription',
         'health_check_revoke_route_enabled' => 'setHealthCheckRevokeRouteEnabled',
         'ipv6_enabled' => 'setIpv6Enabled',
+        'secondary_zone_id' => 'setSecondaryZoneId',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
@@ -138,6 +142,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'description' => 'getDescription',
         'health_check_revoke_route_enabled' => 'getHealthCheckRevokeRouteEnabled',
         'ipv6_enabled' => 'getIpv6Enabled',
+        'secondary_zone_id' => 'getSecondaryZoneId',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
@@ -213,6 +218,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['health_check_revoke_route_enabled'] = isset($data['health_check_revoke_route_enabled']) ? $data['health_check_revoke_route_enabled'] : null;
         $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
+        $this->container['secondary_zone_id'] = isset($data['secondary_zone_id']) ? $data['secondary_zone_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
@@ -363,6 +369,30 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
     public function setIpv6Enabled($ipv6_enabled)
     {
         $this->container['ipv6_enabled'] = $ipv6_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_zone_id
+     *
+     * @return string
+     */
+    public function getSecondaryZoneId()
+    {
+        return $this->container['secondary_zone_id'];
+    }
+
+    /**
+     * Sets secondary_zone_id
+     *
+     * @param string $secondary_zone_id secondary_zone_id
+     *
+     * @return $this
+     */
+    public function setSecondaryZoneId($secondary_zone_id)
+    {
+        $this->container['secondary_zone_id'] = $secondary_zone_id;
 
         return $this;
     }

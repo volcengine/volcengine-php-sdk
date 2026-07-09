@@ -3168,6 +3168,68 @@ class TRANSITROUTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describe95Traffic($body = null)
+    {
+        list($response) = $this->describe95TrafficWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describe95TrafficWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\Describe95TrafficResponse';
+        $request = $this->describe95TrafficRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describe95TrafficAsync($body = null)
+    {
+        return $this->describe95TrafficAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describe95TrafficAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Transitrouter\Model\Describe95TrafficResponse';
+        $request = $this->describe95TrafficRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describe95TrafficRequest($body)
+    {
+        $resourcePath = '/Describe95Traffic/2020-04-01/transitrouter/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeTransitRouterAttachments($body = null)
     {
         list($response) = $this->describeTransitRouterAttachmentsWithHttpInfo($body);
