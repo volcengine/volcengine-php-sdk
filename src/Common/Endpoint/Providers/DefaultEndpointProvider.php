@@ -524,6 +524,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'cpaas' => new ServiceEndpointInfo(
+                    'cpaas',
+                    true,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
