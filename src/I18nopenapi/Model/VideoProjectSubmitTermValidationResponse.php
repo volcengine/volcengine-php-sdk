@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class VideoProjectSubmitTermValidationResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'VideoProjectSubmitTermValidationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -174,30 +173,6 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets data
-     *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

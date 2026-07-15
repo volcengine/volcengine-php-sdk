@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class VideoProjectSubmitTermValidationRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'VideoProjectSubmitTermValidationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        'project_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'project_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'project_id' => 'projectId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
     /**
@@ -160,6 +160,9 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +179,25 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets data
+     * Gets project_id
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
+     * @return string
      */
-    public function getData()
+    public function getProjectId()
     {
-        return $this->container['data'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets data
+     * Sets project_id
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setData($data)
+    public function setProjectId($project_id)
     {
-        $this->container['data'] = $data;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

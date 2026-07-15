@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class DataForVideoProjectGetTaskProductOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'dataForVideoProjectGetTaskProductOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        'subtask_products' => '\Volcengine\I18nopenapi\Model\SubtaskProductForVideoProjectGetTaskProductOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'subtask_products' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'subtask_products' => 'subtaskProducts'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'subtask_products' => 'setSubtaskProducts'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'subtask_products' => 'getSubtaskProducts'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['subtask_products'] = isset($data['subtask_products']) ? $data['subtask_products'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets data
+     * Gets subtask_products
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
+     * @return \Volcengine\I18nopenapi\Model\SubtaskProductForVideoProjectGetTaskProductOutput[]
      */
-    public function getData()
+    public function getSubtaskProducts()
     {
-        return $this->container['data'];
+        return $this->container['subtask_products'];
     }
 
     /**
-     * Sets data
+     * Sets subtask_products
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
+     * @param \Volcengine\I18nopenapi\Model\SubtaskProductForVideoProjectGetTaskProductOutput[] $subtask_products subtask_products
      *
      * @return $this
      */
-    public function setData($data)
+    public function setSubtaskProducts($subtask_products)
     {
-        $this->container['data'] = $data;
+        $this->container['subtask_products'] = $subtask_products;
 
         return $this;
     }

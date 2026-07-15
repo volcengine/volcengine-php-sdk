@@ -28,7 +28,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'batch_id' => 'string',
         'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectSubtitleUploadOutput'
     ];
 
@@ -38,7 +37,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'batch_id' => null,
         'data' => null
     ];
 
@@ -69,7 +67,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_id' => 'batchId',
         'data' => 'data'
     ];
 
@@ -79,7 +76,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'batch_id' => 'setBatchId',
         'data' => 'setData'
     ];
 
@@ -89,7 +85,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'batch_id' => 'getBatchId',
         'data' => 'getData'
     ];
 
@@ -153,7 +148,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -180,30 +174,6 @@ class VideoProjectSubtitleUploadResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets batch_id
-     *
-     * @return string
-     */
-    public function getBatchId()
-    {
-        return $this->container['batch_id'];
-    }
-
-    /**
-     * Sets batch_id
-     *
-     * @param string $batch_id batch_id
-     *
-     * @return $this
-     */
-    public function setBatchId($batch_id)
-    {
-        $this->container['batch_id'] = $batch_id;
-
-        return $this;
-    }
 
     /**
      * Gets data
