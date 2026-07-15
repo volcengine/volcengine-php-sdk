@@ -34,6 +34,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'count' => 'int',
         'cpu_max_frequency' => 'float',
+        'cpu_options' => '\Volcengine\Ecs\Model\CpuOptionsForRunInstancesInput',
         'credit_specification' => 'string',
         'deletion_protection' => 'bool',
         'deployment_set_group_number' => 'int',
@@ -41,6 +42,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'dry_run' => 'bool',
         'eip_address' => '\Volcengine\Ecs\Model\EipAddressForRunInstancesInput',
+        'enable_primary_interface_high_bandwidth_type' => 'bool',
         'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
@@ -85,6 +87,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'count' => 'int32',
         'cpu_max_frequency' => 'float',
+        'cpu_options' => null,
         'credit_specification' => null,
         'deletion_protection' => null,
         'deployment_set_group_number' => 'int32',
@@ -92,6 +95,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'dry_run' => null,
         'eip_address' => null,
+        'enable_primary_interface_high_bandwidth_type' => null,
         'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
@@ -157,6 +161,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'count' => 'Count',
         'cpu_max_frequency' => 'CpuMaxFrequency',
+        'cpu_options' => 'CpuOptions',
         'credit_specification' => 'CreditSpecification',
         'deletion_protection' => 'DeletionProtection',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
@@ -164,6 +169,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'eip_address' => 'EipAddress',
+        'enable_primary_interface_high_bandwidth_type' => 'EnablePrimaryInterfaceHighBandwidthType',
         'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
@@ -208,6 +214,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'count' => 'setCount',
         'cpu_max_frequency' => 'setCpuMaxFrequency',
+        'cpu_options' => 'setCpuOptions',
         'credit_specification' => 'setCreditSpecification',
         'deletion_protection' => 'setDeletionProtection',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
@@ -215,6 +222,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'eip_address' => 'setEipAddress',
+        'enable_primary_interface_high_bandwidth_type' => 'setEnablePrimaryInterfaceHighBandwidthType',
         'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
@@ -259,6 +267,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'count' => 'getCount',
         'cpu_max_frequency' => 'getCpuMaxFrequency',
+        'cpu_options' => 'getCpuOptions',
         'credit_specification' => 'getCreditSpecification',
         'deletion_protection' => 'getDeletionProtection',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
@@ -266,6 +275,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'eip_address' => 'getEipAddress',
+        'enable_primary_interface_high_bandwidth_type' => 'getEnablePrimaryInterfaceHighBandwidthType',
         'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
@@ -364,6 +374,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
+        $this->container['cpu_options'] = isset($data['cpu_options']) ? $data['cpu_options'] : null;
         $this->container['credit_specification'] = isset($data['credit_specification']) ? $data['credit_specification'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
@@ -371,6 +382,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['enable_primary_interface_high_bandwidth_type'] = isset($data['enable_primary_interface_high_bandwidth_type']) ? $data['enable_primary_interface_high_bandwidth_type'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
@@ -581,6 +593,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cpu_options
+     *
+     * @return \Volcengine\Ecs\Model\CpuOptionsForRunInstancesInput
+     */
+    public function getCpuOptions()
+    {
+        return $this->container['cpu_options'];
+    }
+
+    /**
+     * Sets cpu_options
+     *
+     * @param \Volcengine\Ecs\Model\CpuOptionsForRunInstancesInput $cpu_options cpu_options
+     *
+     * @return $this
+     */
+    public function setCpuOptions($cpu_options)
+    {
+        $this->container['cpu_options'] = $cpu_options;
+
+        return $this;
+    }
+
+    /**
      * Gets credit_specification
      *
      * @return string
@@ -744,6 +780,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setEipAddress($eip_address)
     {
         $this->container['eip_address'] = $eip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_primary_interface_high_bandwidth_type
+     *
+     * @return bool
+     */
+    public function getEnablePrimaryInterfaceHighBandwidthType()
+    {
+        return $this->container['enable_primary_interface_high_bandwidth_type'];
+    }
+
+    /**
+     * Sets enable_primary_interface_high_bandwidth_type
+     *
+     * @param bool $enable_primary_interface_high_bandwidth_type enable_primary_interface_high_bandwidth_type
+     *
+     * @return $this
+     */
+    public function setEnablePrimaryInterfaceHighBandwidthType($enable_primary_interface_high_bandwidth_type)
+    {
+        $this->container['enable_primary_interface_high_bandwidth_type'] = $enable_primary_interface_high_bandwidth_type;
 
         return $this;
     }
