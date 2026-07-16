@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, ArrayAccess
+class EBSVolumeForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForDescribeSandboxOutput';
+    protected static $swaggerModelName = 'EBSVolumeForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]'
+        'mount_path' => 'string',
+        'read_only' => 'bool',
+        'volume_id' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'mount_path' => null,
+        'read_only' => null,
+        'volume_id' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'mount_path' => 'MountPath',
+        'read_only' => 'ReadOnly',
+        'volume_id' => 'VolumeID'
     ];
 
     /**
@@ -88,11 +82,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'mount_path' => 'setMountPath',
+        'read_only' => 'setReadOnly',
+        'volume_id' => 'setVolumeId'
     ];
 
     /**
@@ -101,11 +93,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'mount_path' => 'getMountPath',
+        'read_only' => 'getReadOnly',
+        'volume_id' => 'getVolumeId'
     ];
 
     /**
@@ -168,11 +158,9 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;
+        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['volume_id'] = isset($data['volume_id']) ? $data['volume_id'] : null;
     }
 
     /**
@@ -200,121 +188,73 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
 
 
     /**
-     * Gets auth_mode
+     * Gets mount_path
      *
      * @return string
      */
-    public function getAuthMode()
+    public function getMountPath()
     {
-        return $this->container['auth_mode'];
+        return $this->container['mount_path'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets mount_path
      *
-     * @param string $auth_mode auth_mode
+     * @param string $mount_path mount_path
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setMountPath($mount_path)
     {
-        $this->container['auth_mode'] = $auth_mode;
+        $this->container['mount_path'] = $mount_path;
 
         return $this;
     }
 
     /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
+     * Gets read_only
      *
      * @return bool
      */
-    public function getEnable()
+    public function getReadOnly()
     {
-        return $this->container['enable'];
+        return $this->container['read_only'];
     }
 
     /**
-     * Sets enable
+     * Sets read_only
      *
-     * @param bool $enable enable
+     * @param bool $read_only read_only
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setReadOnly($read_only)
     {
-        $this->container['enable'] = $enable;
+        $this->container['read_only'] = $read_only;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets volume_id
      *
      * @return string
      */
-    public function getMode()
+    public function getVolumeId()
     {
-        return $this->container['mode'];
+        return $this->container['volume_id'];
     }
 
     /**
-     * Sets mode
+     * Sets volume_id
      *
-     * @param string $mode mode
+     * @param string $volume_id volume_id
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setVolumeId($volume_id)
     {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_mount_points
-     *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]
-     */
-    public function getTosMountPoints()
-    {
-        return $this->container['tos_mount_points'];
-    }
-
-    /**
-     * Sets tos_mount_points
-     *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[] $tos_mount_points tos_mount_points
-     *
-     * @return $this
-     */
-    public function setTosMountPoints($tos_mount_points)
-    {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['volume_id'] = $volume_id;
 
         return $this;
     }

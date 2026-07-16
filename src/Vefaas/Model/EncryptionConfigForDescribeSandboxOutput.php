@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, ArrayAccess
+class EncryptionConfigForDescribeSandboxOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForDescribeSandboxOutput';
+    protected static $swaggerModelName = 'EncryptionConfigForDescribeSandboxOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]'
+        'enable_sse' => 'bool',
+        'encryption_algorithm' => 'string',
+        'encryption_method' => 'string',
+        'kms_master_key_id' => 'string',
+        'ssec_key' => 'string',
+        'ssecmd5' => 'string'
     ];
 
     /**
@@ -41,11 +42,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'enable_sse' => null,
+        'encryption_algorithm' => null,
+        'encryption_method' => null,
+        'kms_master_key_id' => null,
+        'ssec_key' => null,
+        'ssecmd5' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'enable_sse' => 'EnableSSE',
+        'encryption_algorithm' => 'EncryptionAlgorithm',
+        'encryption_method' => 'EncryptionMethod',
+        'kms_master_key_id' => 'KMSMasterKeyID',
+        'ssec_key' => 'SSECKey',
+        'ssecmd5' => 'SSECMD5'
     ];
 
     /**
@@ -88,11 +91,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'enable_sse' => 'setEnableSse',
+        'encryption_algorithm' => 'setEncryptionAlgorithm',
+        'encryption_method' => 'setEncryptionMethod',
+        'kms_master_key_id' => 'setKmsMasterKeyId',
+        'ssec_key' => 'setSsecKey',
+        'ssecmd5' => 'setSsecmd5'
     ];
 
     /**
@@ -101,11 +105,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'enable_sse' => 'getEnableSse',
+        'encryption_algorithm' => 'getEncryptionAlgorithm',
+        'encryption_method' => 'getEncryptionMethod',
+        'kms_master_key_id' => 'getKmsMasterKeyId',
+        'ssec_key' => 'getSsecKey',
+        'ssecmd5' => 'getSsecmd5'
     ];
 
     /**
@@ -168,11 +173,12 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['enable_sse'] = isset($data['enable_sse']) ? $data['enable_sse'] : null;
+        $this->container['encryption_algorithm'] = isset($data['encryption_algorithm']) ? $data['encryption_algorithm'] : null;
+        $this->container['encryption_method'] = isset($data['encryption_method']) ? $data['encryption_method'] : null;
+        $this->container['kms_master_key_id'] = isset($data['kms_master_key_id']) ? $data['kms_master_key_id'] : null;
+        $this->container['ssec_key'] = isset($data['ssec_key']) ? $data['ssec_key'] : null;
+        $this->container['ssecmd5'] = isset($data['ssecmd5']) ? $data['ssecmd5'] : null;
     }
 
     /**
@@ -200,121 +206,145 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
 
 
     /**
-     * Gets auth_mode
-     *
-     * @return string
-     */
-    public function getAuthMode()
-    {
-        return $this->container['auth_mode'];
-    }
-
-    /**
-     * Sets auth_mode
-     *
-     * @param string $auth_mode auth_mode
-     *
-     * @return $this
-     */
-    public function setAuthMode($auth_mode)
-    {
-        $this->container['auth_mode'] = $auth_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
+     * Gets enable_sse
      *
      * @return bool
      */
-    public function getEnable()
+    public function getEnableSse()
     {
-        return $this->container['enable'];
+        return $this->container['enable_sse'];
     }
 
     /**
-     * Sets enable
+     * Sets enable_sse
      *
-     * @param bool $enable enable
+     * @param bool $enable_sse enable_sse
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setEnableSse($enable_sse)
     {
-        $this->container['enable'] = $enable;
+        $this->container['enable_sse'] = $enable_sse;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets encryption_algorithm
      *
      * @return string
      */
-    public function getMode()
+    public function getEncryptionAlgorithm()
     {
-        return $this->container['mode'];
+        return $this->container['encryption_algorithm'];
     }
 
     /**
-     * Sets mode
+     * Sets encryption_algorithm
      *
-     * @param string $mode mode
+     * @param string $encryption_algorithm encryption_algorithm
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setEncryptionAlgorithm($encryption_algorithm)
     {
-        $this->container['mode'] = $mode;
+        $this->container['encryption_algorithm'] = $encryption_algorithm;
 
         return $this;
     }
 
     /**
-     * Gets tos_mount_points
+     * Gets encryption_method
      *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]
+     * @return string
      */
-    public function getTosMountPoints()
+    public function getEncryptionMethod()
     {
-        return $this->container['tos_mount_points'];
+        return $this->container['encryption_method'];
     }
 
     /**
-     * Sets tos_mount_points
+     * Sets encryption_method
      *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[] $tos_mount_points tos_mount_points
+     * @param string $encryption_method encryption_method
      *
      * @return $this
      */
-    public function setTosMountPoints($tos_mount_points)
+    public function setEncryptionMethod($encryption_method)
     {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['encryption_method'] = $encryption_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets kms_master_key_id
+     *
+     * @return string
+     */
+    public function getKmsMasterKeyId()
+    {
+        return $this->container['kms_master_key_id'];
+    }
+
+    /**
+     * Sets kms_master_key_id
+     *
+     * @param string $kms_master_key_id kms_master_key_id
+     *
+     * @return $this
+     */
+    public function setKmsMasterKeyId($kms_master_key_id)
+    {
+        $this->container['kms_master_key_id'] = $kms_master_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssec_key
+     *
+     * @return string
+     */
+    public function getSsecKey()
+    {
+        return $this->container['ssec_key'];
+    }
+
+    /**
+     * Sets ssec_key
+     *
+     * @param string $ssec_key ssec_key
+     *
+     * @return $this
+     */
+    public function setSsecKey($ssec_key)
+    {
+        $this->container['ssec_key'] = $ssec_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssecmd5
+     *
+     * @return string
+     */
+    public function getSsecmd5()
+    {
+        return $this->container['ssecmd5'];
+    }
+
+    /**
+     * Sets ssecmd5
+     *
+     * @param string $ssecmd5 ssecmd5
+     *
+     * @return $this
+     */
+    public function setSsecmd5($ssecmd5)
+    {
+        $this->container['ssecmd5'] = $ssecmd5;
 
         return $this;
     }

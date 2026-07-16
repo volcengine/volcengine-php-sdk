@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, ArrayAccess
+class DescribeSandboxSnapshotResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceTosMountConfigForDescribeSandboxOutput';
+    protected static $swaggerModelName = 'DescribeSandboxSnapshotResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_mode' => 'string',
-        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput',
-        'enable' => 'bool',
-        'mode' => 'string',
-        'tos_mount_points' => '\Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]'
+        'snapshot' => '\Volcengine\Vefaas\Model\SnapshotForDescribeSandboxSnapshotOutput'
     ];
 
     /**
@@ -41,11 +37,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_mode' => null,
-        'credentials' => null,
-        'enable' => null,
-        'mode' => null,
-        'tos_mount_points' => null
+        'snapshot' => null
     ];
 
     /**
@@ -75,11 +67,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_mode' => 'AuthMode',
-        'credentials' => 'Credentials',
-        'enable' => 'Enable',
-        'mode' => 'Mode',
-        'tos_mount_points' => 'TosMountPoints'
+        'snapshot' => 'Snapshot'
     ];
 
     /**
@@ -88,11 +76,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'auth_mode' => 'setAuthMode',
-        'credentials' => 'setCredentials',
-        'enable' => 'setEnable',
-        'mode' => 'setMode',
-        'tos_mount_points' => 'setTosMountPoints'
+        'snapshot' => 'setSnapshot'
     ];
 
     /**
@@ -101,11 +85,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'auth_mode' => 'getAuthMode',
-        'credentials' => 'getCredentials',
-        'enable' => 'getEnable',
-        'mode' => 'getMode',
-        'tos_mount_points' => 'getTosMountPoints'
+        'snapshot' => 'getSnapshot'
     ];
 
     /**
@@ -168,11 +148,7 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
-        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
-        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['tos_mount_points'] = isset($data['tos_mount_points']) ? $data['tos_mount_points'] : null;
+        $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
     }
 
     /**
@@ -200,121 +176,25 @@ class InstanceTosMountConfigForDescribeSandboxOutput implements ModelInterface, 
 
 
     /**
-     * Gets auth_mode
+     * Gets snapshot
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\SnapshotForDescribeSandboxSnapshotOutput
      */
-    public function getAuthMode()
+    public function getSnapshot()
     {
-        return $this->container['auth_mode'];
+        return $this->container['snapshot'];
     }
 
     /**
-     * Sets auth_mode
+     * Sets snapshot
      *
-     * @param string $auth_mode auth_mode
+     * @param \Volcengine\Vefaas\Model\SnapshotForDescribeSandboxSnapshotOutput $snapshot snapshot
      *
      * @return $this
      */
-    public function setAuthMode($auth_mode)
+    public function setSnapshot($snapshot)
     {
-        $this->container['auth_mode'] = $auth_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets credentials
-     *
-     * @return \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput
-     */
-    public function getCredentials()
-    {
-        return $this->container['credentials'];
-    }
-
-    /**
-     * Sets credentials
-     *
-     * @param \Volcengine\Vefaas\Model\CredentialsForDescribeSandboxOutput $credentials credentials
-     *
-     * @return $this
-     */
-    public function setCredentials($credentials)
-    {
-        $this->container['credentials'] = $credentials;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return string
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param string $mode mode
-     *
-     * @return $this
-     */
-    public function setMode($mode)
-    {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_mount_points
-     *
-     * @return \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[]
-     */
-    public function getTosMountPoints()
-    {
-        return $this->container['tos_mount_points'];
-    }
-
-    /**
-     * Sets tos_mount_points
-     *
-     * @param \Volcengine\Vefaas\Model\TosMountPointForDescribeSandboxOutput[] $tos_mount_points tos_mount_points
-     *
-     * @return $this
-     */
-    public function setTosMountPoints($tos_mount_points)
-    {
-        $this->container['tos_mount_points'] = $tos_mount_points;
+        $this->container['snapshot'] = $snapshot;
 
         return $this;
     }

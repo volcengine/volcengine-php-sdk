@@ -28,6 +28,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'assign_status' => 'string',
         'availability_zone' => 'string',
         'cpu_milli' => 'int',
         'created_at' => 'string',
@@ -48,6 +49,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'request_timeout' => 'int',
         'revision_number' => 'int',
         'session_id' => 'string',
+        'sidecars' => '\Volcengine\Vefaas\Model\SidecarForDescribeSandboxOutput[]',
         'status' => 'string'
     ];
 
@@ -57,6 +59,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'assign_status' => null,
         'availability_zone' => null,
         'cpu_milli' => 'int32',
         'created_at' => null,
@@ -77,6 +80,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'request_timeout' => 'int32',
         'revision_number' => 'int32',
         'session_id' => null,
+        'sidecars' => null,
         'status' => null
     ];
 
@@ -107,6 +111,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assign_status' => 'AssignStatus',
         'availability_zone' => 'AvailabilityZone',
         'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
@@ -127,6 +132,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
         'session_id' => 'SessionId',
+        'sidecars' => 'Sidecars',
         'status' => 'Status'
     ];
 
@@ -136,6 +142,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assign_status' => 'setAssignStatus',
         'availability_zone' => 'setAvailabilityZone',
         'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
@@ -156,6 +163,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
         'session_id' => 'setSessionId',
+        'sidecars' => 'setSidecars',
         'status' => 'setStatus'
     ];
 
@@ -165,6 +173,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assign_status' => 'getAssignStatus',
         'availability_zone' => 'getAvailabilityZone',
         'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
@@ -185,6 +194,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
         'session_id' => 'getSessionId',
+        'sidecars' => 'getSidecars',
         'status' => 'getStatus'
     ];
 
@@ -248,6 +258,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['assign_status'] = isset($data['assign_status']) ? $data['assign_status'] : null;
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -268,6 +279,7 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -294,6 +306,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets assign_status
+     *
+     * @return string
+     */
+    public function getAssignStatus()
+    {
+        return $this->container['assign_status'];
+    }
+
+    /**
+     * Sets assign_status
+     *
+     * @param string $assign_status assign_status
+     *
+     * @return $this
+     */
+    public function setAssignStatus($assign_status)
+    {
+        $this->container['assign_status'] = $assign_status;
+
+        return $this;
+    }
 
     /**
      * Gets availability_zone
@@ -771,6 +807,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setSessionId($session_id)
     {
         $this->container['session_id'] = $session_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sidecars
+     *
+     * @return \Volcengine\Vefaas\Model\SidecarForDescribeSandboxOutput[]
+     */
+    public function getSidecars()
+    {
+        return $this->container['sidecars'];
+    }
+
+    /**
+     * Sets sidecars
+     *
+     * @param \Volcengine\Vefaas\Model\SidecarForDescribeSandboxOutput[] $sidecars sidecars
+     *
+     * @return $this
+     */
+    public function setSidecars($sidecars)
+    {
+        $this->container['sidecars'] = $sidecars;
 
         return $this;
     }
