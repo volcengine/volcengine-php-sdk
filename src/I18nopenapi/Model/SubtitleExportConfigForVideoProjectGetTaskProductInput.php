@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class SubtitleExportConfigForVideoProjectGetTaskProductInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'subtitleExportConfigForVideoProjectGetTaskProductInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        'subtitle_file_type' => 'int'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'subtitle_file_type' => 'int32'
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'subtitle_file_type' => 'subtitleFileType'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'subtitle_file_type' => 'setSubtitleFileType'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'subtitle_file_type' => 'getSubtitleFileType'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['subtitle_file_type'] = isset($data['subtitle_file_type']) ? $data['subtitle_file_type'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets data
+     * Gets subtitle_file_type
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
+     * @return int
      */
-    public function getData()
+    public function getSubtitleFileType()
     {
-        return $this->container['data'];
+        return $this->container['subtitle_file_type'];
     }
 
     /**
-     * Sets data
+     * Sets subtitle_file_type
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
+     * @param int $subtitle_file_type subtitle_file_type
      *
      * @return $this
      */
-    public function setData($data)
+    public function setSubtitleFileType($subtitle_file_type)
     {
-        $this->container['data'] = $data;
+        $this->container['subtitle_file_type'] = $subtitle_file_type;
 
         return $this;
     }

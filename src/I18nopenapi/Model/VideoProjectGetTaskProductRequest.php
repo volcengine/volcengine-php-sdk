@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class VideoProjectGetTaskProductRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'VideoProjectGetTaskProductRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        'project_id' => 'string',
+        'subtask_ids' => 'string[]',
+        'subtitle_export_config' => '\Volcengine\I18nopenapi\Model\SubtitleExportConfigForVideoProjectGetTaskProductInput',
+        'task_id' => 'string',
+        'types' => 'int[]'
     ];
 
     /**
@@ -37,7 +41,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'project_id' => null,
+        'subtask_ids' => null,
+        'subtitle_export_config' => null,
+        'task_id' => null,
+        'types' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'project_id' => 'projectId',
+        'subtask_ids' => 'subtaskIds',
+        'subtitle_export_config' => 'subtitleExportConfig',
+        'task_id' => 'taskId',
+        'types' => 'types'
     ];
 
     /**
@@ -76,7 +88,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'project_id' => 'setProjectId',
+        'subtask_ids' => 'setSubtaskIds',
+        'subtitle_export_config' => 'setSubtitleExportConfig',
+        'task_id' => 'setTaskId',
+        'types' => 'setTypes'
     ];
 
     /**
@@ -85,7 +101,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'project_id' => 'getProjectId',
+        'subtask_ids' => 'getSubtaskIds',
+        'subtitle_export_config' => 'getSubtitleExportConfig',
+        'task_id' => 'getTaskId',
+        'types' => 'getTypes'
     ];
 
     /**
@@ -148,7 +168,11 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['subtask_ids'] = isset($data['subtask_ids']) ? $data['subtask_ids'] : null;
+        $this->container['subtitle_export_config'] = isset($data['subtitle_export_config']) ? $data['subtitle_export_config'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
     }
 
     /**
@@ -160,6 +184,12 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +206,121 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets data
+     * Gets project_id
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
+     * @return string
      */
-    public function getData()
+    public function getProjectId()
     {
-        return $this->container['data'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets data
+     * Sets project_id
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setData($data)
+    public function setProjectId($project_id)
     {
-        $this->container['data'] = $data;
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_ids
+     *
+     * @return string[]
+     */
+    public function getSubtaskIds()
+    {
+        return $this->container['subtask_ids'];
+    }
+
+    /**
+     * Sets subtask_ids
+     *
+     * @param string[] $subtask_ids subtask_ids
+     *
+     * @return $this
+     */
+    public function setSubtaskIds($subtask_ids)
+    {
+        $this->container['subtask_ids'] = $subtask_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_export_config
+     *
+     * @return \Volcengine\I18nopenapi\Model\SubtitleExportConfigForVideoProjectGetTaskProductInput
+     */
+    public function getSubtitleExportConfig()
+    {
+        return $this->container['subtitle_export_config'];
+    }
+
+    /**
+     * Sets subtitle_export_config
+     *
+     * @param \Volcengine\I18nopenapi\Model\SubtitleExportConfigForVideoProjectGetTaskProductInput $subtitle_export_config subtitle_export_config
+     *
+     * @return $this
+     */
+    public function setSubtitleExportConfig($subtitle_export_config)
+    {
+        $this->container['subtitle_export_config'] = $subtitle_export_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return int[]
+     */
+    public function getTypes()
+    {
+        return $this->container['types'];
+    }
+
+    /**
+     * Sets types
+     *
+     * @param int[] $types types
+     *
+     * @return $this
+     */
+    public function setTypes($types)
+    {
+        $this->container['types'] = $types;
 
         return $this;
     }

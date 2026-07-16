@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, ArrayAccess
+class VideoProjectGetTaskProductResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoProjectGetUploadSubtitleStatusResponse';
+    protected static $swaggerModelName = 'VideoProjectGetTaskProductResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetTaskProductOutput'
     ];
 
     /**
@@ -178,7 +178,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
     /**
      * Gets data
      *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetTaskProductOutput
      */
     public function getData()
     {
@@ -188,7 +188,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
     /**
      * Sets data
      *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput $data data
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectGetTaskProductOutput $data data
      *
      * @return $this
      */
