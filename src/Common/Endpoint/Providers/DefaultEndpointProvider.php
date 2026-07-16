@@ -531,6 +531,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+
+                'clawsentry' => new ServiceEndpointInfo(
+                    'clawsentry',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
