@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterface, ArrayAccess
+class ErrorForListCustomPageOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LogicalVulnerabilityForGetVulnerabilityConfigOutput';
+    protected static $swaggerModelName = 'ErrorForListCustomPageOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'enable_rule_count' => 'int',
-        'rule_set_detail' => '\Volcengine\Waf\Model\RuleSetDetailForGetVulnerabilityConfigOutput[]',
-        'rule_set_name' => 'string',
-        'total_rule_count' => 'int'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'enable_rule_count' => 'int32',
-        'rule_set_detail' => null,
-        'rule_set_name' => null,
-        'total_rule_count' => 'int32'
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'enable_rule_count' => 'EnableRuleCount',
-        'rule_set_detail' => 'RuleSetDetail',
-        'rule_set_name' => 'RuleSetName',
-        'total_rule_count' => 'TotalRuleCount'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'enable_rule_count' => 'setEnableRuleCount',
-        'rule_set_detail' => 'setRuleSetDetail',
-        'rule_set_name' => 'setRuleSetName',
-        'total_rule_count' => 'setTotalRuleCount'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'enable_rule_count' => 'getEnableRuleCount',
-        'rule_set_detail' => 'getRuleSetDetail',
-        'rule_set_name' => 'getRuleSetName',
-        'total_rule_count' => 'getTotalRuleCount'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
      */
     public function __construct($data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enable_rule_count'] = isset($data['enable_rule_count']) ? $data['enable_rule_count'] : null;
-        $this->container['rule_set_detail'] = isset($data['rule_set_detail']) ? $data['rule_set_detail'] : null;
-        $this->container['rule_set_name'] = isset($data['rule_set_name']) ? $data['rule_set_name'] : null;
-        $this->container['total_rule_count'] = isset($data['total_rule_count']) ? $data['total_rule_count'] : null;
     }
 
     /**
@@ -198,126 +173,6 @@ class LogicalVulnerabilityForGetVulnerabilityConfigOutput implements ModelInterf
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_rule_count
-     *
-     * @return int
-     */
-    public function getEnableRuleCount()
-    {
-        return $this->container['enable_rule_count'];
-    }
-
-    /**
-     * Sets enable_rule_count
-     *
-     * @param int $enable_rule_count enable_rule_count
-     *
-     * @return $this
-     */
-    public function setEnableRuleCount($enable_rule_count)
-    {
-        $this->container['enable_rule_count'] = $enable_rule_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_set_detail
-     *
-     * @return \Volcengine\Waf\Model\RuleSetDetailForGetVulnerabilityConfigOutput[]
-     */
-    public function getRuleSetDetail()
-    {
-        return $this->container['rule_set_detail'];
-    }
-
-    /**
-     * Sets rule_set_detail
-     *
-     * @param \Volcengine\Waf\Model\RuleSetDetailForGetVulnerabilityConfigOutput[] $rule_set_detail rule_set_detail
-     *
-     * @return $this
-     */
-    public function setRuleSetDetail($rule_set_detail)
-    {
-        $this->container['rule_set_detail'] = $rule_set_detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_set_name
-     *
-     * @return string
-     */
-    public function getRuleSetName()
-    {
-        return $this->container['rule_set_name'];
-    }
-
-    /**
-     * Sets rule_set_name
-     *
-     * @param string $rule_set_name rule_set_name
-     *
-     * @return $this
-     */
-    public function setRuleSetName($rule_set_name)
-    {
-        $this->container['rule_set_name'] = $rule_set_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_rule_count
-     *
-     * @return int
-     */
-    public function getTotalRuleCount()
-    {
-        return $this->container['total_rule_count'];
-    }
-
-    /**
-     * Sets total_rule_count
-     *
-     * @param int $total_rule_count total_rule_count
-     *
-     * @return $this
-     */
-    public function setTotalRuleCount($total_rule_count)
-    {
-        $this->container['total_rule_count'] = $total_rule_count;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

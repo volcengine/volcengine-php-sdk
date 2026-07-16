@@ -32,7 +32,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => 'string',
         'description' => 'string',
         'enable' => 'int',
-        'rule_tag' => 'string'
+        'ip_match' => 'bool',
+        'name' => 'string',
+        'rule_tag' => 'string',
+        'sub_rules' => '\Volcengine\Waf\Model\SubRuleForListSystemBotConfigOutput[]',
+        'verification_exemption_time' => 'int'
     ];
 
     /**
@@ -45,7 +49,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => null,
         'description' => null,
         'enable' => 'int32',
-        'rule_tag' => null
+        'ip_match' => null,
+        'name' => null,
+        'rule_tag' => null,
+        'sub_rules' => null,
+        'verification_exemption_time' => 'int32'
     ];
 
     /**
@@ -79,7 +87,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => 'BotType',
         'description' => 'Description',
         'enable' => 'Enable',
-        'rule_tag' => 'RuleTag'
+        'ip_match' => 'IPMatch',
+        'name' => 'Name',
+        'rule_tag' => 'RuleTag',
+        'sub_rules' => 'SubRules',
+        'verification_exemption_time' => 'VerificationExemptionTime'
     ];
 
     /**
@@ -92,7 +104,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => 'setBotType',
         'description' => 'setDescription',
         'enable' => 'setEnable',
-        'rule_tag' => 'setRuleTag'
+        'ip_match' => 'setIpMatch',
+        'name' => 'setName',
+        'rule_tag' => 'setRuleTag',
+        'sub_rules' => 'setSubRules',
+        'verification_exemption_time' => 'setVerificationExemptionTime'
     ];
 
     /**
@@ -105,7 +121,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => 'getBotType',
         'description' => 'getDescription',
         'enable' => 'getEnable',
-        'rule_tag' => 'getRuleTag'
+        'ip_match' => 'getIpMatch',
+        'name' => 'getName',
+        'rule_tag' => 'getRuleTag',
+        'sub_rules' => 'getSubRules',
+        'verification_exemption_time' => 'getVerificationExemptionTime'
     ];
 
     /**
@@ -172,7 +192,11 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
         $this->container['bot_type'] = isset($data['bot_type']) ? $data['bot_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['ip_match'] = isset($data['ip_match']) ? $data['ip_match'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
+        $this->container['sub_rules'] = isset($data['sub_rules']) ? $data['sub_rules'] : null;
+        $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
     }
 
     /**
@@ -296,6 +320,54 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ip_match
+     *
+     * @return bool
+     */
+    public function getIpMatch()
+    {
+        return $this->container['ip_match'];
+    }
+
+    /**
+     * Sets ip_match
+     *
+     * @param bool $ip_match ip_match
+     *
+     * @return $this
+     */
+    public function setIpMatch($ip_match)
+    {
+        $this->container['ip_match'] = $ip_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets rule_tag
      *
      * @return string
@@ -315,6 +387,54 @@ class DataForListSystemBotConfigOutput implements ModelInterface, ArrayAccess
     public function setRuleTag($rule_tag)
     {
         $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_rules
+     *
+     * @return \Volcengine\Waf\Model\SubRuleForListSystemBotConfigOutput[]
+     */
+    public function getSubRules()
+    {
+        return $this->container['sub_rules'];
+    }
+
+    /**
+     * Sets sub_rules
+     *
+     * @param \Volcengine\Waf\Model\SubRuleForListSystemBotConfigOutput[] $sub_rules sub_rules
+     *
+     * @return $this
+     */
+    public function setSubRules($sub_rules)
+    {
+        $this->container['sub_rules'] = $sub_rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_exemption_time
+     *
+     * @return int
+     */
+    public function getVerificationExemptionTime()
+    {
+        return $this->container['verification_exemption_time'];
+    }
+
+    /**
+     * Sets verification_exemption_time
+     *
+     * @param int $verification_exemption_time verification_exemption_time
+     *
+     * @return $this
+     */
+    public function setVerificationExemptionTime($verification_exemption_time)
+    {
+        $this->container['verification_exemption_time'] = $verification_exemption_time;
 
         return $this;
     }

@@ -28,7 +28,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\Waf\Model\DataForListSystemBotConfigOutput[]'
+        'count' => 'int',
+        'current_page' => 'int',
+        'data' => '\Volcengine\Waf\Model\DataForListSystemBotConfigOutput[]',
+        'last_update_time' => 'string',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -37,7 +42,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'count' => 'int32',
+        'current_page' => 'int32',
+        'data' => null,
+        'last_update_time' => null,
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -67,7 +77,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data'
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
+        'data' => 'Data',
+        'last_update_time' => 'LastUpdateTime',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -76,7 +91,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
+        'data' => 'setData',
+        'last_update_time' => 'setLastUpdateTime',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -85,7 +105,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
+        'data' => 'getData',
+        'last_update_time' => 'getLastUpdateTime',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -148,7 +173,12 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -176,6 +206,54 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param int $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
      * @return \Volcengine\Waf\Model\DataForListSystemBotConfigOutput[]
@@ -195,6 +273,78 @@ class ListSystemBotConfigResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_update_time
+     *
+     * @return string
+     */
+    public function getLastUpdateTime()
+    {
+        return $this->container['last_update_time'];
+    }
+
+    /**
+     * Sets last_update_time
+     *
+     * @param string $last_update_time last_update_time
+     *
+     * @return $this
+     */
+    public function setLastUpdateTime($last_update_time)
+    {
+        $this->container['last_update_time'] = $last_update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

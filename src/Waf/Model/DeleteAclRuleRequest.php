@@ -139,8 +139,23 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACL_TYPE_ALLOW = 'Allow';
+    const ACL_TYPE_BLOCK = 'Block';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAclTypeAllowableValues()
+    {
+        return [
+            self::ACL_TYPE_ALLOW,
+            self::ACL_TYPE_BLOCK,
+        ];
+    }
     
 
     /**
@@ -175,6 +190,14 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['acl_type'] === null) {
             $invalidProperties[] = "'acl_type' can't be null";
         }
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!is_null($this->container['acl_type']) && !in_array($this->container['acl_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'acl_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -212,6 +235,15 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAclType($acl_type)
     {
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!in_array($acl_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'acl_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['acl_type'] = $acl_type;
 
         return $this;

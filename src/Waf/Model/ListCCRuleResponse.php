@@ -30,10 +30,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'count' => 'int',
         'current_page' => 'int',
+        'data' => '\Volcengine\Waf\Model\DataForListCCRuleOutput[]',
         'enable_count' => 'int',
         'insert_time' => 'string',
         'page_size' => 'int',
-        'rule_group' => '\Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[]',
+        'rule_group' => '\Volcengine\Waf\Model\ConvertRuleGroupForListCCRuleOutput[]',
         'total_count' => 'int',
         'url' => 'string'
     ];
@@ -46,6 +47,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'count' => 'int32',
         'current_page' => 'int32',
+        'data' => null,
         'enable_count' => 'int32',
         'insert_time' => null,
         'page_size' => 'int32',
@@ -83,6 +85,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'count' => 'Count',
         'current_page' => 'CurrentPage',
+        'data' => 'Data',
         'enable_count' => 'EnableCount',
         'insert_time' => 'InsertTime',
         'page_size' => 'PageSize',
@@ -99,6 +102,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'count' => 'setCount',
         'current_page' => 'setCurrentPage',
+        'data' => 'setData',
         'enable_count' => 'setEnableCount',
         'insert_time' => 'setInsertTime',
         'page_size' => 'setPageSize',
@@ -115,6 +119,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'count' => 'getCount',
         'current_page' => 'getCurrentPage',
+        'data' => 'getData',
         'enable_count' => 'getEnableCount',
         'insert_time' => 'getInsertTime',
         'page_size' => 'getPageSize',
@@ -185,6 +190,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['enable_count'] = isset($data['enable_count']) ? $data['enable_count'] : null;
         $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -266,6 +272,30 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets data
+     *
+     * @return \Volcengine\Waf\Model\DataForListCCRuleOutput[]
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Volcengine\Waf\Model\DataForListCCRuleOutput[] $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_count
      *
      * @return int
@@ -340,7 +370,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     /**
      * Gets rule_group
      *
-     * @return \Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[]
+     * @return \Volcengine\Waf\Model\ConvertRuleGroupForListCCRuleOutput[]
      */
     public function getRuleGroup()
     {
@@ -350,7 +380,7 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     /**
      * Sets rule_group
      *
-     * @param \Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[] $rule_group rule_group
+     * @param \Volcengine\Waf\Model\ConvertRuleGroupForListCCRuleOutput[] $rule_group rule_group
      *
      * @return $this
      */

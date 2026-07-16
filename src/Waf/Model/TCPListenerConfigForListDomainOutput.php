@@ -33,7 +33,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         'instance_id' => 'string',
         'instance_name' => 'string',
         'listener_id' => 'string',
-        'lost_association_from_alb' => 'int',
         'port' => 'string',
         'protocol' => 'string'
     ];
@@ -49,7 +48,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         'instance_id' => null,
         'instance_name' => null,
         'listener_id' => null,
-        'lost_association_from_alb' => 'int32',
         'port' => null,
         'protocol' => null
     ];
@@ -86,7 +84,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         'instance_id' => 'InstanceID',
         'instance_name' => 'InstanceName',
         'listener_id' => 'ListenerID',
-        'lost_association_from_alb' => 'LostAssociationFromALB',
         'port' => 'Port',
         'protocol' => 'Protocol'
     ];
@@ -102,7 +99,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'listener_id' => 'setListenerId',
-        'lost_association_from_alb' => 'setLostAssociationFromAlb',
         'port' => 'setPort',
         'protocol' => 'setProtocol'
     ];
@@ -118,7 +114,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'listener_id' => 'getListenerId',
-        'lost_association_from_alb' => 'getLostAssociationFromAlb',
         'port' => 'getPort',
         'protocol' => 'getProtocol'
     ];
@@ -188,7 +183,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;
-        $this->container['lost_association_from_alb'] = isset($data['lost_association_from_alb']) ? $data['lost_association_from_alb'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
     }
@@ -333,30 +327,6 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
     public function setListenerId($listener_id)
     {
         $this->container['listener_id'] = $listener_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets lost_association_from_alb
-     *
-     * @return int
-     */
-    public function getLostAssociationFromAlb()
-    {
-        return $this->container['lost_association_from_alb'];
-    }
-
-    /**
-     * Sets lost_association_from_alb
-     *
-     * @param int $lost_association_from_alb lost_association_from_alb
-     *
-     * @return $this
-     */
-    public function setLostAssociationFromAlb($lost_association_from_alb)
-    {
-        $this->container['lost_association_from_alb'] = $lost_association_from_alb;
 
         return $this;
     }

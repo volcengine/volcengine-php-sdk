@@ -28,7 +28,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForUpdateCustomPageOutput'
     ];
 
     /**
@@ -37,7 +37,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'response_metadata' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'response_metadata' => 'ResponseMetadata'
     ];
 
     /**
@@ -76,7 +76,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'response_metadata' => 'setResponseMetadata'
     ];
 
     /**
@@ -85,7 +85,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'response_metadata' => 'getResponseMetadata'
     ];
 
     /**
@@ -148,6 +148,7 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class UpdateCustomPageResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForUpdateCustomPageOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForUpdateCustomPageOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
