@@ -28,7 +28,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'rule_priority' => 'int[]'
+        'count' => 'int',
+        'current_page' => 'int',
+        'page_size' => 'int',
+        'rule_priority' => 'int[]',
+        'total_count' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'rule_priority' => 'int32'
+        'count' => 'int32',
+        'current_page' => 'int32',
+        'page_size' => 'int32',
+        'rule_priority' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
-        'rule_priority' => 'RulePriority'
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
+        'page_size' => 'PageSize',
+        'rule_priority' => 'RulePriority',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -76,7 +88,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
      * @var string[]
      */
     protected static $setters = [
-        'rule_priority' => 'setRulePriority'
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
+        'page_size' => 'setPageSize',
+        'rule_priority' => 'setRulePriority',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -85,7 +101,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
      * @var string[]
      */
     protected static $getters = [
-        'rule_priority' => 'getRulePriority'
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
+        'page_size' => 'getPageSize',
+        'rule_priority' => 'getRulePriority',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -148,7 +168,11 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
      */
     public function __construct($data = null)
     {
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['rule_priority'] = isset($data['rule_priority']) ? $data['rule_priority'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -176,6 +200,78 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
 
 
     /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param int $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
      * Gets rule_priority
      *
      * @return int[]
@@ -195,6 +291,30 @@ class ListBotAnalyseProtectRulePriorityAvailableResponse implements ModelInterfa
     public function setRulePriority($rule_priority)
     {
         $this->container['rule_priority'] = $rule_priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

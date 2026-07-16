@@ -29,6 +29,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForListAclRuleOutput[]',
+        'id' => 'int',
         'logic' => 'int'
     ];
 
@@ -39,6 +40,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accurate_rules' => null,
+        'id' => 'int32',
         'logic' => 'int32'
     ];
 
@@ -70,6 +72,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accurate_rules' => 'AccurateRules',
+        'id' => 'Id',
         'logic' => 'Logic'
     ];
 
@@ -80,6 +83,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accurate_rules' => 'setAccurateRules',
+        'id' => 'setId',
         'logic' => 'setLogic'
     ];
 
@@ -90,6 +94,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accurate_rules' => 'getAccurateRules',
+        'id' => 'getId',
         'logic' => 'getLogic'
     ];
 
@@ -154,6 +159,7 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
     }
 
@@ -201,6 +207,30 @@ class AccurateGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setAccurateRules($accurate_rules)
     {
         $this->container['accurate_rules'] = $accurate_rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

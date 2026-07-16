@@ -40,7 +40,9 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'offset' => 'int',
         'owner_id' => 'int[]',
         'payer_id' => 'int[]',
-        'product' => 'string[]'
+        'product' => 'string[]',
+        'tag_kv' => '\Volcengine\Billing\Model\TagKVForListAmortizedCostBillMonthlyInput[]',
+        'tag_kv_filter_mode' => 'int'
     ];
 
     /**
@@ -61,7 +63,9 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'offset' => 'int32',
         'owner_id' => 'int64',
         'payer_id' => 'int64',
-        'product' => null
+        'product' => null,
+        'tag_kv' => null,
+        'tag_kv_filter_mode' => 'int32'
     ];
 
     /**
@@ -103,7 +107,9 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'offset' => 'Offset',
         'owner_id' => 'OwnerID',
         'payer_id' => 'PayerID',
-        'product' => 'Product'
+        'product' => 'Product',
+        'tag_kv' => 'TagKV',
+        'tag_kv_filter_mode' => 'TagKVFilterMode'
     ];
 
     /**
@@ -124,7 +130,9 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'offset' => 'setOffset',
         'owner_id' => 'setOwnerId',
         'payer_id' => 'setPayerId',
-        'product' => 'setProduct'
+        'product' => 'setProduct',
+        'tag_kv' => 'setTagKv',
+        'tag_kv_filter_mode' => 'setTagKvFilterMode'
     ];
 
     /**
@@ -145,7 +153,9 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'offset' => 'getOffset',
         'owner_id' => 'getOwnerId',
         'payer_id' => 'getPayerId',
-        'product' => 'getProduct'
+        'product' => 'getProduct',
+        'tag_kv' => 'getTagKv',
+        'tag_kv_filter_mode' => 'getTagKvFilterMode'
     ];
 
     /**
@@ -221,6 +231,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['tag_kv'] = isset($data['tag_kv']) ? $data['tag_kv'] : null;
+        $this->container['tag_kv_filter_mode'] = isset($data['tag_kv_filter_mode']) ? $data['tag_kv_filter_mode'] : null;
     }
 
     /**
@@ -561,6 +573,54 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
     public function setProduct($product)
     {
         $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv
+     *
+     * @return \Volcengine\Billing\Model\TagKVForListAmortizedCostBillMonthlyInput[]
+     */
+    public function getTagKv()
+    {
+        return $this->container['tag_kv'];
+    }
+
+    /**
+     * Sets tag_kv
+     *
+     * @param \Volcengine\Billing\Model\TagKVForListAmortizedCostBillMonthlyInput[] $tag_kv tag_kv
+     *
+     * @return $this
+     */
+    public function setTagKv($tag_kv)
+    {
+        $this->container['tag_kv'] = $tag_kv;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv_filter_mode
+     *
+     * @return int
+     */
+    public function getTagKvFilterMode()
+    {
+        return $this->container['tag_kv_filter_mode'];
+    }
+
+    /**
+     * Sets tag_kv_filter_mode
+     *
+     * @param int $tag_kv_filter_mode tag_kv_filter_mode
+     *
+     * @return $this
+     */
+    public function setTagKvFilterMode($tag_kv_filter_mode)
+    {
+        $this->container['tag_kv_filter_mode'] = $tag_kv_filter_mode;
 
         return $this;
     }

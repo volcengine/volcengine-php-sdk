@@ -29,6 +29,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'client_token' => 'string',
+        'cpu_options' => '\Volcengine\Ecs\Model\CpuOptionsForModifyInstanceAttributeInput',
         'deletion_protection' => 'bool',
         'description' => 'string',
         'enable_jumbo_frame' => 'bool',
@@ -46,6 +47,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'client_token' => null,
+        'cpu_options' => null,
         'deletion_protection' => null,
         'description' => null,
         'enable_jumbo_frame' => null,
@@ -84,6 +86,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
+        'cpu_options' => 'CpuOptions',
         'deletion_protection' => 'DeletionProtection',
         'description' => 'Description',
         'enable_jumbo_frame' => 'EnableJumboFrame',
@@ -101,6 +104,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'client_token' => 'setClientToken',
+        'cpu_options' => 'setCpuOptions',
         'deletion_protection' => 'setDeletionProtection',
         'description' => 'setDescription',
         'enable_jumbo_frame' => 'setEnableJumboFrame',
@@ -118,6 +122,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'client_token' => 'getClientToken',
+        'cpu_options' => 'getCpuOptions',
         'deletion_protection' => 'getDeletionProtection',
         'description' => 'getDescription',
         'enable_jumbo_frame' => 'getEnableJumboFrame',
@@ -189,6 +194,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['cpu_options'] = isset($data['cpu_options']) ? $data['cpu_options'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
@@ -246,6 +252,30 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_options
+     *
+     * @return \Volcengine\Ecs\Model\CpuOptionsForModifyInstanceAttributeInput
+     */
+    public function getCpuOptions()
+    {
+        return $this->container['cpu_options'];
+    }
+
+    /**
+     * Sets cpu_options
+     *
+     * @param \Volcengine\Ecs\Model\CpuOptionsForModifyInstanceAttributeInput $cpu_options cpu_options
+     *
+     * @return $this
+     */
+    public function setCpuOptions($cpu_options)
+    {
+        $this->container['cpu_options'] = $cpu_options;
 
         return $this;
     }

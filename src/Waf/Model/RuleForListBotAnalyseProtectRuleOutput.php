@@ -39,7 +39,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'host' => 'string',
         'id' => 'int',
         'name' => 'string',
-        'pass_ratio' => 'float',
+        'pass_ratio' => 'double',
         'path' => 'string',
         'path_threshold' => 'int',
         'rule_priority' => 'int',
@@ -68,7 +68,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'host' => null,
         'id' => 'int32',
         'name' => null,
-        'pass_ratio' => 'float',
+        'pass_ratio' => 'double',
         'path' => null,
         'path_threshold' => 'int32',
         'rule_priority' => 'int32',
@@ -562,7 +562,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
     /**
      * Gets pass_ratio
      *
-     * @return float
+     * @return double
      */
     public function getPassRatio()
     {
@@ -572,7 +572,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
     /**
      * Sets pass_ratio
      *
-     * @param float $pass_ratio pass_ratio
+     * @param double $pass_ratio pass_ratio
      *
      * @return $this
      */

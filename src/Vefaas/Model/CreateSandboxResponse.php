@@ -28,6 +28,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'assign_status' => 'string',
         'sandbox_id' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'assign_status' => null,
         'sandbox_id' => null
     ];
 
@@ -67,6 +69,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assign_status' => 'AssignStatus',
         'sandbox_id' => 'SandboxId'
     ];
 
@@ -76,6 +79,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assign_status' => 'setAssignStatus',
         'sandbox_id' => 'setSandboxId'
     ];
 
@@ -85,6 +89,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assign_status' => 'getAssignStatus',
         'sandbox_id' => 'getSandboxId'
     ];
 
@@ -148,6 +153,7 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['assign_status'] = isset($data['assign_status']) ? $data['assign_status'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
     }
 
@@ -174,6 +180,30 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets assign_status
+     *
+     * @return string
+     */
+    public function getAssignStatus()
+    {
+        return $this->container['assign_status'];
+    }
+
+    /**
+     * Sets assign_status
+     *
+     * @param string $assign_status assign_status
+     *
+     * @return $this
+     */
+    public function setAssignStatus($assign_status)
+    {
+        $this->container['assign_status'] = $assign_status;
+
+        return $this;
+    }
 
     /**
      * Gets sandbox_id

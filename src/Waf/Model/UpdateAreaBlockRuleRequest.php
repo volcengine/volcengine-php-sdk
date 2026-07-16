@@ -31,6 +31,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'string',
         'country' => 'string[]',
         'host' => 'string',
+        'location' => 'string[]',
         'project_name' => 'string',
         'sub_region' => 'string[]'
     ];
@@ -44,6 +45,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => null,
         'country' => null,
         'host' => null,
+        'location' => null,
         'project_name' => null,
         'sub_region' => null
     ];
@@ -78,6 +80,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'Action',
         'country' => 'Country',
         'host' => 'Host',
+        'location' => 'Location',
         'project_name' => 'ProjectName',
         'sub_region' => 'SubRegion'
     ];
@@ -91,6 +94,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'setAction',
         'country' => 'setCountry',
         'host' => 'setHost',
+        'location' => 'setLocation',
         'project_name' => 'setProjectName',
         'sub_region' => 'setSubRegion'
     ];
@@ -104,6 +108,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'getAction',
         'country' => 'getCountry',
         'host' => 'getHost',
+        'location' => 'getLocation',
         'project_name' => 'getProjectName',
         'sub_region' => 'getSubRegion'
     ];
@@ -149,8 +154,23 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACTION_OBSERVE = 'observe';
+    const ACTION_BLOCK = 'block';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_OBSERVE,
+            self::ACTION_BLOCK,
+        ];
+    }
     
 
     /**
@@ -171,6 +191,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['sub_region'] = isset($data['sub_region']) ? $data['sub_region'] : null;
     }
@@ -187,6 +208,14 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
@@ -224,6 +253,15 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['action'] = $action;
 
         return $this;
@@ -273,6 +311,30 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return string[]
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param string[] $location location
+     *
+     * @return $this
+     */
+    public function setLocation($location)
+    {
+        $this->container['location'] = $location;
 
         return $this;
     }

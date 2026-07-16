@@ -1,0 +1,5 @@
+{
+  "description": "WAF: 新增 ListGlobalBanItems, BatchCopySystemBotConfig, BatchDeleteGlobalBanItems, CreateVolcWafServicesByBytePlusCDN, DeleteVolcWafService；修改 UpdateBotAnalyseProtectRule, DeleteCustomPage, ListAreaBlockRule, CreateBotAnalyseProtectRule, CreateCustomPage, ListDomain, UpdateVulWhiteField, CreateAclRule, ListVulWhiteField, ListBotAnalyseProtectRulePriorityAvailable, ListCCRule, ListIpGroup, UpdateCustomPage, UpdateVulnerabilityConfig, CreateCCRule, ListSystemBotConfig, ListBotAnalyseProtectRule, UpdateAclRule, CreateVulWhiteField, ListAclRule, UpdateAreaBlockRule, UpdateSystemBotConfig, GetVulnerabilityConfig, DeleteAclRule, ListCustomPage, UpdateCCRule, UpdateCustomSystemVulRule, ListVulnerabilityRule, CreateDomain, UpdateDomain",
+  "modules": "service/waf",
+  "type": "breaking-change"
+}

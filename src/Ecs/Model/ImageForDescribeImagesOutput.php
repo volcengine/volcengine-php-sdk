@@ -41,6 +41,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'is_support_cloud_init' => 'bool',
         'kernel' => 'string',
         'license_type' => 'string',
+        'marketplace_image_bill_type' => 'int',
         'os_name' => 'string',
         'os_type' => 'string',
         'platform' => 'string',
@@ -76,6 +77,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'is_support_cloud_init' => null,
         'kernel' => null,
         'license_type' => null,
+        'marketplace_image_bill_type' => 'int32',
         'os_name' => null,
         'os_type' => null,
         'platform' => null,
@@ -132,6 +134,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'is_support_cloud_init' => 'IsSupportCloudInit',
         'kernel' => 'Kernel',
         'license_type' => 'LicenseType',
+        'marketplace_image_bill_type' => 'MarketplaceImageBillType',
         'os_name' => 'OsName',
         'os_type' => 'OsType',
         'platform' => 'Platform',
@@ -167,6 +170,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'is_support_cloud_init' => 'setIsSupportCloudInit',
         'kernel' => 'setKernel',
         'license_type' => 'setLicenseType',
+        'marketplace_image_bill_type' => 'setMarketplaceImageBillType',
         'os_name' => 'setOsName',
         'os_type' => 'setOsType',
         'platform' => 'setPlatform',
@@ -202,6 +206,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'is_support_cloud_init' => 'getIsSupportCloudInit',
         'kernel' => 'getKernel',
         'license_type' => 'getLicenseType',
+        'marketplace_image_bill_type' => 'getMarketplaceImageBillType',
         'os_name' => 'getOsName',
         'os_type' => 'getOsType',
         'platform' => 'getPlatform',
@@ -291,6 +296,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         $this->container['is_support_cloud_init'] = isset($data['is_support_cloud_init']) ? $data['is_support_cloud_init'] : null;
         $this->container['kernel'] = isset($data['kernel']) ? $data['kernel'] : null;
         $this->container['license_type'] = isset($data['license_type']) ? $data['license_type'] : null;
+        $this->container['marketplace_image_bill_type'] = isset($data['marketplace_image_bill_type']) ? $data['marketplace_image_bill_type'] : null;
         $this->container['os_name'] = isset($data['os_name']) ? $data['os_name'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
@@ -639,6 +645,30 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     public function setLicenseType($license_type)
     {
         $this->container['license_type'] = $license_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketplace_image_bill_type
+     *
+     * @return int
+     */
+    public function getMarketplaceImageBillType()
+    {
+        return $this->container['marketplace_image_bill_type'];
+    }
+
+    /**
+     * Sets marketplace_image_bill_type
+     *
+     * @param int $marketplace_image_bill_type marketplace_image_bill_type
+     *
+     * @return $this
+     */
+    public function setMarketplaceImageBillType($marketplace_image_bill_type)
+    {
+        $this->container['marketplace_image_bill_type'] = $marketplace_image_bill_type;
 
         return $this;
     }

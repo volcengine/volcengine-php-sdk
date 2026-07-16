@@ -184,9 +184,6 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['host'] === null) {
-            $invalidProperties[] = "'host' can't be null";
-        }
         return $invalidProperties;
     }
 

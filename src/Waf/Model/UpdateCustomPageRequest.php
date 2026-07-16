@@ -32,7 +32,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'advanced' => 'int',
         'body' => 'string',
         'client_ip' => 'string',
-        'code' => 'int',
+        'code' => 'string',
         'content_type' => 'string',
         'description' => 'string',
         'enable' => 'int',
@@ -42,6 +42,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'page_mode' => 'int',
         'policy' => 'int',
+        'prefix_switch' => 'int',
         'project_name' => 'string',
         'redirect_url' => 'string',
         'url' => 'string'
@@ -57,7 +58,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'advanced' => 'int32',
         'body' => null,
         'client_ip' => null,
-        'code' => 'int32',
+        'code' => null,
         'content_type' => null,
         'description' => null,
         'enable' => 'int32',
@@ -67,6 +68,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'page_mode' => 'int32',
         'policy' => 'int32',
+        'prefix_switch' => 'int32',
         'project_name' => null,
         'redirect_url' => null,
         'url' => null
@@ -113,6 +115,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'page_mode' => 'PageMode',
         'policy' => 'Policy',
+        'prefix_switch' => 'PrefixSwitch',
         'project_name' => 'ProjectName',
         'redirect_url' => 'RedirectUrl',
         'url' => 'Url'
@@ -138,6 +141,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'page_mode' => 'setPageMode',
         'policy' => 'setPolicy',
+        'prefix_switch' => 'setPrefixSwitch',
         'project_name' => 'setProjectName',
         'redirect_url' => 'setRedirectUrl',
         'url' => 'setUrl'
@@ -163,6 +167,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'page_mode' => 'getPageMode',
         'policy' => 'getPolicy',
+        'prefix_switch' => 'getPrefixSwitch',
         'project_name' => 'getProjectName',
         'redirect_url' => 'getRedirectUrl',
         'url' => 'getUrl'
@@ -242,6 +247,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['page_mode'] = isset($data['page_mode']) ? $data['page_mode'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -259,11 +265,8 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         if ($this->container['client_ip'] === null) {
             $invalidProperties[] = "'client_ip' can't be null";
         }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['enable'] === null) {
-            $invalidProperties[] = "'enable' can't be null";
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
         }
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
@@ -397,7 +400,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
     /**
      * Gets code
      *
-     * @return int
+     * @return string
      */
     public function getCode()
     {
@@ -407,7 +410,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param int $code code
+     * @param string $code code
      *
      * @return $this
      */
@@ -630,6 +633,30 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_switch
+     *
+     * @return int
+     */
+    public function getPrefixSwitch()
+    {
+        return $this->container['prefix_switch'];
+    }
+
+    /**
+     * Sets prefix_switch
+     *
+     * @param int $prefix_switch prefix_switch
+     *
+     * @return $this
+     */
+    public function setPrefixSwitch($prefix_switch)
+    {
+        $this->container['prefix_switch'] = $prefix_switch;
 
         return $this;
     }

@@ -29,10 +29,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
       */
     protected static $swaggerTypes = [
         'batch_id' => 'string',
+        'bind_subtitle_ids' => 'string[]',
         'project_id' => 'string',
         'status' => 'int',
         'subtitle_id' => 'string',
         'video_id' => 'string',
+        'video_name' => 'string',
         'video_url' => 'string'
     ];
 
@@ -43,10 +45,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
       */
     protected static $swaggerFormats = [
         'batch_id' => null,
+        'bind_subtitle_ids' => null,
         'project_id' => null,
         'status' => 'int32',
         'subtitle_id' => null,
         'video_id' => null,
+        'video_name' => null,
         'video_url' => null
     ];
 
@@ -78,10 +82,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
      */
     protected static $attributeMap = [
         'batch_id' => 'batchId',
+        'bind_subtitle_ids' => 'bindSubtitleIDs',
         'project_id' => 'projectId',
         'status' => 'status',
         'subtitle_id' => 'subtitleId',
         'video_id' => 'videoId',
+        'video_name' => 'videoName',
         'video_url' => 'videoUrl'
     ];
 
@@ -92,10 +98,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
      */
     protected static $setters = [
         'batch_id' => 'setBatchId',
+        'bind_subtitle_ids' => 'setBindSubtitleIds',
         'project_id' => 'setProjectId',
         'status' => 'setStatus',
         'subtitle_id' => 'setSubtitleId',
         'video_id' => 'setVideoId',
+        'video_name' => 'setVideoName',
         'video_url' => 'setVideoUrl'
     ];
 
@@ -106,10 +114,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
      */
     protected static $getters = [
         'batch_id' => 'getBatchId',
+        'bind_subtitle_ids' => 'getBindSubtitleIds',
         'project_id' => 'getProjectId',
         'status' => 'getStatus',
         'subtitle_id' => 'getSubtitleId',
         'video_id' => 'getVideoId',
+        'video_name' => 'getVideoName',
         'video_url' => 'getVideoUrl'
     ];
 
@@ -174,10 +184,12 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
     public function __construct($data = null)
     {
         $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
+        $this->container['bind_subtitle_ids'] = isset($data['bind_subtitle_ids']) ? $data['bind_subtitle_ids'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
         $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
+        $this->container['video_name'] = isset($data['video_name']) ? $data['video_name'] : null;
         $this->container['video_url'] = isset($data['video_url']) ? $data['video_url'] : null;
     }
 
@@ -225,6 +237,30 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
     public function setBatchId($batch_id)
     {
         $this->container['batch_id'] = $batch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets bind_subtitle_ids
+     *
+     * @return string[]
+     */
+    public function getBindSubtitleIds()
+    {
+        return $this->container['bind_subtitle_ids'];
+    }
+
+    /**
+     * Sets bind_subtitle_ids
+     *
+     * @param string[] $bind_subtitle_ids bind_subtitle_ids
+     *
+     * @return $this
+     */
+    public function setBindSubtitleIds($bind_subtitle_ids)
+    {
+        $this->container['bind_subtitle_ids'] = $bind_subtitle_ids;
 
         return $this;
     }
@@ -321,6 +357,30 @@ class VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput implements ModelI
     public function setVideoId($video_id)
     {
         $this->container['video_id'] = $video_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_name
+     *
+     * @return string
+     */
+    public function getVideoName()
+    {
+        return $this->container['video_name'];
+    }
+
+    /**
+     * Sets video_name
+     *
+     * @param string $video_name video_name
+     *
+     * @return $this
+     */
+    public function setVideoName($video_name)
+    {
+        $this->container['video_name'] = $video_name;
 
         return $this;
     }

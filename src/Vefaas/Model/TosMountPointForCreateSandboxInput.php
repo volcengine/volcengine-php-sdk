@@ -35,6 +35,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         'encryption_config' => '\Volcengine\Vefaas\Model\EncryptionConfigForCreateSandboxInput',
         'endpoint' => 'string',
         'local_mount_path' => 'string',
+        'pre_mount' => 'bool',
         'read_only' => 'bool'
     ];
 
@@ -51,6 +52,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         'encryption_config' => null,
         'endpoint' => null,
         'local_mount_path' => null,
+        'pre_mount' => null,
         'read_only' => null
     ];
 
@@ -88,6 +90,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         'encryption_config' => 'EncryptionConfig',
         'endpoint' => 'Endpoint',
         'local_mount_path' => 'LocalMountPath',
+        'pre_mount' => 'PreMount',
         'read_only' => 'ReadOnly'
     ];
 
@@ -104,6 +107,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         'encryption_config' => 'setEncryptionConfig',
         'endpoint' => 'setEndpoint',
         'local_mount_path' => 'setLocalMountPath',
+        'pre_mount' => 'setPreMount',
         'read_only' => 'setReadOnly'
     ];
 
@@ -120,6 +124,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         'encryption_config' => 'getEncryptionConfig',
         'endpoint' => 'getEndpoint',
         'local_mount_path' => 'getLocalMountPath',
+        'pre_mount' => 'getPreMount',
         'read_only' => 'getReadOnly'
     ];
 
@@ -190,6 +195,7 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
         $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
         $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
         $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
+        $this->container['pre_mount'] = isset($data['pre_mount']) ? $data['pre_mount'] : null;
         $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
     }
 
@@ -381,6 +387,30 @@ class TosMountPointForCreateSandboxInput implements ModelInterface, ArrayAccess
     public function setLocalMountPath($local_mount_path)
     {
         $this->container['local_mount_path'] = $local_mount_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_mount
+     *
+     * @return bool
+     */
+    public function getPreMount()
+    {
+        return $this->container['pre_mount'];
+    }
+
+    /**
+     * Sets pre_mount
+     *
+     * @param bool $pre_mount pre_mount
+     *
+     * @return $this
+     */
+    public function setPreMount($pre_mount)
+    {
+        $this->container['pre_mount'] = $pre_mount;
 
         return $this;
     }

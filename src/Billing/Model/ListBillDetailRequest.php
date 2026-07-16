@@ -42,7 +42,9 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int[]',
         'payer_id' => 'int[]',
         'product' => 'string[]',
-        'project' => 'string[]'
+        'project' => 'string[]',
+        'tag_kv' => '\Volcengine\Billing\Model\TagKVForListBillDetailInput[]',
+        'tag_kv_filter_mode' => 'int'
     ];
 
     /**
@@ -65,7 +67,9 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int64',
         'payer_id' => 'int64',
         'product' => null,
-        'project' => null
+        'project' => null,
+        'tag_kv' => null,
+        'tag_kv_filter_mode' => 'int32'
     ];
 
     /**
@@ -109,7 +113,9 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'OwnerID',
         'payer_id' => 'PayerID',
         'product' => 'Product',
-        'project' => 'Project'
+        'project' => 'Project',
+        'tag_kv' => 'TagKV',
+        'tag_kv_filter_mode' => 'TagKVFilterMode'
     ];
 
     /**
@@ -132,7 +138,9 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'setOwnerId',
         'payer_id' => 'setPayerId',
         'product' => 'setProduct',
-        'project' => 'setProject'
+        'project' => 'setProject',
+        'tag_kv' => 'setTagKv',
+        'tag_kv_filter_mode' => 'setTagKvFilterMode'
     ];
 
     /**
@@ -155,7 +163,9 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'getOwnerId',
         'payer_id' => 'getPayerId',
         'product' => 'getProduct',
-        'project' => 'getProject'
+        'project' => 'getProject',
+        'tag_kv' => 'getTagKv',
+        'tag_kv_filter_mode' => 'getTagKvFilterMode'
     ];
 
     /**
@@ -233,6 +243,8 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['tag_kv'] = isset($data['tag_kv']) ? $data['tag_kv'] : null;
+        $this->container['tag_kv_filter_mode'] = isset($data['tag_kv_filter_mode']) ? $data['tag_kv_filter_mode'] : null;
     }
 
     /**
@@ -621,6 +633,54 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
     public function setProject($project)
     {
         $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv
+     *
+     * @return \Volcengine\Billing\Model\TagKVForListBillDetailInput[]
+     */
+    public function getTagKv()
+    {
+        return $this->container['tag_kv'];
+    }
+
+    /**
+     * Sets tag_kv
+     *
+     * @param \Volcengine\Billing\Model\TagKVForListBillDetailInput[] $tag_kv tag_kv
+     *
+     * @return $this
+     */
+    public function setTagKv($tag_kv)
+    {
+        $this->container['tag_kv'] = $tag_kv;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv_filter_mode
+     *
+     * @return int
+     */
+    public function getTagKvFilterMode()
+    {
+        return $this->container['tag_kv_filter_mode'];
+    }
+
+    /**
+     * Sets tag_kv_filter_mode
+     *
+     * @param int $tag_kv_filter_mode tag_kv_filter_mode
+     *
+     * @return $this
+     */
+    public function setTagKvFilterMode($tag_kv_filter_mode)
+    {
+        $this->container['tag_kv_filter_mode'] = $tag_kv_filter_mode;
 
         return $this;
     }

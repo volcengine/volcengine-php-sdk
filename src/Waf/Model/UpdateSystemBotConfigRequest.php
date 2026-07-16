@@ -32,7 +32,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'string',
         'enable' => 'int',
         'host' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'rule_tag_list' => 'string[]',
+        'sub_rules' => '\Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[]',
+        'verification_exemption_time' => 'int'
     ];
 
     /**
@@ -45,7 +48,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => null,
         'enable' => 'int32',
         'host' => null,
-        'project_name' => null
+        'project_name' => null,
+        'rule_tag_list' => null,
+        'sub_rules' => null,
+        'verification_exemption_time' => 'int32'
     ];
 
     /**
@@ -79,7 +85,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'BotType',
         'enable' => 'Enable',
         'host' => 'Host',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'rule_tag_list' => 'RuleTagList',
+        'sub_rules' => 'SubRules',
+        'verification_exemption_time' => 'VerificationExemptionTime'
     ];
 
     /**
@@ -92,7 +101,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'setBotType',
         'enable' => 'setEnable',
         'host' => 'setHost',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'rule_tag_list' => 'setRuleTagList',
+        'sub_rules' => 'setSubRules',
+        'verification_exemption_time' => 'setVerificationExemptionTime'
     ];
 
     /**
@@ -105,7 +117,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'getBotType',
         'enable' => 'getEnable',
         'host' => 'getHost',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'rule_tag_list' => 'getRuleTagList',
+        'sub_rules' => 'getSubRules',
+        'verification_exemption_time' => 'getVerificationExemptionTime'
     ];
 
     /**
@@ -149,8 +164,31 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACTION_OBSERVE = 'observe';
+    const ACTION_BLOCK = 'block';
+    const ACTION_JS = 'js';
+    const ACTION_POW = 'pow';
+    const ACTION_CAPTCHA = 'captcha';
+    const ACTION_PERMIT = 'permit';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_OBSERVE,
+            self::ACTION_BLOCK,
+            self::ACTION_JS,
+            self::ACTION_POW,
+            self::ACTION_CAPTCHA,
+            self::ACTION_PERMIT,
+        ];
+    }
     
 
     /**
@@ -173,6 +211,9 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['rule_tag_list'] = isset($data['rule_tag_list']) ? $data['rule_tag_list'] : null;
+        $this->container['sub_rules'] = isset($data['sub_rules']) ? $data['sub_rules'] : null;
+        $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
     }
 
     /**
@@ -184,9 +225,14 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['bot_type'] === null) {
-            $invalidProperties[] = "'bot_type' can't be null";
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
@@ -224,6 +270,15 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['action'] = $action;
 
         return $this;
@@ -321,6 +376,78 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag_list
+     *
+     * @return string[]
+     */
+    public function getRuleTagList()
+    {
+        return $this->container['rule_tag_list'];
+    }
+
+    /**
+     * Sets rule_tag_list
+     *
+     * @param string[] $rule_tag_list rule_tag_list
+     *
+     * @return $this
+     */
+    public function setRuleTagList($rule_tag_list)
+    {
+        $this->container['rule_tag_list'] = $rule_tag_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_rules
+     *
+     * @return \Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[]
+     */
+    public function getSubRules()
+    {
+        return $this->container['sub_rules'];
+    }
+
+    /**
+     * Sets sub_rules
+     *
+     * @param \Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[] $sub_rules sub_rules
+     *
+     * @return $this
+     */
+    public function setSubRules($sub_rules)
+    {
+        $this->container['sub_rules'] = $sub_rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_exemption_time
+     *
+     * @return int
+     */
+    public function getVerificationExemptionTime()
+    {
+        return $this->container['verification_exemption_time'];
+    }
+
+    /**
+     * Sets verification_exemption_time
+     *
+     * @param int $verification_exemption_time verification_exemption_time
+     *
+     * @return $this
+     */
+    public function setVerificationExemptionTime($verification_exemption_time)
+    {
+        $this->container['verification_exemption_time'] = $verification_exemption_time;
 
         return $this;
     }
