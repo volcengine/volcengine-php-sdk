@@ -30,6 +30,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'async' => 'bool',
         'cpu_milli' => 'int',
+        'ebs_volumes' => '\Volcengine\Vefaas\Model\EBSVolumeForCreateSandboxInput[]',
         'empty_dir_volume' => '\Volcengine\Vefaas\Model\EmptyDirVolumeForCreateSandboxInput[]',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]',
         'function_id' => 'string',
@@ -40,8 +41,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
         'request_timeout' => 'int',
+        'role_chain_trn' => 'string[]',
         'session_id' => 'string',
         'sidecars' => '\Volcengine\Vefaas\Model\SidecarForCreateSandboxInput[]',
+        'snapshot_id' => 'string',
         'timeout' => 'int',
         'timeout_unit' => 'string'
     ];
@@ -54,6 +57,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'async' => null,
         'cpu_milli' => 'int32',
+        'ebs_volumes' => null,
         'empty_dir_volume' => null,
         'envs' => null,
         'function_id' => null,
@@ -64,8 +68,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int32',
         'metadata' => null,
         'request_timeout' => 'int32',
+        'role_chain_trn' => null,
         'session_id' => null,
         'sidecars' => null,
+        'snapshot_id' => null,
         'timeout' => 'int32',
         'timeout_unit' => null
     ];
@@ -99,6 +105,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'async' => 'Async',
         'cpu_milli' => 'CpuMilli',
+        'ebs_volumes' => 'EBSVolumes',
         'empty_dir_volume' => 'EmptyDirVolume',
         'envs' => 'Envs',
         'function_id' => 'FunctionId',
@@ -109,8 +116,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
         'request_timeout' => 'RequestTimeout',
+        'role_chain_trn' => 'RoleChainTrn',
         'session_id' => 'SessionId',
         'sidecars' => 'Sidecars',
+        'snapshot_id' => 'SnapshotId',
         'timeout' => 'Timeout',
         'timeout_unit' => 'TimeoutUnit'
     ];
@@ -123,6 +132,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'async' => 'setAsync',
         'cpu_milli' => 'setCpuMilli',
+        'ebs_volumes' => 'setEbsVolumes',
         'empty_dir_volume' => 'setEmptyDirVolume',
         'envs' => 'setEnvs',
         'function_id' => 'setFunctionId',
@@ -133,8 +143,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
         'request_timeout' => 'setRequestTimeout',
+        'role_chain_trn' => 'setRoleChainTrn',
         'session_id' => 'setSessionId',
         'sidecars' => 'setSidecars',
+        'snapshot_id' => 'setSnapshotId',
         'timeout' => 'setTimeout',
         'timeout_unit' => 'setTimeoutUnit'
     ];
@@ -147,6 +159,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'async' => 'getAsync',
         'cpu_milli' => 'getCpuMilli',
+        'ebs_volumes' => 'getEbsVolumes',
         'empty_dir_volume' => 'getEmptyDirVolume',
         'envs' => 'getEnvs',
         'function_id' => 'getFunctionId',
@@ -157,8 +170,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
         'request_timeout' => 'getRequestTimeout',
+        'role_chain_trn' => 'getRoleChainTrn',
         'session_id' => 'getSessionId',
         'sidecars' => 'getSidecars',
+        'snapshot_id' => 'getSnapshotId',
         'timeout' => 'getTimeout',
         'timeout_unit' => 'getTimeoutUnit'
     ];
@@ -225,6 +240,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     {
         $this->container['async'] = isset($data['async']) ? $data['async'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
+        $this->container['ebs_volumes'] = isset($data['ebs_volumes']) ? $data['ebs_volumes'] : null;
         $this->container['empty_dir_volume'] = isset($data['empty_dir_volume']) ? $data['empty_dir_volume'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
@@ -235,8 +251,10 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['role_chain_trn'] = isset($data['role_chain_trn']) ? $data['role_chain_trn'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['timeout_unit'] = isset($data['timeout_unit']) ? $data['timeout_unit'] : null;
     }
@@ -312,6 +330,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setCpuMilli($cpu_milli)
     {
         $this->container['cpu_milli'] = $cpu_milli;
+
+        return $this;
+    }
+
+    /**
+     * Gets ebs_volumes
+     *
+     * @return \Volcengine\Vefaas\Model\EBSVolumeForCreateSandboxInput[]
+     */
+    public function getEbsVolumes()
+    {
+        return $this->container['ebs_volumes'];
+    }
+
+    /**
+     * Sets ebs_volumes
+     *
+     * @param \Volcengine\Vefaas\Model\EBSVolumeForCreateSandboxInput[] $ebs_volumes ebs_volumes
+     *
+     * @return $this
+     */
+    public function setEbsVolumes($ebs_volumes)
+    {
+        $this->container['ebs_volumes'] = $ebs_volumes;
 
         return $this;
     }
@@ -557,6 +599,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets role_chain_trn
+     *
+     * @return string[]
+     */
+    public function getRoleChainTrn()
+    {
+        return $this->container['role_chain_trn'];
+    }
+
+    /**
+     * Sets role_chain_trn
+     *
+     * @param string[] $role_chain_trn role_chain_trn
+     *
+     * @return $this
+     */
+    public function setRoleChainTrn($role_chain_trn)
+    {
+        $this->container['role_chain_trn'] = $role_chain_trn;
+
+        return $this;
+    }
+
+    /**
      * Gets session_id
      *
      * @return string
@@ -600,6 +666,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setSidecars($sidecars)
     {
         $this->container['sidecars'] = $sidecars;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
 
         return $this;
     }

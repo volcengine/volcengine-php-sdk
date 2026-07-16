@@ -31,7 +31,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         'limit' => 'int',
         'list' => '\Volcengine\Billing\Model\ListForListAmortizedCostBillDetailOutput[]',
         'offset' => 'int',
-        'total' => 'int'
+        'total' => 'int',
+        'warning' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         'limit' => 'int32',
         'list' => null,
         'offset' => 'int32',
-        'total' => 'int32'
+        'total' => 'int32',
+        'warning' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         'limit' => 'Limit',
         'list' => 'List',
         'offset' => 'Offset',
-        'total' => 'Total'
+        'total' => 'Total',
+        'warning' => 'Warning'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         'limit' => 'setLimit',
         'list' => 'setList',
         'offset' => 'setOffset',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         'limit' => 'getLimit',
         'list' => 'getList',
         'offset' => 'getOffset',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
         $this->container['list'] = isset($data['list']) ? $data['list'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
     public function setTotal($total)
     {
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return string
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param string $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

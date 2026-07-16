@@ -34,6 +34,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         'empty_dir_volume' => '\Volcengine\Vefaas\Model\EmptyDirVolumeForCreateSandboxInput[]',
         'envs' => '\Volcengine\Vefaas\Model\EnvsForCreateSandboxInput',
         'image' => 'string',
+        'is_init_container' => 'bool',
         'memory_mb' => 'int',
         'name' => 'string'
     ];
@@ -50,6 +51,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         'empty_dir_volume' => null,
         'envs' => null,
         'image' => null,
+        'is_init_container' => null,
         'memory_mb' => 'int32',
         'name' => null
     ];
@@ -87,6 +89,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         'empty_dir_volume' => 'EmptyDirVolume',
         'envs' => 'Envs',
         'image' => 'Image',
+        'is_init_container' => 'IsInitContainer',
         'memory_mb' => 'MemoryMB',
         'name' => 'Name'
     ];
@@ -103,6 +106,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         'empty_dir_volume' => 'setEmptyDirVolume',
         'envs' => 'setEnvs',
         'image' => 'setImage',
+        'is_init_container' => 'setIsInitContainer',
         'memory_mb' => 'setMemoryMb',
         'name' => 'setName'
     ];
@@ -119,6 +123,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         'empty_dir_volume' => 'getEmptyDirVolume',
         'envs' => 'getEnvs',
         'image' => 'getImage',
+        'is_init_container' => 'getIsInitContainer',
         'memory_mb' => 'getMemoryMb',
         'name' => 'getName'
     ];
@@ -189,6 +194,7 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
         $this->container['empty_dir_volume'] = isset($data['empty_dir_volume']) ? $data['empty_dir_volume'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['is_init_container'] = isset($data['is_init_container']) ? $data['is_init_container'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
@@ -357,6 +363,30 @@ class SidecarForCreateSandboxInput implements ModelInterface, ArrayAccess
     public function setImage($image)
     {
         $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_init_container
+     *
+     * @return bool
+     */
+    public function getIsInitContainer()
+    {
+        return $this->container['is_init_container'];
+    }
+
+    /**
+     * Sets is_init_container
+     *
+     * @param bool $is_init_container is_init_container
+     *
+     * @return $this
+     */
+    public function setIsInitContainer($is_init_container)
+    {
+        $this->container['is_init_container'] = $is_init_container;
 
         return $this;
     }

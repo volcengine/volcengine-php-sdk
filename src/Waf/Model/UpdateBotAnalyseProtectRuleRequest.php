@@ -28,8 +28,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput[]',
-        'action_after_verification' => 'int',
+        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput',
+        'accurate_group_priority' => 'int',
         'action_type' => 'int',
         'effect_time' => 'int',
         'enable' => 'int',
@@ -42,10 +42,11 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path_threshold' => 'int',
         'project_name' => 'string',
         'rule_priority' => 'int',
-        'single_proportion' => 'float',
+        'single_proportion' => 'double',
         'single_threshold' => 'int',
         'statistical_duration' => 'int',
-        'statistical_type' => 'int'
+        'statistical_type' => 'int',
+        'update_time' => 'string'
     ];
 
     /**
@@ -55,7 +56,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accurate_group' => null,
-        'action_after_verification' => 'int32',
+        'accurate_group_priority' => 'int32',
         'action_type' => 'int32',
         'effect_time' => 'int32',
         'enable' => 'int32',
@@ -68,10 +69,11 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path_threshold' => 'int32',
         'project_name' => null,
         'rule_priority' => 'int32',
-        'single_proportion' => 'float',
+        'single_proportion' => 'double',
         'single_threshold' => 'int32',
         'statistical_duration' => 'int32',
-        'statistical_type' => 'int32'
+        'statistical_type' => 'int32',
+        'update_time' => null
     ];
 
     /**
@@ -102,7 +104,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accurate_group' => 'AccurateGroup',
-        'action_after_verification' => 'ActionAfterVerification',
+        'accurate_group_priority' => 'AccurateGroupPriority',
         'action_type' => 'ActionType',
         'effect_time' => 'EffectTime',
         'enable' => 'Enable',
@@ -118,7 +120,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'SingleProportion',
         'single_threshold' => 'SingleThreshold',
         'statistical_duration' => 'StatisticalDuration',
-        'statistical_type' => 'StatisticalType'
+        'statistical_type' => 'StatisticalType',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -128,7 +131,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accurate_group' => 'setAccurateGroup',
-        'action_after_verification' => 'setActionAfterVerification',
+        'accurate_group_priority' => 'setAccurateGroupPriority',
         'action_type' => 'setActionType',
         'effect_time' => 'setEffectTime',
         'enable' => 'setEnable',
@@ -144,7 +147,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'setSingleProportion',
         'single_threshold' => 'setSingleThreshold',
         'statistical_duration' => 'setStatisticalDuration',
-        'statistical_type' => 'setStatisticalType'
+        'statistical_type' => 'setStatisticalType',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -154,7 +158,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accurate_group' => 'getAccurateGroup',
-        'action_after_verification' => 'getActionAfterVerification',
+        'accurate_group_priority' => 'getAccurateGroupPriority',
         'action_type' => 'getActionType',
         'effect_time' => 'getEffectTime',
         'enable' => 'getEnable',
@@ -170,7 +174,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'getSingleProportion',
         'single_threshold' => 'getSingleThreshold',
         'statistical_duration' => 'getStatisticalDuration',
-        'statistical_type' => 'getStatisticalType'
+        'statistical_type' => 'getStatisticalType',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -234,7 +239,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
-        $this->container['action_after_verification'] = isset($data['action_after_verification']) ? $data['action_after_verification'] : null;
+        $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
         $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
         $this->container['effect_time'] = isset($data['effect_time']) ? $data['effect_time'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
@@ -251,6 +256,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['statistical_duration'] = isset($data['statistical_duration']) ? $data['statistical_duration'] : null;
         $this->container['statistical_type'] = isset($data['statistical_type']) ? $data['statistical_type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -264,9 +270,6 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['action_type'] === null) {
             $invalidProperties[] = "'action_type' can't be null";
-        }
-        if ($this->container['effect_time'] === null) {
-            $invalidProperties[] = "'effect_time' can't be null";
         }
         if ($this->container['enable'] === null) {
             $invalidProperties[] = "'enable' can't be null";
@@ -288,9 +291,6 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['rule_priority'] === null) {
             $invalidProperties[] = "'rule_priority' can't be null";
-        }
-        if ($this->container['single_threshold'] === null) {
-            $invalidProperties[] = "'single_threshold' can't be null";
         }
         if ($this->container['statistical_duration'] === null) {
             $invalidProperties[] = "'statistical_duration' can't be null";
@@ -316,7 +316,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accurate_group
      *
-     * @return \Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput[]
+     * @return \Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput
      */
     public function getAccurateGroup()
     {
@@ -326,7 +326,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accurate_group
      *
-     * @param \Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput[] $accurate_group accurate_group
+     * @param \Volcengine\Waf\Model\AccurateGroupForUpdateBotAnalyseProtectRuleInput $accurate_group accurate_group
      *
      * @return $this
      */
@@ -338,25 +338,25 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets action_after_verification
+     * Gets accurate_group_priority
      *
      * @return int
      */
-    public function getActionAfterVerification()
+    public function getAccurateGroupPriority()
     {
-        return $this->container['action_after_verification'];
+        return $this->container['accurate_group_priority'];
     }
 
     /**
-     * Sets action_after_verification
+     * Sets accurate_group_priority
      *
-     * @param int $action_after_verification action_after_verification
+     * @param int $accurate_group_priority accurate_group_priority
      *
      * @return $this
      */
-    public function setActionAfterVerification($action_after_verification)
+    public function setAccurateGroupPriority($accurate_group_priority)
     {
-        $this->container['action_after_verification'] = $action_after_verification;
+        $this->container['accurate_group_priority'] = $accurate_group_priority;
 
         return $this;
     }
@@ -652,7 +652,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets single_proportion
      *
-     * @return float
+     * @return double
      */
     public function getSingleProportion()
     {
@@ -662,7 +662,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets single_proportion
      *
-     * @param float $single_proportion single_proportion
+     * @param double $single_proportion single_proportion
      *
      * @return $this
      */
@@ -741,6 +741,30 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setStatisticalType($statistical_type)
     {
         $this->container['statistical_type'] = $statistical_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

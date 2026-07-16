@@ -30,8 +30,11 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'count' => 'int',
         'current_page' => 'int',
+        'page_info' => '\Volcengine\Waf\Model\PageInfoForListAclRuleOutput',
         'page_size' => 'int',
-        'rules' => '\Volcengine\Waf\Model\RuleForListAclRuleOutput[]',
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForListAclRuleOutput',
+        'result' => '\Volcengine\Waf\Model\ResultForListAclRuleOutput',
+        'rules' => '\Volcengine\Waf\Model\ConvertRuleForListAclRuleOutput[]',
         'total_count' => 'int'
     ];
 
@@ -43,7 +46,10 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'count' => 'int32',
         'current_page' => 'int32',
+        'page_info' => null,
         'page_size' => 'int32',
+        'response_metadata' => null,
+        'result' => null,
         'rules' => null,
         'total_count' => 'int32'
     ];
@@ -77,7 +83,10 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'count' => 'Count',
         'current_page' => 'CurrentPage',
+        'page_info' => 'PageInfo',
         'page_size' => 'PageSize',
+        'response_metadata' => 'ResponseMetadata',
+        'result' => 'Result',
         'rules' => 'Rules',
         'total_count' => 'TotalCount'
     ];
@@ -90,7 +99,10 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'count' => 'setCount',
         'current_page' => 'setCurrentPage',
+        'page_info' => 'setPageInfo',
         'page_size' => 'setPageSize',
+        'response_metadata' => 'setResponseMetadata',
+        'result' => 'setResult',
         'rules' => 'setRules',
         'total_count' => 'setTotalCount'
     ];
@@ -103,7 +115,10 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'count' => 'getCount',
         'current_page' => 'getCurrentPage',
+        'page_info' => 'getPageInfo',
         'page_size' => 'getPageSize',
+        'response_metadata' => 'getResponseMetadata',
+        'result' => 'getResult',
         'rules' => 'getRules',
         'total_count' => 'getTotalCount'
     ];
@@ -170,7 +185,10 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
@@ -248,6 +266,30 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets page_info
+     *
+     * @return \Volcengine\Waf\Model\PageInfoForListAclRuleOutput
+     */
+    public function getPageInfo()
+    {
+        return $this->container['page_info'];
+    }
+
+    /**
+     * Sets page_info
+     *
+     * @param \Volcengine\Waf\Model\PageInfoForListAclRuleOutput $page_info page_info
+     *
+     * @return $this
+     */
+    public function setPageInfo($page_info)
+    {
+        $this->container['page_info'] = $page_info;
+
+        return $this;
+    }
+
+    /**
      * Gets page_size
      *
      * @return int
@@ -272,9 +314,57 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForListAclRuleOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForListAclRuleOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \Volcengine\Waf\Model\ResultForListAclRuleOutput
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \Volcengine\Waf\Model\ResultForListAclRuleOutput $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
      * Gets rules
      *
-     * @return \Volcengine\Waf\Model\RuleForListAclRuleOutput[]
+     * @return \Volcengine\Waf\Model\ConvertRuleForListAclRuleOutput[]
      */
     public function getRules()
     {
@@ -284,7 +374,7 @@ class ListAclRuleResponse implements ModelInterface, ArrayAccess
     /**
      * Sets rules
      *
-     * @param \Volcengine\Waf\Model\RuleForListAclRuleOutput[] $rules rules
+     * @param \Volcengine\Waf\Model\ConvertRuleForListAclRuleOutput[] $rules rules
      *
      * @return $this
      */

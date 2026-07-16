@@ -5462,6 +5462,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function resetPodPhoneTemplate($body = null)
+    {
+        list($response) = $this->resetPodPhoneTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resetPodPhoneTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ResetPodPhoneTemplateResponse';
+        $request = $this->resetPodPhoneTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function resetPodPhoneTemplateAsync($body = null)
+    {
+        return $this->resetPodPhoneTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resetPodPhoneTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\ResetPodPhoneTemplateResponse';
+        $request = $this->resetPodPhoneTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function resetPodPhoneTemplateRequest($body)
+    {
+        $resourcePath = '/ResetPodPhoneTemplate/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function restoreData($body = null)
     {
         list($response) = $this->restoreDataWithHttpInfo($body);

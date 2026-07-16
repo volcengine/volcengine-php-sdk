@@ -29,7 +29,8 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'core_count' => 'int',
-        'threads_per_core' => 'int'
+        'threads_per_core' => 'int',
+        'topology_type' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'core_count' => 'int32',
-        'threads_per_core' => 'int32'
+        'threads_per_core' => 'int32',
+        'topology_type' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'core_count' => 'CoreCount',
-        'threads_per_core' => 'ThreadsPerCore'
+        'threads_per_core' => 'ThreadsPerCore',
+        'topology_type' => 'TopologyType'
     ];
 
     /**
@@ -80,7 +83,8 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'core_count' => 'setCoreCount',
-        'threads_per_core' => 'setThreadsPerCore'
+        'threads_per_core' => 'setThreadsPerCore',
+        'topology_type' => 'setTopologyType'
     ];
 
     /**
@@ -90,7 +94,8 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'core_count' => 'getCoreCount',
-        'threads_per_core' => 'getThreadsPerCore'
+        'threads_per_core' => 'getThreadsPerCore',
+        'topology_type' => 'getTopologyType'
     ];
 
     /**
@@ -155,6 +160,7 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
     {
         $this->container['core_count'] = isset($data['core_count']) ? $data['core_count'] : null;
         $this->container['threads_per_core'] = isset($data['threads_per_core']) ? $data['threads_per_core'] : null;
+        $this->container['topology_type'] = isset($data['topology_type']) ? $data['topology_type'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
     public function setThreadsPerCore($threads_per_core)
     {
         $this->container['threads_per_core'] = $threads_per_core;
+
+        return $this;
+    }
+
+    /**
+     * Gets topology_type
+     *
+     * @return string
+     */
+    public function getTopologyType()
+    {
+        return $this->container['topology_type'];
+    }
+
+    /**
+     * Sets topology_type
+     *
+     * @param string $topology_type topology_type
+     *
+     * @return $this
+     */
+    public function setTopologyType($topology_type)
+    {
+        $this->container['topology_type'] = $topology_type;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput',
         'bot_space' => 'string',
         'host' => 'string',
         'page' => 'int',
@@ -42,6 +43,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'accurate_group' => null,
         'bot_space' => null,
         'host' => null,
         'page' => 'int32',
@@ -77,6 +79,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
+        'accurate_group' => 'AccurateGroup',
         'bot_space' => 'BotSpace',
         'host' => 'Host',
         'page' => 'Page',
@@ -91,6 +94,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
+        'accurate_group' => 'setAccurateGroup',
         'bot_space' => 'setBotSpace',
         'host' => 'setHost',
         'page' => 'setPage',
@@ -105,6 +109,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
+        'accurate_group' => 'getAccurateGroup',
         'bot_space' => 'getBotSpace',
         'host' => 'getHost',
         'page' => 'getPage',
@@ -154,8 +159,23 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         return self::$swaggerModelName;
     }
 
+    const BOT_SPACE_BOT_FREQUENCY = 'BotFrequency';
+    const BOT_SPACE_BOT_REPEAT = 'BotRepeat';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBotSpaceAllowableValues()
+    {
+        return [
+            self::BOT_SPACE_BOT_FREQUENCY,
+            self::BOT_SPACE_BOT_REPEAT,
+        ];
+    }
     
 
     /**
@@ -173,6 +193,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
      */
     public function __construct($data = null)
     {
+        $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['bot_space'] = isset($data['bot_space']) ? $data['bot_space'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
@@ -193,6 +214,14 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         if ($this->container['bot_space'] === null) {
             $invalidProperties[] = "'bot_space' can't be null";
         }
+        $allowedValues = $this->getBotSpaceAllowableValues();
+        if (!is_null($this->container['bot_space']) && !in_array($this->container['bot_space'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'bot_space', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
@@ -215,6 +244,30 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
 
 
     /**
+     * Gets accurate_group
+     *
+     * @return \Volcengine\Waf\Model\AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput
+     */
+    public function getAccurateGroup()
+    {
+        return $this->container['accurate_group'];
+    }
+
+    /**
+     * Sets accurate_group
+     *
+     * @param \Volcengine\Waf\Model\AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput $accurate_group accurate_group
+     *
+     * @return $this
+     */
+    public function setAccurateGroup($accurate_group)
+    {
+        $this->container['accurate_group'] = $accurate_group;
+
+        return $this;
+    }
+
+    /**
      * Gets bot_space
      *
      * @return string
@@ -233,6 +286,15 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
      */
     public function setBotSpace($bot_space)
     {
+        $allowedValues = $this->getBotSpaceAllowableValues();
+        if (!in_array($bot_space, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'bot_space', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['bot_space'] = $bot_space;
 
         return $this;

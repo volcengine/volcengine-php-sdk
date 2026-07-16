@@ -28,6 +28,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_use_coupon' => 'bool',
         'client_token' => 'string',
         'instance_id' => 'string',
         'product' => 'string',
@@ -43,6 +44,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_use_coupon' => null,
         'client_token' => null,
         'instance_id' => null,
         'product' => null,
@@ -79,6 +81,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_use_coupon' => 'AutoUseCoupon',
         'client_token' => 'ClientToken',
         'instance_id' => 'InstanceID',
         'product' => 'Product',
@@ -94,6 +97,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_use_coupon' => 'setAutoUseCoupon',
         'client_token' => 'setClientToken',
         'instance_id' => 'setInstanceId',
         'product' => 'setProduct',
@@ -109,6 +113,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_use_coupon' => 'getAutoUseCoupon',
         'client_token' => 'getClientToken',
         'instance_id' => 'getInstanceId',
         'product' => 'getProduct',
@@ -178,6 +183,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['auto_use_coupon'] = isset($data['auto_use_coupon']) ? $data['auto_use_coupon'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
@@ -219,6 +225,30 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_use_coupon
+     *
+     * @return bool
+     */
+    public function getAutoUseCoupon()
+    {
+        return $this->container['auto_use_coupon'];
+    }
+
+    /**
+     * Sets auto_use_coupon
+     *
+     * @param bool $auto_use_coupon auto_use_coupon
+     *
+     * @return $this
+     */
+    public function setAutoUseCoupon($auto_use_coupon)
+    {
+        $this->container['auto_use_coupon'] = $auto_use_coupon;
+
+        return $this;
+    }
 
     /**
      * Gets client_token

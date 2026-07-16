@@ -43,6 +43,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'string[]',
         'ip_location_subregion' => 'string[]',
         'name' => 'string',
+        'permit_feature' => 'string[]',
         'project_name' => 'string',
         'url' => 'string'
     ];
@@ -68,6 +69,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => null,
         'ip_location_subregion' => null,
         'name' => null,
+        'permit_feature' => null,
         'project_name' => null,
         'url' => null
     ];
@@ -114,6 +116,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'IpLocationCountry',
         'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
+        'permit_feature' => 'PermitFeature',
         'project_name' => 'ProjectName',
         'url' => 'Url'
     ];
@@ -139,6 +142,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'setIpLocationCountry',
         'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
+        'permit_feature' => 'setPermitFeature',
         'project_name' => 'setProjectName',
         'url' => 'setUrl'
     ];
@@ -164,6 +168,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'getIpLocationCountry',
         'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
+        'permit_feature' => 'getPermitFeature',
         'project_name' => 'getProjectName',
         'url' => 'getUrl'
     ];
@@ -209,8 +214,83 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACL_TYPE_ALLOW = 'Allow';
+    const ACL_TYPE_BLOCK = 'Block';
+    const ACTION_BLOCK = 'block';
+    const ACTION_OBSERVE = 'observe';
+    const PERMIT_FEATURE_ALLOWLIST = 'allowlist';
+    const PERMIT_FEATURE_BLOCKLIST = 'blocklist';
+    const PERMIT_FEATURE_GEO_BLACK = 'geo_black';
+    const PERMIT_FEATURE_API_ROUTE = 'api_route';
+    const PERMIT_FEATURE_API_SCHEMA = 'api_schema';
+    const PERMIT_FEATURE_API_SENSITIVE = 'api_sensitive';
+    const PERMIT_FEATURE_BOT_DYTOKEN = 'bot_dytoken';
+    const PERMIT_FEATURE_BOT_FREQUENCY = 'bot_frequency';
+    const PERMIT_FEATURE_BOT_REPEAT = 'bot_repeat';
+    const PERMIT_FEATURE_BOT_SEQUENCE = 'bot_sequence';
+    const PERMIT_FEATURE_USER_UA_BOT = 'user_ua_bot';
+    const PERMIT_FEATURE_BOT_UA_SYSTEM = 'bot_ua_system';
+    const PERMIT_FEATURE_HTTPFLOOD = 'httpflood';
+    const PERMIT_FEATURE_VULN_SIGNATURE = 'vuln_signature';
+    const PERMIT_FEATURE_SCAN_FREQVULN = 'scan_freqvuln';
+    const PERMIT_FEATURE_SCAN_DIRENUM = 'scan_direnum';
+    const PERMIT_FEATURE_BOT_SESSION_PROTECTION = 'bot_session_protection';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAclTypeAllowableValues()
+    {
+        return [
+            self::ACL_TYPE_ALLOW,
+            self::ACL_TYPE_BLOCK,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_BLOCK,
+            self::ACTION_OBSERVE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPermitFeatureAllowableValues()
+    {
+        return [
+            self::PERMIT_FEATURE_ALLOWLIST,
+            self::PERMIT_FEATURE_BLOCKLIST,
+            self::PERMIT_FEATURE_GEO_BLACK,
+            self::PERMIT_FEATURE_API_ROUTE,
+            self::PERMIT_FEATURE_API_SCHEMA,
+            self::PERMIT_FEATURE_API_SENSITIVE,
+            self::PERMIT_FEATURE_BOT_DYTOKEN,
+            self::PERMIT_FEATURE_BOT_FREQUENCY,
+            self::PERMIT_FEATURE_BOT_REPEAT,
+            self::PERMIT_FEATURE_BOT_SEQUENCE,
+            self::PERMIT_FEATURE_USER_UA_BOT,
+            self::PERMIT_FEATURE_BOT_UA_SYSTEM,
+            self::PERMIT_FEATURE_HTTPFLOOD,
+            self::PERMIT_FEATURE_VULN_SIGNATURE,
+            self::PERMIT_FEATURE_SCAN_FREQVULN,
+            self::PERMIT_FEATURE_SCAN_DIRENUM,
+            self::PERMIT_FEATURE_BOT_SESSION_PROTECTION,
+        ];
+    }
     
 
     /**
@@ -243,6 +323,7 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
         $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['permit_feature'] = isset($data['permit_feature']) ? $data['permit_feature'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -259,6 +340,22 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['acl_type'] === null) {
             $invalidProperties[] = "'acl_type' can't be null";
         }
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!is_null($this->container['acl_type']) && !in_array($this->container['acl_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'acl_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['enable'] === null) {
             $invalidProperties[] = "'enable' can't be null";
         }
@@ -332,6 +429,15 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAclType($acl_type)
     {
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!in_array($acl_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'acl_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['acl_type'] = $acl_type;
 
         return $this;
@@ -356,6 +462,15 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['action'] = $action;
 
         return $this;
@@ -645,6 +760,39 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets permit_feature
+     *
+     * @return string[]
+     */
+    public function getPermitFeature()
+    {
+        return $this->container['permit_feature'];
+    }
+
+    /**
+     * Sets permit_feature
+     *
+     * @param string[] $permit_feature permit_feature
+     *
+     * @return $this
+     */
+    public function setPermitFeature($permit_feature)
+    {
+        $allowedValues = $this->getPermitFeatureAllowableValues();
+        if (!is_null($permit_feature) && array_diff($permit_feature, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'permit_feature', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['permit_feature'] = $permit_feature;
 
         return $this;
     }

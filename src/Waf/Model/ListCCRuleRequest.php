@@ -169,8 +169,23 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PATH_ORDER_BY_ASC = 'ASC';
+    const PATH_ORDER_BY_DESC = 'DESC';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPathOrderByAllowableValues()
+    {
+        return [
+            self::PATH_ORDER_BY_ASC,
+            self::PATH_ORDER_BY_DESC,
+        ];
+    }
     
 
     /**
@@ -211,6 +226,14 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
+        $allowedValues = $this->getPathOrderByAllowableValues();
+        if (!is_null($this->container['path_order_by']) && !in_array($this->container['path_order_by'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'path_order_by', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -341,6 +364,15 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setPathOrderBy($path_order_by)
     {
+        $allowedValues = $this->getPathOrderByAllowableValues();
+        if (!is_null($path_order_by) && !in_array($path_order_by, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'path_order_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['path_order_by'] = $path_order_by;
 
         return $this;

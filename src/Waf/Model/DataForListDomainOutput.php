@@ -101,7 +101,8 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'waf_enable' => 'int',
         'waf_white_req_enable' => 'int',
         'white_enable' => 'int',
-        'white_field_enable' => 'int'
+        'white_field_enable' => 'int',
+        'xff_reset' => 'int'
     ];
 
     /**
@@ -183,7 +184,8 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'waf_enable' => 'int32',
         'waf_white_req_enable' => 'int32',
         'white_enable' => 'int32',
-        'white_field_enable' => 'int32'
+        'white_field_enable' => 'int32',
+        'xff_reset' => 'int32'
     ];
 
     /**
@@ -286,7 +288,8 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'waf_enable' => 'WafEnable',
         'waf_white_req_enable' => 'WafWhiteReqEnable',
         'white_enable' => 'WhiteEnable',
-        'white_field_enable' => 'WhiteFieldEnable'
+        'white_field_enable' => 'WhiteFieldEnable',
+        'xff_reset' => 'XFFReset'
     ];
 
     /**
@@ -368,7 +371,8 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'waf_enable' => 'setWafEnable',
         'waf_white_req_enable' => 'setWafWhiteReqEnable',
         'white_enable' => 'setWhiteEnable',
-        'white_field_enable' => 'setWhiteFieldEnable'
+        'white_field_enable' => 'setWhiteFieldEnable',
+        'xff_reset' => 'setXffReset'
     ];
 
     /**
@@ -450,7 +454,8 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'waf_enable' => 'getWafEnable',
         'waf_white_req_enable' => 'getWafWhiteReqEnable',
         'white_enable' => 'getWhiteEnable',
-        'white_field_enable' => 'getWhiteFieldEnable'
+        'white_field_enable' => 'getWhiteFieldEnable',
+        'xff_reset' => 'getXffReset'
     ];
 
     /**
@@ -587,6 +592,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         $this->container['waf_white_req_enable'] = isset($data['waf_white_req_enable']) ? $data['waf_white_req_enable'] : null;
         $this->container['white_enable'] = isset($data['white_enable']) ? $data['white_enable'] : null;
         $this->container['white_field_enable'] = isset($data['white_field_enable']) ? $data['white_field_enable'] : null;
+        $this->container['xff_reset'] = isset($data['xff_reset']) ? $data['xff_reset'] : null;
     }
 
     /**
@@ -2385,6 +2391,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     public function setWhiteFieldEnable($white_field_enable)
     {
         $this->container['white_field_enable'] = $white_field_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets xff_reset
+     *
+     * @return int
+     */
+    public function getXffReset()
+    {
+        return $this->container['xff_reset'];
+    }
+
+    /**
+     * Sets xff_reset
+     *
+     * @param int $xff_reset xff_reset
+     *
+     * @return $this
+     */
+    public function setXffReset($xff_reset)
+    {
+        $this->container['xff_reset'] = $xff_reset;
 
         return $this;
     }

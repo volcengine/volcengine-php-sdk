@@ -28,9 +28,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'batch_id' => 'string',
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput',
-        'upload_subtitle_infos' => '\Volcengine\I18nopenapi\Model\UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput[]'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput'
     ];
 
     /**
@@ -39,9 +37,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'batch_id' => null,
-        'data' => null,
-        'upload_subtitle_infos' => null
+        'data' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_id' => 'batchId',
-        'data' => 'data',
-        'upload_subtitle_infos' => 'uploadSubtitleInfos'
+        'data' => 'data'
     ];
 
     /**
@@ -82,9 +76,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'batch_id' => 'setBatchId',
-        'data' => 'setData',
-        'upload_subtitle_infos' => 'setUploadSubtitleInfos'
+        'data' => 'setData'
     ];
 
     /**
@@ -93,9 +85,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'batch_id' => 'getBatchId',
-        'data' => 'getData',
-        'upload_subtitle_infos' => 'getUploadSubtitleInfos'
+        'data' => 'getData'
     ];
 
     /**
@@ -158,9 +148,7 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['upload_subtitle_infos'] = isset($data['upload_subtitle_infos']) ? $data['upload_subtitle_infos'] : null;
     }
 
     /**
@@ -188,30 +176,6 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets batch_id
-     *
-     * @return string
-     */
-    public function getBatchId()
-    {
-        return $this->container['batch_id'];
-    }
-
-    /**
-     * Sets batch_id
-     *
-     * @param string $batch_id batch_id
-     *
-     * @return $this
-     */
-    public function setBatchId($batch_id)
-    {
-        $this->container['batch_id'] = $batch_id;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
      * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectGetUploadSubtitleStatusOutput
@@ -231,30 +195,6 @@ class VideoProjectGetUploadSubtitleStatusResponse implements ModelInterface, Arr
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets upload_subtitle_infos
-     *
-     * @return \Volcengine\I18nopenapi\Model\UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput[]
-     */
-    public function getUploadSubtitleInfos()
-    {
-        return $this->container['upload_subtitle_infos'];
-    }
-
-    /**
-     * Sets upload_subtitle_infos
-     *
-     * @param \Volcengine\I18nopenapi\Model\UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput[] $upload_subtitle_infos upload_subtitle_infos
-     *
-     * @return $this
-     */
-    public function setUploadSubtitleInfos($upload_subtitle_infos)
-    {
-        $this->container['upload_subtitle_infos'] = $upload_subtitle_infos;
 
         return $this;
     }
