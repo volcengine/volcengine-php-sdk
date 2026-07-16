@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAccess
+class CpuOptionsForRunInstancesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CpuOptionsForDescribeInstancesOutput';
+    protected static $swaggerModelName = 'CpuOptionsForRunInstancesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'core_count' => 'int',
-        'threads_per_core' => 'int',
         'topology_type' => 'string'
     ];
 
@@ -39,8 +37,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'core_count' => 'int32',
-        'threads_per_core' => 'int32',
         'topology_type' => null
     ];
 
@@ -71,8 +67,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'core_count' => 'CoreCount',
-        'threads_per_core' => 'ThreadsPerCore',
         'topology_type' => 'TopologyType'
     ];
 
@@ -82,8 +76,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'core_count' => 'setCoreCount',
-        'threads_per_core' => 'setThreadsPerCore',
         'topology_type' => 'setTopologyType'
     ];
 
@@ -93,8 +85,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'core_count' => 'getCoreCount',
-        'threads_per_core' => 'getThreadsPerCore',
         'topology_type' => 'getTopologyType'
     ];
 
@@ -158,8 +148,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['core_count'] = isset($data['core_count']) ? $data['core_count'] : null;
-        $this->container['threads_per_core'] = isset($data['threads_per_core']) ? $data['threads_per_core'] : null;
         $this->container['topology_type'] = isset($data['topology_type']) ? $data['topology_type'] : null;
     }
 
@@ -186,54 +174,6 @@ class CpuOptionsForDescribeInstancesOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets core_count
-     *
-     * @return int
-     */
-    public function getCoreCount()
-    {
-        return $this->container['core_count'];
-    }
-
-    /**
-     * Sets core_count
-     *
-     * @param int $core_count core_count
-     *
-     * @return $this
-     */
-    public function setCoreCount($core_count)
-    {
-        $this->container['core_count'] = $core_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets threads_per_core
-     *
-     * @return int
-     */
-    public function getThreadsPerCore()
-    {
-        return $this->container['threads_per_core'];
-    }
-
-    /**
-     * Sets threads_per_core
-     *
-     * @param int $threads_per_core threads_per_core
-     *
-     * @return $this
-     */
-    public function setThreadsPerCore($threads_per_core)
-    {
-        $this->container['threads_per_core'] = $threads_per_core;
-
-        return $this;
-    }
 
     /**
      * Gets topology_type
