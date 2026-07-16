@@ -36,7 +36,8 @@ class Configuration
     protected $httpProxy;
     protected $httpsProxy;
 
-    protected $userAgent;
+    protected $userAgent = 'volcstack-php-sdk/1.0.123';
+    protected $sdkUserAgent;
     protected $debug = false;
     protected $debugFile = 'php://output';
     protected $tempFolderPath;
@@ -50,7 +51,7 @@ class Configuration
         $this->endpointProvider = new DefaultEndpointProvider();
         $this->retryer = new Retryer();
         $this->logger = new SdkLogger();
-        $this->userAgent = Version::userAgent();
+        $this->sdkUserAgent = $this->userAgent;
     }
 
     /**
@@ -330,17 +331,16 @@ class Configuration
 
     public function setUserAgent($userAgent)
     {
-        $sdkUserAgent = Version::userAgent();
         $userAgent = trim((string) $userAgent);
         if ($userAgent === '') {
-            $this->userAgent = $sdkUserAgent;
+            $this->userAgent = $this->sdkUserAgent;
             return $this;
         }
-        if ($userAgent === $sdkUserAgent || strpos($userAgent, $sdkUserAgent . ' ') === 0) {
+        if ($userAgent === $this->sdkUserAgent || strpos($userAgent, $this->sdkUserAgent . ' ') === 0) {
             $this->userAgent = $userAgent;
             return $this;
         }
-        $this->userAgent = $sdkUserAgent . ' ' . $userAgent;
+        $this->userAgent = $this->sdkUserAgent . ' ' . $userAgent;
         return $this;
     }
 
@@ -489,7 +489,6 @@ class Configuration
         $report = 'PHP SDK (Volcengine\Common) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: ' . Version::SDK_VERSION . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

@@ -3,7 +3,6 @@
 
 require_once __DIR__ . '/LogHelper.php';
 require_once __DIR__ . '/SdkLogger.php';
-require_once __DIR__ . '/Version.php';
 require_once __DIR__ . '/ApiException.php';
 require_once __DIR__ . '/HeaderSelector.php';
 require_once __DIR__ . '/ModelInterface.php';

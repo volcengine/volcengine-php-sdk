@@ -171,6 +171,8 @@ assert_not_contains($configuration, 'function setLogSensitives', 'configuration 
 assert_not_contains($configuration, 'function setLogAccount', 'configuration log account setter');
 assert_not_contains($configuration, 'function setForceJsonNumberDecode', 'configuration force json number decode setter');
 assert_not_contains($configuration, 'function setSimpleError', 'configuration simple error setter');
+assert_not_contains($configuration, 'Version::', 'configuration version class dependency');
+assert_not_contains($configuration, 'OpenAPI Spec Version:', 'debug report OpenAPI spec version');
 
 $apiClient = read_file_or_fail($root . '/src/Common/ApiClient.php');
 assert_contains($apiClient, 'DeserializedResponseInterceptor', 'api client deserialized response interceptor');
@@ -301,6 +303,7 @@ assert_not_contains($commonAutoload, 'LoggerInterface.php', 'common autoload log
 assert_contains($commonAutoload, 'SdkLogger.php', 'common autoload sdk logger');
 assert_contains($commonAutoload, 'LogHelper.php', 'common autoload log helper');
 assert_not_contains($commonAutoload, 'PsrLoggerAdapter.php', 'common autoload psr logger adapter');
+assert_not_contains($commonAutoload, 'Version.php', 'common autoload version file');
 
 $buildRequestInterceptor = read_file_or_fail($root . '/src/Common/Interceptor/Interceptors/BuildRequestInterceptor.php');
 assert_contains($buildRequestInterceptor, "x-www-form-urlencoded", 'build request universal form content type');
@@ -332,7 +335,6 @@ assert_not_contains($retryAutoload, 'RetryCondition.php', 'retry autoload retry 
 assert_not_contains($retryAutoload, 'DefaultRetryCondition.php', 'retry autoload retry condition implementation');
 assert_not_contains($retryAutoload, 'NoOpRetryer.php', 'retry autoload no-op retryer');
 
-$version = read_file_or_fail($root . '/src/Common/Version.php');
-assert_contains($version, 'SDK_VERSION', 'version constant');
+assert_file_not_exists($root . '/src/Common/Version.php', 'version file');
 
 echo "Docs feature documentation check passed.\n";
