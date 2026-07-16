@@ -30,7 +30,7 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ip' => 'string',
         'ip_group_id' => 'int',
-        'list_all' => 'string',
+        'list_all' => 'bool',
         'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string'
@@ -265,7 +265,7 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
     /**
      * Gets list_all
      *
-     * @return string
+     * @return bool
      */
     public function getListAll()
     {
@@ -275,7 +275,7 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
     /**
      * Sets list_all
      *
-     * @param string $list_all list_all
+     * @param bool $list_all list_all
      *
      * @return $this
      */

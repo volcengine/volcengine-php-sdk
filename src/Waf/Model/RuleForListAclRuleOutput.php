@@ -30,10 +30,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput',
         'action' => 'string',
+        'add_src' => 'int',
         'advanced' => 'int',
         'client_ip' => 'string',
         'description' => 'string',
         'enable' => 'int',
+        'host' => 'string',
         'host_add_type' => 'int',
         'host_group_id' => 'int[]',
         'host_groups' => '\Volcengine\Waf\Model\HostGroupForListAclRuleOutput[]',
@@ -46,6 +48,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'string[]',
         'ip_location_subregion' => 'string[]',
         'name' => 'string',
+        'permit_feature' => 'string[]',
+        'prefix_switch' => 'int',
         'rule_tag' => 'string',
         'update_time' => 'string',
         'url' => 'string'
@@ -59,10 +63,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'accurate_group' => null,
         'action' => null,
+        'add_src' => 'int32',
         'advanced' => 'int32',
         'client_ip' => null,
         'description' => null,
         'enable' => 'int32',
+        'host' => null,
         'host_add_type' => 'int32',
         'host_group_id' => 'int32',
         'host_groups' => null,
@@ -75,6 +81,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => null,
         'ip_location_subregion' => null,
         'name' => null,
+        'permit_feature' => null,
+        'prefix_switch' => 'int32',
         'rule_tag' => null,
         'update_time' => null,
         'url' => null
@@ -109,10 +117,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'accurate_group' => 'AccurateGroup',
         'action' => 'Action',
+        'add_src' => 'AddSrc',
         'advanced' => 'Advanced',
         'client_ip' => 'ClientIp',
         'description' => 'Description',
         'enable' => 'Enable',
+        'host' => 'Host',
         'host_add_type' => 'HostAddType',
         'host_group_id' => 'HostGroupId',
         'host_groups' => 'HostGroups',
@@ -125,6 +135,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'IpLocationCountry',
         'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
+        'permit_feature' => 'PermitFeature',
+        'prefix_switch' => 'PrefixSwitch',
         'rule_tag' => 'RuleTag',
         'update_time' => 'UpdateTime',
         'url' => 'Url'
@@ -138,10 +150,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'accurate_group' => 'setAccurateGroup',
         'action' => 'setAction',
+        'add_src' => 'setAddSrc',
         'advanced' => 'setAdvanced',
         'client_ip' => 'setClientIp',
         'description' => 'setDescription',
         'enable' => 'setEnable',
+        'host' => 'setHost',
         'host_add_type' => 'setHostAddType',
         'host_group_id' => 'setHostGroupId',
         'host_groups' => 'setHostGroups',
@@ -154,6 +168,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'setIpLocationCountry',
         'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
+        'permit_feature' => 'setPermitFeature',
+        'prefix_switch' => 'setPrefixSwitch',
         'rule_tag' => 'setRuleTag',
         'update_time' => 'setUpdateTime',
         'url' => 'setUrl'
@@ -167,10 +183,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'accurate_group' => 'getAccurateGroup',
         'action' => 'getAction',
+        'add_src' => 'getAddSrc',
         'advanced' => 'getAdvanced',
         'client_ip' => 'getClientIp',
         'description' => 'getDescription',
         'enable' => 'getEnable',
+        'host' => 'getHost',
         'host_add_type' => 'getHostAddType',
         'host_group_id' => 'getHostGroupId',
         'host_groups' => 'getHostGroups',
@@ -183,6 +201,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'getIpLocationCountry',
         'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
+        'permit_feature' => 'getPermitFeature',
+        'prefix_switch' => 'getPrefixSwitch',
         'rule_tag' => 'getRuleTag',
         'update_time' => 'getUpdateTime',
         'url' => 'getUrl'
@@ -229,8 +249,68 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACTION_BLOCK = 'block';
+    const ACTION_OBSERVE = 'observe';
+    const PERMIT_FEATURE_ALLOWLIST = 'allowlist';
+    const PERMIT_FEATURE_BLOCKLIST = 'blocklist';
+    const PERMIT_FEATURE_GEO_BLACK = 'geo_black';
+    const PERMIT_FEATURE_API_ROUTE = 'api_route';
+    const PERMIT_FEATURE_API_SCHEMA = 'api_schema';
+    const PERMIT_FEATURE_API_SENSITIVE = 'api_sensitive';
+    const PERMIT_FEATURE_BOT_DYTOKEN = 'bot_dytoken';
+    const PERMIT_FEATURE_BOT_FREQUENCY = 'bot_frequency';
+    const PERMIT_FEATURE_BOT_REPEAT = 'bot_repeat';
+    const PERMIT_FEATURE_BOT_SEQUENCE = 'bot_sequence';
+    const PERMIT_FEATURE_USER_UA_BOT = 'user_ua_bot';
+    const PERMIT_FEATURE_BOT_UA_SYSTEM = 'bot_ua_system';
+    const PERMIT_FEATURE_HTTPFLOOD = 'httpflood';
+    const PERMIT_FEATURE_VULN_SIGNATURE = 'vuln_signature';
+    const PERMIT_FEATURE_SCAN_FREQVULN = 'scan_freqvuln';
+    const PERMIT_FEATURE_SCAN_DIRENUM = 'scan_direnum';
+    const PERMIT_FEATURE_BOT_SESSION_PROTECTION = 'bot_session_protection';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_BLOCK,
+            self::ACTION_OBSERVE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPermitFeatureAllowableValues()
+    {
+        return [
+            self::PERMIT_FEATURE_ALLOWLIST,
+            self::PERMIT_FEATURE_BLOCKLIST,
+            self::PERMIT_FEATURE_GEO_BLACK,
+            self::PERMIT_FEATURE_API_ROUTE,
+            self::PERMIT_FEATURE_API_SCHEMA,
+            self::PERMIT_FEATURE_API_SENSITIVE,
+            self::PERMIT_FEATURE_BOT_DYTOKEN,
+            self::PERMIT_FEATURE_BOT_FREQUENCY,
+            self::PERMIT_FEATURE_BOT_REPEAT,
+            self::PERMIT_FEATURE_BOT_SEQUENCE,
+            self::PERMIT_FEATURE_USER_UA_BOT,
+            self::PERMIT_FEATURE_BOT_UA_SYSTEM,
+            self::PERMIT_FEATURE_HTTPFLOOD,
+            self::PERMIT_FEATURE_VULN_SIGNATURE,
+            self::PERMIT_FEATURE_SCAN_FREQVULN,
+            self::PERMIT_FEATURE_SCAN_DIRENUM,
+            self::PERMIT_FEATURE_BOT_SESSION_PROTECTION,
+        ];
+    }
     
 
     /**
@@ -250,10 +330,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['add_src'] = isset($data['add_src']) ? $data['add_src'] : null;
         $this->container['advanced'] = isset($data['advanced']) ? $data['advanced'] : null;
         $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
         $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
         $this->container['host_groups'] = isset($data['host_groups']) ? $data['host_groups'] : null;
@@ -266,6 +348,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
         $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['permit_feature'] = isset($data['permit_feature']) ? $data['permit_feature'] : null;
+        $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -279,6 +363,14 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -338,7 +430,40 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_src
+     *
+     * @return int
+     */
+    public function getAddSrc()
+    {
+        return $this->container['add_src'];
+    }
+
+    /**
+     * Sets add_src
+     *
+     * @param int $add_src add_src
+     *
+     * @return $this
+     */
+    public function setAddSrc($add_src)
+    {
+        $this->container['add_src'] = $add_src;
 
         return $this;
     }
@@ -435,6 +560,30 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
 
         return $this;
     }
@@ -723,6 +872,63 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets permit_feature
+     *
+     * @return string[]
+     */
+    public function getPermitFeature()
+    {
+        return $this->container['permit_feature'];
+    }
+
+    /**
+     * Sets permit_feature
+     *
+     * @param string[] $permit_feature permit_feature
+     *
+     * @return $this
+     */
+    public function setPermitFeature($permit_feature)
+    {
+        $allowedValues = $this->getPermitFeatureAllowableValues();
+        if (!is_null($permit_feature) && array_diff($permit_feature, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'permit_feature', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['permit_feature'] = $permit_feature;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_switch
+     *
+     * @return int
+     */
+    public function getPrefixSwitch()
+    {
+        return $this->container['prefix_switch'];
+    }
+
+    /**
+     * Sets prefix_switch
+     *
+     * @param int $prefix_switch prefix_switch
+     *
+     * @return $this
+     */
+    public function setPrefixSwitch($prefix_switch)
+    {
+        $this->container['prefix_switch'] = $prefix_switch;
 
         return $this;
     }

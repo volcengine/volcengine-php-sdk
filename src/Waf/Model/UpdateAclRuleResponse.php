@@ -28,7 +28,10 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int'
+        'id' => 'int',
+        'page_info' => '\Volcengine\Waf\Model\PageInfoForUpdateAclRuleOutput',
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForUpdateAclRuleOutput',
+        'result' => '\Volcengine\Waf\Model\ResultForUpdateAclRuleOutput'
     ];
 
     /**
@@ -37,7 +40,10 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32'
+        'id' => 'int32',
+        'page_info' => null,
+        'response_metadata' => null,
+        'result' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'id' => 'Id',
+        'page_info' => 'PageInfo',
+        'response_metadata' => 'ResponseMetadata',
+        'result' => 'Result'
     ];
 
     /**
@@ -76,7 +85,10 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'id' => 'setId',
+        'page_info' => 'setPageInfo',
+        'response_metadata' => 'setResponseMetadata',
+        'result' => 'setResult'
     ];
 
     /**
@@ -85,7 +97,10 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'id' => 'getId',
+        'page_info' => 'getPageInfo',
+        'response_metadata' => 'getResponseMetadata',
+        'result' => 'getResult'
     ];
 
     /**
@@ -149,6 +164,9 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -195,6 +213,78 @@ class UpdateAclRuleResponse implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_info
+     *
+     * @return \Volcengine\Waf\Model\PageInfoForUpdateAclRuleOutput
+     */
+    public function getPageInfo()
+    {
+        return $this->container['page_info'];
+    }
+
+    /**
+     * Sets page_info
+     *
+     * @param \Volcengine\Waf\Model\PageInfoForUpdateAclRuleOutput $page_info page_info
+     *
+     * @return $this
+     */
+    public function setPageInfo($page_info)
+    {
+        $this->container['page_info'] = $page_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForUpdateAclRuleOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForUpdateAclRuleOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \Volcengine\Waf\Model\ResultForUpdateAclRuleOutput
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \Volcengine\Waf\Model\ResultForUpdateAclRuleOutput $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }

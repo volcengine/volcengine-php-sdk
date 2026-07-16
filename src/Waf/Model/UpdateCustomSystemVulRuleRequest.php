@@ -29,6 +29,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
+        'host_add_type' => 'int',
+        'host_list' => 'string[]',
         'project_name' => 'string',
         'system_rule_switch' => '\Volcengine\Waf\Model\SystemRuleSwitchForUpdateCustomSystemVulRuleInput[]'
     ];
@@ -40,6 +42,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host' => null,
+        'host_add_type' => 'int32',
+        'host_list' => null,
         'project_name' => null,
         'system_rule_switch' => null
     ];
@@ -72,6 +76,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'host' => 'Host',
+        'host_add_type' => 'HostAddType',
+        'host_list' => 'HostList',
         'project_name' => 'ProjectName',
         'system_rule_switch' => 'SystemRuleSwitch'
     ];
@@ -83,6 +89,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'host' => 'setHost',
+        'host_add_type' => 'setHostAddType',
+        'host_list' => 'setHostList',
         'project_name' => 'setProjectName',
         'system_rule_switch' => 'setSystemRuleSwitch'
     ];
@@ -94,6 +102,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'host' => 'getHost',
+        'host_add_type' => 'getHostAddType',
+        'host_list' => 'getHostList',
         'project_name' => 'getProjectName',
         'system_rule_switch' => 'getSystemRuleSwitch'
     ];
@@ -159,6 +169,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
+        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['system_rule_switch'] = isset($data['system_rule_switch']) ? $data['system_rule_switch'] : null;
     }
@@ -172,9 +184,6 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['host'] === null) {
-            $invalidProperties[] = "'host' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,6 +219,54 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_add_type
+     *
+     * @return int
+     */
+    public function getHostAddType()
+    {
+        return $this->container['host_add_type'];
+    }
+
+    /**
+     * Sets host_add_type
+     *
+     * @param int $host_add_type host_add_type
+     *
+     * @return $this
+     */
+    public function setHostAddType($host_add_type)
+    {
+        $this->container['host_add_type'] = $host_add_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_list
+     *
+     * @return string[]
+     */
+    public function getHostList()
+    {
+        return $this->container['host_list'];
+    }
+
+    /**
+     * Sets host_list
+     *
+     * @param string[] $host_list host_list
+     *
+     * @return $this
+     */
+    public function setHostList($host_list)
+    {
+        $this->container['host_list'] = $host_list;
 
         return $this;
     }

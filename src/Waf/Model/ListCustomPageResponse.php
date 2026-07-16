@@ -30,8 +30,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'current_page' => 'int',
         'data' => '\Volcengine\Waf\Model\DataForListCustomPageOutput[]',
+        'page_info' => '\Volcengine\Waf\Model\PageInfoForListCustomPageOutput',
         'page_number' => 'int',
-        'page_size' => 'int'
+        'page_size' => 'int',
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForListCustomPageOutput',
+        'result' => '\Volcengine\Waf\Model\ResultForListCustomPageOutput[]'
     ];
 
     /**
@@ -42,8 +45,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'current_page' => 'int32',
         'data' => null,
+        'page_info' => null,
         'page_number' => 'int32',
-        'page_size' => 'int32'
+        'page_size' => 'int32',
+        'response_metadata' => null,
+        'result' => null
     ];
 
     /**
@@ -75,8 +81,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'current_page' => 'CurrentPage',
         'data' => 'Data',
+        'page_info' => 'PageInfo',
         'page_number' => 'PageNumber',
-        'page_size' => 'PageSize'
+        'page_size' => 'PageSize',
+        'response_metadata' => 'ResponseMetadata',
+        'result' => 'Result'
     ];
 
     /**
@@ -87,8 +96,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'current_page' => 'setCurrentPage',
         'data' => 'setData',
+        'page_info' => 'setPageInfo',
         'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize'
+        'page_size' => 'setPageSize',
+        'response_metadata' => 'setResponseMetadata',
+        'result' => 'setResult'
     ];
 
     /**
@@ -99,8 +111,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'current_page' => 'getCurrentPage',
         'data' => 'getData',
+        'page_info' => 'getPageInfo',
         'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize'
+        'page_size' => 'getPageSize',
+        'response_metadata' => 'getResponseMetadata',
+        'result' => 'getResult'
     ];
 
     /**
@@ -165,8 +180,11 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     {
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -242,6 +260,30 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets page_info
+     *
+     * @return \Volcengine\Waf\Model\PageInfoForListCustomPageOutput
+     */
+    public function getPageInfo()
+    {
+        return $this->container['page_info'];
+    }
+
+    /**
+     * Sets page_info
+     *
+     * @param \Volcengine\Waf\Model\PageInfoForListCustomPageOutput $page_info page_info
+     *
+     * @return $this
+     */
+    public function setPageInfo($page_info)
+    {
+        $this->container['page_info'] = $page_info;
+
+        return $this;
+    }
+
+    /**
      * Gets page_number
      *
      * @return int
@@ -285,6 +327,54 @@ class ListCustomPageResponse implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForListCustomPageOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForListCustomPageOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \Volcengine\Waf\Model\ResultForListCustomPageOutput[]
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \Volcengine\Waf\Model\ResultForListCustomPageOutput[] $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }
