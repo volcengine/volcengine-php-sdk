@@ -32,6 +32,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => 'string',
         'field_list' => 'string',
         'host' => 'string',
+        'host_add_type' => 'int',
+        'host_list' => 'string[]',
         'id' => 'int',
         'name' => 'string',
         'project_name' => 'string'
@@ -47,6 +49,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => null,
         'field_list' => null,
         'host' => null,
+        'host_add_type' => 'int32',
+        'host_list' => null,
         'id' => 'int32',
         'name' => null,
         'project_name' => null
@@ -83,6 +87,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => 'FieldArea',
         'field_list' => 'FieldList',
         'host' => 'Host',
+        'host_add_type' => 'HostAddType',
+        'host_list' => 'HostList',
         'id' => 'ID',
         'name' => 'Name',
         'project_name' => 'ProjectName'
@@ -98,6 +104,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => 'setFieldArea',
         'field_list' => 'setFieldList',
         'host' => 'setHost',
+        'host_add_type' => 'setHostAddType',
+        'host_list' => 'setHostList',
         'id' => 'setId',
         'name' => 'setName',
         'project_name' => 'setProjectName'
@@ -113,6 +121,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => 'getFieldArea',
         'field_list' => 'getFieldList',
         'host' => 'getHost',
+        'host_add_type' => 'getHostAddType',
+        'host_list' => 'getHostList',
         'id' => 'getId',
         'name' => 'getName',
         'project_name' => 'getProjectName'
@@ -182,6 +192,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         $this->container['field_area'] = isset($data['field_area']) ? $data['field_area'] : null;
         $this->container['field_list'] = isset($data['field_list']) ? $data['field_list'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
+        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -201,12 +213,6 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['field_area'] === null) {
             $invalidProperties[] = "'field_area' can't be null";
-        }
-        if ($this->container['field_list'] === null) {
-            $invalidProperties[] = "'field_list' can't be null";
-        }
-        if ($this->container['host'] === null) {
-            $invalidProperties[] = "'host' can't be null";
         }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
@@ -321,6 +327,54 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_add_type
+     *
+     * @return int
+     */
+    public function getHostAddType()
+    {
+        return $this->container['host_add_type'];
+    }
+
+    /**
+     * Sets host_add_type
+     *
+     * @param int $host_add_type host_add_type
+     *
+     * @return $this
+     */
+    public function setHostAddType($host_add_type)
+    {
+        $this->container['host_add_type'] = $host_add_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_list
+     *
+     * @return string[]
+     */
+    public function getHostList()
+    {
+        return $this->container['host_list'];
+    }
+
+    /**
+     * Sets host_list
+     *
+     * @param string[] $host_list host_list
+     *
+     * @return $this
+     */
+    public function setHostList($host_list)
+    {
+        $this->container['host_list'] = $host_list;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'revision_count' => '\Volcengine\Vefaas\Model\RevisionCountForListSandboxesOutput',
         'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
         'status_count' => 'map[string,int]',
         'total' => 'int'
@@ -39,6 +40,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'revision_count' => null,
         'sandboxes' => null,
         'status_count' => 'int32',
         'total' => 'int32'
@@ -71,6 +73,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'revision_count' => 'RevisionCount',
         'sandboxes' => 'Sandboxes',
         'status_count' => 'StatusCount',
         'total' => 'Total'
@@ -82,6 +85,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'revision_count' => 'setRevisionCount',
         'sandboxes' => 'setSandboxes',
         'status_count' => 'setStatusCount',
         'total' => 'setTotal'
@@ -93,6 +97,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'revision_count' => 'getRevisionCount',
         'sandboxes' => 'getSandboxes',
         'status_count' => 'getStatusCount',
         'total' => 'getTotal'
@@ -158,6 +163,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['revision_count'] = isset($data['revision_count']) ? $data['revision_count'] : null;
         $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
         $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
@@ -186,6 +192,30 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets revision_count
+     *
+     * @return \Volcengine\Vefaas\Model\RevisionCountForListSandboxesOutput
+     */
+    public function getRevisionCount()
+    {
+        return $this->container['revision_count'];
+    }
+
+    /**
+     * Sets revision_count
+     *
+     * @param \Volcengine\Vefaas\Model\RevisionCountForListSandboxesOutput $revision_count revision_count
+     *
+     * @return $this
+     */
+    public function setRevisionCount($revision_count)
+    {
+        $this->container['revision_count'] = $revision_count;
+
+        return $this;
+    }
 
     /**
      * Gets sandboxes

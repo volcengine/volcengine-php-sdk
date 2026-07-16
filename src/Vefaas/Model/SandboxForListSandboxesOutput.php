@@ -28,9 +28,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'assign_status' => 'string',
         'availability_zone' => 'string',
         'cpu_milli' => 'int',
         'created_at' => 'string',
+        'ebs_volumes' => '\Volcengine\Vefaas\Model\EBSVolumeForListSandboxesOutput[]',
         'error_code' => 'string',
         'error_message' => 'string',
         'expire_at' => 'string',
@@ -40,9 +42,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'instance_type' => 'string',
         'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
+        'paused_at' => 'string',
         'pending' => 'bool',
         'revision_number' => 'int',
         'session_id' => 'string',
+        'sidecars' => '\Volcengine\Vefaas\Model\SidecarForListSandboxesOutput[]',
         'status' => 'string'
     ];
 
@@ -52,9 +56,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'assign_status' => null,
         'availability_zone' => null,
         'cpu_milli' => 'int32',
         'created_at' => null,
+        'ebs_volumes' => null,
         'error_code' => null,
         'error_message' => null,
         'expire_at' => null,
@@ -64,9 +70,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'instance_type' => null,
         'memory_mb' => 'int32',
         'metadata' => null,
+        'paused_at' => null,
         'pending' => null,
         'revision_number' => 'int32',
         'session_id' => null,
+        'sidecars' => null,
         'status' => null
     ];
 
@@ -97,9 +105,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assign_status' => 'AssignStatus',
         'availability_zone' => 'AvailabilityZone',
         'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
+        'ebs_volumes' => 'EBSVolumes',
         'error_code' => 'ErrorCode',
         'error_message' => 'ErrorMessage',
         'expire_at' => 'ExpireAt',
@@ -109,9 +119,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'instance_type' => 'InstanceType',
         'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
+        'paused_at' => 'PausedAt',
         'pending' => 'Pending',
         'revision_number' => 'RevisionNumber',
         'session_id' => 'SessionId',
+        'sidecars' => 'Sidecars',
         'status' => 'Status'
     ];
 
@@ -121,9 +133,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assign_status' => 'setAssignStatus',
         'availability_zone' => 'setAvailabilityZone',
         'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
+        'ebs_volumes' => 'setEbsVolumes',
         'error_code' => 'setErrorCode',
         'error_message' => 'setErrorMessage',
         'expire_at' => 'setExpireAt',
@@ -133,9 +147,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'instance_type' => 'setInstanceType',
         'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
+        'paused_at' => 'setPausedAt',
         'pending' => 'setPending',
         'revision_number' => 'setRevisionNumber',
         'session_id' => 'setSessionId',
+        'sidecars' => 'setSidecars',
         'status' => 'setStatus'
     ];
 
@@ -145,9 +161,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assign_status' => 'getAssignStatus',
         'availability_zone' => 'getAvailabilityZone',
         'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
+        'ebs_volumes' => 'getEbsVolumes',
         'error_code' => 'getErrorCode',
         'error_message' => 'getErrorMessage',
         'expire_at' => 'getExpireAt',
@@ -157,9 +175,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'instance_type' => 'getInstanceType',
         'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
+        'paused_at' => 'getPausedAt',
         'pending' => 'getPending',
         'revision_number' => 'getRevisionNumber',
         'session_id' => 'getSessionId',
+        'sidecars' => 'getSidecars',
         'status' => 'getStatus'
     ];
 
@@ -223,9 +243,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['assign_status'] = isset($data['assign_status']) ? $data['assign_status'] : null;
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['ebs_volumes'] = isset($data['ebs_volumes']) ? $data['ebs_volumes'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
@@ -235,9 +257,11 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['paused_at'] = isset($data['paused_at']) ? $data['paused_at'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -264,6 +288,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets assign_status
+     *
+     * @return string
+     */
+    public function getAssignStatus()
+    {
+        return $this->container['assign_status'];
+    }
+
+    /**
+     * Sets assign_status
+     *
+     * @param string $assign_status assign_status
+     *
+     * @return $this
+     */
+    public function setAssignStatus($assign_status)
+    {
+        $this->container['assign_status'] = $assign_status;
+
+        return $this;
+    }
 
     /**
      * Gets availability_zone
@@ -333,6 +381,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets ebs_volumes
+     *
+     * @return \Volcengine\Vefaas\Model\EBSVolumeForListSandboxesOutput[]
+     */
+    public function getEbsVolumes()
+    {
+        return $this->container['ebs_volumes'];
+    }
+
+    /**
+     * Sets ebs_volumes
+     *
+     * @param \Volcengine\Vefaas\Model\EBSVolumeForListSandboxesOutput[] $ebs_volumes ebs_volumes
+     *
+     * @return $this
+     */
+    public function setEbsVolumes($ebs_volumes)
+    {
+        $this->container['ebs_volumes'] = $ebs_volumes;
 
         return $this;
     }
@@ -554,6 +626,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets paused_at
+     *
+     * @return string
+     */
+    public function getPausedAt()
+    {
+        return $this->container['paused_at'];
+    }
+
+    /**
+     * Sets paused_at
+     *
+     * @param string $paused_at paused_at
+     *
+     * @return $this
+     */
+    public function setPausedAt($paused_at)
+    {
+        $this->container['paused_at'] = $paused_at;
+
+        return $this;
+    }
+
+    /**
      * Gets pending
      *
      * @return bool
@@ -621,6 +717,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setSessionId($session_id)
     {
         $this->container['session_id'] = $session_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sidecars
+     *
+     * @return \Volcengine\Vefaas\Model\SidecarForListSandboxesOutput[]
+     */
+    public function getSidecars()
+    {
+        return $this->container['sidecars'];
+    }
+
+    /**
+     * Sets sidecars
+     *
+     * @param \Volcengine\Vefaas\Model\SidecarForListSandboxesOutput[] $sidecars sidecars
+     *
+     * @return $this
+     */
+    public function setSidecars($sidecars)
+    {
+        $this->container['sidecars'] = $sidecars;
 
         return $this;
     }

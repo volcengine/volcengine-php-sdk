@@ -28,6 +28,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action_type_key' => 'int[]',
         'bot_space' => 'string',
         'host' => 'string',
         'name' => 'string',
@@ -45,6 +46,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action_type_key' => 'int32',
         'bot_space' => null,
         'host' => null,
         'name' => null,
@@ -83,6 +85,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action_type_key' => 'ActionTypeKey',
         'bot_space' => 'BotSpace',
         'host' => 'Host',
         'name' => 'Name',
@@ -100,6 +103,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action_type_key' => 'setActionTypeKey',
         'bot_space' => 'setBotSpace',
         'host' => 'setHost',
         'name' => 'setName',
@@ -117,6 +121,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action_type_key' => 'getActionTypeKey',
         'bot_space' => 'getBotSpace',
         'host' => 'getHost',
         'name' => 'getName',
@@ -169,8 +174,23 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const BOT_SPACE_BOT_FREQUENCY = 'BotFrequency';
+    const BOT_SPACE_BOT_REPEAT = 'BotRepeat';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBotSpaceAllowableValues()
+    {
+        return [
+            self::BOT_SPACE_BOT_FREQUENCY,
+            self::BOT_SPACE_BOT_REPEAT,
+        ];
+    }
     
 
     /**
@@ -188,6 +208,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['action_type_key'] = isset($data['action_type_key']) ? $data['action_type_key'] : null;
         $this->container['bot_space'] = isset($data['bot_space']) ? $data['bot_space'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -208,9 +229,14 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['bot_space'] === null) {
-            $invalidProperties[] = "'bot_space' can't be null";
+        $allowedValues = $this->getBotSpaceAllowableValues();
+        if (!is_null($this->container['bot_space']) && !in_array($this->container['bot_space'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'bot_space', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
@@ -233,6 +259,30 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets action_type_key
+     *
+     * @return int[]
+     */
+    public function getActionTypeKey()
+    {
+        return $this->container['action_type_key'];
+    }
+
+    /**
+     * Sets action_type_key
+     *
+     * @param int[] $action_type_key action_type_key
+     *
+     * @return $this
+     */
+    public function setActionTypeKey($action_type_key)
+    {
+        $this->container['action_type_key'] = $action_type_key;
+
+        return $this;
+    }
+
+    /**
      * Gets bot_space
      *
      * @return string
@@ -251,6 +301,15 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setBotSpace($bot_space)
     {
+        $allowedValues = $this->getBotSpaceAllowableValues();
+        if (!is_null($bot_space) && !in_array($bot_space, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'bot_space', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['bot_space'] = $bot_space;
 
         return $this;

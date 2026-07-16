@@ -28,7 +28,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'page_info' => '\Volcengine\Waf\Model\PageInfoForUpdateAreaBlockRuleOutput',
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForUpdateAreaBlockRuleOutput'
     ];
 
     /**
@@ -37,7 +38,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'page_info' => null,
+        'response_metadata' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'page_info' => 'PageInfo',
+        'response_metadata' => 'ResponseMetadata'
     ];
 
     /**
@@ -76,7 +79,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'page_info' => 'setPageInfo',
+        'response_metadata' => 'setResponseMetadata'
     ];
 
     /**
@@ -85,7 +89,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'page_info' => 'getPageInfo',
+        'response_metadata' => 'getResponseMetadata'
     ];
 
     /**
@@ -148,6 +153,8 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class UpdateAreaBlockRuleResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets page_info
+     *
+     * @return \Volcengine\Waf\Model\PageInfoForUpdateAreaBlockRuleOutput
+     */
+    public function getPageInfo()
+    {
+        return $this->container['page_info'];
+    }
+
+    /**
+     * Sets page_info
+     *
+     * @param \Volcengine\Waf\Model\PageInfoForUpdateAreaBlockRuleOutput $page_info page_info
+     *
+     * @return $this
+     */
+    public function setPageInfo($page_info)
+    {
+        $this->container['page_info'] = $page_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForUpdateAreaBlockRuleOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForUpdateAreaBlockRuleOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

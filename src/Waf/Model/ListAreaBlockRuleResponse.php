@@ -30,6 +30,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'action' => 'string',
         'country' => 'string[]',
+        'page_info' => '\Volcengine\Waf\Model\PageInfoForListAreaBlockRuleOutput',
+        'response_metadata' => '\Volcengine\Waf\Model\ResponseMetadataForListAreaBlockRuleOutput',
+        'result' => '\Volcengine\Waf\Model\ResultForListAreaBlockRuleOutput',
         'rule_tag' => 'string',
         'sub_region' => 'string[]'
     ];
@@ -42,6 +45,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'action' => null,
         'country' => null,
+        'page_info' => null,
+        'response_metadata' => null,
+        'result' => null,
         'rule_tag' => null,
         'sub_region' => null
     ];
@@ -75,6 +81,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'action' => 'Action',
         'country' => 'Country',
+        'page_info' => 'PageInfo',
+        'response_metadata' => 'ResponseMetadata',
+        'result' => 'Result',
         'rule_tag' => 'RuleTag',
         'sub_region' => 'SubRegion'
     ];
@@ -87,6 +96,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'action' => 'setAction',
         'country' => 'setCountry',
+        'page_info' => 'setPageInfo',
+        'response_metadata' => 'setResponseMetadata',
+        'result' => 'setResult',
         'rule_tag' => 'setRuleTag',
         'sub_region' => 'setSubRegion'
     ];
@@ -99,6 +111,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'action' => 'getAction',
         'country' => 'getCountry',
+        'page_info' => 'getPageInfo',
+        'response_metadata' => 'getResponseMetadata',
+        'result' => 'getResult',
         'rule_tag' => 'getRuleTag',
         'sub_region' => 'getSubRegion'
     ];
@@ -165,6 +180,9 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
+        $this->container['response_metadata'] = isset($data['response_metadata']) ? $data['response_metadata'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['sub_region'] = isset($data['sub_region']) ? $data['sub_region'] : null;
     }
@@ -237,6 +255,78 @@ class ListAreaBlockRuleResponse implements ModelInterface, ArrayAccess
     public function setCountry($country)
     {
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_info
+     *
+     * @return \Volcengine\Waf\Model\PageInfoForListAreaBlockRuleOutput
+     */
+    public function getPageInfo()
+    {
+        return $this->container['page_info'];
+    }
+
+    /**
+     * Sets page_info
+     *
+     * @param \Volcengine\Waf\Model\PageInfoForListAreaBlockRuleOutput $page_info page_info
+     *
+     * @return $this
+     */
+    public function setPageInfo($page_info)
+    {
+        $this->container['page_info'] = $page_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_metadata
+     *
+     * @return \Volcengine\Waf\Model\ResponseMetadataForListAreaBlockRuleOutput
+     */
+    public function getResponseMetadata()
+    {
+        return $this->container['response_metadata'];
+    }
+
+    /**
+     * Sets response_metadata
+     *
+     * @param \Volcengine\Waf\Model\ResponseMetadataForListAreaBlockRuleOutput $response_metadata response_metadata
+     *
+     * @return $this
+     */
+    public function setResponseMetadata($response_metadata)
+    {
+        $this->container['response_metadata'] = $response_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \Volcengine\Waf\Model\ResultForListAreaBlockRuleOutput
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \Volcengine\Waf\Model\ResultForListAreaBlockRuleOutput $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }

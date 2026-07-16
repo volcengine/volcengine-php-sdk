@@ -28,8 +28,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'filer_by_rule_match' => '\Volcengine\Waf\Model\FilerByRuleMatchForListSystemBotConfigInput',
         'host' => 'string',
-        'project_name' => 'string'
+        'ip_match' => 'bool',
+        'name' => 'string',
+        'page' => 'int',
+        'page_size' => 'int',
+        'project_name' => 'string',
+        'rule_tag' => 'string'
     ];
 
     /**
@@ -38,8 +44,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'filer_by_rule_match' => null,
         'host' => null,
-        'project_name' => null
+        'ip_match' => null,
+        'name' => null,
+        'page' => 'int32',
+        'page_size' => 'int32',
+        'project_name' => null,
+        'rule_tag' => null
     ];
 
     /**
@@ -69,8 +81,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'filer_by_rule_match' => 'FilerByRuleMatch',
         'host' => 'Host',
-        'project_name' => 'ProjectName'
+        'ip_match' => 'IPMatch',
+        'name' => 'Name',
+        'page' => 'Page',
+        'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
+        'rule_tag' => 'RuleTag'
     ];
 
     /**
@@ -79,8 +97,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'filer_by_rule_match' => 'setFilerByRuleMatch',
         'host' => 'setHost',
-        'project_name' => 'setProjectName'
+        'ip_match' => 'setIpMatch',
+        'name' => 'setName',
+        'page' => 'setPage',
+        'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
+        'rule_tag' => 'setRuleTag'
     ];
 
     /**
@@ -89,8 +113,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'filer_by_rule_match' => 'getFilerByRuleMatch',
         'host' => 'getHost',
-        'project_name' => 'getProjectName'
+        'ip_match' => 'getIpMatch',
+        'name' => 'getName',
+        'page' => 'getPage',
+        'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
+        'rule_tag' => 'getRuleTag'
     ];
 
     /**
@@ -153,8 +183,14 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['filer_by_rule_match'] = isset($data['filer_by_rule_match']) ? $data['filer_by_rule_match'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['ip_match'] = isset($data['ip_match']) ? $data['ip_match'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
     }
 
     /**
@@ -166,9 +202,6 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['host'] === null) {
-            $invalidProperties[] = "'host' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -183,6 +216,30 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets filer_by_rule_match
+     *
+     * @return \Volcengine\Waf\Model\FilerByRuleMatchForListSystemBotConfigInput
+     */
+    public function getFilerByRuleMatch()
+    {
+        return $this->container['filer_by_rule_match'];
+    }
+
+    /**
+     * Sets filer_by_rule_match
+     *
+     * @param \Volcengine\Waf\Model\FilerByRuleMatchForListSystemBotConfigInput $filer_by_rule_match filer_by_rule_match
+     *
+     * @return $this
+     */
+    public function setFilerByRuleMatch($filer_by_rule_match)
+    {
+        $this->container['filer_by_rule_match'] = $filer_by_rule_match;
+
+        return $this;
+    }
 
     /**
      * Gets host
@@ -209,6 +266,102 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ip_match
+     *
+     * @return bool
+     */
+    public function getIpMatch()
+    {
+        return $this->container['ip_match'];
+    }
+
+    /**
+     * Sets ip_match
+     *
+     * @param bool $ip_match ip_match
+     *
+     * @return $this
+     */
+    public function setIpMatch($ip_match)
+    {
+        $this->container['ip_match'] = $ip_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int $page page
+     *
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -228,6 +381,30 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag
+     *
+     * @return string
+     */
+    public function getRuleTag()
+    {
+        return $this->container['rule_tag'];
+    }
+
+    /**
+     * Sets rule_tag
+     *
+     * @param string $rule_tag rule_tag
+     *
+     * @return $this
+     */
+    public function setRuleTag($rule_tag)
+    {
+        $this->container['rule_tag'] = $rule_tag;
 
         return $this;
     }

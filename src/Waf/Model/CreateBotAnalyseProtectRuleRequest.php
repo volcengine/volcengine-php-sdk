@@ -28,8 +28,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput[]',
-        'action_after_verification' => 'int',
+        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput',
+        'accurate_group_priority' => 'int',
         'action_type' => 'int',
         'effect_time' => 'int',
         'enable' => 'int',
@@ -54,7 +54,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accurate_group' => null,
-        'action_after_verification' => 'int32',
+        'accurate_group_priority' => 'int32',
         'action_type' => 'int32',
         'effect_time' => 'int32',
         'enable' => 'int32',
@@ -100,7 +100,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accurate_group' => 'AccurateGroup',
-        'action_after_verification' => 'ActionAfterVerification',
+        'accurate_group_priority' => 'AccurateGroupPriority',
         'action_type' => 'ActionType',
         'effect_time' => 'EffectTime',
         'enable' => 'Enable',
@@ -125,7 +125,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accurate_group' => 'setAccurateGroup',
-        'action_after_verification' => 'setActionAfterVerification',
+        'accurate_group_priority' => 'setAccurateGroupPriority',
         'action_type' => 'setActionType',
         'effect_time' => 'setEffectTime',
         'enable' => 'setEnable',
@@ -150,7 +150,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accurate_group' => 'getAccurateGroup',
-        'action_after_verification' => 'getActionAfterVerification',
+        'accurate_group_priority' => 'getAccurateGroupPriority',
         'action_type' => 'getActionType',
         'effect_time' => 'getEffectTime',
         'enable' => 'getEnable',
@@ -229,7 +229,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
-        $this->container['action_after_verification'] = isset($data['action_after_verification']) ? $data['action_after_verification'] : null;
+        $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
         $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
         $this->container['effect_time'] = isset($data['effect_time']) ? $data['effect_time'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
@@ -259,9 +259,6 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['action_type'] === null) {
             $invalidProperties[] = "'action_type' can't be null";
         }
-        if ($this->container['effect_time'] === null) {
-            $invalidProperties[] = "'effect_time' can't be null";
-        }
         if ($this->container['enable'] === null) {
             $invalidProperties[] = "'enable' can't be null";
         }
@@ -279,9 +276,6 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['rule_priority'] === null) {
             $invalidProperties[] = "'rule_priority' can't be null";
-        }
-        if ($this->container['single_threshold'] === null) {
-            $invalidProperties[] = "'single_threshold' can't be null";
         }
         if ($this->container['statistical_duration'] === null) {
             $invalidProperties[] = "'statistical_duration' can't be null";
@@ -307,7 +301,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accurate_group
      *
-     * @return \Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput[]
+     * @return \Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput
      */
     public function getAccurateGroup()
     {
@@ -317,7 +311,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accurate_group
      *
-     * @param \Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput[] $accurate_group accurate_group
+     * @param \Volcengine\Waf\Model\AccurateGroupForCreateBotAnalyseProtectRuleInput $accurate_group accurate_group
      *
      * @return $this
      */
@@ -329,25 +323,25 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets action_after_verification
+     * Gets accurate_group_priority
      *
      * @return int
      */
-    public function getActionAfterVerification()
+    public function getAccurateGroupPriority()
     {
-        return $this->container['action_after_verification'];
+        return $this->container['accurate_group_priority'];
     }
 
     /**
-     * Sets action_after_verification
+     * Sets accurate_group_priority
      *
-     * @param int $action_after_verification action_after_verification
+     * @param int $accurate_group_priority accurate_group_priority
      *
      * @return $this
      */
-    public function setActionAfterVerification($action_after_verification)
+    public function setAccurateGroupPriority($accurate_group_priority)
     {
-        $this->container['action_after_verification'] = $action_after_verification;
+        $this->container['accurate_group_priority'] = $accurate_group_priority;
 
         return $this;
     }

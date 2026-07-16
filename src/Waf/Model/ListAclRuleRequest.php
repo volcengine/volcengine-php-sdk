@@ -174,8 +174,53 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACL_TYPE_ALLOW = 'Allow';
+    const ACL_TYPE_BLOCK = 'Block';
+    const ACTION_BLOCK = 'block';
+    const ACTION_OBSERVE = 'observe';
+    const TIME_ORDER_BY_ASC = 'ASC';
+    const TIME_ORDER_BY_DESC = 'DESC';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAclTypeAllowableValues()
+    {
+        return [
+            self::ACL_TYPE_ALLOW,
+            self::ACL_TYPE_BLOCK,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_BLOCK,
+            self::ACTION_OBSERVE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTimeOrderByAllowableValues()
+    {
+        return [
+            self::TIME_ORDER_BY_ASC,
+            self::TIME_ORDER_BY_DESC,
+        ];
+    }
     
 
     /**
@@ -217,6 +262,22 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['acl_type'] === null) {
             $invalidProperties[] = "'acl_type' can't be null";
         }
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!is_null($this->container['acl_type']) && !in_array($this->container['acl_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'acl_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTimeOrderByAllowableValues();
+        if (!is_null($this->container['time_order_by']) && !in_array($this->container['time_order_by'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'time_order_by', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -251,6 +312,15 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAclType($acl_type)
     {
+        $allowedValues = $this->getAclTypeAllowableValues();
+        if (!in_array($acl_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'acl_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['acl_type'] = $acl_type;
 
         return $this;
@@ -275,6 +345,15 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && array_diff($action, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['action'] = $action;
 
         return $this;
@@ -467,6 +546,15 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setTimeOrderBy($time_order_by)
     {
+        $allowedValues = $this->getTimeOrderByAllowableValues();
+        if (!is_null($time_order_by) && !in_array($time_order_by, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'time_order_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['time_order_by'] = $time_order_by;
 
         return $this;

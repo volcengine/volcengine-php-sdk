@@ -524,6 +524,27 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'ga' => new ServiceEndpointInfo(
+                    'ga',
+                    true,
+                    '',
+                    []
+                ),
+
+                'clawsentry' => new ServiceEndpointInfo(
+                    'clawsentry',
+                    false,
+                    '',
+                    []
+                ),
+
+                'cpaas' => new ServiceEndpointInfo(
+                    'cpaas',
+                    true,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;

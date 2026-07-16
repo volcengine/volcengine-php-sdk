@@ -34,6 +34,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'count_time' => 'int',
         'cron_confs' => '\Volcengine\Waf\Model\CronConfForListCCRuleOutput[]',
         'cron_enable' => 'int',
+        'custom_response_page_id' => 'string',
         'effect_time' => 'int',
         'enable' => 'int',
         'exemption_time' => 'int',
@@ -46,7 +47,11 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'rule_tag' => 'string',
         'single_threshold' => 'int',
         'update_time' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'ws_cdn_byte_threshold' => 'int',
+        'ws_cdn_enable' => 'int',
+        'ws_cdn_frame_threshold' => 'int',
+        'ws_cdn_unit' => 'string'
     ];
 
     /**
@@ -61,6 +66,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'count_time' => 'int32',
         'cron_confs' => null,
         'cron_enable' => 'int32',
+        'custom_response_page_id' => null,
         'effect_time' => 'int32',
         'enable' => 'int32',
         'exemption_time' => 'int32',
@@ -73,7 +79,11 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'rule_tag' => null,
         'single_threshold' => 'int32',
         'update_time' => null,
-        'url' => null
+        'url' => null,
+        'ws_cdn_byte_threshold' => 'int32',
+        'ws_cdn_enable' => 'int32',
+        'ws_cdn_frame_threshold' => 'int32',
+        'ws_cdn_unit' => null
     ];
 
     /**
@@ -109,6 +119,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'count_time' => 'CountTime',
         'cron_confs' => 'CronConfs',
         'cron_enable' => 'CronEnable',
+        'custom_response_page_id' => 'CustomResponsePageID',
         'effect_time' => 'EffectTime',
         'enable' => 'Enable',
         'exemption_time' => 'ExemptionTime',
@@ -121,7 +132,11 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'rule_tag' => 'RuleTag',
         'single_threshold' => 'SingleThreshold',
         'update_time' => 'UpdateTime',
-        'url' => 'Url'
+        'url' => 'Url',
+        'ws_cdn_byte_threshold' => 'WSCdnByteThreshold',
+        'ws_cdn_enable' => 'WSCdnEnable',
+        'ws_cdn_frame_threshold' => 'WSCdnFrameThreshold',
+        'ws_cdn_unit' => 'WSCdnUnit'
     ];
 
     /**
@@ -136,6 +151,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'count_time' => 'setCountTime',
         'cron_confs' => 'setCronConfs',
         'cron_enable' => 'setCronEnable',
+        'custom_response_page_id' => 'setCustomResponsePageId',
         'effect_time' => 'setEffectTime',
         'enable' => 'setEnable',
         'exemption_time' => 'setExemptionTime',
@@ -148,7 +164,11 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'rule_tag' => 'setRuleTag',
         'single_threshold' => 'setSingleThreshold',
         'update_time' => 'setUpdateTime',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'ws_cdn_byte_threshold' => 'setWsCdnByteThreshold',
+        'ws_cdn_enable' => 'setWsCdnEnable',
+        'ws_cdn_frame_threshold' => 'setWsCdnFrameThreshold',
+        'ws_cdn_unit' => 'setWsCdnUnit'
     ];
 
     /**
@@ -163,6 +183,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'count_time' => 'getCountTime',
         'cron_confs' => 'getCronConfs',
         'cron_enable' => 'getCronEnable',
+        'custom_response_page_id' => 'getCustomResponsePageId',
         'effect_time' => 'getEffectTime',
         'enable' => 'getEnable',
         'exemption_time' => 'getExemptionTime',
@@ -175,7 +196,11 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         'rule_tag' => 'getRuleTag',
         'single_threshold' => 'getSingleThreshold',
         'update_time' => 'getUpdateTime',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'ws_cdn_byte_threshold' => 'getWsCdnByteThreshold',
+        'ws_cdn_enable' => 'getWsCdnEnable',
+        'ws_cdn_frame_threshold' => 'getWsCdnFrameThreshold',
+        'ws_cdn_unit' => 'getWsCdnUnit'
     ];
 
     /**
@@ -219,8 +244,25 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const WS_CDN_UNIT_KB = 'KB';
+    const WS_CDN_UNIT_MB = 'MB';
+    const WS_CDN_UNIT_GB = 'GB';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWsCdnUnitAllowableValues()
+    {
+        return [
+            self::WS_CDN_UNIT_KB,
+            self::WS_CDN_UNIT_MB,
+            self::WS_CDN_UNIT_GB,
+        ];
+    }
     
 
     /**
@@ -244,6 +286,7 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         $this->container['count_time'] = isset($data['count_time']) ? $data['count_time'] : null;
         $this->container['cron_confs'] = isset($data['cron_confs']) ? $data['cron_confs'] : null;
         $this->container['cron_enable'] = isset($data['cron_enable']) ? $data['cron_enable'] : null;
+        $this->container['custom_response_page_id'] = isset($data['custom_response_page_id']) ? $data['custom_response_page_id'] : null;
         $this->container['effect_time'] = isset($data['effect_time']) ? $data['effect_time'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['exemption_time'] = isset($data['exemption_time']) ? $data['exemption_time'] : null;
@@ -257,6 +300,10 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['ws_cdn_byte_threshold'] = isset($data['ws_cdn_byte_threshold']) ? $data['ws_cdn_byte_threshold'] : null;
+        $this->container['ws_cdn_enable'] = isset($data['ws_cdn_enable']) ? $data['ws_cdn_enable'] : null;
+        $this->container['ws_cdn_frame_threshold'] = isset($data['ws_cdn_frame_threshold']) ? $data['ws_cdn_frame_threshold'] : null;
+        $this->container['ws_cdn_unit'] = isset($data['ws_cdn_unit']) ? $data['ws_cdn_unit'] : null;
     }
 
     /**
@@ -267,6 +314,14 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getWsCdnUnitAllowableValues();
+        if (!is_null($this->container['ws_cdn_unit']) && !in_array($this->container['ws_cdn_unit'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ws_cdn_unit', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -423,6 +478,30 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
     public function setCronEnable($cron_enable)
     {
         $this->container['cron_enable'] = $cron_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_response_page_id
+     *
+     * @return string
+     */
+    public function getCustomResponsePageId()
+    {
+        return $this->container['custom_response_page_id'];
+    }
+
+    /**
+     * Sets custom_response_page_id
+     *
+     * @param string $custom_response_page_id custom_response_page_id
+     *
+     * @return $this
+     */
+    public function setCustomResponsePageId($custom_response_page_id)
+    {
+        $this->container['custom_response_page_id'] = $custom_response_page_id;
 
         return $this;
     }
@@ -735,6 +814,111 @@ class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets ws_cdn_byte_threshold
+     *
+     * @return int
+     */
+    public function getWsCdnByteThreshold()
+    {
+        return $this->container['ws_cdn_byte_threshold'];
+    }
+
+    /**
+     * Sets ws_cdn_byte_threshold
+     *
+     * @param int $ws_cdn_byte_threshold ws_cdn_byte_threshold
+     *
+     * @return $this
+     */
+    public function setWsCdnByteThreshold($ws_cdn_byte_threshold)
+    {
+        $this->container['ws_cdn_byte_threshold'] = $ws_cdn_byte_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets ws_cdn_enable
+     *
+     * @return int
+     */
+    public function getWsCdnEnable()
+    {
+        return $this->container['ws_cdn_enable'];
+    }
+
+    /**
+     * Sets ws_cdn_enable
+     *
+     * @param int $ws_cdn_enable ws_cdn_enable
+     *
+     * @return $this
+     */
+    public function setWsCdnEnable($ws_cdn_enable)
+    {
+        $this->container['ws_cdn_enable'] = $ws_cdn_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets ws_cdn_frame_threshold
+     *
+     * @return int
+     */
+    public function getWsCdnFrameThreshold()
+    {
+        return $this->container['ws_cdn_frame_threshold'];
+    }
+
+    /**
+     * Sets ws_cdn_frame_threshold
+     *
+     * @param int $ws_cdn_frame_threshold ws_cdn_frame_threshold
+     *
+     * @return $this
+     */
+    public function setWsCdnFrameThreshold($ws_cdn_frame_threshold)
+    {
+        $this->container['ws_cdn_frame_threshold'] = $ws_cdn_frame_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets ws_cdn_unit
+     *
+     * @return string
+     */
+    public function getWsCdnUnit()
+    {
+        return $this->container['ws_cdn_unit'];
+    }
+
+    /**
+     * Sets ws_cdn_unit
+     *
+     * @param string $ws_cdn_unit ws_cdn_unit
+     *
+     * @return $this
+     */
+    public function setWsCdnUnit($ws_cdn_unit)
+    {
+        $allowedValues = $this->getWsCdnUnitAllowableValues();
+        if (!is_null($ws_cdn_unit) && !in_array($ws_cdn_unit, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ws_cdn_unit', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ws_cdn_unit'] = $ws_cdn_unit;
 
         return $this;
     }

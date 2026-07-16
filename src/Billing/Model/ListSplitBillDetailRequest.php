@@ -43,7 +43,9 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'product' => 'string[]',
         'project' => 'string[]',
         'split_dimension' => 'string',
-        'split_item_id' => 'string'
+        'split_item_id' => 'string',
+        'tag_kv' => '\Volcengine\Billing\Model\TagKVForListSplitBillDetailInput[]',
+        'tag_kv_filter_mode' => 'int'
     ];
 
     /**
@@ -67,7 +69,9 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'product' => null,
         'project' => null,
         'split_dimension' => null,
-        'split_item_id' => null
+        'split_item_id' => null,
+        'tag_kv' => null,
+        'tag_kv_filter_mode' => 'int32'
     ];
 
     /**
@@ -112,7 +116,9 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'product' => 'Product',
         'project' => 'Project',
         'split_dimension' => 'SplitDimension',
-        'split_item_id' => 'SplitItemID'
+        'split_item_id' => 'SplitItemID',
+        'tag_kv' => 'TagKV',
+        'tag_kv_filter_mode' => 'TagKVFilterMode'
     ];
 
     /**
@@ -136,7 +142,9 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'product' => 'setProduct',
         'project' => 'setProject',
         'split_dimension' => 'setSplitDimension',
-        'split_item_id' => 'setSplitItemId'
+        'split_item_id' => 'setSplitItemId',
+        'tag_kv' => 'setTagKv',
+        'tag_kv_filter_mode' => 'setTagKvFilterMode'
     ];
 
     /**
@@ -160,7 +168,9 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'product' => 'getProduct',
         'project' => 'getProject',
         'split_dimension' => 'getSplitDimension',
-        'split_item_id' => 'getSplitItemId'
+        'split_item_id' => 'getSplitItemId',
+        'tag_kv' => 'getTagKv',
+        'tag_kv_filter_mode' => 'getTagKvFilterMode'
     ];
 
     /**
@@ -239,6 +249,8 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['split_dimension'] = isset($data['split_dimension']) ? $data['split_dimension'] : null;
         $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
+        $this->container['tag_kv'] = isset($data['tag_kv']) ? $data['tag_kv'] : null;
+        $this->container['tag_kv_filter_mode'] = isset($data['tag_kv_filter_mode']) ? $data['tag_kv_filter_mode'] : null;
     }
 
     /**
@@ -651,6 +663,54 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
     public function setSplitItemId($split_item_id)
     {
         $this->container['split_item_id'] = $split_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv
+     *
+     * @return \Volcengine\Billing\Model\TagKVForListSplitBillDetailInput[]
+     */
+    public function getTagKv()
+    {
+        return $this->container['tag_kv'];
+    }
+
+    /**
+     * Sets tag_kv
+     *
+     * @param \Volcengine\Billing\Model\TagKVForListSplitBillDetailInput[] $tag_kv tag_kv
+     *
+     * @return $this
+     */
+    public function setTagKv($tag_kv)
+    {
+        $this->container['tag_kv'] = $tag_kv;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_kv_filter_mode
+     *
+     * @return int
+     */
+    public function getTagKvFilterMode()
+    {
+        return $this->container['tag_kv_filter_mode'];
+    }
+
+    /**
+     * Sets tag_kv_filter_mode
+     *
+     * @param int $tag_kv_filter_mode tag_kv_filter_mode
+     *
+     * @return $this
+     */
+    public function setTagKvFilterMode($tag_kv_filter_mode)
+    {
+        $this->container['tag_kv_filter_mode'] = $tag_kv_filter_mode;
 
         return $this;
     }
