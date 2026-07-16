@@ -4,11 +4,9 @@
 
 ## HTTP(S) Proxy
 
-> **Default**
->
-> No proxy.
+The PHP SDK supports proxy configuration directly on `Configuration`.
 
-### Configure HTTP(S) Proxy
+### Configure Proxy
 
 ```php
 <?php
@@ -17,28 +15,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setAk("Your ak")
     ->setSk("Your sk")
-    ->setRegion('cn-beijing');
-
-$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-    new GuzzleHttp\Client([
-        'proxy' => [
-            'http'  => 'http://127.0.0.1:8888',   // proxy for HTTP requests
-            'https' => 'http://127.0.0.1:8889'    // proxy for HTTPS requests
-        ],
-    ]),
-    $config
-);
-
-$body = new \Volcengine\Vpc\Model\CreateVpcRequest();
-$body->setCidrBlock("192.168.0.0/16");
-
-try {
-    $result = $apiInstance->createVpc($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
-}
+    ->setRegion('cn-beijing')
+    ->setHttpProxy('http://127.0.0.1:8888')
+    ->setHttpsProxy('http://127.0.0.1:8889');
 ```
+
+### Configure Unified Guzzle Proxy Map
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setProxy([
+        'http' => 'http://127.0.0.1:8888',
+        'https' => 'http://127.0.0.1:8889',
+    ]);
+```
+
+Custom Guzzle clients remain supported, but the SDK no longer requires users to
+inject one just to apply proxy settings.
 
 ---
 

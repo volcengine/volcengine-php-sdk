@@ -12,6 +12,34 @@ class Utils
             return $result;
         }
 
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                $name = is_int($key) ? $prefix . ($key + 1) : $prefix . $key;
+                if (is_array($value) || is_object($value)) {
+                    $childPrefix = is_int($key) ? $prefix . ($key + 1) . "." : $prefix . $key . ".";
+                    $result = array_merge($result, self::transRequest($value, $childPrefix));
+                } else {
+                    $result[$name] = is_bool($value) ? ($value ? 'true' : 'false') : $value;
+                }
+            }
+            return $result;
+        }
+
+        if ($data instanceof \stdClass) {
+            foreach (get_object_vars($data) as $key => $value) {
+                if (is_array($value) || is_object($value)) {
+                    $result = array_merge($result, self::transRequest($value, $prefix . $key . "."));
+                } else {
+                    $result[$prefix . $key] = is_bool($value) ? ($value ? 'true' : 'false') : $value;
+                }
+            }
+            return $result;
+        }
+
+        if (!is_object($data) || !method_exists($data, 'swaggerTypes')) {
+            return [$prefix => $data];
+        }
+
         foreach ($data::swaggerTypes() as $property => $swaggerType) {
             $getter = $data::getters()[$property];
             $value = $data->$getter();
@@ -63,9 +91,9 @@ class Utils
 
         $signedHeaders = [];
         foreach ($headers as $key => $value) {
-            if ($key == "Host" || $key == "Content-Md5" || $key == "Content-Type" || substr($key, 0, 2) == "X-") {
-                $key = strtolower($key);
-                $signedHeaders[$key] = $value;
+            $lowerKey = strtolower($key);
+            if ($lowerKey == "host" || $lowerKey == "content-md5" || $lowerKey == "content-type" || substr($lowerKey, 0, 2) == "x-") {
+                $signedHeaders[$lowerKey] = is_array($value) ? implode(',', array_map('trim', $value)) : trim((string) $value);
             }
         }
         ksort($signedHeaders);

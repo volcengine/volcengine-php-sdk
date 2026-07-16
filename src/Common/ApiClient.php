@@ -1,13 +1,21 @@
 <?php
+
 namespace Volcengine\Common;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
+use Volcengine\Common\Auth\Providers\DefaultCredentialProvider;
 use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
-use Volcengine\Common\Interceptor\Interceptors\SignRequestInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\DeserializedResponseInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\HttpLoggingInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\Request;
+use Volcengine\Common\Interceptor\Interceptors\Response;
 use Volcengine\Common\Interceptor\Interceptors\ResolveEndpointInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\SignRequestInterceptor;
+use Volcengine\Common\Retry\Retryer;
 
 class ApiClient
 {
@@ -17,27 +25,31 @@ class ApiClient
     private $tempFolderPath;
     private $interceptorChain;
     private $client;
+    private $usesCustomClient = false;
+    private $clientConfig = [];
 
     public function __construct($config = null, $client = null)
     {
-        if ($config == null) {
+        if ($config === null) {
             $config = new Configuration();
         }
-        if ($client == null) {
+        $this->usesCustomClient = $client !== null;
+        if ($client === null) {
             $client = new Client();
         }
+
         $this->configuration = $config;
         $this->client = $client;
+        $this->clientConfig = $client->getConfig();
         $this->setUserAgent($config->getUserAgent());
         $this->tempFolderPath = $config->getTempFolderPath();
 
-        // Initialize interceptor chain
         $this->interceptorChain = new InterceptorChain();
-
-        // Add interceptors
         $this->interceptorChain->appendRequestInterceptor(new BuildRequestInterceptor());
         $this->interceptorChain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
-        $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor(null));
+        $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor());
+        $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
+        $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
     }
 
     public function getConfig()
@@ -68,54 +80,6 @@ class ApiClient
         return $this;
     }
 
-    private function createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType)
-    {
-        $context = new Context();
-        $request = new \Volcengine\Common\Interceptor\Interceptors\Request();
-        $headerParams = $headerParams ?: [];
-        $headerParams = array_merge($this->defaultHeaders, $headerParams);
-
-        $request->resourcePath = $resourcePath;
-        $request->method = $method;
-        $request->headers = $headerParams;
-        $request->body = $body;
-        $request->returnType = $responseType;
-
-        $request->host = $this->configuration->getHost();
-        $request->truePath = '/';
-        $request->service = '';
-
-        $request->ak = $this->configuration->getAk();
-        $request->sk = $this->configuration->getSk();
-        $request->sessionToken = $this->configuration->getSessionToken();
-
-        // No explicit credentials set — use default credential chain
-        if (empty($request->ak) && empty($request->sk)) {
-            $credentialProvider = $this->configuration->getCredentialProvider();
-            if ($credentialProvider === null) {
-                $credentialProvider = new \Volcengine\Common\Auth\Providers\DefaultCredentialProvider();
-                $this->configuration->setCredentialProvider($credentialProvider);
-            }
-            $creds = $credentialProvider->getCredentials();
-            $request->ak = $creds['AccessKeyId'];
-            $request->sk = $creds['SecretAccessKey'];
-            $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
-        }
-
-        $request->region = $this->configuration->getRegion();
-        $request->schema = $this->configuration->getSchema();
-        $request->endpointProvider = $this->configuration->getEndpointProvider();
-        $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
-        $request->useDualStack = $this->configuration->getUseDualStack();
-
-        $request->getDebug = $this->configuration->getDebug();
-        $request->getDebugFile = $this->configuration->getDebugFile();
-
-        $context->setRequest($request);
-        return $context;
-    }
-
-
     public function callApi(
         $body,
         $resourcePath,
@@ -123,133 +87,233 @@ class ApiClient
         $headerParams = null,
         $responseType = null,
         $async = false
-    )
-    {
-        $context = $this->createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType);
-        $this->interceptorChain->executeRequest($context);
-        $realRequest = $context->getRequest()->realRequest;
-        $options = $context->getRequest()->options;
-        $returnType = $context->getRequest()->returnType;
-        $this->setNewClientConfig();
-        $request = $realRequest;
+    ) {
+        $context = $this->createContextAndRequest(
+            $body,
+            $resourcePath,
+            $method,
+            $headerParams,
+            $responseType
+        );
+        $context = $this->interceptorChain->executeRequest($context);
 
-        //异步和同步处理方式不一样
         if ($async) {
-            $uri = $request->getUri();
-            return $this->client
-                ->sendAsync($request, $options)
-                ->then(
-                    function ($response) use ($uri, $returnType) {
-                        $responseContent = $response->getBody()->getContents();
-                        $content = json_decode($responseContent);
-                        $statusCode = $response->getStatusCode();
-
-                        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                            throw new ApiException(
-                                sprintf(
-                                    '[%d] Return Error From the API (%s)(%s)',
-                                    $statusCode,
-                                    $uri,
-                                    $response->getBody()
-                                ),
-                                $statusCode,
-                                $response->getHeaders(),
-                                $responseContent);
-                        }
-                        $metaData = $content->{'ResponseMetadata'};
-                        $content = isset($content->{'Result'}) ? $content->{'Result'} : "";
-                        $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
-                        if (is_object($deserializedContent)) {
-                            $deserializedContent->offsetSet('ResponseMetadata', $metaData);
-                        }
-                        return [
-                            $deserializedContent,
-                            $response->getStatusCode(),
-                            $response->getHeaders()
-                        ];
-                    },
-                    function ($exception) {
-                        $response = $exception->getResponse();
-                        $statusCode = $response->getStatusCode();
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Error connecting to the API (%s)(%s)',
-                                $statusCode,
-                                $exception->getRequest()->getUri(),
-                                $response->getBody()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $response->getBody()
-                        );
-                    }
-                );
-        } else {
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $resp = $e->getResponse();
-                $respBody = $resp ? (string)$resp->getBody() : '';
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}{$respBody}",
-                    $e->getCode(),
-                    $resp ? $resp->getHeaders() : null,
-                    $respBody
-                );
-            }
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)(%s)',
-                        $statusCode,
-                        $request->getUri(),
-                        $response->getBody()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseContent = $response->getBody()->getContents();
-            $content = json_decode($responseContent);
-
-            if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Return Error From the API (%s)(%s)',
-                        $statusCode,
-                        $request->getUri(),
-                        $response->getBody()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $responseContent);
-            }
-            $metaData = $content->{'ResponseMetadata'};
-            $content = isset($content->{'Result'}) ? $content->{'Result'} : "";
-            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
-            if (is_object($deserializedContent)) {
-                $deserializedContent->offsetSet('ResponseMetadata', $metaData);
-            }
-            return [
-                $deserializedContent,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return $this->sendAsync($context);
         }
+
+        return $this->sendSync($context);
+    }
+
+    private function createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType)
+    {
+        $context = new Context();
+        $request = new Request();
+        $headerParams = $headerParams ?: [];
+        $headerParams = array_merge($this->defaultHeaders, $headerParams);
+        $context->setRequest($request);
+
+        $request->resourcePath = $resourcePath;
+        $request->method = $method;
+        $request->headers = $headerParams;
+        $request->body = $body;
+        $request->returnType = $responseType ?: 'object';
+
+        $request->host = $this->configuration->getHost();
+        $request->truePath = '/';
+        $request->service = '';
+        $request->ak = $this->configuration->getAk();
+        $request->sk = $this->configuration->getSk();
+        $request->sessionToken = $this->configuration->getSessionToken();
+        $request->credentialProvider = $this->configuration->getCredentialProvider();
+        $request->region = $this->configuration->getRegion();
+        $request->schema = $this->configuration->getSchema();
+        if (empty($request->ak) && empty($request->sk)) {
+            $credentialProvider = $request->credentialProvider;
+            if ($credentialProvider === null) {
+                $credentialProvider = new DefaultCredentialProvider();
+                $this->configuration->setCredentialProvider($credentialProvider);
+                $request->credentialProvider = $credentialProvider;
+            }
+            $creds = $credentialProvider->getCredentials();
+            $request->ak = $creds['AccessKeyId'];
+            $request->sk = $creds['SecretAccessKey'];
+            $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
+        }
+
+        $request->endpointProvider = $this->configuration->getEndpointProvider();
+        $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
+        $request->useDualStack = $this->configuration->getUseDualStack();
+        $request->autoRetry = $this->configuration->getAutoRetry();
+        $request->retryer = clone $this->configuration->getRetryer();
+        $request->connectTimeout = $this->configuration->getConnectTimeout();
+        $request->readTimeout = $this->configuration->getReadTimeout();
+        $request->verifySsl = $this->configuration->getVerifySsl();
+        $request->sslCaCert = $this->configuration->getSslCaCert();
+        $request->certFile = $this->configuration->getCertFile();
+        $request->keyFile = $this->configuration->getKeyFile();
+        $request->assertHostname = $this->configuration->getAssertHostname();
+        $request->proxy = $this->configuration->getProxy();
+        $request->httpProxy = $this->configuration->getHttpProxy();
+        $request->httpsProxy = $this->configuration->getHttpsProxy();
+        $request->logger = $this->configuration->getLogger();
+        $request->logLevel = $this->configuration->getLogLevel();
+        $request->getDebug = $this->configuration->getDebug();
+        $request->getDebugFile = $this->configuration->getDebugFile();
+
+        return $context;
+    }
+
+    private function sendSync(Context $context)
+    {
+        $request = $context->getRequest();
+        $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
+        $retryCount = 0;
+        $lastError = null;
+        $retryError = null;
+        $lastResponse = null;
+
+        while (true) {
+            if ($retryCount > 0) {
+                $context = $this->prepareRetryAttempt($context, $lastError);
+                $request = $context->getRequest();
+                $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
+            }
+
+            try {
+                $start = microtime(true);
+                HttpLoggingInterceptor::logRequest($request);
+                $response = $this->client->send($request->realRequest, $this->buildRequestOptions($request));
+                $lastResponse = $response;
+                $responseContext = $this->buildResponseContext($context, $response);
+                $responseContext->setAttribute('elapsed_ms', (int) ((microtime(true) - $start) * 1000));
+                $responseContext = $this->interceptorChain->executeResponse($responseContext);
+
+                return [
+                    $responseContext->getResponse()->result,
+                    $responseContext->getResponse()->statusCode,
+                    $responseContext->getResponse()->headers,
+                ];
+            } catch (RequestException $e) {
+                $retryError = $e;
+                $lastResponse = $e->getResponse();
+                $lastError = ApiException::fromRequestException($e);
+            } catch (TransferException $e) {
+                $retryError = $e;
+                $lastError = ApiException::fromTransferException($e);
+            } catch (ApiException $e) {
+                $retryError = $e;
+                $lastError = $e;
+            }
+
+            $retryCandidate = $retryError ?: $lastError;
+            if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($lastResponse, $retryCount, $retryCandidate)) {
+                throw $lastError;
+            }
+
+            $delayMs = $retryer->getRetryDelay($retryCount, $lastResponse);
+            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                'Retry attempt={attempt} delay_ms={delay_ms}', [
+                    'attempt' => $retryCount + 1,
+                    'delay_ms' => $delayMs,
+                ]
+            );
+            if ($delayMs > 0) {
+                usleep((int) ($delayMs * 1000));
+            }
+            $retryCount++;
+        }
+    }
+
+    private function sendAsync(Context $context)
+    {
+        return $this->sendAsyncAttempt($context, 0);
+    }
+
+    private function buildResponseContext(Context $context, $httpResponse)
+    {
+        $response = new Response();
+        $response->httpResponse = $httpResponse;
+
+        $responseContext = new Context();
+        $responseContext->setRequest($context->getRequest());
+        $responseContext->setResponse($response);
+        $responseContext->mergeAttributes($context->getAttributes());
+
+        return $responseContext;
+    }
+
+    private function buildRequestOptions(Request $request)
+    {
+        $options = $request->options ?: [];
+        $this->setClientOption(
+            $options,
+            'timeout',
+            $request->readTimeout
+        );
+        $this->setClientOption(
+            $options,
+            'connect_timeout',
+            $request->connectTimeout
+        );
+        $options['verify'] = $this->resolveVerifyOption($request);
+        $options['http_errors'] = false;
+        if ($request->assertHostname === false && defined('CURLOPT_SSL_VERIFYHOST')) {
+            $options['curl'][CURLOPT_SSL_VERIFYHOST] = 0;
+        }
+
+        if ($request->certFile !== null) {
+            $options['cert'] = $request->certFile;
+        }
+        if ($request->keyFile !== null) {
+            $options['ssl_key'] = $request->keyFile;
+        }
+        if ($request->proxy !== null) {
+            $options['proxy'] = $request->proxy;
+        } elseif ($request->httpProxy !== null || $request->httpsProxy !== null) {
+            $proxy = [];
+            if ($request->httpProxy !== null) {
+                $proxy['http'] = $request->httpProxy;
+            }
+            if ($request->httpsProxy !== null) {
+                $proxy['https'] = $request->httpsProxy;
+            }
+            $options['proxy'] = $proxy;
+        }
+        return $options;
+    }
+
+    private function setClientOption(array &$options, $name, $value)
+    {
+        if ($this->usesCustomClient
+            && array_key_exists($name, $this->clientConfig)
+            && $this->clientConfig[$name] !== null) {
+            $options[$name] = $this->clientConfig[$name];
+            return;
+        }
+
+        $options[$name] = $value;
+    }
+
+    private function resolveVerifyOption(Request $request)
+    {
+        if ($request->sslCaCert) {
+            return $request->sslCaCert;
+        }
+
+        if ($this->usesCustomClient
+            && isset($this->clientConfig['verify'])
+            && $this->clientConfig['verify'] !== true) {
+            return $this->clientConfig['verify'];
+        }
+
+        return $request->verifySsl;
     }
 
     public function setNewClientConfig()
     {
         $config = [];
-
         $clientConfig = $this->client->getConfig();
 
-        //如果两者不一样,client的配置和全局configuration配置不同
-        //配置verify
         $clientVerify = isset($clientConfig['verify']) ? $clientConfig['verify'] : true;
         if ($this->configuration->getVerifySsl() != $clientVerify) {
             if ($clientVerify != true) {
@@ -259,7 +323,6 @@ class ApiClient
             }
         }
 
-        //配置readTimeout
         if (isset($clientConfig['timeout']) && $this->configuration->getReadTimeout() != $clientConfig['timeout']) {
             if ($clientConfig['timeout'] != null) {
                 $config['timeout'] = $clientConfig['timeout'];
@@ -268,7 +331,6 @@ class ApiClient
             }
         }
 
-        //配置connectTimeout
         if (isset($clientConfig['connect_timeout']) && $this->configuration->getConnectTimeout() != $clientConfig['connect_timeout']) {
             if ($clientConfig['connect_timeout'] != null) {
                 $config['connect_timeout'] = $clientConfig['connect_timeout'];
@@ -276,9 +338,147 @@ class ApiClient
                 $config['connect_timeout'] = $this->configuration->getConnectTimeout();
             }
         }
+
         $handler = isset($clientConfig['handler']) ? $clientConfig['handler'] : \GuzzleHttp\HandlerStack::create();
         $this->client = new Client(array_merge($clientConfig, $config, ['handler' => $handler]));
+        $this->clientConfig = $this->client->getConfig();
     }
-}
 
-?>
+    private function sendAsyncAttempt(Context $context, $retryCount, $previousError = null)
+    {
+        $request = $context->getRequest();
+        $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
+        if ($retryCount > 0) {
+            $context = $this->prepareRetryAttempt($context, $previousError);
+            $request = $context->getRequest();
+            $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
+        }
+
+        $context->setAttribute('attempt_start_time', microtime(true));
+        HttpLoggingInterceptor::logRequest($request);
+        return $this->client
+            ->sendAsync($request->realRequest, $this->buildRequestOptions($request))
+            ->then(function ($httpResponse) use ($context, $request, $retryer, $retryCount) {
+                try {
+                    $responseContext = $this->buildResponseContext($context, $httpResponse);
+                    $start = $context->getAttribute('attempt_start_time');
+                    if ($start !== null) {
+                        $responseContext->setAttribute('elapsed_ms', (int) ((microtime(true) - $start) * 1000));
+                    }
+                    $responseContext = $this->interceptorChain->executeResponse($responseContext);
+                    return [
+                        $responseContext->getResponse()->result,
+                        $responseContext->getResponse()->statusCode,
+                        $responseContext->getResponse()->headers,
+                    ];
+                } catch (ApiException $e) {
+                    if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($httpResponse, $retryCount, $e)) {
+                        throw $e;
+                    }
+
+                    $delayMs = $retryer->getRetryDelay($retryCount, $httpResponse);
+                    LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                        'Retry attempt={attempt} delay_ms={delay_ms}', [
+                            'attempt' => $retryCount + 1,
+                            'delay_ms' => $delayMs,
+                        ]
+                    );
+                    if ($delayMs > 0) {
+                        usleep((int) ($delayMs * 1000));
+                    }
+
+                    return $this->sendAsyncAttempt($context, $retryCount + 1, $e);
+                }
+            }, function ($exception) use ($context, $request, $retryer, $retryCount) {
+                $response = null;
+                if ($exception instanceof RequestException) {
+                    $response = $exception->getResponse();
+                    $apiException = ApiException::fromRequestException($exception);
+                } elseif ($exception instanceof TransferException) {
+                    $apiException = ApiException::fromTransferException($exception);
+                } elseif ($exception instanceof ApiException) {
+                    $apiException = $exception;
+                } else {
+                    throw $exception;
+                }
+
+                $retryCandidate = $exception instanceof TransferException ? $exception : $apiException;
+                if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($response, $retryCount, $retryCandidate)) {
+                    throw $apiException;
+                }
+
+                $delayMs = $retryer->getRetryDelay($retryCount, $response);
+                LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                    'Retry attempt={attempt} delay_ms={delay_ms}', [
+                        'attempt' => $retryCount + 1,
+                        'delay_ms' => $delayMs,
+                    ]
+                );
+                if ($delayMs > 0) {
+                    usleep((int) ($delayMs * 1000));
+                }
+
+                return $this->sendAsyncAttempt($context, $retryCount + 1, $apiException);
+            });
+    }
+
+    private function prepareRetryAttempt(Context $context, $error)
+    {
+        $request = $context->getRequest();
+
+        if ($this->shouldRefreshCredentials($error)) {
+            $this->refreshRequestCredentials($request);
+        }
+
+        return $this->rebuildRequest($context);
+    }
+
+    private function refreshRequestCredentials(Request $request)
+    {
+        if ($request->credentialProvider === null) {
+            return;
+        }
+
+        $creds = $request->credentialProvider->getCredentials();
+        if (!is_array($creds)) {
+            return;
+        }
+
+        if (isset($creds['AccessKeyId'])) {
+            $request->ak = $creds['AccessKeyId'];
+        }
+        if (isset($creds['SecretAccessKey'])) {
+            $request->sk = $creds['SecretAccessKey'];
+        }
+        $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
+    }
+
+    private function rebuildRequest(Context $context)
+    {
+        $request = $context->getRequest();
+        unset(
+            $request->headers['Authorization'],
+            $request->headers['X-Date'],
+            $request->headers['X-Content-Sha256'],
+            $request->headers['X-Security-Token']
+        );
+        $request->realRequest = null;
+        $request->options = [];
+        return $this->interceptorChain->executeRequest($context);
+    }
+
+    private function shouldRefreshCredentials($error)
+    {
+        if (!$error instanceof ApiException) {
+            return false;
+        }
+
+        $code = Retryer::extractErrorCode($error->getResponseBody());
+        if ($code === null) {
+            return false;
+        }
+
+        return Retryer::isCredentialExpiryError($code);
+    }
+
+}

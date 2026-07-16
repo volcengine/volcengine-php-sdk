@@ -2,13 +2,11 @@
 
 ---
 
-## HTTP(S) 代理配置
+## HTTP(S) 代理
 
-> **默认**
->
-> 无代理。
+PHP SDK 现在支持直接通过 `Configuration` 配置代理。
 
-### 配置 HTTP(S) 代理
+### 配置 HTTP/HTTPS 代理
 
 ```php
 <?php
@@ -17,29 +15,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setAk("Your ak")
     ->setSk("Your sk")
-    ->setRegion('cn-beijing');
-$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client([
-        'proxy' => [
-            'http'  => 'http://127.0.0.1:8888',  // HTTP 请求用此代理
-            'https' => 'http://127.0.0.1:8889'   // HTTPS 请求用此代理
-        ],
-    ]),
-    $config
-);
-
-$body = new \Volcengine\Vpc\Model\CreateVpcRequest();
-$body->setCidrBlock("192.168.0.0/16");
-
-try {
-    $result = $apiInstance->createVpc($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
-}
+    ->setRegion('cn-beijing')
+    ->setHttpProxy('http://127.0.0.1:8888')
+    ->setHttpsProxy('http://127.0.0.1:8889');
 ```
+
+### 配置统一代理映射
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setProxy([
+        'http' => 'http://127.0.0.1:8888',
+        'https' => 'http://127.0.0.1:8889',
+    ]);
+```
+
+如果需要，也仍然可以传入自定义 Guzzle Client，但仅为了代理配置已经不再必需。
 
 ---
 

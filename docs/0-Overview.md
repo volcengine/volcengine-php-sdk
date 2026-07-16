@@ -11,10 +11,6 @@ When calling APIs, it is recommended to integrate the SDK in your project. Using
 1. PHP version **>= 5.5**.
 2. It is recommended to use **Composer** for dependency management.
 
-## Configuration Object
-
-`Configuration::getDefaultConfiguration()` is used as a factory in these examples. Each call returns a new configuration object. If you need to reuse configuration, keep the returned object and pass it to the API Client or continue configuring it fluently. Do not rely on `setDefaultConfiguration()` followed by `getDefaultConfiguration()` returning the same object.
-
 ## Table of Contents
 
 1. [Credentials](1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS Role, Default Chain

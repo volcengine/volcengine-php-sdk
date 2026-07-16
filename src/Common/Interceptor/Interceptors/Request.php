@@ -29,6 +29,18 @@ class Request
     public $retryer;
     public $credentialProvider;
     public $runtimeOptions;
+    public $connectTimeout;
+    public $readTimeout;
+    public $verifySsl;
+    public $sslCaCert;
+    public $certFile;
+    public $keyFile;
+    public $assertHostname;
+    public $proxy;
+    public $httpProxy;
+    public $httpsProxy;
+    public $logger;
+    public $logLevel;
     public $model;
     public $realRequest;
     public $options;
@@ -130,5 +142,3 @@ class Request
         return $this;
     }
 }
-
-?>

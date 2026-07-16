@@ -3,6 +3,8 @@
 namespace Volcengine\Common;
 
 use Exception;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
 
 class ApiException extends Exception
 {
@@ -27,6 +29,82 @@ class ApiException extends Exception
      * @var $responseObject ;
      */
     protected $responseObject;
+    protected $statusCode;
+    protected $errorCode;
+    protected $errorMessage;
+    protected $originalError;
+
+    public static function fromRequestException(RequestException $e)
+    {
+        $response = $e->getResponse();
+        $request = $e->getRequest();
+        if ($response !== null) {
+            $statusCode = $response->getStatusCode();
+            $body = (string) $response->getBody();
+
+            $exception = self::fromHttpResponse(
+                $statusCode,
+                $request !== null ? $request->getUri() : null,
+                $response->getHeaders(),
+                $body,
+                sprintf('[%d] %s%s', $statusCode, $e->getMessage(), $body)
+            );
+            $exception->setOriginalError($e);
+            return $exception;
+        }
+
+        return self::fromTransferError($e->getMessage(), $e->getCode(), [], null, $e);
+    }
+
+    public static function fromTransferException(TransferException $e)
+    {
+        return self::fromTransferError($e->getMessage(), $e->getCode(), [], null, $e);
+    }
+
+    public static function fromTransferError($message, $code = 0, $headers = null, $body = null, $originalError = null)
+    {
+        $headers = $headers === null ? [] : $headers;
+        $statusCode = is_numeric($code) ? (int) $code : 0;
+        return self::build($message, $statusCode, $headers, $body, null, $message, $originalError);
+    }
+
+    public static function fromHttpResponse($statusCode, $uri, $headers, $body, $message = null)
+    {
+        $statusCode = (int) $statusCode;
+        $headers = $headers === null ? [] : $headers;
+        $bodyString = self::normalizeBody($body);
+        $uriString = $uri ? (string) $uri : '';
+        $serviceError = self::extractServiceError($bodyString);
+        if ($message === null) {
+            $message = sprintf('[%d] Error connecting to the API (%s)(%s)', $statusCode, $uriString, $bodyString);
+        }
+
+        return self::build(
+            $message,
+            $statusCode,
+            $headers,
+            $bodyString,
+            $serviceError ? $serviceError['code'] : null,
+            $serviceError ? $serviceError['message'] : $message
+        );
+    }
+
+    public static function fromServiceError($statusCode, $uri, $headers, $body)
+    {
+        $statusCode = (int) $statusCode;
+        $bodyString = self::normalizeBody($body);
+        $serviceError = self::extractServiceError($bodyString);
+        $message = sprintf('[%d] Return Error From the API (%s)(%s)', $statusCode, (string) $uri, $bodyString);
+
+        return self::build(
+            $message,
+            $statusCode,
+            $headers,
+            $bodyString,
+            $serviceError ? $serviceError['code'] : null,
+            $serviceError ? $serviceError['message'] : $message
+        );
+    }
 
     /**
      * Constructor
@@ -39,6 +117,8 @@ class ApiException extends Exception
     public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
         parent::__construct($message, $code);
+        $this->statusCode = (int) $code;
+        $this->errorMessage = $message;
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;
     }
@@ -83,5 +163,95 @@ class ApiException extends Exception
     public function getResponseObject()
     {
         return $this->responseObject;
+    }
+
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = (int) $statusCode;
+        return $this;
+    }
+
+    public function getErrorCode()
+    {
+        return $this->errorCode;
+    }
+
+    public function setErrorCode($errorCode)
+    {
+        $this->errorCode = $errorCode;
+        return $this;
+    }
+
+    public function getErrorMessage()
+    {
+        return $this->errorMessage !== null ? $this->errorMessage : $this->getMessage();
+    }
+
+    public function setErrorMessage($errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
+        return $this;
+    }
+
+    public function getOriginalError()
+    {
+        return $this->originalError;
+    }
+
+    public function setOriginalError($originalError)
+    {
+        $this->originalError = $originalError;
+        return $this;
+    }
+
+    private static function extractServiceError($body)
+    {
+        $bodyString = self::normalizeBody($body);
+        if ($bodyString === '') {
+            return null;
+        }
+
+        $decoded = json_decode($bodyString, true);
+        if (!is_array($decoded) || !isset($decoded['ResponseMetadata']['Error'])) {
+            return null;
+        }
+
+        $error = $decoded['ResponseMetadata']['Error'];
+        return [
+            'code' => isset($error['Code']) ? $error['Code'] : null,
+            'message' => isset($error['Message']) ? $error['Message'] : null,
+        ];
+    }
+
+    private static function normalizeBody($body)
+    {
+        if ($body === null) {
+            return '';
+        }
+
+        if (is_string($body)) {
+            return $body;
+        }
+
+        if (is_scalar($body)) {
+            return (string) $body;
+        }
+
+        $encoded = json_encode($body);
+        return $encoded === false ? '' : $encoded;
+    }
+
+    private static function build($message, $statusCode, $headers, $body, $errorCode = null, $errorMessage = null, $originalError = null)
+    {
+        $exception = new self($message, $statusCode, $headers, $body);
+        $exception->setErrorCode($errorCode);
+        $exception->setErrorMessage($errorMessage);
+        $exception->setOriginalError($originalError);
+        return $exception;
     }
 }

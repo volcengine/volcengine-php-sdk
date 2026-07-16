@@ -3,15 +3,22 @@
 namespace Volcengine\Common\Interceptor\Interceptors;
 
 use GuzzleHttp\RequestOptions;
+use Volcengine\Common\LogHelper;
+use Volcengine\Common\SdkLogger;
 use Volcengine\Common\Utils;
 
 class SignRequestInterceptor extends Interceptor
 {
     public $credentialProvider;
 
-    public function __construct($credentialProvider)
+    public function __construct($credentialProvider = null)
     {
         $this->credentialProvider = $credentialProvider;
+    }
+
+    public function name()
+    {
+        return 'volcengine-sign-request-interceptor';
     }
 
     public function intercept(Context $context)
@@ -48,8 +55,18 @@ class SignRequestInterceptor extends Interceptor
                 $request->presignedUrl = $pos !== false ? substr($signedPath, $pos + 1) : $signedPath;
             }
         } else {
+            if (!isset($request->headers['Host']) && !empty($request->host)) {
+                $request->headers['Host'] = $request->host;
+            }
+
             $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
                 $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
+            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_SIGNING,
+                'Signed request service={service} region={region}', [
+                    'service' => $request->service,
+                    'region' => $request->region,
+                ]
+            );
             $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
                 $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
                 $request->headers, $request->httpBody);
@@ -59,6 +76,9 @@ class SignRequestInterceptor extends Interceptor
             //配置options添加
             $options = [];
             if ($request->getDebug) {
+                if (isset($request->options[RequestOptions::DEBUG]) && is_resource($request->options[RequestOptions::DEBUG])) {
+                    fclose($request->options[RequestOptions::DEBUG]);
+                }
                 $options[RequestOptions::DEBUG] = fopen($request->getDebugFile, 'a');
                 if (!$options[RequestOptions::DEBUG]) {
                     throw new \RuntimeException('Failed to open the debug file: ' . $request->getDebugFile);
@@ -70,5 +90,3 @@ class SignRequestInterceptor extends Interceptor
         return $context;
     }
 }
-
-?>

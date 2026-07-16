@@ -4,9 +4,7 @@
 
 ## Timeout
 
-Business API request timeout can be configured through a custom Guzzle client.
-Set `timeout` for the total request timeout and `connect_timeout` for the
-connection timeout.
+The PHP SDK supports global transport timeouts through `Configuration`.
 
 ```php
 <?php
@@ -15,30 +13,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setAk("Your ak")
     ->setSk("Your sk")
-    ->setRegion('cn-beijing');
-
-$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
-    new GuzzleHttp\Client([
-        'connect_timeout' => 3,
-        'timeout' => 30,
-    ]),
-    $config
-);
-
-$body = new \Volcengine\Vpc\Model\CreateVpcRequest();
-$body->setCidrBlock("192.168.0.0/16");
-
-try {
-    $result = $apiInstance->createVpc($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
-}
+    ->setRegion('cn-beijing')
+    ->setConnectTimeout(3)
+    ->setReadTimeout(30);
 ```
 
-Credential providers that make their own HTTP calls can expose separate timeout
-setters. For example, `EcsRoleCredentialProvider` supports
-`setConnectTimeout()` and `setReadTimeout()` for IMDS requests.
+When you pass a custom `GuzzleHttp\Client` to a generated API, timeout values
+set directly on that client take precedence. If the custom client does not set
+`timeout` or `connect_timeout`, the SDK uses `Configuration::setReadTimeout()`
+and `Configuration::setConnectTimeout()`.
+
+`StsProvider` and `EcsRoleCredentialProvider` also expose dedicated timeout
+setters for credential-fetching flows.
 
 ---
 

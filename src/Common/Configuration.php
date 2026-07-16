@@ -3,13 +3,13 @@
 namespace Volcengine\Common;
 
 use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
+use Volcengine\Common\Retry\Retryer;
 
 class Configuration
 {
     private static $defaultConfiguration;
 
     protected $region = 'cn-beijing';
-
     protected $schema = 'https';
     protected $endpointProvider;
     protected $customBootstrapRegion = '';
@@ -19,48 +19,39 @@ class Configuration
     protected $runtimeOptions = '';
 
     protected $sessionToken = '';
-
     protected $ak = '';
-
     protected $sk = '';
-
     protected $host = '';
 
     protected $verifySsl = true;
+    protected $sslCaCert;
+    protected $certFile;
+    protected $keyFile;
+    protected $assertHostname;
 
     protected $connectTimeout = 30;
     protected $readTimeout = 30;
 
+    protected $proxy;
+    protected $httpProxy;
+    protected $httpsProxy;
+
     protected $userAgent = 'volcstack-php-sdk/1.0.125';
-
-    /**
-     * Debug switch (default set to false)
-     *
-     * @var bool
-     */
+    protected $sdkUserAgent;
     protected $debug = false;
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
     protected $debugFile = 'php://output';
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
     protected $tempFolderPath;
+    protected $retryer;
+    protected $logger;
+    protected $logLevel = 0;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
         $this->endpointProvider = new DefaultEndpointProvider();
+        $this->retryer = new Retryer();
+        $this->logger = new SdkLogger();
+        $this->sdkUserAgent = $this->userAgent;
     }
 
     /**
@@ -206,6 +197,12 @@ class Configuration
         return $this->autoRetry;
     }
 
+    public function setAutoRetry($autoRetry)
+    {
+        $this->autoRetry = (bool) $autoRetry;
+        return $this;
+    }
+
     public function getCredentialProvider()
     {
         return $this->credentialProvider;
@@ -233,6 +230,50 @@ class Configuration
         return $this->verifySsl;
     }
 
+    public function setSslCaCert($sslCaCert)
+    {
+        $this->sslCaCert = $sslCaCert;
+        return $this;
+    }
+
+    public function getSslCaCert()
+    {
+        return $this->sslCaCert;
+    }
+
+    public function setCertFile($certFile)
+    {
+        $this->certFile = $certFile;
+        return $this;
+    }
+
+    public function getCertFile()
+    {
+        return $this->certFile;
+    }
+
+    public function setKeyFile($keyFile)
+    {
+        $this->keyFile = $keyFile;
+        return $this;
+    }
+
+    public function getKeyFile()
+    {
+        return $this->keyFile;
+    }
+
+    public function setAssertHostname($assertHostname)
+    {
+        $this->assertHostname = $assertHostname;
+        return $this;
+    }
+
+    public function getAssertHostname()
+    {
+        return $this->assertHostname;
+    }
+
     public function setReadTimeout($time)
     {
         $this->readTimeout = $time;
@@ -255,83 +296,161 @@ class Configuration
         return $this->connectTimeout;
     }
 
-    /**
-     * Gets the user agent of the api client
-     *
-     * @return string user agent
-     */
+    public function setProxy($proxy)
+    {
+        $this->proxy = $proxy;
+        return $this;
+    }
+
+    public function getProxy()
+    {
+        return $this->proxy;
+    }
+
+    public function setHttpProxy($httpProxy)
+    {
+        $this->httpProxy = $httpProxy;
+        return $this;
+    }
+
+    public function getHttpProxy()
+    {
+        return $this->httpProxy;
+    }
+
+    public function setHttpsProxy($httpsProxy)
+    {
+        $this->httpsProxy = $httpsProxy;
+        return $this;
+    }
+
+    public function getHttpsProxy()
+    {
+        return $this->httpsProxy;
+    }
+
+    public function setUserAgent($userAgent)
+    {
+        $userAgent = trim((string) $userAgent);
+        if ($userAgent === '') {
+            $this->userAgent = $this->sdkUserAgent;
+            return $this;
+        }
+        if ($userAgent === $this->sdkUserAgent || strpos($userAgent, $this->sdkUserAgent . ' ') === 0) {
+            $this->userAgent = $userAgent;
+            return $this;
+        }
+        $this->userAgent = $this->sdkUserAgent . ' ' . $userAgent;
+        return $this;
+    }
+
     public function getUserAgent()
     {
         return $this->userAgent;
     }
 
-    /**
-     * Sets debug flag
-     *
-     * @param bool $debug Debug flag
-     *
-     * @return $this
-     */
     public function setDebug($debug)
     {
         $this->debug = $debug;
         return $this;
     }
 
-    /**
-     * Gets the debug flag
-     *
-     * @return bool
-     */
     public function getDebug()
     {
         return $this->debug;
     }
 
-    /**
-     * Sets the debug file
-     *
-     * @param string $debugFile Debug file
-     *
-     * @return $this
-     */
     public function setDebugFile($debugFile)
     {
         $this->debugFile = $debugFile;
+        if ($this->logger instanceof SdkLogger) {
+            $stream = fopen($debugFile, 'a');
+            if ($stream !== false) {
+                $this->logger->setStream($stream);
+            }
+        }
         return $this;
     }
 
-    /**
-     * Gets the debug file
-     *
-     * @return string
-     */
     public function getDebugFile()
     {
         return $this->debugFile;
     }
 
-    /**
-     * Sets the temp folder path
-     *
-     * @param string $tempFolderPath Temp folder path
-     *
-     * @return $this
-     */
     public function setTempFolderPath($tempFolderPath)
     {
         $this->tempFolderPath = $tempFolderPath;
         return $this;
     }
 
-    /**
-     * Gets the temp folder path
-     *
-     * @return string Temp folder path
-     */
     public function getTempFolderPath()
     {
         return $this->tempFolderPath;
+    }
+
+    public function getRetryer()
+    {
+        return $this->retryer;
+    }
+
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    public function getLogLevel()
+    {
+        return $this->logLevel;
+    }
+
+    public function setLogLevel($logLevel)
+    {
+        $this->logLevel = (int) $logLevel;
+        return $this;
+    }
+
+    public function setNumMaxRetries($numMaxRetries)
+    {
+        $this->retryer->setNumMaxRetries($numMaxRetries);
+        return $this;
+    }
+
+    public function getNumMaxRetries()
+    {
+        return $this->retryer->getNumMaxRetries();
+    }
+
+    public function setRetryErrorCodes($retryErrorCodes)
+    {
+        $this->retryer->setRetryErrorCodes($retryErrorCodes);
+        return $this;
+    }
+
+    public function getRetryErrorCodes()
+    {
+        return $this->retryer->getRetryErrorCodes();
+    }
+
+    public function setMinRetryDelayMs($minRetryDelayMs)
+    {
+        $this->retryer->setMinRetryDelayMs($minRetryDelayMs);
+        return $this;
+    }
+
+    public function getMinRetryDelayMs()
+    {
+        return $this->retryer->getMinRetryDelayMs();
+    }
+
+    public function setMaxRetryDelayMs($maxRetryDelayMs)
+    {
+        $this->retryer->setMaxRetryDelayMs($maxRetryDelayMs);
+        return $this;
+    }
+
+    public function getMaxRetryDelayMs()
+    {
+        return $this->retryer->getMaxRetryDelayMs();
     }
 
     /**
@@ -341,7 +460,9 @@ class Configuration
      */
     public static function getDefaultConfiguration()
     {
-        self::$defaultConfiguration = new Configuration();
+        if (self::$defaultConfiguration === null) {
+            self::$defaultConfiguration = new Configuration();
+        }
 
         return self::$defaultConfiguration;
     }
@@ -368,7 +489,6 @@ class Configuration
         $report = 'PHP SDK (Volcengine\Common) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: common-version' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

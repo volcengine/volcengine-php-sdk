@@ -11,7 +11,8 @@ The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-ba
 | Provider | Purpose | Refresh Support | Typical Scenario |
 | --- | --- | --- | --- |
 | Direct `Configuration` (`AK/SK` or `AK/SK/Token`) | Explicit static or temporary credentials | No | Simple server-side integration |
-| `StsProvider` | STS AssumeRole | Yes | Role-based temporary credentials |
+| `StaticCredentialProvider` | Static credentials through the provider interface | No | Custom provider chains or provider-based client setup |
+| `StsProvider` | STS AssumeRole | No | Role-based temporary credentials |
 | `OidcCredentialProvider` | STS AssumeRoleWithOIDC | Yes | OIDC federation |
 | `SamlCredentialProvider` | STS AssumeRoleWithSAML | Yes | SAML federation |
 | `EnvironmentVariableCredentialProvider` | Read from env vars | No | CI/CD and container env injection |
@@ -106,9 +107,28 @@ try {
 ?>
 ```
 
+### Static Credential Provider
+
+Direct `setAk()` / `setSk()` remains the simplest path. Use `StaticCredentialProvider` when your code expects a `CredentialProvider`.
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setRegion("cn-beijing")
+    ->setCredentialProvider(
+        new \Volcengine\Common\Auth\Providers\StaticCredentialProvider(
+            "Your AK",
+            "Your SK",
+            "Your session token" // optional
+        )
+    );
+```
+
 ### AssumeRole
 
-AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response.
+AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response. Transient STS failures are retried by default: network/transport errors, HTTP `429`, and HTTP `5xx`.
 
 > ⚠️ **Notes**
 >
@@ -131,6 +151,10 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "sts.volcengineapi.com", // optional
     '{"Statement":[{"Effect":"Allow","Action":["vpc:CreateVpc"],"Resource":["*"],"Condition":{"StringEquals":{"volc:RequestedRegion":["cn-beijing"]}}}]}' // optional
 );
+
+// Optional: tune retry settings. maxRetries means extra retry attempts.
+// $sts->setMaxRetries(3)
+//     ->setRetryInterval(1);
 
 try {
     $result = $sts->getCredentials();
@@ -168,7 +192,7 @@ $provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
     "sts.volcengineapi.com"                  // stsEndpoint (optional)
 );
 
-// Optional: tune retry and transport settings via fluent setters
+// Optional: tune retry settings via fluent setters
 // $provider->setSchema('https')       // 'http' or 'https', default 'https'
 //          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
 //          ->setRetryInterval(1);      // seconds between retries, default 1
@@ -217,7 +241,7 @@ $provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
     "sts.volcengineapi.com"                    // sts endpoint (optional)
 );
 
-// Optional: tune retry and transport settings via fluent setters
+// Optional: tune retry settings via fluent setters
 // $provider->setSchema('https')       // 'http' or 'https', default 'https'
 //          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
 //          ->setRetryInterval(1);      // seconds between retries, default 1
@@ -287,32 +311,10 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 #### Runtime Refresh Behavior (sso / console-login)
 
-For `sso` and `console-login` modes the SDK auto-refreshes credentials in the
-current PHP process when the cached access token enters its expiry window (60 s
-before its TTL). Because PHP processes are short-lived, the refresh contract
-differs slightly from the Go / Java / Python SDKs:
-
-- **Per-object in-memory cache**: a single `CLIConfigCredentialProvider` instance
-  caches the parsed credentials for the lifetime of the object (within a single
-  PHP request), so repeated API calls inside one request reuse the same STS.
-- **Disk-backed cross-process refresh**: the SDK *does* write the refreshed
-  token back to the cache file (`~/.volcengine/sso/cache/<sha1>.json` or
-  `~/.volcengine/login/cache/<sha1(login_session)>.json`) via atomic rename,
-  so concurrent PHP processes — and the `ve` CLI itself — can share the
-  refreshed `refresh_token`. This is the opposite of the long-running Go /
-  Java / Python SDKs (which keep refresh state purely in memory) and is the
-  correct trade-off for PHP's short request lifecycle.
-- **`refresh_token` rotation**: when the server returns HTTP 400
-  `invalid_grant`, the SDK reloads the cache file once, compares the disk
-  `refresh_token` against the in-memory copy, and retries the refresh
-  exactly once with the disk state. This recovers the case where a
-  concurrent `ve login` (or another PHP process) rotated the token under us
-  without colliding writes. If the disk also yields no fresher token, the
-  SDK raises an `ApiException` containing `please run 've login'` /
-  `'ve sso login'` so the user knows the remedy.
-- **Actionable error messages**: every error path that requires
-  re-authentication contains `'ve login'` (console-login) or `'ve sso login'`
-  (sso) so the caller can present a clear next step.
+For `sso` and `console-login` modes, the SDK refreshes cached access tokens when
+they are close to expiry. Refreshed tokens are written back to the CLI cache file
+so later PHP requests can reuse them. If refresh fails because the login state is
+invalid, the exception message includes `ve login` or `ve sso login`.
 
 ### ECS Role Credential Provider
 
@@ -350,8 +352,6 @@ Default chain order:
 2. `OidcCredentialProvider`
 3. `CLIConfigCredentialProvider`
 4. `EcsRoleCredentialProvider`
-
-By default, `reuseLastProviderEnabled=true`, so the last successful provider is reused first on later calls.
 
 ```php
 <?php

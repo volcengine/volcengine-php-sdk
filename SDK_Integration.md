@@ -12,13 +12,13 @@ This document has been split and migrated to the [`docs/`](./docs/) directory. S
 
 1. [Credentials](./docs/1-Credentials.md) — AK/SK, STS, AssumeRole, OIDC, SAML, ECS role, default credential chain
 2. [Endpoint Configuration](./docs/2-Endpoint.md) — Custom endpoint, region ID, automatic resolution
-3. [Transport](./docs/3-Transport.md) — HTTP connection pool, HTTPS scheme, SSL verification
+3. [Transport](./docs/3-Transport.md) — HTTPS scheme, SSL verification, custom HTTP client
 4. [Proxy](./docs/4-Proxy.md) — HTTP(S) proxy configuration
 5. [Timeouts](./docs/5-Timeout.md) — Global timeouts
-6. [Retries](./docs/6-Retry.md) — Retry conditions, backoff strategies
+6. [Retries](./docs/6-Retry.md) — Retry conditions, retry delay, Retry-After
 7. [Error Handling](./docs/7-ErrorHandling.md) — Exception handling
 8. [Debugging](./docs/8-Debugging.md) — Debug mode
-- [Environment Variables](./docs/EnvironmentVariables.md) — All environment variables supported by the SDK
+9. [Environment Variables](./docs/EnvironmentVariables.md) — All environment variables supported by the SDK
 
 ---
 

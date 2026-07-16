@@ -5,7 +5,6 @@ namespace Volcengine\Common\Endpoint\Providers;
 use Volcengine\Common\Endpoint\EndpointProvider;
 use Volcengine\Common\Endpoint\ResolvedEndpoint;
 
-
 class DefaultEndpointProvider extends EndpointProvider
 {
     // 默认端点配置
@@ -573,7 +572,7 @@ class DefaultEndpointProvider extends EndpointProvider
                         return true;
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 trigger_error(
                     'failed to read bootstrap region list from file ' . $bsRegionListPath . ': ' . $e->getMessage(),
                     E_USER_WARNING

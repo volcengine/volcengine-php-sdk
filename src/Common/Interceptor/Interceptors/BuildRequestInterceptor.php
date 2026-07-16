@@ -8,6 +8,11 @@ use Volcengine\Common\Utils;
 
 class BuildRequestInterceptor extends Interceptor
 {
+    public function name()
+    {
+        return 'volcengine-build-request-interceptor';
+    }
+
     public function intercept(Context $context)
     {
         // 构建请求逻辑
@@ -32,7 +37,7 @@ class BuildRequestInterceptor extends Interceptor
         if ($method == 'GET' && $ct === 'text/plain') {
             $queryParams = Utils::transRequest($httpBody);
             $httpBody = '';
-        } elseif ($method == 'POST' && $ct === 'application/x-www-form-urlencoded') {
+        } elseif ($ct === 'application/x-www-form-urlencoded' || $ct === 'x-www-form-urlencoded') {
             $httpBody = Utils::transRequest($httpBody);
             $httpBody = http_build_query($httpBody);
         } else {
@@ -41,8 +46,6 @@ class BuildRequestInterceptor extends Interceptor
 
         $queryParams['Action'] = $paths[1];
         $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
         $query = '';
         ksort($queryParams);  // sort query first
         foreach ($queryParams as $k => $v) {
@@ -52,12 +55,10 @@ class BuildRequestInterceptor extends Interceptor
 
         $request->service = $service;
         $request->query = $query ? $query : '';
+        $request->queryParams = $queryParams;
 
         $request->headers = $headers;
-        $request->httpBody = $httpBody;
-        //没有配置realRequest和options
+        $request->httpBody = $httpBody === null ? '' : $httpBody;
         return $context;
     }
 }
-
-?>

@@ -36,6 +36,17 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setVerifySsl(false);
 ```
 
+### Configure Custom CA and Client Certificates
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setSslCaCert('/etc/ssl/certs/ca-bundle.crt')
+    ->setCertFile('/path/to/client.crt')
+    ->setKeyFile('/path/to/client.key')
+    ->setAssertHostname(true);
+```
+
 ### Specify TLS Version
 
 > **Default**

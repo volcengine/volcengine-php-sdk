@@ -36,6 +36,17 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setVerifySsl(false); #非必填，默认为true需要验证ssl，false为不需要验证
 ```
 
+### 配置自定义 CA 与客户端证书
+
+```php
+<?php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setSslCaCert('/etc/ssl/certs/ca-bundle.crt')
+    ->setCertFile('/path/to/client.crt')
+    ->setKeyFile('/path/to/client.key')
+    ->setAssertHostname(true);
+```
+
 ### 指定 TLS 协议版本
 
 > **默认**

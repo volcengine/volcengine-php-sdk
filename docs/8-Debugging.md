@@ -4,9 +4,7 @@
 
 ## Debugging
 
-Enable debug mode on `Configuration` to pass Guzzle's debug output option to
-HTTP requests. By default, debug output is written to `php://output`; use
-`setDebugFile()` to write it to a file.
+The PHP SDK supports Guzzle wire debug output.
 
 ```php
 <?php
@@ -18,19 +16,29 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion('cn-beijing')
     ->setDebug(true)
     ->setDebugFile('/tmp/volcengine-php-sdk-debug.log');
-
-$apiInstance = new \Volcengine\Vpc\Api\VPCApi(null, $config);
-
-try {
-    $result = $apiInstance->describeVpcs(new \Volcengine\Vpc\Model\DescribeVpcsRequest());
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VPCApi->describeVpcs: ', $e->getMessage(), PHP_EOL;
-}
 ```
 
-You can also print environment information with
-`Configuration::toDebugReport()` when collecting diagnostics.
+SDK structured debug logs can be enabled separately with a bitmask. HTTP request and response logs do not record request or response body.
+
+```php
+<?php
+$config->setLogLevel(
+    \Volcengine\Common\SdkLogger::LOG_REQUEST |
+    \Volcengine\Common\SdkLogger::LOG_RESPONSE |
+    \Volcengine\Common\SdkLogger::LOG_RETRY |
+    \Volcengine\Common\SdkLogger::LOG_ENDPOINT
+);
+```
+
+You can append your application identifier to the SDK User-Agent. The SDK
+User-Agent remains the prefix:
+
+```php
+<?php
+$config->setUserAgent('my-app/1.0');
+```
+
+You can still use `Configuration::toDebugReport()` for environment diagnostics.
 
 ---
 
