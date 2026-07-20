@@ -35,6 +35,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'namespace' => 'string',
         'period' => 'string',
         'start_time' => 'int',
+        'statistics_methods' => 'string[]',
         'sub_namespace' => 'string'
     ];
 
@@ -51,6 +52,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'namespace' => null,
         'period' => null,
         'start_time' => 'int32',
+        'statistics_methods' => null,
         'sub_namespace' => null
     ];
 
@@ -88,6 +90,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'namespace' => 'Namespace',
         'period' => 'Period',
         'start_time' => 'StartTime',
+        'statistics_methods' => 'StatisticsMethods',
         'sub_namespace' => 'SubNamespace'
     ];
 
@@ -104,6 +107,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'namespace' => 'setNamespace',
         'period' => 'setPeriod',
         'start_time' => 'setStartTime',
+        'statistics_methods' => 'setStatisticsMethods',
         'sub_namespace' => 'setSubNamespace'
     ];
 
@@ -120,6 +124,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'namespace' => 'getNamespace',
         'period' => 'getPeriod',
         'start_time' => 'getStartTime',
+        'statistics_methods' => 'getStatisticsMethods',
         'sub_namespace' => 'getSubNamespace'
     ];
 
@@ -190,6 +195,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['statistics_methods'] = isset($data['statistics_methods']) ? $data['statistics_methods'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
     }
 
@@ -390,6 +396,30 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
     public function setStartTime($start_time)
     {
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets statistics_methods
+     *
+     * @return string[]
+     */
+    public function getStatisticsMethods()
+    {
+        return $this->container['statistics_methods'];
+    }
+
+    /**
+     * Sets statistics_methods
+     *
+     * @param string[] $statistics_methods statistics_methods
+     *
+     * @return $this
+     */
+    public function setStatisticsMethods($statistics_methods)
+    {
+        $this->container['statistics_methods'] = $statistics_methods;
 
         return $this;
     }
