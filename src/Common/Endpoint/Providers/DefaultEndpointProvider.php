@@ -544,6 +544,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'cloudcontrol' => new ServiceEndpointInfo(
+                    'cloudcontrol',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
