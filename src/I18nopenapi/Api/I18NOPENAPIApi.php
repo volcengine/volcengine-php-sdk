@@ -5247,13 +5247,13 @@ class I18NOPENAPIApi
 
     protected function videoEditorDeleteSubtitleRequest($body)
     {
-        $resourcePath = '/VideoEditorDeleteSubtitle/2021-05-21/i18n_openapi/get/text_plain/';
+        $resourcePath = '/VideoEditorDeleteSubtitle/2021-05-21/i18n_openapi/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -6950,6 +6950,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectSubtitleDelete($body = null)
+    {
+        list($response) = $this->videoProjectSubtitleDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectSubtitleDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSubtitleDeleteResponse';
+        $request = $this->videoProjectSubtitleDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectSubtitleDeleteAsync($body = null)
+    {
+        return $this->videoProjectSubtitleDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectSubtitleDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSubtitleDeleteResponse';
+        $request = $this->videoProjectSubtitleDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectSubtitleDeleteRequest($body)
+    {
+        $resourcePath = '/VideoProjectSubtitleDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectSubtitleUpload($body = null)
     {
         list($response) = $this->videoProjectSubtitleUploadWithHttpInfo($body);
@@ -7238,6 +7300,68 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function videoProjectVideoDelete($body = null)
+    {
+        list($response) = $this->videoProjectVideoDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectVideoDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectVideoDeleteResponse';
+        $request = $this->videoProjectVideoDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectVideoDeleteAsync($body = null)
+    {
+        return $this->videoProjectVideoDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectVideoDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectVideoDeleteResponse';
+        $request = $this->videoProjectVideoDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectVideoDeleteRequest($body)
+    {
+        $resourcePath = '/VideoProjectVideoDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
