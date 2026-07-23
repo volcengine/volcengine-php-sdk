@@ -1,5 +1,0 @@
-{
-  "description": "PARTNER: 新增 ListPartnerCustomer, ListChildPartnerCustomer",
-  "modules": "service/partner",
-  "type": "feature"
-}

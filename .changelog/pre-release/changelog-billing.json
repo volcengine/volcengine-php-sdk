@@ -1,5 +1,0 @@
-{
-  "description": "BILLING: 修改 RenewInstance, ListAmortizedCostBillDaily, ListAmortizedCostBillDetail, ListAmortizedCostBillMonthly, ListBillDetail, ListSplitBillDetail",
-  "modules": "service/billing",
-  "type": "feature"
-}
