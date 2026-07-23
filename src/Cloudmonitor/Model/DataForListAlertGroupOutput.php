@@ -42,6 +42,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'string',
         'rule_id' => 'string',
         'rule_name' => 'string',
+        'rule_trigger_condition' => 'string',
         'start_at' => 'string',
         'sub_namespace' => 'string'
     ];
@@ -66,6 +67,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'resource_type' => null,
         'rule_id' => null,
         'rule_name' => null,
+        'rule_trigger_condition' => null,
         'start_at' => null,
         'sub_namespace' => null
     ];
@@ -111,6 +113,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'ResourceType',
         'rule_id' => 'RuleId',
         'rule_name' => 'RuleName',
+        'rule_trigger_condition' => 'RuleTriggerCondition',
         'start_at' => 'StartAt',
         'sub_namespace' => 'SubNamespace'
     ];
@@ -135,6 +138,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'setResourceType',
         'rule_id' => 'setRuleId',
         'rule_name' => 'setRuleName',
+        'rule_trigger_condition' => 'setRuleTriggerCondition',
         'start_at' => 'setStartAt',
         'sub_namespace' => 'setSubNamespace'
     ];
@@ -159,6 +163,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'getResourceType',
         'rule_id' => 'getRuleId',
         'rule_name' => 'getRuleName',
+        'rule_trigger_condition' => 'getRuleTriggerCondition',
         'start_at' => 'getStartAt',
         'sub_namespace' => 'getSubNamespace'
     ];
@@ -237,6 +242,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_trigger_condition'] = isset($data['rule_trigger_condition']) ? $data['rule_trigger_condition'] : null;
         $this->container['start_at'] = isset($data['start_at']) ? $data['start_at'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
     }
@@ -597,6 +603,30 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     public function setRuleName($rule_name)
     {
         $this->container['rule_name'] = $rule_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_trigger_condition
+     *
+     * @return string
+     */
+    public function getRuleTriggerCondition()
+    {
+        return $this->container['rule_trigger_condition'];
+    }
+
+    /**
+     * Sets rule_trigger_condition
+     *
+     * @param string $rule_trigger_condition rule_trigger_condition
+     *
+     * @return $this
+     */
+    public function setRuleTriggerCondition($rule_trigger_condition)
+    {
+        $this->container['rule_trigger_condition'] = $rule_trigger_condition;
 
         return $this;
     }
