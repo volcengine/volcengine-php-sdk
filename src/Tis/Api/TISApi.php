@@ -812,6 +812,68 @@ class TISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function migrateDeviceWithoutApproval($body = null)
+    {
+        list($response) = $this->migrateDeviceWithoutApprovalWithHttpInfo($body);
+        return $response;
+    }
+
+    public function migrateDeviceWithoutApprovalWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\MigrateDeviceWithoutApprovalResponse';
+        $request = $this->migrateDeviceWithoutApprovalRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function migrateDeviceWithoutApprovalAsync($body = null)
+    {
+        return $this->migrateDeviceWithoutApprovalAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function migrateDeviceWithoutApprovalAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\MigrateDeviceWithoutApprovalResponse';
+        $request = $this->migrateDeviceWithoutApprovalRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function migrateDeviceWithoutApprovalRequest($body)
+    {
+        $resourcePath = '/MigrateDeviceWithoutApproval/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function pushMsgToDevice($body = null)
     {
         list($response) = $this->pushMsgToDeviceWithHttpInfo($body);

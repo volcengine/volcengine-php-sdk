@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ResourceTaskStatusFilterForListTasksInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ResourceTaskStatusFilterForListTasksInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'task_status' => 'string[]',
+        'task_type' => 'string[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'task_status' => null,
+        'task_type' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'task_status' => 'TaskStatus',
+        'task_type' => 'TaskType'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'task_status' => 'setTaskStatus',
+        'task_type' => 'setTaskType'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'task_status' => 'getTaskStatus',
+        'task_type' => 'getTaskType'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['task_status'] = isset($data['task_status']) ? $data['task_status'] : null;
+        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets task_status
      *
-     * @return string
+     * @return string[]
      */
-    public function getSubtaskId()
+    public function getTaskStatus()
     {
-        return $this->container['subtask_id'];
+        return $this->container['task_status'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets task_status
      *
-     * @param string $subtask_id subtask_id
+     * @param string[] $task_status task_status
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setTaskStatus($task_status)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['task_status'] = $task_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_type
+     *
+     * @return string[]
+     */
+    public function getTaskType()
+    {
+        return $this->container['task_type'];
+    }
+
+    /**
+     * Sets task_type
+     *
+     * @param string[] $task_type task_type
+     *
+     * @return $this
+     */
+    public function setTaskType($task_type)
+    {
+        $this->container['task_type'] = $task_type;
 
         return $this;
     }

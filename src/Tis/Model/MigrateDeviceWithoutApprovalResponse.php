@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class MigrateDeviceWithoutApprovalResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'MigrateDeviceWithoutApprovalResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'batch_status' => 'string',
+        'fail_reason' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'batch_status' => null,
+        'fail_reason' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'batch_status' => 'BatchStatus',
+        'fail_reason' => 'FailReason'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'batch_status' => 'setBatchStatus',
+        'fail_reason' => 'setFailReason'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'batch_status' => 'getBatchStatus',
+        'fail_reason' => 'getFailReason'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['batch_status'] = isset($data['batch_status']) ? $data['batch_status'] : null;
+        $this->container['fail_reason'] = isset($data['fail_reason']) ? $data['fail_reason'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets batch_status
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getBatchStatus()
     {
-        return $this->container['subtask_id'];
+        return $this->container['batch_status'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets batch_status
      *
-     * @param string $subtask_id subtask_id
+     * @param string $batch_status batch_status
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setBatchStatus($batch_status)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['batch_status'] = $batch_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets fail_reason
+     *
+     * @return string
+     */
+    public function getFailReason()
+    {
+        return $this->container['fail_reason'];
+    }
+
+    /**
+     * Sets fail_reason
+     *
+     * @param string $fail_reason fail_reason
+     *
+     * @return $this
+     */
+    public function setFailReason($fail_reason)
+    {
+        $this->container['fail_reason'] = $fail_reason;
 
         return $this;
     }

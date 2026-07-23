@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ListTasksResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ListTasksResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'next_token' => 'string',
+        'resource_task_status_summaries' => '\Volcengine\Cloudcontrol\Model\ResourceTaskStatusSummaryForListTasksOutput[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'next_token' => null,
+        'resource_task_status_summaries' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'next_token' => 'NextToken',
+        'resource_task_status_summaries' => 'ResourceTaskStatusSummaries'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'next_token' => 'setNextToken',
+        'resource_task_status_summaries' => 'setResourceTaskStatusSummaries'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'next_token' => 'getNextToken',
+        'resource_task_status_summaries' => 'getResourceTaskStatusSummaries'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_task_status_summaries'] = isset($data['resource_task_status_summaries']) ? $data['resource_task_status_summaries'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getNextToken()
     {
-        return $this->container['subtask_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets next_token
      *
-     * @param string $subtask_id subtask_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setNextToken($next_token)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_task_status_summaries
+     *
+     * @return \Volcengine\Cloudcontrol\Model\ResourceTaskStatusSummaryForListTasksOutput[]
+     */
+    public function getResourceTaskStatusSummaries()
+    {
+        return $this->container['resource_task_status_summaries'];
+    }
+
+    /**
+     * Sets resource_task_status_summaries
+     *
+     * @param \Volcengine\Cloudcontrol\Model\ResourceTaskStatusSummaryForListTasksOutput[] $resource_task_status_summaries resource_task_status_summaries
+     *
+     * @return $this
+     */
+    public function setResourceTaskStatusSummaries($resource_task_status_summaries)
+    {
+        $this->container['resource_task_status_summaries'] = $resource_task_status_summaries;
 
         return $this;
     }

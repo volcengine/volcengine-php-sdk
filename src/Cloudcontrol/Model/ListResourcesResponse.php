@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ListResourcesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ListResourcesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'next_token' => 'string',
+        'resource_descriptions' => '\Volcengine\Cloudcontrol\Model\ResourceDescriptionForListResourcesOutput[]',
+        'type_name' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'next_token' => null,
+        'resource_descriptions' => null,
+        'type_name' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'next_token' => 'NextToken',
+        'resource_descriptions' => 'ResourceDescriptions',
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -76,7 +82,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'next_token' => 'setNextToken',
+        'resource_descriptions' => 'setResourceDescriptions',
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -85,7 +93,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'next_token' => 'getNextToken',
+        'resource_descriptions' => 'getResourceDescriptions',
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -148,7 +158,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_descriptions'] = isset($data['resource_descriptions']) ? $data['resource_descriptions'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -160,9 +172,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +188,73 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getNextToken()
     {
-        return $this->container['subtask_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets next_token
      *
-     * @param string $subtask_id subtask_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setNextToken($next_token)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_descriptions
+     *
+     * @return \Volcengine\Cloudcontrol\Model\ResourceDescriptionForListResourcesOutput[]
+     */
+    public function getResourceDescriptions()
+    {
+        return $this->container['resource_descriptions'];
+    }
+
+    /**
+     * Sets resource_descriptions
+     *
+     * @param \Volcengine\Cloudcontrol\Model\ResourceDescriptionForListResourcesOutput[] $resource_descriptions resource_descriptions
+     *
+     * @return $this
+     */
+    public function setResourceDescriptions($resource_descriptions)
+    {
+        $this->container['resource_descriptions'] = $resource_descriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }

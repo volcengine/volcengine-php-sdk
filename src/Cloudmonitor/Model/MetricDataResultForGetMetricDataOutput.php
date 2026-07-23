@@ -30,7 +30,8 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'data_points' => '\Volcengine\Cloudmonitor\Model\DataPointForGetMetricDataOutput[]',
         'dimensions' => '\Volcengine\Cloudmonitor\Model\DimensionForGetMetricDataOutput[]',
-        'legend' => 'string'
+        'legend' => 'string',
+        'statistics_methods' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'data_points' => null,
         'dimensions' => null,
-        'legend' => null
+        'legend' => null,
+        'statistics_methods' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'data_points' => 'DataPoints',
         'dimensions' => 'Dimensions',
-        'legend' => 'Legend'
+        'legend' => 'Legend',
+        'statistics_methods' => 'StatisticsMethods'
     ];
 
     /**
@@ -84,7 +87,8 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     protected static $setters = [
         'data_points' => 'setDataPoints',
         'dimensions' => 'setDimensions',
-        'legend' => 'setLegend'
+        'legend' => 'setLegend',
+        'statistics_methods' => 'setStatisticsMethods'
     ];
 
     /**
@@ -95,7 +99,8 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     protected static $getters = [
         'data_points' => 'getDataPoints',
         'dimensions' => 'getDimensions',
-        'legend' => 'getLegend'
+        'legend' => 'getLegend',
+        'statistics_methods' => 'getStatisticsMethods'
     ];
 
     /**
@@ -161,6 +166,7 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
         $this->container['data_points'] = isset($data['data_points']) ? $data['data_points'] : null;
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
         $this->container['legend'] = isset($data['legend']) ? $data['legend'] : null;
+        $this->container['statistics_methods'] = isset($data['statistics_methods']) ? $data['statistics_methods'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class MetricDataResultForGetMetricDataOutput implements ModelInterface, ArrayAcc
     public function setLegend($legend)
     {
         $this->container['legend'] = $legend;
+
+        return $this;
+    }
+
+    /**
+     * Gets statistics_methods
+     *
+     * @return string
+     */
+    public function getStatisticsMethods()
+    {
+        return $this->container['statistics_methods'];
+    }
+
+    /**
+     * Sets statistics_methods
+     *
+     * @param string $statistics_methods statistics_methods
+     *
+     * @return $this
+     */
+    public function setStatisticsMethods($statistics_methods)
+    {
+        $this->container['statistics_methods'] = $statistics_methods;
 
         return $this;
     }

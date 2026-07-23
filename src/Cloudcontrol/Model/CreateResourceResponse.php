@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cloudmonitor\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetMetricDataRequest implements ModelInterface, ArrayAccess
+class CreateResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMetricDataRequest';
+    protected static $swaggerModelName = 'CreateResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'end_time' => 'int',
-        'group_by' => 'string[]',
-        'instances' => '\Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[]',
-        'metric_name' => 'string',
-        'namespace' => 'string',
-        'period' => 'string',
-        'start_time' => 'int',
-        'statistics_methods' => 'string[]',
-        'sub_namespace' => 'string'
+        'error_code' => 'string',
+        'event_time' => 'string',
+        'identifier' => 'string',
+        'operation' => 'string',
+        'operation_status' => 'string',
+        'resource_model' => 'string',
+        'status_message' => 'string',
+        'task_id' => 'string',
+        'type_name' => 'string'
     ];
 
     /**
@@ -45,15 +45,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'end_time' => 'int32',
-        'group_by' => null,
-        'instances' => null,
-        'metric_name' => null,
-        'namespace' => null,
-        'period' => null,
-        'start_time' => 'int32',
-        'statistics_methods' => null,
-        'sub_namespace' => null
+        'error_code' => null,
+        'event_time' => null,
+        'identifier' => null,
+        'operation' => null,
+        'operation_status' => null,
+        'resource_model' => null,
+        'status_message' => null,
+        'task_id' => null,
+        'type_name' => null
     ];
 
     /**
@@ -83,15 +83,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_time' => 'EndTime',
-        'group_by' => 'GroupBy',
-        'instances' => 'Instances',
-        'metric_name' => 'MetricName',
-        'namespace' => 'Namespace',
-        'period' => 'Period',
-        'start_time' => 'StartTime',
-        'statistics_methods' => 'StatisticsMethods',
-        'sub_namespace' => 'SubNamespace'
+        'error_code' => 'ErrorCode',
+        'event_time' => 'EventTime',
+        'identifier' => 'Identifier',
+        'operation' => 'Operation',
+        'operation_status' => 'OperationStatus',
+        'resource_model' => 'ResourceModel',
+        'status_message' => 'StatusMessage',
+        'task_id' => 'TaskID',
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -100,15 +100,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'end_time' => 'setEndTime',
-        'group_by' => 'setGroupBy',
-        'instances' => 'setInstances',
-        'metric_name' => 'setMetricName',
-        'namespace' => 'setNamespace',
-        'period' => 'setPeriod',
-        'start_time' => 'setStartTime',
-        'statistics_methods' => 'setStatisticsMethods',
-        'sub_namespace' => 'setSubNamespace'
+        'error_code' => 'setErrorCode',
+        'event_time' => 'setEventTime',
+        'identifier' => 'setIdentifier',
+        'operation' => 'setOperation',
+        'operation_status' => 'setOperationStatus',
+        'resource_model' => 'setResourceModel',
+        'status_message' => 'setStatusMessage',
+        'task_id' => 'setTaskId',
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -117,15 +117,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'end_time' => 'getEndTime',
-        'group_by' => 'getGroupBy',
-        'instances' => 'getInstances',
-        'metric_name' => 'getMetricName',
-        'namespace' => 'getNamespace',
-        'period' => 'getPeriod',
-        'start_time' => 'getStartTime',
-        'statistics_methods' => 'getStatisticsMethods',
-        'sub_namespace' => 'getSubNamespace'
+        'error_code' => 'getErrorCode',
+        'event_time' => 'getEventTime',
+        'identifier' => 'getIdentifier',
+        'operation' => 'getOperation',
+        'operation_status' => 'getOperationStatus',
+        'resource_model' => 'getResourceModel',
+        'status_message' => 'getStatusMessage',
+        'task_id' => 'getTaskId',
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -188,15 +188,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['group_by'] = isset($data['group_by']) ? $data['group_by'] : null;
-        $this->container['instances'] = isset($data['instances']) ? $data['instances'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['statistics_methods'] = isset($data['statistics_methods']) ? $data['statistics_methods'] : null;
-        $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
+        $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
+        $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
+        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
+        $this->container['operation_status'] = isset($data['operation_status']) ? $data['operation_status'] : null;
+        $this->container['resource_model'] = isset($data['resource_model']) ? $data['resource_model'] : null;
+        $this->container['status_message'] = isset($data['status_message']) ? $data['status_message'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -208,15 +208,6 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['metric_name'] === null) {
-            $invalidProperties[] = "'metric_name' can't be null";
-        }
-        if ($this->container['namespace'] === null) {
-            $invalidProperties[] = "'namespace' can't be null";
-        }
-        if ($this->container['sub_namespace'] === null) {
-            $invalidProperties[] = "'sub_namespace' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,217 +224,217 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets end_time
-     *
-     * @return int
-     */
-    public function getEndTime()
-    {
-        return $this->container['end_time'];
-    }
-
-    /**
-     * Sets end_time
-     *
-     * @param int $end_time end_time
-     *
-     * @return $this
-     */
-    public function setEndTime($end_time)
-    {
-        $this->container['end_time'] = $end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_by
-     *
-     * @return string[]
-     */
-    public function getGroupBy()
-    {
-        return $this->container['group_by'];
-    }
-
-    /**
-     * Sets group_by
-     *
-     * @param string[] $group_by group_by
-     *
-     * @return $this
-     */
-    public function setGroupBy($group_by)
-    {
-        $this->container['group_by'] = $group_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets instances
-     *
-     * @return \Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[]
-     */
-    public function getInstances()
-    {
-        return $this->container['instances'];
-    }
-
-    /**
-     * Sets instances
-     *
-     * @param \Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[] $instances instances
-     *
-     * @return $this
-     */
-    public function setInstances($instances)
-    {
-        $this->container['instances'] = $instances;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_name
+     * Gets error_code
      *
      * @return string
      */
-    public function getMetricName()
+    public function getErrorCode()
     {
-        return $this->container['metric_name'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets metric_name
+     * Sets error_code
      *
-     * @param string $metric_name metric_name
+     * @param string $error_code error_code
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setErrorCode($error_code)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets event_time
      *
      * @return string
      */
-    public function getNamespace()
+    public function getEventTime()
     {
-        return $this->container['namespace'];
+        return $this->container['event_time'];
     }
 
     /**
-     * Sets namespace
+     * Sets event_time
      *
-     * @param string $namespace namespace
+     * @param string $event_time event_time
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setEventTime($event_time)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['event_time'] = $event_time;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets identifier
      *
      * @return string
      */
-    public function getPeriod()
+    public function getIdentifier()
     {
-        return $this->container['period'];
+        return $this->container['identifier'];
     }
 
     /**
-     * Sets period
+     * Sets identifier
      *
-     * @param string $period period
+     * @param string $identifier identifier
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setIdentifier($identifier)
     {
-        $this->container['period'] = $period;
+        $this->container['identifier'] = $identifier;
 
         return $this;
     }
 
     /**
-     * Gets start_time
-     *
-     * @return int
-     */
-    public function getStartTime()
-    {
-        return $this->container['start_time'];
-    }
-
-    /**
-     * Sets start_time
-     *
-     * @param int $start_time start_time
-     *
-     * @return $this
-     */
-    public function setStartTime($start_time)
-    {
-        $this->container['start_time'] = $start_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets statistics_methods
-     *
-     * @return string[]
-     */
-    public function getStatisticsMethods()
-    {
-        return $this->container['statistics_methods'];
-    }
-
-    /**
-     * Sets statistics_methods
-     *
-     * @param string[] $statistics_methods statistics_methods
-     *
-     * @return $this
-     */
-    public function setStatisticsMethods($statistics_methods)
-    {
-        $this->container['statistics_methods'] = $statistics_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_namespace
+     * Gets operation
      *
      * @return string
      */
-    public function getSubNamespace()
+    public function getOperation()
     {
-        return $this->container['sub_namespace'];
+        return $this->container['operation'];
     }
 
     /**
-     * Sets sub_namespace
+     * Sets operation
      *
-     * @param string $sub_namespace sub_namespace
+     * @param string $operation operation
      *
      * @return $this
      */
-    public function setSubNamespace($sub_namespace)
+    public function setOperation($operation)
     {
-        $this->container['sub_namespace'] = $sub_namespace;
+        $this->container['operation'] = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation_status
+     *
+     * @return string
+     */
+    public function getOperationStatus()
+    {
+        return $this->container['operation_status'];
+    }
+
+    /**
+     * Sets operation_status
+     *
+     * @param string $operation_status operation_status
+     *
+     * @return $this
+     */
+    public function setOperationStatus($operation_status)
+    {
+        $this->container['operation_status'] = $operation_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_model
+     *
+     * @return string
+     */
+    public function getResourceModel()
+    {
+        return $this->container['resource_model'];
+    }
+
+    /**
+     * Sets resource_model
+     *
+     * @param string $resource_model resource_model
+     *
+     * @return $this
+     */
+    public function setResourceModel($resource_model)
+    {
+        $this->container['resource_model'] = $resource_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_message
+     *
+     * @return string
+     */
+    public function getStatusMessage()
+    {
+        return $this->container['status_message'];
+    }
+
+    /**
+     * Sets status_message
+     *
+     * @param string $status_message status_message
+     *
+     * @return $this
+     */
+    public function setStatusMessage($status_message)
+    {
+        $this->container['status_message'] = $status_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }

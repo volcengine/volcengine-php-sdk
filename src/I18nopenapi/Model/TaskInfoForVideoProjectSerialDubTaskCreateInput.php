@@ -42,6 +42,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'dub_voice_mode' => 'int',
         'is_dub' => 'bool',
         'llm_video_understanding_type' => 'int',
+        'max_target_subtitle_lines' => 'int',
+        'need_term_validation' => 'bool',
         'need_translate_cover' => 'bool',
         'need_translate_desc' => 'bool',
         'need_translate_title' => 'bool',
@@ -82,6 +84,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'dub_voice_mode' => 'int32',
         'is_dub' => null,
         'llm_video_understanding_type' => 'int32',
+        'max_target_subtitle_lines' => 'int32',
+        'need_term_validation' => null,
         'need_translate_cover' => null,
         'need_translate_desc' => null,
         'need_translate_title' => null,
@@ -143,6 +147,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'dub_voice_mode' => 'dubVoiceMode',
         'is_dub' => 'isDub',
         'llm_video_understanding_type' => 'llmVideoUnderstandingType',
+        'max_target_subtitle_lines' => 'maxTargetSubtitleLines',
+        'need_term_validation' => 'needTermValidation',
         'need_translate_cover' => 'needTranslateCover',
         'need_translate_desc' => 'needTranslateDesc',
         'need_translate_title' => 'needTranslateTitle',
@@ -183,6 +189,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'dub_voice_mode' => 'setDubVoiceMode',
         'is_dub' => 'setIsDub',
         'llm_video_understanding_type' => 'setLlmVideoUnderstandingType',
+        'max_target_subtitle_lines' => 'setMaxTargetSubtitleLines',
+        'need_term_validation' => 'setNeedTermValidation',
         'need_translate_cover' => 'setNeedTranslateCover',
         'need_translate_desc' => 'setNeedTranslateDesc',
         'need_translate_title' => 'setNeedTranslateTitle',
@@ -223,6 +231,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'dub_voice_mode' => 'getDubVoiceMode',
         'is_dub' => 'getIsDub',
         'llm_video_understanding_type' => 'getLlmVideoUnderstandingType',
+        'max_target_subtitle_lines' => 'getMaxTargetSubtitleLines',
+        'need_term_validation' => 'getNeedTermValidation',
         'need_translate_cover' => 'getNeedTranslateCover',
         'need_translate_desc' => 'getNeedTranslateDesc',
         'need_translate_title' => 'getNeedTranslateTitle',
@@ -317,6 +327,8 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
         $this->container['llm_video_understanding_type'] = isset($data['llm_video_understanding_type']) ? $data['llm_video_understanding_type'] : null;
+        $this->container['max_target_subtitle_lines'] = isset($data['max_target_subtitle_lines']) ? $data['max_target_subtitle_lines'] : null;
+        $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
         $this->container['need_translate_cover'] = isset($data['need_translate_cover']) ? $data['need_translate_cover'] : null;
         $this->container['need_translate_desc'] = isset($data['need_translate_desc']) ? $data['need_translate_desc'] : null;
         $this->container['need_translate_title'] = isset($data['need_translate_title']) ? $data['need_translate_title'] : null;
@@ -693,6 +705,54 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     public function setLlmVideoUnderstandingType($llm_video_understanding_type)
     {
         $this->container['llm_video_understanding_type'] = $llm_video_understanding_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_target_subtitle_lines
+     *
+     * @return int
+     */
+    public function getMaxTargetSubtitleLines()
+    {
+        return $this->container['max_target_subtitle_lines'];
+    }
+
+    /**
+     * Sets max_target_subtitle_lines
+     *
+     * @param int $max_target_subtitle_lines max_target_subtitle_lines
+     *
+     * @return $this
+     */
+    public function setMaxTargetSubtitleLines($max_target_subtitle_lines)
+    {
+        $this->container['max_target_subtitle_lines'] = $max_target_subtitle_lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_term_validation
+     *
+     * @return bool
+     */
+    public function getNeedTermValidation()
+    {
+        return $this->container['need_term_validation'];
+    }
+
+    /**
+     * Sets need_term_validation
+     *
+     * @param bool $need_term_validation need_term_validation
+     *
+     * @return $this
+     */
+    public function setNeedTermValidation($need_term_validation)
+    {
+        $this->container['need_term_validation'] = $need_term_validation;
 
         return $this;
     }

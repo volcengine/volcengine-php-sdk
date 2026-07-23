@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class VideoProjectVideoDeleteRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'VideoProjectVideoDeleteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'delete_related' => 'bool',
+        'project_id' => 'string',
+        'video_ids' => 'string[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'delete_related' => null,
+        'project_id' => null,
+        'video_ids' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'delete_related' => 'deleteRelated',
+        'project_id' => 'projectId',
+        'video_ids' => 'videoIds'
     ];
 
     /**
@@ -76,7 +82,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'delete_related' => 'setDeleteRelated',
+        'project_id' => 'setProjectId',
+        'video_ids' => 'setVideoIds'
     ];
 
     /**
@@ -85,7 +93,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'delete_related' => 'getDeleteRelated',
+        'project_id' => 'getProjectId',
+        'video_ids' => 'getVideoIds'
     ];
 
     /**
@@ -148,7 +158,9 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['delete_related'] = isset($data['delete_related']) ? $data['delete_related'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
     }
 
     /**
@@ -160,8 +172,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +191,73 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets delete_related
      *
-     * @return string
+     * @return bool
      */
-    public function getSubtaskId()
+    public function getDeleteRelated()
     {
-        return $this->container['subtask_id'];
+        return $this->container['delete_related'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets delete_related
      *
-     * @param string $subtask_id subtask_id
+     * @param bool $delete_related delete_related
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setDeleteRelated($delete_related)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['delete_related'] = $delete_related;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string $project_id project_id
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_ids
+     *
+     * @return string[]
+     */
+    public function getVideoIds()
+    {
+        return $this->container['video_ids'];
+    }
+
+    /**
+     * Sets video_ids
+     *
+     * @param string[] $video_ids video_ids
+     *
+     * @return $this
+     */
+    public function setVideoIds($video_ids)
+    {
+        $this->container['video_ids'] = $video_ids;
 
         return $this;
     }

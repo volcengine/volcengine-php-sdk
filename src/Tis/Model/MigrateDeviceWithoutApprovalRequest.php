@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class MigrateDeviceWithoutApprovalRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'MigrateDeviceWithoutApprovalRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'migrate_device_list' => '\Volcengine\Tis\Model\MigrateDeviceListForMigrateDeviceWithoutApprovalInput',
+        'product_key' => 'string',
+        'project_id' => 'string',
+        'tc_id' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'migrate_device_list' => null,
+        'product_key' => null,
+        'project_id' => null,
+        'tc_id' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'migrate_device_list' => 'MigrateDeviceList',
+        'product_key' => 'ProductKey',
+        'project_id' => 'ProjectId',
+        'tc_id' => 'TcId'
     ];
 
     /**
@@ -76,7 +85,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'migrate_device_list' => 'setMigrateDeviceList',
+        'product_key' => 'setProductKey',
+        'project_id' => 'setProjectId',
+        'tc_id' => 'setTcId'
     ];
 
     /**
@@ -85,7 +97,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'migrate_device_list' => 'getMigrateDeviceList',
+        'product_key' => 'getProductKey',
+        'project_id' => 'getProjectId',
+        'tc_id' => 'getTcId'
     ];
 
     /**
@@ -148,7 +163,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['migrate_device_list'] = isset($data['migrate_device_list']) ? $data['migrate_device_list'] : null;
+        $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['tc_id'] = isset($data['tc_id']) ? $data['tc_id'] : null;
     }
 
     /**
@@ -160,8 +178,14 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
+        if ($this->container['product_key'] === null) {
+            $invalidProperties[] = "'product_key' can't be null";
+        }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['tc_id'] === null) {
+            $invalidProperties[] = "'tc_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +203,97 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets migrate_device_list
      *
-     * @return string
+     * @return \Volcengine\Tis\Model\MigrateDeviceListForMigrateDeviceWithoutApprovalInput
      */
-    public function getSubtaskId()
+    public function getMigrateDeviceList()
     {
-        return $this->container['subtask_id'];
+        return $this->container['migrate_device_list'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets migrate_device_list
      *
-     * @param string $subtask_id subtask_id
+     * @param \Volcengine\Tis\Model\MigrateDeviceListForMigrateDeviceWithoutApprovalInput $migrate_device_list migrate_device_list
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setMigrateDeviceList($migrate_device_list)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['migrate_device_list'] = $migrate_device_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_key
+     *
+     * @return string
+     */
+    public function getProductKey()
+    {
+        return $this->container['product_key'];
+    }
+
+    /**
+     * Sets product_key
+     *
+     * @param string $product_key product_key
+     *
+     * @return $this
+     */
+    public function setProductKey($product_key)
+    {
+        $this->container['product_key'] = $product_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string $project_id project_id
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tc_id
+     *
+     * @return string
+     */
+    public function getTcId()
+    {
+        return $this->container['tc_id'];
+    }
+
+    /**
+     * Sets tc_id
+     *
+     * @param string $tc_id tc_id
+     *
+     * @return $this
+     */
+    public function setTcId($tc_id)
+    {
+        $this->container['tc_id'] = $tc_id;
 
         return $this;
     }

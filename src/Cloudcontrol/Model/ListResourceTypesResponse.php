@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ListResourceTypesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ListResourceTypesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'next_token' => 'string',
+        'type_list' => '\Volcengine\Cloudcontrol\Model\TypeListForListResourceTypesOutput[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'next_token' => null,
+        'type_list' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'next_token' => 'NextToken',
+        'type_list' => 'TypeList'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'next_token' => 'setNextToken',
+        'type_list' => 'setTypeList'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'next_token' => 'getNextToken',
+        'type_list' => 'getTypeList'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['type_list'] = isset($data['type_list']) ? $data['type_list'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getNextToken()
     {
-        return $this->container['subtask_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets next_token
      *
-     * @param string $subtask_id subtask_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setNextToken($next_token)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_list
+     *
+     * @return \Volcengine\Cloudcontrol\Model\TypeListForListResourceTypesOutput[]
+     */
+    public function getTypeList()
+    {
+        return $this->container['type_list'];
+    }
+
+    /**
+     * Sets type_list
+     *
+     * @param \Volcengine\Cloudcontrol\Model\TypeListForListResourceTypesOutput[] $type_list type_list
+     *
+     * @return $this
+     */
+    public function setTypeList($type_list)
+    {
+        $this->container['type_list'] = $type_list;
 
         return $this;
     }

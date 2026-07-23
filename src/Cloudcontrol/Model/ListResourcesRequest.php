@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ListResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ListResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'filter' => 'object',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'type_name' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'filter' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
+        'type_name' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'filter' => 'Filter',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -76,7 +85,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'filter' => 'setFilter',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -85,7 +97,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'filter' => 'getFilter',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -148,7 +163,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -160,8 +178,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
+        if ($this->container['type_name'] === null) {
+            $invalidProperties[] = "'type_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +197,97 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets filter
      *
-     * @return string
+     * @return object
      */
-    public function getSubtaskId()
+    public function getFilter()
     {
-        return $this->container['subtask_id'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets filter
      *
-     * @param string $subtask_id subtask_id
+     * @param object $filter filter
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setFilter($filter)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }

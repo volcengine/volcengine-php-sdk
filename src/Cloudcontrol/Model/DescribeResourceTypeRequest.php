@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class DescribeResourceTypeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'DescribeResourceTypeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'type_name' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'type_name' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -148,7 +148,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -160,8 +160,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
+        if ($this->container['type_name'] === null) {
+            $invalidProperties[] = "'type_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +179,25 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets type_name
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getTypeName()
     {
-        return $this->container['subtask_id'];
+        return $this->container['type_name'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets type_name
      *
-     * @param string $subtask_id subtask_id
+     * @param string $type_name type_name
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setTypeName($type_name)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }

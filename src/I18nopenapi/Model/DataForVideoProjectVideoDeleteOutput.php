@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class DataForVideoProjectVideoDeleteOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'dataForVideoProjectVideoDeleteOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -160,9 +159,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -177,30 +173,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets subtask_id
-     *
-     * @return string
-     */
-    public function getSubtaskId()
-    {
-        return $this->container['subtask_id'];
-    }
-
-    /**
-     * Sets subtask_id
-     *
-     * @param string $subtask_id subtask_id
-     *
-     * @return $this
-     */
-    public function setSubtaskId($subtask_id)
-    {
-        $this->container['subtask_id'] = $subtask_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

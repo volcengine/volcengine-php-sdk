@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ListResourceTypesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ListResourceTypesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'max_results' => 'int',
+        'next_token' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'max_results' => 'int32',
+        'next_token' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getSubtaskId()
+    public function getMaxResults()
     {
-        return $this->container['subtask_id'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets max_results
      *
-     * @param string $subtask_id subtask_id
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setMaxResults($max_results)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

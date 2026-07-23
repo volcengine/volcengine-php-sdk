@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class MigrateDeviceListForMigrateDeviceWithoutApprovalInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'MigrateDeviceListForMigrateDeviceWithoutApprovalInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'origin_device_name' => 'string',
+        'target_device_name' => 'string',
+        'target_device_secret' => 'string',
+        'target_nick_name' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'origin_device_name' => null,
+        'target_device_name' => null,
+        'target_device_secret' => null,
+        'target_nick_name' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'origin_device_name' => 'OriginDeviceName',
+        'target_device_name' => 'TargetDeviceName',
+        'target_device_secret' => 'TargetDeviceSecret',
+        'target_nick_name' => 'TargetNickName'
     ];
 
     /**
@@ -76,7 +85,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'origin_device_name' => 'setOriginDeviceName',
+        'target_device_name' => 'setTargetDeviceName',
+        'target_device_secret' => 'setTargetDeviceSecret',
+        'target_nick_name' => 'setTargetNickName'
     ];
 
     /**
@@ -85,7 +97,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'origin_device_name' => 'getOriginDeviceName',
+        'target_device_name' => 'getTargetDeviceName',
+        'target_device_secret' => 'getTargetDeviceSecret',
+        'target_nick_name' => 'getTargetNickName'
     ];
 
     /**
@@ -148,7 +163,10 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['origin_device_name'] = isset($data['origin_device_name']) ? $data['origin_device_name'] : null;
+        $this->container['target_device_name'] = isset($data['target_device_name']) ? $data['target_device_name'] : null;
+        $this->container['target_device_secret'] = isset($data['target_device_secret']) ? $data['target_device_secret'] : null;
+        $this->container['target_nick_name'] = isset($data['target_nick_name']) ? $data['target_nick_name'] : null;
     }
 
     /**
@@ -160,9 +178,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +194,97 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets origin_device_name
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getOriginDeviceName()
     {
-        return $this->container['subtask_id'];
+        return $this->container['origin_device_name'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets origin_device_name
      *
-     * @param string $subtask_id subtask_id
+     * @param string $origin_device_name origin_device_name
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setOriginDeviceName($origin_device_name)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['origin_device_name'] = $origin_device_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_device_name
+     *
+     * @return string
+     */
+    public function getTargetDeviceName()
+    {
+        return $this->container['target_device_name'];
+    }
+
+    /**
+     * Sets target_device_name
+     *
+     * @param string $target_device_name target_device_name
+     *
+     * @return $this
+     */
+    public function setTargetDeviceName($target_device_name)
+    {
+        $this->container['target_device_name'] = $target_device_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_device_secret
+     *
+     * @return string
+     */
+    public function getTargetDeviceSecret()
+    {
+        return $this->container['target_device_secret'];
+    }
+
+    /**
+     * Sets target_device_secret
+     *
+     * @param string $target_device_secret target_device_secret
+     *
+     * @return $this
+     */
+    public function setTargetDeviceSecret($target_device_secret)
+    {
+        $this->container['target_device_secret'] = $target_device_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_nick_name
+     *
+     * @return string
+     */
+    public function getTargetNickName()
+    {
+        return $this->container['target_nick_name'];
+    }
+
+    /**
+     * Sets target_nick_name
+     *
+     * @param string $target_nick_name target_nick_name
+     *
+     * @return $this
+     */
+    public function setTargetNickName($target_nick_name)
+    {
+        $this->container['target_nick_name'] = $target_nick_name;
 
         return $this;
     }

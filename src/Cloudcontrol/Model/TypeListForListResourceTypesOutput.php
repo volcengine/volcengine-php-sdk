@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class TypeListForListResourceTypesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'TypeListForListResourceTypesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'description' => 'string',
+        'publisher_name' => 'string',
+        'trn' => 'string',
+        'type_name' => 'string',
+        'visibility' => 'string'
     ];
 
     /**
@@ -37,7 +41,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'description' => null,
+        'publisher_name' => null,
+        'trn' => null,
+        'type_name' => null,
+        'visibility' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'description' => 'Description',
+        'publisher_name' => 'PublisherName',
+        'trn' => 'Trn',
+        'type_name' => 'TypeName',
+        'visibility' => 'Visibility'
     ];
 
     /**
@@ -76,7 +88,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'description' => 'setDescription',
+        'publisher_name' => 'setPublisherName',
+        'trn' => 'setTrn',
+        'type_name' => 'setTypeName',
+        'visibility' => 'setVisibility'
     ];
 
     /**
@@ -85,7 +101,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'description' => 'getDescription',
+        'publisher_name' => 'getPublisherName',
+        'trn' => 'getTrn',
+        'type_name' => 'getTypeName',
+        'visibility' => 'getVisibility'
     ];
 
     /**
@@ -148,7 +168,11 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['publisher_name'] = isset($data['publisher_name']) ? $data['publisher_name'] : null;
+        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
+        $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
     }
 
     /**
@@ -160,9 +184,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +200,121 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets description
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getDescription()
     {
-        return $this->container['subtask_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets description
      *
-     * @param string $subtask_id subtask_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setDescription($description)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets publisher_name
+     *
+     * @return string
+     */
+    public function getPublisherName()
+    {
+        return $this->container['publisher_name'];
+    }
+
+    /**
+     * Sets publisher_name
+     *
+     * @param string $publisher_name publisher_name
+     *
+     * @return $this
+     */
+    public function setPublisherName($publisher_name)
+    {
+        $this->container['publisher_name'] = $publisher_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets trn
+     *
+     * @return string
+     */
+    public function getTrn()
+    {
+        return $this->container['trn'];
+    }
+
+    /**
+     * Sets trn
+     *
+     * @param string $trn trn
+     *
+     * @return $this
+     */
+    public function setTrn($trn)
+    {
+        $this->container['trn'] = $trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibility
+     *
+     * @return string
+     */
+    public function getVisibility()
+    {
+        return $this->container['visibility'];
+    }
+
+    /**
+     * Sets visibility
+     *
+     * @param string $visibility visibility
+     *
+     * @return $this
+     */
+    public function setVisibility($visibility)
+    {
+        $this->container['visibility'] = $visibility;
 
         return $this;
     }

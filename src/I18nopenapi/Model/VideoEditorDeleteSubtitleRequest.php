@@ -28,7 +28,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'segment_ids' => 'string'
+        'segment_ids' => 'string[]',
+        'subtask_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'segment_ids' => null
+        'segment_ids' => null,
+        'subtask_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'segment_ids' => 'segmentIds'
+        'segment_ids' => 'segmentIds',
+        'subtask_id' => 'subtaskId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'segment_ids' => 'setSegmentIds'
+        'segment_ids' => 'setSegmentIds',
+        'subtask_id' => 'setSubtaskId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'segment_ids' => 'getSegmentIds'
+        'segment_ids' => 'getSegmentIds',
+        'subtask_id' => 'getSubtaskId'
     ];
 
     /**
@@ -149,6 +154,7 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['segment_ids'] = isset($data['segment_ids']) ? $data['segment_ids'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
     }
 
     /**
@@ -160,8 +166,8 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['segment_ids'] === null) {
-            $invalidProperties[] = "'segment_ids' can't be null";
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -181,7 +187,7 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets segment_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getSegmentIds()
     {
@@ -191,13 +197,37 @@ class VideoEditorDeleteSubtitleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets segment_ids
      *
-     * @param string $segment_ids segment_ids
+     * @param string[] $segment_ids segment_ids
      *
      * @return $this
      */
     public function setSegmentIds($segment_ids)
     {
         $this->container['segment_ids'] = $segment_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_id
+     *
+     * @return string
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param string $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }

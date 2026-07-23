@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class GetResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'GetResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'resource_description' => '\Volcengine\Cloudcontrol\Model\ResourceDescriptionForGetResourceOutput',
+        'type_name' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'resource_description' => null,
+        'type_name' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'resource_description' => 'ResourceDescription',
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'resource_description' => 'setResourceDescription',
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'resource_description' => 'getResourceDescription',
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['resource_description'] = isset($data['resource_description']) ? $data['resource_description'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets resource_description
      *
-     * @return string
+     * @return \Volcengine\Cloudcontrol\Model\ResourceDescriptionForGetResourceOutput
      */
-    public function getSubtaskId()
+    public function getResourceDescription()
     {
-        return $this->container['subtask_id'];
+        return $this->container['resource_description'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets resource_description
      *
-     * @param string $subtask_id subtask_id
+     * @param \Volcengine\Cloudcontrol\Model\ResourceDescriptionForGetResourceOutput $resource_description resource_description
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setResourceDescription($resource_description)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['resource_description'] = $resource_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }

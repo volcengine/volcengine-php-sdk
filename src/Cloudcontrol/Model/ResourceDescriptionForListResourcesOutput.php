@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
+class ResourceDescriptionForListResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoEditorGetEmotionTagsRequest';
+    protected static $swaggerModelName = 'ResourceDescriptionForListResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtask_id' => 'string'
+        'identifier' => 'string',
+        'properties' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtask_id' => null
+        'identifier' => null,
+        'properties' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtask_id' => 'subtaskId'
+        'identifier' => 'Identifier',
+        'properties' => 'Properties'
     ];
 
     /**
@@ -76,7 +79,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subtask_id' => 'setSubtaskId'
+        'identifier' => 'setIdentifier',
+        'properties' => 'setProperties'
     ];
 
     /**
@@ -85,7 +89,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subtask_id' => 'getSubtaskId'
+        'identifier' => 'getIdentifier',
+        'properties' => 'getProperties'
     ];
 
     /**
@@ -148,7 +153,8 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['subtask_id'] === null) {
-            $invalidProperties[] = "'subtask_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class VideoEditorGetEmotionTagsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subtask_id
+     * Gets identifier
      *
      * @return string
      */
-    public function getSubtaskId()
+    public function getIdentifier()
     {
-        return $this->container['subtask_id'];
+        return $this->container['identifier'];
     }
 
     /**
-     * Sets subtask_id
+     * Sets identifier
      *
-     * @param string $subtask_id subtask_id
+     * @param string $identifier identifier
      *
      * @return $this
      */
-    public function setSubtaskId($subtask_id)
+    public function setIdentifier($identifier)
     {
-        $this->container['subtask_id'] = $subtask_id;
+        $this->container['identifier'] = $identifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return string
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param string $properties properties
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

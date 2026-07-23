@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cloudmonitor\Model;
+namespace Volcengine\Cloudcontrol\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetMetricDataRequest implements ModelInterface, ArrayAccess
+class DescribeResourceTypeResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMetricDataRequest';
+    protected static $swaggerModelName = 'DescribeResourceTypeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'end_time' => 'int',
-        'group_by' => 'string[]',
-        'instances' => '\Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[]',
-        'metric_name' => 'string',
-        'namespace' => 'string',
-        'period' => 'string',
-        'start_time' => 'int',
-        'statistics_methods' => 'string[]',
-        'sub_namespace' => 'string'
+        'create_time' => 'string',
+        'description' => 'string',
+        'publisher_name' => 'string',
+        'schema' => 'object',
+        'trn' => 'string',
+        'type_name' => 'string',
+        'update_time' => 'string',
+        'visibility' => 'string'
     ];
 
     /**
@@ -45,15 +44,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'end_time' => 'int32',
-        'group_by' => null,
-        'instances' => null,
-        'metric_name' => null,
-        'namespace' => null,
-        'period' => null,
-        'start_time' => 'int32',
-        'statistics_methods' => null,
-        'sub_namespace' => null
+        'create_time' => null,
+        'description' => null,
+        'publisher_name' => null,
+        'schema' => null,
+        'trn' => null,
+        'type_name' => null,
+        'update_time' => null,
+        'visibility' => null
     ];
 
     /**
@@ -83,15 +81,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_time' => 'EndTime',
-        'group_by' => 'GroupBy',
-        'instances' => 'Instances',
-        'metric_name' => 'MetricName',
-        'namespace' => 'Namespace',
-        'period' => 'Period',
-        'start_time' => 'StartTime',
-        'statistics_methods' => 'StatisticsMethods',
-        'sub_namespace' => 'SubNamespace'
+        'create_time' => 'CreateTime',
+        'description' => 'Description',
+        'publisher_name' => 'PublisherName',
+        'schema' => 'Schema',
+        'trn' => 'Trn',
+        'type_name' => 'TypeName',
+        'update_time' => 'UpdateTime',
+        'visibility' => 'Visibility'
     ];
 
     /**
@@ -100,15 +97,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'end_time' => 'setEndTime',
-        'group_by' => 'setGroupBy',
-        'instances' => 'setInstances',
-        'metric_name' => 'setMetricName',
-        'namespace' => 'setNamespace',
-        'period' => 'setPeriod',
-        'start_time' => 'setStartTime',
-        'statistics_methods' => 'setStatisticsMethods',
-        'sub_namespace' => 'setSubNamespace'
+        'create_time' => 'setCreateTime',
+        'description' => 'setDescription',
+        'publisher_name' => 'setPublisherName',
+        'schema' => 'setSchema',
+        'trn' => 'setTrn',
+        'type_name' => 'setTypeName',
+        'update_time' => 'setUpdateTime',
+        'visibility' => 'setVisibility'
     ];
 
     /**
@@ -117,15 +113,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'end_time' => 'getEndTime',
-        'group_by' => 'getGroupBy',
-        'instances' => 'getInstances',
-        'metric_name' => 'getMetricName',
-        'namespace' => 'getNamespace',
-        'period' => 'getPeriod',
-        'start_time' => 'getStartTime',
-        'statistics_methods' => 'getStatisticsMethods',
-        'sub_namespace' => 'getSubNamespace'
+        'create_time' => 'getCreateTime',
+        'description' => 'getDescription',
+        'publisher_name' => 'getPublisherName',
+        'schema' => 'getSchema',
+        'trn' => 'getTrn',
+        'type_name' => 'getTypeName',
+        'update_time' => 'getUpdateTime',
+        'visibility' => 'getVisibility'
     ];
 
     /**
@@ -188,15 +183,14 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['group_by'] = isset($data['group_by']) ? $data['group_by'] : null;
-        $this->container['instances'] = isset($data['instances']) ? $data['instances'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['statistics_methods'] = isset($data['statistics_methods']) ? $data['statistics_methods'] : null;
-        $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['publisher_name'] = isset($data['publisher_name']) ? $data['publisher_name'] : null;
+        $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;
+        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
     }
 
     /**
@@ -208,15 +202,6 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['metric_name'] === null) {
-            $invalidProperties[] = "'metric_name' can't be null";
-        }
-        if ($this->container['namespace'] === null) {
-            $invalidProperties[] = "'namespace' can't be null";
-        }
-        if ($this->container['sub_namespace'] === null) {
-            $invalidProperties[] = "'sub_namespace' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,217 +218,193 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets end_time
-     *
-     * @return int
-     */
-    public function getEndTime()
-    {
-        return $this->container['end_time'];
-    }
-
-    /**
-     * Sets end_time
-     *
-     * @param int $end_time end_time
-     *
-     * @return $this
-     */
-    public function setEndTime($end_time)
-    {
-        $this->container['end_time'] = $end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_by
-     *
-     * @return string[]
-     */
-    public function getGroupBy()
-    {
-        return $this->container['group_by'];
-    }
-
-    /**
-     * Sets group_by
-     *
-     * @param string[] $group_by group_by
-     *
-     * @return $this
-     */
-    public function setGroupBy($group_by)
-    {
-        $this->container['group_by'] = $group_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets instances
-     *
-     * @return \Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[]
-     */
-    public function getInstances()
-    {
-        return $this->container['instances'];
-    }
-
-    /**
-     * Sets instances
-     *
-     * @param \Volcengine\Cloudmonitor\Model\InstanceForGetMetricDataInput[] $instances instances
-     *
-     * @return $this
-     */
-    public function setInstances($instances)
-    {
-        $this->container['instances'] = $instances;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_name
+     * Gets create_time
      *
      * @return string
      */
-    public function getMetricName()
+    public function getCreateTime()
     {
-        return $this->container['metric_name'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets metric_name
+     * Sets create_time
      *
-     * @param string $metric_name metric_name
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setCreateTime($create_time)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets description
      *
      * @return string
      */
-    public function getNamespace()
+    public function getDescription()
     {
-        return $this->container['namespace'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets namespace
+     * Sets description
      *
-     * @param string $namespace namespace
+     * @param string $description description
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setDescription($description)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets publisher_name
      *
      * @return string
      */
-    public function getPeriod()
+    public function getPublisherName()
     {
-        return $this->container['period'];
+        return $this->container['publisher_name'];
     }
 
     /**
-     * Sets period
+     * Sets publisher_name
      *
-     * @param string $period period
+     * @param string $publisher_name publisher_name
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setPublisherName($publisher_name)
     {
-        $this->container['period'] = $period;
+        $this->container['publisher_name'] = $publisher_name;
 
         return $this;
     }
 
     /**
-     * Gets start_time
+     * Gets schema
      *
-     * @return int
+     * @return object
      */
-    public function getStartTime()
+    public function getSchema()
     {
-        return $this->container['start_time'];
+        return $this->container['schema'];
     }
 
     /**
-     * Sets start_time
+     * Sets schema
      *
-     * @param int $start_time start_time
+     * @param object $schema schema
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setSchema($schema)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['schema'] = $schema;
 
         return $this;
     }
 
     /**
-     * Gets statistics_methods
-     *
-     * @return string[]
-     */
-    public function getStatisticsMethods()
-    {
-        return $this->container['statistics_methods'];
-    }
-
-    /**
-     * Sets statistics_methods
-     *
-     * @param string[] $statistics_methods statistics_methods
-     *
-     * @return $this
-     */
-    public function setStatisticsMethods($statistics_methods)
-    {
-        $this->container['statistics_methods'] = $statistics_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_namespace
+     * Gets trn
      *
      * @return string
      */
-    public function getSubNamespace()
+    public function getTrn()
     {
-        return $this->container['sub_namespace'];
+        return $this->container['trn'];
     }
 
     /**
-     * Sets sub_namespace
+     * Sets trn
      *
-     * @param string $sub_namespace sub_namespace
+     * @param string $trn trn
      *
      * @return $this
      */
-    public function setSubNamespace($sub_namespace)
+    public function setTrn($trn)
     {
-        $this->container['sub_namespace'] = $sub_namespace;
+        $this->container['trn'] = $trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibility
+     *
+     * @return string
+     */
+    public function getVisibility()
+    {
+        return $this->container['visibility'];
+    }
+
+    /**
+     * Sets visibility
+     *
+     * @param string $visibility visibility
+     *
+     * @return $this
+     */
+    public function setVisibility($visibility)
+    {
+        $this->container['visibility'] = $visibility;
 
         return $this;
     }
