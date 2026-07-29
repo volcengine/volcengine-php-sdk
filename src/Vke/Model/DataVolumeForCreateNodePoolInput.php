@@ -28,6 +28,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'burst_enabled' => 'bool',
         'extra_performance_iops' => 'int',
         'extra_performance_throughput_mb' => 'int',
         'extra_performance_type_id' => 'string',
@@ -46,6 +47,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'burst_enabled' => null,
         'extra_performance_iops' => 'int32',
         'extra_performance_throughput_mb' => 'int32',
         'extra_performance_type_id' => null,
@@ -85,6 +87,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'burst_enabled' => 'BurstEnabled',
         'extra_performance_iops' => 'ExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'ExtraPerformanceTypeId',
@@ -103,6 +106,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'burst_enabled' => 'setBurstEnabled',
         'extra_performance_iops' => 'setExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'setExtraPerformanceTypeId',
@@ -121,6 +125,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'burst_enabled' => 'getBurstEnabled',
         'extra_performance_iops' => 'getExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'getExtraPerformanceTypeId',
@@ -256,6 +261,7 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['burst_enabled'] = isset($data['burst_enabled']) ? $data['burst_enabled'] : null;
         $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
         $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
         $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
@@ -315,6 +321,30 @@ class DataVolumeForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets burst_enabled
+     *
+     * @return bool
+     */
+    public function getBurstEnabled()
+    {
+        return $this->container['burst_enabled'];
+    }
+
+    /**
+     * Sets burst_enabled
+     *
+     * @param bool $burst_enabled burst_enabled
+     *
+     * @return $this
+     */
+    public function setBurstEnabled($burst_enabled)
+    {
+        $this->container['burst_enabled'] = $burst_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets extra_performance_iops

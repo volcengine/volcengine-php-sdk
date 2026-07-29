@@ -29,6 +29,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'bandwidth' => 'int',
+        'bandwidth_package_id' => 'string',
         'billing_type' => 'int',
         'isp' => 'string'
     ];
@@ -40,6 +41,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
       */
     protected static $swaggerFormats = [
         'bandwidth' => 'int32',
+        'bandwidth_package_id' => null,
         'billing_type' => 'int32',
         'isp' => null
     ];
@@ -72,6 +74,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $attributeMap = [
         'bandwidth' => 'Bandwidth',
+        'bandwidth_package_id' => 'BandwidthPackageId',
         'billing_type' => 'BillingType',
         'isp' => 'Isp'
     ];
@@ -83,6 +86,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $setters = [
         'bandwidth' => 'setBandwidth',
+        'bandwidth_package_id' => 'setBandwidthPackageId',
         'billing_type' => 'setBillingType',
         'isp' => 'setIsp'
     ];
@@ -94,6 +98,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $getters = [
         'bandwidth' => 'getBandwidth',
+        'bandwidth_package_id' => 'getBandwidthPackageId',
         'billing_type' => 'getBillingType',
         'isp' => 'getIsp'
     ];
@@ -190,6 +195,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
     public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
+        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
     }
@@ -246,6 +252,30 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
     public function setBandwidth($bandwidth)
     {
         $this->container['bandwidth'] = $bandwidth;
+
+        return $this;
+    }
+
+    /**
+     * Gets bandwidth_package_id
+     *
+     * @return string
+     */
+    public function getBandwidthPackageId()
+    {
+        return $this->container['bandwidth_package_id'];
+    }
+
+    /**
+     * Sets bandwidth_package_id
+     *
+     * @param string $bandwidth_package_id bandwidth_package_id
+     *
+     * @return $this
+     */
+    public function setBandwidthPackageId($bandwidth_package_id)
+    {
+        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
 
         return $this;
     }

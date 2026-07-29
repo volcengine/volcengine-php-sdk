@@ -140,6 +140,7 @@ class ComponentConfigForListClustersOutput implements ModelInterface, ArrayAcces
     const NAME_KUBE_SCHEDULER = 'KubeScheduler';
     const NAME_ETCD = 'Etcd';
     const NAME_CLUSTER_AUTOSCALER = 'ClusterAutoscaler';
+    const NAME_KUBE_INSIGHTS = 'KubeInsights';
     const NAME_KUBE_BRAIN = 'KubeBrain';
     const NAME_GODEL_SCHEDULER = 'GodelScheduler';
     const NAME_GODEL_DISPATCHER = 'GodelDispatcher';
@@ -161,6 +162,7 @@ class ComponentConfigForListClustersOutput implements ModelInterface, ArrayAcces
             self::NAME_KUBE_SCHEDULER,
             self::NAME_ETCD,
             self::NAME_CLUSTER_AUTOSCALER,
+            self::NAME_KUBE_INSIGHTS,
             self::NAME_KUBE_BRAIN,
             self::NAME_GODEL_SCHEDULER,
             self::NAME_GODEL_DISPATCHER,
