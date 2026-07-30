@@ -35,6 +35,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForCreateNodePoolInput[]',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
+        'gpu_driver_config' => '\Volcengine\Vke\Model\GpuDriverConfigForCreateNodePoolInput',
         'gpu_driver_version' => 'string',
         'hostname' => 'string',
         'hpc_cluster_ids' => 'string[]',
@@ -71,6 +72,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'data_volumes' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
+        'gpu_driver_config' => null,
         'gpu_driver_version' => null,
         'hostname' => null,
         'hpc_cluster_ids' => null,
@@ -128,6 +130,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'data_volumes' => 'DataVolumes',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
+        'gpu_driver_config' => 'GpuDriverConfig',
         'gpu_driver_version' => 'GpuDriverVersion',
         'hostname' => 'Hostname',
         'hpc_cluster_ids' => 'HpcClusterIds',
@@ -164,6 +167,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'data_volumes' => 'setDataVolumes',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
+        'gpu_driver_config' => 'setGpuDriverConfig',
         'gpu_driver_version' => 'setGpuDriverVersion',
         'hostname' => 'setHostname',
         'hpc_cluster_ids' => 'setHpcClusterIds',
@@ -200,6 +204,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'data_volumes' => 'getDataVolumes',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
+        'gpu_driver_config' => 'getGpuDriverConfig',
         'gpu_driver_version' => 'getGpuDriverVersion',
         'hostname' => 'getHostname',
         'hpc_cluster_ids' => 'getHpcClusterIds',
@@ -320,6 +325,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
+        $this->container['gpu_driver_config'] = isset($data['gpu_driver_config']) ? $data['gpu_driver_config'] : null;
         $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
@@ -547,6 +553,30 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     public function setDeploymentSetId($deployment_set_id)
     {
         $this->container['deployment_set_id'] = $deployment_set_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_driver_config
+     *
+     * @return \Volcengine\Vke\Model\GpuDriverConfigForCreateNodePoolInput
+     */
+    public function getGpuDriverConfig()
+    {
+        return $this->container['gpu_driver_config'];
+    }
+
+    /**
+     * Sets gpu_driver_config
+     *
+     * @param \Volcengine\Vke\Model\GpuDriverConfigForCreateNodePoolInput $gpu_driver_config gpu_driver_config
+     *
+     * @return $this
+     */
+    public function setGpuDriverConfig($gpu_driver_config)
+    {
+        $this->container['gpu_driver_config'] = $gpu_driver_config;
 
         return $this;
     }

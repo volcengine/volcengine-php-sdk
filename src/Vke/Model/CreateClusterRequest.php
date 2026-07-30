@@ -32,8 +32,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'cluster_config' => '\Volcengine\Vke\Model\ClusterConfigForCreateClusterInput',
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
+        'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForCreateClusterInput',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForCreateClusterInput',
+        'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForCreateClusterInput',
         'name' => 'string',
         'pods_config' => '\Volcengine\Vke\Model\PodsConfigForCreateClusterInput',
         'project_name' => 'string',
@@ -51,8 +53,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'cluster_config' => null,
         'delete_protection_enabled' => null,
         'description' => null,
+        'kubernetes_config' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
+        'monitoring_config' => null,
         'name' => null,
         'pods_config' => null,
         'project_name' => null,
@@ -91,8 +95,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'cluster_config' => 'ClusterConfig',
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
+        'kubernetes_config' => 'KubernetesConfig',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
+        'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
         'pods_config' => 'PodsConfig',
         'project_name' => 'ProjectName',
@@ -110,8 +116,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'cluster_config' => 'setClusterConfig',
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
+        'kubernetes_config' => 'setKubernetesConfig',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
+        'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
         'pods_config' => 'setPodsConfig',
         'project_name' => 'setProjectName',
@@ -129,8 +137,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'cluster_config' => 'getClusterConfig',
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
+        'kubernetes_config' => 'getKubernetesConfig',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
+        'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
         'pods_config' => 'getPodsConfig',
         'project_name' => 'getProjectName',
@@ -202,8 +212,10 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         $this->container['cluster_config'] = isset($data['cluster_config']) ? $data['cluster_config'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
+        $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pods_config'] = isset($data['pods_config']) ? $data['pods_config'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -335,6 +347,30 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets kubernetes_config
+     *
+     * @return \Volcengine\Vke\Model\KubernetesConfigForCreateClusterInput
+     */
+    public function getKubernetesConfig()
+    {
+        return $this->container['kubernetes_config'];
+    }
+
+    /**
+     * Sets kubernetes_config
+     *
+     * @param \Volcengine\Vke\Model\KubernetesConfigForCreateClusterInput $kubernetes_config kubernetes_config
+     *
+     * @return $this
+     */
+    public function setKubernetesConfig($kubernetes_config)
+    {
+        $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
      * Gets kubernetes_version
      *
      * @return string
@@ -378,6 +414,30 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     public function setLoggingConfig($logging_config)
     {
         $this->container['logging_config'] = $logging_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitoring_config
+     *
+     * @return \Volcengine\Vke\Model\MonitoringConfigForCreateClusterInput
+     */
+    public function getMonitoringConfig()
+    {
+        return $this->container['monitoring_config'];
+    }
+
+    /**
+     * Sets monitoring_config
+     *
+     * @param \Volcengine\Vke\Model\MonitoringConfigForCreateClusterInput $monitoring_config monitoring_config
+     *
+     * @return $this
+     */
+    public function setMonitoringConfig($monitoring_config)
+    {
+        $this->container['monitoring_config'] = $monitoring_config;
 
         return $this;
     }

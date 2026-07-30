@@ -28,6 +28,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cpu_cfs_quota' => 'bool',
         'cpu_manager_policy' => 'string',
         'eviction_hard' => '\Volcengine\Vke\Model\EvictionHardForUpdateNodePoolConfigInput[]',
         'feature_gates' => '\Volcengine\Vke\Model\FeatureGatesForUpdateNodePoolConfigInput',
@@ -49,6 +50,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cpu_cfs_quota' => null,
         'cpu_manager_policy' => null,
         'eviction_hard' => null,
         'feature_gates' => null,
@@ -91,6 +93,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
+        'cpu_cfs_quota' => 'CpuCfsQuota',
         'cpu_manager_policy' => 'CpuManagerPolicy',
         'eviction_hard' => 'EvictionHard',
         'feature_gates' => 'FeatureGates',
@@ -112,6 +115,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
+        'cpu_cfs_quota' => 'setCpuCfsQuota',
         'cpu_manager_policy' => 'setCpuManagerPolicy',
         'eviction_hard' => 'setEvictionHard',
         'feature_gates' => 'setFeatureGates',
@@ -133,6 +137,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
+        'cpu_cfs_quota' => 'getCpuCfsQuota',
         'cpu_manager_policy' => 'getCpuManagerPolicy',
         'eviction_hard' => 'getEvictionHard',
         'feature_gates' => 'getFeatureGates',
@@ -257,6 +262,7 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
+        $this->container['cpu_cfs_quota'] = isset($data['cpu_cfs_quota']) ? $data['cpu_cfs_quota'] : null;
         $this->container['cpu_manager_policy'] = isset($data['cpu_manager_policy']) ? $data['cpu_manager_policy'] : null;
         $this->container['eviction_hard'] = isset($data['eviction_hard']) ? $data['eviction_hard'] : null;
         $this->container['feature_gates'] = isset($data['feature_gates']) ? $data['feature_gates'] : null;
@@ -319,6 +325,30 @@ class KubeletConfigForUpdateNodePoolConfigInput implements ModelInterface, Array
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cpu_cfs_quota
+     *
+     * @return bool
+     */
+    public function getCpuCfsQuota()
+    {
+        return $this->container['cpu_cfs_quota'];
+    }
+
+    /**
+     * Sets cpu_cfs_quota
+     *
+     * @param bool $cpu_cfs_quota cpu_cfs_quota
+     *
+     * @return $this
+     */
+    public function setCpuCfsQuota($cpu_cfs_quota)
+    {
+        $this->container['cpu_cfs_quota'] = $cpu_cfs_quota;
+
+        return $this;
+    }
 
     /**
      * Gets cpu_manager_policy

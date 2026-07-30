@@ -34,6 +34,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'id' => 'string',
         'irsa_enabled' => 'bool',
+        'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForUpdateClusterConfigInput',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForUpdateClusterConfigInput',
         'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForUpdateClusterConfigInput',
         'name' => 'string',
@@ -54,6 +55,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'id' => null,
         'irsa_enabled' => null,
+        'kubernetes_config' => null,
         'logging_config' => null,
         'monitoring_config' => null,
         'name' => null,
@@ -95,6 +97,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'id' => 'Id',
         'irsa_enabled' => 'IrsaEnabled',
+        'kubernetes_config' => 'KubernetesConfig',
         'logging_config' => 'LoggingConfig',
         'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
@@ -115,6 +118,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'id' => 'setId',
         'irsa_enabled' => 'setIrsaEnabled',
+        'kubernetes_config' => 'setKubernetesConfig',
         'logging_config' => 'setLoggingConfig',
         'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
@@ -135,6 +139,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'id' => 'getId',
         'irsa_enabled' => 'getIrsaEnabled',
+        'kubernetes_config' => 'getKubernetesConfig',
         'logging_config' => 'getLoggingConfig',
         'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
@@ -209,6 +214,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['irsa_enabled'] = isset($data['irsa_enabled']) ? $data['irsa_enabled'] : null;
+        $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
         $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -384,6 +390,30 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     public function setIrsaEnabled($irsa_enabled)
     {
         $this->container['irsa_enabled'] = $irsa_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets kubernetes_config
+     *
+     * @return \Volcengine\Vke\Model\KubernetesConfigForUpdateClusterConfigInput
+     */
+    public function getKubernetesConfig()
+    {
+        return $this->container['kubernetes_config'];
+    }
+
+    /**
+     * Sets kubernetes_config
+     *
+     * @param \Volcengine\Vke\Model\KubernetesConfigForUpdateClusterConfigInput $kubernetes_config kubernetes_config
+     *
+     * @return $this
+     */
+    public function setKubernetesConfig($kubernetes_config)
+    {
+        $this->container['kubernetes_config'] = $kubernetes_config;
 
         return $this;
     }
