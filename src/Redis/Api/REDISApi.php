@@ -130,6 +130,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function applyParameterGroup($body = null)
+    {
+        list($response) = $this->applyParameterGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function applyParameterGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ApplyParameterGroupResponse';
+        $request = $this->applyParameterGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function applyParameterGroupAsync($body = null)
+    {
+        return $this->applyParameterGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function applyParameterGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\ApplyParameterGroupResponse';
+        $request = $this->applyParameterGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function applyParameterGroupRequest($body)
+    {
+        $resourcePath = '/ApplyParameterGroup/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function associateAllowList($body = null)
     {
         list($response) = $this->associateAllowListWithHttpInfo($body);
@@ -1928,6 +1990,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeClientSessionSnapshot($body = null)
+    {
+        list($response) = $this->describeClientSessionSnapshotWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeClientSessionSnapshotWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeClientSessionSnapshotResponse';
+        $request = $this->describeClientSessionSnapshotRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeClientSessionSnapshotAsync($body = null)
+    {
+        return $this->describeClientSessionSnapshotAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeClientSessionSnapshotAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeClientSessionSnapshotResponse';
+        $request = $this->describeClientSessionSnapshotRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeClientSessionSnapshotRequest($body)
+    {
+        $resourcePath = '/DescribeClientSessionSnapshot/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeCrossRegionBackupPolicy($body = null)
     {
         list($response) = $this->describeCrossRegionBackupPolicyWithHttpInfo($body);
@@ -3574,6 +3698,68 @@ class REDISApi
     protected function describeTagsByResourceRequest($body)
     {
         $resourcePath = '/DescribeTagsByResource/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeTasks($body = null)
+    {
+        list($response) = $this->describeTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeTasksResponse';
+        $request = $this->describeTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeTasksAsync($body = null)
+    {
+        return $this->describeTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribeTasksResponse';
+        $request = $this->describeTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeTasksRequest($body)
+    {
+        $resourcePath = '/DescribeTasks/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6116,6 +6302,68 @@ class REDISApi
     protected function switchoverBlueGreenDeploymentRequest($body)
     {
         $resourcePath = '/SwitchoverBlueGreenDeployment/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function syncAllowList($body = null)
+    {
+        list($response) = $this->syncAllowListWithHttpInfo($body);
+        return $response;
+    }
+
+    public function syncAllowListWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\SyncAllowListResponse';
+        $request = $this->syncAllowListRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function syncAllowListAsync($body = null)
+    {
+        return $this->syncAllowListAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function syncAllowListAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\SyncAllowListResponse';
+        $request = $this->syncAllowListRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function syncAllowListRequest($body)
+    {
+        $resourcePath = '/SyncAllowList/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
