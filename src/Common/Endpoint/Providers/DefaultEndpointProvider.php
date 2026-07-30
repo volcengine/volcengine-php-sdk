@@ -551,10 +551,16 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
-
                 'apig' => new ServiceEndpointInfo(
                     'apig',
                     false,
+                    '',
+                    []
+                ),
+
+                'volcsms' => new ServiceEndpointInfo(
+                    'volcsms',
+                    true,
                     '',
                     []
                 ),
