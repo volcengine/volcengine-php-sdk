@@ -516,14 +516,14 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
-            
+
                 'na' => new ServiceEndpointInfo(
                     'na',
                     true,
                     '',
                     []
                 ),
-            
+
                 'ga' => new ServiceEndpointInfo(
                     'ga',
                     true,
@@ -544,9 +544,16 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
-            
+
                 'cloudcontrol' => new ServiceEndpointInfo(
                     'cloudcontrol',
+                    false,
+                    '',
+                    []
+                ),
+
+                'apig' => new ServiceEndpointInfo(
+                    'apig',
                     false,
                     '',
                     []

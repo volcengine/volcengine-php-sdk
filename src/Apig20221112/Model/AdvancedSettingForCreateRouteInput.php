@@ -33,6 +33,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         'mirror_policies' => '\Volcengine\Apig20221112\Model\MirrorPolicyForCreateRouteInput[]',
         'retry_policy_setting' => '\Volcengine\Apig20221112\Model\RetryPolicySettingForCreateRouteInput',
         'timeout_setting' => '\Volcengine\Apig20221112\Model\TimeoutSettingForCreateRouteInput',
+        'token_extractors' => '\Volcengine\Apig20221112\Model\TokenExtractorForCreateRouteInput[]',
         'url_rewrite_setting' => '\Volcengine\Apig20221112\Model\URLRewriteSettingForCreateRouteInput'
     ];
 
@@ -47,6 +48,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         'mirror_policies' => null,
         'retry_policy_setting' => null,
         'timeout_setting' => null,
+        'token_extractors' => null,
         'url_rewrite_setting' => null
     ];
 
@@ -82,6 +84,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         'mirror_policies' => 'MirrorPolicies',
         'retry_policy_setting' => 'RetryPolicySetting',
         'timeout_setting' => 'TimeoutSetting',
+        'token_extractors' => 'TokenExtractors',
         'url_rewrite_setting' => 'URLRewriteSetting'
     ];
 
@@ -96,6 +99,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         'mirror_policies' => 'setMirrorPolicies',
         'retry_policy_setting' => 'setRetryPolicySetting',
         'timeout_setting' => 'setTimeoutSetting',
+        'token_extractors' => 'setTokenExtractors',
         'url_rewrite_setting' => 'setUrlRewriteSetting'
     ];
 
@@ -110,6 +114,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         'mirror_policies' => 'getMirrorPolicies',
         'retry_policy_setting' => 'getRetryPolicySetting',
         'timeout_setting' => 'getTimeoutSetting',
+        'token_extractors' => 'getTokenExtractors',
         'url_rewrite_setting' => 'getUrlRewriteSetting'
     ];
 
@@ -178,6 +183,7 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
         $this->container['mirror_policies'] = isset($data['mirror_policies']) ? $data['mirror_policies'] : null;
         $this->container['retry_policy_setting'] = isset($data['retry_policy_setting']) ? $data['retry_policy_setting'] : null;
         $this->container['timeout_setting'] = isset($data['timeout_setting']) ? $data['timeout_setting'] : null;
+        $this->container['token_extractors'] = isset($data['token_extractors']) ? $data['token_extractors'] : null;
         $this->container['url_rewrite_setting'] = isset($data['url_rewrite_setting']) ? $data['url_rewrite_setting'] : null;
     }
 
@@ -321,6 +327,30 @@ class AdvancedSettingForCreateRouteInput implements ModelInterface, ArrayAccess
     public function setTimeoutSetting($timeout_setting)
     {
         $this->container['timeout_setting'] = $timeout_setting;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_extractors
+     *
+     * @return \Volcengine\Apig20221112\Model\TokenExtractorForCreateRouteInput[]
+     */
+    public function getTokenExtractors()
+    {
+        return $this->container['token_extractors'];
+    }
+
+    /**
+     * Sets token_extractors
+     *
+     * @param \Volcengine\Apig20221112\Model\TokenExtractorForCreateRouteInput[] $token_extractors token_extractors
+     *
+     * @return $this
+     */
+    public function setTokenExtractors($token_extractors)
+    {
+        $this->container['token_extractors'] = $token_extractors;
 
         return $this;
     }

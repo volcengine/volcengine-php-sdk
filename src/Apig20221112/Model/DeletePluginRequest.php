@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class DeletePluginRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'DeletePluginRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        'gateway_id' => 'string',
+        'plugin_name' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        'gateway_id' => null,
+        'plugin_name' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        'gateway_id' => 'GatewayId',
+        'plugin_name' => 'PluginName'
     ];
 
     /**
@@ -82,9 +79,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        'gateway_id' => 'setGatewayId',
+        'plugin_name' => 'setPluginName'
     ];
 
     /**
@@ -93,9 +89,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        'gateway_id' => 'getGatewayId',
+        'plugin_name' => 'getPluginName'
     ];
 
     /**
@@ -158,9 +153,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['plugin_name'] = isset($data['plugin_name']) ? $data['plugin_name'] : null;
     }
 
     /**
@@ -172,6 +166,12 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
+        if ($this->container['plugin_name'] === null) {
+            $invalidProperties[] = "'plugin_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +188,49 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets model
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getModel()
+    public function getGatewayId()
     {
-        return $this->container['model'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets model
+     * Sets gateway_id
      *
-     * @param string $model model
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setModel($model)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['model'] = $model;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }
 
     /**
-     * Gets prefix_path
+     * Gets plugin_name
      *
      * @return string
      */
-    public function getPrefixPath()
+    public function getPluginName()
     {
-        return $this->container['prefix_path'];
+        return $this->container['plugin_name'];
     }
 
     /**
-     * Sets prefix_path
+     * Sets plugin_name
      *
-     * @param string $prefix_path prefix_path
+     * @param string $plugin_name plugin_name
      *
      * @return $this
      */
-    public function setPrefixPath($prefix_path)
+    public function setPluginName($plugin_name)
     {
-        $this->container['prefix_path'] = $prefix_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_path
-     *
-     * @return string
-     */
-    public function getTargetPath()
-    {
-        return $this->container['target_path'];
-    }
-
-    /**
-     * Sets target_path
-     *
-     * @param string $target_path target_path
-     *
-     * @return $this
-     */
-    public function setTargetPath($target_path)
-    {
-        $this->container['target_path'] = $target_path;
+        $this->container['plugin_name'] = $plugin_name;
 
         return $this;
     }

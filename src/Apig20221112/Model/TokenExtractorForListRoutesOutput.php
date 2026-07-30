@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class TokenExtractorForListRoutesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'TokenExtractorForListRoutesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        'json_pointers' => 'string[]',
+        'token_type' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        'json_pointers' => null,
+        'token_type' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        'json_pointers' => 'JsonPointers',
+        'token_type' => 'TokenType'
     ];
 
     /**
@@ -82,9 +79,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        'json_pointers' => 'setJsonPointers',
+        'token_type' => 'setTokenType'
     ];
 
     /**
@@ -93,9 +89,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        'json_pointers' => 'getJsonPointers',
+        'token_type' => 'getTokenType'
     ];
 
     /**
@@ -158,9 +153,8 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
+        $this->container['json_pointers'] = isset($data['json_pointers']) ? $data['json_pointers'] : null;
+        $this->container['token_type'] = isset($data['token_type']) ? $data['token_type'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets model
+     * Gets json_pointers
      *
-     * @return string
+     * @return string[]
      */
-    public function getModel()
+    public function getJsonPointers()
     {
-        return $this->container['model'];
+        return $this->container['json_pointers'];
     }
 
     /**
-     * Sets model
+     * Sets json_pointers
      *
-     * @param string $model model
+     * @param string[] $json_pointers json_pointers
      *
      * @return $this
      */
-    public function setModel($model)
+    public function setJsonPointers($json_pointers)
     {
-        $this->container['model'] = $model;
+        $this->container['json_pointers'] = $json_pointers;
 
         return $this;
     }
 
     /**
-     * Gets prefix_path
+     * Gets token_type
      *
      * @return string
      */
-    public function getPrefixPath()
+    public function getTokenType()
     {
-        return $this->container['prefix_path'];
+        return $this->container['token_type'];
     }
 
     /**
-     * Sets prefix_path
+     * Sets token_type
      *
-     * @param string $prefix_path prefix_path
+     * @param string $token_type token_type
      *
      * @return $this
      */
-    public function setPrefixPath($prefix_path)
+    public function setTokenType($token_type)
     {
-        $this->container['prefix_path'] = $prefix_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_path
-     *
-     * @return string
-     */
-    public function getTargetPath()
-    {
-        return $this->container['target_path'];
-    }
-
-    /**
-     * Sets target_path
-     *
-     * @param string $target_path target_path
-     *
-     * @return $this
-     */
-    public function setTargetPath($target_path)
-    {
-        $this->container['target_path'] = $target_path;
+        $this->container['token_type'] = $token_type;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAccess
+class CreatePluginResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AIProviderSettingsForCreateRouteInput';
+    protected static $swaggerModelName = 'CreatePluginResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => 'string',
-        'prefix_path' => 'string',
-        'target_path' => 'string'
+        'plugin_id' => 'string'
     ];
 
     /**
@@ -39,9 +37,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'model' => null,
-        'prefix_path' => null,
-        'target_path' => null
+        'plugin_id' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'model' => 'Model',
-        'prefix_path' => 'PrefixPath',
-        'target_path' => 'TargetPath'
+        'plugin_id' => 'PluginID'
     ];
 
     /**
@@ -82,9 +76,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'model' => 'setModel',
-        'prefix_path' => 'setPrefixPath',
-        'target_path' => 'setTargetPath'
+        'plugin_id' => 'setPluginId'
     ];
 
     /**
@@ -93,9 +85,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'model' => 'getModel',
-        'prefix_path' => 'getPrefixPath',
-        'target_path' => 'getTargetPath'
+        'plugin_id' => 'getPluginId'
     ];
 
     /**
@@ -158,9 +148,7 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['prefix_path'] = isset($data['prefix_path']) ? $data['prefix_path'] : null;
-        $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
+        $this->container['plugin_id'] = isset($data['plugin_id']) ? $data['plugin_id'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class AIProviderSettingsForCreateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets model
+     * Gets plugin_id
      *
      * @return string
      */
-    public function getModel()
+    public function getPluginId()
     {
-        return $this->container['model'];
+        return $this->container['plugin_id'];
     }
 
     /**
-     * Sets model
+     * Sets plugin_id
      *
-     * @param string $model model
+     * @param string $plugin_id plugin_id
      *
      * @return $this
      */
-    public function setModel($model)
+    public function setPluginId($plugin_id)
     {
-        $this->container['model'] = $model;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix_path
-     *
-     * @return string
-     */
-    public function getPrefixPath()
-    {
-        return $this->container['prefix_path'];
-    }
-
-    /**
-     * Sets prefix_path
-     *
-     * @param string $prefix_path prefix_path
-     *
-     * @return $this
-     */
-    public function setPrefixPath($prefix_path)
-    {
-        $this->container['prefix_path'] = $prefix_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_path
-     *
-     * @return string
-     */
-    public function getTargetPath()
-    {
-        return $this->container['target_path'];
-    }
-
-    /**
-     * Sets target_path
-     *
-     * @param string $target_path target_path
-     *
-     * @return $this
-     */
-    public function setTargetPath($target_path)
-    {
-        $this->container['target_path'] = $target_path;
+        $this->container['plugin_id'] = $plugin_id;
 
         return $this;
     }
