@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Apig\Model;
+namespace Volcengine\Volcsms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface, ArrayAccess
+class GetUploadTosURLResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForCreateConsumerCredentialInput';
+    protected static $swaggerModelName = 'GetUploadTosURLResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string'
+        'file' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null
+        'file' => null,
+        'url' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId'
+        'file' => 'file',
+        'url' => 'url'
     ];
 
     /**
@@ -76,7 +79,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId'
+        'file' => 'setFile',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -85,7 +89,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId'
+        'file' => 'getFile',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -148,7 +153,8 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
 
 
     /**
-     * Gets client_id
+     * Gets file
      *
      * @return string
      */
-    public function getClientId()
+    public function getFile()
     {
-        return $this->container['client_id'];
+        return $this->container['file'];
     }
 
     /**
-     * Sets client_id
+     * Sets file
      *
-     * @param string $client_id client_id
+     * @param string $file file
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setFile($file)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

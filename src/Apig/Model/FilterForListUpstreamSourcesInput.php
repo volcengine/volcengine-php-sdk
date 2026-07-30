@@ -28,6 +28,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cluster_id' => 'string',
         'source_type' => 'string',
         'status' => 'string',
         'name' => 'string'
@@ -39,6 +40,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cluster_id' => null,
         'source_type' => null,
         'status' => null,
         'name' => null
@@ -71,6 +73,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cluster_id' => 'ClusterId',
         'source_type' => 'SourceType',
         'status' => 'Status',
         'name' => 'name'
@@ -82,6 +85,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cluster_id' => 'setClusterId',
         'source_type' => 'setSourceType',
         'status' => 'setStatus',
         'name' => 'setName'
@@ -93,6 +97,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cluster_id' => 'getClusterId',
         'source_type' => 'getSourceType',
         'status' => 'getStatus',
         'name' => 'getName'
@@ -158,6 +163,7 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -186,6 +192,30 @@ class FilterForListUpstreamSourcesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cluster_id
+     *
+     * @return string
+     */
+    public function getClusterId()
+    {
+        return $this->container['cluster_id'];
+    }
+
+    /**
+     * Sets cluster_id
+     *
+     * @param string $cluster_id cluster_id
+     *
+     * @return $this
+     */
+    public function setClusterId($cluster_id)
+    {
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
 
     /**
      * Gets source_type

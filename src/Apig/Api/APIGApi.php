@@ -564,6 +564,68 @@ class APIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function checkUpstreamSpecExist($body = null)
+    {
+        list($response) = $this->checkUpstreamSpecExistWithHttpInfo($body);
+        return $response;
+    }
+
+    public function checkUpstreamSpecExistWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\CheckUpstreamSpecExistResponse';
+        $request = $this->checkUpstreamSpecExistRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function checkUpstreamSpecExistAsync($body = null)
+    {
+        return $this->checkUpstreamSpecExistAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function checkUpstreamSpecExistAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\CheckUpstreamSpecExistResponse';
+        $request = $this->checkUpstreamSpecExistRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function checkUpstreamSpecExistRequest($body)
+    {
+        $resourcePath = '/CheckUpstreamSpecExist/2021-03-03/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function checkUpstreamVersionExist($body = null)
     {
         list($response) = $this->checkUpstreamVersionExistWithHttpInfo($body);
@@ -1990,6 +2052,68 @@ class APIGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getGatewayParameters($body = null)
+    {
+        list($response) = $this->getGatewayParametersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getGatewayParametersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\GetGatewayParametersResponse';
+        $request = $this->getGatewayParametersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getGatewayParametersAsync($body = null)
+    {
+        return $this->getGatewayParametersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getGatewayParametersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\GetGatewayParametersResponse';
+        $request = $this->getGatewayParametersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getGatewayParametersRequest($body)
+    {
+        $resourcePath = '/GetGatewayParameters/2021-03-03/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getGatewayService($body = null)
     {
         list($response) = $this->getGatewayServiceWithHttpInfo($body);
@@ -3078,6 +3202,68 @@ class APIGApi
     protected function updateGatewayCustomLogRequest($body)
     {
         $resourcePath = '/UpdateGatewayCustomLog/2021-03-03/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateGatewayDownstreamConnectionBufferLimits($body = null)
+    {
+        list($response) = $this->updateGatewayDownstreamConnectionBufferLimitsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateGatewayDownstreamConnectionBufferLimitsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\UpdateGatewayDownstreamConnectionBufferLimitsResponse';
+        $request = $this->updateGatewayDownstreamConnectionBufferLimitsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateGatewayDownstreamConnectionBufferLimitsAsync($body = null)
+    {
+        return $this->updateGatewayDownstreamConnectionBufferLimitsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateGatewayDownstreamConnectionBufferLimitsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig\Model\UpdateGatewayDownstreamConnectionBufferLimitsResponse';
+        $request = $this->updateGatewayDownstreamConnectionBufferLimitsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateGatewayDownstreamConnectionBufferLimitsRequest($body)
+    {
+        $resourcePath = '/UpdateGatewayDownstreamConnectionBufferLimits/2021-03-03/apig/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

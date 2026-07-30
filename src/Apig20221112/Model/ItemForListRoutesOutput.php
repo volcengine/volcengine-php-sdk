@@ -36,9 +36,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         'fallback_setting' => '\Volcengine\Apig20221112\Model\FallbackSettingForListRoutesOutput',
         'id' => 'string',
         'match_rule' => '\Volcengine\Apig20221112\Model\MatchRuleForListRoutesOutput',
+        'mock_setting' => '\Volcengine\Apig20221112\Model\MockSettingForListRoutesOutput',
         'name' => 'string',
         'priority' => 'int',
         'reason' => 'string',
+        'redirect_setting' => '\Volcengine\Apig20221112\Model\RedirectSettingForListRoutesOutput',
+        'scene' => 'string',
         'service_id' => 'string',
         'service_name' => 'string',
         'status' => 'string',
@@ -60,9 +63,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         'fallback_setting' => null,
         'id' => null,
         'match_rule' => null,
+        'mock_setting' => null,
         'name' => null,
         'priority' => 'int64',
         'reason' => null,
+        'redirect_setting' => null,
+        'scene' => null,
         'service_id' => null,
         'service_name' => null,
         'status' => null,
@@ -105,9 +111,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         'fallback_setting' => 'FallbackSetting',
         'id' => 'Id',
         'match_rule' => 'MatchRule',
+        'mock_setting' => 'MockSetting',
         'name' => 'Name',
         'priority' => 'Priority',
         'reason' => 'Reason',
+        'redirect_setting' => 'RedirectSetting',
+        'scene' => 'Scene',
         'service_id' => 'ServiceId',
         'service_name' => 'ServiceName',
         'status' => 'Status',
@@ -129,9 +138,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         'fallback_setting' => 'setFallbackSetting',
         'id' => 'setId',
         'match_rule' => 'setMatchRule',
+        'mock_setting' => 'setMockSetting',
         'name' => 'setName',
         'priority' => 'setPriority',
         'reason' => 'setReason',
+        'redirect_setting' => 'setRedirectSetting',
+        'scene' => 'setScene',
         'service_id' => 'setServiceId',
         'service_name' => 'setServiceName',
         'status' => 'setStatus',
@@ -153,9 +165,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         'fallback_setting' => 'getFallbackSetting',
         'id' => 'getId',
         'match_rule' => 'getMatchRule',
+        'mock_setting' => 'getMockSetting',
         'name' => 'getName',
         'priority' => 'getPriority',
         'reason' => 'getReason',
+        'redirect_setting' => 'getRedirectSetting',
+        'scene' => 'getScene',
         'service_id' => 'getServiceId',
         'service_name' => 'getServiceName',
         'status' => 'getStatus',
@@ -231,9 +246,12 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
         $this->container['fallback_setting'] = isset($data['fallback_setting']) ? $data['fallback_setting'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['match_rule'] = isset($data['match_rule']) ? $data['match_rule'] : null;
+        $this->container['mock_setting'] = isset($data['mock_setting']) ? $data['mock_setting'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['redirect_setting'] = isset($data['redirect_setting']) ? $data['redirect_setting'] : null;
+        $this->container['scene'] = isset($data['scene']) ? $data['scene'] : null;
         $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -458,6 +476,30 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets mock_setting
+     *
+     * @return \Volcengine\Apig20221112\Model\MockSettingForListRoutesOutput
+     */
+    public function getMockSetting()
+    {
+        return $this->container['mock_setting'];
+    }
+
+    /**
+     * Sets mock_setting
+     *
+     * @param \Volcengine\Apig20221112\Model\MockSettingForListRoutesOutput $mock_setting mock_setting
+     *
+     * @return $this
+     */
+    public function setMockSetting($mock_setting)
+    {
+        $this->container['mock_setting'] = $mock_setting;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -525,6 +567,54 @@ class ItemForListRoutesOutput implements ModelInterface, ArrayAccess
     public function setReason($reason)
     {
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_setting
+     *
+     * @return \Volcengine\Apig20221112\Model\RedirectSettingForListRoutesOutput
+     */
+    public function getRedirectSetting()
+    {
+        return $this->container['redirect_setting'];
+    }
+
+    /**
+     * Sets redirect_setting
+     *
+     * @param \Volcengine\Apig20221112\Model\RedirectSettingForListRoutesOutput $redirect_setting redirect_setting
+     *
+     * @return $this
+     */
+    public function setRedirectSetting($redirect_setting)
+    {
+        $this->container['redirect_setting'] = $redirect_setting;
+
+        return $this;
+    }
+
+    /**
+     * Gets scene
+     *
+     * @return string
+     */
+    public function getScene()
+    {
+        return $this->container['scene'];
+    }
+
+    /**
+     * Sets scene
+     *
+     * @param string $scene scene
+     *
+     * @return $this
+     */
+    public function setScene($scene)
+    {
+        $this->container['scene'] = $scene;
 
         return $this;
     }

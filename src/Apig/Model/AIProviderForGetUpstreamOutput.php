@@ -28,12 +28,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'api_protocol' => 'string',
         'base_url' => 'string',
         'custom_body_params' => '\Volcengine\Apig\Model\CustomBodyParamsForGetUpstreamOutput',
         'custom_header_params' => '\Volcengine\Apig\Model\CustomHeaderParamsForGetUpstreamOutput',
         'custom_model_service' => '\Volcengine\Apig\Model\CustomModelServiceForGetUpstreamOutput',
+        'max_retries' => 'int',
         'name' => 'string',
-        'token' => 'string'
+        'token' => 'string',
+        'token_pool' => 'string[]'
     ];
 
     /**
@@ -42,12 +45,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'api_protocol' => null,
         'base_url' => null,
         'custom_body_params' => null,
         'custom_header_params' => null,
         'custom_model_service' => null,
+        'max_retries' => 'int64',
         'name' => null,
-        'token' => null
+        'token' => null,
+        'token_pool' => null
     ];
 
     /**
@@ -77,12 +83,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'api_protocol' => 'ApiProtocol',
         'base_url' => 'BaseUrl',
         'custom_body_params' => 'CustomBodyParams',
         'custom_header_params' => 'CustomHeaderParams',
         'custom_model_service' => 'CustomModelService',
+        'max_retries' => 'MaxRetries',
         'name' => 'Name',
-        'token' => 'Token'
+        'token' => 'Token',
+        'token_pool' => 'TokenPool'
     ];
 
     /**
@@ -91,12 +100,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'api_protocol' => 'setApiProtocol',
         'base_url' => 'setBaseUrl',
         'custom_body_params' => 'setCustomBodyParams',
         'custom_header_params' => 'setCustomHeaderParams',
         'custom_model_service' => 'setCustomModelService',
+        'max_retries' => 'setMaxRetries',
         'name' => 'setName',
-        'token' => 'setToken'
+        'token' => 'setToken',
+        'token_pool' => 'setTokenPool'
     ];
 
     /**
@@ -105,12 +117,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'api_protocol' => 'getApiProtocol',
         'base_url' => 'getBaseUrl',
         'custom_body_params' => 'getCustomBodyParams',
         'custom_header_params' => 'getCustomHeaderParams',
         'custom_model_service' => 'getCustomModelService',
+        'max_retries' => 'getMaxRetries',
         'name' => 'getName',
-        'token' => 'getToken'
+        'token' => 'getToken',
+        'token_pool' => 'getTokenPool'
     ];
 
     /**
@@ -173,12 +188,15 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['api_protocol'] = isset($data['api_protocol']) ? $data['api_protocol'] : null;
         $this->container['base_url'] = isset($data['base_url']) ? $data['base_url'] : null;
         $this->container['custom_body_params'] = isset($data['custom_body_params']) ? $data['custom_body_params'] : null;
         $this->container['custom_header_params'] = isset($data['custom_header_params']) ? $data['custom_header_params'] : null;
         $this->container['custom_model_service'] = isset($data['custom_model_service']) ? $data['custom_model_service'] : null;
+        $this->container['max_retries'] = isset($data['max_retries']) ? $data['max_retries'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['token'] = isset($data['token']) ? $data['token'] : null;
+        $this->container['token_pool'] = isset($data['token_pool']) ? $data['token_pool'] : null;
     }
 
     /**
@@ -204,6 +222,30 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets api_protocol
+     *
+     * @return string
+     */
+    public function getApiProtocol()
+    {
+        return $this->container['api_protocol'];
+    }
+
+    /**
+     * Sets api_protocol
+     *
+     * @param string $api_protocol api_protocol
+     *
+     * @return $this
+     */
+    public function setApiProtocol($api_protocol)
+    {
+        $this->container['api_protocol'] = $api_protocol;
+
+        return $this;
+    }
 
     /**
      * Gets base_url
@@ -302,6 +344,30 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_retries
+     *
+     * @return int
+     */
+    public function getMaxRetries()
+    {
+        return $this->container['max_retries'];
+    }
+
+    /**
+     * Sets max_retries
+     *
+     * @param int $max_retries max_retries
+     *
+     * @return $this
+     */
+    public function setMaxRetries($max_retries)
+    {
+        $this->container['max_retries'] = $max_retries;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -345,6 +411,30 @@ class AIProviderForGetUpstreamOutput implements ModelInterface, ArrayAccess
     public function setToken($token)
     {
         $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_pool
+     *
+     * @return string[]
+     */
+    public function getTokenPool()
+    {
+        return $this->container['token_pool'];
+    }
+
+    /**
+     * Sets token_pool
+     *
+     * @param string[] $token_pool token_pool
+     *
+     * @return $this
+     */
+    public function setTokenPool($token_pool)
+    {
+        $this->container['token_pool'] = $token_pool;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Apig\Model;
+namespace Volcengine\Volcsms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInterface, ArrayAccess
+class AppIcpForApplySmsSignatureV2Input implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForCheckConsumerCredentialExistInput';
+    protected static $swaggerModelName = 'appIcpForApplySmsSignatureV2Input';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string'
+        'app_icp_filling' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null
+        'app_icp_filling' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId'
+        'app_icp_filling' => 'appIcpFilling'
     ];
 
     /**
@@ -76,7 +76,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId'
+        'app_icp_filling' => 'setAppIcpFilling'
     ];
 
     /**
@@ -85,7 +85,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId'
+        'app_icp_filling' => 'getAppIcpFilling'
     ];
 
     /**
@@ -148,7 +148,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['app_icp_filling'] = isset($data['app_icp_filling']) ? $data['app_icp_filling'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
 
 
     /**
-     * Gets client_id
+     * Gets app_icp_filling
      *
      * @return string
      */
-    public function getClientId()
+    public function getAppIcpFilling()
     {
-        return $this->container['client_id'];
+        return $this->container['app_icp_filling'];
     }
 
     /**
-     * Sets client_id
+     * Sets app_icp_filling
      *
-     * @param string $client_id client_id
+     * @param string $app_icp_filling app_icp_filling
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setAppIcpFilling($app_icp_filling)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['app_icp_filling'] = $app_icp_filling;
 
         return $this;
     }

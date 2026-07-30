@@ -31,8 +31,7 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         'credential_type' => 'string',
         'gateway_id' => 'string',
         'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCheckConsumerCredentialExistInput',
-        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCheckConsumerCredentialExistInput',
-        'oauth2_credential' => '\Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput'
+        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCheckConsumerCredentialExistInput'
     ];
 
     /**
@@ -44,8 +43,7 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         'credential_type' => null,
         'gateway_id' => null,
         'hmac_auth_credential' => null,
-        'key_auth_credential' => null,
-        'oauth2_credential' => null
+        'key_auth_credential' => null
     ];
 
     /**
@@ -78,8 +76,7 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         'credential_type' => 'CredentialType',
         'gateway_id' => 'GatewayId',
         'hmac_auth_credential' => 'HmacAuthCredential',
-        'key_auth_credential' => 'KeyAuthCredential',
-        'oauth2_credential' => 'Oauth2Credential'
+        'key_auth_credential' => 'KeyAuthCredential'
     ];
 
     /**
@@ -91,8 +88,7 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         'credential_type' => 'setCredentialType',
         'gateway_id' => 'setGatewayId',
         'hmac_auth_credential' => 'setHmacAuthCredential',
-        'key_auth_credential' => 'setKeyAuthCredential',
-        'oauth2_credential' => 'setOauth2Credential'
+        'key_auth_credential' => 'setKeyAuthCredential'
     ];
 
     /**
@@ -104,8 +100,7 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         'credential_type' => 'getCredentialType',
         'gateway_id' => 'getGatewayId',
         'hmac_auth_credential' => 'getHmacAuthCredential',
-        'key_auth_credential' => 'getKeyAuthCredential',
-        'oauth2_credential' => 'getOauth2Credential'
+        'key_auth_credential' => 'getKeyAuthCredential'
     ];
 
     /**
@@ -172,7 +167,6 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
         $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
-        $this->container['oauth2_credential'] = isset($data['oauth2_credential']) ? $data['oauth2_credential'] : null;
     }
 
     /**
@@ -297,30 +291,6 @@ class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
     public function setKeyAuthCredential($key_auth_credential)
     {
         $this->container['key_auth_credential'] = $key_auth_credential;
-
-        return $this;
-    }
-
-    /**
-     * Gets oauth2_credential
-     *
-     * @return \Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput
-     */
-    public function getOauth2Credential()
-    {
-        return $this->container['oauth2_credential'];
-    }
-
-    /**
-     * Sets oauth2_credential
-     *
-     * @param \Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput $oauth2_credential oauth2_credential
-     *
-     * @return $this
-     */
-    public function setOauth2Credential($oauth2_credential)
-    {
-        $this->container['oauth2_credential'] = $oauth2_credential;
 
         return $this;
     }

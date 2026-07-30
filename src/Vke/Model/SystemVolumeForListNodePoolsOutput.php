@@ -28,6 +28,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'burst_enabled' => 'bool',
         'placement_group_id' => 'string',
         'size' => 'int',
         'subgroup_number' => 'int',
@@ -40,6 +41,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'burst_enabled' => null,
         'placement_group_id' => null,
         'size' => 'int32',
         'subgroup_number' => 'int32',
@@ -73,6 +75,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'burst_enabled' => 'BurstEnabled',
         'placement_group_id' => 'PlacementGroupId',
         'size' => 'Size',
         'subgroup_number' => 'SubgroupNumber',
@@ -85,6 +88,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'burst_enabled' => 'setBurstEnabled',
         'placement_group_id' => 'setPlacementGroupId',
         'size' => 'setSize',
         'subgroup_number' => 'setSubgroupNumber',
@@ -97,6 +101,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'burst_enabled' => 'getBurstEnabled',
         'placement_group_id' => 'getPlacementGroupId',
         'size' => 'getSize',
         'subgroup_number' => 'getSubgroupNumber',
@@ -194,6 +199,7 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['burst_enabled'] = isset($data['burst_enabled']) ? $data['burst_enabled'] : null;
         $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
@@ -231,6 +237,30 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets burst_enabled
+     *
+     * @return bool
+     */
+    public function getBurstEnabled()
+    {
+        return $this->container['burst_enabled'];
+    }
+
+    /**
+     * Sets burst_enabled
+     *
+     * @param bool $burst_enabled burst_enabled
+     *
+     * @return $this
+     */
+    public function setBurstEnabled($burst_enabled)
+    {
+        $this->container['burst_enabled'] = $burst_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets placement_group_id

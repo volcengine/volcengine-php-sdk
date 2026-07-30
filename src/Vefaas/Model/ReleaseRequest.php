@@ -31,6 +31,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'function_id' => 'string',
         'max_instance' => 'int',
+        'min_instance' => 'int',
         'revision_number' => 'int',
         'rolling_step' => 'int',
         'target_traffic_weight' => 'int'
@@ -45,6 +46,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'function_id' => null,
         'max_instance' => 'int32',
+        'min_instance' => 'int32',
         'revision_number' => 'int32',
         'rolling_step' => 'int32',
         'target_traffic_weight' => 'int32'
@@ -80,6 +82,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'function_id' => 'FunctionId',
         'max_instance' => 'MaxInstance',
+        'min_instance' => 'MinInstance',
         'revision_number' => 'RevisionNumber',
         'rolling_step' => 'RollingStep',
         'target_traffic_weight' => 'TargetTrafficWeight'
@@ -94,6 +97,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'function_id' => 'setFunctionId',
         'max_instance' => 'setMaxInstance',
+        'min_instance' => 'setMinInstance',
         'revision_number' => 'setRevisionNumber',
         'rolling_step' => 'setRollingStep',
         'target_traffic_weight' => 'setTargetTrafficWeight'
@@ -108,6 +112,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'function_id' => 'getFunctionId',
         'max_instance' => 'getMaxInstance',
+        'min_instance' => 'getMinInstance',
         'revision_number' => 'getRevisionNumber',
         'rolling_step' => 'getRollingStep',
         'target_traffic_weight' => 'getTargetTrafficWeight'
@@ -176,6 +181,7 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['max_instance'] = isset($data['max_instance']) ? $data['max_instance'] : null;
+        $this->container['min_instance'] = isset($data['min_instance']) ? $data['min_instance'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['rolling_step'] = isset($data['rolling_step']) ? $data['rolling_step'] : null;
         $this->container['target_traffic_weight'] = isset($data['target_traffic_weight']) ? $data['target_traffic_weight'] : null;
@@ -279,6 +285,30 @@ class ReleaseRequest implements ModelInterface, ArrayAccess
     public function setMaxInstance($max_instance)
     {
         $this->container['max_instance'] = $max_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_instance
+     *
+     * @return int
+     */
+    public function getMinInstance()
+    {
+        return $this->container['min_instance'];
+    }
+
+    /**
+     * Sets min_instance
+     *
+     * @param int $min_instance min_instance
+     *
+     * @return $this
+     */
+    public function setMinInstance($min_instance)
+    {
+        $this->container['min_instance'] = $min_instance;
 
         return $this;
     }

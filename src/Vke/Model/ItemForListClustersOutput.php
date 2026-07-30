@@ -36,8 +36,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'description' => 'string',
         'id' => 'string',
         'irsa_config' => '\Volcengine\Vke\Model\IrsaConfigForListClustersOutput',
+        'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForListClustersOutput',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForListClustersOutput',
+        'maintenance_window_config' => '\Volcengine\Vke\Model\MaintenanceWindowConfigForListClustersOutput',
         'message' => 'string',
         'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForListClustersOutput',
         'name' => 'string',
@@ -67,8 +69,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'description' => null,
         'id' => null,
         'irsa_config' => null,
+        'kubernetes_config' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
+        'maintenance_window_config' => null,
         'message' => null,
         'monitoring_config' => null,
         'name' => null,
@@ -119,8 +123,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'id' => 'Id',
         'irsa_config' => 'IrsaConfig',
+        'kubernetes_config' => 'KubernetesConfig',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
+        'maintenance_window_config' => 'MaintenanceWindowConfig',
         'message' => 'Message',
         'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
@@ -150,8 +156,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'id' => 'setId',
         'irsa_config' => 'setIrsaConfig',
+        'kubernetes_config' => 'setKubernetesConfig',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
+        'maintenance_window_config' => 'setMaintenanceWindowConfig',
         'message' => 'setMessage',
         'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
@@ -181,8 +189,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'id' => 'getId',
         'irsa_config' => 'getIrsaConfig',
+        'kubernetes_config' => 'getKubernetesConfig',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
+        'maintenance_window_config' => 'getMaintenanceWindowConfig',
         'message' => 'getMessage',
         'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
@@ -285,8 +295,10 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['irsa_config'] = isset($data['irsa_config']) ? $data['irsa_config'] : null;
+        $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
+        $this->container['maintenance_window_config'] = isset($data['maintenance_window_config']) ? $data['maintenance_window_config'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -527,6 +539,30 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets kubernetes_config
+     *
+     * @return \Volcengine\Vke\Model\KubernetesConfigForListClustersOutput
+     */
+    public function getKubernetesConfig()
+    {
+        return $this->container['kubernetes_config'];
+    }
+
+    /**
+     * Sets kubernetes_config
+     *
+     * @param \Volcengine\Vke\Model\KubernetesConfigForListClustersOutput $kubernetes_config kubernetes_config
+     *
+     * @return $this
+     */
+    public function setKubernetesConfig($kubernetes_config)
+    {
+        $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
      * Gets kubernetes_version
      *
      * @return string
@@ -570,6 +606,30 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     public function setLoggingConfig($logging_config)
     {
         $this->container['logging_config'] = $logging_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_window_config
+     *
+     * @return \Volcengine\Vke\Model\MaintenanceWindowConfigForListClustersOutput
+     */
+    public function getMaintenanceWindowConfig()
+    {
+        return $this->container['maintenance_window_config'];
+    }
+
+    /**
+     * Sets maintenance_window_config
+     *
+     * @param \Volcengine\Vke\Model\MaintenanceWindowConfigForListClustersOutput $maintenance_window_config maintenance_window_config
+     *
+     * @return $this
+     */
+    public function setMaintenanceWindowConfig($maintenance_window_config)
+    {
+        $this->container['maintenance_window_config'] = $maintenance_window_config;
 
         return $this;
     }

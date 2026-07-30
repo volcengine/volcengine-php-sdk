@@ -130,6 +130,68 @@ class APIG20221112Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createPlugin($body = null)
+    {
+        list($response) = $this->createPluginWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPluginWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\CreatePluginResponse';
+        $request = $this->createPluginRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPluginAsync($body = null)
+    {
+        return $this->createPluginAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPluginAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\CreatePluginResponse';
+        $request = $this->createPluginRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPluginRequest($body)
+    {
+        $resourcePath = '/CreatePlugin/2022-11-12/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createRoute($body = null)
     {
         list($response) = $this->createRouteWithHttpInfo($body);
@@ -192,6 +254,68 @@ class APIG20221112Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deletePlugin($body = null)
+    {
+        list($response) = $this->deletePluginWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePluginWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\DeletePluginResponse';
+        $request = $this->deletePluginRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePluginAsync($body = null)
+    {
+        return $this->deletePluginAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePluginAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\DeletePluginResponse';
+        $request = $this->deletePluginRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePluginRequest($body)
+    {
+        $resourcePath = '/DeletePlugin/2022-11-12/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteRoute($body = null)
     {
         list($response) = $this->deleteRouteWithHttpInfo($body);
@@ -226,6 +350,68 @@ class APIG20221112Api
     protected function deleteRouteRequest($body)
     {
         $resourcePath = '/DeleteRoute/2022-11-12/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getPlugin($body = null)
+    {
+        list($response) = $this->getPluginWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPluginWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\GetPluginResponse';
+        $request = $this->getPluginRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPluginAsync($body = null)
+    {
+        return $this->getPluginAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPluginAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\GetPluginResponse';
+        $request = $this->getPluginRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPluginRequest($body)
+    {
+        $resourcePath = '/GetPlugin/2022-11-12/apig/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -350,6 +536,68 @@ class APIG20221112Api
     protected function listRoutesRequest($body)
     {
         $resourcePath = '/ListRoutes/2022-11-12/apig/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePlugin($body = null)
+    {
+        list($response) = $this->updatePluginWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePluginWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\UpdatePluginResponse';
+        $request = $this->updatePluginRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePluginAsync($body = null)
+    {
+        return $this->updatePluginAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePluginAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Apig20221112\Model\UpdatePluginResponse';
+        $request = $this->updatePluginRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePluginRequest($body)
+    {
+        $resourcePath = '/UpdatePlugin/2022-11-12/apig/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -31,8 +31,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         'consumer_id' => 'string',
         'credential_type' => 'string',
         'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput',
-        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput',
-        'oauth2_credential' => '\Volcengine\Apig\Model\Oauth2CredentialForCreateConsumerCredentialInput'
+        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput'
     ];
 
     /**
@@ -44,8 +43,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         'consumer_id' => null,
         'credential_type' => null,
         'hmac_auth_credential' => null,
-        'key_auth_credential' => null,
-        'oauth2_credential' => null
+        'key_auth_credential' => null
     ];
 
     /**
@@ -78,8 +76,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         'consumer_id' => 'ConsumerId',
         'credential_type' => 'CredentialType',
         'hmac_auth_credential' => 'HmacAuthCredential',
-        'key_auth_credential' => 'KeyAuthCredential',
-        'oauth2_credential' => 'Oauth2Credential'
+        'key_auth_credential' => 'KeyAuthCredential'
     ];
 
     /**
@@ -91,8 +88,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         'consumer_id' => 'setConsumerId',
         'credential_type' => 'setCredentialType',
         'hmac_auth_credential' => 'setHmacAuthCredential',
-        'key_auth_credential' => 'setKeyAuthCredential',
-        'oauth2_credential' => 'setOauth2Credential'
+        'key_auth_credential' => 'setKeyAuthCredential'
     ];
 
     /**
@@ -104,8 +100,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         'consumer_id' => 'getConsumerId',
         'credential_type' => 'getCredentialType',
         'hmac_auth_credential' => 'getHmacAuthCredential',
-        'key_auth_credential' => 'getKeyAuthCredential',
-        'oauth2_credential' => 'getOauth2Credential'
+        'key_auth_credential' => 'getKeyAuthCredential'
     ];
 
     /**
@@ -172,7 +167,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;
         $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
         $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
-        $this->container['oauth2_credential'] = isset($data['oauth2_credential']) ? $data['oauth2_credential'] : null;
     }
 
     /**
@@ -297,30 +291,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
     public function setKeyAuthCredential($key_auth_credential)
     {
         $this->container['key_auth_credential'] = $key_auth_credential;
-
-        return $this;
-    }
-
-    /**
-     * Gets oauth2_credential
-     *
-     * @return \Volcengine\Apig\Model\Oauth2CredentialForCreateConsumerCredentialInput
-     */
-    public function getOauth2Credential()
-    {
-        return $this->container['oauth2_credential'];
-    }
-
-    /**
-     * Sets oauth2_credential
-     *
-     * @param \Volcengine\Apig\Model\Oauth2CredentialForCreateConsumerCredentialInput $oauth2_credential oauth2_credential
-     *
-     * @return $this
-     */
-    public function setOauth2Credential($oauth2_credential)
-    {
-        $this->container['oauth2_credential'] = $oauth2_credential;
 
         return $this;
     }

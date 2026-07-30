@@ -32,7 +32,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'affinity_group_config' => '\Volcengine\Vke\Model\AffinityGroupConfigForUpdateNodePoolConfigInput',
         'auto_renew' => 'bool',
         'auto_renew_period' => 'int',
+        'cpu_max_frequency' => 'double',
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForUpdateNodePoolConfigInput[]',
+        'gpu_driver_config' => '\Volcengine\Vke\Model\GpuDriverConfigForUpdateNodePoolConfigInput',
         'gpu_driver_version' => 'string',
         'hostname' => 'string',
         'hpc_cluster_ids' => 'string[]',
@@ -65,7 +67,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'affinity_group_config' => null,
         'auto_renew' => null,
         'auto_renew_period' => 'int32',
+        'cpu_max_frequency' => 'double',
         'data_volumes' => null,
+        'gpu_driver_config' => null,
         'gpu_driver_version' => null,
         'hostname' => null,
         'hpc_cluster_ids' => null,
@@ -119,7 +123,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'affinity_group_config' => 'AffinityGroupConfig',
         'auto_renew' => 'AutoRenew',
         'auto_renew_period' => 'AutoRenewPeriod',
+        'cpu_max_frequency' => 'CpuMaxFrequency',
         'data_volumes' => 'DataVolumes',
+        'gpu_driver_config' => 'GpuDriverConfig',
         'gpu_driver_version' => 'GpuDriverVersion',
         'hostname' => 'Hostname',
         'hpc_cluster_ids' => 'HpcClusterIds',
@@ -152,7 +158,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'affinity_group_config' => 'setAffinityGroupConfig',
         'auto_renew' => 'setAutoRenew',
         'auto_renew_period' => 'setAutoRenewPeriod',
+        'cpu_max_frequency' => 'setCpuMaxFrequency',
         'data_volumes' => 'setDataVolumes',
+        'gpu_driver_config' => 'setGpuDriverConfig',
         'gpu_driver_version' => 'setGpuDriverVersion',
         'hostname' => 'setHostname',
         'hpc_cluster_ids' => 'setHpcClusterIds',
@@ -185,7 +193,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'affinity_group_config' => 'getAffinityGroupConfig',
         'auto_renew' => 'getAutoRenew',
         'auto_renew_period' => 'getAutoRenewPeriod',
+        'cpu_max_frequency' => 'getCpuMaxFrequency',
         'data_volumes' => 'getDataVolumes',
+        'gpu_driver_config' => 'getGpuDriverConfig',
         'gpu_driver_version' => 'getGpuDriverVersion',
         'hostname' => 'getHostname',
         'hpc_cluster_ids' => 'getHpcClusterIds',
@@ -287,7 +297,9 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         $this->container['affinity_group_config'] = isset($data['affinity_group_config']) ? $data['affinity_group_config'] : null;
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
+        $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
+        $this->container['gpu_driver_config'] = isset($data['gpu_driver_config']) ? $data['gpu_driver_config'] : null;
         $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
@@ -439,6 +451,30 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets cpu_max_frequency
+     *
+     * @return double
+     */
+    public function getCpuMaxFrequency()
+    {
+        return $this->container['cpu_max_frequency'];
+    }
+
+    /**
+     * Sets cpu_max_frequency
+     *
+     * @param double $cpu_max_frequency cpu_max_frequency
+     *
+     * @return $this
+     */
+    public function setCpuMaxFrequency($cpu_max_frequency)
+    {
+        $this->container['cpu_max_frequency'] = $cpu_max_frequency;
+
+        return $this;
+    }
+
+    /**
      * Gets data_volumes
      *
      * @return \Volcengine\Vke\Model\DataVolumeForUpdateNodePoolConfigInput[]
@@ -458,6 +494,30 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function setDataVolumes($data_volumes)
     {
         $this->container['data_volumes'] = $data_volumes;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_driver_config
+     *
+     * @return \Volcengine\Vke\Model\GpuDriverConfigForUpdateNodePoolConfigInput
+     */
+    public function getGpuDriverConfig()
+    {
+        return $this->container['gpu_driver_config'];
+    }
+
+    /**
+     * Sets gpu_driver_config
+     *
+     * @param \Volcengine\Vke\Model\GpuDriverConfigForUpdateNodePoolConfigInput $gpu_driver_config gpu_driver_config
+     *
+     * @return $this
+     */
+    public function setGpuDriverConfig($gpu_driver_config)
+    {
+        $this->container['gpu_driver_config'] = $gpu_driver_config;
 
         return $this;
     }

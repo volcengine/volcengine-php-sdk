@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Apig\Model;
+namespace Volcengine\Apig20221112\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAccess
+class TokenExtractorForUpdateRouteInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendTargetListForGetUpstreamOutput';
+    protected static $swaggerModelName = 'TokenExtractorForUpdateRouteInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'health_status' => 'string',
-        'ip' => 'string',
-        'port' => 'int'
+        'json_pointers' => 'string[]',
+        'token_type' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'health_status' => null,
-        'ip' => null,
-        'port' => 'int32'
+        'json_pointers' => null,
+        'token_type' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'health_status' => 'HealthStatus',
-        'ip' => 'IP',
-        'port' => 'Port'
+        'json_pointers' => 'JsonPointers',
+        'token_type' => 'TokenType'
     ];
 
     /**
@@ -82,9 +79,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'health_status' => 'setHealthStatus',
-        'ip' => 'setIp',
-        'port' => 'setPort'
+        'json_pointers' => 'setJsonPointers',
+        'token_type' => 'setTokenType'
     ];
 
     /**
@@ -93,9 +89,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'health_status' => 'getHealthStatus',
-        'ip' => 'getIp',
-        'port' => 'getPort'
+        'json_pointers' => 'getJsonPointers',
+        'token_type' => 'getTokenType'
     ];
 
     /**
@@ -158,9 +153,8 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['health_status'] = isset($data['health_status']) ? $data['health_status'] : null;
-        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['json_pointers'] = isset($data['json_pointers']) ? $data['json_pointers'] : null;
+        $this->container['token_type'] = isset($data['token_type']) ? $data['token_type'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets health_status
+     * Gets json_pointers
      *
-     * @return string
+     * @return string[]
      */
-    public function getHealthStatus()
+    public function getJsonPointers()
     {
-        return $this->container['health_status'];
+        return $this->container['json_pointers'];
     }
 
     /**
-     * Sets health_status
+     * Sets json_pointers
      *
-     * @param string $health_status health_status
+     * @param string[] $json_pointers json_pointers
      *
      * @return $this
      */
-    public function setHealthStatus($health_status)
+    public function setJsonPointers($json_pointers)
     {
-        $this->container['health_status'] = $health_status;
+        $this->container['json_pointers'] = $json_pointers;
 
         return $this;
     }
 
     /**
-     * Gets ip
+     * Gets token_type
      *
      * @return string
      */
-    public function getIp()
+    public function getTokenType()
     {
-        return $this->container['ip'];
+        return $this->container['token_type'];
     }
 
     /**
-     * Sets ip
+     * Sets token_type
      *
-     * @param string $ip ip
+     * @param string $token_type token_type
      *
      * @return $this
      */
-    public function setIp($ip)
+    public function setTokenType($token_type)
     {
-        $this->container['ip'] = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets port
-     *
-     * @return int
-     */
-    public function getPort()
-    {
-        return $this->container['port'];
-    }
-
-    /**
-     * Sets port
-     *
-     * @param int $port port
-     *
-     * @return $this
-     */
-    public function setPort($port)
-    {
-        $this->container['port'] = $port;
+        $this->container['token_type'] = $token_type;
 
         return $this;
     }

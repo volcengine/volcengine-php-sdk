@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Apig\Model;
+namespace Volcengine\Vke\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class AdvancedConfigForCreateClusterInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendTargetListForListUpstreamsOutput';
+    protected static $swaggerModelName = 'AdvancedConfigForCreateClusterInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'health_status' => 'string',
-        'ip' => 'string',
-        'port' => 'int'
+        'internal_dns_enabled' => 'bool'
     ];
 
     /**
@@ -39,9 +37,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'health_status' => null,
-        'ip' => null,
-        'port' => 'int32'
+        'internal_dns_enabled' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'health_status' => 'HealthStatus',
-        'ip' => 'IP',
-        'port' => 'Port'
+        'internal_dns_enabled' => 'InternalDnsEnabled'
     ];
 
     /**
@@ -82,9 +76,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'health_status' => 'setHealthStatus',
-        'ip' => 'setIp',
-        'port' => 'setPort'
+        'internal_dns_enabled' => 'setInternalDnsEnabled'
     ];
 
     /**
@@ -93,9 +85,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'health_status' => 'getHealthStatus',
-        'ip' => 'getIp',
-        'port' => 'getPort'
+        'internal_dns_enabled' => 'getInternalDnsEnabled'
     ];
 
     /**
@@ -158,9 +148,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      */
     public function __construct($data = null)
     {
-        $this->container['health_status'] = isset($data['health_status']) ? $data['health_status'] : null;
-        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['internal_dns_enabled'] = isset($data['internal_dns_enabled']) ? $data['internal_dns_enabled'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets health_status
+     * Gets internal_dns_enabled
      *
-     * @return string
+     * @return bool
      */
-    public function getHealthStatus()
+    public function getInternalDnsEnabled()
     {
-        return $this->container['health_status'];
+        return $this->container['internal_dns_enabled'];
     }
 
     /**
-     * Sets health_status
+     * Sets internal_dns_enabled
      *
-     * @param string $health_status health_status
+     * @param bool $internal_dns_enabled internal_dns_enabled
      *
      * @return $this
      */
-    public function setHealthStatus($health_status)
+    public function setInternalDnsEnabled($internal_dns_enabled)
     {
-        $this->container['health_status'] = $health_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip
-     *
-     * @return string
-     */
-    public function getIp()
-    {
-        return $this->container['ip'];
-    }
-
-    /**
-     * Sets ip
-     *
-     * @param string $ip ip
-     *
-     * @return $this
-     */
-    public function setIp($ip)
-    {
-        $this->container['ip'] = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets port
-     *
-     * @return int
-     */
-    public function getPort()
-    {
-        return $this->container['port'];
-    }
-
-    /**
-     * Sets port
-     *
-     * @param int $port port
-     *
-     * @return $this
-     */
-    public function setPort($port)
-    {
-        $this->container['port'] = $port;
+        $this->container['internal_dns_enabled'] = $internal_dns_enabled;
 
         return $this;
     }

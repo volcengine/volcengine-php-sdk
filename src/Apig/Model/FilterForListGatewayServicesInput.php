@@ -28,6 +28,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'gateway_type' => 'string',
         'name' => 'string',
         'service_type' => 'string',
         'status' => 'string'
@@ -39,6 +40,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'gateway_type' => null,
         'name' => null,
         'service_type' => null,
         'status' => null
@@ -71,6 +73,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'gateway_type' => 'GatewayType',
         'name' => 'Name',
         'service_type' => 'ServiceType',
         'status' => 'Status'
@@ -82,6 +85,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'gateway_type' => 'setGatewayType',
         'name' => 'setName',
         'service_type' => 'setServiceType',
         'status' => 'setStatus'
@@ -93,6 +97,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'gateway_type' => 'getGatewayType',
         'name' => 'getName',
         'service_type' => 'getServiceType',
         'status' => 'getStatus'
@@ -158,6 +163,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['gateway_type'] = isset($data['gateway_type']) ? $data['gateway_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -186,6 +192,30 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets gateway_type
+     *
+     * @return string
+     */
+    public function getGatewayType()
+    {
+        return $this->container['gateway_type'];
+    }
+
+    /**
+     * Sets gateway_type
+     *
+     * @param string $gateway_type gateway_type
+     *
+     * @return $this
+     */
+    public function setGatewayType($gateway_type)
+    {
+        $this->container['gateway_type'] = $gateway_type;
+
+        return $this;
+    }
 
     /**
      * Gets name

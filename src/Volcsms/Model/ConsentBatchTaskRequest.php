@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Apig\Model;
+namespace Volcengine\Volcsms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface, ArrayAccess
+class ConsentBatchTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForListConsumerCredentialsOutput';
+    protected static $swaggerModelName = 'ConsentBatchTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string',
-        'enable' => 'bool'
+        'sub_account' => 'string',
+        'task_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null,
-        'enable' => null
+        'sub_account' => null,
+        'task_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId',
-        'enable' => 'Enable'
+        'sub_account' => 'subAccount',
+        'task_id' => 'taskId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId',
-        'enable' => 'setEnable'
+        'sub_account' => 'setSubAccount',
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId',
-        'enable' => 'getEnable'
+        'sub_account' => 'getSubAccount',
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['sub_account'] = isset($data['sub_account']) ? $data['sub_account'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
     {
         $invalidProperties = [];
 
+        if ($this->container['sub_account'] === null) {
+            $invalidProperties[] = "'sub_account' can't be null";
+        }
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class Oauth2CredentialForListConsumerCredentialsOutput implements ModelInterface
 
 
     /**
-     * Gets client_id
+     * Gets sub_account
      *
      * @return string
      */
-    public function getClientId()
+    public function getSubAccount()
     {
-        return $this->container['client_id'];
+        return $this->container['sub_account'];
     }
 
     /**
-     * Sets client_id
+     * Sets sub_account
      *
-     * @param string $client_id client_id
+     * @param string $sub_account sub_account
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setSubAccount($sub_account)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['sub_account'] = $sub_account;
 
         return $this;
     }
 
     /**
-     * Gets enable
+     * Gets task_id
      *
-     * @return bool
+     * @return string
      */
-    public function getEnable()
+    public function getTaskId()
     {
-        return $this->container['enable'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets enable
+     * Sets task_id
      *
-     * @param bool $enable enable
+     * @param string $task_id task_id
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setTaskId($task_id)
     {
-        $this->container['enable'] = $enable;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

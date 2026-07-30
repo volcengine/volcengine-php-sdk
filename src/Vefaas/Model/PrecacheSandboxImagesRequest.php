@@ -28,7 +28,8 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_urls' => 'string[]'
+        'image_urls' => 'string[]',
+        'registry_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'image_urls' => null
+        'image_urls' => null,
+        'registry_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_urls' => 'ImageUrls'
+        'image_urls' => 'ImageUrls',
+        'registry_id' => 'RegistryId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_urls' => 'setImageUrls'
+        'image_urls' => 'setImageUrls',
+        'registry_id' => 'setRegistryId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_urls' => 'getImageUrls'
+        'image_urls' => 'getImageUrls',
+        'registry_id' => 'getRegistryId'
     ];
 
     /**
@@ -149,6 +154,7 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['image_urls'] = isset($data['image_urls']) ? $data['image_urls'] : null;
+        $this->container['registry_id'] = isset($data['registry_id']) ? $data['registry_id'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
     public function setImageUrls($image_urls)
     {
         $this->container['image_urls'] = $image_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets registry_id
+     *
+     * @return string
+     */
+    public function getRegistryId()
+    {
+        return $this->container['registry_id'];
+    }
+
+    /**
+     * Sets registry_id
+     *
+     * @param string $registry_id registry_id
+     *
+     * @return $this
+     */
+    public function setRegistryId($registry_id)
+    {
+        $this->container['registry_id'] = $registry_id;
 
         return $this;
     }
