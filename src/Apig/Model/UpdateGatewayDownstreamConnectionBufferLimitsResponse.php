@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface, ArrayAccess
+class UpdateGatewayDownstreamConnectionBufferLimitsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForCreateConsumerCredentialInput';
+    protected static $swaggerModelName = 'UpdateGatewayDownstreamConnectionBufferLimitsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string'
+        'gateway_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null
+        'gateway_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId'
+        'gateway_id' => 'GatewayId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId'
+        'gateway_id' => 'setGatewayId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId'
+        'gateway_id' => 'getGatewayId'
     ];
 
     /**
@@ -148,7 +148,7 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class Oauth2CredentialForCreateConsumerCredentialInput implements ModelInterface
 
 
     /**
-     * Gets client_id
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getClientId()
+    public function getGatewayId()
     {
-        return $this->container['client_id'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets client_id
+     * Sets gateway_id
      *
-     * @param string $client_id client_id
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }

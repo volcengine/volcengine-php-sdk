@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class CheckUpstreamSpecExistResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendTargetListForListUpstreamsOutput';
+    protected static $swaggerModelName = 'CheckUpstreamSpecExistResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'health_status' => 'string',
-        'ip' => 'string',
-        'port' => 'int'
+        'exist' => 'bool',
+        'id' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'health_status' => null,
-        'ip' => null,
-        'port' => 'int32'
+        'exist' => null,
+        'id' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'health_status' => 'HealthStatus',
-        'ip' => 'IP',
-        'port' => 'Port'
+        'exist' => 'Exist',
+        'id' => 'Id'
     ];
 
     /**
@@ -82,9 +79,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'health_status' => 'setHealthStatus',
-        'ip' => 'setIp',
-        'port' => 'setPort'
+        'exist' => 'setExist',
+        'id' => 'setId'
     ];
 
     /**
@@ -93,9 +89,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'health_status' => 'getHealthStatus',
-        'ip' => 'getIp',
-        'port' => 'getPort'
+        'exist' => 'getExist',
+        'id' => 'getId'
     ];
 
     /**
@@ -158,9 +153,8 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
      */
     public function __construct($data = null)
     {
-        $this->container['health_status'] = isset($data['health_status']) ? $data['health_status'] : null;
-        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['exist'] = isset($data['exist']) ? $data['exist'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class BackendTargetListForListUpstreamsOutput implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets health_status
+     * Gets exist
      *
-     * @return string
+     * @return bool
      */
-    public function getHealthStatus()
+    public function getExist()
     {
-        return $this->container['health_status'];
+        return $this->container['exist'];
     }
 
     /**
-     * Sets health_status
+     * Sets exist
      *
-     * @param string $health_status health_status
+     * @param bool $exist exist
      *
      * @return $this
      */
-    public function setHealthStatus($health_status)
+    public function setExist($exist)
     {
-        $this->container['health_status'] = $health_status;
+        $this->container['exist'] = $exist;
 
         return $this;
     }
 
     /**
-     * Gets ip
+     * Gets id
      *
      * @return string
      */
-    public function getIp()
+    public function getId()
     {
-        return $this->container['ip'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets ip
+     * Sets id
      *
-     * @param string $ip ip
+     * @param string $id id
      *
      * @return $this
      */
-    public function setIp($ip)
+    public function setId($id)
     {
-        $this->container['ip'] = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets port
-     *
-     * @return int
-     */
-    public function getPort()
-    {
-        return $this->container['port'];
-    }
-
-    /**
-     * Sets port
-     *
-     * @param int $port port
-     *
-     * @return $this
-     */
-    public function setPort($port)
-    {
-        $this->container['port'] = $port;
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAccess
+class FixedIPListForCreateUpstreamInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendTargetListForGetUpstreamOutput';
+    protected static $swaggerModelName = 'FixedIPListForCreateUpstreamInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'health_status' => 'string',
         'ip' => 'string',
         'port' => 'int'
     ];
@@ -39,7 +38,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'health_status' => null,
         'ip' => null,
         'port' => 'int32'
     ];
@@ -71,7 +69,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'health_status' => 'HealthStatus',
         'ip' => 'IP',
         'port' => 'Port'
     ];
@@ -82,7 +79,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'health_status' => 'setHealthStatus',
         'ip' => 'setIp',
         'port' => 'setPort'
     ];
@@ -93,7 +89,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'health_status' => 'getHealthStatus',
         'ip' => 'getIp',
         'port' => 'getPort'
     ];
@@ -158,7 +153,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['health_status'] = isset($data['health_status']) ? $data['health_status'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
     }
@@ -186,30 +180,6 @@ class BackendTargetListForGetUpstreamOutput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets health_status
-     *
-     * @return string
-     */
-    public function getHealthStatus()
-    {
-        return $this->container['health_status'];
-    }
-
-    /**
-     * Sets health_status
-     *
-     * @param string $health_status health_status
-     *
-     * @return $this
-     */
-    public function setHealthStatus($health_status)
-    {
-        $this->container['health_status'] = $health_status;
-
-        return $this;
-    }
 
     /**
      * Gets ip

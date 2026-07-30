@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInterface, ArrayAccess
+class GetGatewayParametersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Oauth2CredentialForCheckConsumerCredentialExistInput';
+    protected static $swaggerModelName = 'GetGatewayParametersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_id' => 'string'
+        'downstream_connection_buffer_limits' => 'int'
     ];
 
     /**
@@ -37,7 +37,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_id' => null
+        'downstream_connection_buffer_limits' => 'int64'
     ];
 
     /**
@@ -67,7 +67,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'ClientId'
+        'downstream_connection_buffer_limits' => 'DownstreamConnectionBufferLimits'
     ];
 
     /**
@@ -76,7 +76,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId'
+        'downstream_connection_buffer_limits' => 'setDownstreamConnectionBufferLimits'
     ];
 
     /**
@@ -85,7 +85,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId'
+        'downstream_connection_buffer_limits' => 'getDownstreamConnectionBufferLimits'
     ];
 
     /**
@@ -148,7 +148,7 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
      */
     public function __construct($data = null)
     {
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['downstream_connection_buffer_limits'] = isset($data['downstream_connection_buffer_limits']) ? $data['downstream_connection_buffer_limits'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class Oauth2CredentialForCheckConsumerCredentialExistInput implements ModelInter
 
 
     /**
-     * Gets client_id
+     * Gets downstream_connection_buffer_limits
      *
-     * @return string
+     * @return int
      */
-    public function getClientId()
+    public function getDownstreamConnectionBufferLimits()
     {
-        return $this->container['client_id'];
+        return $this->container['downstream_connection_buffer_limits'];
     }
 
     /**
-     * Sets client_id
+     * Sets downstream_connection_buffer_limits
      *
-     * @param string $client_id client_id
+     * @param int $downstream_connection_buffer_limits downstream_connection_buffer_limits
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setDownstreamConnectionBufferLimits($downstream_connection_buffer_limits)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['downstream_connection_buffer_limits'] = $downstream_connection_buffer_limits;
 
         return $this;
     }

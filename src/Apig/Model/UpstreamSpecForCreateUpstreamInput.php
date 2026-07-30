@@ -31,6 +31,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         'ai_provider' => '\Volcengine\Apig\Model\AIProviderForCreateUpstreamInput',
         'domain' => '\Volcengine\Apig\Model\DomainForCreateUpstreamInput',
         'ecs_list' => '\Volcengine\Apig\Model\EcsListForCreateUpstreamInput[]',
+        'fixed_ip_list' => '\Volcengine\Apig\Model\FixedIPListForCreateUpstreamInput[]',
         'k8_s_service' => '\Volcengine\Apig\Model\K8SServiceForCreateUpstreamInput',
         'nacos_service' => '\Volcengine\Apig\Model\NacosServiceForCreateUpstreamInput',
         've_faas' => '\Volcengine\Apig\Model\VeFaasForCreateUpstreamInput'
@@ -45,6 +46,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         'ai_provider' => null,
         'domain' => null,
         'ecs_list' => null,
+        'fixed_ip_list' => null,
         'k8_s_service' => null,
         'nacos_service' => null,
         've_faas' => null
@@ -80,6 +82,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         'ai_provider' => 'AIProvider',
         'domain' => 'Domain',
         'ecs_list' => 'EcsList',
+        'fixed_ip_list' => 'FixedIPList',
         'k8_s_service' => 'K8SService',
         'nacos_service' => 'NacosService',
         've_faas' => 'VeFaas'
@@ -94,6 +97,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         'ai_provider' => 'setAiProvider',
         'domain' => 'setDomain',
         'ecs_list' => 'setEcsList',
+        'fixed_ip_list' => 'setFixedIpList',
         'k8_s_service' => 'setK8SService',
         'nacos_service' => 'setNacosService',
         've_faas' => 'setVeFaas'
@@ -108,6 +112,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         'ai_provider' => 'getAiProvider',
         'domain' => 'getDomain',
         'ecs_list' => 'getEcsList',
+        'fixed_ip_list' => 'getFixedIpList',
         'k8_s_service' => 'getK8SService',
         'nacos_service' => 'getNacosService',
         've_faas' => 'getVeFaas'
@@ -176,6 +181,7 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
         $this->container['ai_provider'] = isset($data['ai_provider']) ? $data['ai_provider'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['ecs_list'] = isset($data['ecs_list']) ? $data['ecs_list'] : null;
+        $this->container['fixed_ip_list'] = isset($data['fixed_ip_list']) ? $data['fixed_ip_list'] : null;
         $this->container['k8_s_service'] = isset($data['k8_s_service']) ? $data['k8_s_service'] : null;
         $this->container['nacos_service'] = isset($data['nacos_service']) ? $data['nacos_service'] : null;
         $this->container['ve_faas'] = isset($data['ve_faas']) ? $data['ve_faas'] : null;
@@ -273,6 +279,30 @@ class UpstreamSpecForCreateUpstreamInput implements ModelInterface, ArrayAccess
     public function setEcsList($ecs_list)
     {
         $this->container['ecs_list'] = $ecs_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets fixed_ip_list
+     *
+     * @return \Volcengine\Apig\Model\FixedIPListForCreateUpstreamInput[]
+     */
+    public function getFixedIpList()
+    {
+        return $this->container['fixed_ip_list'];
+    }
+
+    /**
+     * Sets fixed_ip_list
+     *
+     * @param \Volcengine\Apig\Model\FixedIPListForCreateUpstreamInput[] $fixed_ip_list fixed_ip_list
+     *
+     * @return $this
+     */
+    public function setFixedIpList($fixed_ip_list)
+    {
+        $this->container['fixed_ip_list'] = $fixed_ip_list;
 
         return $this;
     }

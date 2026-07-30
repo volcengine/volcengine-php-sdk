@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
+class CustomBodyParamsForCheckUpstreamSpecExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateConsumerCredentialRequest';
+    protected static $swaggerModelName = 'CustomBodyParamsForCheckUpstreamSpecExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'consumer_id' => 'string',
-        'credential_type' => 'string',
-        'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput',
-        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput'
+        
     ];
 
     /**
@@ -40,10 +37,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'consumer_id' => null,
-        'credential_type' => null,
-        'hmac_auth_credential' => null,
-        'key_auth_credential' => null
+        
     ];
 
     /**
@@ -73,10 +67,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'consumer_id' => 'ConsumerId',
-        'credential_type' => 'CredentialType',
-        'hmac_auth_credential' => 'HmacAuthCredential',
-        'key_auth_credential' => 'KeyAuthCredential'
+        
     ];
 
     /**
@@ -85,10 +76,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'consumer_id' => 'setConsumerId',
-        'credential_type' => 'setCredentialType',
-        'hmac_auth_credential' => 'setHmacAuthCredential',
-        'key_auth_credential' => 'setKeyAuthCredential'
+        
     ];
 
     /**
@@ -97,10 +85,7 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'consumer_id' => 'getConsumerId',
-        'credential_type' => 'getCredentialType',
-        'hmac_auth_credential' => 'getHmacAuthCredential',
-        'key_auth_credential' => 'getKeyAuthCredential'
+        
     ];
 
     /**
@@ -163,10 +148,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['consumer_id'] = isset($data['consumer_id']) ? $data['consumer_id'] : null;
-        $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;
-        $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
-        $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
     }
 
     /**
@@ -178,12 +159,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['consumer_id'] === null) {
-            $invalidProperties[] = "'consumer_id' can't be null";
-        }
-        if ($this->container['credential_type'] === null) {
-            $invalidProperties[] = "'credential_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -198,102 +173,6 @@ class CreateConsumerCredentialRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets consumer_id
-     *
-     * @return string
-     */
-    public function getConsumerId()
-    {
-        return $this->container['consumer_id'];
-    }
-
-    /**
-     * Sets consumer_id
-     *
-     * @param string $consumer_id consumer_id
-     *
-     * @return $this
-     */
-    public function setConsumerId($consumer_id)
-    {
-        $this->container['consumer_id'] = $consumer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets credential_type
-     *
-     * @return string
-     */
-    public function getCredentialType()
-    {
-        return $this->container['credential_type'];
-    }
-
-    /**
-     * Sets credential_type
-     *
-     * @param string $credential_type credential_type
-     *
-     * @return $this
-     */
-    public function setCredentialType($credential_type)
-    {
-        $this->container['credential_type'] = $credential_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets hmac_auth_credential
-     *
-     * @return \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput
-     */
-    public function getHmacAuthCredential()
-    {
-        return $this->container['hmac_auth_credential'];
-    }
-
-    /**
-     * Sets hmac_auth_credential
-     *
-     * @param \Volcengine\Apig\Model\HmacAuthCredentialForCreateConsumerCredentialInput $hmac_auth_credential hmac_auth_credential
-     *
-     * @return $this
-     */
-    public function setHmacAuthCredential($hmac_auth_credential)
-    {
-        $this->container['hmac_auth_credential'] = $hmac_auth_credential;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_auth_credential
-     *
-     * @return \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput
-     */
-    public function getKeyAuthCredential()
-    {
-        return $this->container['key_auth_credential'];
-    }
-
-    /**
-     * Sets key_auth_credential
-     *
-     * @param \Volcengine\Apig\Model\KeyAuthCredentialForCreateConsumerCredentialInput $key_auth_credential key_auth_credential
-     *
-     * @return $this
-     */
-    public function setKeyAuthCredential($key_auth_credential)
-    {
-        $this->container['key_auth_credential'] = $key_auth_credential;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
