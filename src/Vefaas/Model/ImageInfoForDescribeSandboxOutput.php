@@ -31,7 +31,8 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         'command' => 'string',
         'id' => 'string',
         'image' => 'string',
-        'port' => 'int'
+        'port' => 'int',
+        'source_image_url' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         'command' => null,
         'id' => null,
         'image' => null,
-        'port' => 'int32'
+        'port' => 'int32',
+        'source_image_url' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         'command' => 'Command',
         'id' => 'Id',
         'image' => 'Image',
-        'port' => 'Port'
+        'port' => 'Port',
+        'source_image_url' => 'SourceImageUrl'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         'command' => 'setCommand',
         'id' => 'setId',
         'image' => 'setImage',
-        'port' => 'setPort'
+        'port' => 'setPort',
+        'source_image_url' => 'setSourceImageUrl'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         'command' => 'getCommand',
         'id' => 'getId',
         'image' => 'getImage',
-        'port' => 'getPort'
+        'port' => 'getPort',
+        'source_image_url' => 'getSourceImageUrl'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['source_image_url'] = isset($data['source_image_url']) ? $data['source_image_url'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class ImageInfoForDescribeSandboxOutput implements ModelInterface, ArrayAccess
     public function setPort($port)
     {
         $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_image_url
+     *
+     * @return string
+     */
+    public function getSourceImageUrl()
+    {
+        return $this->container['source_image_url'];
+    }
+
+    /**
+     * Sets source_image_url
+     *
+     * @param string $source_image_url source_image_url
+     *
+     * @return $this
+     */
+    public function setSourceImageUrl($source_image_url)
+    {
+        $this->container['source_image_url'] = $source_image_url;
 
         return $this;
     }
