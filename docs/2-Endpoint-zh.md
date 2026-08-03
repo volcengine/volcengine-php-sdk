@@ -69,7 +69,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 | 否 | 是 | `{Service}.{region}.volcengine-api.com` |
 | 否 | 否 | `{Service}.{region}.volcengineapi.com` |
 
-服务是否为 Global 服务由 SDK 内置的服务信息决定。与默认自动寻址不同，标准寻址在服务不存在或 Region 不合法时会直接报错，不会回退到 `open.volcengineapi.com`。
+服务是否为 Global 服务由 SDK 内置的[服务信息列表](../src/Common/Endpoint/Providers/StandardEndpointProvider.php#L14)决定。与默认自动寻址不同，标准寻址在服务不存在或 Region 不合法时会直接报错，不会回退到 `open.volcengineapi.com`。
 
 ```php
 <?php

@@ -67,7 +67,7 @@ Standard endpoint resolution constructs endpoints according to whether the servi
 | No | Yes | `{Service}.{region}.volcengine-api.com` |
 | No | No | `{Service}.{region}.volcengineapi.com` |
 
-Whether a service is global is determined by the service information built into the SDK. Unlike default automatic resolution, standard resolution returns an error when the service is unknown or the region is invalid instead of falling back to `open.volcengineapi.com`.
+Whether a service is global is determined by the [service information list](../src/Common/Endpoint/Providers/StandardEndpointProvider.php#L14) built into the SDK. Unlike default automatic resolution, standard resolution returns an error when the service is unknown or the region is invalid instead of falling back to `open.volcengineapi.com`.
 
 ```php
 <?php
