@@ -36,6 +36,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'creation_time' => 'string',
         'delete_time' => 'string',
         'isp' => 'string',
+        'independent_limited' => 'bool',
         'instance_id' => 'string',
         'instance_type' => 'string',
         'ipv6_address' => 'string',
@@ -45,6 +46,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'overdue_time' => 'string',
         'project_name' => 'string',
         'request_id' => 'string',
+        'reservation_bandwidth' => 'int',
         'service_managed' => 'bool',
         'specific_egress' => 'string',
         'status' => 'string',
@@ -66,6 +68,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'creation_time' => null,
         'delete_time' => null,
         'isp' => null,
+        'independent_limited' => null,
         'instance_id' => null,
         'instance_type' => null,
         'ipv6_address' => null,
@@ -75,6 +78,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'overdue_time' => null,
         'project_name' => null,
         'request_id' => null,
+        'reservation_bandwidth' => null,
         'service_managed' => null,
         'specific_egress' => null,
         'status' => null,
@@ -117,6 +121,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'creation_time' => 'CreationTime',
         'delete_time' => 'DeleteTime',
         'isp' => 'ISP',
+        'independent_limited' => 'IndependentLimited',
         'instance_id' => 'InstanceId',
         'instance_type' => 'InstanceType',
         'ipv6_address' => 'Ipv6Address',
@@ -126,6 +131,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
+        'reservation_bandwidth' => 'ReservationBandwidth',
         'service_managed' => 'ServiceManaged',
         'specific_egress' => 'SpecificEgress',
         'status' => 'Status',
@@ -147,6 +153,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'creation_time' => 'setCreationTime',
         'delete_time' => 'setDeleteTime',
         'isp' => 'setIsp',
+        'independent_limited' => 'setIndependentLimited',
         'instance_id' => 'setInstanceId',
         'instance_type' => 'setInstanceType',
         'ipv6_address' => 'setIpv6Address',
@@ -156,6 +163,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
+        'reservation_bandwidth' => 'setReservationBandwidth',
         'service_managed' => 'setServiceManaged',
         'specific_egress' => 'setSpecificEgress',
         'status' => 'setStatus',
@@ -177,6 +185,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'creation_time' => 'getCreationTime',
         'delete_time' => 'getDeleteTime',
         'isp' => 'getIsp',
+        'independent_limited' => 'getIndependentLimited',
         'instance_id' => 'getInstanceId',
         'instance_type' => 'getInstanceType',
         'ipv6_address' => 'getIpv6Address',
@@ -186,6 +195,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
+        'reservation_bandwidth' => 'getReservationBandwidth',
         'service_managed' => 'getServiceManaged',
         'specific_egress' => 'getSpecificEgress',
         'status' => 'getStatus',
@@ -261,6 +271,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['delete_time'] = isset($data['delete_time']) ? $data['delete_time'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['independent_limited'] = isset($data['independent_limited']) ? $data['independent_limited'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
@@ -270,6 +281,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['reservation_bandwidth'] = isset($data['reservation_bandwidth']) ? $data['reservation_bandwidth'] : null;
         $this->container['service_managed'] = isset($data['service_managed']) ? $data['service_managed'] : null;
         $this->container['specific_egress'] = isset($data['specific_egress']) ? $data['specific_egress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -494,6 +506,30 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
     }
 
     /**
+     * Gets independent_limited
+     *
+     * @return bool
+     */
+    public function getIndependentLimited()
+    {
+        return $this->container['independent_limited'];
+    }
+
+    /**
+     * Sets independent_limited
+     *
+     * @param bool $independent_limited independent_limited
+     *
+     * @return $this
+     */
+    public function setIndependentLimited($independent_limited)
+    {
+        $this->container['independent_limited'] = $independent_limited;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -705,6 +741,30 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_bandwidth
+     *
+     * @return int
+     */
+    public function getReservationBandwidth()
+    {
+        return $this->container['reservation_bandwidth'];
+    }
+
+    /**
+     * Sets reservation_bandwidth
+     *
+     * @param int $reservation_bandwidth reservation_bandwidth
+     *
+     * @return $this
+     */
+    public function setReservationBandwidth($reservation_bandwidth)
+    {
+        $this->container['reservation_bandwidth'] = $reservation_bandwidth;
 
         return $this;
     }

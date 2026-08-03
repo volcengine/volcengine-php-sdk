@@ -43,7 +43,7 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         'resource_type' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeFlowLogsOutput[]',
-        'traffic_path' => 'int[]',
+        'traffic_path' => 'string[]',
         'traffic_type' => 'string',
         'updated_at' => 'string',
         'version' => 'int',
@@ -224,11 +224,44 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TRAFFIC_PATH_ALL = 'All';
+    const TRAFFIC_PATH_NAT_GW = 'NatGW';
+    const TRAFFIC_PATH_IPV4_GW = 'Ipv4GW';
+    const TRAFFIC_PATH_IPV6_GW = 'Ipv6GW';
+    const TRAFFIC_PATH_VPN_GW = 'VpnGW';
+    const TRAFFIC_PATH_GWLB_ENDPOINT = 'GWLBEndpoint';
+    const TRAFFIC_PATH_TRANSIT_ROUTER = 'TransitRouter';
+    const TRAFFIC_PATH_CEN = 'CEN';
+    const TRAFFIC_PATH_INTRA_REGION_VPC_PEERING_CONNECTION = 'IntraRegionVpcPeeringConnection';
+    const TRAFFIC_PATH_INTER_REGION_VPC_PEERING_CONNECTION = 'InterRegionVpcPeeringConnection';
+    const TRAFFIC_PATH_DIRECT_EXCHANGE_GATEWAY = 'DirectExchangeGateway';
     const TRAFFIC_TYPE_ALL = 'All';
     const TRAFFIC_TYPE_ALLOW = 'Allow';
     const TRAFFIC_TYPE_DROP = 'Drop';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTrafficPathAllowableValues()
+    {
+        return [
+            self::TRAFFIC_PATH_ALL,
+            self::TRAFFIC_PATH_NAT_GW,
+            self::TRAFFIC_PATH_IPV4_GW,
+            self::TRAFFIC_PATH_IPV6_GW,
+            self::TRAFFIC_PATH_VPN_GW,
+            self::TRAFFIC_PATH_GWLB_ENDPOINT,
+            self::TRAFFIC_PATH_TRANSIT_ROUTER,
+            self::TRAFFIC_PATH_CEN,
+            self::TRAFFIC_PATH_INTRA_REGION_VPC_PEERING_CONNECTION,
+            self::TRAFFIC_PATH_INTER_REGION_VPC_PEERING_CONNECTION,
+            self::TRAFFIC_PATH_DIRECT_EXCHANGE_GATEWAY,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -677,7 +710,7 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_path
      *
-     * @return int[]
+     * @return string[]
      */
     public function getTrafficPath()
     {
@@ -687,12 +720,21 @@ class FlowLogForDescribeFlowLogsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_path
      *
-     * @param int[] $traffic_path traffic_path
+     * @param string[] $traffic_path traffic_path
      *
      * @return $this
      */
     public function setTrafficPath($traffic_path)
     {
+        $allowedValues = $this->getTrafficPathAllowableValues();
+        if (!is_null($traffic_path) && array_diff($traffic_path, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'traffic_path', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['traffic_path'] = $traffic_path;
 
         return $this;

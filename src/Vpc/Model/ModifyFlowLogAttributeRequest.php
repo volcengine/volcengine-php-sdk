@@ -33,7 +33,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'flow_log_id' => 'string',
         'flow_log_name' => 'string',
-        'traffic_path' => 'int[]'
+        'traffic_path' => 'string[]'
     ];
 
     /**
@@ -331,7 +331,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_path
      *
-     * @return int[]
+     * @return string[]
      */
     public function getTrafficPath()
     {
@@ -341,7 +341,7 @@ class ModifyFlowLogAttributeRequest implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_path
      *
-     * @param int[] $traffic_path traffic_path
+     * @param string[] $traffic_path traffic_path
      *
      * @return $this
      */

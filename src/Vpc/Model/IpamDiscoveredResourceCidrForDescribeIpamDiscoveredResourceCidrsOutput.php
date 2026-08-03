@@ -28,11 +28,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cidr_block' => 'string',
         'discovery_time' => 'string',
         'ip_usage' => 'string',
         'ipam_resource_discovery_id' => 'string',
+        'resource_cidr' => 'string',
         'resource_id' => 'string',
+        'resource_name' => 'string',
+        'resource_owner_id' => 'string',
         'resource_region_id' => 'string',
         'resource_type' => 'string',
         'vpc_id' => 'string'
@@ -44,11 +46,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cidr_block' => null,
         'discovery_time' => null,
         'ip_usage' => null,
         'ipam_resource_discovery_id' => null,
+        'resource_cidr' => null,
         'resource_id' => null,
+        'resource_name' => null,
+        'resource_owner_id' => null,
         'resource_region_id' => null,
         'resource_type' => null,
         'vpc_id' => null
@@ -81,11 +85,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
      * @var string[]
      */
     protected static $attributeMap = [
-        'cidr_block' => 'CidrBlock',
         'discovery_time' => 'DiscoveryTime',
         'ip_usage' => 'IpUsage',
         'ipam_resource_discovery_id' => 'IpamResourceDiscoveryId',
+        'resource_cidr' => 'ResourceCidr',
         'resource_id' => 'ResourceId',
+        'resource_name' => 'ResourceName',
+        'resource_owner_id' => 'ResourceOwnerId',
         'resource_region_id' => 'ResourceRegionId',
         'resource_type' => 'ResourceType',
         'vpc_id' => 'VpcId'
@@ -97,11 +103,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
      * @var string[]
      */
     protected static $setters = [
-        'cidr_block' => 'setCidrBlock',
         'discovery_time' => 'setDiscoveryTime',
         'ip_usage' => 'setIpUsage',
         'ipam_resource_discovery_id' => 'setIpamResourceDiscoveryId',
+        'resource_cidr' => 'setResourceCidr',
         'resource_id' => 'setResourceId',
+        'resource_name' => 'setResourceName',
+        'resource_owner_id' => 'setResourceOwnerId',
         'resource_region_id' => 'setResourceRegionId',
         'resource_type' => 'setResourceType',
         'vpc_id' => 'setVpcId'
@@ -113,11 +121,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
      * @var string[]
      */
     protected static $getters = [
-        'cidr_block' => 'getCidrBlock',
         'discovery_time' => 'getDiscoveryTime',
         'ip_usage' => 'getIpUsage',
         'ipam_resource_discovery_id' => 'getIpamResourceDiscoveryId',
+        'resource_cidr' => 'getResourceCidr',
         'resource_id' => 'getResourceId',
+        'resource_name' => 'getResourceName',
+        'resource_owner_id' => 'getResourceOwnerId',
         'resource_region_id' => 'getResourceRegionId',
         'resource_type' => 'getResourceType',
         'vpc_id' => 'getVpcId'
@@ -183,11 +193,13 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
      */
     public function __construct($data = null)
     {
-        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['discovery_time'] = isset($data['discovery_time']) ? $data['discovery_time'] : null;
         $this->container['ip_usage'] = isset($data['ip_usage']) ? $data['ip_usage'] : null;
         $this->container['ipam_resource_discovery_id'] = isset($data['ipam_resource_discovery_id']) ? $data['ipam_resource_discovery_id'] : null;
+        $this->container['resource_cidr'] = isset($data['resource_cidr']) ? $data['resource_cidr'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
+        $this->container['resource_owner_id'] = isset($data['resource_owner_id']) ? $data['resource_owner_id'] : null;
         $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -216,30 +228,6 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cidr_block
-     *
-     * @return string
-     */
-    public function getCidrBlock()
-    {
-        return $this->container['cidr_block'];
-    }
-
-    /**
-     * Sets cidr_block
-     *
-     * @param string $cidr_block cidr_block
-     *
-     * @return $this
-     */
-    public function setCidrBlock($cidr_block)
-    {
-        $this->container['cidr_block'] = $cidr_block;
-
-        return $this;
-    }
 
     /**
      * Gets discovery_time
@@ -314,6 +302,30 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
     }
 
     /**
+     * Gets resource_cidr
+     *
+     * @return string
+     */
+    public function getResourceCidr()
+    {
+        return $this->container['resource_cidr'];
+    }
+
+    /**
+     * Sets resource_cidr
+     *
+     * @param string $resource_cidr resource_cidr
+     *
+     * @return $this
+     */
+    public function setResourceCidr($resource_cidr)
+    {
+        $this->container['resource_cidr'] = $resource_cidr;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_id
      *
      * @return string
@@ -333,6 +345,54 @@ class IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput imp
     public function setResourceId($resource_id)
     {
         $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_name
+     *
+     * @return string
+     */
+    public function getResourceName()
+    {
+        return $this->container['resource_name'];
+    }
+
+    /**
+     * Sets resource_name
+     *
+     * @param string $resource_name resource_name
+     *
+     * @return $this
+     */
+    public function setResourceName($resource_name)
+    {
+        $this->container['resource_name'] = $resource_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_owner_id
+     *
+     * @return string
+     */
+    public function getResourceOwnerId()
+    {
+        return $this->container['resource_owner_id'];
+    }
+
+    /**
+     * Sets resource_owner_id
+     *
+     * @param string $resource_owner_id resource_owner_id
+     *
+     * @return $this
+     */
+    public function setResourceOwnerId($resource_owner_id)
+    {
+        $this->container['resource_owner_id'] = $resource_owner_id;
 
         return $this;
     }

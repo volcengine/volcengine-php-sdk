@@ -39,7 +39,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'resource_id' => 'string',
         'resource_type' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateFlowLogInput[]',
-        'traffic_path' => 'int[]',
+        'traffic_path' => 'string[]',
         'traffic_type' => 'string'
     ];
 
@@ -535,7 +535,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_path
      *
-     * @return int[]
+     * @return string[]
      */
     public function getTrafficPath()
     {
@@ -545,7 +545,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_path
      *
-     * @param int[] $traffic_path traffic_path
+     * @param string[] $traffic_path traffic_path
      *
      * @return $this
      */

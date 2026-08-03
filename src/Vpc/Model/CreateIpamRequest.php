@@ -30,7 +30,9 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
         'ipam_name' => 'string',
-        'operating_regions' => 'string[]'
+        'operating_regions' => 'string[]',
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateIpamInput[]'
     ];
 
     /**
@@ -41,7 +43,9 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'description' => null,
         'ipam_name' => null,
-        'operating_regions' => null
+        'operating_regions' => null,
+        'project_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -73,7 +77,9 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'Description',
         'ipam_name' => 'IpamName',
-        'operating_regions' => 'OperatingRegions'
+        'operating_regions' => 'OperatingRegions',
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -84,7 +90,9 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'ipam_name' => 'setIpamName',
-        'operating_regions' => 'setOperatingRegions'
+        'operating_regions' => 'setOperatingRegions',
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -95,7 +103,9 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'ipam_name' => 'getIpamName',
-        'operating_regions' => 'getOperatingRegions'
+        'operating_regions' => 'getOperatingRegions',
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -161,6 +171,8 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipam_name'] = isset($data['ipam_name']) ? $data['ipam_name'] : null;
         $this->container['operating_regions'] = isset($data['operating_regions']) ? $data['operating_regions'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -255,6 +267,54 @@ class CreateIpamRequest implements ModelInterface, ArrayAccess
     public function setOperatingRegions($operating_regions)
     {
         $this->container['operating_regions'] = $operating_regions;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForCreateIpamInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForCreateIpamInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
