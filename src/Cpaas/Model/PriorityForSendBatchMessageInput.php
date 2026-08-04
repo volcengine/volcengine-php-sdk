@@ -159,8 +159,31 @@ class PriorityForSendBatchMessageInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const CHANNEL_TYPE_WHATS_APP = 'WhatsApp';
+    const CHANNEL_TYPE_SMS = 'SMS';
+    const CHANNEL_TYPE_VMS = 'VMS';
+    const CHANNEL_TYPE_AIM = 'AIM';
+    const CHANNEL_TYPE_VOLC_SMS = 'VOLC_SMS';
+    const CHANNEL_TYPE_VOLC_RCS = 'VOLC_RCS';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelTypeAllowableValues()
+    {
+        return [
+            self::CHANNEL_TYPE_WHATS_APP,
+            self::CHANNEL_TYPE_SMS,
+            self::CHANNEL_TYPE_VMS,
+            self::CHANNEL_TYPE_AIM,
+            self::CHANNEL_TYPE_VOLC_SMS,
+            self::CHANNEL_TYPE_VOLC_RCS,
+        ];
+    }
     
 
     /**
@@ -196,6 +219,14 @@ class PriorityForSendBatchMessageInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getChannelTypeAllowableValues();
+        if (!is_null($this->container['channel_type']) && !in_array($this->container['channel_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'channel_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -230,6 +261,15 @@ class PriorityForSendBatchMessageInput implements ModelInterface, ArrayAccess
      */
     public function setChannelType($channel_type)
     {
+        $allowedValues = $this->getChannelTypeAllowableValues();
+        if (!is_null($channel_type) && !in_array($channel_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channel_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['channel_type'] = $channel_type;
 
         return $this;

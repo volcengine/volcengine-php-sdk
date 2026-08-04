@@ -29,11 +29,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'business_type' => 'string',
-        'enable_short_url' => 'string',
+        'enabled_short_url' => 'string',
         'language' => 'string',
         'scene_template_name' => 'string',
         'send_audit' => 'string',
-        'signature' => 'string',
         'sub_account_id' => 'string',
         'template_list' => '\Volcengine\Cpaas\Model\TemplateListForCreateTemplateV2Input[]',
         'waba_id' => 'string'
@@ -46,11 +45,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'business_type' => null,
-        'enable_short_url' => null,
+        'enabled_short_url' => null,
         'language' => null,
         'scene_template_name' => null,
         'send_audit' => null,
-        'signature' => null,
         'sub_account_id' => null,
         'template_list' => null,
         'waba_id' => null
@@ -84,11 +82,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'business_type' => 'BusinessType',
-        'enable_short_url' => 'EnableShortUrl',
+        'enabled_short_url' => 'EnabledShortUrl',
         'language' => 'Language',
         'scene_template_name' => 'SceneTemplateName',
         'send_audit' => 'SendAudit',
-        'signature' => 'Signature',
         'sub_account_id' => 'SubAccountId',
         'template_list' => 'TemplateList',
         'waba_id' => 'WabaId'
@@ -101,11 +98,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'business_type' => 'setBusinessType',
-        'enable_short_url' => 'setEnableShortUrl',
+        'enabled_short_url' => 'setEnabledShortUrl',
         'language' => 'setLanguage',
         'scene_template_name' => 'setSceneTemplateName',
         'send_audit' => 'setSendAudit',
-        'signature' => 'setSignature',
         'sub_account_id' => 'setSubAccountId',
         'template_list' => 'setTemplateList',
         'waba_id' => 'setWabaId'
@@ -118,11 +114,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'business_type' => 'getBusinessType',
-        'enable_short_url' => 'getEnableShortUrl',
+        'enabled_short_url' => 'getEnabledShortUrl',
         'language' => 'getLanguage',
         'scene_template_name' => 'getSceneTemplateName',
         'send_audit' => 'getSendAudit',
-        'signature' => 'getSignature',
         'sub_account_id' => 'getSubAccountId',
         'template_list' => 'getTemplateList',
         'waba_id' => 'getWabaId'
@@ -189,11 +184,10 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['business_type'] = isset($data['business_type']) ? $data['business_type'] : null;
-        $this->container['enable_short_url'] = isset($data['enable_short_url']) ? $data['enable_short_url'] : null;
+        $this->container['enabled_short_url'] = isset($data['enabled_short_url']) ? $data['enabled_short_url'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['scene_template_name'] = isset($data['scene_template_name']) ? $data['scene_template_name'] : null;
         $this->container['send_audit'] = isset($data['send_audit']) ? $data['send_audit'] : null;
-        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
         $this->container['sub_account_id'] = isset($data['sub_account_id']) ? $data['sub_account_id'] : null;
         $this->container['template_list'] = isset($data['template_list']) ? $data['template_list'] : null;
         $this->container['waba_id'] = isset($data['waba_id']) ? $data['waba_id'] : null;
@@ -251,25 +245,25 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets enable_short_url
+     * Gets enabled_short_url
      *
      * @return string
      */
-    public function getEnableShortUrl()
+    public function getEnabledShortUrl()
     {
-        return $this->container['enable_short_url'];
+        return $this->container['enabled_short_url'];
     }
 
     /**
-     * Sets enable_short_url
+     * Sets enabled_short_url
      *
-     * @param string $enable_short_url enable_short_url
+     * @param string $enabled_short_url enabled_short_url
      *
      * @return $this
      */
-    public function setEnableShortUrl($enable_short_url)
+    public function setEnabledShortUrl($enabled_short_url)
     {
-        $this->container['enable_short_url'] = $enable_short_url;
+        $this->container['enabled_short_url'] = $enabled_short_url;
 
         return $this;
     }
@@ -342,30 +336,6 @@ class CreateTemplateV2Request implements ModelInterface, ArrayAccess
     public function setSendAudit($send_audit)
     {
         $this->container['send_audit'] = $send_audit;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature
-     *
-     * @return string
-     */
-    public function getSignature()
-    {
-        return $this->container['signature'];
-    }
-
-    /**
-     * Sets signature
-     *
-     * @param string $signature signature
-     *
-     * @return $this
-     */
-    public function setSignature($signature)
-    {
-        $this->container['signature'] = $signature;
 
         return $this;
     }
