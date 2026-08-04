@@ -149,16 +149,6 @@ class ListModelRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CREATED_ORDERBY__0 = '0';
     const CREATED_ORDERBY__1 = '1';
     
@@ -490,4 +480,3 @@ class ListModelRequest implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-

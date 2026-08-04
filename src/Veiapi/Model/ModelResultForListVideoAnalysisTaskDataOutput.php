@@ -179,16 +179,6 @@ class ModelResultForListVideoAnalysisTaskDataOutput implements ModelInterface, A
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -632,4 +622,3 @@ class ModelResultForListVideoAnalysisTaskDataOutput implements ModelInterface, A
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
