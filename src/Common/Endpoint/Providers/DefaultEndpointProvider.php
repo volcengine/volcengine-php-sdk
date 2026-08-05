@@ -413,7 +413,7 @@ class DefaultEndpointProvider extends EndpointProvider
                 ),
                 'acep' => new ServiceEndpointInfo(
                     'acep',
-                    true,
+                    false,
                     '',
                     []
                 ),
