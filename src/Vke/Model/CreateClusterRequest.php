@@ -35,6 +35,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForCreateClusterInput',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForCreateClusterInput',
+        'maintenance_window_config' => '\Volcengine\Vke\Model\MaintenanceWindowConfigForCreateClusterInput',
         'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForCreateClusterInput',
         'name' => 'string',
         'pods_config' => '\Volcengine\Vke\Model\PodsConfigForCreateClusterInput',
@@ -56,6 +57,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'kubernetes_config' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
+        'maintenance_window_config' => null,
         'monitoring_config' => null,
         'name' => null,
         'pods_config' => null,
@@ -98,6 +100,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'KubernetesConfig',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
+        'maintenance_window_config' => 'MaintenanceWindowConfig',
         'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
         'pods_config' => 'PodsConfig',
@@ -119,6 +122,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'setKubernetesConfig',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
+        'maintenance_window_config' => 'setMaintenanceWindowConfig',
         'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
         'pods_config' => 'setPodsConfig',
@@ -140,6 +144,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'getKubernetesConfig',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
+        'maintenance_window_config' => 'getMaintenanceWindowConfig',
         'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
         'pods_config' => 'getPodsConfig',
@@ -215,6 +220,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
+        $this->container['maintenance_window_config'] = isset($data['maintenance_window_config']) ? $data['maintenance_window_config'] : null;
         $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pods_config'] = isset($data['pods_config']) ? $data['pods_config'] : null;
@@ -414,6 +420,30 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     public function setLoggingConfig($logging_config)
     {
         $this->container['logging_config'] = $logging_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_window_config
+     *
+     * @return \Volcengine\Vke\Model\MaintenanceWindowConfigForCreateClusterInput
+     */
+    public function getMaintenanceWindowConfig()
+    {
+        return $this->container['maintenance_window_config'];
+    }
+
+    /**
+     * Sets maintenance_window_config
+     *
+     * @param \Volcengine\Vke\Model\MaintenanceWindowConfigForCreateClusterInput $maintenance_window_config maintenance_window_config
+     *
+     * @return $this
+     */
+    public function setMaintenanceWindowConfig($maintenance_window_config)
+    {
+        $this->container['maintenance_window_config'] = $maintenance_window_config;
 
         return $this;
     }
