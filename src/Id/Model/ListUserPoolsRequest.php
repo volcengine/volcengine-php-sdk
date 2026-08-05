@@ -33,7 +33,8 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'project_name' => 'string',
         'sort_direction' => 'string',
-        'sort_field' => 'string'
+        'sort_field' => 'string',
+        'tag_filters' => '\Volcengine\Id\Model\TagFilterForListUserPoolsInput[]'
     ];
 
     /**
@@ -47,7 +48,8 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int32',
         'project_name' => null,
         'sort_direction' => null,
-        'sort_field' => null
+        'sort_field' => null,
+        'tag_filters' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'sort_direction' => 'SortDirection',
-        'sort_field' => 'SortField'
+        'sort_field' => 'SortField',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -96,7 +99,8 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
         'sort_direction' => 'setSortDirection',
-        'sort_field' => 'setSortField'
+        'sort_field' => 'setSortField',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -110,7 +114,8 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
         'sort_direction' => 'getSortDirection',
-        'sort_field' => 'getSortField'
+        'sort_field' => 'getSortField',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -179,6 +184,7 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['sort_direction'] = isset($data['sort_direction']) ? $data['sort_direction'] : null;
         $this->container['sort_field'] = isset($data['sort_field']) ? $data['sort_field'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -351,6 +357,30 @@ class ListUserPoolsRequest implements ModelInterface, ArrayAccess
     public function setSortField($sort_field)
     {
         $this->container['sort_field'] = $sort_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Id\Model\TagFilterForListUserPoolsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Id\Model\TagFilterForListUserPoolsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

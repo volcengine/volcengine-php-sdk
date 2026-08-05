@@ -68,6 +68,192 @@ class IDApi
         return $this->config;
     }
 
+    public function addUsersToDepartment($body = null)
+    {
+        list($response) = $this->addUsersToDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addUsersToDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddUsersToDepartmentResponse';
+        $request = $this->addUsersToDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addUsersToDepartmentAsync($body = null)
+    {
+        return $this->addUsersToDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addUsersToDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddUsersToDepartmentResponse';
+        $request = $this->addUsersToDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addUsersToDepartmentRequest($body)
+    {
+        $resourcePath = '/AddUsersToDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function addUsersToGroup($body = null)
+    {
+        list($response) = $this->addUsersToGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addUsersToGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddUsersToGroupResponse';
+        $request = $this->addUsersToGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addUsersToGroupAsync($body = null)
+    {
+        return $this->addUsersToGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addUsersToGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddUsersToGroupResponse';
+        $request = $this->addUsersToGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addUsersToGroupRequest($body)
+    {
+        $resourcePath = '/AddUsersToGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function addWorkloadMetaData($body = null)
+    {
+        list($response) = $this->addWorkloadMetaDataWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addWorkloadMetaDataWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddWorkloadMetaDataResponse';
+        $request = $this->addWorkloadMetaDataRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addWorkloadMetaDataAsync($body = null)
+    {
+        return $this->addWorkloadMetaDataAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addWorkloadMetaDataAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\AddWorkloadMetaDataResponse';
+        $request = $this->addWorkloadMetaDataRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addWorkloadMetaDataRequest($body)
+    {
+        $resourcePath = '/AddWorkloadMetaData/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function attachInboundAuthConfig($body = null)
     {
         list($response) = $this->attachInboundAuthConfigWithHttpInfo($body);
@@ -102,6 +288,68 @@ class IDApi
     protected function attachInboundAuthConfigRequest($body)
     {
         $resourcePath = '/AttachInboundAuthConfig/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchConvertFederatedUsersToNativeUsers($body = null)
+    {
+        list($response) = $this->batchConvertFederatedUsersToNativeUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchConvertFederatedUsersToNativeUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchConvertFederatedUsersToNativeUsersResponse';
+        $request = $this->batchConvertFederatedUsersToNativeUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchConvertFederatedUsersToNativeUsersAsync($body = null)
+    {
+        return $this->batchConvertFederatedUsersToNativeUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchConvertFederatedUsersToNativeUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchConvertFederatedUsersToNativeUsersResponse';
+        $request = $this->batchConvertFederatedUsersToNativeUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchConvertFederatedUsersToNativeUsersRequest($body)
+    {
+        $resourcePath = '/BatchConvertFederatedUsersToNativeUsers/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -254,6 +502,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function batchGetDepartments($body = null)
+    {
+        list($response) = $this->batchGetDepartmentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchGetDepartmentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetDepartmentsResponse';
+        $request = $this->batchGetDepartmentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchGetDepartmentsAsync($body = null)
+    {
+        return $this->batchGetDepartmentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchGetDepartmentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetDepartmentsResponse';
+        $request = $this->batchGetDepartmentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchGetDepartmentsRequest($body)
+    {
+        $resourcePath = '/BatchGetDepartments/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function batchGetInboundAuthConfig($body = null)
     {
         list($response) = $this->batchGetInboundAuthConfigWithHttpInfo($body);
@@ -350,6 +660,750 @@ class IDApi
     protected function batchGetOauth2CredentialProvidersRequest($body)
     {
         $resourcePath = '/BatchGetOauth2CredentialProviders/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchGetObjectPermissions($body = null)
+    {
+        list($response) = $this->batchGetObjectPermissionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchGetObjectPermissionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetObjectPermissionsResponse';
+        $request = $this->batchGetObjectPermissionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchGetObjectPermissionsAsync($body = null)
+    {
+        return $this->batchGetObjectPermissionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchGetObjectPermissionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetObjectPermissionsResponse';
+        $request = $this->batchGetObjectPermissionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchGetObjectPermissionsRequest($body)
+    {
+        $resourcePath = '/BatchGetObjectPermissions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchGetSubjectPermissions($body = null)
+    {
+        list($response) = $this->batchGetSubjectPermissionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchGetSubjectPermissionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetSubjectPermissionsResponse';
+        $request = $this->batchGetSubjectPermissionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchGetSubjectPermissionsAsync($body = null)
+    {
+        return $this->batchGetSubjectPermissionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchGetSubjectPermissionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchGetSubjectPermissionsResponse';
+        $request = $this->batchGetSubjectPermissionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchGetSubjectPermissionsRequest($body)
+    {
+        $resourcePath = '/BatchGetSubjectPermissions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchListDepartmentsForUsers($body = null)
+    {
+        list($response) = $this->batchListDepartmentsForUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchListDepartmentsForUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchListDepartmentsForUsersResponse';
+        $request = $this->batchListDepartmentsForUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchListDepartmentsForUsersAsync($body = null)
+    {
+        return $this->batchListDepartmentsForUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchListDepartmentsForUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchListDepartmentsForUsersResponse';
+        $request = $this->batchListDepartmentsForUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchListDepartmentsForUsersRequest($body)
+    {
+        $resourcePath = '/BatchListDepartmentsForUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchSyncDepartmentMembers($body = null)
+    {
+        list($response) = $this->batchSyncDepartmentMembersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchSyncDepartmentMembersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchSyncDepartmentMembersResponse';
+        $request = $this->batchSyncDepartmentMembersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchSyncDepartmentMembersAsync($body = null)
+    {
+        return $this->batchSyncDepartmentMembersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchSyncDepartmentMembersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchSyncDepartmentMembersResponse';
+        $request = $this->batchSyncDepartmentMembersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchSyncDepartmentMembersRequest($body)
+    {
+        $resourcePath = '/BatchSyncDepartmentMembers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function batchUpsertDepartments($body = null)
+    {
+        list($response) = $this->batchUpsertDepartmentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchUpsertDepartmentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchUpsertDepartmentsResponse';
+        $request = $this->batchUpsertDepartmentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchUpsertDepartmentsAsync($body = null)
+    {
+        return $this->batchUpsertDepartmentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchUpsertDepartmentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchUpsertDepartmentsResponse';
+        $request = $this->batchUpsertDepartmentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchUpsertDepartmentsRequest($body)
+    {
+        $resourcePath = '/BatchUpsertDepartments/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function bindCredentialProvider($body = null)
+    {
+        list($response) = $this->bindCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function bindCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BindCredentialProviderResponse';
+        $request = $this->bindCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function bindCredentialProviderAsync($body = null)
+    {
+        return $this->bindCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function bindCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BindCredentialProviderResponse';
+        $request = $this->bindCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function bindCredentialProviderRequest($body)
+    {
+        $resourcePath = '/BindCredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function bindWorkloadPoolTrustAnchor($body = null)
+    {
+        list($response) = $this->bindWorkloadPoolTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function bindWorkloadPoolTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BindWorkloadPoolTrustAnchorResponse';
+        $request = $this->bindWorkloadPoolTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function bindWorkloadPoolTrustAnchorAsync($body = null)
+    {
+        return $this->bindWorkloadPoolTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function bindWorkloadPoolTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BindWorkloadPoolTrustAnchorResponse';
+        $request = $this->bindWorkloadPoolTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function bindWorkloadPoolTrustAnchorRequest($body)
+    {
+        $resourcePath = '/BindWorkloadPoolTrustAnchor/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function cancelDepartmentSyncSession($body = null)
+    {
+        list($response) = $this->cancelDepartmentSyncSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cancelDepartmentSyncSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelDepartmentSyncSessionResponse';
+        $request = $this->cancelDepartmentSyncSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function cancelDepartmentSyncSessionAsync($body = null)
+    {
+        return $this->cancelDepartmentSyncSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cancelDepartmentSyncSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelDepartmentSyncSessionResponse';
+        $request = $this->cancelDepartmentSyncSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function cancelDepartmentSyncSessionRequest($body)
+    {
+        $resourcePath = '/CancelDepartmentSyncSession/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function cancelTask($body = null)
+    {
+        list($response) = $this->cancelTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cancelTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelTaskResponse';
+        $request = $this->cancelTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function cancelTaskAsync($body = null)
+    {
+        return $this->cancelTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cancelTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelTaskResponse';
+        $request = $this->cancelTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function cancelTaskRequest($body)
+    {
+        $resourcePath = '/CancelTask/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function cancelTaskUserSync($body = null)
+    {
+        list($response) = $this->cancelTaskUserSyncWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cancelTaskUserSyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelTaskUserSyncResponse';
+        $request = $this->cancelTaskUserSyncRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function cancelTaskUserSyncAsync($body = null)
+    {
+        return $this->cancelTaskUserSyncAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cancelTaskUserSyncAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CancelTaskUserSyncResponse';
+        $request = $this->cancelTaskUserSyncRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function cancelTaskUserSyncRequest($body)
+    {
+        $resourcePath = '/CancelTaskUserSync/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function changeUsersDepartment($body = null)
+    {
+        list($response) = $this->changeUsersDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function changeUsersDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ChangeUsersDepartmentResponse';
+        $request = $this->changeUsersDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function changeUsersDepartmentAsync($body = null)
+    {
+        return $this->changeUsersDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function changeUsersDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ChangeUsersDepartmentResponse';
+        $request = $this->changeUsersDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function changeUsersDepartmentRequest($body)
+    {
+        $resourcePath = '/ChangeUsersDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function changeUsersGroup($body = null)
+    {
+        list($response) = $this->changeUsersGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function changeUsersGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ChangeUsersGroupResponse';
+        $request = $this->changeUsersGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function changeUsersGroupAsync($body = null)
+    {
+        return $this->changeUsersGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function changeUsersGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ChangeUsersGroupResponse';
+        $request = $this->changeUsersGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function changeUsersGroupRequest($body)
+    {
+        $resourcePath = '/ChangeUsersGroup/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -564,6 +1618,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function commitDepartmentSyncSession($body = null)
+    {
+        list($response) = $this->commitDepartmentSyncSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function commitDepartmentSyncSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CommitDepartmentSyncSessionResponse';
+        $request = $this->commitDepartmentSyncSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function commitDepartmentSyncSessionAsync($body = null)
+    {
+        return $this->commitDepartmentSyncSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function commitDepartmentSyncSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CommitDepartmentSyncSessionResponse';
+        $request = $this->commitDepartmentSyncSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function commitDepartmentSyncSessionRequest($body)
+    {
+        $resourcePath = '/CommitDepartmentSyncSession/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function completeResourceTokenAuth($body = null)
     {
         list($response) = $this->completeResourceTokenAuthWithHttpInfo($body);
@@ -598,6 +1714,68 @@ class IDApi
     protected function completeResourceTokenAuthRequest($body)
     {
         $resourcePath = '/CompleteResourceTokenAuth/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAction($body = null)
+    {
+        list($response) = $this->createActionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createActionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateActionResponse';
+        $request = $this->createActionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createActionAsync($body = null)
+    {
+        return $this->createActionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createActionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateActionResponse';
+        $request = $this->createActionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createActionRequest($body)
+    {
+        $resourcePath = '/CreateAction/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -750,6 +1928,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createDepartment($body = null)
+    {
+        list($response) = $this->createDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateDepartmentResponse';
+        $request = $this->createDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDepartmentAsync($body = null)
+    {
+        return $this->createDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateDepartmentResponse';
+        $request = $this->createDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDepartmentRequest($body)
+    {
+        $resourcePath = '/CreateDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createDepartmentSyncSession($body = null)
+    {
+        list($response) = $this->createDepartmentSyncSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDepartmentSyncSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateDepartmentSyncSessionResponse';
+        $request = $this->createDepartmentSyncSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDepartmentSyncSessionAsync($body = null)
+    {
+        return $this->createDepartmentSyncSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDepartmentSyncSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateDepartmentSyncSessionResponse';
+        $request = $this->createDepartmentSyncSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDepartmentSyncSessionRequest($body)
+    {
+        $resourcePath = '/CreateDepartmentSyncSession/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createFaasService($body = null)
     {
         list($response) = $this->createFaasServiceWithHttpInfo($body);
@@ -784,6 +2086,254 @@ class IDApi
     protected function createFaasServiceRequest($body)
     {
         $resourcePath = '/CreateFaasService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createGroup($body = null)
+    {
+        list($response) = $this->createGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateGroupResponse';
+        $request = $this->createGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createGroupAsync($body = null)
+    {
+        return $this->createGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateGroupResponse';
+        $request = $this->createGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createGroupRequest($body)
+    {
+        $resourcePath = '/CreateGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createIamOidcProvider($body = null)
+    {
+        list($response) = $this->createIamOidcProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIamOidcProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIamOidcProviderResponse';
+        $request = $this->createIamOidcProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIamOidcProviderAsync($body = null)
+    {
+        return $this->createIamOidcProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIamOidcProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIamOidcProviderResponse';
+        $request = $this->createIamOidcProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIamOidcProviderRequest($body)
+    {
+        $resourcePath = '/CreateIamOidcProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createIamRoleAttachment($body = null)
+    {
+        list($response) = $this->createIamRoleAttachmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIamRoleAttachmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIamRoleAttachmentResponse';
+        $request = $this->createIamRoleAttachmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIamRoleAttachmentAsync($body = null)
+    {
+        return $this->createIamRoleAttachmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIamRoleAttachmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIamRoleAttachmentResponse';
+        $request = $this->createIamRoleAttachmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIamRoleAttachmentRequest($body)
+    {
+        $resourcePath = '/CreateIamRoleAttachment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createIdentityProviderLDAPADAgent($body = null)
+    {
+        list($response) = $this->createIdentityProviderLDAPADAgentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIdentityProviderLDAPADAgentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderLDAPADAgentResponse';
+        $request = $this->createIdentityProviderLDAPADAgentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIdentityProviderLDAPADAgentAsync($body = null)
+    {
+        return $this->createIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderLDAPADAgentResponse';
+        $request = $this->createIdentityProviderLDAPADAgentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIdentityProviderLDAPADAgentRequest($body)
+    {
+        $resourcePath = '/CreateIdentityProviderLDAPADAgent/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -970,6 +2520,130 @@ class IDApi
     protected function createIdentityProviderSAMLRequest($body)
     {
         $resourcePath = '/CreateIdentityProviderSAML/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->createIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderTokenExchangeResponse';
+        $request = $this->createIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->createIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderTokenExchangeResponse';
+        $request = $this->createIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/CreateIdentityProviderTokenExchange/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createIdentityProviderWeCom($body = null)
+    {
+        list($response) = $this->createIdentityProviderWeComWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIdentityProviderWeComWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderWeComResponse';
+        $request = $this->createIdentityProviderWeComRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIdentityProviderWeComAsync($body = null)
+    {
+        return $this->createIdentityProviderWeComAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIdentityProviderWeComAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateIdentityProviderWeComResponse';
+        $request = $this->createIdentityProviderWeComRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIdentityProviderWeComRequest($body)
+    {
+        $resourcePath = '/CreateIdentityProviderWeCom/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1246,6 +2920,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createOutboundEgressIP($body = null)
+    {
+        list($response) = $this->createOutboundEgressIPWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createOutboundEgressIPWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateOutboundEgressIPResponse';
+        $request = $this->createOutboundEgressIPRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createOutboundEgressIPAsync($body = null)
+    {
+        return $this->createOutboundEgressIPAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createOutboundEgressIPAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateOutboundEgressIPResponse';
+        $request = $this->createOutboundEgressIPRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createOutboundEgressIPRequest($body)
+    {
+        $resourcePath = '/CreateOutboundEgressIP/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createPermissionPoint($body = null)
+    {
+        list($response) = $this->createPermissionPointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPermissionPointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreatePermissionPointResponse';
+        $request = $this->createPermissionPointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPermissionPointAsync($body = null)
+    {
+        return $this->createPermissionPointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPermissionPointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreatePermissionPointResponse';
+        $request = $this->createPermissionPointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPermissionPointRequest($body)
+    {
+        $resourcePath = '/CreatePermissionPoint/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createPolicy($body = null)
     {
         list($response) = $this->createPolicyWithHttpInfo($body);
@@ -1280,6 +3078,130 @@ class IDApi
     protected function createPolicyRequest($body)
     {
         $resourcePath = '/CreatePolicy/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createResource($body = null)
+    {
+        list($response) = $this->createResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateResourceResponse';
+        $request = $this->createResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createResourceAsync($body = null)
+    {
+        return $this->createResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateResourceResponse';
+        $request = $this->createResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createResourceRequest($body)
+    {
+        $resourcePath = '/CreateResource/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRoleCredentialProvider($body = null)
+    {
+        list($response) = $this->createRoleCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRoleCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRoleCredentialProviderResponse';
+        $request = $this->createRoleCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRoleCredentialProviderAsync($body = null)
+    {
+        return $this->createRoleCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRoleCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRoleCredentialProviderResponse';
+        $request = $this->createRoleCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRoleCredentialProviderRequest($body)
+    {
+        $resourcePath = '/CreateRoleCredentialProvider/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1432,6 +3354,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createSCIMToken($body = null)
+    {
+        list($response) = $this->createSCIMTokenWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createSCIMTokenWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateSCIMTokenResponse';
+        $request = $this->createSCIMTokenRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createSCIMTokenAsync($body = null)
+    {
+        return $this->createSCIMTokenAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createSCIMTokenAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateSCIMTokenResponse';
+        $request = $this->createSCIMTokenRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createSCIMTokenRequest($body)
+    {
+        $resourcePath = '/CreateSCIMToken/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createService($body = null)
     {
         list($response) = $this->createServiceWithHttpInfo($body);
@@ -1556,6 +3540,378 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createTaskCommitAppVisibleUsers($body = null)
+    {
+        list($response) = $this->createTaskCommitAppVisibleUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTaskCommitAppVisibleUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskCommitAppVisibleUsersResponse';
+        $request = $this->createTaskCommitAppVisibleUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTaskCommitAppVisibleUsersAsync($body = null)
+    {
+        return $this->createTaskCommitAppVisibleUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTaskCommitAppVisibleUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskCommitAppVisibleUsersResponse';
+        $request = $this->createTaskCommitAppVisibleUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTaskCommitAppVisibleUsersRequest($body)
+    {
+        $resourcePath = '/CreateTaskCommitAppVisibleUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTaskMergeUserSync($body = null)
+    {
+        list($response) = $this->createTaskMergeUserSyncWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTaskMergeUserSyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskMergeUserSyncResponse';
+        $request = $this->createTaskMergeUserSyncRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTaskMergeUserSyncAsync($body = null)
+    {
+        return $this->createTaskMergeUserSyncAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTaskMergeUserSyncAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskMergeUserSyncResponse';
+        $request = $this->createTaskMergeUserSyncRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTaskMergeUserSyncRequest($body)
+    {
+        $resourcePath = '/CreateTaskMergeUserSync/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTaskRetrieveAppVisibleUsers($body = null)
+    {
+        list($response) = $this->createTaskRetrieveAppVisibleUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTaskRetrieveAppVisibleUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveAppVisibleUsersResponse';
+        $request = $this->createTaskRetrieveAppVisibleUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTaskRetrieveAppVisibleUsersAsync($body = null)
+    {
+        return $this->createTaskRetrieveAppVisibleUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTaskRetrieveAppVisibleUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveAppVisibleUsersResponse';
+        $request = $this->createTaskRetrieveAppVisibleUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTaskRetrieveAppVisibleUsersRequest($body)
+    {
+        $resourcePath = '/CreateTaskRetrieveAppVisibleUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTaskRetrieveUserSync($body = null)
+    {
+        list($response) = $this->createTaskRetrieveUserSyncWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTaskRetrieveUserSyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveUserSyncResponse';
+        $request = $this->createTaskRetrieveUserSyncRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTaskRetrieveUserSyncAsync($body = null)
+    {
+        return $this->createTaskRetrieveUserSyncAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTaskRetrieveUserSyncAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveUserSyncResponse';
+        $request = $this->createTaskRetrieveUserSyncRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTaskRetrieveUserSyncRequest($body)
+    {
+        $resourcePath = '/CreateTaskRetrieveUserSync/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTaskRetrieveUserSyncAttachment($body = null)
+    {
+        list($response) = $this->createTaskRetrieveUserSyncAttachmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTaskRetrieveUserSyncAttachmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveUserSyncAttachmentResponse';
+        $request = $this->createTaskRetrieveUserSyncAttachmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTaskRetrieveUserSyncAttachmentAsync($body = null)
+    {
+        return $this->createTaskRetrieveUserSyncAttachmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTaskRetrieveUserSyncAttachmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTaskRetrieveUserSyncAttachmentResponse';
+        $request = $this->createTaskRetrieveUserSyncAttachmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTaskRetrieveUserSyncAttachmentRequest($body)
+    {
+        $resourcePath = '/CreateTaskRetrieveUserSyncAttachment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createTrustAnchor($body = null)
+    {
+        list($response) = $this->createTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTrustAnchorResponse';
+        $request = $this->createTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTrustAnchorAsync($body = null)
+    {
+        return $this->createTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateTrustAnchorResponse';
+        $request = $this->createTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTrustAnchorRequest($body)
+    {
+        $resourcePath = '/CreateTrustAnchor/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createUser($body = null)
     {
         list($response) = $this->createUserWithHttpInfo($body);
@@ -1596,6 +3952,129 @@ class IDApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createUserCredential($body = null)
+    {
+        list($response) = $this->createUserCredentialWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createUserCredentialWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserCredentialResponse';
+        $request = $this->createUserCredentialRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createUserCredentialAsync($body = null)
+    {
+        return $this->createUserCredentialAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createUserCredentialAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserCredentialResponse';
+        $request = $this->createUserCredentialRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createUserCredentialRequest($body)
+    {
+        $resourcePath = '/CreateUserCredential/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createUserGroupsCsv($body = null)
+    {
+        list($response) = $this->createUserGroupsCsvWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createUserGroupsCsvWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserGroupsCsvResponse';
+        $request = $this->createUserGroupsCsvRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createUserGroupsCsvAsync($body = null)
+    {
+        return $this->createUserGroupsCsvAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createUserGroupsCsvAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserGroupsCsvResponse';
+        $request = $this->createUserGroupsCsvRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createUserGroupsCsvRequest($body)
+    {
+        $resourcePath = '/CreateUserGroupsCsv/2025-10-30/id/post/application_x-www-form-urlencoded/';
+        $queryParams = [];
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/x-www-form-urlencoded']
         );
 
         $defaultHeaders = [];
@@ -1714,6 +4193,130 @@ class IDApi
     protected function createUserPoolClientRequest($body)
     {
         $resourcePath = '/CreateUserPoolClient/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createUserPoolCustomAttribute($body = null)
+    {
+        list($response) = $this->createUserPoolCustomAttributeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createUserPoolCustomAttributeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserPoolCustomAttributeResponse';
+        $request = $this->createUserPoolCustomAttributeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createUserPoolCustomAttributeAsync($body = null)
+    {
+        return $this->createUserPoolCustomAttributeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createUserPoolCustomAttributeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserPoolCustomAttributeResponse';
+        $request = $this->createUserPoolCustomAttributeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createUserPoolCustomAttributeRequest($body)
+    {
+        $resourcePath = '/CreateUserPoolCustomAttribute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createUserPoolDomain($body = null)
+    {
+        list($response) = $this->createUserPoolDomainWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createUserPoolDomainWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserPoolDomainResponse';
+        $request = $this->createUserPoolDomainRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createUserPoolDomainAsync($body = null)
+    {
+        return $this->createUserPoolDomainAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createUserPoolDomainAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateUserPoolDomainResponse';
+        $request = $this->createUserPoolDomainRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createUserPoolDomainRequest($body)
+    {
+        $resourcePath = '/CreateUserPoolDomain/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1989,6 +4592,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteAction($body = null)
+    {
+        list($response) = $this->deleteActionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteActionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteActionResponse';
+        $request = $this->deleteActionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteActionAsync($body = null)
+    {
+        return $this->deleteActionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteActionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteActionResponse';
+        $request = $this->deleteActionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteActionRequest($body)
+    {
+        $resourcePath = '/DeleteAction/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteApiKey($body = null)
     {
         list($response) = $this->deleteApiKeyWithHttpInfo($body);
@@ -2113,6 +4778,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteDepartment($body = null)
+    {
+        list($response) = $this->deleteDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteDepartmentResponse';
+        $request = $this->deleteDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteDepartmentAsync($body = null)
+    {
+        return $this->deleteDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteDepartmentResponse';
+        $request = $this->deleteDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteDepartmentRequest($body)
+    {
+        $resourcePath = '/DeleteDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteEmailService($body = null)
+    {
+        list($response) = $this->deleteEmailServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteEmailServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteEmailServiceResponse';
+        $request = $this->deleteEmailServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteEmailServiceAsync($body = null)
+    {
+        return $this->deleteEmailServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteEmailServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteEmailServiceResponse';
+        $request = $this->deleteEmailServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteEmailServiceRequest($body)
+    {
+        $resourcePath = '/DeleteEmailService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteExternalProvider($body = null)
+    {
+        list($response) = $this->deleteExternalProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteExternalProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteExternalProviderResponse';
+        $request = $this->deleteExternalProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteExternalProviderAsync($body = null)
+    {
+        return $this->deleteExternalProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteExternalProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteExternalProviderResponse';
+        $request = $this->deleteExternalProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteExternalProviderRequest($body)
+    {
+        $resourcePath = '/DeleteExternalProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteFaasService($body = null)
     {
         list($response) = $this->deleteFaasServiceWithHttpInfo($body);
@@ -2175,6 +5026,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteGroup($body = null)
+    {
+        list($response) = $this->deleteGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteGroupResponse';
+        $request = $this->deleteGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteGroupAsync($body = null)
+    {
+        return $this->deleteGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteGroupResponse';
+        $request = $this->deleteGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteGroupRequest($body)
+    {
+        $resourcePath = '/DeleteGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteIdentityProvider($body = null)
     {
         list($response) = $this->deleteIdentityProviderWithHttpInfo($body);
@@ -2209,6 +5122,68 @@ class IDApi
     protected function deleteIdentityProviderRequest($body)
     {
         $resourcePath = '/DeleteIdentityProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteIdentityProviderLDAPADAgent($body = null)
+    {
+        list($response) = $this->deleteIdentityProviderLDAPADAgentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteIdentityProviderLDAPADAgentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderLDAPADAgentResponse';
+        $request = $this->deleteIdentityProviderLDAPADAgentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteIdentityProviderLDAPADAgentAsync($body = null)
+    {
+        return $this->deleteIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderLDAPADAgentResponse';
+        $request = $this->deleteIdentityProviderLDAPADAgentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteIdentityProviderLDAPADAgentRequest($body)
+    {
+        $resourcePath = '/DeleteIdentityProviderLDAPADAgent/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2423,6 +5398,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->deleteIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderTokenExchangeResponse';
+        $request = $this->deleteIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->deleteIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderTokenExchangeResponse';
+        $request = $this->deleteIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/DeleteIdentityProviderTokenExchange/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteIdentityProviderWeCom($body = null)
+    {
+        list($response) = $this->deleteIdentityProviderWeComWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteIdentityProviderWeComWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderWeComResponse';
+        $request = $this->deleteIdentityProviderWeComRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteIdentityProviderWeComAsync($body = null)
+    {
+        return $this->deleteIdentityProviderWeComAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteIdentityProviderWeComAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteIdentityProviderWeComResponse';
+        $request = $this->deleteIdentityProviderWeComRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteIdentityProviderWeComRequest($body)
+    {
+        $resourcePath = '/DeleteIdentityProviderWeCom/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteInboundAuthConfig($body = null)
     {
         list($response) = $this->deleteInboundAuthConfigWithHttpInfo($body);
@@ -2609,6 +5708,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteOutboundEgressIP($body = null)
+    {
+        list($response) = $this->deleteOutboundEgressIPWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteOutboundEgressIPWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteOutboundEgressIPResponse';
+        $request = $this->deleteOutboundEgressIPRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteOutboundEgressIPAsync($body = null)
+    {
+        return $this->deleteOutboundEgressIPAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteOutboundEgressIPAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteOutboundEgressIPResponse';
+        $request = $this->deleteOutboundEgressIPRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteOutboundEgressIPRequest($body)
+    {
+        $resourcePath = '/DeleteOutboundEgressIP/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePermissionPoint($body = null)
+    {
+        list($response) = $this->deletePermissionPointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePermissionPointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeletePermissionPointResponse';
+        $request = $this->deletePermissionPointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePermissionPointAsync($body = null)
+    {
+        return $this->deletePermissionPointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePermissionPointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeletePermissionPointResponse';
+        $request = $this->deletePermissionPointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePermissionPointRequest($body)
+    {
+        $resourcePath = '/DeletePermissionPoint/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deletePolicy($body = null)
     {
         list($response) = $this->deletePolicyWithHttpInfo($body);
@@ -2643,6 +5866,130 @@ class IDApi
     protected function deletePolicyRequest($body)
     {
         $resourcePath = '/DeletePolicy/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteResource($body = null)
+    {
+        list($response) = $this->deleteResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteResourceResponse';
+        $request = $this->deleteResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteResourceAsync($body = null)
+    {
+        return $this->deleteResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteResourceResponse';
+        $request = $this->deleteResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteResourceRequest($body)
+    {
+        $resourcePath = '/DeleteResource/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteRoleCredentialProvider($body = null)
+    {
+        list($response) = $this->deleteRoleCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRoleCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteRoleCredentialProviderResponse';
+        $request = $this->deleteRoleCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRoleCredentialProviderAsync($body = null)
+    {
+        return $this->deleteRoleCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRoleCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteRoleCredentialProviderResponse';
+        $request = $this->deleteRoleCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRoleCredentialProviderRequest($body)
+    {
+        $resourcePath = '/DeleteRoleCredentialProvider/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2733,6 +6080,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteSCIMToken($body = null)
+    {
+        list($response) = $this->deleteSCIMTokenWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteSCIMTokenWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteSCIMTokenResponse';
+        $request = $this->deleteSCIMTokenRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteSCIMTokenAsync($body = null)
+    {
+        return $this->deleteSCIMTokenAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteSCIMTokenAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteSCIMTokenResponse';
+        $request = $this->deleteSCIMTokenRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteSCIMTokenRequest($body)
+    {
+        $resourcePath = '/DeleteSCIMToken/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteService($body = null)
     {
         list($response) = $this->deleteServiceWithHttpInfo($body);
@@ -2767,6 +6176,130 @@ class IDApi
     protected function deleteServiceRequest($body)
     {
         $resourcePath = '/DeleteService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteTrustAnchor($body = null)
+    {
+        list($response) = $this->deleteTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteTrustAnchorResponse';
+        $request = $this->deleteTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteTrustAnchorAsync($body = null)
+    {
+        return $this->deleteTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteTrustAnchorResponse';
+        $request = $this->deleteTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteTrustAnchorRequest($body)
+    {
+        $resourcePath = '/DeleteTrustAnchor/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteUserCredential($body = null)
+    {
+        list($response) = $this->deleteUserCredentialWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteUserCredentialWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserCredentialResponse';
+        $request = $this->deleteUserCredentialRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteUserCredentialAsync($body = null)
+    {
+        return $this->deleteUserCredentialAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteUserCredentialAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserCredentialResponse';
+        $request = $this->deleteUserCredentialRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteUserCredentialRequest($body)
+    {
+        $resourcePath = '/DeleteUserCredential/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2891,6 +6424,130 @@ class IDApi
     protected function deleteUserPoolClientRequest($body)
     {
         $resourcePath = '/DeleteUserPoolClient/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteUserPoolCustomAttribute($body = null)
+    {
+        list($response) = $this->deleteUserPoolCustomAttributeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteUserPoolCustomAttributeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserPoolCustomAttributeResponse';
+        $request = $this->deleteUserPoolCustomAttributeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteUserPoolCustomAttributeAsync($body = null)
+    {
+        return $this->deleteUserPoolCustomAttributeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteUserPoolCustomAttributeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserPoolCustomAttributeResponse';
+        $request = $this->deleteUserPoolCustomAttributeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteUserPoolCustomAttributeRequest($body)
+    {
+        $resourcePath = '/DeleteUserPoolCustomAttribute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteUserPoolDomain($body = null)
+    {
+        list($response) = $this->deleteUserPoolDomainWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteUserPoolDomainWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserPoolDomainResponse';
+        $request = $this->deleteUserPoolDomainRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteUserPoolDomainAsync($body = null)
+    {
+        return $this->deleteUserPoolDomainAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteUserPoolDomainAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteUserPoolDomainResponse';
+        $request = $this->deleteUserPoolDomainRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteUserPoolDomainRequest($body)
+    {
+        $resourcePath = '/DeleteUserPoolDomain/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3353,6 +7010,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function disableIdentityProviderForUser($body = null)
+    {
+        list($response) = $this->disableIdentityProviderForUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableIdentityProviderForUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DisableIdentityProviderForUserResponse';
+        $request = $this->disableIdentityProviderForUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableIdentityProviderForUserAsync($body = null)
+    {
+        return $this->disableIdentityProviderForUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableIdentityProviderForUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DisableIdentityProviderForUserResponse';
+        $request = $this->disableIdentityProviderForUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableIdentityProviderForUserRequest($body)
+    {
+        $resourcePath = '/DisableIdentityProviderForUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function disableRoute($body = null)
     {
         list($response) = $this->disableRouteWithHttpInfo($body);
@@ -3387,6 +7106,68 @@ class IDApi
     protected function disableRouteRequest($body)
     {
         $resourcePath = '/DisableRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAction($body = null)
+    {
+        list($response) = $this->getActionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getActionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetActionResponse';
+        $request = $this->getActionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getActionAsync($body = null)
+    {
+        return $this->getActionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getActionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetActionResponse';
+        $request = $this->getActionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getActionRequest($body)
+    {
+        $resourcePath = '/GetAction/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3477,6 +7258,316 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getDepartment($body = null)
+    {
+        list($response) = $this->getDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentResponse';
+        $request = $this->getDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDepartmentAsync($body = null)
+    {
+        return $this->getDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentResponse';
+        $request = $this->getDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDepartmentRequest($body)
+    {
+        $resourcePath = '/GetDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDepartmentPath($body = null)
+    {
+        list($response) = $this->getDepartmentPathWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDepartmentPathWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentPathResponse';
+        $request = $this->getDepartmentPathRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDepartmentPathAsync($body = null)
+    {
+        return $this->getDepartmentPathAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDepartmentPathAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentPathResponse';
+        $request = $this->getDepartmentPathRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDepartmentPathRequest($body)
+    {
+        $resourcePath = '/GetDepartmentPath/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDepartmentSyncJob($body = null)
+    {
+        list($response) = $this->getDepartmentSyncJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDepartmentSyncJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentSyncJobResponse';
+        $request = $this->getDepartmentSyncJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDepartmentSyncJobAsync($body = null)
+    {
+        return $this->getDepartmentSyncJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDepartmentSyncJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentSyncJobResponse';
+        $request = $this->getDepartmentSyncJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDepartmentSyncJobRequest($body)
+    {
+        $resourcePath = '/GetDepartmentSyncJob/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDepartmentSyncSession($body = null)
+    {
+        list($response) = $this->getDepartmentSyncSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDepartmentSyncSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentSyncSessionResponse';
+        $request = $this->getDepartmentSyncSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDepartmentSyncSessionAsync($body = null)
+    {
+        return $this->getDepartmentSyncSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDepartmentSyncSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentSyncSessionResponse';
+        $request = $this->getDepartmentSyncSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDepartmentSyncSessionRequest($body)
+    {
+        $resourcePath = '/GetDepartmentSyncSession/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDepartmentTree($body = null)
+    {
+        list($response) = $this->getDepartmentTreeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDepartmentTreeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentTreeResponse';
+        $request = $this->getDepartmentTreeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDepartmentTreeAsync($body = null)
+    {
+        return $this->getDepartmentTreeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDepartmentTreeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDepartmentTreeResponse';
+        $request = $this->getDepartmentTreeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDepartmentTreeRequest($body)
+    {
+        $resourcePath = '/GetDepartmentTree/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getDocumentStatus($body = null)
     {
         list($response) = $this->getDocumentStatusWithHttpInfo($body);
@@ -3539,6 +7630,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getEmailService($body = null)
+    {
+        list($response) = $this->getEmailServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getEmailServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetEmailServiceResponse';
+        $request = $this->getEmailServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getEmailServiceAsync($body = null)
+    {
+        return $this->getEmailServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getEmailServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetEmailServiceResponse';
+        $request = $this->getEmailServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getEmailServiceRequest($body)
+    {
+        $resourcePath = '/GetEmailService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getExternalProvider($body = null)
+    {
+        list($response) = $this->getExternalProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getExternalProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetExternalProviderResponse';
+        $request = $this->getExternalProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getExternalProviderAsync($body = null)
+    {
+        return $this->getExternalProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getExternalProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetExternalProviderResponse';
+        $request = $this->getExternalProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getExternalProviderRequest($body)
+    {
+        $resourcePath = '/GetExternalProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getFaasService($body = null)
     {
         list($response) = $this->getFaasServiceWithHttpInfo($body);
@@ -3573,6 +7788,254 @@ class IDApi
     protected function getFaasServiceRequest($body)
     {
         $resourcePath = '/GetFaasService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getGroup($body = null)
+    {
+        list($response) = $this->getGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetGroupResponse';
+        $request = $this->getGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getGroupAsync($body = null)
+    {
+        return $this->getGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetGroupResponse';
+        $request = $this->getGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getGroupRequest($body)
+    {
+        $resourcePath = '/GetGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getIamRoleAttachment($body = null)
+    {
+        list($response) = $this->getIamRoleAttachmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIamRoleAttachmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIamRoleAttachmentResponse';
+        $request = $this->getIamRoleAttachmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIamRoleAttachmentAsync($body = null)
+    {
+        return $this->getIamRoleAttachmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIamRoleAttachmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIamRoleAttachmentResponse';
+        $request = $this->getIamRoleAttachmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIamRoleAttachmentRequest($body)
+    {
+        $resourcePath = '/GetIamRoleAttachment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getIdentityProviderFeishuScopes($body = null)
+    {
+        list($response) = $this->getIdentityProviderFeishuScopesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIdentityProviderFeishuScopesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderFeishuScopesResponse';
+        $request = $this->getIdentityProviderFeishuScopesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIdentityProviderFeishuScopesAsync($body = null)
+    {
+        return $this->getIdentityProviderFeishuScopesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIdentityProviderFeishuScopesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderFeishuScopesResponse';
+        $request = $this->getIdentityProviderFeishuScopesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIdentityProviderFeishuScopesRequest($body)
+    {
+        $resourcePath = '/GetIdentityProviderFeishuScopes/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getIdentityProviderLDAPADAgent($body = null)
+    {
+        list($response) = $this->getIdentityProviderLDAPADAgentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIdentityProviderLDAPADAgentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderLDAPADAgentResponse';
+        $request = $this->getIdentityProviderLDAPADAgentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIdentityProviderLDAPADAgentAsync($body = null)
+    {
+        return $this->getIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderLDAPADAgentResponse';
+        $request = $this->getIdentityProviderLDAPADAgentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIdentityProviderLDAPADAgentRequest($body)
+    {
+        $resourcePath = '/GetIdentityProviderLDAPADAgent/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3787,6 +8250,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->getIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderTokenExchangeResponse';
+        $request = $this->getIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->getIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderTokenExchangeResponse';
+        $request = $this->getIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/GetIdentityProviderTokenExchange/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getIdentityProviderWeCom($body = null)
+    {
+        list($response) = $this->getIdentityProviderWeComWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIdentityProviderWeComWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderWeComResponse';
+        $request = $this->getIdentityProviderWeComRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIdentityProviderWeComAsync($body = null)
+    {
+        return $this->getIdentityProviderWeComAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIdentityProviderWeComAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetIdentityProviderWeComResponse';
+        $request = $this->getIdentityProviderWeComRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIdentityProviderWeComRequest($body)
+    {
+        $resourcePath = '/GetIdentityProviderWeCom/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getInboundAuthConfig($body = null)
     {
         list($response) = $this->getInboundAuthConfigWithHttpInfo($body);
@@ -3973,6 +8560,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getOutboundEgressIP($body = null)
+    {
+        list($response) = $this->getOutboundEgressIPWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getOutboundEgressIPWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetOutboundEgressIPResponse';
+        $request = $this->getOutboundEgressIPRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getOutboundEgressIPAsync($body = null)
+    {
+        return $this->getOutboundEgressIPAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getOutboundEgressIPAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetOutboundEgressIPResponse';
+        $request = $this->getOutboundEgressIPRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getOutboundEgressIPRequest($body)
+    {
+        $resourcePath = '/GetOutboundEgressIP/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getPermissionPoint($body = null)
+    {
+        list($response) = $this->getPermissionPointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPermissionPointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetPermissionPointResponse';
+        $request = $this->getPermissionPointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPermissionPointAsync($body = null)
+    {
+        return $this->getPermissionPointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPermissionPointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetPermissionPointResponse';
+        $request = $this->getPermissionPointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPermissionPointRequest($body)
+    {
+        $resourcePath = '/GetPermissionPoint/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getPolicy($body = null)
     {
         list($response) = $this->getPolicyWithHttpInfo($body);
@@ -4007,6 +8718,68 @@ class IDApi
     protected function getPolicyRequest($body)
     {
         $resourcePath = '/GetPolicy/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getResource($body = null)
+    {
+        list($response) = $this->getResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetResourceResponse';
+        $request = $this->getResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getResourceAsync($body = null)
+    {
+        return $this->getResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetResourceResponse';
+        $request = $this->getResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getResourceRequest($body)
+    {
+        $resourcePath = '/GetResource/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4159,6 +8932,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getRoleCredentialProvider($body = null)
+    {
+        list($response) = $this->getRoleCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getRoleCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRoleCredentialProviderResponse';
+        $request = $this->getRoleCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getRoleCredentialProviderAsync($body = null)
+    {
+        return $this->getRoleCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getRoleCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRoleCredentialProviderResponse';
+        $request = $this->getRoleCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getRoleCredentialProviderRequest($body)
+    {
+        $resourcePath = '/GetRoleCredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getRoleCredentials($body = null)
+    {
+        list($response) = $this->getRoleCredentialsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getRoleCredentialsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRoleCredentialsResponse';
+        $request = $this->getRoleCredentialsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getRoleCredentialsAsync($body = null)
+    {
+        return $this->getRoleCredentialsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getRoleCredentialsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRoleCredentialsResponse';
+        $request = $this->getRoleCredentialsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getRoleCredentialsRequest($body)
+    {
+        $resourcePath = '/GetRoleCredentials/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getRoute($body = null)
     {
         list($response) = $this->getRouteWithHttpInfo($body);
@@ -4193,6 +9090,68 @@ class IDApi
     protected function getRouteRequest($body)
     {
         $resourcePath = '/GetRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getSCIMProvisioningDefaults($body = null)
+    {
+        list($response) = $this->getSCIMProvisioningDefaultsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getSCIMProvisioningDefaultsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetSCIMProvisioningDefaultsResponse';
+        $request = $this->getSCIMProvisioningDefaultsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getSCIMProvisioningDefaultsAsync($body = null)
+    {
+        return $this->getSCIMProvisioningDefaultsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getSCIMProvisioningDefaultsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetSCIMProvisioningDefaultsResponse';
+        $request = $this->getSCIMProvisioningDefaultsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getSCIMProvisioningDefaultsRequest($body)
+    {
+        $resourcePath = '/GetSCIMProvisioningDefaults/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4345,6 +9304,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getTask($body = null)
+    {
+        list($response) = $this->getTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskResponse';
+        $request = $this->getTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getTaskAsync($body = null)
+    {
+        return $this->getTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskResponse';
+        $request = $this->getTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getTaskRequest($body)
+    {
+        $resourcePath = '/GetTask/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getTaskStateRetrieveAppVisibleUsers($body = null)
+    {
+        list($response) = $this->getTaskStateRetrieveAppVisibleUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getTaskStateRetrieveAppVisibleUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskStateRetrieveAppVisibleUsersResponse';
+        $request = $this->getTaskStateRetrieveAppVisibleUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getTaskStateRetrieveAppVisibleUsersAsync($body = null)
+    {
+        return $this->getTaskStateRetrieveAppVisibleUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getTaskStateRetrieveAppVisibleUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskStateRetrieveAppVisibleUsersResponse';
+        $request = $this->getTaskStateRetrieveAppVisibleUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getTaskStateRetrieveAppVisibleUsersRequest($body)
+    {
+        $resourcePath = '/GetTaskStateRetrieveAppVisibleUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getTaskStateUserSync($body = null)
+    {
+        list($response) = $this->getTaskStateUserSyncWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getTaskStateUserSyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskStateUserSyncResponse';
+        $request = $this->getTaskStateUserSyncRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getTaskStateUserSyncAsync($body = null)
+    {
+        return $this->getTaskStateUserSyncAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getTaskStateUserSyncAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTaskStateUserSyncResponse';
+        $request = $this->getTaskStateUserSyncRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getTaskStateUserSyncRequest($body)
+    {
+        $resourcePath = '/GetTaskStateUserSync/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getTenantServiceStatus($body = null)
     {
         list($response) = $this->getTenantServiceStatusWithHttpInfo($body);
@@ -4379,6 +9524,68 @@ class IDApi
     protected function getTenantServiceStatusRequest($body)
     {
         $resourcePath = '/GetTenantServiceStatus/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getTrustAnchor($body = null)
+    {
+        list($response) = $this->getTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTrustAnchorResponse';
+        $request = $this->getTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getTrustAnchorAsync($body = null)
+    {
+        return $this->getTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetTrustAnchorResponse';
+        $request = $this->getTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getTrustAnchorRequest($body)
+    {
+        $resourcePath = '/GetTrustAnchor/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4531,6 +9738,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getUserCredential($body = null)
+    {
+        list($response) = $this->getUserCredentialWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserCredentialWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserCredentialResponse';
+        $request = $this->getUserCredentialRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserCredentialAsync($body = null)
+    {
+        return $this->getUserCredentialAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserCredentialAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserCredentialResponse';
+        $request = $this->getUserCredentialRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserCredentialRequest($body)
+    {
+        $resourcePath = '/GetUserCredential/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getUserGroupsCsvTemplate($body = null)
+    {
+        list($response) = $this->getUserGroupsCsvTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserGroupsCsvTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserGroupsCsvTemplateResponse';
+        $request = $this->getUserGroupsCsvTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserGroupsCsvTemplateAsync($body = null)
+    {
+        return $this->getUserGroupsCsvTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserGroupsCsvTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserGroupsCsvTemplateResponse';
+        $request = $this->getUserGroupsCsvTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserGroupsCsvTemplateRequest($body)
+    {
+        $resourcePath = '/GetUserGroupsCsvTemplate/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getUserPool($body = null)
     {
         list($response) = $this->getUserPoolWithHttpInfo($body);
@@ -4627,6 +9958,130 @@ class IDApi
     protected function getUserPoolClientRequest($body)
     {
         $resourcePath = '/GetUserPoolClient/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getUserPoolDomain($body = null)
+    {
+        list($response) = $this->getUserPoolDomainWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserPoolDomainWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolDomainResponse';
+        $request = $this->getUserPoolDomainRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserPoolDomainAsync($body = null)
+    {
+        return $this->getUserPoolDomainAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserPoolDomainAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolDomainResponse';
+        $request = $this->getUserPoolDomainRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserPoolDomainRequest($body)
+    {
+        $resourcePath = '/GetUserPoolDomain/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getUserPoolIamCredentialsServiceConfig($body = null)
+    {
+        list($response) = $this->getUserPoolIamCredentialsServiceConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserPoolIamCredentialsServiceConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolIamCredentialsServiceConfigResponse';
+        $request = $this->getUserPoolIamCredentialsServiceConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserPoolIamCredentialsServiceConfigAsync($body = null)
+    {
+        return $this->getUserPoolIamCredentialsServiceConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserPoolIamCredentialsServiceConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolIamCredentialsServiceConfigResponse';
+        $request = $this->getUserPoolIamCredentialsServiceConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserPoolIamCredentialsServiceConfigRequest($body)
+    {
+        $resourcePath = '/GetUserPoolIamCredentialsServiceConfig/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5089,6 +10544,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function linkIdentityProviderToUser($body = null)
+    {
+        list($response) = $this->linkIdentityProviderToUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function linkIdentityProviderToUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\LinkIdentityProviderToUserResponse';
+        $request = $this->linkIdentityProviderToUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function linkIdentityProviderToUserAsync($body = null)
+    {
+        return $this->linkIdentityProviderToUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function linkIdentityProviderToUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\LinkIdentityProviderToUserResponse';
+        $request = $this->linkIdentityProviderToUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function linkIdentityProviderToUserRequest($body)
+    {
+        $resourcePath = '/LinkIdentityProviderToUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listActions($body = null)
+    {
+        list($response) = $this->listActionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listActionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListActionsResponse';
+        $request = $this->listActionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listActionsAsync($body = null)
+    {
+        return $this->listActionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listActionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListActionsResponse';
+        $request = $this->listActionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listActionsRequest($body)
+    {
+        $resourcePath = '/ListActions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAllIdentityProviders($body = null)
+    {
+        list($response) = $this->listAllIdentityProvidersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAllIdentityProvidersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListAllIdentityProvidersResponse';
+        $request = $this->listAllIdentityProvidersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAllIdentityProvidersAsync($body = null)
+    {
+        return $this->listAllIdentityProvidersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAllIdentityProvidersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListAllIdentityProvidersResponse';
+        $request = $this->listAllIdentityProvidersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAllIdentityProvidersRequest($body)
+    {
+        $resourcePath = '/ListAllIdentityProviders/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listApiKeyCredentialProviders($body = null)
     {
         list($response) = $this->listApiKeyCredentialProvidersWithHttpInfo($body);
@@ -5123,6 +10764,130 @@ class IDApi
     protected function listApiKeyCredentialProvidersRequest($body)
     {
         $resourcePath = '/ListApiKeyCredentialProviders/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listCommitAppVisibleUsers($body = null)
+    {
+        list($response) = $this->listCommitAppVisibleUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listCommitAppVisibleUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListCommitAppVisibleUsersResponse';
+        $request = $this->listCommitAppVisibleUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listCommitAppVisibleUsersAsync($body = null)
+    {
+        return $this->listCommitAppVisibleUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listCommitAppVisibleUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListCommitAppVisibleUsersResponse';
+        $request = $this->listCommitAppVisibleUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listCommitAppVisibleUsersRequest($body)
+    {
+        $resourcePath = '/ListCommitAppVisibleUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listCredentialProviderBindings($body = null)
+    {
+        list($response) = $this->listCredentialProviderBindingsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listCredentialProviderBindingsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListCredentialProviderBindingsResponse';
+        $request = $this->listCredentialProviderBindingsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listCredentialProviderBindingsAsync($body = null)
+    {
+        return $this->listCredentialProviderBindingsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listCredentialProviderBindingsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListCredentialProviderBindingsResponse';
+        $request = $this->listCredentialProviderBindingsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listCredentialProviderBindingsRequest($body)
+    {
+        $resourcePath = '/ListCredentialProviderBindings/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5213,6 +10978,254 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listDepartmentMembers($body = null)
+    {
+        list($response) = $this->listDepartmentMembersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDepartmentMembersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentMembersResponse';
+        $request = $this->listDepartmentMembersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDepartmentMembersAsync($body = null)
+    {
+        return $this->listDepartmentMembersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDepartmentMembersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentMembersResponse';
+        $request = $this->listDepartmentMembersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDepartmentMembersRequest($body)
+    {
+        $resourcePath = '/ListDepartmentMembers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDepartmentSyncJobs($body = null)
+    {
+        list($response) = $this->listDepartmentSyncJobsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDepartmentSyncJobsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentSyncJobsResponse';
+        $request = $this->listDepartmentSyncJobsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDepartmentSyncJobsAsync($body = null)
+    {
+        return $this->listDepartmentSyncJobsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDepartmentSyncJobsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentSyncJobsResponse';
+        $request = $this->listDepartmentSyncJobsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDepartmentSyncJobsRequest($body)
+    {
+        $resourcePath = '/ListDepartmentSyncJobs/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDepartments($body = null)
+    {
+        list($response) = $this->listDepartmentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDepartmentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentsResponse';
+        $request = $this->listDepartmentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDepartmentsAsync($body = null)
+    {
+        return $this->listDepartmentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDepartmentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentsResponse';
+        $request = $this->listDepartmentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDepartmentsRequest($body)
+    {
+        $resourcePath = '/ListDepartments/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDepartmentsForUser($body = null)
+    {
+        list($response) = $this->listDepartmentsForUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDepartmentsForUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentsForUserResponse';
+        $request = $this->listDepartmentsForUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDepartmentsForUserAsync($body = null)
+    {
+        return $this->listDepartmentsForUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDepartmentsForUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListDepartmentsForUserResponse';
+        $request = $this->listDepartmentsForUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDepartmentsForUserRequest($body)
+    {
+        $resourcePath = '/ListDepartmentsForUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listFaasServices($body = null)
     {
         list($response) = $this->listFaasServicesWithHttpInfo($body);
@@ -5247,6 +11260,254 @@ class IDApi
     protected function listFaasServicesRequest($body)
     {
         $resourcePath = '/ListFaasServices/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listGroups($body = null)
+    {
+        list($response) = $this->listGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsResponse';
+        $request = $this->listGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listGroupsAsync($body = null)
+    {
+        return $this->listGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsResponse';
+        $request = $this->listGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listGroupsRequest($body)
+    {
+        $resourcePath = '/ListGroups/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listGroupsForUser($body = null)
+    {
+        list($response) = $this->listGroupsForUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listGroupsForUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsForUserResponse';
+        $request = $this->listGroupsForUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listGroupsForUserAsync($body = null)
+    {
+        return $this->listGroupsForUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listGroupsForUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsForUserResponse';
+        $request = $this->listGroupsForUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listGroupsForUserRequest($body)
+    {
+        $resourcePath = '/ListGroupsForUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listGroupsForUsers($body = null)
+    {
+        list($response) = $this->listGroupsForUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listGroupsForUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsForUsersResponse';
+        $request = $this->listGroupsForUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listGroupsForUsersAsync($body = null)
+    {
+        return $this->listGroupsForUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listGroupsForUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListGroupsForUsersResponse';
+        $request = $this->listGroupsForUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listGroupsForUsersRequest($body)
+    {
+        $resourcePath = '/ListGroupsForUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listIdentityProviderLDAPADAgent($body = null)
+    {
+        list($response) = $this->listIdentityProviderLDAPADAgentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listIdentityProviderLDAPADAgentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProviderLDAPADAgentResponse';
+        $request = $this->listIdentityProviderLDAPADAgentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listIdentityProviderLDAPADAgentAsync($body = null)
+    {
+        return $this->listIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listIdentityProviderLDAPADAgentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProviderLDAPADAgentResponse';
+        $request = $this->listIdentityProviderLDAPADAgentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listIdentityProviderLDAPADAgentRequest($body)
+    {
+        $resourcePath = '/ListIdentityProviderLDAPADAgent/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5523,6 +11784,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listIdentityProvidersTokenExchange($body = null)
+    {
+        list($response) = $this->listIdentityProvidersTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listIdentityProvidersTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProvidersTokenExchangeResponse';
+        $request = $this->listIdentityProvidersTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listIdentityProvidersTokenExchangeAsync($body = null)
+    {
+        return $this->listIdentityProvidersTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listIdentityProvidersTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProvidersTokenExchangeResponse';
+        $request = $this->listIdentityProvidersTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listIdentityProvidersTokenExchangeRequest($body)
+    {
+        $resourcePath = '/ListIdentityProvidersTokenExchange/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listIdentityProvidersWeCom($body = null)
+    {
+        list($response) = $this->listIdentityProvidersWeComWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listIdentityProvidersWeComWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProvidersWeComResponse';
+        $request = $this->listIdentityProvidersWeComRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listIdentityProvidersWeComAsync($body = null)
+    {
+        return $this->listIdentityProvidersWeComAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listIdentityProvidersWeComAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListIdentityProvidersWeComResponse';
+        $request = $this->listIdentityProvidersWeComRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listIdentityProvidersWeComRequest($body)
+    {
+        $resourcePath = '/ListIdentityProvidersWeCom/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listInboundAuthConfigs($body = null)
     {
         list($response) = $this->listInboundAuthConfigsWithHttpInfo($body);
@@ -5557,6 +11942,68 @@ class IDApi
     protected function listInboundAuthConfigsRequest($body)
     {
         $resourcePath = '/ListInboundAuthConfigs/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listMergeUserSyncResultUsers($body = null)
+    {
+        list($response) = $this->listMergeUserSyncResultUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listMergeUserSyncResultUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListMergeUserSyncResultUsersResponse';
+        $request = $this->listMergeUserSyncResultUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listMergeUserSyncResultUsersAsync($body = null)
+    {
+        return $this->listMergeUserSyncResultUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listMergeUserSyncResultUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListMergeUserSyncResultUsersResponse';
+        $request = $this->listMergeUserSyncResultUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listMergeUserSyncResultUsersRequest($body)
+    {
+        $resourcePath = '/ListMergeUserSyncResultUsers/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5709,6 +12156,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listOutboundEgressIPs($body = null)
+    {
+        list($response) = $this->listOutboundEgressIPsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listOutboundEgressIPsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListOutboundEgressIPsResponse';
+        $request = $this->listOutboundEgressIPsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listOutboundEgressIPsAsync($body = null)
+    {
+        return $this->listOutboundEgressIPsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listOutboundEgressIPsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListOutboundEgressIPsResponse';
+        $request = $this->listOutboundEgressIPsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listOutboundEgressIPsRequest($body)
+    {
+        $resourcePath = '/ListOutboundEgressIPs/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listPermissionPoints($body = null)
+    {
+        list($response) = $this->listPermissionPointsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listPermissionPointsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListPermissionPointsResponse';
+        $request = $this->listPermissionPointsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listPermissionPointsAsync($body = null)
+    {
+        return $this->listPermissionPointsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listPermissionPointsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListPermissionPointsResponse';
+        $request = $this->listPermissionPointsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listPermissionPointsRequest($body)
+    {
+        $resourcePath = '/ListPermissionPoints/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listPolicies($body = null)
     {
         list($response) = $this->listPoliciesWithHttpInfo($body);
@@ -5771,6 +12342,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listResources($body = null)
+    {
+        list($response) = $this->listResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListResourcesResponse';
+        $request = $this->listResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listResourcesAsync($body = null)
+    {
+        return $this->listResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListResourcesResponse';
+        $request = $this->listResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listResourcesRequest($body)
+    {
+        $resourcePath = '/ListResources/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRetrieveUserSyncUsers($body = null)
+    {
+        list($response) = $this->listRetrieveUserSyncUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRetrieveUserSyncUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRetrieveUserSyncUsersResponse';
+        $request = $this->listRetrieveUserSyncUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRetrieveUserSyncUsersAsync($body = null)
+    {
+        return $this->listRetrieveUserSyncUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRetrieveUserSyncUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRetrieveUserSyncUsersResponse';
+        $request = $this->listRetrieveUserSyncUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRetrieveUserSyncUsersRequest($body)
+    {
+        $resourcePath = '/ListRetrieveUserSyncUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRoleCredentialProviders($body = null)
+    {
+        list($response) = $this->listRoleCredentialProvidersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRoleCredentialProvidersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRoleCredentialProvidersResponse';
+        $request = $this->listRoleCredentialProvidersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRoleCredentialProvidersAsync($body = null)
+    {
+        return $this->listRoleCredentialProvidersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRoleCredentialProvidersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRoleCredentialProvidersResponse';
+        $request = $this->listRoleCredentialProvidersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRoleCredentialProvidersRequest($body)
+    {
+        $resourcePath = '/ListRoleCredentialProviders/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listRoutes($body = null)
     {
         list($response) = $this->listRoutesWithHttpInfo($body);
@@ -5805,6 +12562,68 @@ class IDApi
     protected function listRoutesRequest($body)
     {
         $resourcePath = '/ListRoutes/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSCIMTokens($body = null)
+    {
+        list($response) = $this->listSCIMTokensWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSCIMTokensWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListSCIMTokensResponse';
+        $request = $this->listSCIMTokensRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSCIMTokensAsync($body = null)
+    {
+        return $this->listSCIMTokensAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSCIMTokensAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListSCIMTokensResponse';
+        $request = $this->listSCIMTokensRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSCIMTokensRequest($body)
+    {
+        $resourcePath = '/ListSCIMTokens/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5957,6 +12776,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listTasks($body = null)
+    {
+        list($response) = $this->listTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListTasksResponse';
+        $request = $this->listTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listTasksAsync($body = null)
+    {
+        return $this->listTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListTasksResponse';
+        $request = $this->listTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listTasksRequest($body)
+    {
+        $resourcePath = '/ListTasks/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listTrustAnchors($body = null)
+    {
+        list($response) = $this->listTrustAnchorsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listTrustAnchorsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListTrustAnchorsResponse';
+        $request = $this->listTrustAnchorsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listTrustAnchorsAsync($body = null)
+    {
+        return $this->listTrustAnchorsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listTrustAnchorsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListTrustAnchorsResponse';
+        $request = $this->listTrustAnchorsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listTrustAnchorsRequest($body)
+    {
+        $resourcePath = '/ListTrustAnchors/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listUserPoolClients($body = null)
     {
         list($response) = $this->listUserPoolClientsWithHttpInfo($body);
@@ -5991,6 +12934,130 @@ class IDApi
     protected function listUserPoolClientsRequest($body)
     {
         $resourcePath = '/ListUserPoolClients/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listUserPoolDomainOperations($body = null)
+    {
+        list($response) = $this->listUserPoolDomainOperationsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listUserPoolDomainOperationsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUserPoolDomainOperationsResponse';
+        $request = $this->listUserPoolDomainOperationsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listUserPoolDomainOperationsAsync($body = null)
+    {
+        return $this->listUserPoolDomainOperationsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listUserPoolDomainOperationsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUserPoolDomainOperationsResponse';
+        $request = $this->listUserPoolDomainOperationsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listUserPoolDomainOperationsRequest($body)
+    {
+        $resourcePath = '/ListUserPoolDomainOperations/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listUserPoolWellKnownEndpoints($body = null)
+    {
+        list($response) = $this->listUserPoolWellKnownEndpointsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listUserPoolWellKnownEndpointsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUserPoolWellKnownEndpointsResponse';
+        $request = $this->listUserPoolWellKnownEndpointsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listUserPoolWellKnownEndpointsAsync($body = null)
+    {
+        return $this->listUserPoolWellKnownEndpointsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listUserPoolWellKnownEndpointsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUserPoolWellKnownEndpointsResponse';
+        $request = $this->listUserPoolWellKnownEndpointsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listUserPoolWellKnownEndpointsRequest($body)
+    {
+        $resourcePath = '/ListUserPoolWellKnownEndpoints/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6143,6 +13210,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listUsersInDepartment($body = null)
+    {
+        list($response) = $this->listUsersInDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listUsersInDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUsersInDepartmentResponse';
+        $request = $this->listUsersInDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listUsersInDepartmentAsync($body = null)
+    {
+        return $this->listUsersInDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listUsersInDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUsersInDepartmentResponse';
+        $request = $this->listUsersInDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listUsersInDepartmentRequest($body)
+    {
+        $resourcePath = '/ListUsersInDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listUsersInGroup($body = null)
+    {
+        list($response) = $this->listUsersInGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listUsersInGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUsersInGroupResponse';
+        $request = $this->listUsersInGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listUsersInGroupAsync($body = null)
+    {
+        return $this->listUsersInGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listUsersInGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListUsersInGroupResponse';
+        $request = $this->listUsersInGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listUsersInGroupRequest($body)
+    {
+        $resourcePath = '/ListUsersInGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listWorkloadIdentities($body = null)
     {
         list($response) = $this->listWorkloadIdentitiesWithHttpInfo($body);
@@ -6267,6 +13458,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function modifyOutboundEgressIP($body = null)
+    {
+        list($response) = $this->modifyOutboundEgressIPWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyOutboundEgressIPWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ModifyOutboundEgressIPResponse';
+        $request = $this->modifyOutboundEgressIPRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyOutboundEgressIPAsync($body = null)
+    {
+        return $this->modifyOutboundEgressIPAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyOutboundEgressIPAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ModifyOutboundEgressIPResponse';
+        $request = $this->modifyOutboundEgressIPRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyOutboundEgressIPRequest($body)
+    {
+        $resourcePath = '/ModifyOutboundEgressIP/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function oauth2Callback($body = null)
     {
         list($response) = $this->oauth2CallbackWithHttpInfo($body);
@@ -6301,6 +13554,68 @@ class IDApi
     protected function oauth2CallbackRequest($body)
     {
         $resourcePath = '/Oauth2Callback/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function prepareIdentityProviderSSODebug($body = null)
+    {
+        list($response) = $this->prepareIdentityProviderSSODebugWithHttpInfo($body);
+        return $response;
+    }
+
+    public function prepareIdentityProviderSSODebugWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PrepareIdentityProviderSSODebugResponse';
+        $request = $this->prepareIdentityProviderSSODebugRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function prepareIdentityProviderSSODebugAsync($body = null)
+    {
+        return $this->prepareIdentityProviderSSODebugAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function prepareIdentityProviderSSODebugAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PrepareIdentityProviderSSODebugResponse';
+        $request = $this->prepareIdentityProviderSSODebugRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function prepareIdentityProviderSSODebugRequest($body)
+    {
+        $resourcePath = '/PrepareIdentityProviderSSODebug/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6515,6 +13830,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function removeUsersFromDepartment($body = null)
+    {
+        list($response) = $this->removeUsersFromDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function removeUsersFromDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveUsersFromDepartmentResponse';
+        $request = $this->removeUsersFromDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function removeUsersFromDepartmentAsync($body = null)
+    {
+        return $this->removeUsersFromDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function removeUsersFromDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveUsersFromDepartmentResponse';
+        $request = $this->removeUsersFromDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function removeUsersFromDepartmentRequest($body)
+    {
+        $resourcePath = '/RemoveUsersFromDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function removeUsersFromGroup($body = null)
+    {
+        list($response) = $this->removeUsersFromGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function removeUsersFromGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveUsersFromGroupResponse';
+        $request = $this->removeUsersFromGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function removeUsersFromGroupAsync($body = null)
+    {
+        return $this->removeUsersFromGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function removeUsersFromGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveUsersFromGroupResponse';
+        $request = $this->removeUsersFromGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function removeUsersFromGroupRequest($body)
+    {
+        $resourcePath = '/RemoveUsersFromGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function removeWorkloadMetaData($body = null)
+    {
+        list($response) = $this->removeWorkloadMetaDataWithHttpInfo($body);
+        return $response;
+    }
+
+    public function removeWorkloadMetaDataWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveWorkloadMetaDataResponse';
+        $request = $this->removeWorkloadMetaDataRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function removeWorkloadMetaDataAsync($body = null)
+    {
+        return $this->removeWorkloadMetaDataAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function removeWorkloadMetaDataAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\RemoveWorkloadMetaDataResponse';
+        $request = $this->removeWorkloadMetaDataRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function removeWorkloadMetaDataRequest($body)
+    {
+        $resourcePath = '/RemoveWorkloadMetaData/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function tagResources($body = null)
     {
         list($response) = $this->tagResourcesWithHttpInfo($body);
@@ -6549,6 +14050,130 @@ class IDApi
     protected function tagResourcesRequest($body)
     {
         $resourcePath = '/TagResources/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function unBindCredentialProvider($body = null)
+    {
+        list($response) = $this->unBindCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unBindCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UnBindCredentialProviderResponse';
+        $request = $this->unBindCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function unBindCredentialProviderAsync($body = null)
+    {
+        return $this->unBindCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unBindCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UnBindCredentialProviderResponse';
+        $request = $this->unBindCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function unBindCredentialProviderRequest($body)
+    {
+        $resourcePath = '/UnBindCredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function unBindWorkloadPoolTrustAnchor($body = null)
+    {
+        list($response) = $this->unBindWorkloadPoolTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unBindWorkloadPoolTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UnBindWorkloadPoolTrustAnchorResponse';
+        $request = $this->unBindWorkloadPoolTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function unBindWorkloadPoolTrustAnchorAsync($body = null)
+    {
+        return $this->unBindWorkloadPoolTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unBindWorkloadPoolTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UnBindWorkloadPoolTrustAnchorResponse';
+        $request = $this->unBindWorkloadPoolTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function unBindWorkloadPoolTrustAnchorRequest($body)
+    {
+        $resourcePath = '/UnBindWorkloadPoolTrustAnchor/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6639,6 +14264,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateAction($body = null)
+    {
+        list($response) = $this->updateActionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateActionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateActionResponse';
+        $request = $this->updateActionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateActionAsync($body = null)
+    {
+        return $this->updateActionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateActionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateActionResponse';
+        $request = $this->updateActionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateActionRequest($body)
+    {
+        $resourcePath = '/UpdateAction/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateApiKeyCredentialProvider($body = null)
     {
         list($response) = $this->updateApiKeyCredentialProviderWithHttpInfo($body);
@@ -6701,6 +14388,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateDepartment($body = null)
+    {
+        list($response) = $this->updateDepartmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateDepartmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateDepartmentResponse';
+        $request = $this->updateDepartmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateDepartmentAsync($body = null)
+    {
+        return $this->updateDepartmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateDepartmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateDepartmentResponse';
+        $request = $this->updateDepartmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateDepartmentRequest($body)
+    {
+        $resourcePath = '/UpdateDepartment/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateDepartmentMember($body = null)
+    {
+        list($response) = $this->updateDepartmentMemberWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateDepartmentMemberWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateDepartmentMemberResponse';
+        $request = $this->updateDepartmentMemberRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateDepartmentMemberAsync($body = null)
+    {
+        return $this->updateDepartmentMemberAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateDepartmentMemberAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateDepartmentMemberResponse';
+        $request = $this->updateDepartmentMemberRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateDepartmentMemberRequest($body)
+    {
+        $resourcePath = '/UpdateDepartmentMember/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateFaasService($body = null)
     {
         list($response) = $this->updateFaasServiceWithHttpInfo($body);
@@ -6735,6 +14546,192 @@ class IDApi
     protected function updateFaasServiceRequest($body)
     {
         $resourcePath = '/UpdateFaasService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateGroup($body = null)
+    {
+        list($response) = $this->updateGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateGroupResponse';
+        $request = $this->updateGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateGroupAsync($body = null)
+    {
+        return $this->updateGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateGroupResponse';
+        $request = $this->updateGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateGroupRequest($body)
+    {
+        $resourcePath = '/UpdateGroup/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateIamCredentialsServiceConfig($body = null)
+    {
+        list($response) = $this->updateIamCredentialsServiceConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIamCredentialsServiceConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIamCredentialsServiceConfigResponse';
+        $request = $this->updateIamCredentialsServiceConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIamCredentialsServiceConfigAsync($body = null)
+    {
+        return $this->updateIamCredentialsServiceConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIamCredentialsServiceConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIamCredentialsServiceConfigResponse';
+        $request = $this->updateIamCredentialsServiceConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIamCredentialsServiceConfigRequest($body)
+    {
+        $resourcePath = '/UpdateIamCredentialsServiceConfig/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateIamRoleAttachment($body = null)
+    {
+        list($response) = $this->updateIamRoleAttachmentWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIamRoleAttachmentWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIamRoleAttachmentResponse';
+        $request = $this->updateIamRoleAttachmentRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIamRoleAttachmentAsync($body = null)
+    {
+        return $this->updateIamRoleAttachmentAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIamRoleAttachmentAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIamRoleAttachmentResponse';
+        $request = $this->updateIamRoleAttachmentRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIamRoleAttachmentRequest($body)
+    {
+        $resourcePath = '/UpdateIamRoleAttachment/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6949,6 +14946,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->updateIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIdentityProviderTokenExchangeResponse';
+        $request = $this->updateIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->updateIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIdentityProviderTokenExchangeResponse';
+        $request = $this->updateIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/UpdateIdentityProviderTokenExchange/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateIdentityProviderWeCom($body = null)
+    {
+        list($response) = $this->updateIdentityProviderWeComWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIdentityProviderWeComWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIdentityProviderWeComResponse';
+        $request = $this->updateIdentityProviderWeComRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIdentityProviderWeComAsync($body = null)
+    {
+        return $this->updateIdentityProviderWeComAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIdentityProviderWeComAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateIdentityProviderWeComResponse';
+        $request = $this->updateIdentityProviderWeComRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIdentityProviderWeComRequest($body)
+    {
+        $resourcePath = '/UpdateIdentityProviderWeCom/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateInboundAuthConfig($body = null)
     {
         list($response) = $this->updateInboundAuthConfigWithHttpInfo($body);
@@ -7107,6 +15228,316 @@ class IDApi
     protected function updateOauth2CredentialProviderRequest($body)
     {
         $resourcePath = '/UpdateOauth2CredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePermissionPoint($body = null)
+    {
+        list($response) = $this->updatePermissionPointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePermissionPointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdatePermissionPointResponse';
+        $request = $this->updatePermissionPointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePermissionPointAsync($body = null)
+    {
+        return $this->updatePermissionPointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePermissionPointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdatePermissionPointResponse';
+        $request = $this->updatePermissionPointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePermissionPointRequest($body)
+    {
+        $resourcePath = '/UpdatePermissionPoint/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePolicy($body = null)
+    {
+        list($response) = $this->updatePolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdatePolicyResponse';
+        $request = $this->updatePolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePolicyAsync($body = null)
+    {
+        return $this->updatePolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdatePolicyResponse';
+        $request = $this->updatePolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePolicyRequest($body)
+    {
+        $resourcePath = '/UpdatePolicy/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateResource($body = null)
+    {
+        list($response) = $this->updateResourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateResourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateResourceResponse';
+        $request = $this->updateResourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateResourceAsync($body = null)
+    {
+        return $this->updateResourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateResourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateResourceResponse';
+        $request = $this->updateResourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateResourceRequest($body)
+    {
+        $resourcePath = '/UpdateResource/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateRetrieveUserSyncUser($body = null)
+    {
+        list($response) = $this->updateRetrieveUserSyncUserWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRetrieveUserSyncUserWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRetrieveUserSyncUserResponse';
+        $request = $this->updateRetrieveUserSyncUserRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRetrieveUserSyncUserAsync($body = null)
+    {
+        return $this->updateRetrieveUserSyncUserAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRetrieveUserSyncUserAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRetrieveUserSyncUserResponse';
+        $request = $this->updateRetrieveUserSyncUserRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRetrieveUserSyncUserRequest($body)
+    {
+        $resourcePath = '/UpdateRetrieveUserSyncUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateRoleCredentialProvider($body = null)
+    {
+        list($response) = $this->updateRoleCredentialProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRoleCredentialProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRoleCredentialProviderResponse';
+        $request = $this->updateRoleCredentialProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRoleCredentialProviderAsync($body = null)
+    {
+        return $this->updateRoleCredentialProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRoleCredentialProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRoleCredentialProviderResponse';
+        $request = $this->updateRoleCredentialProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRoleCredentialProviderRequest($body)
+    {
+        $resourcePath = '/UpdateRoleCredentialProvider/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -7321,6 +15752,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateTrustAnchor($body = null)
+    {
+        list($response) = $this->updateTrustAnchorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateTrustAnchorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateTrustAnchorResponse';
+        $request = $this->updateTrustAnchorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateTrustAnchorAsync($body = null)
+    {
+        return $this->updateTrustAnchorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateTrustAnchorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateTrustAnchorResponse';
+        $request = $this->updateTrustAnchorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateTrustAnchorRequest($body)
+    {
+        $resourcePath = '/UpdateTrustAnchor/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateUser($body = null)
     {
         list($response) = $this->updateUserWithHttpInfo($body);
@@ -7355,6 +15848,68 @@ class IDApi
     protected function updateUserRequest($body)
     {
         $resourcePath = '/UpdateUser/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateUserCredential($body = null)
+    {
+        list($response) = $this->updateUserCredentialWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateUserCredentialWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserCredentialResponse';
+        $request = $this->updateUserCredentialRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateUserCredentialAsync($body = null)
+    {
+        return $this->updateUserCredentialAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateUserCredentialAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserCredentialResponse';
+        $request = $this->updateUserCredentialRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateUserCredentialRequest($body)
+    {
+        $resourcePath = '/UpdateUserCredential/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -7507,6 +16062,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateUserPoolCustomAttribute($body = null)
+    {
+        list($response) = $this->updateUserPoolCustomAttributeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateUserPoolCustomAttributeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserPoolCustomAttributeResponse';
+        $request = $this->updateUserPoolCustomAttributeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateUserPoolCustomAttributeAsync($body = null)
+    {
+        return $this->updateUserPoolCustomAttributeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateUserPoolCustomAttributeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserPoolCustomAttributeResponse';
+        $request = $this->updateUserPoolCustomAttributeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateUserPoolCustomAttributeRequest($body)
+    {
+        $resourcePath = '/UpdateUserPoolCustomAttribute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateUserPoolDomain($body = null)
+    {
+        list($response) = $this->updateUserPoolDomainWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateUserPoolDomainWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserPoolDomainResponse';
+        $request = $this->updateUserPoolDomainRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateUserPoolDomainAsync($body = null)
+    {
+        return $this->updateUserPoolDomainAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateUserPoolDomainAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUserPoolDomainResponse';
+        $request = $this->updateUserPoolDomainRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateUserPoolDomainRequest($body)
+    {
+        $resourcePath = '/UpdateUserPoolDomain/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateUsers($body = null)
+    {
+        list($response) = $this->updateUsersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateUsersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUsersResponse';
+        $request = $this->updateUsersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateUsersAsync($body = null)
+    {
+        return $this->updateUsersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateUsersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateUsersResponse';
+        $request = $this->updateUsersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateUsersRequest($body)
+    {
+        $resourcePath = '/UpdateUsers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateWorkloadIdentity($body = null)
     {
         list($response) = $this->updateWorkloadIdentityWithHttpInfo($body);
@@ -7603,6 +16344,316 @@ class IDApi
     protected function updateWorkloadPoolRequest($body)
     {
         $resourcePath = '/UpdateWorkloadPool/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function uploadDepartmentSyncDepartments($body = null)
+    {
+        list($response) = $this->uploadDepartmentSyncDepartmentsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function uploadDepartmentSyncDepartmentsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UploadDepartmentSyncDepartmentsResponse';
+        $request = $this->uploadDepartmentSyncDepartmentsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function uploadDepartmentSyncDepartmentsAsync($body = null)
+    {
+        return $this->uploadDepartmentSyncDepartmentsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function uploadDepartmentSyncDepartmentsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UploadDepartmentSyncDepartmentsResponse';
+        $request = $this->uploadDepartmentSyncDepartmentsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function uploadDepartmentSyncDepartmentsRequest($body)
+    {
+        $resourcePath = '/UploadDepartmentSyncDepartments/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function uploadDepartmentSyncMembers($body = null)
+    {
+        list($response) = $this->uploadDepartmentSyncMembersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function uploadDepartmentSyncMembersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UploadDepartmentSyncMembersResponse';
+        $request = $this->uploadDepartmentSyncMembersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function uploadDepartmentSyncMembersAsync($body = null)
+    {
+        return $this->uploadDepartmentSyncMembersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function uploadDepartmentSyncMembersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UploadDepartmentSyncMembersResponse';
+        $request = $this->uploadDepartmentSyncMembersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function uploadDepartmentSyncMembersRequest($body)
+    {
+        $resourcePath = '/UploadDepartmentSyncMembers/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upsertEmailService($body = null)
+    {
+        list($response) = $this->upsertEmailServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upsertEmailServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpsertEmailServiceResponse';
+        $request = $this->upsertEmailServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upsertEmailServiceAsync($body = null)
+    {
+        return $this->upsertEmailServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upsertEmailServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpsertEmailServiceResponse';
+        $request = $this->upsertEmailServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upsertEmailServiceRequest($body)
+    {
+        $resourcePath = '/UpsertEmailService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upsertExternalProvider($body = null)
+    {
+        list($response) = $this->upsertExternalProviderWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upsertExternalProviderWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpsertExternalProviderResponse';
+        $request = $this->upsertExternalProviderRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upsertExternalProviderAsync($body = null)
+    {
+        return $this->upsertExternalProviderAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upsertExternalProviderAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpsertExternalProviderResponse';
+        $request = $this->upsertExternalProviderRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upsertExternalProviderRequest($body)
+    {
+        $resourcePath = '/UpsertExternalProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function validateDepartmentSyncSession($body = null)
+    {
+        list($response) = $this->validateDepartmentSyncSessionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function validateDepartmentSyncSessionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ValidateDepartmentSyncSessionResponse';
+        $request = $this->validateDepartmentSyncSessionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function validateDepartmentSyncSessionAsync($body = null)
+    {
+        return $this->validateDepartmentSyncSessionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function validateDepartmentSyncSessionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ValidateDepartmentSyncSessionResponse';
+        $request = $this->validateDepartmentSyncSessionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function validateDepartmentSyncSessionRequest($body)
+    {
+        $resourcePath = '/ValidateDepartmentSyncSession/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

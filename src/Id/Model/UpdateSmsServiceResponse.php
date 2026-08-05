@@ -28,7 +28,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cn_usage_enabled' => 'bool',
         'enabled' => 'bool',
+        'login_row_template_id' => 'string',
+        'password_reset_cn_template_id' => 'string',
+        'password_reset_row_template_id' => 'string',
+        'row_usage_enabled' => 'bool',
+        'sender_id' => 'string',
+        'sign_up_cn_template_id' => 'string',
+        'sign_up_row_template_id' => 'string',
         'signature_content' => 'string',
         'sms_account_id' => 'string',
         'template_id' => 'string',
@@ -41,7 +49,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cn_usage_enabled' => null,
         'enabled' => null,
+        'login_row_template_id' => null,
+        'password_reset_cn_template_id' => null,
+        'password_reset_row_template_id' => null,
+        'row_usage_enabled' => null,
+        'sender_id' => null,
+        'sign_up_cn_template_id' => null,
+        'sign_up_row_template_id' => null,
         'signature_content' => null,
         'sms_account_id' => null,
         'template_id' => null,
@@ -75,7 +91,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cn_usage_enabled' => 'CnUsageEnabled',
         'enabled' => 'Enabled',
+        'login_row_template_id' => 'LoginRowTemplateId',
+        'password_reset_cn_template_id' => 'PasswordResetCnTemplateId',
+        'password_reset_row_template_id' => 'PasswordResetRowTemplateId',
+        'row_usage_enabled' => 'RowUsageEnabled',
+        'sender_id' => 'SenderId',
+        'sign_up_cn_template_id' => 'SignUpCnTemplateId',
+        'sign_up_row_template_id' => 'SignUpRowTemplateId',
         'signature_content' => 'SignatureContent',
         'sms_account_id' => 'SmsAccountId',
         'template_id' => 'TemplateId',
@@ -88,7 +112,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cn_usage_enabled' => 'setCnUsageEnabled',
         'enabled' => 'setEnabled',
+        'login_row_template_id' => 'setLoginRowTemplateId',
+        'password_reset_cn_template_id' => 'setPasswordResetCnTemplateId',
+        'password_reset_row_template_id' => 'setPasswordResetRowTemplateId',
+        'row_usage_enabled' => 'setRowUsageEnabled',
+        'sender_id' => 'setSenderId',
+        'sign_up_cn_template_id' => 'setSignUpCnTemplateId',
+        'sign_up_row_template_id' => 'setSignUpRowTemplateId',
         'signature_content' => 'setSignatureContent',
         'sms_account_id' => 'setSmsAccountId',
         'template_id' => 'setTemplateId',
@@ -101,7 +133,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cn_usage_enabled' => 'getCnUsageEnabled',
         'enabled' => 'getEnabled',
+        'login_row_template_id' => 'getLoginRowTemplateId',
+        'password_reset_cn_template_id' => 'getPasswordResetCnTemplateId',
+        'password_reset_row_template_id' => 'getPasswordResetRowTemplateId',
+        'row_usage_enabled' => 'getRowUsageEnabled',
+        'sender_id' => 'getSenderId',
+        'sign_up_cn_template_id' => 'getSignUpCnTemplateId',
+        'sign_up_row_template_id' => 'getSignUpRowTemplateId',
         'signature_content' => 'getSignatureContent',
         'sms_account_id' => 'getSmsAccountId',
         'template_id' => 'getTemplateId',
@@ -168,7 +208,15 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['cn_usage_enabled'] = isset($data['cn_usage_enabled']) ? $data['cn_usage_enabled'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['login_row_template_id'] = isset($data['login_row_template_id']) ? $data['login_row_template_id'] : null;
+        $this->container['password_reset_cn_template_id'] = isset($data['password_reset_cn_template_id']) ? $data['password_reset_cn_template_id'] : null;
+        $this->container['password_reset_row_template_id'] = isset($data['password_reset_row_template_id']) ? $data['password_reset_row_template_id'] : null;
+        $this->container['row_usage_enabled'] = isset($data['row_usage_enabled']) ? $data['row_usage_enabled'] : null;
+        $this->container['sender_id'] = isset($data['sender_id']) ? $data['sender_id'] : null;
+        $this->container['sign_up_cn_template_id'] = isset($data['sign_up_cn_template_id']) ? $data['sign_up_cn_template_id'] : null;
+        $this->container['sign_up_row_template_id'] = isset($data['sign_up_row_template_id']) ? $data['sign_up_row_template_id'] : null;
         $this->container['signature_content'] = isset($data['signature_content']) ? $data['signature_content'] : null;
         $this->container['sms_account_id'] = isset($data['sms_account_id']) ? $data['sms_account_id'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
@@ -200,6 +248,30 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets cn_usage_enabled
+     *
+     * @return bool
+     */
+    public function getCnUsageEnabled()
+    {
+        return $this->container['cn_usage_enabled'];
+    }
+
+    /**
+     * Sets cn_usage_enabled
+     *
+     * @param bool $cn_usage_enabled cn_usage_enabled
+     *
+     * @return $this
+     */
+    public function setCnUsageEnabled($cn_usage_enabled)
+    {
+        $this->container['cn_usage_enabled'] = $cn_usage_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets enabled
      *
      * @return bool
@@ -219,6 +291,174 @@ class UpdateSmsServiceResponse implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets login_row_template_id
+     *
+     * @return string
+     */
+    public function getLoginRowTemplateId()
+    {
+        return $this->container['login_row_template_id'];
+    }
+
+    /**
+     * Sets login_row_template_id
+     *
+     * @param string $login_row_template_id login_row_template_id
+     *
+     * @return $this
+     */
+    public function setLoginRowTemplateId($login_row_template_id)
+    {
+        $this->container['login_row_template_id'] = $login_row_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets password_reset_cn_template_id
+     *
+     * @return string
+     */
+    public function getPasswordResetCnTemplateId()
+    {
+        return $this->container['password_reset_cn_template_id'];
+    }
+
+    /**
+     * Sets password_reset_cn_template_id
+     *
+     * @param string $password_reset_cn_template_id password_reset_cn_template_id
+     *
+     * @return $this
+     */
+    public function setPasswordResetCnTemplateId($password_reset_cn_template_id)
+    {
+        $this->container['password_reset_cn_template_id'] = $password_reset_cn_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets password_reset_row_template_id
+     *
+     * @return string
+     */
+    public function getPasswordResetRowTemplateId()
+    {
+        return $this->container['password_reset_row_template_id'];
+    }
+
+    /**
+     * Sets password_reset_row_template_id
+     *
+     * @param string $password_reset_row_template_id password_reset_row_template_id
+     *
+     * @return $this
+     */
+    public function setPasswordResetRowTemplateId($password_reset_row_template_id)
+    {
+        $this->container['password_reset_row_template_id'] = $password_reset_row_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets row_usage_enabled
+     *
+     * @return bool
+     */
+    public function getRowUsageEnabled()
+    {
+        return $this->container['row_usage_enabled'];
+    }
+
+    /**
+     * Sets row_usage_enabled
+     *
+     * @param bool $row_usage_enabled row_usage_enabled
+     *
+     * @return $this
+     */
+    public function setRowUsageEnabled($row_usage_enabled)
+    {
+        $this->container['row_usage_enabled'] = $row_usage_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender_id
+     *
+     * @return string
+     */
+    public function getSenderId()
+    {
+        return $this->container['sender_id'];
+    }
+
+    /**
+     * Sets sender_id
+     *
+     * @param string $sender_id sender_id
+     *
+     * @return $this
+     */
+    public function setSenderId($sender_id)
+    {
+        $this->container['sender_id'] = $sender_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sign_up_cn_template_id
+     *
+     * @return string
+     */
+    public function getSignUpCnTemplateId()
+    {
+        return $this->container['sign_up_cn_template_id'];
+    }
+
+    /**
+     * Sets sign_up_cn_template_id
+     *
+     * @param string $sign_up_cn_template_id sign_up_cn_template_id
+     *
+     * @return $this
+     */
+    public function setSignUpCnTemplateId($sign_up_cn_template_id)
+    {
+        $this->container['sign_up_cn_template_id'] = $sign_up_cn_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sign_up_row_template_id
+     *
+     * @return string
+     */
+    public function getSignUpRowTemplateId()
+    {
+        return $this->container['sign_up_row_template_id'];
+    }
+
+    /**
+     * Sets sign_up_row_template_id
+     *
+     * @param string $sign_up_row_template_id sign_up_row_template_id
+     *
+     * @return $this
+     */
+    public function setSignUpRowTemplateId($sign_up_row_template_id)
+    {
+        $this->container['sign_up_row_template_id'] = $sign_up_row_template_id;
 
         return $this;
     }

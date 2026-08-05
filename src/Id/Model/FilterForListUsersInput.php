@@ -29,19 +29,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'connection' => 'string',
+        'custom_attribute_filter' => '\Volcengine\Id\Model\CustomAttributeFilterForListUsersInput',
+        'department_uid' => 'string',
+        'department_uid_recursive' => 'bool',
         'email' => 'string',
+        'email_is_duplicated' => 'bool',
+        'email_is_null_or_empty' => 'bool',
+        'email_phone_name_is_null_or_empty' => 'bool',
+        'external_provider_user_identifiers_or' => 'string[]',
         'family_name' => 'string',
+        'family_name_is_null_or_empty' => 'bool',
         'gender' => 'string',
+        'gender_is_null_or_empty' => 'bool',
         'given_name' => 'string',
+        'given_name_is_null_or_empty' => 'bool',
+        'group_uid' => 'string',
+        'group_uids_or' => 'string[]',
         'latest_browser' => 'string',
         'latest_login_method' => 'string',
         'locale' => 'string',
         'middle_name' => 'string',
+        'middle_name_is_null_or_empty' => 'bool',
         'name' => 'string',
+        'name_is_null_or_empty' => 'bool',
         'nickname' => 'string',
+        'nickname_is_null_or_empty' => 'bool',
+        'not_in_any_department' => 'bool',
+        'not_in_any_group' => 'bool',
         'phone_number' => 'string',
+        'phone_number_is_duplicated' => 'bool',
+        'phone_number_is_null_or_empty' => 'bool',
         'preferred_username' => 'string',
-        'website' => 'string'
+        'preferred_username_is_null_or_empty' => 'bool',
+        'universal_search' => '\Volcengine\Id\Model\UniversalSearchForListUsersInput[]',
+        'user_uids_or' => 'string[]',
+        'website' => 'string',
+        'website_is_null_or_empty' => 'bool'
     ];
 
     /**
@@ -51,19 +74,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'connection' => null,
+        'custom_attribute_filter' => null,
+        'department_uid' => null,
+        'department_uid_recursive' => null,
         'email' => null,
+        'email_is_duplicated' => null,
+        'email_is_null_or_empty' => null,
+        'email_phone_name_is_null_or_empty' => null,
+        'external_provider_user_identifiers_or' => null,
         'family_name' => null,
+        'family_name_is_null_or_empty' => null,
         'gender' => null,
+        'gender_is_null_or_empty' => null,
         'given_name' => null,
+        'given_name_is_null_or_empty' => null,
+        'group_uid' => null,
+        'group_uids_or' => null,
         'latest_browser' => null,
         'latest_login_method' => null,
         'locale' => null,
         'middle_name' => null,
+        'middle_name_is_null_or_empty' => null,
         'name' => null,
+        'name_is_null_or_empty' => null,
         'nickname' => null,
+        'nickname_is_null_or_empty' => null,
+        'not_in_any_department' => null,
+        'not_in_any_group' => null,
         'phone_number' => null,
+        'phone_number_is_duplicated' => null,
+        'phone_number_is_null_or_empty' => null,
         'preferred_username' => null,
-        'website' => null
+        'preferred_username_is_null_or_empty' => null,
+        'universal_search' => null,
+        'user_uids_or' => null,
+        'website' => null,
+        'website_is_null_or_empty' => null
     ];
 
     /**
@@ -94,19 +140,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'connection' => 'Connection',
+        'custom_attribute_filter' => 'CustomAttributeFilter',
+        'department_uid' => 'DepartmentUid',
+        'department_uid_recursive' => 'DepartmentUidRecursive',
         'email' => 'Email',
+        'email_is_duplicated' => 'EmailIsDuplicated',
+        'email_is_null_or_empty' => 'EmailIsNullOrEmpty',
+        'email_phone_name_is_null_or_empty' => 'EmailPhoneNameIsNullOrEmpty',
+        'external_provider_user_identifiers_or' => 'ExternalProviderUserIdentifiersOr',
         'family_name' => 'FamilyName',
+        'family_name_is_null_or_empty' => 'FamilyNameIsNullOrEmpty',
         'gender' => 'Gender',
+        'gender_is_null_or_empty' => 'GenderIsNullOrEmpty',
         'given_name' => 'GivenName',
+        'given_name_is_null_or_empty' => 'GivenNameIsNullOrEmpty',
+        'group_uid' => 'GroupUid',
+        'group_uids_or' => 'GroupUidsOr',
         'latest_browser' => 'LatestBrowser',
         'latest_login_method' => 'LatestLoginMethod',
         'locale' => 'Locale',
         'middle_name' => 'MiddleName',
+        'middle_name_is_null_or_empty' => 'MiddleNameIsNullOrEmpty',
         'name' => 'Name',
+        'name_is_null_or_empty' => 'NameIsNullOrEmpty',
         'nickname' => 'Nickname',
+        'nickname_is_null_or_empty' => 'NicknameIsNullOrEmpty',
+        'not_in_any_department' => 'NotInAnyDepartment',
+        'not_in_any_group' => 'NotInAnyGroup',
         'phone_number' => 'PhoneNumber',
+        'phone_number_is_duplicated' => 'PhoneNumberIsDuplicated',
+        'phone_number_is_null_or_empty' => 'PhoneNumberIsNullOrEmpty',
         'preferred_username' => 'PreferredUsername',
-        'website' => 'Website'
+        'preferred_username_is_null_or_empty' => 'PreferredUsernameIsNullOrEmpty',
+        'universal_search' => 'UniversalSearch',
+        'user_uids_or' => 'UserUidsOr',
+        'website' => 'Website',
+        'website_is_null_or_empty' => 'WebsiteIsNullOrEmpty'
     ];
 
     /**
@@ -116,19 +185,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'connection' => 'setConnection',
+        'custom_attribute_filter' => 'setCustomAttributeFilter',
+        'department_uid' => 'setDepartmentUid',
+        'department_uid_recursive' => 'setDepartmentUidRecursive',
         'email' => 'setEmail',
+        'email_is_duplicated' => 'setEmailIsDuplicated',
+        'email_is_null_or_empty' => 'setEmailIsNullOrEmpty',
+        'email_phone_name_is_null_or_empty' => 'setEmailPhoneNameIsNullOrEmpty',
+        'external_provider_user_identifiers_or' => 'setExternalProviderUserIdentifiersOr',
         'family_name' => 'setFamilyName',
+        'family_name_is_null_or_empty' => 'setFamilyNameIsNullOrEmpty',
         'gender' => 'setGender',
+        'gender_is_null_or_empty' => 'setGenderIsNullOrEmpty',
         'given_name' => 'setGivenName',
+        'given_name_is_null_or_empty' => 'setGivenNameIsNullOrEmpty',
+        'group_uid' => 'setGroupUid',
+        'group_uids_or' => 'setGroupUidsOr',
         'latest_browser' => 'setLatestBrowser',
         'latest_login_method' => 'setLatestLoginMethod',
         'locale' => 'setLocale',
         'middle_name' => 'setMiddleName',
+        'middle_name_is_null_or_empty' => 'setMiddleNameIsNullOrEmpty',
         'name' => 'setName',
+        'name_is_null_or_empty' => 'setNameIsNullOrEmpty',
         'nickname' => 'setNickname',
+        'nickname_is_null_or_empty' => 'setNicknameIsNullOrEmpty',
+        'not_in_any_department' => 'setNotInAnyDepartment',
+        'not_in_any_group' => 'setNotInAnyGroup',
         'phone_number' => 'setPhoneNumber',
+        'phone_number_is_duplicated' => 'setPhoneNumberIsDuplicated',
+        'phone_number_is_null_or_empty' => 'setPhoneNumberIsNullOrEmpty',
         'preferred_username' => 'setPreferredUsername',
-        'website' => 'setWebsite'
+        'preferred_username_is_null_or_empty' => 'setPreferredUsernameIsNullOrEmpty',
+        'universal_search' => 'setUniversalSearch',
+        'user_uids_or' => 'setUserUidsOr',
+        'website' => 'setWebsite',
+        'website_is_null_or_empty' => 'setWebsiteIsNullOrEmpty'
     ];
 
     /**
@@ -138,19 +230,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'connection' => 'getConnection',
+        'custom_attribute_filter' => 'getCustomAttributeFilter',
+        'department_uid' => 'getDepartmentUid',
+        'department_uid_recursive' => 'getDepartmentUidRecursive',
         'email' => 'getEmail',
+        'email_is_duplicated' => 'getEmailIsDuplicated',
+        'email_is_null_or_empty' => 'getEmailIsNullOrEmpty',
+        'email_phone_name_is_null_or_empty' => 'getEmailPhoneNameIsNullOrEmpty',
+        'external_provider_user_identifiers_or' => 'getExternalProviderUserIdentifiersOr',
         'family_name' => 'getFamilyName',
+        'family_name_is_null_or_empty' => 'getFamilyNameIsNullOrEmpty',
         'gender' => 'getGender',
+        'gender_is_null_or_empty' => 'getGenderIsNullOrEmpty',
         'given_name' => 'getGivenName',
+        'given_name_is_null_or_empty' => 'getGivenNameIsNullOrEmpty',
+        'group_uid' => 'getGroupUid',
+        'group_uids_or' => 'getGroupUidsOr',
         'latest_browser' => 'getLatestBrowser',
         'latest_login_method' => 'getLatestLoginMethod',
         'locale' => 'getLocale',
         'middle_name' => 'getMiddleName',
+        'middle_name_is_null_or_empty' => 'getMiddleNameIsNullOrEmpty',
         'name' => 'getName',
+        'name_is_null_or_empty' => 'getNameIsNullOrEmpty',
         'nickname' => 'getNickname',
+        'nickname_is_null_or_empty' => 'getNicknameIsNullOrEmpty',
+        'not_in_any_department' => 'getNotInAnyDepartment',
+        'not_in_any_group' => 'getNotInAnyGroup',
         'phone_number' => 'getPhoneNumber',
+        'phone_number_is_duplicated' => 'getPhoneNumberIsDuplicated',
+        'phone_number_is_null_or_empty' => 'getPhoneNumberIsNullOrEmpty',
         'preferred_username' => 'getPreferredUsername',
-        'website' => 'getWebsite'
+        'preferred_username_is_null_or_empty' => 'getPreferredUsernameIsNullOrEmpty',
+        'universal_search' => 'getUniversalSearch',
+        'user_uids_or' => 'getUserUidsOr',
+        'website' => 'getWebsite',
+        'website_is_null_or_empty' => 'getWebsiteIsNullOrEmpty'
     ];
 
     /**
@@ -214,19 +329,42 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['connection'] = isset($data['connection']) ? $data['connection'] : null;
+        $this->container['custom_attribute_filter'] = isset($data['custom_attribute_filter']) ? $data['custom_attribute_filter'] : null;
+        $this->container['department_uid'] = isset($data['department_uid']) ? $data['department_uid'] : null;
+        $this->container['department_uid_recursive'] = isset($data['department_uid_recursive']) ? $data['department_uid_recursive'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['email_is_duplicated'] = isset($data['email_is_duplicated']) ? $data['email_is_duplicated'] : null;
+        $this->container['email_is_null_or_empty'] = isset($data['email_is_null_or_empty']) ? $data['email_is_null_or_empty'] : null;
+        $this->container['email_phone_name_is_null_or_empty'] = isset($data['email_phone_name_is_null_or_empty']) ? $data['email_phone_name_is_null_or_empty'] : null;
+        $this->container['external_provider_user_identifiers_or'] = isset($data['external_provider_user_identifiers_or']) ? $data['external_provider_user_identifiers_or'] : null;
         $this->container['family_name'] = isset($data['family_name']) ? $data['family_name'] : null;
+        $this->container['family_name_is_null_or_empty'] = isset($data['family_name_is_null_or_empty']) ? $data['family_name_is_null_or_empty'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
+        $this->container['gender_is_null_or_empty'] = isset($data['gender_is_null_or_empty']) ? $data['gender_is_null_or_empty'] : null;
         $this->container['given_name'] = isset($data['given_name']) ? $data['given_name'] : null;
+        $this->container['given_name_is_null_or_empty'] = isset($data['given_name_is_null_or_empty']) ? $data['given_name_is_null_or_empty'] : null;
+        $this->container['group_uid'] = isset($data['group_uid']) ? $data['group_uid'] : null;
+        $this->container['group_uids_or'] = isset($data['group_uids_or']) ? $data['group_uids_or'] : null;
         $this->container['latest_browser'] = isset($data['latest_browser']) ? $data['latest_browser'] : null;
         $this->container['latest_login_method'] = isset($data['latest_login_method']) ? $data['latest_login_method'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
+        $this->container['middle_name_is_null_or_empty'] = isset($data['middle_name_is_null_or_empty']) ? $data['middle_name_is_null_or_empty'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['name_is_null_or_empty'] = isset($data['name_is_null_or_empty']) ? $data['name_is_null_or_empty'] : null;
         $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
+        $this->container['nickname_is_null_or_empty'] = isset($data['nickname_is_null_or_empty']) ? $data['nickname_is_null_or_empty'] : null;
+        $this->container['not_in_any_department'] = isset($data['not_in_any_department']) ? $data['not_in_any_department'] : null;
+        $this->container['not_in_any_group'] = isset($data['not_in_any_group']) ? $data['not_in_any_group'] : null;
         $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
+        $this->container['phone_number_is_duplicated'] = isset($data['phone_number_is_duplicated']) ? $data['phone_number_is_duplicated'] : null;
+        $this->container['phone_number_is_null_or_empty'] = isset($data['phone_number_is_null_or_empty']) ? $data['phone_number_is_null_or_empty'] : null;
         $this->container['preferred_username'] = isset($data['preferred_username']) ? $data['preferred_username'] : null;
+        $this->container['preferred_username_is_null_or_empty'] = isset($data['preferred_username_is_null_or_empty']) ? $data['preferred_username_is_null_or_empty'] : null;
+        $this->container['universal_search'] = isset($data['universal_search']) ? $data['universal_search'] : null;
+        $this->container['user_uids_or'] = isset($data['user_uids_or']) ? $data['user_uids_or'] : null;
         $this->container['website'] = isset($data['website']) ? $data['website'] : null;
+        $this->container['website_is_null_or_empty'] = isset($data['website_is_null_or_empty']) ? $data['website_is_null_or_empty'] : null;
     }
 
     /**
@@ -278,6 +416,78 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_attribute_filter
+     *
+     * @return \Volcengine\Id\Model\CustomAttributeFilterForListUsersInput
+     */
+    public function getCustomAttributeFilter()
+    {
+        return $this->container['custom_attribute_filter'];
+    }
+
+    /**
+     * Sets custom_attribute_filter
+     *
+     * @param \Volcengine\Id\Model\CustomAttributeFilterForListUsersInput $custom_attribute_filter custom_attribute_filter
+     *
+     * @return $this
+     */
+    public function setCustomAttributeFilter($custom_attribute_filter)
+    {
+        $this->container['custom_attribute_filter'] = $custom_attribute_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets department_uid
+     *
+     * @return string
+     */
+    public function getDepartmentUid()
+    {
+        return $this->container['department_uid'];
+    }
+
+    /**
+     * Sets department_uid
+     *
+     * @param string $department_uid department_uid
+     *
+     * @return $this
+     */
+    public function setDepartmentUid($department_uid)
+    {
+        $this->container['department_uid'] = $department_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets department_uid_recursive
+     *
+     * @return bool
+     */
+    public function getDepartmentUidRecursive()
+    {
+        return $this->container['department_uid_recursive'];
+    }
+
+    /**
+     * Sets department_uid_recursive
+     *
+     * @param bool $department_uid_recursive department_uid_recursive
+     *
+     * @return $this
+     */
+    public function setDepartmentUidRecursive($department_uid_recursive)
+    {
+        $this->container['department_uid_recursive'] = $department_uid_recursive;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string
@@ -297,6 +507,102 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_is_duplicated
+     *
+     * @return bool
+     */
+    public function getEmailIsDuplicated()
+    {
+        return $this->container['email_is_duplicated'];
+    }
+
+    /**
+     * Sets email_is_duplicated
+     *
+     * @param bool $email_is_duplicated email_is_duplicated
+     *
+     * @return $this
+     */
+    public function setEmailIsDuplicated($email_is_duplicated)
+    {
+        $this->container['email_is_duplicated'] = $email_is_duplicated;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getEmailIsNullOrEmpty()
+    {
+        return $this->container['email_is_null_or_empty'];
+    }
+
+    /**
+     * Sets email_is_null_or_empty
+     *
+     * @param bool $email_is_null_or_empty email_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setEmailIsNullOrEmpty($email_is_null_or_empty)
+    {
+        $this->container['email_is_null_or_empty'] = $email_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_phone_name_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getEmailPhoneNameIsNullOrEmpty()
+    {
+        return $this->container['email_phone_name_is_null_or_empty'];
+    }
+
+    /**
+     * Sets email_phone_name_is_null_or_empty
+     *
+     * @param bool $email_phone_name_is_null_or_empty email_phone_name_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setEmailPhoneNameIsNullOrEmpty($email_phone_name_is_null_or_empty)
+    {
+        $this->container['email_phone_name_is_null_or_empty'] = $email_phone_name_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_provider_user_identifiers_or
+     *
+     * @return string[]
+     */
+    public function getExternalProviderUserIdentifiersOr()
+    {
+        return $this->container['external_provider_user_identifiers_or'];
+    }
+
+    /**
+     * Sets external_provider_user_identifiers_or
+     *
+     * @param string[] $external_provider_user_identifiers_or external_provider_user_identifiers_or
+     *
+     * @return $this
+     */
+    public function setExternalProviderUserIdentifiersOr($external_provider_user_identifiers_or)
+    {
+        $this->container['external_provider_user_identifiers_or'] = $external_provider_user_identifiers_or;
 
         return $this;
     }
@@ -326,6 +632,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets family_name_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getFamilyNameIsNullOrEmpty()
+    {
+        return $this->container['family_name_is_null_or_empty'];
+    }
+
+    /**
+     * Sets family_name_is_null_or_empty
+     *
+     * @param bool $family_name_is_null_or_empty family_name_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setFamilyNameIsNullOrEmpty($family_name_is_null_or_empty)
+    {
+        $this->container['family_name_is_null_or_empty'] = $family_name_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
      * Gets gender
      *
      * @return string
@@ -350,6 +680,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets gender_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getGenderIsNullOrEmpty()
+    {
+        return $this->container['gender_is_null_or_empty'];
+    }
+
+    /**
+     * Sets gender_is_null_or_empty
+     *
+     * @param bool $gender_is_null_or_empty gender_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setGenderIsNullOrEmpty($gender_is_null_or_empty)
+    {
+        $this->container['gender_is_null_or_empty'] = $gender_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
      * Gets given_name
      *
      * @return string
@@ -369,6 +723,78 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setGivenName($given_name)
     {
         $this->container['given_name'] = $given_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets given_name_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getGivenNameIsNullOrEmpty()
+    {
+        return $this->container['given_name_is_null_or_empty'];
+    }
+
+    /**
+     * Sets given_name_is_null_or_empty
+     *
+     * @param bool $given_name_is_null_or_empty given_name_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setGivenNameIsNullOrEmpty($given_name_is_null_or_empty)
+    {
+        $this->container['given_name_is_null_or_empty'] = $given_name_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_uid
+     *
+     * @return string
+     */
+    public function getGroupUid()
+    {
+        return $this->container['group_uid'];
+    }
+
+    /**
+     * Sets group_uid
+     *
+     * @param string $group_uid group_uid
+     *
+     * @return $this
+     */
+    public function setGroupUid($group_uid)
+    {
+        $this->container['group_uid'] = $group_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_uids_or
+     *
+     * @return string[]
+     */
+    public function getGroupUidsOr()
+    {
+        return $this->container['group_uids_or'];
+    }
+
+    /**
+     * Sets group_uids_or
+     *
+     * @param string[] $group_uids_or group_uids_or
+     *
+     * @return $this
+     */
+    public function setGroupUidsOr($group_uids_or)
+    {
+        $this->container['group_uids_or'] = $group_uids_or;
 
         return $this;
     }
@@ -470,6 +896,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets middle_name_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getMiddleNameIsNullOrEmpty()
+    {
+        return $this->container['middle_name_is_null_or_empty'];
+    }
+
+    /**
+     * Sets middle_name_is_null_or_empty
+     *
+     * @param bool $middle_name_is_null_or_empty middle_name_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setMiddleNameIsNullOrEmpty($middle_name_is_null_or_empty)
+    {
+        $this->container['middle_name_is_null_or_empty'] = $middle_name_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -489,6 +939,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getNameIsNullOrEmpty()
+    {
+        return $this->container['name_is_null_or_empty'];
+    }
+
+    /**
+     * Sets name_is_null_or_empty
+     *
+     * @param bool $name_is_null_or_empty name_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setNameIsNullOrEmpty($name_is_null_or_empty)
+    {
+        $this->container['name_is_null_or_empty'] = $name_is_null_or_empty;
 
         return $this;
     }
@@ -518,6 +992,78 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets nickname_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getNicknameIsNullOrEmpty()
+    {
+        return $this->container['nickname_is_null_or_empty'];
+    }
+
+    /**
+     * Sets nickname_is_null_or_empty
+     *
+     * @param bool $nickname_is_null_or_empty nickname_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setNicknameIsNullOrEmpty($nickname_is_null_or_empty)
+    {
+        $this->container['nickname_is_null_or_empty'] = $nickname_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets not_in_any_department
+     *
+     * @return bool
+     */
+    public function getNotInAnyDepartment()
+    {
+        return $this->container['not_in_any_department'];
+    }
+
+    /**
+     * Sets not_in_any_department
+     *
+     * @param bool $not_in_any_department not_in_any_department
+     *
+     * @return $this
+     */
+    public function setNotInAnyDepartment($not_in_any_department)
+    {
+        $this->container['not_in_any_department'] = $not_in_any_department;
+
+        return $this;
+    }
+
+    /**
+     * Gets not_in_any_group
+     *
+     * @return bool
+     */
+    public function getNotInAnyGroup()
+    {
+        return $this->container['not_in_any_group'];
+    }
+
+    /**
+     * Sets not_in_any_group
+     *
+     * @param bool $not_in_any_group not_in_any_group
+     *
+     * @return $this
+     */
+    public function setNotInAnyGroup($not_in_any_group)
+    {
+        $this->container['not_in_any_group'] = $not_in_any_group;
+
+        return $this;
+    }
+
+    /**
      * Gets phone_number
      *
      * @return string
@@ -537,6 +1083,54 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setPhoneNumber($phone_number)
     {
         $this->container['phone_number'] = $phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number_is_duplicated
+     *
+     * @return bool
+     */
+    public function getPhoneNumberIsDuplicated()
+    {
+        return $this->container['phone_number_is_duplicated'];
+    }
+
+    /**
+     * Sets phone_number_is_duplicated
+     *
+     * @param bool $phone_number_is_duplicated phone_number_is_duplicated
+     *
+     * @return $this
+     */
+    public function setPhoneNumberIsDuplicated($phone_number_is_duplicated)
+    {
+        $this->container['phone_number_is_duplicated'] = $phone_number_is_duplicated;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getPhoneNumberIsNullOrEmpty()
+    {
+        return $this->container['phone_number_is_null_or_empty'];
+    }
+
+    /**
+     * Sets phone_number_is_null_or_empty
+     *
+     * @param bool $phone_number_is_null_or_empty phone_number_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setPhoneNumberIsNullOrEmpty($phone_number_is_null_or_empty)
+    {
+        $this->container['phone_number_is_null_or_empty'] = $phone_number_is_null_or_empty;
 
         return $this;
     }
@@ -566,6 +1160,78 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets preferred_username_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getPreferredUsernameIsNullOrEmpty()
+    {
+        return $this->container['preferred_username_is_null_or_empty'];
+    }
+
+    /**
+     * Sets preferred_username_is_null_or_empty
+     *
+     * @param bool $preferred_username_is_null_or_empty preferred_username_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setPreferredUsernameIsNullOrEmpty($preferred_username_is_null_or_empty)
+    {
+        $this->container['preferred_username_is_null_or_empty'] = $preferred_username_is_null_or_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets universal_search
+     *
+     * @return \Volcengine\Id\Model\UniversalSearchForListUsersInput[]
+     */
+    public function getUniversalSearch()
+    {
+        return $this->container['universal_search'];
+    }
+
+    /**
+     * Sets universal_search
+     *
+     * @param \Volcengine\Id\Model\UniversalSearchForListUsersInput[] $universal_search universal_search
+     *
+     * @return $this
+     */
+    public function setUniversalSearch($universal_search)
+    {
+        $this->container['universal_search'] = $universal_search;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_uids_or
+     *
+     * @return string[]
+     */
+    public function getUserUidsOr()
+    {
+        return $this->container['user_uids_or'];
+    }
+
+    /**
+     * Sets user_uids_or
+     *
+     * @param string[] $user_uids_or user_uids_or
+     *
+     * @return $this
+     */
+    public function setUserUidsOr($user_uids_or)
+    {
+        $this->container['user_uids_or'] = $user_uids_or;
+
+        return $this;
+    }
+
+    /**
      * Gets website
      *
      * @return string
@@ -585,6 +1251,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setWebsite($website)
     {
         $this->container['website'] = $website;
+
+        return $this;
+    }
+
+    /**
+     * Gets website_is_null_or_empty
+     *
+     * @return bool
+     */
+    public function getWebsiteIsNullOrEmpty()
+    {
+        return $this->container['website_is_null_or_empty'];
+    }
+
+    /**
+     * Sets website_is_null_or_empty
+     *
+     * @param bool $website_is_null_or_empty website_is_null_or_empty
+     *
+     * @return $this
+     */
+    public function setWebsiteIsNullOrEmpty($website_is_null_or_empty)
+    {
+        $this->container['website_is_null_or_empty'] = $website_is_null_or_empty;
 
         return $this;
     }

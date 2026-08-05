@@ -29,11 +29,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'create_time' => 'string',
+        'definition' => '\Volcengine\Id\Model\DefinitionForListPoliciesOutput',
         'description' => 'string',
         'namespace_id' => 'string',
         'policy' => 'string',
         'policy_id' => 'string',
         'policy_name' => 'string',
+        'status' => 'string',
         'trn' => 'string',
         'update_time' => 'string'
     ];
@@ -45,11 +47,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'create_time' => null,
+        'definition' => null,
         'description' => null,
         'namespace_id' => null,
         'policy' => null,
         'policy_id' => null,
         'policy_name' => null,
+        'status' => null,
         'trn' => null,
         'update_time' => null
     ];
@@ -82,11 +86,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'create_time' => 'CreateTime',
+        'definition' => 'Definition',
         'description' => 'Description',
         'namespace_id' => 'NamespaceId',
         'policy' => 'Policy',
         'policy_id' => 'PolicyId',
         'policy_name' => 'PolicyName',
+        'status' => 'Status',
         'trn' => 'Trn',
         'update_time' => 'UpdateTime'
     ];
@@ -98,11 +104,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'create_time' => 'setCreateTime',
+        'definition' => 'setDefinition',
         'description' => 'setDescription',
         'namespace_id' => 'setNamespaceId',
         'policy' => 'setPolicy',
         'policy_id' => 'setPolicyId',
         'policy_name' => 'setPolicyName',
+        'status' => 'setStatus',
         'trn' => 'setTrn',
         'update_time' => 'setUpdateTime'
     ];
@@ -114,11 +122,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'create_time' => 'getCreateTime',
+        'definition' => 'getDefinition',
         'description' => 'getDescription',
         'namespace_id' => 'getNamespaceId',
         'policy' => 'getPolicy',
         'policy_id' => 'getPolicyId',
         'policy_name' => 'getPolicyName',
+        'status' => 'getStatus',
         'trn' => 'getTrn',
         'update_time' => 'getUpdateTime'
     ];
@@ -184,11 +194,13 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['definition'] = isset($data['definition']) ? $data['definition'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['policy_id'] = isset($data['policy_id']) ? $data['policy_id'] : null;
         $this->container['policy_name'] = isset($data['policy_name']) ? $data['policy_name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -237,6 +249,30 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets definition
+     *
+     * @return \Volcengine\Id\Model\DefinitionForListPoliciesOutput
+     */
+    public function getDefinition()
+    {
+        return $this->container['definition'];
+    }
+
+    /**
+     * Sets definition
+     *
+     * @param \Volcengine\Id\Model\DefinitionForListPoliciesOutput $definition definition
+     *
+     * @return $this
+     */
+    public function setDefinition($definition)
+    {
+        $this->container['definition'] = $definition;
 
         return $this;
     }
@@ -357,6 +393,30 @@ class DataForListPoliciesOutput implements ModelInterface, ArrayAccess
     public function setPolicyName($policy_name)
     {
         $this->container['policy_name'] = $policy_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

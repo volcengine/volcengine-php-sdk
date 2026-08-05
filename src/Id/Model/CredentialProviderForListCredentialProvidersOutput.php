@@ -28,11 +28,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'binding_resource_number' => 'int',
         'created_at' => 'string',
         'credential_provider_trn' => 'string',
         'flow' => 'string',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
         'type' => 'string',
         'updated_at' => 'string',
         'vendor' => 'int'
@@ -44,11 +46,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'binding_resource_number' => 'int64',
         'created_at' => null,
         'credential_provider_trn' => null,
         'flow' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
         'type' => null,
         'updated_at' => null,
         'vendor' => 'int32'
@@ -81,11 +85,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
+        'binding_resource_number' => 'BindingResourceNumber',
         'created_at' => 'CreatedAt',
         'credential_provider_trn' => 'CredentialProviderTrn',
         'flow' => 'Flow',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
         'type' => 'Type',
         'updated_at' => 'UpdatedAt',
         'vendor' => 'Vendor'
@@ -97,11 +103,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
      * @var string[]
      */
     protected static $setters = [
+        'binding_resource_number' => 'setBindingResourceNumber',
         'created_at' => 'setCreatedAt',
         'credential_provider_trn' => 'setCredentialProviderTrn',
         'flow' => 'setFlow',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
         'type' => 'setType',
         'updated_at' => 'setUpdatedAt',
         'vendor' => 'setVendor'
@@ -113,11 +121,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
      * @var string[]
      */
     protected static $getters = [
+        'binding_resource_number' => 'getBindingResourceNumber',
         'created_at' => 'getCreatedAt',
         'credential_provider_trn' => 'getCredentialProviderTrn',
         'flow' => 'getFlow',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
         'type' => 'getType',
         'updated_at' => 'getUpdatedAt',
         'vendor' => 'getVendor'
@@ -213,11 +223,13 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
      */
     public function __construct($data = null)
     {
+        $this->container['binding_resource_number'] = isset($data['binding_resource_number']) ? $data['binding_resource_number'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
@@ -262,6 +274,30 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets binding_resource_number
+     *
+     * @return int
+     */
+    public function getBindingResourceNumber()
+    {
+        return $this->container['binding_resource_number'];
+    }
+
+    /**
+     * Sets binding_resource_number
+     *
+     * @param int $binding_resource_number binding_resource_number
+     *
+     * @return $this
+     */
+    public function setBindingResourceNumber($binding_resource_number)
+    {
+        $this->container['binding_resource_number'] = $binding_resource_number;
+
+        return $this;
+    }
 
     /**
      * Gets created_at
@@ -388,6 +424,30 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

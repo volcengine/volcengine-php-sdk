@@ -28,6 +28,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'external_provider_connection_uid' => 'string',
         'user_pool_uid' => 'string',
         'users' => '\Volcengine\Id\Model\UserForCreateUsersInput[]'
     ];
@@ -38,6 +39,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'external_provider_connection_uid' => null,
         'user_pool_uid' => null,
         'users' => null
     ];
@@ -69,6 +71,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'external_provider_connection_uid' => 'ExternalProviderConnectionUid',
         'user_pool_uid' => 'UserPoolUid',
         'users' => 'Users'
     ];
@@ -79,6 +82,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'external_provider_connection_uid' => 'setExternalProviderConnectionUid',
         'user_pool_uid' => 'setUserPoolUid',
         'users' => 'setUsers'
     ];
@@ -89,6 +93,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'external_provider_connection_uid' => 'getExternalProviderConnectionUid',
         'user_pool_uid' => 'getUserPoolUid',
         'users' => 'getUsers'
     ];
@@ -153,6 +158,7 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['external_provider_connection_uid'] = isset($data['external_provider_connection_uid']) ? $data['external_provider_connection_uid'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
     }
@@ -183,6 +189,30 @@ class CreateUsersRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets external_provider_connection_uid
+     *
+     * @return string
+     */
+    public function getExternalProviderConnectionUid()
+    {
+        return $this->container['external_provider_connection_uid'];
+    }
+
+    /**
+     * Sets external_provider_connection_uid
+     *
+     * @param string $external_provider_connection_uid external_provider_connection_uid
+     *
+     * @return $this
+     */
+    public function setExternalProviderConnectionUid($external_provider_connection_uid)
+    {
+        $this->container['external_provider_connection_uid'] = $external_provider_connection_uid;
+
+        return $this;
+    }
 
     /**
      * Gets user_pool_uid

@@ -36,6 +36,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         'total_credentials' => 'int',
         'total_workloads' => 'int',
         'trn' => 'string',
+        'trust_anchors' => 'string[]',
         'updated_at' => 'string',
         'workload_pool_id' => 'string',
         'workload_pool_name' => 'string'
@@ -55,6 +56,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         'total_credentials' => 'int64',
         'total_workloads' => 'int64',
         'trn' => null,
+        'trust_anchors' => null,
         'updated_at' => null,
         'workload_pool_id' => null,
         'workload_pool_name' => null
@@ -95,6 +97,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         'total_credentials' => 'TotalCredentials',
         'total_workloads' => 'TotalWorkloads',
         'trn' => 'Trn',
+        'trust_anchors' => 'TrustAnchors',
         'updated_at' => 'UpdatedAt',
         'workload_pool_id' => 'WorkloadPoolId',
         'workload_pool_name' => 'WorkloadPoolName'
@@ -114,6 +117,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         'total_credentials' => 'setTotalCredentials',
         'total_workloads' => 'setTotalWorkloads',
         'trn' => 'setTrn',
+        'trust_anchors' => 'setTrustAnchors',
         'updated_at' => 'setUpdatedAt',
         'workload_pool_id' => 'setWorkloadPoolId',
         'workload_pool_name' => 'setWorkloadPoolName'
@@ -133,6 +137,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         'total_credentials' => 'getTotalCredentials',
         'total_workloads' => 'getTotalWorkloads',
         'trn' => 'getTrn',
+        'trust_anchors' => 'getTrustAnchors',
         'updated_at' => 'getUpdatedAt',
         'workload_pool_id' => 'getWorkloadPoolId',
         'workload_pool_name' => 'getWorkloadPoolName'
@@ -206,6 +211,7 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
         $this->container['total_credentials'] = isset($data['total_credentials']) ? $data['total_credentials'] : null;
         $this->container['total_workloads'] = isset($data['total_workloads']) ? $data['total_workloads'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
+        $this->container['trust_anchors'] = isset($data['trust_anchors']) ? $data['trust_anchors'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['workload_pool_id'] = isset($data['workload_pool_id']) ? $data['workload_pool_id'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
@@ -423,6 +429,30 @@ class WorkloadPoolForListWorkloadPoolsOutput implements ModelInterface, ArrayAcc
     public function setTrn($trn)
     {
         $this->container['trn'] = $trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets trust_anchors
+     *
+     * @return string[]
+     */
+    public function getTrustAnchors()
+    {
+        return $this->container['trust_anchors'];
+    }
+
+    /**
+     * Sets trust_anchors
+     *
+     * @param string[] $trust_anchors trust_anchors
+     *
+     * @return $this
+     */
+    public function setTrustAnchors($trust_anchors)
+    {
+        $this->container['trust_anchors'] = $trust_anchors;
 
         return $this;
     }

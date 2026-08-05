@@ -31,13 +31,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'birthdate' => 'string',
         'connection' => 'string',
         'create_time' => 'string',
+        'custom_attributes' => '\Volcengine\Id\Model\CustomAttributeForListUsersOutput[]',
+        'department_uids' => 'string[]',
         'email' => 'string',
         'email_verified' => 'bool',
+        'external_identities' => '\Volcengine\Id\Model\ExternalIdentityForListUsersOutput[]',
         'family_name' => 'string',
         'gender' => 'string',
         'given_name' => 'string',
+        'group_uids' => 'string[]',
         'latest_browser' => 'string',
         'latest_login' => 'string',
+        'latest_login_connection_name' => 'string',
+        'latest_login_connection_provider' => 'string',
+        'latest_login_connection_type' => 'string',
         'latest_login_method' => 'string',
         'locale' => 'string',
         'middle_name' => 'string',
@@ -67,13 +74,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'birthdate' => null,
         'connection' => null,
         'create_time' => null,
+        'custom_attributes' => null,
+        'department_uids' => null,
         'email' => null,
         'email_verified' => null,
+        'external_identities' => null,
         'family_name' => null,
         'gender' => null,
         'given_name' => null,
+        'group_uids' => null,
         'latest_browser' => null,
         'latest_login' => null,
+        'latest_login_connection_name' => null,
+        'latest_login_connection_provider' => null,
+        'latest_login_connection_type' => null,
         'latest_login_method' => null,
         'locale' => null,
         'middle_name' => null,
@@ -124,13 +138,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'birthdate' => 'Birthdate',
         'connection' => 'Connection',
         'create_time' => 'CreateTime',
+        'custom_attributes' => 'CustomAttributes',
+        'department_uids' => 'DepartmentUids',
         'email' => 'Email',
         'email_verified' => 'EmailVerified',
+        'external_identities' => 'ExternalIdentities',
         'family_name' => 'FamilyName',
         'gender' => 'Gender',
         'given_name' => 'GivenName',
+        'group_uids' => 'GroupUids',
         'latest_browser' => 'LatestBrowser',
         'latest_login' => 'LatestLogin',
+        'latest_login_connection_name' => 'LatestLoginConnectionName',
+        'latest_login_connection_provider' => 'LatestLoginConnectionProvider',
+        'latest_login_connection_type' => 'LatestLoginConnectionType',
         'latest_login_method' => 'LatestLoginMethod',
         'locale' => 'Locale',
         'middle_name' => 'MiddleName',
@@ -160,13 +181,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'birthdate' => 'setBirthdate',
         'connection' => 'setConnection',
         'create_time' => 'setCreateTime',
+        'custom_attributes' => 'setCustomAttributes',
+        'department_uids' => 'setDepartmentUids',
         'email' => 'setEmail',
         'email_verified' => 'setEmailVerified',
+        'external_identities' => 'setExternalIdentities',
         'family_name' => 'setFamilyName',
         'gender' => 'setGender',
         'given_name' => 'setGivenName',
+        'group_uids' => 'setGroupUids',
         'latest_browser' => 'setLatestBrowser',
         'latest_login' => 'setLatestLogin',
+        'latest_login_connection_name' => 'setLatestLoginConnectionName',
+        'latest_login_connection_provider' => 'setLatestLoginConnectionProvider',
+        'latest_login_connection_type' => 'setLatestLoginConnectionType',
         'latest_login_method' => 'setLatestLoginMethod',
         'locale' => 'setLocale',
         'middle_name' => 'setMiddleName',
@@ -196,13 +224,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'birthdate' => 'getBirthdate',
         'connection' => 'getConnection',
         'create_time' => 'getCreateTime',
+        'custom_attributes' => 'getCustomAttributes',
+        'department_uids' => 'getDepartmentUids',
         'email' => 'getEmail',
         'email_verified' => 'getEmailVerified',
+        'external_identities' => 'getExternalIdentities',
         'family_name' => 'getFamilyName',
         'gender' => 'getGender',
         'given_name' => 'getGivenName',
+        'group_uids' => 'getGroupUids',
         'latest_browser' => 'getLatestBrowser',
         'latest_login' => 'getLatestLogin',
+        'latest_login_connection_name' => 'getLatestLoginConnectionName',
+        'latest_login_connection_provider' => 'getLatestLoginConnectionProvider',
+        'latest_login_connection_type' => 'getLatestLoginConnectionType',
         'latest_login_method' => 'getLatestLoginMethod',
         'locale' => 'getLocale',
         'middle_name' => 'getMiddleName',
@@ -286,13 +321,20 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         $this->container['birthdate'] = isset($data['birthdate']) ? $data['birthdate'] : null;
         $this->container['connection'] = isset($data['connection']) ? $data['connection'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['custom_attributes'] = isset($data['custom_attributes']) ? $data['custom_attributes'] : null;
+        $this->container['department_uids'] = isset($data['department_uids']) ? $data['department_uids'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['email_verified'] = isset($data['email_verified']) ? $data['email_verified'] : null;
+        $this->container['external_identities'] = isset($data['external_identities']) ? $data['external_identities'] : null;
         $this->container['family_name'] = isset($data['family_name']) ? $data['family_name'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['given_name'] = isset($data['given_name']) ? $data['given_name'] : null;
+        $this->container['group_uids'] = isset($data['group_uids']) ? $data['group_uids'] : null;
         $this->container['latest_browser'] = isset($data['latest_browser']) ? $data['latest_browser'] : null;
         $this->container['latest_login'] = isset($data['latest_login']) ? $data['latest_login'] : null;
+        $this->container['latest_login_connection_name'] = isset($data['latest_login_connection_name']) ? $data['latest_login_connection_name'] : null;
+        $this->container['latest_login_connection_provider'] = isset($data['latest_login_connection_provider']) ? $data['latest_login_connection_provider'] : null;
+        $this->container['latest_login_connection_type'] = isset($data['latest_login_connection_type']) ? $data['latest_login_connection_type'] : null;
         $this->container['latest_login_method'] = isset($data['latest_login_method']) ? $data['latest_login_method'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
@@ -410,6 +452,54 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_attributes
+     *
+     * @return \Volcengine\Id\Model\CustomAttributeForListUsersOutput[]
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['custom_attributes'];
+    }
+
+    /**
+     * Sets custom_attributes
+     *
+     * @param \Volcengine\Id\Model\CustomAttributeForListUsersOutput[] $custom_attributes custom_attributes
+     *
+     * @return $this
+     */
+    public function setCustomAttributes($custom_attributes)
+    {
+        $this->container['custom_attributes'] = $custom_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets department_uids
+     *
+     * @return string[]
+     */
+    public function getDepartmentUids()
+    {
+        return $this->container['department_uids'];
+    }
+
+    /**
+     * Sets department_uids
+     *
+     * @param string[] $department_uids department_uids
+     *
+     * @return $this
+     */
+    public function setDepartmentUids($department_uids)
+    {
+        $this->container['department_uids'] = $department_uids;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string
@@ -453,6 +543,30 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
     public function setEmailVerified($email_verified)
     {
         $this->container['email_verified'] = $email_verified;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_identities
+     *
+     * @return \Volcengine\Id\Model\ExternalIdentityForListUsersOutput[]
+     */
+    public function getExternalIdentities()
+    {
+        return $this->container['external_identities'];
+    }
+
+    /**
+     * Sets external_identities
+     *
+     * @param \Volcengine\Id\Model\ExternalIdentityForListUsersOutput[] $external_identities external_identities
+     *
+     * @return $this
+     */
+    public function setExternalIdentities($external_identities)
+    {
+        $this->container['external_identities'] = $external_identities;
 
         return $this;
     }
@@ -530,6 +644,30 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets group_uids
+     *
+     * @return string[]
+     */
+    public function getGroupUids()
+    {
+        return $this->container['group_uids'];
+    }
+
+    /**
+     * Sets group_uids
+     *
+     * @param string[] $group_uids group_uids
+     *
+     * @return $this
+     */
+    public function setGroupUids($group_uids)
+    {
+        $this->container['group_uids'] = $group_uids;
+
+        return $this;
+    }
+
+    /**
      * Gets latest_browser
      *
      * @return string
@@ -573,6 +711,78 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
     public function setLatestLogin($latest_login)
     {
         $this->container['latest_login'] = $latest_login;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_login_connection_name
+     *
+     * @return string
+     */
+    public function getLatestLoginConnectionName()
+    {
+        return $this->container['latest_login_connection_name'];
+    }
+
+    /**
+     * Sets latest_login_connection_name
+     *
+     * @param string $latest_login_connection_name latest_login_connection_name
+     *
+     * @return $this
+     */
+    public function setLatestLoginConnectionName($latest_login_connection_name)
+    {
+        $this->container['latest_login_connection_name'] = $latest_login_connection_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_login_connection_provider
+     *
+     * @return string
+     */
+    public function getLatestLoginConnectionProvider()
+    {
+        return $this->container['latest_login_connection_provider'];
+    }
+
+    /**
+     * Sets latest_login_connection_provider
+     *
+     * @param string $latest_login_connection_provider latest_login_connection_provider
+     *
+     * @return $this
+     */
+    public function setLatestLoginConnectionProvider($latest_login_connection_provider)
+    {
+        $this->container['latest_login_connection_provider'] = $latest_login_connection_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_login_connection_type
+     *
+     * @return string
+     */
+    public function getLatestLoginConnectionType()
+    {
+        return $this->container['latest_login_connection_type'];
+    }
+
+    /**
+     * Sets latest_login_connection_type
+     *
+     * @param string $latest_login_connection_type latest_login_connection_type
+     *
+     * @return $this
+     */
+    public function setLatestLoginConnectionType($latest_login_connection_type)
+    {
+        $this->container['latest_login_connection_type'] = $latest_login_connection_type;
 
         return $this;
     }

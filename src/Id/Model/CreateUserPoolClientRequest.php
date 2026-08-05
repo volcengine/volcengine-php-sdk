@@ -32,8 +32,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_type' => 'string',
         'description' => 'string',
         'development_mode_enabled' => 'bool',
+        'device_flow_enabled' => 'bool',
+        'dismiss_login_page_enabled' => 'bool',
         'logo_uri' => 'string',
         'name' => 'string',
+        'skip_consent_enabled' => 'bool',
         'user_pool_uid' => 'string'
     ];
 
@@ -47,8 +50,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_type' => null,
         'description' => null,
         'development_mode_enabled' => null,
+        'device_flow_enabled' => null,
+        'dismiss_login_page_enabled' => null,
         'logo_uri' => null,
         'name' => null,
+        'skip_consent_enabled' => null,
         'user_pool_uid' => null
     ];
 
@@ -83,8 +89,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_type' => 'ClientType',
         'description' => 'Description',
         'development_mode_enabled' => 'DevelopmentModeEnabled',
+        'device_flow_enabled' => 'DeviceFlowEnabled',
+        'dismiss_login_page_enabled' => 'DismissLoginPageEnabled',
         'logo_uri' => 'LogoUri',
         'name' => 'Name',
+        'skip_consent_enabled' => 'SkipConsentEnabled',
         'user_pool_uid' => 'UserPoolUid'
     ];
 
@@ -98,8 +107,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_type' => 'setClientType',
         'description' => 'setDescription',
         'development_mode_enabled' => 'setDevelopmentModeEnabled',
+        'device_flow_enabled' => 'setDeviceFlowEnabled',
+        'dismiss_login_page_enabled' => 'setDismissLoginPageEnabled',
         'logo_uri' => 'setLogoUri',
         'name' => 'setName',
+        'skip_consent_enabled' => 'setSkipConsentEnabled',
         'user_pool_uid' => 'setUserPoolUid'
     ];
 
@@ -113,8 +125,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_type' => 'getClientType',
         'description' => 'getDescription',
         'development_mode_enabled' => 'getDevelopmentModeEnabled',
+        'device_flow_enabled' => 'getDeviceFlowEnabled',
+        'dismiss_login_page_enabled' => 'getDismissLoginPageEnabled',
         'logo_uri' => 'getLogoUri',
         'name' => 'getName',
+        'skip_consent_enabled' => 'getSkipConsentEnabled',
         'user_pool_uid' => 'getUserPoolUid'
     ];
 
@@ -182,8 +197,11 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         $this->container['client_type'] = isset($data['client_type']) ? $data['client_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['development_mode_enabled'] = isset($data['development_mode_enabled']) ? $data['development_mode_enabled'] : null;
+        $this->container['device_flow_enabled'] = isset($data['device_flow_enabled']) ? $data['device_flow_enabled'] : null;
+        $this->container['dismiss_login_page_enabled'] = isset($data['dismiss_login_page_enabled']) ? $data['dismiss_login_page_enabled'] : null;
         $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['skip_consent_enabled'] = isset($data['skip_consent_enabled']) ? $data['skip_consent_enabled'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
     }
 
@@ -317,6 +335,54 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets device_flow_enabled
+     *
+     * @return bool
+     */
+    public function getDeviceFlowEnabled()
+    {
+        return $this->container['device_flow_enabled'];
+    }
+
+    /**
+     * Sets device_flow_enabled
+     *
+     * @param bool $device_flow_enabled device_flow_enabled
+     *
+     * @return $this
+     */
+    public function setDeviceFlowEnabled($device_flow_enabled)
+    {
+        $this->container['device_flow_enabled'] = $device_flow_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets dismiss_login_page_enabled
+     *
+     * @return bool
+     */
+    public function getDismissLoginPageEnabled()
+    {
+        return $this->container['dismiss_login_page_enabled'];
+    }
+
+    /**
+     * Sets dismiss_login_page_enabled
+     *
+     * @param bool $dismiss_login_page_enabled dismiss_login_page_enabled
+     *
+     * @return $this
+     */
+    public function setDismissLoginPageEnabled($dismiss_login_page_enabled)
+    {
+        $this->container['dismiss_login_page_enabled'] = $dismiss_login_page_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets logo_uri
      *
      * @return string
@@ -360,6 +426,30 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_consent_enabled
+     *
+     * @return bool
+     */
+    public function getSkipConsentEnabled()
+    {
+        return $this->container['skip_consent_enabled'];
+    }
+
+    /**
+     * Sets skip_consent_enabled
+     *
+     * @param bool $skip_consent_enabled skip_consent_enabled
+     *
+     * @return $this
+     */
+    public function setSkipConsentEnabled($skip_consent_enabled)
+    {
+        $this->container['skip_consent_enabled'] = $skip_consent_enabled;
 
         return $this;
     }

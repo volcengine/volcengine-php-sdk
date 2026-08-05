@@ -32,6 +32,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForListIdentityProvidersOAuthOutput',
         'client_id' => 'string',
         'client_secret' => 'string',
+        'eip_record' => '\Volcengine\Id\Model\EipRecordForListIdentityProvidersOAuthOutput',
         'enabled' => 'bool',
         'id_attribute' => 'string',
         'name' => 'string',
@@ -54,6 +55,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
+        'eip_record' => null,
         'enabled' => null,
         'id_attribute' => null,
         'name' => null,
@@ -97,6 +99,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
+        'eip_record' => 'EipRecord',
         'enabled' => 'Enabled',
         'id_attribute' => 'IdAttribute',
         'name' => 'Name',
@@ -119,6 +122,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
+        'eip_record' => 'setEipRecord',
         'enabled' => 'setEnabled',
         'id_attribute' => 'setIdAttribute',
         'name' => 'setName',
@@ -141,6 +145,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
+        'eip_record' => 'getEipRecord',
         'enabled' => 'getEnabled',
         'id_attribute' => 'getIdAttribute',
         'name' => 'getName',
@@ -217,6 +222,7 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
+        $this->container['eip_record'] = isset($data['eip_record']) ? $data['eip_record'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['id_attribute'] = isset($data['id_attribute']) ? $data['id_attribute'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -345,6 +351,30 @@ class DataForListIdentityProvidersOAuthOutput implements ModelInterface, ArrayAc
     public function setClientSecret($client_secret)
     {
         $this->container['client_secret'] = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_record
+     *
+     * @return \Volcengine\Id\Model\EipRecordForListIdentityProvidersOAuthOutput
+     */
+    public function getEipRecord()
+    {
+        return $this->container['eip_record'];
+    }
+
+    /**
+     * Sets eip_record
+     *
+     * @param \Volcengine\Id\Model\EipRecordForListIdentityProvidersOAuthOutput $eip_record eip_record
+     *
+     * @return $this
+     */
+    public function setEipRecord($eip_record)
+    {
+        $this->container['eip_record'] = $eip_record;
 
         return $this;
     }

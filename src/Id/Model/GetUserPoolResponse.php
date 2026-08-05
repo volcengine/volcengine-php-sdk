@@ -28,11 +28,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'authentication_method_order' => 'string[]',
         'brand' => '\Volcengine\Id\Model\BrandForGetUserPoolOutput',
         'create_time' => 'string',
+        'custom_attributes' => '\Volcengine\Id\Model\CustomAttributeForGetUserPoolOutput[]',
+        'custom_domain' => 'string',
         'description' => 'string',
         'discovery_url' => 'string',
         'domain' => 'string',
+        'email_anonymous_sign_up_enabled' => 'bool',
         'email_passwordless_sign_in_enabled' => 'bool',
         'enabled' => 'bool',
         'issuer_url' => 'string',
@@ -47,6 +51,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'saml_login_callback_url' => 'string',
         'saml_sign_up_callback_url' => 'string',
         'self_account_recovery_enabled' => 'bool',
+        'self_account_recovery_verification_attributes' => 'string[]',
         'self_sign_up_enabled' => 'bool',
         'sign_in_attributes' => 'string[]',
         'sign_up_auto_verification_enabled' => 'bool',
@@ -70,11 +75,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'authentication_method_order' => null,
         'brand' => null,
         'create_time' => null,
+        'custom_attributes' => null,
+        'custom_domain' => null,
         'description' => null,
         'discovery_url' => null,
         'domain' => null,
+        'email_anonymous_sign_up_enabled' => null,
         'email_passwordless_sign_in_enabled' => null,
         'enabled' => null,
         'issuer_url' => null,
@@ -89,6 +98,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'saml_login_callback_url' => null,
         'saml_sign_up_callback_url' => null,
         'self_account_recovery_enabled' => null,
+        'self_account_recovery_verification_attributes' => null,
         'self_sign_up_enabled' => null,
         'sign_in_attributes' => null,
         'sign_up_auto_verification_enabled' => null,
@@ -133,11 +143,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'authentication_method_order' => 'AuthenticationMethodOrder',
         'brand' => 'Brand',
         'create_time' => 'CreateTime',
+        'custom_attributes' => 'CustomAttributes',
+        'custom_domain' => 'CustomDomain',
         'description' => 'Description',
         'discovery_url' => 'DiscoveryUrl',
         'domain' => 'Domain',
+        'email_anonymous_sign_up_enabled' => 'EmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'EmailPasswordlessSignInEnabled',
         'enabled' => 'Enabled',
         'issuer_url' => 'IssuerUrl',
@@ -152,6 +166,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'saml_login_callback_url' => 'SamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'SamlSignUpCallbackUrl',
         'self_account_recovery_enabled' => 'SelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'SelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_in_attributes' => 'SignInAttributes',
         'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
@@ -175,11 +190,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'authentication_method_order' => 'setAuthenticationMethodOrder',
         'brand' => 'setBrand',
         'create_time' => 'setCreateTime',
+        'custom_attributes' => 'setCustomAttributes',
+        'custom_domain' => 'setCustomDomain',
         'description' => 'setDescription',
         'discovery_url' => 'setDiscoveryUrl',
         'domain' => 'setDomain',
+        'email_anonymous_sign_up_enabled' => 'setEmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'setEmailPasswordlessSignInEnabled',
         'enabled' => 'setEnabled',
         'issuer_url' => 'setIssuerUrl',
@@ -194,6 +213,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'saml_login_callback_url' => 'setSamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'setSamlSignUpCallbackUrl',
         'self_account_recovery_enabled' => 'setSelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'setSelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_in_attributes' => 'setSignInAttributes',
         'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
@@ -217,11 +237,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'authentication_method_order' => 'getAuthenticationMethodOrder',
         'brand' => 'getBrand',
         'create_time' => 'getCreateTime',
+        'custom_attributes' => 'getCustomAttributes',
+        'custom_domain' => 'getCustomDomain',
         'description' => 'getDescription',
         'discovery_url' => 'getDiscoveryUrl',
         'domain' => 'getDomain',
+        'email_anonymous_sign_up_enabled' => 'getEmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'getEmailPasswordlessSignInEnabled',
         'enabled' => 'getEnabled',
         'issuer_url' => 'getIssuerUrl',
@@ -236,6 +260,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'saml_login_callback_url' => 'getSamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'getSamlSignUpCallbackUrl',
         'self_account_recovery_enabled' => 'getSelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'getSelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_in_attributes' => 'getSignInAttributes',
         'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
@@ -313,11 +338,15 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['authentication_method_order'] = isset($data['authentication_method_order']) ? $data['authentication_method_order'] : null;
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['custom_attributes'] = isset($data['custom_attributes']) ? $data['custom_attributes'] : null;
+        $this->container['custom_domain'] = isset($data['custom_domain']) ? $data['custom_domain'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['email_anonymous_sign_up_enabled'] = isset($data['email_anonymous_sign_up_enabled']) ? $data['email_anonymous_sign_up_enabled'] : null;
         $this->container['email_passwordless_sign_in_enabled'] = isset($data['email_passwordless_sign_in_enabled']) ? $data['email_passwordless_sign_in_enabled'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['issuer_url'] = isset($data['issuer_url']) ? $data['issuer_url'] : null;
@@ -332,6 +361,7 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         $this->container['saml_login_callback_url'] = isset($data['saml_login_callback_url']) ? $data['saml_login_callback_url'] : null;
         $this->container['saml_sign_up_callback_url'] = isset($data['saml_sign_up_callback_url']) ? $data['saml_sign_up_callback_url'] : null;
         $this->container['self_account_recovery_enabled'] = isset($data['self_account_recovery_enabled']) ? $data['self_account_recovery_enabled'] : null;
+        $this->container['self_account_recovery_verification_attributes'] = isset($data['self_account_recovery_verification_attributes']) ? $data['self_account_recovery_verification_attributes'] : null;
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_in_attributes'] = isset($data['sign_in_attributes']) ? $data['sign_in_attributes'] : null;
         $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
@@ -372,6 +402,30 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets authentication_method_order
+     *
+     * @return string[]
+     */
+    public function getAuthenticationMethodOrder()
+    {
+        return $this->container['authentication_method_order'];
+    }
+
+    /**
+     * Sets authentication_method_order
+     *
+     * @param string[] $authentication_method_order authentication_method_order
+     *
+     * @return $this
+     */
+    public function setAuthenticationMethodOrder($authentication_method_order)
+    {
+        $this->container['authentication_method_order'] = $authentication_method_order;
+
+        return $this;
+    }
 
     /**
      * Gets brand
@@ -417,6 +471,54 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_attributes
+     *
+     * @return \Volcengine\Id\Model\CustomAttributeForGetUserPoolOutput[]
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['custom_attributes'];
+    }
+
+    /**
+     * Sets custom_attributes
+     *
+     * @param \Volcengine\Id\Model\CustomAttributeForGetUserPoolOutput[] $custom_attributes custom_attributes
+     *
+     * @return $this
+     */
+    public function setCustomAttributes($custom_attributes)
+    {
+        $this->container['custom_attributes'] = $custom_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_domain
+     *
+     * @return string
+     */
+    public function getCustomDomain()
+    {
+        return $this->container['custom_domain'];
+    }
+
+    /**
+     * Sets custom_domain
+     *
+     * @param string $custom_domain custom_domain
+     *
+     * @return $this
+     */
+    public function setCustomDomain($custom_domain)
+    {
+        $this->container['custom_domain'] = $custom_domain;
 
         return $this;
     }
@@ -489,6 +591,30 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_anonymous_sign_up_enabled
+     *
+     * @return bool
+     */
+    public function getEmailAnonymousSignUpEnabled()
+    {
+        return $this->container['email_anonymous_sign_up_enabled'];
+    }
+
+    /**
+     * Sets email_anonymous_sign_up_enabled
+     *
+     * @param bool $email_anonymous_sign_up_enabled email_anonymous_sign_up_enabled
+     *
+     * @return $this
+     */
+    public function setEmailAnonymousSignUpEnabled($email_anonymous_sign_up_enabled)
+    {
+        $this->container['email_anonymous_sign_up_enabled'] = $email_anonymous_sign_up_enabled;
 
         return $this;
     }
@@ -825,6 +951,30 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     public function setSelfAccountRecoveryEnabled($self_account_recovery_enabled)
     {
         $this->container['self_account_recovery_enabled'] = $self_account_recovery_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets self_account_recovery_verification_attributes
+     *
+     * @return string[]
+     */
+    public function getSelfAccountRecoveryVerificationAttributes()
+    {
+        return $this->container['self_account_recovery_verification_attributes'];
+    }
+
+    /**
+     * Sets self_account_recovery_verification_attributes
+     *
+     * @param string[] $self_account_recovery_verification_attributes self_account_recovery_verification_attributes
+     *
+     * @return $this
+     */
+    public function setSelfAccountRecoveryVerificationAttributes($self_account_recovery_verification_attributes)
+    {
+        $this->container['self_account_recovery_verification_attributes'] = $self_account_recovery_verification_attributes;
 
         return $this;
     }

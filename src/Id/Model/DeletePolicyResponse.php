@@ -29,7 +29,7 @@ class DeletePolicyResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'message' => 'string',
-        'success' => 'int'
+        'success' => 'bool'
     ];
 
     /**
@@ -39,7 +39,7 @@ class DeletePolicyResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'message' => null,
-        'success' => 'int32'
+        'success' => null
     ];
 
     /**
@@ -208,7 +208,7 @@ class DeletePolicyResponse implements ModelInterface, ArrayAccess
     /**
      * Gets success
      *
-     * @return int
+     * @return bool
      */
     public function getSuccess()
     {
@@ -218,7 +218,7 @@ class DeletePolicyResponse implements ModelInterface, ArrayAccess
     /**
      * Sets success
      *
-     * @param int $success success
+     * @param bool $success success
      *
      * @return $this
      */

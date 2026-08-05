@@ -28,16 +28,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOAuthOutput[]',
         'authorization_endpoint' => 'string',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderOAuthOutput',
         'client_id' => 'string',
         'client_secret' => 'string',
+        'eip_record' => '\Volcengine\Id\Model\EipRecordForCreateIdentityProviderOAuthOutput',
         'enabled' => 'bool',
+        'extra_provider_configuration' => '\Volcengine\Id\Model\ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput',
         'id_attribute' => 'string',
         'name' => 'string',
         'provider' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForCreateIdentityProviderOAuthOutput',
         'scopes_list' => 'string[]',
+        'sole_provider_connection' => 'bool',
         'token_endpoint' => 'string',
         'uid' => 'string',
         'use_pkce' => 'bool',
@@ -50,16 +54,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attribute_mappings' => null,
         'authorization_endpoint' => null,
         'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
+        'eip_record' => null,
         'enabled' => null,
+        'extra_provider_configuration' => null,
         'id_attribute' => null,
         'name' => null,
         'provider' => null,
         'provider_options' => null,
         'scopes_list' => null,
+        'sole_provider_connection' => null,
         'token_endpoint' => null,
         'uid' => null,
         'use_pkce' => null,
@@ -93,16 +101,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_mappings' => 'AttributeMappings',
         'authorization_endpoint' => 'AuthorizationEndpoint',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
+        'eip_record' => 'EipRecord',
         'enabled' => 'Enabled',
+        'extra_provider_configuration' => 'ExtraProviderConfiguration',
         'id_attribute' => 'IdAttribute',
         'name' => 'Name',
         'provider' => 'Provider',
         'provider_options' => 'ProviderOptions',
         'scopes_list' => 'ScopesList',
+        'sole_provider_connection' => 'SoleProviderConnection',
         'token_endpoint' => 'TokenEndpoint',
         'uid' => 'Uid',
         'use_pkce' => 'UsePkce',
@@ -115,16 +127,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attribute_mappings' => 'setAttributeMappings',
         'authorization_endpoint' => 'setAuthorizationEndpoint',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
+        'eip_record' => 'setEipRecord',
         'enabled' => 'setEnabled',
+        'extra_provider_configuration' => 'setExtraProviderConfiguration',
         'id_attribute' => 'setIdAttribute',
         'name' => 'setName',
         'provider' => 'setProvider',
         'provider_options' => 'setProviderOptions',
         'scopes_list' => 'setScopesList',
+        'sole_provider_connection' => 'setSoleProviderConnection',
         'token_endpoint' => 'setTokenEndpoint',
         'uid' => 'setUid',
         'use_pkce' => 'setUsePkce',
@@ -137,16 +153,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attribute_mappings' => 'getAttributeMappings',
         'authorization_endpoint' => 'getAuthorizationEndpoint',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
+        'eip_record' => 'getEipRecord',
         'enabled' => 'getEnabled',
+        'extra_provider_configuration' => 'getExtraProviderConfiguration',
         'id_attribute' => 'getIdAttribute',
         'name' => 'getName',
         'provider' => 'getProvider',
         'provider_options' => 'getProviderOptions',
         'scopes_list' => 'getScopesList',
+        'sole_provider_connection' => 'getSoleProviderConnection',
         'token_endpoint' => 'getTokenEndpoint',
         'uid' => 'getUid',
         'use_pkce' => 'getUsePkce',
@@ -213,16 +233,20 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['authorization_endpoint'] = isset($data['authorization_endpoint']) ? $data['authorization_endpoint'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
+        $this->container['eip_record'] = isset($data['eip_record']) ? $data['eip_record'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['extra_provider_configuration'] = isset($data['extra_provider_configuration']) ? $data['extra_provider_configuration'] : null;
         $this->container['id_attribute'] = isset($data['id_attribute']) ? $data['id_attribute'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
         $this->container['scopes_list'] = isset($data['scopes_list']) ? $data['scopes_list'] : null;
+        $this->container['sole_provider_connection'] = isset($data['sole_provider_connection']) ? $data['sole_provider_connection'] : null;
         $this->container['token_endpoint'] = isset($data['token_endpoint']) ? $data['token_endpoint'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['use_pkce'] = isset($data['use_pkce']) ? $data['use_pkce'] : null;
@@ -252,6 +276,30 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOAuthOutput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOAuthOutput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
 
     /**
      * Gets authorization_endpoint
@@ -350,6 +398,30 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets eip_record
+     *
+     * @return \Volcengine\Id\Model\EipRecordForCreateIdentityProviderOAuthOutput
+     */
+    public function getEipRecord()
+    {
+        return $this->container['eip_record'];
+    }
+
+    /**
+     * Sets eip_record
+     *
+     * @param \Volcengine\Id\Model\EipRecordForCreateIdentityProviderOAuthOutput $eip_record eip_record
+     *
+     * @return $this
+     */
+    public function setEipRecord($eip_record)
+    {
+        $this->container['eip_record'] = $eip_record;
+
+        return $this;
+    }
+
+    /**
      * Gets enabled
      *
      * @return bool
@@ -369,6 +441,30 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_provider_configuration
+     *
+     * @return \Volcengine\Id\Model\ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput
+     */
+    public function getExtraProviderConfiguration()
+    {
+        return $this->container['extra_provider_configuration'];
+    }
+
+    /**
+     * Sets extra_provider_configuration
+     *
+     * @param \Volcengine\Id\Model\ExtraProviderConfigurationForCreateIdentityProviderOAuthOutput $extra_provider_configuration extra_provider_configuration
+     *
+     * @return $this
+     */
+    public function setExtraProviderConfiguration($extra_provider_configuration)
+    {
+        $this->container['extra_provider_configuration'] = $extra_provider_configuration;
 
         return $this;
     }
@@ -489,6 +585,30 @@ class CreateIdentityProviderOAuthResponse implements ModelInterface, ArrayAccess
     public function setScopesList($scopes_list)
     {
         $this->container['scopes_list'] = $scopes_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets sole_provider_connection
+     *
+     * @return bool
+     */
+    public function getSoleProviderConnection()
+    {
+        return $this->container['sole_provider_connection'];
+    }
+
+    /**
+     * Sets sole_provider_connection
+     *
+     * @param bool $sole_provider_connection sole_provider_connection
+     *
+     * @return $this
+     */
+    public function setSoleProviderConnection($sole_provider_connection)
+    {
+        $this->container['sole_provider_connection'] = $sole_provider_connection;
 
         return $this;
     }
