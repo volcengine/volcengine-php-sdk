@@ -181,6 +181,9 @@ class VideoEditorAddSubtitleRequest implements ModelInterface, ArrayAccess
         if ($this->container['source_language'] === null) {
             $invalidProperties[] = "'source_language' can't be null";
         }
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         if ($this->container['target_language'] === null) {
             $invalidProperties[] = "'target_language' can't be null";
         }

@@ -172,9 +172,6 @@ class VideoProjectDeleteVideoDramaRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['delete_source_video'] === null) {
-            $invalidProperties[] = "'delete_source_video' can't be null";
-        }
         if ($this->container['drama_id'] === null) {
             $invalidProperties[] = "'drama_id' can't be null";
         }

@@ -43,6 +43,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         'related_text_project' => '\Volcengine\I18nopenapi\Model\RelatedTextProjectForTermBaseTermGroupsOutput',
         'tags' => '\Volcengine\I18nopenapi\Model\TagForTermBaseTermGroupsOutput[]',
         'term_base_id' => 'string',
+        'term_key' => 'string',
         'term_type' => 'int',
         'updated_at' => 'string'
     ];
@@ -68,6 +69,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         'related_text_project' => null,
         'tags' => null,
         'term_base_id' => null,
+        'term_key' => null,
         'term_type' => 'int32',
         'updated_at' => null
     ];
@@ -114,6 +116,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         'related_text_project' => 'relatedTextProject',
         'tags' => 'tags',
         'term_base_id' => 'termBaseId',
+        'term_key' => 'termKey',
         'term_type' => 'termType',
         'updated_at' => 'updatedAt'
     ];
@@ -139,6 +142,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         'related_text_project' => 'setRelatedTextProject',
         'tags' => 'setTags',
         'term_base_id' => 'setTermBaseId',
+        'term_key' => 'setTermKey',
         'term_type' => 'setTermType',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -164,6 +168,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         'related_text_project' => 'getRelatedTextProject',
         'tags' => 'getTags',
         'term_base_id' => 'getTermBaseId',
+        'term_key' => 'getTermKey',
         'term_type' => 'getTermType',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -243,6 +248,7 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
         $this->container['related_text_project'] = isset($data['related_text_project']) ? $data['related_text_project'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
+        $this->container['term_key'] = isset($data['term_key']) ? $data['term_key'] : null;
         $this->container['term_type'] = isset($data['term_type']) ? $data['term_type'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -627,6 +633,30 @@ class DataForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
     public function setTermBaseId($term_base_id)
     {
         $this->container['term_base_id'] = $term_base_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_key
+     *
+     * @return string
+     */
+    public function getTermKey()
+    {
+        return $this->container['term_key'];
+    }
+
+    /**
+     * Sets term_key
+     *
+     * @param string $term_key term_key
+     *
+     * @return $this
+     */
+    public function setTermKey($term_key)
+    {
+        $this->container['term_key'] = $term_key;
 
         return $this;
     }

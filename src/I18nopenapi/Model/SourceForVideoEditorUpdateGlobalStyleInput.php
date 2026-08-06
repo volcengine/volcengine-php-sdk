@@ -31,9 +31,9 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
         'alignment' => 'int',
         'font_family' => 'string',
         'font_size' => 'int',
-        'show' => 'float',
-        'x' => 'int',
-        'y' => 'int'
+        'show' => 'bool',
+        'x' => 'double',
+        'y' => 'double'
     ];
 
     /**
@@ -45,9 +45,9 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
         'alignment' => 'int32',
         'font_family' => null,
         'font_size' => 'int32',
-        'show' => 'float',
-        'x' => 'int64',
-        'y' => 'int64'
+        'show' => null,
+        'x' => 'double',
+        'y' => 'double'
     ];
 
     /**
@@ -280,7 +280,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Gets show
      *
-     * @return float
+     * @return bool
      */
     public function getShow()
     {
@@ -290,7 +290,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Sets show
      *
-     * @param float $show show
+     * @param bool $show show
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Gets x
      *
-     * @return int
+     * @return double
      */
     public function getX()
     {
@@ -314,7 +314,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Sets x
      *
-     * @param int $x x
+     * @param double $x x
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Gets y
      *
-     * @return int
+     * @return double
      */
     public function getY()
     {
@@ -338,7 +338,7 @@ class SourceForVideoEditorUpdateGlobalStyleInput implements ModelInterface, Arra
     /**
      * Sets y
      *
-     * @param int $y y
+     * @param double $y y
      *
      * @return $this
      */

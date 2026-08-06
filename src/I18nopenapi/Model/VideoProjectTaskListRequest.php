@@ -28,6 +28,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'drama_id' => 'string',
         'end_time' => 'int',
         'limit' => 'int',
         'offset' => 'int',
@@ -49,6 +50,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'drama_id' => null,
         'end_time' => 'int32',
         'limit' => 'int32',
         'offset' => 'int32',
@@ -91,6 +93,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'drama_id' => 'dramaId',
         'end_time' => 'endTime',
         'limit' => 'limit',
         'offset' => 'offset',
@@ -112,6 +115,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'drama_id' => 'setDramaId',
         'end_time' => 'setEndTime',
         'limit' => 'setLimit',
         'offset' => 'setOffset',
@@ -133,6 +137,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'drama_id' => 'getDramaId',
         'end_time' => 'getEndTime',
         'limit' => 'getLimit',
         'offset' => 'getOffset',
@@ -208,6 +213,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['drama_id'] = isset($data['drama_id']) ? $data['drama_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
@@ -249,6 +255,30 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets drama_id
+     *
+     * @return string
+     */
+    public function getDramaId()
+    {
+        return $this->container['drama_id'];
+    }
+
+    /**
+     * Sets drama_id
+     *
+     * @param string $drama_id drama_id
+     *
+     * @return $this
+     */
+    public function setDramaId($drama_id)
+    {
+        $this->container['drama_id'] = $drama_id;
+
+        return $this;
+    }
 
     /**
      * Gets end_time
