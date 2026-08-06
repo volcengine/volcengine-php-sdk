@@ -30,6 +30,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'ipam_resource_discovery_ids' => 'string[]',
         'ipam_resource_discovery_name' => 'string',
+        'ipam_resource_discovery_owner_id' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
         'project_name' => 'string',
@@ -45,6 +46,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'ipam_resource_discovery_ids' => null,
         'ipam_resource_discovery_name' => null,
+        'ipam_resource_discovery_owner_id' => null,
         'max_results' => null,
         'next_token' => null,
         'project_name' => null,
@@ -81,6 +83,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'ipam_resource_discovery_ids' => 'IpamResourceDiscoveryIds',
         'ipam_resource_discovery_name' => 'IpamResourceDiscoveryName',
+        'ipam_resource_discovery_owner_id' => 'IpamResourceDiscoveryOwnerId',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'project_name' => 'ProjectName',
@@ -96,6 +99,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     protected static $setters = [
         'ipam_resource_discovery_ids' => 'setIpamResourceDiscoveryIds',
         'ipam_resource_discovery_name' => 'setIpamResourceDiscoveryName',
+        'ipam_resource_discovery_owner_id' => 'setIpamResourceDiscoveryOwnerId',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'project_name' => 'setProjectName',
@@ -111,6 +115,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     protected static $getters = [
         'ipam_resource_discovery_ids' => 'getIpamResourceDiscoveryIds',
         'ipam_resource_discovery_name' => 'getIpamResourceDiscoveryName',
+        'ipam_resource_discovery_owner_id' => 'getIpamResourceDiscoveryOwnerId',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'project_name' => 'getProjectName',
@@ -180,6 +185,7 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     {
         $this->container['ipam_resource_discovery_ids'] = isset($data['ipam_resource_discovery_ids']) ? $data['ipam_resource_discovery_ids'] : null;
         $this->container['ipam_resource_discovery_name'] = isset($data['ipam_resource_discovery_name']) ? $data['ipam_resource_discovery_name'] : null;
+        $this->container['ipam_resource_discovery_owner_id'] = isset($data['ipam_resource_discovery_owner_id']) ? $data['ipam_resource_discovery_owner_id'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -255,6 +261,30 @@ class DescribeIpamResourceDiscoveriesRequest implements ModelInterface, ArrayAcc
     public function setIpamResourceDiscoveryName($ipam_resource_discovery_name)
     {
         $this->container['ipam_resource_discovery_name'] = $ipam_resource_discovery_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_resource_discovery_owner_id
+     *
+     * @return string
+     */
+    public function getIpamResourceDiscoveryOwnerId()
+    {
+        return $this->container['ipam_resource_discovery_owner_id'];
+    }
+
+    /**
+     * Sets ipam_resource_discovery_owner_id
+     *
+     * @param string $ipam_resource_discovery_owner_id ipam_resource_discovery_owner_id
+     *
+     * @return $this
+     */
+    public function setIpamResourceDiscoveryOwnerId($ipam_resource_discovery_owner_id)
+    {
+        $this->container['ipam_resource_discovery_owner_id'] = $ipam_resource_discovery_owner_id;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectVideoDeleteOutput'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        
     ];
 
     /**
@@ -148,7 +148,6 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -174,30 +173,6 @@ class VideoProjectVideoDeleteResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets data
-     *
-     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectVideoDeleteOutput
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectVideoDeleteOutput $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

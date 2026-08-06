@@ -31,7 +31,10 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         'api_key' => 'string',
         'api_key_metadata' => '\Volcengine\Id\Model\ApiKeyMetadataForCreateApiKeyCredentialProviderInput[]',
         'name' => 'string',
-        'pool_name' => 'string'
+        'pool_name' => 'string',
+        'project_name' => 'string',
+        'secret_storage' => '\Volcengine\Id\Model\SecretStorageForCreateApiKeyCredentialProviderInput',
+        'source' => 'string'
     ];
 
     /**
@@ -43,7 +46,10 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         'api_key' => null,
         'api_key_metadata' => null,
         'name' => null,
-        'pool_name' => null
+        'pool_name' => null,
+        'project_name' => null,
+        'secret_storage' => null,
+        'source' => null
     ];
 
     /**
@@ -76,7 +82,10 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         'api_key' => 'ApiKey',
         'api_key_metadata' => 'ApiKeyMetadata',
         'name' => 'Name',
-        'pool_name' => 'PoolName'
+        'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
+        'secret_storage' => 'SecretStorage',
+        'source' => 'Source'
     ];
 
     /**
@@ -88,7 +97,10 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         'api_key' => 'setApiKey',
         'api_key_metadata' => 'setApiKeyMetadata',
         'name' => 'setName',
-        'pool_name' => 'setPoolName'
+        'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
+        'secret_storage' => 'setSecretStorage',
+        'source' => 'setSource'
     ];
 
     /**
@@ -100,7 +112,10 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         'api_key' => 'getApiKey',
         'api_key_metadata' => 'getApiKeyMetadata',
         'name' => 'getName',
-        'pool_name' => 'getPoolName'
+        'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
+        'secret_storage' => 'getSecretStorage',
+        'source' => 'getSource'
     ];
 
     /**
@@ -167,6 +182,9 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
         $this->container['api_key_metadata'] = isset($data['api_key_metadata']) ? $data['api_key_metadata'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['secret_storage'] = isset($data['secret_storage']) ? $data['secret_storage'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -291,6 +309,78 @@ class CreateApiKeyCredentialProviderRequest implements ModelInterface, ArrayAcce
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_storage
+     *
+     * @return \Volcengine\Id\Model\SecretStorageForCreateApiKeyCredentialProviderInput
+     */
+    public function getSecretStorage()
+    {
+        return $this->container['secret_storage'];
+    }
+
+    /**
+     * Sets secret_storage
+     *
+     * @param \Volcengine\Id\Model\SecretStorageForCreateApiKeyCredentialProviderInput $secret_storage secret_storage
+     *
+     * @return $this
+     */
+    public function setSecretStorage($secret_storage)
+    {
+        $this->container['secret_storage'] = $secret_storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

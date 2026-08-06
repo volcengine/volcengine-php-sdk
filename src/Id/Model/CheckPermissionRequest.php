@@ -28,9 +28,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'extra' => '\Volcengine\Id\Model\ExtraForCheckPermissionInput',
         'namespace_name' => 'string',
         'operation' => '\Volcengine\Id\Model\OperationForCheckPermissionInput',
         'original_callers' => '\Volcengine\Id\Model\OriginalCallerForCheckPermissionInput[]',
+        'permission_point_id' => 'string',
         'principal' => '\Volcengine\Id\Model\PrincipalForCheckPermissionInput',
         'references' => '\Volcengine\Id\Model\ReferenceForCheckPermissionInput[]',
         'resource' => '\Volcengine\Id\Model\ResourceForCheckPermissionInput'
@@ -42,9 +44,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'extra' => null,
         'namespace_name' => null,
         'operation' => null,
         'original_callers' => null,
+        'permission_point_id' => null,
         'principal' => null,
         'references' => null,
         'resource' => null
@@ -77,9 +81,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'extra' => 'Extra',
         'namespace_name' => 'NamespaceName',
         'operation' => 'Operation',
         'original_callers' => 'OriginalCallers',
+        'permission_point_id' => 'PermissionPointId',
         'principal' => 'Principal',
         'references' => 'References',
         'resource' => 'Resource'
@@ -91,9 +97,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'extra' => 'setExtra',
         'namespace_name' => 'setNamespaceName',
         'operation' => 'setOperation',
         'original_callers' => 'setOriginalCallers',
+        'permission_point_id' => 'setPermissionPointId',
         'principal' => 'setPrincipal',
         'references' => 'setReferences',
         'resource' => 'setResource'
@@ -105,9 +113,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'extra' => 'getExtra',
         'namespace_name' => 'getNamespaceName',
         'operation' => 'getOperation',
         'original_callers' => 'getOriginalCallers',
+        'permission_point_id' => 'getPermissionPointId',
         'principal' => 'getPrincipal',
         'references' => 'getReferences',
         'resource' => 'getResource'
@@ -173,9 +183,11 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['original_callers'] = isset($data['original_callers']) ? $data['original_callers'] : null;
+        $this->container['permission_point_id'] = isset($data['permission_point_id']) ? $data['permission_point_id'] : null;
         $this->container['principal'] = isset($data['principal']) ? $data['principal'] : null;
         $this->container['references'] = isset($data['references']) ? $data['references'] : null;
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
@@ -207,6 +219,30 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets extra
+     *
+     * @return \Volcengine\Id\Model\ExtraForCheckPermissionInput
+     */
+    public function getExtra()
+    {
+        return $this->container['extra'];
+    }
+
+    /**
+     * Sets extra
+     *
+     * @param \Volcengine\Id\Model\ExtraForCheckPermissionInput $extra extra
+     *
+     * @return $this
+     */
+    public function setExtra($extra)
+    {
+        $this->container['extra'] = $extra;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_name
@@ -276,6 +312,30 @@ class CheckPermissionRequest implements ModelInterface, ArrayAccess
     public function setOriginalCallers($original_callers)
     {
         $this->container['original_callers'] = $original_callers;
+
+        return $this;
+    }
+
+    /**
+     * Gets permission_point_id
+     *
+     * @return string
+     */
+    public function getPermissionPointId()
+    {
+        return $this->container['permission_point_id'];
+    }
+
+    /**
+     * Sets permission_point_id
+     *
+     * @param string $permission_point_id permission_point_id
+     *
+     * @return $this
+     */
+    public function setPermissionPointId($permission_point_id)
+    {
+        $this->container['permission_point_id'] = $permission_point_id;
 
         return $this;
     }

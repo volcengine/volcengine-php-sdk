@@ -33,6 +33,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         'credential_provider_trn' => 'string',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
+        'secret_storage' => '\Volcengine\Id\Model\SecretStorageForGetApiKeyCredentialProviderOutput',
         'secret_trn' => 'string',
         'updated_at' => 'string'
     ];
@@ -48,6 +50,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         'credential_provider_trn' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
+        'secret_storage' => null,
         'secret_trn' => null,
         'updated_at' => null
     ];
@@ -84,6 +88,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         'credential_provider_trn' => 'CredentialProviderTrn',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
+        'secret_storage' => 'SecretStorage',
         'secret_trn' => 'SecretTrn',
         'updated_at' => 'UpdatedAt'
     ];
@@ -99,6 +105,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         'credential_provider_trn' => 'setCredentialProviderTrn',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
+        'secret_storage' => 'setSecretStorage',
         'secret_trn' => 'setSecretTrn',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -114,6 +122,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         'credential_provider_trn' => 'getCredentialProviderTrn',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
+        'secret_storage' => 'getSecretStorage',
         'secret_trn' => 'getSecretTrn',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -183,6 +193,8 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['secret_storage'] = isset($data['secret_storage']) ? $data['secret_storage'] : null;
         $this->container['secret_trn'] = isset($data['secret_trn']) ? $data['secret_trn'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -327,6 +339,54 @@ class GetApiKeyCredentialProviderResponse implements ModelInterface, ArrayAccess
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_storage
+     *
+     * @return \Volcengine\Id\Model\SecretStorageForGetApiKeyCredentialProviderOutput
+     */
+    public function getSecretStorage()
+    {
+        return $this->container['secret_storage'];
+    }
+
+    /**
+     * Sets secret_storage
+     *
+     * @param \Volcengine\Id\Model\SecretStorageForGetApiKeyCredentialProviderOutput $secret_storage secret_storage
+     *
+     * @return $this
+     */
+    public function setSecretStorage($secret_storage)
+    {
+        $this->container['secret_storage'] = $secret_storage;
 
         return $this;
     }

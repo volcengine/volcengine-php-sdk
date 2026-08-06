@@ -32,6 +32,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'category' => 'string',
         'created_at' => 'string',
         'description' => 'string',
+        'meta_data' => '\Volcengine\Id\Model\MetaDataForGetWorkloadIdentityOutput[]',
         'name' => 'string',
         'source' => 'string',
         'trn' => 'string',
@@ -49,6 +50,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'category' => null,
         'created_at' => null,
         'description' => null,
+        'meta_data' => null,
         'name' => null,
         'source' => null,
         'trn' => null,
@@ -87,6 +89,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'category' => 'Category',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
+        'meta_data' => 'MetaData',
         'name' => 'Name',
         'source' => 'Source',
         'trn' => 'Trn',
@@ -104,6 +107,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'category' => 'setCategory',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'meta_data' => 'setMetaData',
         'name' => 'setName',
         'source' => 'setSource',
         'trn' => 'setTrn',
@@ -121,6 +125,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'category' => 'getCategory',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'meta_data' => 'getMetaData',
         'name' => 'getName',
         'source' => 'getSource',
         'trn' => 'getTrn',
@@ -192,6 +197,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
@@ -315,6 +321,30 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_data
+     *
+     * @return \Volcengine\Id\Model\MetaDataForGetWorkloadIdentityOutput[]
+     */
+    public function getMetaData()
+    {
+        return $this->container['meta_data'];
+    }
+
+    /**
+     * Sets meta_data
+     *
+     * @param \Volcengine\Id\Model\MetaDataForGetWorkloadIdentityOutput[] $meta_data meta_data
+     *
+     * @return $this
+     */
+    public function setMetaData($meta_data)
+    {
+        $this->container['meta_data'] = $meta_data;
 
         return $this;
     }

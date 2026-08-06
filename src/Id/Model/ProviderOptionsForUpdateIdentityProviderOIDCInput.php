@@ -32,7 +32,8 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         'is_auto_creation' => 'bool',
         'is_auto_update' => 'bool',
         'is_creation_allowed' => 'bool',
-        'is_linking_allowed' => 'bool'
+        'is_linking_allowed' => 'bool',
+        'user_linking_prompt_enabled' => 'bool'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         'is_auto_creation' => null,
         'is_auto_update' => null,
         'is_creation_allowed' => null,
-        'is_linking_allowed' => null
+        'is_linking_allowed' => null,
+        'user_linking_prompt_enabled' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         'is_auto_creation' => 'IsAutoCreation',
         'is_auto_update' => 'IsAutoUpdate',
         'is_creation_allowed' => 'IsCreationAllowed',
-        'is_linking_allowed' => 'IsLinkingAllowed'
+        'is_linking_allowed' => 'IsLinkingAllowed',
+        'user_linking_prompt_enabled' => 'UserLinkingPromptEnabled'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         'is_auto_creation' => 'setIsAutoCreation',
         'is_auto_update' => 'setIsAutoUpdate',
         'is_creation_allowed' => 'setIsCreationAllowed',
-        'is_linking_allowed' => 'setIsLinkingAllowed'
+        'is_linking_allowed' => 'setIsLinkingAllowed',
+        'user_linking_prompt_enabled' => 'setUserLinkingPromptEnabled'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         'is_auto_creation' => 'getIsAutoCreation',
         'is_auto_update' => 'getIsAutoUpdate',
         'is_creation_allowed' => 'getIsCreationAllowed',
-        'is_linking_allowed' => 'getIsLinkingAllowed'
+        'is_linking_allowed' => 'getIsLinkingAllowed',
+        'user_linking_prompt_enabled' => 'getUserLinkingPromptEnabled'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
         $this->container['is_auto_update'] = isset($data['is_auto_update']) ? $data['is_auto_update'] : null;
         $this->container['is_creation_allowed'] = isset($data['is_creation_allowed']) ? $data['is_creation_allowed'] : null;
         $this->container['is_linking_allowed'] = isset($data['is_linking_allowed']) ? $data['is_linking_allowed'] : null;
+        $this->container['user_linking_prompt_enabled'] = isset($data['user_linking_prompt_enabled']) ? $data['user_linking_prompt_enabled'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class ProviderOptionsForUpdateIdentityProviderOIDCInput implements ModelInterfac
     public function setIsLinkingAllowed($is_linking_allowed)
     {
         $this->container['is_linking_allowed'] = $is_linking_allowed;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_linking_prompt_enabled
+     *
+     * @return bool
+     */
+    public function getUserLinkingPromptEnabled()
+    {
+        return $this->container['user_linking_prompt_enabled'];
+    }
+
+    /**
+     * Sets user_linking_prompt_enabled
+     *
+     * @param bool $user_linking_prompt_enabled user_linking_prompt_enabled
+     *
+     * @return $this
+     */
+    public function setUserLinkingPromptEnabled($user_linking_prompt_enabled)
+    {
+        $this->container['user_linking_prompt_enabled'] = $user_linking_prompt_enabled;
 
         return $this;
     }

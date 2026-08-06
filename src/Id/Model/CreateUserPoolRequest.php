@@ -28,18 +28,21 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'authentication_method_order' => 'string[]',
         'brand' => '\Volcengine\Id\Model\BrandForCreateUserPoolInput',
         'description' => 'string',
+        'email_anonymous_sign_up_enabled' => 'bool',
         'email_passwordless_sign_in_enabled' => 'bool',
         'name' => 'string',
         'password_sign_in_enabled' => 'bool',
         'project_name' => 'string',
         'required_sign_up_attributes' => 'string[]',
         'self_account_recovery_enabled' => 'bool',
+        'self_account_recovery_verification_attributes' => 'string[]',
         'self_sign_up_enabled' => 'bool',
         'sign_in_attributes' => 'string[]',
         'sign_up_auto_verification_enabled' => 'bool',
-        'sms_anonymous_sign_up_enabled' => 'string',
+        'sms_anonymous_sign_up_enabled' => 'bool',
         'sms_passwordless_sign_in_enabled' => 'bool',
         'tags' => '\Volcengine\Id\Model\TagForCreateUserPoolInput[]',
         'unconfirmed_user_sign_in_enabled' => 'bool'
@@ -51,14 +54,17 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'authentication_method_order' => null,
         'brand' => null,
         'description' => null,
+        'email_anonymous_sign_up_enabled' => null,
         'email_passwordless_sign_in_enabled' => null,
         'name' => null,
         'password_sign_in_enabled' => null,
         'project_name' => null,
         'required_sign_up_attributes' => null,
         'self_account_recovery_enabled' => null,
+        'self_account_recovery_verification_attributes' => null,
         'self_sign_up_enabled' => null,
         'sign_in_attributes' => null,
         'sign_up_auto_verification_enabled' => null,
@@ -95,14 +101,17 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'authentication_method_order' => 'AuthenticationMethodOrder',
         'brand' => 'Brand',
         'description' => 'Description',
+        'email_anonymous_sign_up_enabled' => 'EmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'EmailPasswordlessSignInEnabled',
         'name' => 'Name',
         'password_sign_in_enabled' => 'PasswordSignInEnabled',
         'project_name' => 'ProjectName',
         'required_sign_up_attributes' => 'RequiredSignUpAttributes',
         'self_account_recovery_enabled' => 'SelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'SelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_in_attributes' => 'SignInAttributes',
         'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
@@ -118,14 +127,17 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'authentication_method_order' => 'setAuthenticationMethodOrder',
         'brand' => 'setBrand',
         'description' => 'setDescription',
+        'email_anonymous_sign_up_enabled' => 'setEmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'setEmailPasswordlessSignInEnabled',
         'name' => 'setName',
         'password_sign_in_enabled' => 'setPasswordSignInEnabled',
         'project_name' => 'setProjectName',
         'required_sign_up_attributes' => 'setRequiredSignUpAttributes',
         'self_account_recovery_enabled' => 'setSelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'setSelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_in_attributes' => 'setSignInAttributes',
         'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
@@ -141,14 +153,17 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'authentication_method_order' => 'getAuthenticationMethodOrder',
         'brand' => 'getBrand',
         'description' => 'getDescription',
+        'email_anonymous_sign_up_enabled' => 'getEmailAnonymousSignUpEnabled',
         'email_passwordless_sign_in_enabled' => 'getEmailPasswordlessSignInEnabled',
         'name' => 'getName',
         'password_sign_in_enabled' => 'getPasswordSignInEnabled',
         'project_name' => 'getProjectName',
         'required_sign_up_attributes' => 'getRequiredSignUpAttributes',
         'self_account_recovery_enabled' => 'getSelfAccountRecoveryEnabled',
+        'self_account_recovery_verification_attributes' => 'getSelfAccountRecoveryVerificationAttributes',
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_in_attributes' => 'getSignInAttributes',
         'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
@@ -218,14 +233,17 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['authentication_method_order'] = isset($data['authentication_method_order']) ? $data['authentication_method_order'] : null;
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['email_anonymous_sign_up_enabled'] = isset($data['email_anonymous_sign_up_enabled']) ? $data['email_anonymous_sign_up_enabled'] : null;
         $this->container['email_passwordless_sign_in_enabled'] = isset($data['email_passwordless_sign_in_enabled']) ? $data['email_passwordless_sign_in_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['password_sign_in_enabled'] = isset($data['password_sign_in_enabled']) ? $data['password_sign_in_enabled'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['required_sign_up_attributes'] = isset($data['required_sign_up_attributes']) ? $data['required_sign_up_attributes'] : null;
         $this->container['self_account_recovery_enabled'] = isset($data['self_account_recovery_enabled']) ? $data['self_account_recovery_enabled'] : null;
+        $this->container['self_account_recovery_verification_attributes'] = isset($data['self_account_recovery_verification_attributes']) ? $data['self_account_recovery_verification_attributes'] : null;
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_in_attributes'] = isset($data['sign_in_attributes']) ? $data['sign_in_attributes'] : null;
         $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
@@ -261,6 +279,30 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets authentication_method_order
+     *
+     * @return string[]
+     */
+    public function getAuthenticationMethodOrder()
+    {
+        return $this->container['authentication_method_order'];
+    }
+
+    /**
+     * Sets authentication_method_order
+     *
+     * @param string[] $authentication_method_order authentication_method_order
+     *
+     * @return $this
+     */
+    public function setAuthenticationMethodOrder($authentication_method_order)
+    {
+        $this->container['authentication_method_order'] = $authentication_method_order;
+
+        return $this;
+    }
 
     /**
      * Gets brand
@@ -306,6 +348,30 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_anonymous_sign_up_enabled
+     *
+     * @return bool
+     */
+    public function getEmailAnonymousSignUpEnabled()
+    {
+        return $this->container['email_anonymous_sign_up_enabled'];
+    }
+
+    /**
+     * Sets email_anonymous_sign_up_enabled
+     *
+     * @param bool $email_anonymous_sign_up_enabled email_anonymous_sign_up_enabled
+     *
+     * @return $this
+     */
+    public function setEmailAnonymousSignUpEnabled($email_anonymous_sign_up_enabled)
+    {
+        $this->container['email_anonymous_sign_up_enabled'] = $email_anonymous_sign_up_enabled;
 
         return $this;
     }
@@ -455,6 +521,30 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets self_account_recovery_verification_attributes
+     *
+     * @return string[]
+     */
+    public function getSelfAccountRecoveryVerificationAttributes()
+    {
+        return $this->container['self_account_recovery_verification_attributes'];
+    }
+
+    /**
+     * Sets self_account_recovery_verification_attributes
+     *
+     * @param string[] $self_account_recovery_verification_attributes self_account_recovery_verification_attributes
+     *
+     * @return $this
+     */
+    public function setSelfAccountRecoveryVerificationAttributes($self_account_recovery_verification_attributes)
+    {
+        $this->container['self_account_recovery_verification_attributes'] = $self_account_recovery_verification_attributes;
+
+        return $this;
+    }
+
+    /**
      * Gets self_sign_up_enabled
      *
      * @return bool
@@ -529,7 +619,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
     /**
      * Gets sms_anonymous_sign_up_enabled
      *
-     * @return string
+     * @return bool
      */
     public function getSmsAnonymousSignUpEnabled()
     {
@@ -539,7 +629,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sms_anonymous_sign_up_enabled
      *
-     * @param string $sms_anonymous_sign_up_enabled sms_anonymous_sign_up_enabled
+     * @param bool $sms_anonymous_sign_up_enabled sms_anonymous_sign_up_enabled
      *
      * @return $this
      */

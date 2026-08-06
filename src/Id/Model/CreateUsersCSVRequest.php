@@ -28,7 +28,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_pool_uid' => 'string'
+        'external_provider_connection_uid' => 'string',
+        'user_pool_uid' => 'string',
+        'users_csv_b64' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_pool_uid' => null
+        'external_provider_connection_uid' => null,
+        'user_pool_uid' => null,
+        'users_csv_b64' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_pool_uid' => 'UserPoolUid'
+        'external_provider_connection_uid' => 'ExternalProviderConnectionUid',
+        'user_pool_uid' => 'UserPoolUid',
+        'users_csv_b64' => 'UsersCsvB64'
     ];
 
     /**
@@ -76,7 +82,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_pool_uid' => 'setUserPoolUid'
+        'external_provider_connection_uid' => 'setExternalProviderConnectionUid',
+        'user_pool_uid' => 'setUserPoolUid',
+        'users_csv_b64' => 'setUsersCsvB64'
     ];
 
     /**
@@ -85,7 +93,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_pool_uid' => 'getUserPoolUid'
+        'external_provider_connection_uid' => 'getExternalProviderConnectionUid',
+        'user_pool_uid' => 'getUserPoolUid',
+        'users_csv_b64' => 'getUsersCsvB64'
     ];
 
     /**
@@ -148,7 +158,9 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['external_provider_connection_uid'] = isset($data['external_provider_connection_uid']) ? $data['external_provider_connection_uid'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
+        $this->container['users_csv_b64'] = isset($data['users_csv_b64']) ? $data['users_csv_b64'] : null;
     }
 
     /**
@@ -179,6 +191,30 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets external_provider_connection_uid
+     *
+     * @return string
+     */
+    public function getExternalProviderConnectionUid()
+    {
+        return $this->container['external_provider_connection_uid'];
+    }
+
+    /**
+     * Sets external_provider_connection_uid
+     *
+     * @param string $external_provider_connection_uid external_provider_connection_uid
+     *
+     * @return $this
+     */
+    public function setExternalProviderConnectionUid($external_provider_connection_uid)
+    {
+        $this->container['external_provider_connection_uid'] = $external_provider_connection_uid;
+
+        return $this;
+    }
+
+    /**
      * Gets user_pool_uid
      *
      * @return string
@@ -198,6 +234,30 @@ class CreateUsersCSVRequest implements ModelInterface, ArrayAccess
     public function setUserPoolUid($user_pool_uid)
     {
         $this->container['user_pool_uid'] = $user_pool_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets users_csv_b64
+     *
+     * @return string
+     */
+    public function getUsersCsvB64()
+    {
+        return $this->container['users_csv_b64'];
+    }
+
+    /**
+     * Sets users_csv_b64
+     *
+     * @param string $users_csv_b64 users_csv_b64
+     *
+     * @return $this
+     */
+    public function setUsersCsvB64($users_csv_b64)
+    {
+        $this->container['users_csv_b64'] = $users_csv_b64;
 
         return $this;
     }

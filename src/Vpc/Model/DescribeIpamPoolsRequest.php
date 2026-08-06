@@ -31,6 +31,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'string',
         'ipam_pool_ids' => 'string[]',
         'ipam_pool_name' => 'string',
+        'ipam_pool_owner_id' => 'string',
         'ipam_scope_id' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
@@ -49,6 +50,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         'ip_version' => null,
         'ipam_pool_ids' => null,
         'ipam_pool_name' => null,
+        'ipam_pool_owner_id' => null,
         'ipam_scope_id' => null,
         'max_results' => null,
         'next_token' => null,
@@ -88,6 +90,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'IpVersion',
         'ipam_pool_ids' => 'IpamPoolIds',
         'ipam_pool_name' => 'IpamPoolName',
+        'ipam_pool_owner_id' => 'IpamPoolOwnerId',
         'ipam_scope_id' => 'IpamScopeId',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
@@ -106,6 +109,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'setIpVersion',
         'ipam_pool_ids' => 'setIpamPoolIds',
         'ipam_pool_name' => 'setIpamPoolName',
+        'ipam_pool_owner_id' => 'setIpamPoolOwnerId',
         'ipam_scope_id' => 'setIpamScopeId',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
@@ -124,6 +128,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'getIpVersion',
         'ipam_pool_ids' => 'getIpamPoolIds',
         'ipam_pool_name' => 'getIpamPoolName',
+        'ipam_pool_owner_id' => 'getIpamPoolOwnerId',
         'ipam_scope_id' => 'getIpamScopeId',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
@@ -196,6 +201,7 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
         $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
         $this->container['ipam_pool_ids'] = isset($data['ipam_pool_ids']) ? $data['ipam_pool_ids'] : null;
         $this->container['ipam_pool_name'] = isset($data['ipam_pool_name']) ? $data['ipam_pool_name'] : null;
+        $this->container['ipam_pool_owner_id'] = isset($data['ipam_pool_owner_id']) ? $data['ipam_pool_owner_id'] : null;
         $this->container['ipam_scope_id'] = isset($data['ipam_scope_id']) ? $data['ipam_scope_id'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
@@ -297,6 +303,30 @@ class DescribeIpamPoolsRequest implements ModelInterface, ArrayAccess
     public function setIpamPoolName($ipam_pool_name)
     {
         $this->container['ipam_pool_name'] = $ipam_pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipam_pool_owner_id
+     *
+     * @return string
+     */
+    public function getIpamPoolOwnerId()
+    {
+        return $this->container['ipam_pool_owner_id'];
+    }
+
+    /**
+     * Sets ipam_pool_owner_id
+     *
+     * @param string $ipam_pool_owner_id ipam_pool_owner_id
+     *
+     * @return $this
+     */
+    public function setIpamPoolOwnerId($ipam_pool_owner_id)
+    {
+        $this->container['ipam_pool_owner_id'] = $ipam_pool_owner_id;
 
         return $this;
     }

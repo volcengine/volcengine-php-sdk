@@ -29,6 +29,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'data' => '\Volcengine\Id\Model\DataForListUsersOutput[]',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'total_count' => 'int'
@@ -41,6 +42,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'data' => null,
+        'next_token' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
         'total_count' => 'int32'
@@ -74,6 +76,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'data' => 'Data',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'total_count' => 'TotalCount'
@@ -86,6 +89,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'data' => 'setData',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'total_count' => 'setTotalCount'
@@ -98,6 +102,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'data' => 'getData',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'total_count' => 'getTotalCount'
@@ -164,6 +169,7 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
@@ -213,6 +219,30 @@ class ListUsersResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

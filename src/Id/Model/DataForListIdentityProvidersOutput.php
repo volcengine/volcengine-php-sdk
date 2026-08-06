@@ -28,8 +28,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForListIdentityProvidersOutput[]',
         'connection_type' => 'string',
         'create_time' => 'string',
+        'enabled' => 'bool',
         'name' => 'string',
         'provider' => 'string',
         'uid' => 'string',
@@ -42,8 +44,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attribute_mappings' => null,
         'connection_type' => null,
         'create_time' => null,
+        'enabled' => null,
         'name' => null,
         'provider' => null,
         'uid' => null,
@@ -77,8 +81,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_mappings' => 'AttributeMappings',
         'connection_type' => 'ConnectionType',
         'create_time' => 'CreateTime',
+        'enabled' => 'Enabled',
         'name' => 'Name',
         'provider' => 'Provider',
         'uid' => 'Uid',
@@ -91,8 +97,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attribute_mappings' => 'setAttributeMappings',
         'connection_type' => 'setConnectionType',
         'create_time' => 'setCreateTime',
+        'enabled' => 'setEnabled',
         'name' => 'setName',
         'provider' => 'setProvider',
         'uid' => 'setUid',
@@ -105,8 +113,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attribute_mappings' => 'getAttributeMappings',
         'connection_type' => 'getConnectionType',
         'create_time' => 'getCreateTime',
+        'enabled' => 'getEnabled',
         'name' => 'getName',
         'provider' => 'getProvider',
         'uid' => 'getUid',
@@ -173,8 +183,10 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['connection_type'] = isset($data['connection_type']) ? $data['connection_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
@@ -204,6 +216,30 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForListIdentityProvidersOutput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForListIdentityProvidersOutput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
 
     /**
      * Gets connection_type
@@ -249,6 +285,30 @@ class DataForListIdentityProvidersOutput implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

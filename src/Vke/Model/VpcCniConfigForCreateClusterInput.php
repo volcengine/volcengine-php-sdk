@@ -28,8 +28,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subnet_ids' => 'string[]',
-        'trunk_eni_enabled' => 'bool'
+        'subnet_ids' => 'string[]'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subnet_ids' => null,
-        'trunk_eni_enabled' => null
+        'subnet_ids' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subnet_ids' => 'SubnetIds',
-        'trunk_eni_enabled' => 'TrunkEniEnabled'
+        'subnet_ids' => 'SubnetIds'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subnet_ids' => 'setSubnetIds',
-        'trunk_eni_enabled' => 'setTrunkEniEnabled'
+        'subnet_ids' => 'setSubnetIds'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subnet_ids' => 'getSubnetIds',
-        'trunk_eni_enabled' => 'getTrunkEniEnabled'
+        'subnet_ids' => 'getSubnetIds'
     ];
 
     /**
@@ -154,7 +149,6 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
-        $this->container['trunk_eni_enabled'] = isset($data['trunk_eni_enabled']) ? $data['trunk_eni_enabled'] : null;
     }
 
     /**
@@ -201,30 +195,6 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
     public function setSubnetIds($subnet_ids)
     {
         $this->container['subnet_ids'] = $subnet_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets trunk_eni_enabled
-     *
-     * @return bool
-     */
-    public function getTrunkEniEnabled()
-    {
-        return $this->container['trunk_eni_enabled'];
-    }
-
-    /**
-     * Sets trunk_eni_enabled
-     *
-     * @param bool $trunk_eni_enabled trunk_eni_enabled
-     *
-     * @return $this
-     */
-    public function setTrunkEniEnabled($trunk_eni_enabled)
-    {
-        $this->container['trunk_eni_enabled'] = $trunk_eni_enabled;
 
         return $this;
     }

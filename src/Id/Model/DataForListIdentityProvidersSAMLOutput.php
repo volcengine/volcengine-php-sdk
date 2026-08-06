@@ -31,6 +31,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'attribute_mapping' => 'string',
         'certificate' => 'string',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForListIdentityProvidersSAMLOutput',
+        'eip_record' => '\Volcengine\Id\Model\EipRecordForListIdentityProvidersSAMLOutput',
         'enabled' => 'bool',
         'enabled_encryption' => 'bool',
         'enabled_sign' => 'bool',
@@ -39,6 +40,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'name' => 'string',
         'provider' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForListIdentityProvidersSAMLOutput',
+        'scim_provisioning' => '\Volcengine\Id\Model\ScimProvisioningForListIdentityProvidersSAMLOutput',
+        'sp_metadata' => 'string',
         'uid' => 'string'
     ];
 
@@ -51,6 +54,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'attribute_mapping' => null,
         'certificate' => null,
         'claims_propagation_config' => null,
+        'eip_record' => null,
         'enabled' => null,
         'enabled_encryption' => null,
         'enabled_sign' => null,
@@ -59,6 +63,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'name' => null,
         'provider' => null,
         'provider_options' => null,
+        'scim_provisioning' => null,
+        'sp_metadata' => null,
         'uid' => null
     ];
 
@@ -92,6 +98,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'attribute_mapping' => 'AttributeMapping',
         'certificate' => 'Certificate',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
+        'eip_record' => 'EipRecord',
         'enabled' => 'Enabled',
         'enabled_encryption' => 'EnabledEncryption',
         'enabled_sign' => 'EnabledSign',
@@ -100,6 +107,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'name' => 'Name',
         'provider' => 'Provider',
         'provider_options' => 'ProviderOptions',
+        'scim_provisioning' => 'ScimProvisioning',
+        'sp_metadata' => 'SpMetadata',
         'uid' => 'Uid'
     ];
 
@@ -112,6 +121,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'attribute_mapping' => 'setAttributeMapping',
         'certificate' => 'setCertificate',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
+        'eip_record' => 'setEipRecord',
         'enabled' => 'setEnabled',
         'enabled_encryption' => 'setEnabledEncryption',
         'enabled_sign' => 'setEnabledSign',
@@ -120,6 +130,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'name' => 'setName',
         'provider' => 'setProvider',
         'provider_options' => 'setProviderOptions',
+        'scim_provisioning' => 'setScimProvisioning',
+        'sp_metadata' => 'setSpMetadata',
         'uid' => 'setUid'
     ];
 
@@ -132,6 +144,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'attribute_mapping' => 'getAttributeMapping',
         'certificate' => 'getCertificate',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
+        'eip_record' => 'getEipRecord',
         'enabled' => 'getEnabled',
         'enabled_encryption' => 'getEnabledEncryption',
         'enabled_sign' => 'getEnabledSign',
@@ -140,6 +153,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         'name' => 'getName',
         'provider' => 'getProvider',
         'provider_options' => 'getProviderOptions',
+        'scim_provisioning' => 'getScimProvisioning',
+        'sp_metadata' => 'getSpMetadata',
         'uid' => 'getUid'
     ];
 
@@ -206,6 +221,7 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
+        $this->container['eip_record'] = isset($data['eip_record']) ? $data['eip_record'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['enabled_encryption'] = isset($data['enabled_encryption']) ? $data['enabled_encryption'] : null;
         $this->container['enabled_sign'] = isset($data['enabled_sign']) ? $data['enabled_sign'] : null;
@@ -214,6 +230,8 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
+        $this->container['scim_provisioning'] = isset($data['scim_provisioning']) ? $data['scim_provisioning'] : null;
+        $this->container['sp_metadata'] = isset($data['sp_metadata']) ? $data['sp_metadata'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
@@ -309,6 +327,30 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
     public function setClaimsPropagationConfig($claims_propagation_config)
     {
         $this->container['claims_propagation_config'] = $claims_propagation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_record
+     *
+     * @return \Volcengine\Id\Model\EipRecordForListIdentityProvidersSAMLOutput
+     */
+    public function getEipRecord()
+    {
+        return $this->container['eip_record'];
+    }
+
+    /**
+     * Sets eip_record
+     *
+     * @param \Volcengine\Id\Model\EipRecordForListIdentityProvidersSAMLOutput $eip_record eip_record
+     *
+     * @return $this
+     */
+    public function setEipRecord($eip_record)
+    {
+        $this->container['eip_record'] = $eip_record;
 
         return $this;
     }
@@ -501,6 +543,54 @@ class DataForListIdentityProvidersSAMLOutput implements ModelInterface, ArrayAcc
     public function setProviderOptions($provider_options)
     {
         $this->container['provider_options'] = $provider_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets scim_provisioning
+     *
+     * @return \Volcengine\Id\Model\ScimProvisioningForListIdentityProvidersSAMLOutput
+     */
+    public function getScimProvisioning()
+    {
+        return $this->container['scim_provisioning'];
+    }
+
+    /**
+     * Sets scim_provisioning
+     *
+     * @param \Volcengine\Id\Model\ScimProvisioningForListIdentityProvidersSAMLOutput $scim_provisioning scim_provisioning
+     *
+     * @return $this
+     */
+    public function setScimProvisioning($scim_provisioning)
+    {
+        $this->container['scim_provisioning'] = $scim_provisioning;
+
+        return $this;
+    }
+
+    /**
+     * Gets sp_metadata
+     *
+     * @return string
+     */
+    public function getSpMetadata()
+    {
+        return $this->container['sp_metadata'];
+    }
+
+    /**
+     * Sets sp_metadata
+     *
+     * @param string $sp_metadata sp_metadata
+     *
+     * @return $this
+     */
+    public function setSpMetadata($sp_metadata)
+    {
+        $this->container['sp_metadata'] = $sp_metadata;
 
         return $this;
     }

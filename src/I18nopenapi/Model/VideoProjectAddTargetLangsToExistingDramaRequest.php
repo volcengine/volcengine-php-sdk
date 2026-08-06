@@ -34,6 +34,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'dub_voice_mode' => 'int',
         'from_task_type' => 'int',
         'is_dub' => 'bool',
+        'need_term_validation' => 'bool',
         'project_id' => 'string',
         'target_languages' => 'string[]',
         'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
@@ -53,6 +54,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'dub_voice_mode' => 'int32',
         'from_task_type' => 'int32',
         'is_dub' => null,
+        'need_term_validation' => null,
         'project_id' => null,
         'target_languages' => null,
         'target_style_map' => null,
@@ -93,6 +95,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'dub_voice_mode' => 'dubVoiceMode',
         'from_task_type' => 'fromTaskType',
         'is_dub' => 'isDub',
+        'need_term_validation' => 'needTermValidation',
         'project_id' => 'projectId',
         'target_languages' => 'targetLanguages',
         'target_style_map' => 'targetStyleMap',
@@ -112,6 +115,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'dub_voice_mode' => 'setDubVoiceMode',
         'from_task_type' => 'setFromTaskType',
         'is_dub' => 'setIsDub',
+        'need_term_validation' => 'setNeedTermValidation',
         'project_id' => 'setProjectId',
         'target_languages' => 'setTargetLanguages',
         'target_style_map' => 'setTargetStyleMap',
@@ -131,6 +135,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'dub_voice_mode' => 'getDubVoiceMode',
         'from_task_type' => 'getFromTaskType',
         'is_dub' => 'getIsDub',
+        'need_term_validation' => 'getNeedTermValidation',
         'project_id' => 'getProjectId',
         'target_languages' => 'getTargetLanguages',
         'target_style_map' => 'getTargetStyleMap',
@@ -204,6 +209,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
         $this->container['from_task_type'] = isset($data['from_task_type']) ? $data['from_task_type'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
+        $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['target_languages'] = isset($data['target_languages']) ? $data['target_languages'] : null;
         $this->container['target_style_map'] = isset($data['target_style_map']) ? $data['target_style_map'] : null;
@@ -384,6 +390,30 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
     public function setIsDub($is_dub)
     {
         $this->container['is_dub'] = $is_dub;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_term_validation
+     *
+     * @return bool
+     */
+    public function getNeedTermValidation()
+    {
+        return $this->container['need_term_validation'];
+    }
+
+    /**
+     * Sets need_term_validation
+     *
+     * @param bool $need_term_validation need_term_validation
+     *
+     * @return $this
+     */
+    public function setNeedTermValidation($need_term_validation)
+    {
+        $this->container['need_term_validation'] = $need_term_validation;
 
         return $this;
     }

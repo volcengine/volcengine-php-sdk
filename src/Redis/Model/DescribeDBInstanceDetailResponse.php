@@ -43,6 +43,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         'instance_name' => 'string',
         'maintenance_time' => 'string',
         'max_connections' => 'int',
+        'modules' => 'string[]',
         'multi_az' => 'string',
         'node_number' => 'int',
         'project_name' => 'string',
@@ -81,6 +82,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         'instance_name' => null,
         'maintenance_time' => null,
         'max_connections' => 'int32',
+        'modules' => null,
         'multi_az' => null,
         'node_number' => 'int32',
         'project_name' => null,
@@ -140,6 +142,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         'instance_name' => 'InstanceName',
         'maintenance_time' => 'MaintenanceTime',
         'max_connections' => 'MaxConnections',
+        'modules' => 'Modules',
         'multi_az' => 'MultiAZ',
         'node_number' => 'NodeNumber',
         'project_name' => 'ProjectName',
@@ -178,6 +181,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         'instance_name' => 'setInstanceName',
         'maintenance_time' => 'setMaintenanceTime',
         'max_connections' => 'setMaxConnections',
+        'modules' => 'setModules',
         'multi_az' => 'setMultiAz',
         'node_number' => 'setNodeNumber',
         'project_name' => 'setProjectName',
@@ -216,6 +220,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         'instance_name' => 'getInstanceName',
         'maintenance_time' => 'getMaintenanceTime',
         'max_connections' => 'getMaxConnections',
+        'modules' => 'getModules',
         'multi_az' => 'getMultiAz',
         'node_number' => 'getNodeNumber',
         'project_name' => 'getProjectName',
@@ -308,6 +313,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['maintenance_time'] = isset($data['maintenance_time']) ? $data['maintenance_time'] : null;
         $this->container['max_connections'] = isset($data['max_connections']) ? $data['max_connections'] : null;
+        $this->container['modules'] = isset($data['modules']) ? $data['modules'] : null;
         $this->container['multi_az'] = isset($data['multi_az']) ? $data['multi_az'] : null;
         $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -705,6 +711,30 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
     public function setMaxConnections($max_connections)
     {
         $this->container['max_connections'] = $max_connections;
+
+        return $this;
+    }
+
+    /**
+     * Gets modules
+     *
+     * @return string[]
+     */
+    public function getModules()
+    {
+        return $this->container['modules'];
+    }
+
+    /**
+     * Sets modules
+     *
+     * @param string[] $modules modules
+     *
+     * @return $this
+     */
+    public function setModules($modules)
+    {
+        $this->container['modules'] = $modules;
 
         return $this;
     }

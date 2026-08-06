@@ -29,7 +29,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
       */
     protected static $swaggerTypes = [
         'duration' => 'int',
-        'enabled' => 'bool',
+        'exempt_end_date' => 'string',
+        'exempt_start_date' => 'string',
         'start_time' => 'string',
         'task_configs' => '\Volcengine\Vke\Model\TaskConfigForListClustersOutput[]',
         'weekly_cycle' => 'string[]'
@@ -42,7 +43,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
       */
     protected static $swaggerFormats = [
         'duration' => 'int32',
-        'enabled' => null,
+        'exempt_end_date' => null,
+        'exempt_start_date' => null,
         'start_time' => null,
         'task_configs' => null,
         'weekly_cycle' => null
@@ -76,7 +78,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
      */
     protected static $attributeMap = [
         'duration' => 'Duration',
-        'enabled' => 'Enabled',
+        'exempt_end_date' => 'ExemptEndDate',
+        'exempt_start_date' => 'ExemptStartDate',
         'start_time' => 'StartTime',
         'task_configs' => 'TaskConfigs',
         'weekly_cycle' => 'WeeklyCycle'
@@ -89,7 +92,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
      */
     protected static $setters = [
         'duration' => 'setDuration',
-        'enabled' => 'setEnabled',
+        'exempt_end_date' => 'setExemptEndDate',
+        'exempt_start_date' => 'setExemptStartDate',
         'start_time' => 'setStartTime',
         'task_configs' => 'setTaskConfigs',
         'weekly_cycle' => 'setWeeklyCycle'
@@ -102,7 +106,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
      */
     protected static $getters = [
         'duration' => 'getDuration',
-        'enabled' => 'getEnabled',
+        'exempt_end_date' => 'getExemptEndDate',
+        'exempt_start_date' => 'getExemptStartDate',
         'start_time' => 'getStartTime',
         'task_configs' => 'getTaskConfigs',
         'weekly_cycle' => 'getWeeklyCycle'
@@ -194,7 +199,8 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
     public function __construct($data = null)
     {
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['exempt_end_date'] = isset($data['exempt_end_date']) ? $data['exempt_end_date'] : null;
+        $this->container['exempt_start_date'] = isset($data['exempt_start_date']) ? $data['exempt_start_date'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['task_configs'] = isset($data['task_configs']) ? $data['task_configs'] : null;
         $this->container['weekly_cycle'] = isset($data['weekly_cycle']) ? $data['weekly_cycle'] : null;
@@ -249,25 +255,49 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
     }
 
     /**
-     * Gets enabled
+     * Gets exempt_end_date
      *
-     * @return bool
+     * @return string
      */
-    public function getEnabled()
+    public function getExemptEndDate()
     {
-        return $this->container['enabled'];
+        return $this->container['exempt_end_date'];
     }
 
     /**
-     * Sets enabled
+     * Sets exempt_end_date
      *
-     * @param bool $enabled enabled
+     * @param string $exempt_end_date exempt_end_date
      *
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setExemptEndDate($exempt_end_date)
     {
-        $this->container['enabled'] = $enabled;
+        $this->container['exempt_end_date'] = $exempt_end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_start_date
+     *
+     * @return string
+     */
+    public function getExemptStartDate()
+    {
+        return $this->container['exempt_start_date'];
+    }
+
+    /**
+     * Sets exempt_start_date
+     *
+     * @param string $exempt_start_date exempt_start_date
+     *
+     * @return $this
+     */
+    public function setExemptStartDate($exempt_start_date)
+    {
+        $this->container['exempt_start_date'] = $exempt_start_date;
 
         return $this;
     }

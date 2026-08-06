@@ -36,6 +36,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'duration_count' => 'string',
         'id' => 'string',
         'name' => 'string',
+        'need_term_validation' => 'bool',
         'project_id' => 'string',
         'project_name' => 'string',
         'source_language' => 'string',
@@ -64,6 +65,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'duration_count' => null,
         'id' => null,
         'name' => null,
+        'need_term_validation' => null,
         'project_id' => null,
         'project_name' => null,
         'source_language' => null,
@@ -113,6 +115,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'duration_count' => 'durationCount',
         'id' => 'id',
         'name' => 'name',
+        'need_term_validation' => 'needTermValidation',
         'project_id' => 'projectId',
         'project_name' => 'projectName',
         'source_language' => 'sourceLanguage',
@@ -141,6 +144,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'duration_count' => 'setDurationCount',
         'id' => 'setId',
         'name' => 'setName',
+        'need_term_validation' => 'setNeedTermValidation',
         'project_id' => 'setProjectId',
         'project_name' => 'setProjectName',
         'source_language' => 'setSourceLanguage',
@@ -169,6 +173,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'duration_count' => 'getDurationCount',
         'id' => 'getId',
         'name' => 'getName',
+        'need_term_validation' => 'getNeedTermValidation',
         'project_id' => 'getProjectId',
         'project_name' => 'getProjectName',
         'source_language' => 'getSourceLanguage',
@@ -251,6 +256,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         $this->container['duration_count'] = isset($data['duration_count']) ? $data['duration_count'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
@@ -477,6 +483,30 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_term_validation
+     *
+     * @return bool
+     */
+    public function getNeedTermValidation()
+    {
+        return $this->container['need_term_validation'];
+    }
+
+    /**
+     * Sets need_term_validation
+     *
+     * @param bool $need_term_validation need_term_validation
+     *
+     * @return $this
+     */
+    public function setNeedTermValidation($need_term_validation)
+    {
+        $this->container['need_term_validation'] = $need_term_validation;
 
         return $this;
     }

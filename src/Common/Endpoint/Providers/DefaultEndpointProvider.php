@@ -413,7 +413,7 @@ class DefaultEndpointProvider extends EndpointProvider
                 ),
                 'acep' => new ServiceEndpointInfo(
                     'acep',
-                    true,
+                    false,
                     '',
                     []
                 ),
@@ -561,6 +561,13 @@ class DefaultEndpointProvider extends EndpointProvider
                 'volcsms' => new ServiceEndpointInfo(
                     'volcsms',
                     true,
+                    '',
+                    []
+                ),
+            
+                'id' => new ServiceEndpointInfo(
+                    'id',
+                    false,
                     '',
                     []
                 ),

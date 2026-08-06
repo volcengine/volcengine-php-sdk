@@ -29,8 +29,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'birthdate' => 'string',
+        'custom_attributes_to_upsert' => '\Volcengine\Id\Model\CustomAttributesToUpsertForCreateUsersInput[]',
         'email' => 'string',
         'email_verified' => 'bool',
+        'external_provider_user_identifier' => 'string',
         'family_name' => 'string',
         'gender' => 'string',
         'given_name' => 'string',
@@ -56,8 +58,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'birthdate' => null,
+        'custom_attributes_to_upsert' => null,
         'email' => null,
         'email_verified' => null,
+        'external_provider_user_identifier' => null,
         'family_name' => null,
         'gender' => null,
         'given_name' => null,
@@ -104,8 +108,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'birthdate' => 'Birthdate',
+        'custom_attributes_to_upsert' => 'CustomAttributesToUpsert',
         'email' => 'Email',
         'email_verified' => 'EmailVerified',
+        'external_provider_user_identifier' => 'ExternalProviderUserIdentifier',
         'family_name' => 'FamilyName',
         'gender' => 'Gender',
         'given_name' => 'GivenName',
@@ -131,8 +137,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'birthdate' => 'setBirthdate',
+        'custom_attributes_to_upsert' => 'setCustomAttributesToUpsert',
         'email' => 'setEmail',
         'email_verified' => 'setEmailVerified',
+        'external_provider_user_identifier' => 'setExternalProviderUserIdentifier',
         'family_name' => 'setFamilyName',
         'gender' => 'setGender',
         'given_name' => 'setGivenName',
@@ -158,8 +166,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'birthdate' => 'getBirthdate',
+        'custom_attributes_to_upsert' => 'getCustomAttributesToUpsert',
         'email' => 'getEmail',
         'email_verified' => 'getEmailVerified',
+        'external_provider_user_identifier' => 'getExternalProviderUserIdentifier',
         'family_name' => 'getFamilyName',
         'gender' => 'getGender',
         'given_name' => 'getGivenName',
@@ -239,8 +249,10 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['birthdate'] = isset($data['birthdate']) ? $data['birthdate'] : null;
+        $this->container['custom_attributes_to_upsert'] = isset($data['custom_attributes_to_upsert']) ? $data['custom_attributes_to_upsert'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['email_verified'] = isset($data['email_verified']) ? $data['email_verified'] : null;
+        $this->container['external_provider_user_identifier'] = isset($data['external_provider_user_identifier']) ? $data['external_provider_user_identifier'] : null;
         $this->container['family_name'] = isset($data['family_name']) ? $data['family_name'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['given_name'] = isset($data['given_name']) ? $data['given_name'] : null;
@@ -308,6 +320,30 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_attributes_to_upsert
+     *
+     * @return \Volcengine\Id\Model\CustomAttributesToUpsertForCreateUsersInput[]
+     */
+    public function getCustomAttributesToUpsert()
+    {
+        return $this->container['custom_attributes_to_upsert'];
+    }
+
+    /**
+     * Sets custom_attributes_to_upsert
+     *
+     * @param \Volcengine\Id\Model\CustomAttributesToUpsertForCreateUsersInput[] $custom_attributes_to_upsert custom_attributes_to_upsert
+     *
+     * @return $this
+     */
+    public function setCustomAttributesToUpsert($custom_attributes_to_upsert)
+    {
+        $this->container['custom_attributes_to_upsert'] = $custom_attributes_to_upsert;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string
@@ -351,6 +387,30 @@ class UserForCreateUsersInput implements ModelInterface, ArrayAccess
     public function setEmailVerified($email_verified)
     {
         $this->container['email_verified'] = $email_verified;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_provider_user_identifier
+     *
+     * @return string
+     */
+    public function getExternalProviderUserIdentifier()
+    {
+        return $this->container['external_provider_user_identifier'];
+    }
+
+    /**
+     * Sets external_provider_user_identifier
+     *
+     * @param string $external_provider_user_identifier external_provider_user_identifier
+     *
+     * @return $this
+     */
+    public function setExternalProviderUserIdentifier($external_provider_user_identifier)
+    {
+        $this->container['external_provider_user_identifier'] = $external_provider_user_identifier;
 
         return $this;
     }

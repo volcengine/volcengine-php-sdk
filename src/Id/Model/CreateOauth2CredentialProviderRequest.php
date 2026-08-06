@@ -31,6 +31,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         'config' => '\Volcengine\Id\Model\ConfigForCreateOauth2CredentialProviderInput',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
+        'source' => 'string',
         'vendor' => 'int'
     ];
 
@@ -43,6 +45,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         'config' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
+        'source' => null,
         'vendor' => 'int32'
     ];
 
@@ -76,6 +80,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         'config' => 'Config',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
+        'source' => 'Source',
         'vendor' => 'Vendor'
     ];
 
@@ -88,6 +94,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         'config' => 'setConfig',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
+        'source' => 'setSource',
         'vendor' => 'setVendor'
     ];
 
@@ -100,6 +108,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         'config' => 'getConfig',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
+        'source' => 'getSource',
         'vendor' => 'getVendor'
     ];
 
@@ -166,6 +176,8 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
 
@@ -267,6 +279,54 @@ class CreateOauth2CredentialProviderRequest implements ModelInterface, ArrayAcce
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

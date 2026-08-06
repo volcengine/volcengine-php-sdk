@@ -31,6 +31,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         'ipam_resource_discovery_id' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'resource_region_id' => 'string',
         'resource_type' => 'string'
     ];
@@ -44,6 +46,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         'ipam_resource_discovery_id' => null,
         'max_results' => null,
         'next_token' => null,
+        'page_number' => null,
+        'page_size' => null,
         'resource_region_id' => null,
         'resource_type' => null
     ];
@@ -78,6 +82,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         'ipam_resource_discovery_id' => 'IpamResourceDiscoveryId',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'resource_region_id' => 'ResourceRegionId',
         'resource_type' => 'ResourceType'
     ];
@@ -91,6 +97,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         'ipam_resource_discovery_id' => 'setIpamResourceDiscoveryId',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'resource_region_id' => 'setResourceRegionId',
         'resource_type' => 'setResourceType'
     ];
@@ -104,6 +112,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         'ipam_resource_discovery_id' => 'getIpamResourceDiscoveryId',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'resource_region_id' => 'getResourceRegionId',
         'resource_type' => 'getResourceType'
     ];
@@ -171,6 +181,8 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         $this->container['ipam_resource_discovery_id'] = isset($data['ipam_resource_discovery_id']) ? $data['ipam_resource_discovery_id'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
@@ -189,9 +201,6 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
         }
         if ($this->container['resource_region_id'] === null) {
             $invalidProperties[] = "'resource_region_id' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -276,6 +285,54 @@ class DescribeIpamDiscoveredResourceCidrsRequest implements ModelInterface, Arra
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

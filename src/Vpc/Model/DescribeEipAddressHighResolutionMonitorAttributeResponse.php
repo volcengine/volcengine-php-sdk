@@ -33,7 +33,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         'log_project_id' => 'string',
         'log_project_name' => 'string',
         'log_topic_id' => 'string',
-        'log_topic_name' => 'string'
+        'log_topic_name' => 'string',
+        'request_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         'log_project_id' => null,
         'log_project_name' => null,
         'log_topic_id' => null,
-        'log_topic_name' => null
+        'log_topic_name' => null,
+        'request_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         'log_project_id' => 'LogProjectId',
         'log_project_name' => 'LogProjectName',
         'log_topic_id' => 'LogTopicId',
-        'log_topic_name' => 'LogTopicName'
+        'log_topic_name' => 'LogTopicName',
+        'request_id' => 'RequestId'
     ];
 
     /**
@@ -96,7 +99,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         'log_project_id' => 'setLogProjectId',
         'log_project_name' => 'setLogProjectName',
         'log_topic_id' => 'setLogTopicId',
-        'log_topic_name' => 'setLogTopicName'
+        'log_topic_name' => 'setLogTopicName',
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         'log_project_id' => 'getLogProjectId',
         'log_project_name' => 'getLogProjectName',
         'log_topic_id' => 'getLogTopicId',
-        'log_topic_name' => 'getLogTopicName'
+        'log_topic_name' => 'getLogTopicName',
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -179,6 +184,7 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
         $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
         $this->container['log_topic_id'] = isset($data['log_topic_id']) ? $data['log_topic_id'] : null;
         $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class DescribeEipAddressHighResolutionMonitorAttributeResponse implements ModelI
     public function setLogTopicName($log_topic_name)
     {
         $this->container['log_topic_name'] = $log_topic_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_id
+     *
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->container['request_id'];
+    }
+
+    /**
+     * Sets request_id
+     *
+     * @param string $request_id request_id
+     *
+     * @return $this
+     */
+    public function setRequestId($request_id)
+    {
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }

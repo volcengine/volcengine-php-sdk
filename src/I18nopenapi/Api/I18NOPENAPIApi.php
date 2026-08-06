@@ -68,68 +68,6 @@ class I18NOPENAPIApi
         return $this->config;
     }
 
-    public function createVideoCreate($body = null)
-    {
-        list($response) = $this->createVideoCreateWithHttpInfo($body);
-        return $response;
-    }
-
-    public function createVideoCreateWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\CreateVideoCreateResponse';
-        $request = $this->createVideoCreateRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function createVideoCreateAsync($body = null)
-    {
-        return $this->createVideoCreateAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createVideoCreateAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\CreateVideoCreateResponse';
-        $request = $this->createVideoCreateRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function createVideoCreateRequest($body)
-    {
-        $resourcePath = '/CreateVideoCreate/2021-05-21/i18n_openapi/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function documentCreate($body = null)
     {
         list($response) = $this->documentCreateWithHttpInfo($body);
@@ -5338,68 +5276,6 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function videoEditorGenDubbing($body = null)
-    {
-        list($response) = $this->videoEditorGenDubbingWithHttpInfo($body);
-        return $response;
-    }
-
-    public function videoEditorGenDubbingWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\VideoEditorGenDubbingResponse';
-        $request = $this->videoEditorGenDubbingRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function videoEditorGenDubbingAsync($body = null)
-    {
-        return $this->videoEditorGenDubbingAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function videoEditorGenDubbingAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\VideoEditorGenDubbingResponse';
-        $request = $this->videoEditorGenDubbingRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function videoEditorGenDubbingRequest($body)
-    {
-        $resourcePath = '/VideoEditorGenDubbing/2021-05-21/i18n_openapi/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function videoEditorGetEmotionTags($body = null)
     {
         list($response) = $this->videoEditorGetEmotionTagsWithHttpInfo($body);
@@ -6921,13 +6797,13 @@ class I18NOPENAPIApi
 
     protected function videoProjectSubmitTermValidationRequest($body)
     {
-        $resourcePath = '/VideoProjectSubmitTermValidation/2021-05-21/i18n_openapi/get/text_plain/';
+        $resourcePath = '/VideoProjectSubmitTermValidation/2021-05-21/i18n_openapi/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -7424,67 +7300,6 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function videoResourceUpload($body = null)
-    {
-        list($response) = $this->videoResourceUploadWithHttpInfo($body);
-        return $response;
-    }
-
-    public function videoResourceUploadWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\VideoResourceUploadResponse';
-        $request = $this->videoResourceUploadRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function videoResourceUploadAsync($body = null)
-    {
-        return $this->videoResourceUploadAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function videoResourceUploadAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\I18nopenapi\Model\VideoResourceUploadResponse';
-        $request = $this->videoResourceUploadRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function videoResourceUploadRequest($body)
-    {
-        $resourcePath = '/VideoResourceUpload/2021-05-21/i18n_openapi/post/application_x-www-form-urlencoded/';
-        $queryParams = [];
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/x-www-form-urlencoded']
         );
 
         $defaultHeaders = [];

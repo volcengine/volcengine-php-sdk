@@ -29,6 +29,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'connection_type' => 'string',
+        'eip_id' => 'string',
+        'exclude_connection_type' => 'string',
         'name' => 'string'
     ];
 
@@ -39,6 +41,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'connection_type' => null,
+        'eip_id' => null,
+        'exclude_connection_type' => null,
         'name' => null
     ];
 
@@ -70,6 +74,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'connection_type' => 'ConnectionType',
+        'eip_id' => 'EipId',
+        'exclude_connection_type' => 'ExcludeConnectionType',
         'name' => 'Name'
     ];
 
@@ -80,6 +86,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'connection_type' => 'setConnectionType',
+        'eip_id' => 'setEipId',
+        'exclude_connection_type' => 'setExcludeConnectionType',
         'name' => 'setName'
     ];
 
@@ -90,6 +98,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'connection_type' => 'getConnectionType',
+        'eip_id' => 'getEipId',
+        'exclude_connection_type' => 'getExcludeConnectionType',
         'name' => 'getName'
     ];
 
@@ -154,6 +164,8 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['connection_type'] = isset($data['connection_type']) ? $data['connection_type'] : null;
+        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['exclude_connection_type'] = isset($data['exclude_connection_type']) ? $data['exclude_connection_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
@@ -201,6 +213,54 @@ class FilterForListIdentityProvidersInput implements ModelInterface, ArrayAccess
     public function setConnectionType($connection_type)
     {
         $this->container['connection_type'] = $connection_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_id
+     *
+     * @return string
+     */
+    public function getEipId()
+    {
+        return $this->container['eip_id'];
+    }
+
+    /**
+     * Sets eip_id
+     *
+     * @param string $eip_id eip_id
+     *
+     * @return $this
+     */
+    public function setEipId($eip_id)
+    {
+        $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_connection_type
+     *
+     * @return string
+     */
+    public function getExcludeConnectionType()
+    {
+        return $this->container['exclude_connection_type'];
+    }
+
+    /**
+     * Sets exclude_connection_type
+     *
+     * @param string $exclude_connection_type exclude_connection_type
+     *
+     * @return $this
+     */
+    public function setExcludeConnectionType($exclude_connection_type)
+    {
+        $this->container['exclude_connection_type'] = $exclude_connection_type;
 
         return $this;
     }

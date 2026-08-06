@@ -30,7 +30,7 @@ class BnBDForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'acronym' => 'string',
         'apply_mode' => 'int',
-        'case_sensitive' => 'int',
+        'case_sensitive' => 'bool',
         'content' => 'string',
         'create_time' => 'string',
         'created_at' => 'string',
@@ -53,7 +53,7 @@ class BnBDForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'acronym' => null,
         'apply_mode' => 'int32',
-        'case_sensitive' => 'int64',
+        'case_sensitive' => null,
         'content' => null,
         'create_time' => null,
         'created_at' => null,
@@ -310,7 +310,7 @@ class BnBDForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets case_sensitive
      *
-     * @return int
+     * @return bool
      */
     public function getCaseSensitive()
     {
@@ -320,7 +320,7 @@ class BnBDForTermBaseTermGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets case_sensitive
      *
-     * @param int $case_sensitive case_sensitive
+     * @param bool $case_sensitive case_sensitive
      *
      * @return $this
      */

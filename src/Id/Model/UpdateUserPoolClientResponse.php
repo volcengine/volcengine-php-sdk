@@ -37,11 +37,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'create_time' => 'string',
         'description' => 'string',
         'development_mode_enabled' => 'bool',
+        'dismiss_login_page_enabled' => 'bool',
         'id_token' => '\Volcengine\Id\Model\IdTokenForUpdateUserPoolClientOutput',
         'login_page_url' => 'string',
         'logo_uri' => 'string',
         'name' => 'string',
         'refresh_token' => '\Volcengine\Id\Model\RefreshTokenForUpdateUserPoolClientOutput',
+        'skip_consent_enabled' => 'bool',
         'uid' => 'string',
         'update_time' => 'string'
     ];
@@ -61,11 +63,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'create_time' => null,
         'description' => null,
         'development_mode_enabled' => null,
+        'dismiss_login_page_enabled' => null,
         'id_token' => null,
         'login_page_url' => null,
         'logo_uri' => null,
         'name' => null,
         'refresh_token' => null,
+        'skip_consent_enabled' => null,
         'uid' => null,
         'update_time' => null
     ];
@@ -106,11 +110,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'create_time' => 'CreateTime',
         'description' => 'Description',
         'development_mode_enabled' => 'DevelopmentModeEnabled',
+        'dismiss_login_page_enabled' => 'DismissLoginPageEnabled',
         'id_token' => 'IdToken',
         'login_page_url' => 'LoginPageUrl',
         'logo_uri' => 'LogoUri',
         'name' => 'Name',
         'refresh_token' => 'RefreshToken',
+        'skip_consent_enabled' => 'SkipConsentEnabled',
         'uid' => 'Uid',
         'update_time' => 'UpdateTime'
     ];
@@ -130,11 +136,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
         'development_mode_enabled' => 'setDevelopmentModeEnabled',
+        'dismiss_login_page_enabled' => 'setDismissLoginPageEnabled',
         'id_token' => 'setIdToken',
         'login_page_url' => 'setLoginPageUrl',
         'logo_uri' => 'setLogoUri',
         'name' => 'setName',
         'refresh_token' => 'setRefreshToken',
+        'skip_consent_enabled' => 'setSkipConsentEnabled',
         'uid' => 'setUid',
         'update_time' => 'setUpdateTime'
     ];
@@ -154,11 +162,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
         'development_mode_enabled' => 'getDevelopmentModeEnabled',
+        'dismiss_login_page_enabled' => 'getDismissLoginPageEnabled',
         'id_token' => 'getIdToken',
         'login_page_url' => 'getLoginPageUrl',
         'logo_uri' => 'getLogoUri',
         'name' => 'getName',
         'refresh_token' => 'getRefreshToken',
+        'skip_consent_enabled' => 'getSkipConsentEnabled',
         'uid' => 'getUid',
         'update_time' => 'getUpdateTime'
     ];
@@ -232,11 +242,13 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['development_mode_enabled'] = isset($data['development_mode_enabled']) ? $data['development_mode_enabled'] : null;
+        $this->container['dismiss_login_page_enabled'] = isset($data['dismiss_login_page_enabled']) ? $data['dismiss_login_page_enabled'] : null;
         $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
         $this->container['login_page_url'] = isset($data['login_page_url']) ? $data['login_page_url'] : null;
         $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
+        $this->container['skip_consent_enabled'] = isset($data['skip_consent_enabled']) ? $data['skip_consent_enabled'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -482,6 +494,30 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets dismiss_login_page_enabled
+     *
+     * @return bool
+     */
+    public function getDismissLoginPageEnabled()
+    {
+        return $this->container['dismiss_login_page_enabled'];
+    }
+
+    /**
+     * Sets dismiss_login_page_enabled
+     *
+     * @param bool $dismiss_login_page_enabled dismiss_login_page_enabled
+     *
+     * @return $this
+     */
+    public function setDismissLoginPageEnabled($dismiss_login_page_enabled)
+    {
+        $this->container['dismiss_login_page_enabled'] = $dismiss_login_page_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets id_token
      *
      * @return \Volcengine\Id\Model\IdTokenForUpdateUserPoolClientOutput
@@ -597,6 +633,30 @@ class UpdateUserPoolClientResponse implements ModelInterface, ArrayAccess
     public function setRefreshToken($refresh_token)
     {
         $this->container['refresh_token'] = $refresh_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_consent_enabled
+     *
+     * @return bool
+     */
+    public function getSkipConsentEnabled()
+    {
+        return $this->container['skip_consent_enabled'];
+    }
+
+    /**
+     * Sets skip_consent_enabled
+     *
+     * @param bool $skip_consent_enabled skip_consent_enabled
+     *
+     * @return $this
+     */
+    public function setSkipConsentEnabled($skip_consent_enabled)
+    {
+        $this->container['skip_consent_enabled'] = $skip_consent_enabled;
 
         return $this;
     }

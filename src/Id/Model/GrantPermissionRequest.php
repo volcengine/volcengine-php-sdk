@@ -28,6 +28,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'definition' => '\Volcengine\Id\Model\DefinitionForGrantPermissionInput',
         'description' => 'string',
         'effect' => 'string',
         'namespace_name' => 'string',
@@ -44,6 +45,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'definition' => null,
         'description' => null,
         'effect' => null,
         'namespace_name' => null,
@@ -81,6 +83,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'definition' => 'Definition',
         'description' => 'Description',
         'effect' => 'Effect',
         'namespace_name' => 'NamespaceName',
@@ -97,6 +100,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'definition' => 'setDefinition',
         'description' => 'setDescription',
         'effect' => 'setEffect',
         'namespace_name' => 'setNamespaceName',
@@ -113,6 +117,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'definition' => 'getDefinition',
         'description' => 'getDescription',
         'effect' => 'getEffect',
         'namespace_name' => 'getNamespaceName',
@@ -183,6 +188,7 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['definition'] = isset($data['definition']) ? $data['definition'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['effect'] = isset($data['effect']) ? $data['effect'] : null;
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;
@@ -216,6 +222,30 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets definition
+     *
+     * @return \Volcengine\Id\Model\DefinitionForGrantPermissionInput
+     */
+    public function getDefinition()
+    {
+        return $this->container['definition'];
+    }
+
+    /**
+     * Sets definition
+     *
+     * @param \Volcengine\Id\Model\DefinitionForGrantPermissionInput $definition definition
+     *
+     * @return $this
+     */
+    public function setDefinition($definition)
+    {
+        $this->container['definition'] = $definition;
+
+        return $this;
+    }
 
     /**
      * Gets description

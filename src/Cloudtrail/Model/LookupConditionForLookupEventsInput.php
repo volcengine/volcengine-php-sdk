@@ -134,8 +134,45 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
+    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
+    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
+    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
+    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
+    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
+    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
+    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
+    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
+    const LOOKUP_CONDITION_KEY_REGION = 'Region';
+    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
+    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
+    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLookupConditionKeyAllowableValues()
+    {
+        return [
+            self::LOOKUP_CONDITION_KEY_EVENT_ID,
+            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
+            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
+            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
+            self::LOOKUP_CONDITION_KEY_API_VERSION,
+            self::LOOKUP_CONDITION_KEY_READ_ONLY,
+            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
+            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
+            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
+            self::LOOKUP_CONDITION_KEY_REGION,
+            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
+            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
+            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
+        ];
+    }
     
 
     /**
@@ -165,6 +202,14 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getLookupConditionKeyAllowableValues();
+        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'lookup_condition_key', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,6 +245,15 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function setLookupConditionKey($lookup_condition_key)
     {
+        $allowedValues = $this->getLookupConditionKeyAllowableValues();
+        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['lookup_condition_key'] = $lookup_condition_key;
 
         return $this;

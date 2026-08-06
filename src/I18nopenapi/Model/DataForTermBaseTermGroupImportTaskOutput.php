@@ -32,7 +32,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         'id' => 'string',
         'operator' => 'string',
         'status' => 'int',
-        'term_baseld' => 'string',
+        'term_base_id' => 'string',
         'total' => 'int',
         'update_time' => 'string',
         'uploaded_count' => 'int'
@@ -48,7 +48,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         'id' => null,
         'operator' => null,
         'status' => 'int32',
-        'term_baseld' => null,
+        'term_base_id' => null,
         'total' => 'int32',
         'update_time' => null,
         'uploaded_count' => 'int32'
@@ -85,7 +85,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         'id' => 'id',
         'operator' => 'operator',
         'status' => 'status',
-        'term_baseld' => 'termBaseld',
+        'term_base_id' => 'termBaseId',
         'total' => 'total',
         'update_time' => 'updateTime',
         'uploaded_count' => 'uploadedCount'
@@ -101,7 +101,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         'id' => 'setId',
         'operator' => 'setOperator',
         'status' => 'setStatus',
-        'term_baseld' => 'setTermBaseld',
+        'term_base_id' => 'setTermBaseId',
         'total' => 'setTotal',
         'update_time' => 'setUpdateTime',
         'uploaded_count' => 'setUploadedCount'
@@ -117,7 +117,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         'id' => 'getId',
         'operator' => 'getOperator',
         'status' => 'getStatus',
-        'term_baseld' => 'getTermBaseld',
+        'term_base_id' => 'getTermBaseId',
         'total' => 'getTotal',
         'update_time' => 'getUpdateTime',
         'uploaded_count' => 'getUploadedCount'
@@ -187,7 +187,7 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['term_baseld'] = isset($data['term_baseld']) ? $data['term_baseld'] : null;
+        $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['uploaded_count'] = isset($data['uploaded_count']) ? $data['uploaded_count'] : null;
@@ -314,25 +314,25 @@ class DataForTermBaseTermGroupImportTaskOutput implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets term_baseld
+     * Gets term_base_id
      *
      * @return string
      */
-    public function getTermBaseld()
+    public function getTermBaseId()
     {
-        return $this->container['term_baseld'];
+        return $this->container['term_base_id'];
     }
 
     /**
-     * Sets term_baseld
+     * Sets term_base_id
      *
-     * @param string $term_baseld term_baseld
+     * @param string $term_base_id term_base_id
      *
      * @return $this
      */
-    public function setTermBaseld($term_baseld)
+    public function setTermBaseId($term_base_id)
     {
-        $this->container['term_baseld'] = $term_baseld;
+        $this->container['term_base_id'] = $term_base_id;
 
         return $this;
     }

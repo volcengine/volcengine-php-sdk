@@ -31,6 +31,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         'created_at' => 'string',
         'credential_provider_trn' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'updated_at' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         'created_at' => null,
         'credential_provider_trn' => null,
         'name' => null,
+        'project_name' => null,
         'updated_at' => null
     ];
 
@@ -76,6 +78,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         'created_at' => 'CreatedAt',
         'credential_provider_trn' => 'CredentialProviderTrn',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'updated_at' => 'UpdatedAt'
     ];
 
@@ -88,6 +91,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         'created_at' => 'setCreatedAt',
         'credential_provider_trn' => 'setCredentialProviderTrn',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -100,6 +104,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         'created_at' => 'getCreatedAt',
         'credential_provider_trn' => 'getCredentialProviderTrn',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -166,6 +171,7 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -261,6 +267,30 @@ class ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput impleme
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

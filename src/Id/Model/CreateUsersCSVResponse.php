@@ -32,7 +32,8 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         'errors_structured' => '\Volcengine\Id\Model\ErrorsStructuredForCreateUsersCSVOutput[]',
         'failure_count' => 'int',
         'success_count' => 'int',
-        'successful_uids' => 'string[]'
+        'successful_uids' => 'string[]',
+        'successful_uids_structured' => '\Volcengine\Id\Model\SuccessfulUidsStructuredForCreateUsersCSVOutput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         'errors_structured' => null,
         'failure_count' => 'int32',
         'success_count' => 'int32',
-        'successful_uids' => null
+        'successful_uids' => null,
+        'successful_uids_structured' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         'errors_structured' => 'ErrorsStructured',
         'failure_count' => 'FailureCount',
         'success_count' => 'SuccessCount',
-        'successful_uids' => 'SuccessfulUids'
+        'successful_uids' => 'SuccessfulUids',
+        'successful_uids_structured' => 'SuccessfulUidsStructured'
     ];
 
     /**
@@ -92,7 +95,8 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         'errors_structured' => 'setErrorsStructured',
         'failure_count' => 'setFailureCount',
         'success_count' => 'setSuccessCount',
-        'successful_uids' => 'setSuccessfulUids'
+        'successful_uids' => 'setSuccessfulUids',
+        'successful_uids_structured' => 'setSuccessfulUidsStructured'
     ];
 
     /**
@@ -105,7 +109,8 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         'errors_structured' => 'getErrorsStructured',
         'failure_count' => 'getFailureCount',
         'success_count' => 'getSuccessCount',
-        'successful_uids' => 'getSuccessfulUids'
+        'successful_uids' => 'getSuccessfulUids',
+        'successful_uids_structured' => 'getSuccessfulUidsStructured'
     ];
 
     /**
@@ -173,6 +178,7 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
         $this->container['failure_count'] = isset($data['failure_count']) ? $data['failure_count'] : null;
         $this->container['success_count'] = isset($data['success_count']) ? $data['success_count'] : null;
         $this->container['successful_uids'] = isset($data['successful_uids']) ? $data['successful_uids'] : null;
+        $this->container['successful_uids_structured'] = isset($data['successful_uids_structured']) ? $data['successful_uids_structured'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class CreateUsersCSVResponse implements ModelInterface, ArrayAccess
     public function setSuccessfulUids($successful_uids)
     {
         $this->container['successful_uids'] = $successful_uids;
+
+        return $this;
+    }
+
+    /**
+     * Gets successful_uids_structured
+     *
+     * @return \Volcengine\Id\Model\SuccessfulUidsStructuredForCreateUsersCSVOutput[]
+     */
+    public function getSuccessfulUidsStructured()
+    {
+        return $this->container['successful_uids_structured'];
+    }
+
+    /**
+     * Sets successful_uids_structured
+     *
+     * @param \Volcengine\Id\Model\SuccessfulUidsStructuredForCreateUsersCSVOutput[] $successful_uids_structured successful_uids_structured
+     *
+     * @return $this
+     */
+    public function setSuccessfulUidsStructured($successful_uids_structured)
+    {
+        $this->container['successful_uids_structured'] = $successful_uids_structured;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'response_value_mask' => '\Volcengine\Id\Model\ResponseValueMaskForGetUserInput',
         'user_pool_uid' => 'string',
         'user_uid' => 'string'
     ];
@@ -38,6 +39,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'response_value_mask' => null,
         'user_pool_uid' => null,
         'user_uid' => null
     ];
@@ -69,6 +71,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'response_value_mask' => 'ResponseValueMask',
         'user_pool_uid' => 'UserPoolUid',
         'user_uid' => 'UserUid'
     ];
@@ -79,6 +82,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'response_value_mask' => 'setResponseValueMask',
         'user_pool_uid' => 'setUserPoolUid',
         'user_uid' => 'setUserUid'
     ];
@@ -89,6 +93,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'response_value_mask' => 'getResponseValueMask',
         'user_pool_uid' => 'getUserPoolUid',
         'user_uid' => 'getUserUid'
     ];
@@ -153,6 +158,7 @@ class GetUserRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['response_value_mask'] = isset($data['response_value_mask']) ? $data['response_value_mask'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
         $this->container['user_uid'] = isset($data['user_uid']) ? $data['user_uid'] : null;
     }
@@ -186,6 +192,30 @@ class GetUserRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets response_value_mask
+     *
+     * @return \Volcengine\Id\Model\ResponseValueMaskForGetUserInput
+     */
+    public function getResponseValueMask()
+    {
+        return $this->container['response_value_mask'];
+    }
+
+    /**
+     * Sets response_value_mask
+     *
+     * @param \Volcengine\Id\Model\ResponseValueMaskForGetUserInput $response_value_mask response_value_mask
+     *
+     * @return $this
+     */
+    public function setResponseValueMask($response_value_mask)
+    {
+        $this->container['response_value_mask'] = $response_value_mask;
+
+        return $this;
+    }
 
     /**
      * Gets user_pool_uid

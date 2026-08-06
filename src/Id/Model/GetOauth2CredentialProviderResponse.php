@@ -34,6 +34,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'dcr_client_info' => '\Volcengine\Id\Model\DcrClientInfoForGetOauth2CredentialProviderOutput',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
         'secret_trn' => 'string',
         'updated_at' => 'string',
         'vendor' => 'int'
@@ -51,6 +52,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'dcr_client_info' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
         'secret_trn' => null,
         'updated_at' => null,
         'vendor' => 'int32'
@@ -89,6 +91,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'dcr_client_info' => 'DcrClientInfo',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
         'secret_trn' => 'SecretTrn',
         'updated_at' => 'UpdatedAt',
         'vendor' => 'Vendor'
@@ -106,6 +109,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'dcr_client_info' => 'setDcrClientInfo',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
         'secret_trn' => 'setSecretTrn',
         'updated_at' => 'setUpdatedAt',
         'vendor' => 'setVendor'
@@ -123,6 +127,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'dcr_client_info' => 'getDcrClientInfo',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
         'secret_trn' => 'getSecretTrn',
         'updated_at' => 'getUpdatedAt',
         'vendor' => 'getVendor'
@@ -194,6 +199,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         $this->container['dcr_client_info'] = isset($data['dcr_client_info']) ? $data['dcr_client_info'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['secret_trn'] = isset($data['secret_trn']) ? $data['secret_trn'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
@@ -363,6 +369,30 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

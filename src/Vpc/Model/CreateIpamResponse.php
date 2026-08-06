@@ -28,6 +28,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'default_resource_discovery_id' => 'string',
         'ipam_id' => 'string',
         'private_default_scope_id' => 'string',
@@ -41,6 +42,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'default_resource_discovery_id' => null,
         'ipam_id' => null,
         'private_default_scope_id' => null,
@@ -75,6 +77,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'default_resource_discovery_id' => 'DefaultResourceDiscoveryId',
         'ipam_id' => 'IpamId',
         'private_default_scope_id' => 'PrivateDefaultScopeId',
@@ -88,6 +91,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'default_resource_discovery_id' => 'setDefaultResourceDiscoveryId',
         'ipam_id' => 'setIpamId',
         'private_default_scope_id' => 'setPrivateDefaultScopeId',
@@ -101,6 +105,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'default_resource_discovery_id' => 'getDefaultResourceDiscoveryId',
         'ipam_id' => 'getIpamId',
         'private_default_scope_id' => 'getPrivateDefaultScopeId',
@@ -168,6 +173,7 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['default_resource_discovery_id'] = isset($data['default_resource_discovery_id']) ? $data['default_resource_discovery_id'] : null;
         $this->container['ipam_id'] = isset($data['ipam_id']) ? $data['ipam_id'] : null;
         $this->container['private_default_scope_id'] = isset($data['private_default_scope_id']) ? $data['private_default_scope_id'] : null;
@@ -198,6 +204,30 @@ class CreateIpamResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets default_resource_discovery_id
