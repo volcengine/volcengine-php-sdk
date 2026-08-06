@@ -56,6 +56,34 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);    // enable dual-stack, default false
 ```
 
+#### Standard Endpoint Resolution
+
+Standard endpoint resolution constructs endpoints according to whether the service is global:
+
+| Global service | DualStack | Format |
+|---|---|---|
+| Yes | Yes | `{Service}.volcengine-api.com` |
+| Yes | No | `{Service}.volcengineapi.com` |
+| No | Yes | `{Service}.{region}.volcengine-api.com` |
+| No | No | `{Service}.{region}.volcengineapi.com` |
+
+Whether a service is global is determined by the [service information list](../src/Common/Endpoint/Providers/StandardEndpointProvider.php#L14) built into the SDK. Unlike default automatic resolution, standard resolution returns an error when the service is unknown or the region is invalid instead of falling back to `open.volcengineapi.com`.
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use Volcengine\Common\Configuration;
+use Volcengine\Common\Endpoint\Providers\StandardEndpointProvider;
+
+$config = Configuration::getDefaultConfiguration()
+    ->setAk("Your ak")
+    ->setSk("Your sk")
+    ->setEndpointProvider(new StandardEndpointProvider()) // Configure standard resolution
+    ->setRegion("cn-beijing")                             // Configure RegionId
+    ->setUseDualStack(true);                              // Configure DualStack
+```
+
 ---
 
 [← Credentials](1-Credentials.md) | Endpoint[(中文)](2-Endpoint-zh.md) | [Transport →](3-Transport.md)

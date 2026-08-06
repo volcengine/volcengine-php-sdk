@@ -58,6 +58,34 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);  # 启用双栈，默认 false
 ```
 
+#### Endpoint 标准寻址
+
+标准寻址会根据服务是否为 Global 服务，按以下规则拼接 Endpoint：
+
+| Global 服务 | 双栈 | 格式 |
+|---|---|---|
+| 是 | 是 | `{Service}.volcengine-api.com` |
+| 是 | 否 | `{Service}.volcengineapi.com` |
+| 否 | 是 | `{Service}.{region}.volcengine-api.com` |
+| 否 | 否 | `{Service}.{region}.volcengineapi.com` |
+
+服务是否为 Global 服务由 SDK 内置的[服务信息列表](../src/Common/Endpoint/Providers/StandardEndpointProvider.php#L14)决定。与默认自动寻址不同，标准寻址在服务不存在或 Region 不合法时会直接报错，不会回退到 `open.volcengineapi.com`。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use Volcengine\Common\Configuration;
+use Volcengine\Common\Endpoint\Providers\StandardEndpointProvider;
+
+$config = Configuration::getDefaultConfiguration()
+    ->setAk("Your ak")
+    ->setSk("Your sk")
+    ->setEndpointProvider(new StandardEndpointProvider()) // 配置标准寻址
+    ->setRegion("cn-beijing")                             // 配置 RegionId
+    ->setUseDualStack(true);                              // 配置是否双栈
+```
+
 ---
 
 [← 访问凭据](1-Credentials-zh.md) | Endpoint 配置[(English)](2-Endpoint.md) | [Transport →](3-Transport-zh.md)
