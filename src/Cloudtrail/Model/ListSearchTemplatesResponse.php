@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
+class ListSearchTemplatesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LookupConditionForLookupEventsInput';
+    protected static $swaggerModelName = 'ListSearchTemplatesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'lookup_condition_key' => 'string',
-        'lookup_condition_value' => 'string'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'template_list' => '\Volcengine\Cloudtrail\Model\TemplateListForListSearchTemplatesOutput[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'lookup_condition_key' => null,
-        'lookup_condition_value' => null
+        'max_results' => 'int32',
+        'next_token' => null,
+        'template_list' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lookup_condition_key' => 'LookupConditionKey',
-        'lookup_condition_value' => 'LookupConditionValue'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'template_list' => 'TemplateList'
     ];
 
     /**
@@ -79,8 +82,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'lookup_condition_key' => 'setLookupConditionKey',
-        'lookup_condition_value' => 'setLookupConditionValue'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'template_list' => 'setTemplateList'
     ];
 
     /**
@@ -89,8 +93,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'lookup_condition_key' => 'getLookupConditionKey',
-        'lookup_condition_value' => 'getLookupConditionValue'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'template_list' => 'getTemplateList'
     ];
 
     /**
@@ -134,45 +139,8 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
-    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
-    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
-    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
-    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
-    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
-    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
-    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
-    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
-    const LOOKUP_CONDITION_KEY_REGION = 'Region';
-    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
-    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
-    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLookupConditionKeyAllowableValues()
-    {
-        return [
-            self::LOOKUP_CONDITION_KEY_EVENT_ID,
-            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
-            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
-            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
-            self::LOOKUP_CONDITION_KEY_API_VERSION,
-            self::LOOKUP_CONDITION_KEY_READ_ONLY,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
-            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
-            self::LOOKUP_CONDITION_KEY_REGION,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
-            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
-        ];
-    }
     
 
     /**
@@ -190,8 +158,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
-        $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['template_list'] = isset($data['template_list']) ? $data['template_list'] : null;
     }
 
     /**
@@ -202,14 +171,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lookup_condition_key', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,58 +188,73 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets lookup_condition_key
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getLookupConditionKey()
+    public function getMaxResults()
     {
-        return $this->container['lookup_condition_key'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets lookup_condition_key
+     * Sets max_results
      *
-     * @param string $lookup_condition_key lookup_condition_key
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setLookupConditionKey($lookup_condition_key)
+    public function setMaxResults($max_results)
     {
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['lookup_condition_key'] = $lookup_condition_key;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets lookup_condition_value
+     * Gets next_token
      *
      * @return string
      */
-    public function getLookupConditionValue()
+    public function getNextToken()
     {
-        return $this->container['lookup_condition_value'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets lookup_condition_value
+     * Sets next_token
      *
-     * @param string $lookup_condition_value lookup_condition_value
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setLookupConditionValue($lookup_condition_value)
+    public function setNextToken($next_token)
     {
-        $this->container['lookup_condition_value'] = $lookup_condition_value;
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_list
+     *
+     * @return \Volcengine\Cloudtrail\Model\TemplateListForListSearchTemplatesOutput[]
+     */
+    public function getTemplateList()
+    {
+        return $this->container['template_list'];
+    }
+
+    /**
+     * Sets template_list
+     *
+     * @param \Volcengine\Cloudtrail\Model\TemplateListForListSearchTemplatesOutput[] $template_list template_list
+     *
+     * @return $this
+     */
+    public function setTemplateList($template_list)
+    {
+        $this->container['template_list'] = $template_list;
 
         return $this;
     }
