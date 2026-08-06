@@ -30,7 +30,8 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'limit' => 'int',
         'offset' => 'int',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'project_type' => 'int'
     ];
 
     /**
@@ -41,7 +42,8 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'limit' => 'int32',
         'offset' => 'int32',
-        'project_name' => null
+        'project_name' => null,
+        'project_type' => 'int32'
     ];
 
     /**
@@ -73,7 +75,8 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'limit' => 'limit',
         'offset' => 'offset',
-        'project_name' => 'projectName'
+        'project_name' => 'projectName',
+        'project_type' => 'projectType'
     ];
 
     /**
@@ -84,7 +87,8 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'limit' => 'setLimit',
         'offset' => 'setOffset',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'project_type' => 'setProjectType'
     ];
 
     /**
@@ -95,7 +99,8 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'limit' => 'getLimit',
         'offset' => 'getOffset',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'project_type' => 'getProjectType'
     ];
 
     /**
@@ -161,6 +166,7 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['project_type'] = isset($data['project_type']) ? $data['project_type'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class VideoProjectListRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_type
+     *
+     * @return int
+     */
+    public function getProjectType()
+    {
+        return $this->container['project_type'];
+    }
+
+    /**
+     * Sets project_type
+     *
+     * @param int $project_type project_type
+     *
+     * @return $this
+     */
+    public function setProjectType($project_type)
+    {
+        $this->container['project_type'] = $project_type;
 
         return $this;
     }

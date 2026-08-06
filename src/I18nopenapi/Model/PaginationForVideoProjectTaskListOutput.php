@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
+class PaginationForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConvertsubtitleForVideoProjectSerialTaskCreateInput';
+    protected static $swaggerModelName = 'paginationForVideoProjectTaskListOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'file_type' => 'int',
-        'name' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int',
-        'target_lang' => 'string',
-        'uri' => 'string'
+        'limit' => 'int',
+        'offset' => 'int'
     ];
 
     /**
@@ -43,13 +38,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'file_type' => 'int32',
-        'name' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32',
-        'target_lang' => null,
-        'uri' => null
+        'limit' => 'int32',
+        'offset' => 'int32'
     ];
 
     /**
@@ -79,13 +69,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'file_type' => 'fileType',
-        'name' => 'name',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang',
-        'target_lang' => 'targetLang',
-        'uri' => 'uri'
+        'limit' => 'limit',
+        'offset' => 'offset'
     ];
 
     /**
@@ -94,13 +79,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'file_type' => 'setFileType',
-        'name' => 'setName',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang',
-        'target_lang' => 'setTargetLang',
-        'uri' => 'setUri'
+        'limit' => 'setLimit',
+        'offset' => 'setOffset'
     ];
 
     /**
@@ -109,13 +89,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'file_type' => 'getFileType',
-        'name' => 'getName',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang',
-        'target_lang' => 'getTargetLang',
-        'uri' => 'getUri'
+        'limit' => 'getLimit',
+        'offset' => 'getOffset'
     ];
 
     /**
@@ -178,13 +153,8 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
-        $this->container['target_lang'] = isset($data['target_lang']) ? $data['target_lang'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
     }
 
     /**
@@ -212,169 +182,49 @@ class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterf
 
 
     /**
-     * Gets arrangement
+     * Gets limit
      *
      * @return int
      */
-    public function getArrangement()
+    public function getLimit()
     {
-        return $this->container['arrangement'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets arrangement
+     * Sets limit
      *
-     * @param int $arrangement arrangement
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setArrangement($arrangement)
+    public function setLimit($limit)
     {
-        $this->container['arrangement'] = $arrangement;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets file_type
+     * Gets offset
      *
      * @return int
      */
-    public function getFileType()
+    public function getOffset()
     {
-        return $this->container['file_type'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets file_type
+     * Sets offset
      *
-     * @param int $file_type file_type
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setFileType($file_type)
+    public function setOffset($offset)
     {
-        $this->container['file_type'] = $file_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_id
-     *
-     * @return string
-     */
-    public function getSubtitleId()
-    {
-        return $this->container['subtitle_id'];
-    }
-
-    /**
-     * Sets subtitle_id
-     *
-     * @param string $subtitle_id subtitle_id
-     *
-     * @return $this
-     */
-    public function setSubtitleId($subtitle_id)
-    {
-        $this->container['subtitle_id'] = $subtitle_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_lang
-     *
-     * @return int
-     */
-    public function getSubtitleLang()
-    {
-        return $this->container['subtitle_lang'];
-    }
-
-    /**
-     * Sets subtitle_lang
-     *
-     * @param int $subtitle_lang subtitle_lang
-     *
-     * @return $this
-     */
-    public function setSubtitleLang($subtitle_lang)
-    {
-        $this->container['subtitle_lang'] = $subtitle_lang;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_lang
-     *
-     * @return string
-     */
-    public function getTargetLang()
-    {
-        return $this->container['target_lang'];
-    }
-
-    /**
-     * Sets target_lang
-     *
-     * @param string $target_lang target_lang
-     *
-     * @return $this
-     */
-    public function setTargetLang($target_lang)
-    {
-        $this->container['target_lang'] = $target_lang;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
-     *
-     * @return string
-     */
-    public function getUri()
-    {
-        return $this->container['uri'];
-    }
-
-    /**
-     * Sets uri
-     *
-     * @param string $uri uri
-     *
-     * @return $this
-     */
-    public function setUri($uri)
-    {
-        $this->container['uri'] = $uri;
+        $this->container['offset'] = $offset;
 
         return $this;
     }

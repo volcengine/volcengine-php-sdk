@@ -36,6 +36,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         'project_id' => 'string',
         'status' => 'int',
         'subtitle_id' => 'string',
+        'type' => 'int',
         'url' => 'string'
     ];
 
@@ -53,6 +54,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         'project_id' => null,
         'status' => 'int32',
         'subtitle_id' => null,
+        'type' => 'int32',
         'url' => null
     ];
 
@@ -91,6 +93,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         'project_id' => 'projectId',
         'status' => 'status',
         'subtitle_id' => 'subtitleId',
+        'type' => 'type',
         'url' => 'url'
     ];
 
@@ -108,6 +111,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         'project_id' => 'setProjectId',
         'status' => 'setStatus',
         'subtitle_id' => 'setSubtitleId',
+        'type' => 'setType',
         'url' => 'setUrl'
     ];
 
@@ -125,6 +129,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         'project_id' => 'getProjectId',
         'status' => 'getStatus',
         'subtitle_id' => 'getSubtitleId',
+        'type' => 'getType',
         'url' => 'getUrl'
     ];
 
@@ -196,6 +201,7 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -411,6 +417,30 @@ class UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput implements 
     public function setSubtitleId($subtitle_id)
     {
         $this->container['subtitle_id'] = $subtitle_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

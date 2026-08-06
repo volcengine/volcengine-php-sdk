@@ -30,7 +30,7 @@ class VideoProjectCreateRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cloud_storage_link' => 'string',
         'comment' => 'string',
-        'contributors' => 'int[]',
+        'contributors' => 'string[]',
         'name' => 'string',
         'project_type' => 'int',
         'roles' => 'string'
@@ -44,7 +44,7 @@ class VideoProjectCreateRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cloud_storage_link' => null,
         'comment' => null,
-        'contributors' => 'int32',
+        'contributors' => null,
         'name' => null,
         'project_type' => 'int32',
         'roles' => null
@@ -262,7 +262,7 @@ class VideoProjectCreateRequest implements ModelInterface, ArrayAccess
     /**
      * Gets contributors
      *
-     * @return int[]
+     * @return string[]
      */
     public function getContributors()
     {
@@ -272,7 +272,7 @@ class VideoProjectCreateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets contributors
      *
-     * @param int[] $contributors contributors
+     * @param string[] $contributors contributors
      *
      * @return $this
      */
