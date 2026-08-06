@@ -42,6 +42,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'metadata' => 'map[string,string]',
         'request_timeout' => 'int',
         'role_chain_trn' => 'string[]',
+        'role_trn' => 'string',
         'session_id' => 'string',
         'sidecars' => '\Volcengine\Vefaas\Model\SidecarForCreateSandboxInput[]',
         'snapshot_id' => 'string',
@@ -69,6 +70,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'metadata' => null,
         'request_timeout' => 'int32',
         'role_chain_trn' => null,
+        'role_trn' => null,
         'session_id' => null,
         'sidecars' => null,
         'snapshot_id' => null,
@@ -117,6 +119,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'metadata' => 'Metadata',
         'request_timeout' => 'RequestTimeout',
         'role_chain_trn' => 'RoleChainTrn',
+        'role_trn' => 'RoleTrn',
         'session_id' => 'SessionId',
         'sidecars' => 'Sidecars',
         'snapshot_id' => 'SnapshotId',
@@ -144,6 +147,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'metadata' => 'setMetadata',
         'request_timeout' => 'setRequestTimeout',
         'role_chain_trn' => 'setRoleChainTrn',
+        'role_trn' => 'setRoleTrn',
         'session_id' => 'setSessionId',
         'sidecars' => 'setSidecars',
         'snapshot_id' => 'setSnapshotId',
@@ -171,6 +175,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'metadata' => 'getMetadata',
         'request_timeout' => 'getRequestTimeout',
         'role_chain_trn' => 'getRoleChainTrn',
+        'role_trn' => 'getRoleTrn',
         'session_id' => 'getSessionId',
         'sidecars' => 'getSidecars',
         'snapshot_id' => 'getSnapshotId',
@@ -252,6 +257,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['role_chain_trn'] = isset($data['role_chain_trn']) ? $data['role_chain_trn'] : null;
+        $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
         $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
@@ -618,6 +624,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setRoleChainTrn($role_chain_trn)
     {
         $this->container['role_chain_trn'] = $role_chain_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_trn
+     *
+     * @return string
+     */
+    public function getRoleTrn()
+    {
+        return $this->container['role_trn'];
+    }
+
+    /**
+     * Sets role_trn
+     *
+     * @param string $role_trn role_trn
+     *
+     * @return $this
+     */
+    public function setRoleTrn($role_trn)
+    {
+        $this->container['role_trn'] = $role_trn;
 
         return $this;
     }

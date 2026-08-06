@@ -48,6 +48,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'pending' => 'bool',
         'request_timeout' => 'int',
         'revision_number' => 'int',
+        'role_chain_trn' => 'string[]',
+        'role_trn' => 'string',
         'session_id' => 'string',
         'sidecars' => '\Volcengine\Vefaas\Model\SidecarForDescribeSandboxOutput[]',
         'status' => 'string'
@@ -79,6 +81,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'pending' => null,
         'request_timeout' => 'int32',
         'revision_number' => 'int32',
+        'role_chain_trn' => null,
+        'role_trn' => null,
         'session_id' => null,
         'sidecars' => null,
         'status' => null
@@ -131,6 +135,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'pending' => 'Pending',
         'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
+        'role_chain_trn' => 'RoleChainTrn',
+        'role_trn' => 'RoleTrn',
         'session_id' => 'SessionId',
         'sidecars' => 'Sidecars',
         'status' => 'Status'
@@ -162,6 +168,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'pending' => 'setPending',
         'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
+        'role_chain_trn' => 'setRoleChainTrn',
+        'role_trn' => 'setRoleTrn',
         'session_id' => 'setSessionId',
         'sidecars' => 'setSidecars',
         'status' => 'setStatus'
@@ -193,6 +201,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'pending' => 'getPending',
         'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
+        'role_chain_trn' => 'getRoleChainTrn',
+        'role_trn' => 'getRoleTrn',
         'session_id' => 'getSessionId',
         'sidecars' => 'getSidecars',
         'status' => 'getStatus'
@@ -278,6 +288,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['role_chain_trn'] = isset($data['role_chain_trn']) ? $data['role_chain_trn'] : null;
+        $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -783,6 +795,54 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setRevisionNumber($revision_number)
     {
         $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_chain_trn
+     *
+     * @return string[]
+     */
+    public function getRoleChainTrn()
+    {
+        return $this->container['role_chain_trn'];
+    }
+
+    /**
+     * Sets role_chain_trn
+     *
+     * @param string[] $role_chain_trn role_chain_trn
+     *
+     * @return $this
+     */
+    public function setRoleChainTrn($role_chain_trn)
+    {
+        $this->container['role_chain_trn'] = $role_chain_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_trn
+     *
+     * @return string
+     */
+    public function getRoleTrn()
+    {
+        return $this->container['role_trn'];
+    }
+
+    /**
+     * Sets role_trn
+     *
+     * @param string $role_trn role_trn
+     *
+     * @return $this
+     */
+    public function setRoleTrn($role_trn)
+    {
+        $this->container['role_trn'] = $role_trn;
 
         return $this;
     }
