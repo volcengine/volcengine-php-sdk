@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, ArrayAccess
+class MaintenanceWindowConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MaintenanceWindowConfigForListClustersOutput';
+    protected static $swaggerModelName = 'MaintenanceWindowConfigForUpdateClusterConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -32,7 +32,7 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
         'exempt_end_date' => 'string',
         'exempt_start_date' => 'string',
         'start_time' => 'string',
-        'task_configs' => '\Volcengine\Vke\Model\TaskConfigForListClustersOutput[]',
+        'task_configs' => '\Volcengine\Vke\Model\TaskConfigForUpdateClusterConfigInput[]',
         'weekly_cycle' => 'string[]'
     ];
 
@@ -329,7 +329,7 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
     /**
      * Gets task_configs
      *
-     * @return \Volcengine\Vke\Model\TaskConfigForListClustersOutput[]
+     * @return \Volcengine\Vke\Model\TaskConfigForUpdateClusterConfigInput[]
      */
     public function getTaskConfigs()
     {
@@ -339,7 +339,7 @@ class MaintenanceWindowConfigForListClustersOutput implements ModelInterface, Ar
     /**
      * Sets task_configs
      *
-     * @param \Volcengine\Vke\Model\TaskConfigForListClustersOutput[] $task_configs task_configs
+     * @param \Volcengine\Vke\Model\TaskConfigForUpdateClusterConfigInput[] $task_configs task_configs
      *
      * @return $this
      */

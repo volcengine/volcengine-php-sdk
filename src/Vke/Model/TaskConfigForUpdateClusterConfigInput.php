@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
+class TaskConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VpcCniConfigForCreateClusterInput';
+    protected static $swaggerModelName = 'TaskConfigForUpdateClusterConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subnet_ids' => 'string[]'
+        'action' => 'string',
+        'group' => 'string',
+        'targets' => 'string[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subnet_ids' => null
+        'action' => null,
+        'group' => null,
+        'targets' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subnet_ids' => 'SubnetIds'
+        'action' => 'Action',
+        'group' => 'Group',
+        'targets' => 'Targets'
     ];
 
     /**
@@ -76,7 +82,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subnet_ids' => 'setSubnetIds'
+        'action' => 'setAction',
+        'group' => 'setGroup',
+        'targets' => 'setTargets'
     ];
 
     /**
@@ -85,7 +93,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subnet_ids' => 'getSubnetIds'
+        'action' => 'getAction',
+        'group' => 'getGroup',
+        'targets' => 'getTargets'
     ];
 
     /**
@@ -129,8 +139,42 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACTION_AUTO_UPGRADE_ADDON_VERSION = 'AutoUpgradeAddonVersion';
+    const ACTION_DRY_RUN_TEST = 'DryRunTest';
+    const ACTION_FIX_CLUSTER_API_SERVER_TLS4_SWEET32 = 'FixClusterAPIServerTLS4Sweet32';
+    const GROUP_CLUSTER = 'Cluster';
+    const GROUP_ADDON = 'Addon';
+    const GROUP_NODE_POOL = 'NodePool';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_AUTO_UPGRADE_ADDON_VERSION,
+            self::ACTION_DRY_RUN_TEST,
+            self::ACTION_FIX_CLUSTER_API_SERVER_TLS4_SWEET32,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGroupAllowableValues()
+    {
+        return [
+            self::GROUP_CLUSTER,
+            self::GROUP_ADDON,
+            self::GROUP_NODE_POOL,
+        ];
+    }
     
 
     /**
@@ -148,7 +192,9 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['targets'] = isset($data['targets']) ? $data['targets'] : null;
     }
 
     /**
@@ -159,6 +205,22 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getGroupAllowableValues();
+        if (!is_null($this->container['group']) && !in_array($this->container['group'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'group', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -176,25 +238,91 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subnet_ids
+     * Gets action
      *
-     * @return string[]
+     * @return string
      */
-    public function getSubnetIds()
+    public function getAction()
     {
-        return $this->container['subnet_ids'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets subnet_ids
+     * Sets action
      *
-     * @param string[] $subnet_ids subnet_ids
+     * @param string $action action
      *
      * @return $this
      */
-    public function setSubnetIds($subnet_ids)
+    public function setAction($action)
     {
-        $this->container['subnet_ids'] = $subnet_ids;
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string $group group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $allowedValues = $this->getGroupAllowableValues();
+        if (!is_null($group) && !in_array($group, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'group', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['group'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Gets targets
+     *
+     * @return string[]
+     */
+    public function getTargets()
+    {
+        return $this->container['targets'];
+    }
+
+    /**
+     * Sets targets
+     *
+     * @param string[] $targets targets
+     *
+     * @return $this
+     */
+    public function setTargets($targets)
+    {
+        $this->container['targets'] = $targets;
 
         return $this;
     }
