@@ -392,23 +392,6 @@ class ROCKETMQApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function createGroupAsync($body = null)
-    {
-        return $this->createGroupAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createGroupAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rocketmq\Model\CreateGroupResponse';
-        $request = $this->createGroupRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
     protected function createGroupRequest($body)
     {
         $resourcePath = '/CreateGroup/2023-01-01/rocketmq/post/application_json/';
@@ -702,23 +685,6 @@ class ROCKETMQApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function createTopicAsync($body = null)
-    {
-        return $this->createTopicAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createTopicAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rocketmq\Model\CreateTopicResponse';
-        $request = $this->createTopicRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
     protected function createTopicRequest($body)
     {
         $resourcePath = '/CreateTopic/2023-01-01/rocketmq/post/application_json/';
@@ -948,23 +914,6 @@ class ROCKETMQApi
         $request = $this->deleteGroupRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function deleteGroupAsync($body = null)
-    {
-        return $this->deleteGroupAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function deleteGroupAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rocketmq\Model\DeleteGroupResponse';
-        $request = $this->deleteGroupRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteGroupRequest($body)
@@ -1320,23 +1269,6 @@ class ROCKETMQApi
         $request = $this->deleteTopicRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function deleteTopicAsync($body = null)
-    {
-        return $this->deleteTopicAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function deleteTopicAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Rocketmq\Model\DeleteTopicResponse';
-        $request = $this->deleteTopicRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteTopicRequest($body)

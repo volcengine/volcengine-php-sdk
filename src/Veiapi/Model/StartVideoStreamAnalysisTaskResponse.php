@@ -269,16 +269,6 @@ class StartVideoStreamAnalysisTaskResponse implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -1172,4 +1162,3 @@ class StartVideoStreamAnalysisTaskResponse implements ModelInterface, ArrayAcces
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-

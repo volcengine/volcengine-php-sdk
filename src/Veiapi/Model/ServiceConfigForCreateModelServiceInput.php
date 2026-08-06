@@ -159,16 +159,6 @@ class ServiceConfigForCreateModelServiceInput implements ModelInterface, ArrayAc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -512,4 +502,3 @@ class ServiceConfigForCreateModelServiceInput implements ModelInterface, ArrayAc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-

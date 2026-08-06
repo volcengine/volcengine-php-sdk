@@ -269,16 +269,6 @@ class ItemForListVideoAnalysisTaskOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EXTRACT_MODE_UNIFORM = 'uniform';
     const EXTRACT_MODE_KEY_FRAME = 'key_frame';
     const TASK_STATE_INIT = 'init';
@@ -1252,4 +1242,3 @@ class ItemForListVideoAnalysisTaskOutput implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-

@@ -340,20 +340,6 @@ class ClawInstanceForGetClawInstanceOutput implements ModelInterface, ArrayAcces
     }
 
     /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    
-
-    
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -1592,4 +1578,3 @@ class ClawInstanceForGetClawInstanceOutput implements ModelInterface, ArrayAcces
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
