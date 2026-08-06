@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
+class ListBackfillDeliveryTasksResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LookupConditionForLookupEventsInput';
+    protected static $swaggerModelName = 'ListBackfillDeliveryTasksResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'lookup_condition_key' => 'string',
-        'lookup_condition_value' => 'string'
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'tasks' => '\Volcengine\Cloudtrail\Model\TaskForListBackfillDeliveryTasksOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'lookup_condition_key' => null,
-        'lookup_condition_value' => null
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'tasks' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -69,8 +73,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lookup_condition_key' => 'LookupConditionKey',
-        'lookup_condition_value' => 'LookupConditionValue'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'tasks' => 'Tasks',
+        'total' => 'Total'
     ];
 
     /**
@@ -79,8 +85,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'lookup_condition_key' => 'setLookupConditionKey',
-        'lookup_condition_value' => 'setLookupConditionValue'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'tasks' => 'setTasks',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -89,8 +97,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'lookup_condition_key' => 'getLookupConditionKey',
-        'lookup_condition_value' => 'getLookupConditionValue'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'tasks' => 'getTasks',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -134,45 +144,8 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
-    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
-    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
-    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
-    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
-    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
-    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
-    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
-    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
-    const LOOKUP_CONDITION_KEY_REGION = 'Region';
-    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
-    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
-    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLookupConditionKeyAllowableValues()
-    {
-        return [
-            self::LOOKUP_CONDITION_KEY_EVENT_ID,
-            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
-            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
-            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
-            self::LOOKUP_CONDITION_KEY_API_VERSION,
-            self::LOOKUP_CONDITION_KEY_READ_ONLY,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
-            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
-            self::LOOKUP_CONDITION_KEY_REGION,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
-            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
-        ];
-    }
     
 
     /**
@@ -190,8 +163,10 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
-        $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['tasks'] = isset($data['tasks']) ? $data['tasks'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -202,14 +177,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lookup_condition_key', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,58 +194,97 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets lookup_condition_key
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getLookupConditionKey()
+    public function getPageNumber()
     {
-        return $this->container['lookup_condition_key'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets lookup_condition_key
+     * Sets page_number
      *
-     * @param string $lookup_condition_key lookup_condition_key
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setLookupConditionKey($lookup_condition_key)
+    public function setPageNumber($page_number)
     {
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['lookup_condition_key'] = $lookup_condition_key;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets lookup_condition_value
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getLookupConditionValue()
+    public function getPageSize()
     {
-        return $this->container['lookup_condition_value'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets lookup_condition_value
+     * Sets page_size
      *
-     * @param string $lookup_condition_value lookup_condition_value
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setLookupConditionValue($lookup_condition_value)
+    public function setPageSize($page_size)
     {
-        $this->container['lookup_condition_value'] = $lookup_condition_value;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets tasks
+     *
+     * @return \Volcengine\Cloudtrail\Model\TaskForListBackfillDeliveryTasksOutput[]
+     */
+    public function getTasks()
+    {
+        return $this->container['tasks'];
+    }
+
+    /**
+     * Sets tasks
+     *
+     * @param \Volcengine\Cloudtrail\Model\TaskForListBackfillDeliveryTasksOutput[] $tasks tasks
+     *
+     * @return $this
+     */
+    public function setTasks($tasks)
+    {
+        $this->container['tasks'] = $tasks;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

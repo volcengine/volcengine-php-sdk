@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
+class DataEventSelectorForGetEventSelectorsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LookupConditionForLookupEventsInput';
+    protected static $swaggerModelName = 'DataEventSelectorForGetEventSelectorsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'lookup_condition_key' => 'string',
-        'lookup_condition_value' => 'string'
+        'advanced_event_selectors' => '\Volcengine\Cloudtrail\Model\AdvancedEventSelectorForGetEventSelectorsOutput[]'
     ];
 
     /**
@@ -38,8 +37,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'lookup_condition_key' => null,
-        'lookup_condition_value' => null
+        'advanced_event_selectors' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lookup_condition_key' => 'LookupConditionKey',
-        'lookup_condition_value' => 'LookupConditionValue'
+        'advanced_event_selectors' => 'AdvancedEventSelectors'
     ];
 
     /**
@@ -79,8 +76,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'lookup_condition_key' => 'setLookupConditionKey',
-        'lookup_condition_value' => 'setLookupConditionValue'
+        'advanced_event_selectors' => 'setAdvancedEventSelectors'
     ];
 
     /**
@@ -89,8 +85,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'lookup_condition_key' => 'getLookupConditionKey',
-        'lookup_condition_value' => 'getLookupConditionValue'
+        'advanced_event_selectors' => 'getAdvancedEventSelectors'
     ];
 
     /**
@@ -134,45 +129,8 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
-    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
-    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
-    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
-    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
-    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
-    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
-    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
-    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
-    const LOOKUP_CONDITION_KEY_REGION = 'Region';
-    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
-    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
-    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLookupConditionKeyAllowableValues()
-    {
-        return [
-            self::LOOKUP_CONDITION_KEY_EVENT_ID,
-            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
-            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
-            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
-            self::LOOKUP_CONDITION_KEY_API_VERSION,
-            self::LOOKUP_CONDITION_KEY_READ_ONLY,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
-            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
-            self::LOOKUP_CONDITION_KEY_REGION,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
-            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
-        ];
-    }
     
 
     /**
@@ -190,8 +148,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
-        $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;
+        $this->container['advanced_event_selectors'] = isset($data['advanced_event_selectors']) ? $data['advanced_event_selectors'] : null;
     }
 
     /**
@@ -202,14 +159,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lookup_condition_key', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,58 +176,25 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets lookup_condition_key
+     * Gets advanced_event_selectors
      *
-     * @return string
+     * @return \Volcengine\Cloudtrail\Model\AdvancedEventSelectorForGetEventSelectorsOutput[]
      */
-    public function getLookupConditionKey()
+    public function getAdvancedEventSelectors()
     {
-        return $this->container['lookup_condition_key'];
+        return $this->container['advanced_event_selectors'];
     }
 
     /**
-     * Sets lookup_condition_key
+     * Sets advanced_event_selectors
      *
-     * @param string $lookup_condition_key lookup_condition_key
+     * @param \Volcengine\Cloudtrail\Model\AdvancedEventSelectorForGetEventSelectorsOutput[] $advanced_event_selectors advanced_event_selectors
      *
      * @return $this
      */
-    public function setLookupConditionKey($lookup_condition_key)
+    public function setAdvancedEventSelectors($advanced_event_selectors)
     {
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['lookup_condition_key'] = $lookup_condition_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookup_condition_value
-     *
-     * @return string
-     */
-    public function getLookupConditionValue()
-    {
-        return $this->container['lookup_condition_value'];
-    }
-
-    /**
-     * Sets lookup_condition_value
-     *
-     * @param string $lookup_condition_value lookup_condition_value
-     *
-     * @return $this
-     */
-    public function setLookupConditionValue($lookup_condition_value)
-    {
-        $this->container['lookup_condition_value'] = $lookup_condition_value;
+        $this->container['advanced_event_selectors'] = $advanced_event_selectors;
 
         return $this;
     }

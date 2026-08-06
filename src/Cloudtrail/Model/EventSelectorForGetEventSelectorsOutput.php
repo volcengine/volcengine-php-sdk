@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
+class EventSelectorForGetEventSelectorsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LookupConditionForLookupEventsInput';
+    protected static $swaggerModelName = 'EventSelectorForGetEventSelectorsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'lookup_condition_key' => 'string',
-        'lookup_condition_value' => 'string'
+        'event_sources' => 'string[]',
+        'include_all_event_sources' => 'bool',
+        'read_write_type' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'lookup_condition_key' => null,
-        'lookup_condition_value' => null
+        'event_sources' => null,
+        'include_all_event_sources' => null,
+        'read_write_type' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lookup_condition_key' => 'LookupConditionKey',
-        'lookup_condition_value' => 'LookupConditionValue'
+        'event_sources' => 'EventSources',
+        'include_all_event_sources' => 'IncludeAllEventSources',
+        'read_write_type' => 'ReadWriteType'
     ];
 
     /**
@@ -79,8 +82,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'lookup_condition_key' => 'setLookupConditionKey',
-        'lookup_condition_value' => 'setLookupConditionValue'
+        'event_sources' => 'setEventSources',
+        'include_all_event_sources' => 'setIncludeAllEventSources',
+        'read_write_type' => 'setReadWriteType'
     ];
 
     /**
@@ -89,8 +93,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'lookup_condition_key' => 'getLookupConditionKey',
-        'lookup_condition_value' => 'getLookupConditionValue'
+        'event_sources' => 'getEventSources',
+        'include_all_event_sources' => 'getIncludeAllEventSources',
+        'read_write_type' => 'getReadWriteType'
     ];
 
     /**
@@ -134,45 +139,8 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
-    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
-    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
-    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
-    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
-    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
-    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
-    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
-    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
-    const LOOKUP_CONDITION_KEY_REGION = 'Region';
-    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
-    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
-    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLookupConditionKeyAllowableValues()
-    {
-        return [
-            self::LOOKUP_CONDITION_KEY_EVENT_ID,
-            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
-            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
-            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
-            self::LOOKUP_CONDITION_KEY_API_VERSION,
-            self::LOOKUP_CONDITION_KEY_READ_ONLY,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
-            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
-            self::LOOKUP_CONDITION_KEY_REGION,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
-            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
-        ];
-    }
     
 
     /**
@@ -190,8 +158,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
-        $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;
+        $this->container['event_sources'] = isset($data['event_sources']) ? $data['event_sources'] : null;
+        $this->container['include_all_event_sources'] = isset($data['include_all_event_sources']) ? $data['include_all_event_sources'] : null;
+        $this->container['read_write_type'] = isset($data['read_write_type']) ? $data['read_write_type'] : null;
     }
 
     /**
@@ -202,14 +171,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lookup_condition_key', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,58 +188,73 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets lookup_condition_key
+     * Gets event_sources
      *
-     * @return string
+     * @return string[]
      */
-    public function getLookupConditionKey()
+    public function getEventSources()
     {
-        return $this->container['lookup_condition_key'];
+        return $this->container['event_sources'];
     }
 
     /**
-     * Sets lookup_condition_key
+     * Sets event_sources
      *
-     * @param string $lookup_condition_key lookup_condition_key
+     * @param string[] $event_sources event_sources
      *
      * @return $this
      */
-    public function setLookupConditionKey($lookup_condition_key)
+    public function setEventSources($event_sources)
     {
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['lookup_condition_key'] = $lookup_condition_key;
+        $this->container['event_sources'] = $event_sources;
 
         return $this;
     }
 
     /**
-     * Gets lookup_condition_value
+     * Gets include_all_event_sources
      *
-     * @return string
+     * @return bool
      */
-    public function getLookupConditionValue()
+    public function getIncludeAllEventSources()
     {
-        return $this->container['lookup_condition_value'];
+        return $this->container['include_all_event_sources'];
     }
 
     /**
-     * Sets lookup_condition_value
+     * Sets include_all_event_sources
      *
-     * @param string $lookup_condition_value lookup_condition_value
+     * @param bool $include_all_event_sources include_all_event_sources
      *
      * @return $this
      */
-    public function setLookupConditionValue($lookup_condition_value)
+    public function setIncludeAllEventSources($include_all_event_sources)
     {
-        $this->container['lookup_condition_value'] = $lookup_condition_value;
+        $this->container['include_all_event_sources'] = $include_all_event_sources;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_write_type
+     *
+     * @return string
+     */
+    public function getReadWriteType()
+    {
+        return $this->container['read_write_type'];
+    }
+
+    /**
+     * Sets read_write_type
+     *
+     * @param string $read_write_type read_write_type
+     *
+     * @return $this
+     */
+    public function setReadWriteType($read_write_type)
+    {
+        $this->container['read_write_type'] = $read_write_type;
 
         return $this;
     }

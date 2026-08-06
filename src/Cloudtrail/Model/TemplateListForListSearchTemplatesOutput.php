@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
+class TemplateListForListSearchTemplatesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LookupConditionForLookupEventsInput';
+    protected static $swaggerModelName = 'TemplateListForListSearchTemplatesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'lookup_condition_key' => 'string',
-        'lookup_condition_value' => 'string'
+        'category' => 'string',
+        'sql' => 'string',
+        'template_name' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'lookup_condition_key' => null,
-        'lookup_condition_value' => null
+        'category' => null,
+        'sql' => null,
+        'template_name' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lookup_condition_key' => 'LookupConditionKey',
-        'lookup_condition_value' => 'LookupConditionValue'
+        'category' => 'Category',
+        'sql' => 'Sql',
+        'template_name' => 'TemplateName'
     ];
 
     /**
@@ -79,8 +82,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'lookup_condition_key' => 'setLookupConditionKey',
-        'lookup_condition_value' => 'setLookupConditionValue'
+        'category' => 'setCategory',
+        'sql' => 'setSql',
+        'template_name' => 'setTemplateName'
     ];
 
     /**
@@ -89,8 +93,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'lookup_condition_key' => 'getLookupConditionKey',
-        'lookup_condition_value' => 'getLookupConditionValue'
+        'category' => 'getCategory',
+        'sql' => 'getSql',
+        'template_name' => 'getTemplateName'
     ];
 
     /**
@@ -134,45 +139,8 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
-    const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
-    const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
-    const LOOKUP_CONDITION_KEY_EVENT_NAME = 'EventName';
-    const LOOKUP_CONDITION_KEY_API_VERSION = 'ApiVersion';
-    const LOOKUP_CONDITION_KEY_READ_ONLY = 'ReadOnly';
-    const LOOKUP_CONDITION_KEY_IDENTITY_TYPE = 'IdentityType';
-    const LOOKUP_CONDITION_KEY_IDENTITY_NAME = 'IdentityName';
-    const LOOKUP_CONDITION_KEY_ACCESS_KEY_ID = 'AccessKeyID';
-    const LOOKUP_CONDITION_KEY_REGION = 'Region';
-    const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
-    const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
-    const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLookupConditionKeyAllowableValues()
-    {
-        return [
-            self::LOOKUP_CONDITION_KEY_EVENT_ID,
-            self::LOOKUP_CONDITION_KEY_REQUEST_ID,
-            self::LOOKUP_CONDITION_KEY_EVENT_SOURCE,
-            self::LOOKUP_CONDITION_KEY_EVENT_NAME,
-            self::LOOKUP_CONDITION_KEY_API_VERSION,
-            self::LOOKUP_CONDITION_KEY_READ_ONLY,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_TYPE,
-            self::LOOKUP_CONDITION_KEY_IDENTITY_NAME,
-            self::LOOKUP_CONDITION_KEY_ACCESS_KEY_ID,
-            self::LOOKUP_CONDITION_KEY_REGION,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
-            self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
-            self::LOOKUP_CONDITION_KEY_ERROR_CODE,
-        ];
-    }
     
 
     /**
@@ -190,8 +158,9 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
-        $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['sql'] = isset($data['sql']) ? $data['sql'] : null;
+        $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
     }
 
     /**
@@ -202,14 +171,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($this->container['lookup_condition_key']) && !in_array($this->container['lookup_condition_key'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'lookup_condition_key', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,58 +188,73 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets lookup_condition_key
+     * Gets category
      *
      * @return string
      */
-    public function getLookupConditionKey()
+    public function getCategory()
     {
-        return $this->container['lookup_condition_key'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets lookup_condition_key
+     * Sets category
      *
-     * @param string $lookup_condition_key lookup_condition_key
+     * @param string $category category
      *
      * @return $this
      */
-    public function setLookupConditionKey($lookup_condition_key)
+    public function setCategory($category)
     {
-        $allowedValues = $this->getLookupConditionKeyAllowableValues();
-        if (!is_null($lookup_condition_key) && !in_array($lookup_condition_key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'lookup_condition_key', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['lookup_condition_key'] = $lookup_condition_key;
+        $this->container['category'] = $category;
 
         return $this;
     }
 
     /**
-     * Gets lookup_condition_value
+     * Gets sql
      *
      * @return string
      */
-    public function getLookupConditionValue()
+    public function getSql()
     {
-        return $this->container['lookup_condition_value'];
+        return $this->container['sql'];
     }
 
     /**
-     * Sets lookup_condition_value
+     * Sets sql
      *
-     * @param string $lookup_condition_value lookup_condition_value
+     * @param string $sql sql
      *
      * @return $this
      */
-    public function setLookupConditionValue($lookup_condition_value)
+    public function setSql($sql)
     {
-        $this->container['lookup_condition_value'] = $lookup_condition_value;
+        $this->container['sql'] = $sql;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_name
+     *
+     * @return string
+     */
+    public function getTemplateName()
+    {
+        return $this->container['template_name'];
+    }
+
+    /**
+     * Sets template_name
+     *
+     * @param string $template_name template_name
+     *
+     * @return $this
+     */
+    public function setTemplateName($template_name)
+    {
+        $this->container['template_name'] = $template_name;
 
         return $this;
     }
