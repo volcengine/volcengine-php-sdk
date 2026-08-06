@@ -28,7 +28,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'duplicated_user_uid' => 'string',
         'error' => 'string',
+        'error_type' => 'string',
+        'external_provider_user_identifier' => 'string',
         'field' => 'string',
         'index' => 'int'
     ];
@@ -39,7 +42,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'duplicated_user_uid' => null,
         'error' => null,
+        'error_type' => null,
+        'external_provider_user_identifier' => null,
         'field' => null,
         'index' => 'int32'
     ];
@@ -71,7 +77,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'duplicated_user_uid' => 'DuplicatedUserUid',
         'error' => 'Error',
+        'error_type' => 'ErrorType',
+        'external_provider_user_identifier' => 'ExternalProviderUserIdentifier',
         'field' => 'Field',
         'index' => 'Index'
     ];
@@ -82,7 +91,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'duplicated_user_uid' => 'setDuplicatedUserUid',
         'error' => 'setError',
+        'error_type' => 'setErrorType',
+        'external_provider_user_identifier' => 'setExternalProviderUserIdentifier',
         'field' => 'setField',
         'index' => 'setIndex'
     ];
@@ -93,7 +105,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'duplicated_user_uid' => 'getDuplicatedUserUid',
         'error' => 'getError',
+        'error_type' => 'getErrorType',
+        'external_provider_user_identifier' => 'getExternalProviderUserIdentifier',
         'field' => 'getField',
         'index' => 'getIndex'
     ];
@@ -158,7 +173,10 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
      */
     public function __construct($data = null)
     {
+        $this->container['duplicated_user_uid'] = isset($data['duplicated_user_uid']) ? $data['duplicated_user_uid'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['error_type'] = isset($data['error_type']) ? $data['error_type'] : null;
+        $this->container['external_provider_user_identifier'] = isset($data['external_provider_user_identifier']) ? $data['external_provider_user_identifier'] : null;
         $this->container['field'] = isset($data['field']) ? $data['field'] : null;
         $this->container['index'] = isset($data['index']) ? $data['index'] : null;
     }
@@ -188,6 +206,30 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
 
 
     /**
+     * Gets duplicated_user_uid
+     *
+     * @return string
+     */
+    public function getDuplicatedUserUid()
+    {
+        return $this->container['duplicated_user_uid'];
+    }
+
+    /**
+     * Sets duplicated_user_uid
+     *
+     * @param string $duplicated_user_uid duplicated_user_uid
+     *
+     * @return $this
+     */
+    public function setDuplicatedUserUid($duplicated_user_uid)
+    {
+        $this->container['duplicated_user_uid'] = $duplicated_user_uid;
+
+        return $this;
+    }
+
+    /**
      * Gets error
      *
      * @return string
@@ -207,6 +249,54 @@ class ErrorsStructuredForCreateUsersCSVOutput implements ModelInterface, ArrayAc
     public function setError($error)
     {
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_type
+     *
+     * @return string
+     */
+    public function getErrorType()
+    {
+        return $this->container['error_type'];
+    }
+
+    /**
+     * Sets error_type
+     *
+     * @param string $error_type error_type
+     *
+     * @return $this
+     */
+    public function setErrorType($error_type)
+    {
+        $this->container['error_type'] = $error_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_provider_user_identifier
+     *
+     * @return string
+     */
+    public function getExternalProviderUserIdentifier()
+    {
+        return $this->container['external_provider_user_identifier'];
+    }
+
+    /**
+     * Sets external_provider_user_identifier
+     *
+     * @param string $external_provider_user_identifier external_provider_user_identifier
+     *
+     * @return $this
+     */
+    public function setExternalProviderUserIdentifier($external_provider_user_identifier)
+    {
+        $this->container['external_provider_user_identifier'] = $external_provider_user_identifier;
 
         return $this;
     }

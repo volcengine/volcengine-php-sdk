@@ -37,7 +37,8 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         'metadata' => 'string',
         'oauth2_discovery' => '\Volcengine\Id\Model\Oauth2DiscoveryForGetOauth2CredentialProviderOutput',
         'redirect_url' => 'string',
-        'scopes' => 'string[]'
+        'scopes' => 'string[]',
+        'secret_storage' => '\Volcengine\Id\Model\SecretStorageForGetOauth2CredentialProviderOutput'
     ];
 
     /**
@@ -55,7 +56,8 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         'metadata' => null,
         'oauth2_discovery' => null,
         'redirect_url' => null,
-        'scopes' => null
+        'scopes' => null,
+        'secret_storage' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         'metadata' => 'Metadata',
         'oauth2_discovery' => 'Oauth2Discovery',
         'redirect_url' => 'RedirectUrl',
-        'scopes' => 'Scopes'
+        'scopes' => 'Scopes',
+        'secret_storage' => 'SecretStorage'
     ];
 
     /**
@@ -112,7 +115,8 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         'metadata' => 'setMetadata',
         'oauth2_discovery' => 'setOauth2Discovery',
         'redirect_url' => 'setRedirectUrl',
-        'scopes' => 'setScopes'
+        'scopes' => 'setScopes',
+        'secret_storage' => 'setSecretStorage'
     ];
 
     /**
@@ -130,7 +134,8 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         'metadata' => 'getMetadata',
         'oauth2_discovery' => 'getOauth2Discovery',
         'redirect_url' => 'getRedirectUrl',
-        'scopes' => 'getScopes'
+        'scopes' => 'getScopes',
+        'secret_storage' => 'getSecretStorage'
     ];
 
     /**
@@ -218,6 +223,7 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
         $this->container['oauth2_discovery'] = isset($data['oauth2_discovery']) ? $data['oauth2_discovery'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
+        $this->container['secret_storage'] = isset($data['secret_storage']) ? $data['secret_storage'] : null;
     }
 
     /**
@@ -497,6 +503,30 @@ class ConfigForGetOauth2CredentialProviderOutput implements ModelInterface, Arra
     public function setScopes($scopes)
     {
         $this->container['scopes'] = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_storage
+     *
+     * @return \Volcengine\Id\Model\SecretStorageForGetOauth2CredentialProviderOutput
+     */
+    public function getSecretStorage()
+    {
+        return $this->container['secret_storage'];
+    }
+
+    /**
+     * Sets secret_storage
+     *
+     * @param \Volcengine\Id\Model\SecretStorageForGetOauth2CredentialProviderOutput $secret_storage secret_storage
+     *
+     * @return $this
+     */
+    public function setSecretStorage($secret_storage)
+    {
+        $this->container['secret_storage'] = $secret_storage;
 
         return $this;
     }

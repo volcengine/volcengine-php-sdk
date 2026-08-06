@@ -29,8 +29,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'filter' => '\Volcengine\Id\Model\FilterForListUsersInput',
+        'max_results' => 'int',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'response_value_mask' => '\Volcengine\Id\Model\ResponseValueMaskForListUsersInput',
+        'response_value_null' => '\Volcengine\Id\Model\ResponseValueNullForListUsersInput',
         'sort_direction' => 'string',
         'sort_field' => 'string',
         'user_pool_uid' => 'string'
@@ -43,8 +47,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'filter' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
+        'response_value_mask' => null,
+        'response_value_null' => null,
         'sort_direction' => null,
         'sort_field' => null,
         'user_pool_uid' => null
@@ -78,8 +86,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'filter' => 'Filter',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'response_value_mask' => 'ResponseValueMask',
+        'response_value_null' => 'ResponseValueNull',
         'sort_direction' => 'SortDirection',
         'sort_field' => 'SortField',
         'user_pool_uid' => 'UserPoolUid'
@@ -92,8 +104,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'filter' => 'setFilter',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'response_value_mask' => 'setResponseValueMask',
+        'response_value_null' => 'setResponseValueNull',
         'sort_direction' => 'setSortDirection',
         'sort_field' => 'setSortField',
         'user_pool_uid' => 'setUserPoolUid'
@@ -106,8 +122,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'filter' => 'getFilter',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'response_value_mask' => 'getResponseValueMask',
+        'response_value_null' => 'getResponseValueNull',
         'sort_direction' => 'getSortDirection',
         'sort_field' => 'getSortField',
         'user_pool_uid' => 'getUserPoolUid'
@@ -174,8 +194,12 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['response_value_mask'] = isset($data['response_value_mask']) ? $data['response_value_mask'] : null;
+        $this->container['response_value_null'] = isset($data['response_value_null']) ? $data['response_value_null'] : null;
         $this->container['sort_direction'] = isset($data['sort_direction']) ? $data['sort_direction'] : null;
         $this->container['sort_field'] = isset($data['sort_field']) ? $data['sort_field'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
@@ -190,12 +214,6 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
-        }
         if ($this->container['user_pool_uid'] === null) {
             $invalidProperties[] = "'user_pool_uid' can't be null";
         }
@@ -234,6 +252,54 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
@@ -282,6 +348,54 @@ class ListUsersRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_value_mask
+     *
+     * @return \Volcengine\Id\Model\ResponseValueMaskForListUsersInput
+     */
+    public function getResponseValueMask()
+    {
+        return $this->container['response_value_mask'];
+    }
+
+    /**
+     * Sets response_value_mask
+     *
+     * @param \Volcengine\Id\Model\ResponseValueMaskForListUsersInput $response_value_mask response_value_mask
+     *
+     * @return $this
+     */
+    public function setResponseValueMask($response_value_mask)
+    {
+        $this->container['response_value_mask'] = $response_value_mask;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_value_null
+     *
+     * @return \Volcengine\Id\Model\ResponseValueNullForListUsersInput
+     */
+    public function getResponseValueNull()
+    {
+        return $this->container['response_value_null'];
+    }
+
+    /**
+     * Sets response_value_null
+     *
+     * @param \Volcengine\Id\Model\ResponseValueNullForListUsersInput $response_value_null response_value_null
+     *
+     * @return $this
+     */
+    public function setResponseValueNull($response_value_null)
+    {
+        $this->container['response_value_null'] = $response_value_null;
 
         return $this;
     }

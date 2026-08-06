@@ -28,10 +28,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'definition' => '\Volcengine\Id\Model\DefinitionForCreatePolicyInput',
         'description' => 'string',
         'namespace_name' => 'string',
         'policy' => 'string',
-        'policy_name' => 'string'
+        'policy_name' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'definition' => null,
         'description' => null,
         'namespace_name' => null,
         'policy' => null,
-        'policy_name' => null
+        'policy_name' => null,
+        'status' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'definition' => 'Definition',
         'description' => 'Description',
         'namespace_name' => 'NamespaceName',
         'policy' => 'Policy',
-        'policy_name' => 'PolicyName'
+        'policy_name' => 'PolicyName',
+        'status' => 'Status'
     ];
 
     /**
@@ -85,10 +91,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'definition' => 'setDefinition',
         'description' => 'setDescription',
         'namespace_name' => 'setNamespaceName',
         'policy' => 'setPolicy',
-        'policy_name' => 'setPolicyName'
+        'policy_name' => 'setPolicyName',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -97,10 +105,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'definition' => 'getDefinition',
         'description' => 'getDescription',
         'namespace_name' => 'getNamespaceName',
         'policy' => 'getPolicy',
-        'policy_name' => 'getPolicyName'
+        'policy_name' => 'getPolicyName',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -163,10 +173,12 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['definition'] = isset($data['definition']) ? $data['definition'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['policy_name'] = isset($data['policy_name']) ? $data['policy_name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -192,6 +204,30 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets definition
+     *
+     * @return \Volcengine\Id\Model\DefinitionForCreatePolicyInput
+     */
+    public function getDefinition()
+    {
+        return $this->container['definition'];
+    }
+
+    /**
+     * Sets definition
+     *
+     * @param \Volcengine\Id\Model\DefinitionForCreatePolicyInput $definition definition
+     *
+     * @return $this
+     */
+    public function setDefinition($definition)
+    {
+        $this->container['definition'] = $definition;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -285,6 +321,30 @@ class CreatePolicyRequest implements ModelInterface, ArrayAccess
     public function setPolicyName($policy_name)
     {
         $this->container['policy_name'] = $policy_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

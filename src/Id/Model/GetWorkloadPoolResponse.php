@@ -28,6 +28,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'allow_auto_create_identity' => 'bool',
         'created_at' => 'string',
         'description' => 'string',
         'discovery_url' => 'string',
@@ -36,7 +37,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         'total_credentials' => 'int',
         'total_workloads' => 'int',
         'trn' => 'string',
+        'trust_anchors' => 'string[]',
         'updated_at' => 'string',
+        'url' => 'string',
         'workload_pool_id' => 'string',
         'workload_pool_name' => 'string'
     ];
@@ -47,6 +50,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'allow_auto_create_identity' => null,
         'created_at' => null,
         'description' => null,
         'discovery_url' => null,
@@ -55,7 +59,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         'total_credentials' => 'int64',
         'total_workloads' => 'int64',
         'trn' => null,
+        'trust_anchors' => null,
         'updated_at' => null,
+        'url' => null,
         'workload_pool_id' => null,
         'workload_pool_name' => null
     ];
@@ -87,6 +93,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'allow_auto_create_identity' => 'AllowAutoCreateIdentity',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
         'discovery_url' => 'DiscoveryUrl',
@@ -95,7 +102,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         'total_credentials' => 'TotalCredentials',
         'total_workloads' => 'TotalWorkloads',
         'trn' => 'Trn',
+        'trust_anchors' => 'TrustAnchors',
         'updated_at' => 'UpdatedAt',
+        'url' => 'Url',
         'workload_pool_id' => 'WorkloadPoolId',
         'workload_pool_name' => 'WorkloadPoolName'
     ];
@@ -106,6 +115,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'allow_auto_create_identity' => 'setAllowAutoCreateIdentity',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
         'discovery_url' => 'setDiscoveryUrl',
@@ -114,7 +124,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         'total_credentials' => 'setTotalCredentials',
         'total_workloads' => 'setTotalWorkloads',
         'trn' => 'setTrn',
+        'trust_anchors' => 'setTrustAnchors',
         'updated_at' => 'setUpdatedAt',
+        'url' => 'setUrl',
         'workload_pool_id' => 'setWorkloadPoolId',
         'workload_pool_name' => 'setWorkloadPoolName'
     ];
@@ -125,6 +137,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'allow_auto_create_identity' => 'getAllowAutoCreateIdentity',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
         'discovery_url' => 'getDiscoveryUrl',
@@ -133,7 +146,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         'total_credentials' => 'getTotalCredentials',
         'total_workloads' => 'getTotalWorkloads',
         'trn' => 'getTrn',
+        'trust_anchors' => 'getTrustAnchors',
         'updated_at' => 'getUpdatedAt',
+        'url' => 'getUrl',
         'workload_pool_id' => 'getWorkloadPoolId',
         'workload_pool_name' => 'getWorkloadPoolName'
     ];
@@ -198,6 +213,7 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['allow_auto_create_identity'] = isset($data['allow_auto_create_identity']) ? $data['allow_auto_create_identity'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
@@ -206,7 +222,9 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         $this->container['total_credentials'] = isset($data['total_credentials']) ? $data['total_credentials'] : null;
         $this->container['total_workloads'] = isset($data['total_workloads']) ? $data['total_workloads'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
+        $this->container['trust_anchors'] = isset($data['trust_anchors']) ? $data['trust_anchors'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['workload_pool_id'] = isset($data['workload_pool_id']) ? $data['workload_pool_id'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
     }
@@ -234,6 +252,30 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets allow_auto_create_identity
+     *
+     * @return bool
+     */
+    public function getAllowAutoCreateIdentity()
+    {
+        return $this->container['allow_auto_create_identity'];
+    }
+
+    /**
+     * Sets allow_auto_create_identity
+     *
+     * @param bool $allow_auto_create_identity allow_auto_create_identity
+     *
+     * @return $this
+     */
+    public function setAllowAutoCreateIdentity($allow_auto_create_identity)
+    {
+        $this->container['allow_auto_create_identity'] = $allow_auto_create_identity;
+
+        return $this;
+    }
 
     /**
      * Gets created_at
@@ -428,6 +470,30 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets trust_anchors
+     *
+     * @return string[]
+     */
+    public function getTrustAnchors()
+    {
+        return $this->container['trust_anchors'];
+    }
+
+    /**
+     * Sets trust_anchors
+     *
+     * @param string[] $trust_anchors trust_anchors
+     *
+     * @return $this
+     */
+    public function setTrustAnchors($trust_anchors)
+    {
+        $this->container['trust_anchors'] = $trust_anchors;
+
+        return $this;
+    }
+
+    /**
      * Gets updated_at
      *
      * @return string
@@ -447,6 +513,30 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

@@ -28,9 +28,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'binding_status' => 'bool',
         'flow' => 'string',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
+        'source' => 'string',
         'type' => 'string',
         'vendor' => 'int'
     ];
@@ -41,9 +44,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'binding_status' => null,
         'flow' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
+        'source' => null,
         'type' => null,
         'vendor' => 'int32'
     ];
@@ -75,9 +81,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'binding_status' => 'BindingStatus',
         'flow' => 'Flow',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
+        'source' => 'Source',
         'type' => 'Type',
         'vendor' => 'Vendor'
     ];
@@ -88,9 +97,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'binding_status' => 'setBindingStatus',
         'flow' => 'setFlow',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
+        'source' => 'setSource',
         'type' => 'setType',
         'vendor' => 'setVendor'
     ];
@@ -101,9 +113,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'binding_status' => 'getBindingStatus',
         'flow' => 'getFlow',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
+        'source' => 'getSource',
         'type' => 'getType',
         'vendor' => 'getVendor'
     ];
@@ -198,9 +213,12 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
+        $this->container['binding_status'] = isset($data['binding_status']) ? $data['binding_status'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
@@ -244,6 +262,30 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets binding_status
+     *
+     * @return bool
+     */
+    public function getBindingStatus()
+    {
+        return $this->container['binding_status'];
+    }
+
+    /**
+     * Sets binding_status
+     *
+     * @param bool $binding_status binding_status
+     *
+     * @return $this
+     */
+    public function setBindingStatus($binding_status)
+    {
+        $this->container['binding_status'] = $binding_status;
+
+        return $this;
+    }
 
     /**
      * Gets flow
@@ -322,6 +364,54 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

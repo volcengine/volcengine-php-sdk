@@ -29,8 +29,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'attribute_mapping' => 'string',
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderSAMLOutput[]',
         'certificate' => 'string',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderSAMLOutput',
+        'eip_record' => '\Volcengine\Id\Model\EipRecordForUpdateIdentityProviderSAMLOutput',
         'enabled' => 'bool',
         'enabled_encryption' => 'bool',
         'enabled_sign' => 'bool',
@@ -39,6 +41,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         'name' => 'string',
         'provider' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForUpdateIdentityProviderSAMLOutput',
+        'scim_provisioning' => '\Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderSAMLOutput',
+        'sp_metadata' => 'string',
         'uid' => 'string'
     ];
 
@@ -49,8 +53,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'attribute_mapping' => null,
+        'attribute_mappings' => null,
         'certificate' => null,
         'claims_propagation_config' => null,
+        'eip_record' => null,
         'enabled' => null,
         'enabled_encryption' => null,
         'enabled_sign' => null,
@@ -59,6 +65,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         'name' => null,
         'provider' => null,
         'provider_options' => null,
+        'scim_provisioning' => null,
+        'sp_metadata' => null,
         'uid' => null
     ];
 
@@ -90,8 +98,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'attribute_mapping' => 'AttributeMapping',
+        'attribute_mappings' => 'AttributeMappings',
         'certificate' => 'Certificate',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
+        'eip_record' => 'EipRecord',
         'enabled' => 'Enabled',
         'enabled_encryption' => 'EnabledEncryption',
         'enabled_sign' => 'EnabledSign',
@@ -100,6 +110,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'provider' => 'Provider',
         'provider_options' => 'ProviderOptions',
+        'scim_provisioning' => 'ScimProvisioning',
+        'sp_metadata' => 'SpMetadata',
         'uid' => 'Uid'
     ];
 
@@ -110,8 +122,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'attribute_mapping' => 'setAttributeMapping',
+        'attribute_mappings' => 'setAttributeMappings',
         'certificate' => 'setCertificate',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
+        'eip_record' => 'setEipRecord',
         'enabled' => 'setEnabled',
         'enabled_encryption' => 'setEnabledEncryption',
         'enabled_sign' => 'setEnabledSign',
@@ -120,6 +134,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'provider' => 'setProvider',
         'provider_options' => 'setProviderOptions',
+        'scim_provisioning' => 'setScimProvisioning',
+        'sp_metadata' => 'setSpMetadata',
         'uid' => 'setUid'
     ];
 
@@ -130,8 +146,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'attribute_mapping' => 'getAttributeMapping',
+        'attribute_mappings' => 'getAttributeMappings',
         'certificate' => 'getCertificate',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
+        'eip_record' => 'getEipRecord',
         'enabled' => 'getEnabled',
         'enabled_encryption' => 'getEnabledEncryption',
         'enabled_sign' => 'getEnabledSign',
@@ -140,6 +158,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'provider' => 'getProvider',
         'provider_options' => 'getProviderOptions',
+        'scim_provisioning' => 'getScimProvisioning',
+        'sp_metadata' => 'getSpMetadata',
         'uid' => 'getUid'
     ];
 
@@ -204,8 +224,10 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
+        $this->container['eip_record'] = isset($data['eip_record']) ? $data['eip_record'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['enabled_encryption'] = isset($data['enabled_encryption']) ? $data['enabled_encryption'] : null;
         $this->container['enabled_sign'] = isset($data['enabled_sign']) ? $data['enabled_sign'] : null;
@@ -214,6 +236,8 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
+        $this->container['scim_provisioning'] = isset($data['scim_provisioning']) ? $data['scim_provisioning'] : null;
+        $this->container['sp_metadata'] = isset($data['sp_metadata']) ? $data['sp_metadata'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
@@ -266,6 +290,30 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderSAMLOutput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderSAMLOutput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
+
+    /**
      * Gets certificate
      *
      * @return string
@@ -309,6 +357,30 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function setClaimsPropagationConfig($claims_propagation_config)
     {
         $this->container['claims_propagation_config'] = $claims_propagation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_record
+     *
+     * @return \Volcengine\Id\Model\EipRecordForUpdateIdentityProviderSAMLOutput
+     */
+    public function getEipRecord()
+    {
+        return $this->container['eip_record'];
+    }
+
+    /**
+     * Sets eip_record
+     *
+     * @param \Volcengine\Id\Model\EipRecordForUpdateIdentityProviderSAMLOutput $eip_record eip_record
+     *
+     * @return $this
+     */
+    public function setEipRecord($eip_record)
+    {
+        $this->container['eip_record'] = $eip_record;
 
         return $this;
     }
@@ -501,6 +573,54 @@ class UpdateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function setProviderOptions($provider_options)
     {
         $this->container['provider_options'] = $provider_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets scim_provisioning
+     *
+     * @return \Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderSAMLOutput
+     */
+    public function getScimProvisioning()
+    {
+        return $this->container['scim_provisioning'];
+    }
+
+    /**
+     * Sets scim_provisioning
+     *
+     * @param \Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderSAMLOutput $scim_provisioning scim_provisioning
+     *
+     * @return $this
+     */
+    public function setScimProvisioning($scim_provisioning)
+    {
+        $this->container['scim_provisioning'] = $scim_provisioning;
+
+        return $this;
+    }
+
+    /**
+     * Gets sp_metadata
+     *
+     * @return string
+     */
+    public function getSpMetadata()
+    {
+        return $this->container['sp_metadata'];
+    }
+
+    /**
+     * Sets sp_metadata
+     *
+     * @param string $sp_metadata sp_metadata
+     *
+     * @return $this
+     */
+    public function setSpMetadata($sp_metadata)
+    {
+        $this->container['sp_metadata'] = $sp_metadata;
 
         return $this;
     }

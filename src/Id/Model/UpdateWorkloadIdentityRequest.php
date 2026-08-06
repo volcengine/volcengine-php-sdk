@@ -30,6 +30,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'allowed_resource_oauth2_return_urls' => 'string[]',
         'description' => 'string',
+        'meta_data' => '\Volcengine\Id\Model\MetaDataForUpdateWorkloadIdentityInput[]',
+        'meta_data_update_mode' => 'string',
         'name' => 'string',
         'workload_pool_name' => 'string'
     ];
@@ -42,6 +44,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'allowed_resource_oauth2_return_urls' => null,
         'description' => null,
+        'meta_data' => null,
+        'meta_data_update_mode' => null,
         'name' => null,
         'workload_pool_name' => null
     ];
@@ -75,6 +79,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'allowed_resource_oauth2_return_urls' => 'AllowedResourceOauth2ReturnUrls',
         'description' => 'Description',
+        'meta_data' => 'MetaData',
+        'meta_data_update_mode' => 'MetaDataUpdateMode',
         'name' => 'Name',
         'workload_pool_name' => 'WorkloadPoolName'
     ];
@@ -87,6 +93,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'allowed_resource_oauth2_return_urls' => 'setAllowedResourceOauth2ReturnUrls',
         'description' => 'setDescription',
+        'meta_data' => 'setMetaData',
+        'meta_data_update_mode' => 'setMetaDataUpdateMode',
         'name' => 'setName',
         'workload_pool_name' => 'setWorkloadPoolName'
     ];
@@ -99,6 +107,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'allowed_resource_oauth2_return_urls' => 'getAllowedResourceOauth2ReturnUrls',
         'description' => 'getDescription',
+        'meta_data' => 'getMetaData',
+        'meta_data_update_mode' => 'getMetaDataUpdateMode',
         'name' => 'getName',
         'workload_pool_name' => 'getWorkloadPoolName'
     ];
@@ -165,6 +175,8 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     {
         $this->container['allowed_resource_oauth2_return_urls'] = isset($data['allowed_resource_oauth2_return_urls']) ? $data['allowed_resource_oauth2_return_urls'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
+        $this->container['meta_data_update_mode'] = isset($data['meta_data_update_mode']) ? $data['meta_data_update_mode'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
     }
@@ -240,6 +252,54 @@ class UpdateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_data
+     *
+     * @return \Volcengine\Id\Model\MetaDataForUpdateWorkloadIdentityInput[]
+     */
+    public function getMetaData()
+    {
+        return $this->container['meta_data'];
+    }
+
+    /**
+     * Sets meta_data
+     *
+     * @param \Volcengine\Id\Model\MetaDataForUpdateWorkloadIdentityInput[] $meta_data meta_data
+     *
+     * @return $this
+     */
+    public function setMetaData($meta_data)
+    {
+        $this->container['meta_data'] = $meta_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_data_update_mode
+     *
+     * @return string
+     */
+    public function getMetaDataUpdateMode()
+    {
+        return $this->container['meta_data_update_mode'];
+    }
+
+    /**
+     * Sets meta_data_update_mode
+     *
+     * @param string $meta_data_update_mode meta_data_update_mode
+     *
+     * @return $this
+     */
+    public function setMetaDataUpdateMode($meta_data_update_mode)
+    {
+        $this->container['meta_data_update_mode'] = $meta_data_update_mode;
 
         return $this;
     }

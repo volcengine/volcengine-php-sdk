@@ -32,6 +32,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         'config' => '\Volcengine\Id\Model\ConfigForCreateOauth2CredentialProviderDcrInput',
         'name' => 'string',
         'pool_name' => 'string',
+        'project_name' => 'string',
         'vendor' => 'int'
     ];
 
@@ -45,6 +46,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         'config' => null,
         'name' => null,
         'pool_name' => null,
+        'project_name' => null,
         'vendor' => 'int32'
     ];
 
@@ -79,6 +81,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         'config' => 'Config',
         'name' => 'Name',
         'pool_name' => 'PoolName',
+        'project_name' => 'ProjectName',
         'vendor' => 'Vendor'
     ];
 
@@ -92,6 +95,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         'config' => 'setConfig',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
+        'project_name' => 'setProjectName',
         'vendor' => 'setVendor'
     ];
 
@@ -105,6 +109,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         'config' => 'getConfig',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
+        'project_name' => 'getProjectName',
         'vendor' => 'getVendor'
     ];
 
@@ -172,6 +177,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
 
@@ -297,6 +303,30 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
     public function setPoolName($pool_name)
     {
         $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

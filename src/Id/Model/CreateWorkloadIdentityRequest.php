@@ -31,6 +31,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         'allowed_resource_oauth2_return_urls' => 'string[]',
         'category' => 'string',
         'description' => 'string',
+        'meta_data' => '\Volcengine\Id\Model\MetaDataForCreateWorkloadIdentityInput[]',
         'name' => 'string',
         'workload_pool_name' => 'string'
     ];
@@ -44,6 +45,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         'allowed_resource_oauth2_return_urls' => null,
         'category' => null,
         'description' => null,
+        'meta_data' => null,
         'name' => null,
         'workload_pool_name' => null
     ];
@@ -78,6 +80,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         'allowed_resource_oauth2_return_urls' => 'AllowedResourceOauth2ReturnUrls',
         'category' => 'Category',
         'description' => 'Description',
+        'meta_data' => 'MetaData',
         'name' => 'Name',
         'workload_pool_name' => 'WorkloadPoolName'
     ];
@@ -91,6 +94,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         'allowed_resource_oauth2_return_urls' => 'setAllowedResourceOauth2ReturnUrls',
         'category' => 'setCategory',
         'description' => 'setDescription',
+        'meta_data' => 'setMetaData',
         'name' => 'setName',
         'workload_pool_name' => 'setWorkloadPoolName'
     ];
@@ -104,6 +108,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         'allowed_resource_oauth2_return_urls' => 'getAllowedResourceOauth2ReturnUrls',
         'category' => 'getCategory',
         'description' => 'getDescription',
+        'meta_data' => 'getMetaData',
         'name' => 'getName',
         'workload_pool_name' => 'getWorkloadPoolName'
     ];
@@ -171,6 +176,7 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
         $this->container['allowed_resource_oauth2_return_urls'] = isset($data['allowed_resource_oauth2_return_urls']) ? $data['allowed_resource_oauth2_return_urls'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
     }
@@ -270,6 +276,30 @@ class CreateWorkloadIdentityRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_data
+     *
+     * @return \Volcengine\Id\Model\MetaDataForCreateWorkloadIdentityInput[]
+     */
+    public function getMetaData()
+    {
+        return $this->container['meta_data'];
+    }
+
+    /**
+     * Sets meta_data
+     *
+     * @param \Volcengine\Id\Model\MetaDataForCreateWorkloadIdentityInput[] $meta_data meta_data
+     *
+     * @return $this
+     */
+    public function setMetaData($meta_data)
+    {
+        $this->container['meta_data'] = $meta_data;
 
         return $this;
     }

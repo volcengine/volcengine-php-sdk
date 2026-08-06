@@ -28,16 +28,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOIDCInput[]',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderOIDCInput',
         'client_id' => 'string',
         'client_secret' => 'string',
+        'eip_id' => 'string',
         'enabled' => 'bool',
         'is_id_token_mapping' => 'bool',
         'issuer' => 'string',
         'name' => 'string',
+        'passvault_oauth2_credential_provider_options' => '\Volcengine\Id\Model\PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput',
         'provider' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForCreateIdentityProviderOIDCInput',
+        'scim_provisioning' => '\Volcengine\Id\Model\ScimProvisioningForCreateIdentityProviderOIDCInput',
         'scopes_list' => 'string[]',
+        'sole_provider_connection' => 'bool',
         'use_pkce' => 'bool',
         'user_pool_uid' => 'string'
     ];
@@ -48,16 +53,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attribute_mappings' => null,
         'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
+        'eip_id' => null,
         'enabled' => null,
         'is_id_token_mapping' => null,
         'issuer' => null,
         'name' => null,
+        'passvault_oauth2_credential_provider_options' => null,
         'provider' => null,
         'provider_options' => null,
+        'scim_provisioning' => null,
         'scopes_list' => null,
+        'sole_provider_connection' => null,
         'use_pkce' => null,
         'user_pool_uid' => null
     ];
@@ -89,16 +99,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_mappings' => 'AttributeMappings',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
+        'eip_id' => 'EipId',
         'enabled' => 'Enabled',
         'is_id_token_mapping' => 'IsIdTokenMapping',
         'issuer' => 'Issuer',
         'name' => 'Name',
+        'passvault_oauth2_credential_provider_options' => 'PassvaultOauth2CredentialProviderOptions',
         'provider' => 'Provider',
         'provider_options' => 'ProviderOptions',
+        'scim_provisioning' => 'ScimProvisioning',
         'scopes_list' => 'ScopesList',
+        'sole_provider_connection' => 'SoleProviderConnection',
         'use_pkce' => 'UsePkce',
         'user_pool_uid' => 'UserPoolUid'
     ];
@@ -109,16 +124,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attribute_mappings' => 'setAttributeMappings',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
+        'eip_id' => 'setEipId',
         'enabled' => 'setEnabled',
         'is_id_token_mapping' => 'setIsIdTokenMapping',
         'issuer' => 'setIssuer',
         'name' => 'setName',
+        'passvault_oauth2_credential_provider_options' => 'setPassvaultOauth2CredentialProviderOptions',
         'provider' => 'setProvider',
         'provider_options' => 'setProviderOptions',
+        'scim_provisioning' => 'setScimProvisioning',
         'scopes_list' => 'setScopesList',
+        'sole_provider_connection' => 'setSoleProviderConnection',
         'use_pkce' => 'setUsePkce',
         'user_pool_uid' => 'setUserPoolUid'
     ];
@@ -129,16 +149,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attribute_mappings' => 'getAttributeMappings',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
+        'eip_id' => 'getEipId',
         'enabled' => 'getEnabled',
         'is_id_token_mapping' => 'getIsIdTokenMapping',
         'issuer' => 'getIssuer',
         'name' => 'getName',
+        'passvault_oauth2_credential_provider_options' => 'getPassvaultOauth2CredentialProviderOptions',
         'provider' => 'getProvider',
         'provider_options' => 'getProviderOptions',
+        'scim_provisioning' => 'getScimProvisioning',
         'scopes_list' => 'getScopesList',
+        'sole_provider_connection' => 'getSoleProviderConnection',
         'use_pkce' => 'getUsePkce',
         'user_pool_uid' => 'getUserPoolUid'
     ];
@@ -203,16 +228,21 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
+        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['is_id_token_mapping'] = isset($data['is_id_token_mapping']) ? $data['is_id_token_mapping'] : null;
         $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['passvault_oauth2_credential_provider_options'] = isset($data['passvault_oauth2_credential_provider_options']) ? $data['passvault_oauth2_credential_provider_options'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
+        $this->container['scim_provisioning'] = isset($data['scim_provisioning']) ? $data['scim_provisioning'] : null;
         $this->container['scopes_list'] = isset($data['scopes_list']) ? $data['scopes_list'] : null;
+        $this->container['sole_provider_connection'] = isset($data['sole_provider_connection']) ? $data['sole_provider_connection'] : null;
         $this->container['use_pkce'] = isset($data['use_pkce']) ? $data['use_pkce'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
     }
@@ -264,6 +294,30 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOIDCInput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForCreateIdentityProviderOIDCInput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
 
     /**
      * Gets claims_propagation_config
@@ -333,6 +387,30 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     public function setClientSecret($client_secret)
     {
         $this->container['client_secret'] = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_id
+     *
+     * @return string
+     */
+    public function getEipId()
+    {
+        return $this->container['eip_id'];
+    }
+
+    /**
+     * Sets eip_id
+     *
+     * @param string $eip_id eip_id
+     *
+     * @return $this
+     */
+    public function setEipId($eip_id)
+    {
+        $this->container['eip_id'] = $eip_id;
 
         return $this;
     }
@@ -434,6 +512,30 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets passvault_oauth2_credential_provider_options
+     *
+     * @return \Volcengine\Id\Model\PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput
+     */
+    public function getPassvaultOauth2CredentialProviderOptions()
+    {
+        return $this->container['passvault_oauth2_credential_provider_options'];
+    }
+
+    /**
+     * Sets passvault_oauth2_credential_provider_options
+     *
+     * @param \Volcengine\Id\Model\PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput $passvault_oauth2_credential_provider_options passvault_oauth2_credential_provider_options
+     *
+     * @return $this
+     */
+    public function setPassvaultOauth2CredentialProviderOptions($passvault_oauth2_credential_provider_options)
+    {
+        $this->container['passvault_oauth2_credential_provider_options'] = $passvault_oauth2_credential_provider_options;
+
+        return $this;
+    }
+
+    /**
      * Gets provider
      *
      * @return string
@@ -482,6 +584,30 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets scim_provisioning
+     *
+     * @return \Volcengine\Id\Model\ScimProvisioningForCreateIdentityProviderOIDCInput
+     */
+    public function getScimProvisioning()
+    {
+        return $this->container['scim_provisioning'];
+    }
+
+    /**
+     * Sets scim_provisioning
+     *
+     * @param \Volcengine\Id\Model\ScimProvisioningForCreateIdentityProviderOIDCInput $scim_provisioning scim_provisioning
+     *
+     * @return $this
+     */
+    public function setScimProvisioning($scim_provisioning)
+    {
+        $this->container['scim_provisioning'] = $scim_provisioning;
+
+        return $this;
+    }
+
+    /**
      * Gets scopes_list
      *
      * @return string[]
@@ -501,6 +627,30 @@ class CreateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     public function setScopesList($scopes_list)
     {
         $this->container['scopes_list'] = $scopes_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets sole_provider_connection
+     *
+     * @return bool
+     */
+    public function getSoleProviderConnection()
+    {
+        return $this->container['sole_provider_connection'];
+    }
+
+    /**
+     * Sets sole_provider_connection
+     *
+     * @param bool $sole_provider_connection sole_provider_connection
+     *
+     * @return $this
+     */
+    public function setSoleProviderConnection($sole_provider_connection)
+    {
+        $this->container['sole_provider_connection'] = $sole_provider_connection;
 
         return $this;
     }

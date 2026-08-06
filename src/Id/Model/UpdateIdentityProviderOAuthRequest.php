@@ -28,12 +28,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOAuthInput[]',
         'authorization_endpoint' => 'string',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput',
         'client_id' => 'string',
         'client_secret' => 'string',
         'connection_uid' => 'string',
+        'eip_id' => 'string',
         'enabled' => 'bool',
+        'extra_provider_configuration' => '\Volcengine\Id\Model\ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput',
         'id_attribute' => 'string',
         'name' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForUpdateIdentityProviderOAuthInput',
@@ -50,12 +53,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attribute_mappings' => null,
         'authorization_endpoint' => null,
         'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
         'connection_uid' => null,
+        'eip_id' => null,
         'enabled' => null,
+        'extra_provider_configuration' => null,
         'id_attribute' => null,
         'name' => null,
         'provider_options' => null,
@@ -93,12 +99,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_mappings' => 'AttributeMappings',
         'authorization_endpoint' => 'AuthorizationEndpoint',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
         'connection_uid' => 'ConnectionUid',
+        'eip_id' => 'EipId',
         'enabled' => 'Enabled',
+        'extra_provider_configuration' => 'ExtraProviderConfiguration',
         'id_attribute' => 'IdAttribute',
         'name' => 'Name',
         'provider_options' => 'ProviderOptions',
@@ -115,12 +124,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attribute_mappings' => 'setAttributeMappings',
         'authorization_endpoint' => 'setAuthorizationEndpoint',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
         'connection_uid' => 'setConnectionUid',
+        'eip_id' => 'setEipId',
         'enabled' => 'setEnabled',
+        'extra_provider_configuration' => 'setExtraProviderConfiguration',
         'id_attribute' => 'setIdAttribute',
         'name' => 'setName',
         'provider_options' => 'setProviderOptions',
@@ -137,12 +149,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attribute_mappings' => 'getAttributeMappings',
         'authorization_endpoint' => 'getAuthorizationEndpoint',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
         'connection_uid' => 'getConnectionUid',
+        'eip_id' => 'getEipId',
         'enabled' => 'getEnabled',
+        'extra_provider_configuration' => 'getExtraProviderConfiguration',
         'id_attribute' => 'getIdAttribute',
         'name' => 'getName',
         'provider_options' => 'getProviderOptions',
@@ -213,12 +228,15 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['authorization_endpoint'] = isset($data['authorization_endpoint']) ? $data['authorization_endpoint'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
         $this->container['connection_uid'] = isset($data['connection_uid']) ? $data['connection_uid'] : null;
+        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['extra_provider_configuration'] = isset($data['extra_provider_configuration']) ? $data['extra_provider_configuration'] : null;
         $this->container['id_attribute'] = isset($data['id_attribute']) ? $data['id_attribute'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
@@ -238,17 +256,8 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['client_id'] === null) {
-            $invalidProperties[] = "'client_id' can't be null";
-        }
         if ($this->container['connection_uid'] === null) {
             $invalidProperties[] = "'connection_uid' can't be null";
-        }
-        if ($this->container['id_attribute'] === null) {
-            $invalidProperties[] = "'id_attribute' can't be null";
-        }
-        if ($this->container['use_pkce'] === null) {
-            $invalidProperties[] = "'use_pkce' can't be null";
         }
         if ($this->container['user_pool_uid'] === null) {
             $invalidProperties[] = "'user_pool_uid' can't be null";
@@ -267,6 +276,30 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOAuthInput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOAuthInput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
 
     /**
      * Gets authorization_endpoint
@@ -389,6 +422,30 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets eip_id
+     *
+     * @return string
+     */
+    public function getEipId()
+    {
+        return $this->container['eip_id'];
+    }
+
+    /**
+     * Sets eip_id
+     *
+     * @param string $eip_id eip_id
+     *
+     * @return $this
+     */
+    public function setEipId($eip_id)
+    {
+        $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
      * Gets enabled
      *
      * @return bool
@@ -408,6 +465,30 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_provider_configuration
+     *
+     * @return \Volcengine\Id\Model\ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput
+     */
+    public function getExtraProviderConfiguration()
+    {
+        return $this->container['extra_provider_configuration'];
+    }
+
+    /**
+     * Sets extra_provider_configuration
+     *
+     * @param \Volcengine\Id\Model\ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput $extra_provider_configuration extra_provider_configuration
+     *
+     * @return $this
+     */
+    public function setExtraProviderConfiguration($extra_provider_configuration)
+    {
+        $this->container['extra_provider_configuration'] = $extra_provider_configuration;
 
         return $this;
     }

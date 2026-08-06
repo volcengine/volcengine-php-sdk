@@ -28,15 +28,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attribute_mappings' => '\Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOIDCInput[]',
         'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput',
         'client_id' => 'string',
         'client_secret' => 'string',
         'connection_uid' => 'string',
+        'eip_id' => 'string',
         'enabled' => 'bool',
         'is_id_token_mapping' => 'bool',
         'issuer' => 'string',
         'name' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForUpdateIdentityProviderOIDCInput',
+        'scim_provisioning' => '\Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderOIDCInput',
         'scopes_list' => 'string[]',
         'use_pkce' => 'bool',
         'user_pool_uid' => 'string'
@@ -48,15 +51,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attribute_mappings' => null,
         'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
         'connection_uid' => null,
+        'eip_id' => null,
         'enabled' => null,
         'is_id_token_mapping' => null,
         'issuer' => null,
         'name' => null,
         'provider_options' => null,
+        'scim_provisioning' => null,
         'scopes_list' => null,
         'use_pkce' => null,
         'user_pool_uid' => null
@@ -89,15 +95,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_mappings' => 'AttributeMappings',
         'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
         'connection_uid' => 'ConnectionUid',
+        'eip_id' => 'EipId',
         'enabled' => 'Enabled',
         'is_id_token_mapping' => 'IsIdTokenMapping',
         'issuer' => 'Issuer',
         'name' => 'Name',
         'provider_options' => 'ProviderOptions',
+        'scim_provisioning' => 'ScimProvisioning',
         'scopes_list' => 'ScopesList',
         'use_pkce' => 'UsePkce',
         'user_pool_uid' => 'UserPoolUid'
@@ -109,15 +118,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attribute_mappings' => 'setAttributeMappings',
         'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
         'connection_uid' => 'setConnectionUid',
+        'eip_id' => 'setEipId',
         'enabled' => 'setEnabled',
         'is_id_token_mapping' => 'setIsIdTokenMapping',
         'issuer' => 'setIssuer',
         'name' => 'setName',
         'provider_options' => 'setProviderOptions',
+        'scim_provisioning' => 'setScimProvisioning',
         'scopes_list' => 'setScopesList',
         'use_pkce' => 'setUsePkce',
         'user_pool_uid' => 'setUserPoolUid'
@@ -129,15 +141,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attribute_mappings' => 'getAttributeMappings',
         'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
         'connection_uid' => 'getConnectionUid',
+        'eip_id' => 'getEipId',
         'enabled' => 'getEnabled',
         'is_id_token_mapping' => 'getIsIdTokenMapping',
         'issuer' => 'getIssuer',
         'name' => 'getName',
         'provider_options' => 'getProviderOptions',
+        'scim_provisioning' => 'getScimProvisioning',
         'scopes_list' => 'getScopesList',
         'use_pkce' => 'getUsePkce',
         'user_pool_uid' => 'getUserPoolUid'
@@ -203,15 +218,18 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['attribute_mappings'] = isset($data['attribute_mappings']) ? $data['attribute_mappings'] : null;
         $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
         $this->container['connection_uid'] = isset($data['connection_uid']) ? $data['connection_uid'] : null;
+        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['is_id_token_mapping'] = isset($data['is_id_token_mapping']) ? $data['is_id_token_mapping'] : null;
         $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
+        $this->container['scim_provisioning'] = isset($data['scim_provisioning']) ? $data['scim_provisioning'] : null;
         $this->container['scopes_list'] = isset($data['scopes_list']) ? $data['scopes_list'] : null;
         $this->container['use_pkce'] = isset($data['use_pkce']) ? $data['use_pkce'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
@@ -255,6 +273,30 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_mappings
+     *
+     * @return \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOIDCInput[]
+     */
+    public function getAttributeMappings()
+    {
+        return $this->container['attribute_mappings'];
+    }
+
+    /**
+     * Sets attribute_mappings
+     *
+     * @param \Volcengine\Id\Model\AttributeMappingForUpdateIdentityProviderOIDCInput[] $attribute_mappings attribute_mappings
+     *
+     * @return $this
+     */
+    public function setAttributeMappings($attribute_mappings)
+    {
+        $this->container['attribute_mappings'] = $attribute_mappings;
+
+        return $this;
+    }
 
     /**
      * Gets claims_propagation_config
@@ -348,6 +390,30 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     public function setConnectionUid($connection_uid)
     {
         $this->container['connection_uid'] = $connection_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_id
+     *
+     * @return string
+     */
+    public function getEipId()
+    {
+        return $this->container['eip_id'];
+    }
+
+    /**
+     * Sets eip_id
+     *
+     * @param string $eip_id eip_id
+     *
+     * @return $this
+     */
+    public function setEipId($eip_id)
+    {
+        $this->container['eip_id'] = $eip_id;
 
         return $this;
     }
@@ -468,6 +534,30 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
     public function setProviderOptions($provider_options)
     {
         $this->container['provider_options'] = $provider_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets scim_provisioning
+     *
+     * @return \Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderOIDCInput
+     */
+    public function getScimProvisioning()
+    {
+        return $this->container['scim_provisioning'];
+    }
+
+    /**
+     * Sets scim_provisioning
+     *
+     * @param \Volcengine\Id\Model\ScimProvisioningForUpdateIdentityProviderOIDCInput $scim_provisioning scim_provisioning
+     *
+     * @return $this
+     */
+    public function setScimProvisioning($scim_provisioning)
+    {
+        $this->container['scim_provisioning'] = $scim_provisioning;
 
         return $this;
     }
