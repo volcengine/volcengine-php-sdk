@@ -28,6 +28,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ipv4_ipam_pool_id' => 'string',
         'ipv6_cidr_block' => 'string',
         'ipv6_isp' => 'string',
         'ipv6_mask_len' => 'int',
@@ -41,6 +42,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ipv4_ipam_pool_id' => null,
         'ipv6_cidr_block' => null,
         'ipv6_isp' => null,
         'ipv6_mask_len' => null,
@@ -75,6 +77,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ipv4_ipam_pool_id' => 'Ipv4IpamPoolId',
         'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'ipv6_isp' => 'Ipv6Isp',
         'ipv6_mask_len' => 'Ipv6MaskLen',
@@ -88,6 +91,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ipv4_ipam_pool_id' => 'setIpv4IpamPoolId',
         'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'ipv6_isp' => 'setIpv6Isp',
         'ipv6_mask_len' => 'setIpv6MaskLen',
@@ -101,6 +105,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ipv4_ipam_pool_id' => 'getIpv4IpamPoolId',
         'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'ipv6_isp' => 'getIpv6Isp',
         'ipv6_mask_len' => 'getIpv6MaskLen',
@@ -168,6 +173,7 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['ipv4_ipam_pool_id'] = isset($data['ipv4_ipam_pool_id']) ? $data['ipv4_ipam_pool_id'] : null;
         $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['ipv6_isp'] = isset($data['ipv6_isp']) ? $data['ipv6_isp'] : null;
         $this->container['ipv6_mask_len'] = isset($data['ipv6_mask_len']) ? $data['ipv6_mask_len'] : null;
@@ -201,6 +207,30 @@ class AssociateVpcCidrBlockRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ipv4_ipam_pool_id
+     *
+     * @return string
+     */
+    public function getIpv4IpamPoolId()
+    {
+        return $this->container['ipv4_ipam_pool_id'];
+    }
+
+    /**
+     * Sets ipv4_ipam_pool_id
+     *
+     * @param string $ipv4_ipam_pool_id ipv4_ipam_pool_id
+     *
+     * @return $this
+     */
+    public function setIpv4IpamPoolId($ipv4_ipam_pool_id)
+    {
+        $this->container['ipv4_ipam_pool_id'] = $ipv4_ipam_pool_id;
+
+        return $this;
+    }
 
     /**
      * Gets ipv6_cidr_block

@@ -30,7 +30,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ipam_pool_allocations' => '\Volcengine\Vpc\Model\IpamPoolAllocationForDescribeIpamPoolAllocationsOutput[]',
         'next_token' => 'string',
-        'request_id' => 'string'
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'request_id' => 'string',
+        'total_count' => 'int'
     ];
 
     /**
@@ -41,7 +44,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ipam_pool_allocations' => null,
         'next_token' => null,
-        'request_id' => null
+        'page_number' => null,
+        'page_size' => null,
+        'request_id' => null,
+        'total_count' => null
     ];
 
     /**
@@ -73,7 +79,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ipam_pool_allocations' => 'IpamPoolAllocations',
         'next_token' => 'NextToken',
-        'request_id' => 'RequestId'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'request_id' => 'RequestId',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -84,7 +93,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ipam_pool_allocations' => 'setIpamPoolAllocations',
         'next_token' => 'setNextToken',
-        'request_id' => 'setRequestId'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'request_id' => 'setRequestId',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -95,7 +107,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ipam_pool_allocations' => 'getIpamPoolAllocations',
         'next_token' => 'getNextToken',
-        'request_id' => 'getRequestId'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'request_id' => 'getRequestId',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -160,7 +175,10 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     {
         $this->container['ipam_pool_allocations'] = isset($data['ipam_pool_allocations']) ? $data['ipam_pool_allocations'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -236,6 +254,54 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
      * Gets request_id
      *
      * @return string
@@ -255,6 +321,30 @@ class DescribeIpamPoolAllocationsResponse implements ModelInterface, ArrayAccess
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
