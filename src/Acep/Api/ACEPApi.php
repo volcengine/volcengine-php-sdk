@@ -2052,6 +2052,68 @@ class ACEPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deletePortMappingRule($body = null)
+    {
+        list($response) = $this->deletePortMappingRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePortMappingRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeletePortMappingRuleResponse';
+        $request = $this->deletePortMappingRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePortMappingRuleAsync($body = null)
+    {
+        return $this->deletePortMappingRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePortMappingRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Acep\Model\DeletePortMappingRuleResponse';
+        $request = $this->deletePortMappingRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePortMappingRuleRequest($body)
+    {
+        $resourcePath = '/DeletePortMappingRule/2025-05-01/acep/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteTag($body = null)
     {
         list($response) = $this->deleteTagWithHttpInfo($body);

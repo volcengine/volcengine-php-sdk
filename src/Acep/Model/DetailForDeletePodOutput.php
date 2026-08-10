@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeletePodResponse implements ModelInterface, ArrayAccess
+class DetailForDeletePodOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeletePodResponse';
+    protected static $swaggerModelName = 'DetailForDeletePodOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'details' => '\Volcengine\Acep\Model\DetailForDeletePodOutput[]'
+        'err_code' => 'int',
+        'err_msg' => 'string',
+        'pod_id' => 'string',
+        'success' => 'bool'
     ];
 
     /**
@@ -37,7 +40,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'details' => null
+        'err_code' => 'int32',
+        'err_msg' => null,
+        'pod_id' => null,
+        'success' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'details' => 'Details'
+        'err_code' => 'ErrCode',
+        'err_msg' => 'ErrMsg',
+        'pod_id' => 'PodId',
+        'success' => 'Success'
     ];
 
     /**
@@ -76,7 +85,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'details' => 'setDetails'
+        'err_code' => 'setErrCode',
+        'err_msg' => 'setErrMsg',
+        'pod_id' => 'setPodId',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -85,7 +97,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'details' => 'getDetails'
+        'err_code' => 'getErrCode',
+        'err_msg' => 'getErrMsg',
+        'pod_id' => 'getPodId',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -148,7 +163,10 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
+        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets details
+     * Gets err_code
      *
-     * @return \Volcengine\Acep\Model\DetailForDeletePodOutput[]
+     * @return int
      */
-    public function getDetails()
+    public function getErrCode()
     {
-        return $this->container['details'];
+        return $this->container['err_code'];
     }
 
     /**
-     * Sets details
+     * Sets err_code
      *
-     * @param \Volcengine\Acep\Model\DetailForDeletePodOutput[] $details details
+     * @param int $err_code err_code
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setErrCode($err_code)
     {
-        $this->container['details'] = $details;
+        $this->container['err_code'] = $err_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets err_msg
+     *
+     * @return string
+     */
+    public function getErrMsg()
+    {
+        return $this->container['err_msg'];
+    }
+
+    /**
+     * Sets err_msg
+     *
+     * @param string $err_msg err_msg
+     *
+     * @return $this
+     */
+    public function setErrMsg($err_msg)
+    {
+        $this->container['err_msg'] = $err_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id
+     *
+     * @return string
+     */
+    public function getPodId()
+    {
+        return $this->container['pod_id'];
+    }
+
+    /**
+     * Sets pod_id
+     *
+     * @param string $pod_id pod_id
+     *
+     * @return $this
+     */
+    public function setPodId($pod_id)
+    {
+        $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success success
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
 
         return $this;
     }

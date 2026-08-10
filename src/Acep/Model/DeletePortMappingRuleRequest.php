@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeletePodResponse implements ModelInterface, ArrayAccess
+class DeletePortMappingRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeletePodResponse';
+    protected static $swaggerModelName = 'DeletePortMappingRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'details' => '\Volcengine\Acep\Model\DetailForDeletePodOutput[]'
+        'force' => 'bool',
+        'port_mapping_rule_id' => 'string',
+        'product_id' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'details' => null
+        'force' => null,
+        'port_mapping_rule_id' => null,
+        'product_id' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'details' => 'Details'
+        'force' => 'Force',
+        'port_mapping_rule_id' => 'PortMappingRuleId',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -76,7 +82,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'details' => 'setDetails'
+        'force' => 'setForce',
+        'port_mapping_rule_id' => 'setPortMappingRuleId',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'details' => 'getDetails'
+        'force' => 'getForce',
+        'port_mapping_rule_id' => 'getPortMappingRuleId',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -148,7 +158,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['force'] = isset($data['force']) ? $data['force'] : null;
+        $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -160,6 +172,12 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['port_mapping_rule_id'] === null) {
+            $invalidProperties[] = "'port_mapping_rule_id' can't be null";
+        }
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +194,73 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets details
+     * Gets force
      *
-     * @return \Volcengine\Acep\Model\DetailForDeletePodOutput[]
+     * @return bool
      */
-    public function getDetails()
+    public function getForce()
     {
-        return $this->container['details'];
+        return $this->container['force'];
     }
 
     /**
-     * Sets details
+     * Sets force
      *
-     * @param \Volcengine\Acep\Model\DetailForDeletePodOutput[] $details details
+     * @param bool $force force
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setForce($force)
     {
-        $this->container['details'] = $details;
+        $this->container['force'] = $force;
+
+        return $this;
+    }
+
+    /**
+     * Gets port_mapping_rule_id
+     *
+     * @return string
+     */
+    public function getPortMappingRuleId()
+    {
+        return $this->container['port_mapping_rule_id'];
+    }
+
+    /**
+     * Sets port_mapping_rule_id
+     *
+     * @param string $port_mapping_rule_id port_mapping_rule_id
+     *
+     * @return $this
+     */
+    public function setPortMappingRuleId($port_mapping_rule_id)
+    {
+        $this->container['port_mapping_rule_id'] = $port_mapping_rule_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

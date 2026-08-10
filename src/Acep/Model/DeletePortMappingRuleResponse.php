@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeletePodResponse implements ModelInterface, ArrayAccess
+class DeletePortMappingRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeletePodResponse';
+    protected static $swaggerModelName = 'DeletePortMappingRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'details' => '\Volcengine\Acep\Model\DetailForDeletePodOutput[]'
+        'port_mapping_rule_id' => 'string',
+        'protocol' => 'string',
+        'source_port' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'details' => null
+        'port_mapping_rule_id' => null,
+        'protocol' => null,
+        'source_port' => 'int32'
     ];
 
     /**
@@ -67,7 +71,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'details' => 'Details'
+        'port_mapping_rule_id' => 'PortMappingRuleId',
+        'protocol' => 'Protocol',
+        'source_port' => 'SourcePort'
     ];
 
     /**
@@ -76,7 +82,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'details' => 'setDetails'
+        'port_mapping_rule_id' => 'setPortMappingRuleId',
+        'protocol' => 'setProtocol',
+        'source_port' => 'setSourcePort'
     ];
 
     /**
@@ -85,7 +93,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'details' => 'getDetails'
+        'port_mapping_rule_id' => 'getPortMappingRuleId',
+        'protocol' => 'getProtocol',
+        'source_port' => 'getSourcePort'
     ];
 
     /**
@@ -148,7 +158,9 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['source_port'] = isset($data['source_port']) ? $data['source_port'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets details
+     * Gets port_mapping_rule_id
      *
-     * @return \Volcengine\Acep\Model\DetailForDeletePodOutput[]
+     * @return string
      */
-    public function getDetails()
+    public function getPortMappingRuleId()
     {
-        return $this->container['details'];
+        return $this->container['port_mapping_rule_id'];
     }
 
     /**
-     * Sets details
+     * Sets port_mapping_rule_id
      *
-     * @param \Volcengine\Acep\Model\DetailForDeletePodOutput[] $details details
+     * @param string $port_mapping_rule_id port_mapping_rule_id
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setPortMappingRuleId($port_mapping_rule_id)
     {
-        $this->container['details'] = $details;
+        $this->container['port_mapping_rule_id'] = $port_mapping_rule_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_port
+     *
+     * @return int
+     */
+    public function getSourcePort()
+    {
+        return $this->container['source_port'];
+    }
+
+    /**
+     * Sets source_port
+     *
+     * @param int $source_port source_port
+     *
+     * @return $this
+     */
+    public function setSourcePort($source_port)
+    {
+        $this->container['source_port'] = $source_port;
 
         return $this;
     }
