@@ -36,7 +36,7 @@ class Configuration
     protected $httpProxy;
     protected $httpsProxy;
 
-    protected $userAgent = 'volcstack-php-sdk/1.0.128';
+    protected $userAgent = 'volcstack-php-sdk/1.0.129';
     protected $sdkUserAgent;
     protected $debug = false;
     protected $debugFile = 'php://output';
