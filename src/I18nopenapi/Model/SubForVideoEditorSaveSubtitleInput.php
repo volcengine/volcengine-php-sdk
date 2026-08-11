@@ -29,7 +29,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ai_voice_id' => 'string',
-        'effect_type' => 'string',
+        'effect_type' => 'int',
         'emotion_tag' => 'string',
         'end_time' => 'string',
         'segment_id' => 'string',
@@ -49,7 +49,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ai_voice_id' => null,
-        'effect_type' => null,
+        'effect_type' => 'int32',
         'emotion_tag' => null,
         'end_time' => null,
         'segment_id' => null,
@@ -268,7 +268,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     /**
      * Gets effect_type
      *
-     * @return string
+     * @return int
      */
     public function getEffectType()
     {
@@ -278,7 +278,7 @@ class SubForVideoEditorSaveSubtitleInput implements ModelInterface, ArrayAccess
     /**
      * Sets effect_type
      *
-     * @param string $effect_type effect_type
+     * @param int $effect_type effect_type
      *
      * @return $this
      */

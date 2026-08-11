@@ -28,6 +28,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'subtask_id' => 'string',
         'subtitle_styles' => '\Volcengine\I18nopenapi\Model\SubtitleStyleForVideoEditorBatchUpdateStyleInput[]'
     ];
 
@@ -37,6 +38,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'subtask_id' => null,
         'subtitle_styles' => null
     ];
 
@@ -67,6 +69,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'subtask_id' => 'subtaskId',
         'subtitle_styles' => 'subtitleStyles'
     ];
 
@@ -76,6 +79,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'subtask_id' => 'setSubtaskId',
         'subtitle_styles' => 'setSubtitleStyles'
     ];
 
@@ -85,6 +89,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'subtask_id' => 'getSubtaskId',
         'subtitle_styles' => 'getSubtitleStyles'
     ];
 
@@ -148,6 +153,7 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
         $this->container['subtitle_styles'] = isset($data['subtitle_styles']) ? $data['subtitle_styles'] : null;
     }
 
@@ -160,6 +166,9 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['subtask_id'] === null) {
+            $invalidProperties[] = "'subtask_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -174,6 +183,30 @@ class VideoEditorBatchUpdateStyleRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets subtask_id
+     *
+     * @return string
+     */
+    public function getSubtaskId()
+    {
+        return $this->container['subtask_id'];
+    }
+
+    /**
+     * Sets subtask_id
+     *
+     * @param string $subtask_id subtask_id
+     *
+     * @return $this
+     */
+    public function setSubtaskId($subtask_id)
+    {
+        $this->container['subtask_id'] = $subtask_id;
+
+        return $this;
+    }
 
     /**
      * Gets subtitle_styles

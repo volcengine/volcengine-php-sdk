@@ -28,7 +28,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status_code' => 'string',
+        'status_code' => 'int',
         'status_message' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status_code' => null,
+        'status_code' => 'int32',
         'status_message' => null
     ];
 
@@ -184,7 +184,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
     /**
      * Gets status_code
      *
-     * @return string
+     * @return int
      */
     public function getStatusCode()
     {
@@ -194,7 +194,7 @@ class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterfac
     /**
      * Sets status_code
      *
-     * @param string $status_code status_code
+     * @param int $status_code status_code
      *
      * @return $this
      */
