@@ -34,6 +34,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         'object_migration_policy' => '\Volcengine\Dms\Model\ObjectMigrationPolicyForQueryDataMigrateTaskOutput',
         'offline_migration_policy' => '\Volcengine\Dms\Model\OfflineMigrationPolicyForQueryDataMigrateTaskOutput',
         'overwrite_policy' => 'string',
+        'report_path_prefix' => 'string',
+        'skip_archive_object' => 'bool',
         'source_type' => 'string',
         'storage_class' => 'string',
         'task_name' => 'string'
@@ -51,6 +53,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         'object_migration_policy' => null,
         'offline_migration_policy' => null,
         'overwrite_policy' => null,
+        'report_path_prefix' => null,
+        'skip_archive_object' => null,
         'source_type' => null,
         'storage_class' => null,
         'task_name' => null
@@ -89,6 +93,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         'object_migration_policy' => 'ObjectMigrationPolicy',
         'offline_migration_policy' => 'OfflineMigrationPolicy',
         'overwrite_policy' => 'OverwritePolicy',
+        'report_path_prefix' => 'ReportPathPrefix',
+        'skip_archive_object' => 'SkipArchiveObject',
         'source_type' => 'SourceType',
         'storage_class' => 'StorageClass',
         'task_name' => 'TaskName'
@@ -106,6 +112,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         'object_migration_policy' => 'setObjectMigrationPolicy',
         'offline_migration_policy' => 'setOfflineMigrationPolicy',
         'overwrite_policy' => 'setOverwritePolicy',
+        'report_path_prefix' => 'setReportPathPrefix',
+        'skip_archive_object' => 'setSkipArchiveObject',
         'source_type' => 'setSourceType',
         'storage_class' => 'setStorageClass',
         'task_name' => 'setTaskName'
@@ -123,6 +131,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         'object_migration_policy' => 'getObjectMigrationPolicy',
         'offline_migration_policy' => 'getOfflineMigrationPolicy',
         'overwrite_policy' => 'getOverwritePolicy',
+        'report_path_prefix' => 'getReportPathPrefix',
+        'skip_archive_object' => 'getSkipArchiveObject',
         'source_type' => 'getSourceType',
         'storage_class' => 'getStorageClass',
         'task_name' => 'getTaskName'
@@ -253,6 +263,8 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
         $this->container['object_migration_policy'] = isset($data['object_migration_policy']) ? $data['object_migration_policy'] : null;
         $this->container['offline_migration_policy'] = isset($data['offline_migration_policy']) ? $data['offline_migration_policy'] : null;
         $this->container['overwrite_policy'] = isset($data['overwrite_policy']) ? $data['overwrite_policy'] : null;
+        $this->container['report_path_prefix'] = isset($data['report_path_prefix']) ? $data['report_path_prefix'] : null;
+        $this->container['skip_archive_object'] = isset($data['skip_archive_object']) ? $data['skip_archive_object'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['storage_class'] = isset($data['storage_class']) ? $data['storage_class'] : null;
         $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
@@ -455,6 +467,54 @@ class BasicConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
             );
         }
         $this->container['overwrite_policy'] = $overwrite_policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets report_path_prefix
+     *
+     * @return string
+     */
+    public function getReportPathPrefix()
+    {
+        return $this->container['report_path_prefix'];
+    }
+
+    /**
+     * Sets report_path_prefix
+     *
+     * @param string $report_path_prefix report_path_prefix
+     *
+     * @return $this
+     */
+    public function setReportPathPrefix($report_path_prefix)
+    {
+        $this->container['report_path_prefix'] = $report_path_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_archive_object
+     *
+     * @return bool
+     */
+    public function getSkipArchiveObject()
+    {
+        return $this->container['skip_archive_object'];
+    }
+
+    /**
+     * Sets skip_archive_object
+     *
+     * @param bool $skip_archive_object skip_archive_object
+     *
+     * @return $this
+     */
+    public function setSkipArchiveObject($skip_archive_object)
+    {
+        $this->container['skip_archive_object'] = $skip_archive_object;
 
         return $this;
     }

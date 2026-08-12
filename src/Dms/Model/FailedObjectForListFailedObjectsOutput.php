@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
+class FailedObjectForListFailedObjectsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BucketAccessConfigForQueryDataMigrateTaskOutput';
+    protected static $swaggerModelName = 'FailedObjectForListFailedObjectsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ak' => 'string',
-        'bucket_name' => 'string',
-        'endpoint' => 'string',
-        'region' => 'string',
-        'role_trn' => 'string',
-        'sk' => 'string',
-        'security_token' => 'string',
-        'vendor' => 'string'
+        'completed_time' => 'string',
+        'error_code' => 'string',
+        'error_message' => 'string',
+        'key' => 'string',
+        're_name' => 'string',
+        'size' => 'int'
     ];
 
     /**
@@ -44,14 +42,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ak' => null,
-        'bucket_name' => null,
-        'endpoint' => null,
-        'region' => null,
-        'role_trn' => null,
-        'sk' => null,
-        'security_token' => null,
-        'vendor' => null
+        'completed_time' => null,
+        'error_code' => null,
+        'error_message' => null,
+        'key' => null,
+        're_name' => null,
+        'size' => 'int64'
     ];
 
     /**
@@ -81,14 +77,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'ak' => 'AK',
-        'bucket_name' => 'BucketName',
-        'endpoint' => 'Endpoint',
-        'region' => 'Region',
-        'role_trn' => 'RoleTrn',
-        'sk' => 'SK',
-        'security_token' => 'SecurityToken',
-        'vendor' => 'Vendor'
+        'completed_time' => 'CompletedTime',
+        'error_code' => 'ErrorCode',
+        'error_message' => 'ErrorMessage',
+        'key' => 'Key',
+        're_name' => 'ReName',
+        'size' => 'Size'
     ];
 
     /**
@@ -97,14 +91,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'ak' => 'setAk',
-        'bucket_name' => 'setBucketName',
-        'endpoint' => 'setEndpoint',
-        'region' => 'setRegion',
-        'role_trn' => 'setRoleTrn',
-        'sk' => 'setSk',
-        'security_token' => 'setSecurityToken',
-        'vendor' => 'setVendor'
+        'completed_time' => 'setCompletedTime',
+        'error_code' => 'setErrorCode',
+        'error_message' => 'setErrorMessage',
+        'key' => 'setKey',
+        're_name' => 'setReName',
+        'size' => 'setSize'
     ];
 
     /**
@@ -113,14 +105,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'ak' => 'getAk',
-        'bucket_name' => 'getBucketName',
-        'endpoint' => 'getEndpoint',
-        'region' => 'getRegion',
-        'role_trn' => 'getRoleTrn',
-        'sk' => 'getSk',
-        'security_token' => 'getSecurityToken',
-        'vendor' => 'getVendor'
+        'completed_time' => 'getCompletedTime',
+        'error_code' => 'getErrorCode',
+        'error_message' => 'getErrorMessage',
+        'key' => 'getKey',
+        're_name' => 'getReName',
+        'size' => 'getSize'
     ];
 
     /**
@@ -183,14 +173,12 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
      */
     public function __construct($data = null)
     {
-        $this->container['ak'] = isset($data['ak']) ? $data['ak'] : null;
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
-        $this->container['sk'] = isset($data['sk']) ? $data['sk'] : null;
-        $this->container['security_token'] = isset($data['security_token']) ? $data['security_token'] : null;
-        $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
+        $this->container['completed_time'] = isset($data['completed_time']) ? $data['completed_time'] : null;
+        $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['re_name'] = isset($data['re_name']) ? $data['re_name'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
 
     /**
@@ -218,193 +206,145 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
 
 
     /**
-     * Gets ak
+     * Gets completed_time
      *
      * @return string
      */
-    public function getAk()
+    public function getCompletedTime()
     {
-        return $this->container['ak'];
+        return $this->container['completed_time'];
     }
 
     /**
-     * Sets ak
+     * Sets completed_time
      *
-     * @param string $ak ak
+     * @param string $completed_time completed_time
      *
      * @return $this
      */
-    public function setAk($ak)
+    public function setCompletedTime($completed_time)
     {
-        $this->container['ak'] = $ak;
+        $this->container['completed_time'] = $completed_time;
 
         return $this;
     }
 
     /**
-     * Gets bucket_name
+     * Gets error_code
      *
      * @return string
      */
-    public function getBucketName()
+    public function getErrorCode()
     {
-        return $this->container['bucket_name'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets bucket_name
+     * Sets error_code
      *
-     * @param string $bucket_name bucket_name
+     * @param string $error_code error_code
      *
      * @return $this
      */
-    public function setBucketName($bucket_name)
+    public function setErrorCode($error_code)
     {
-        $this->container['bucket_name'] = $bucket_name;
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
 
     /**
-     * Gets endpoint
+     * Gets error_message
      *
      * @return string
      */
-    public function getEndpoint()
+    public function getErrorMessage()
     {
-        return $this->container['endpoint'];
+        return $this->container['error_message'];
     }
 
     /**
-     * Sets endpoint
+     * Sets error_message
      *
-     * @param string $endpoint endpoint
+     * @param string $error_message error_message
      *
      * @return $this
      */
-    public function setEndpoint($endpoint)
+    public function setErrorMessage($error_message)
     {
-        $this->container['endpoint'] = $endpoint;
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets key
      *
      * @return string
      */
-    public function getRegion()
+    public function getKey()
     {
-        return $this->container['region'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets region
+     * Sets key
      *
-     * @param string $region region
+     * @param string $key key
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setKey($key)
     {
-        $this->container['region'] = $region;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets role_trn
+     * Gets re_name
      *
      * @return string
      */
-    public function getRoleTrn()
+    public function getReName()
     {
-        return $this->container['role_trn'];
+        return $this->container['re_name'];
     }
 
     /**
-     * Sets role_trn
+     * Sets re_name
      *
-     * @param string $role_trn role_trn
+     * @param string $re_name re_name
      *
      * @return $this
      */
-    public function setRoleTrn($role_trn)
+    public function setReName($re_name)
     {
-        $this->container['role_trn'] = $role_trn;
+        $this->container['re_name'] = $re_name;
 
         return $this;
     }
 
     /**
-     * Gets sk
+     * Gets size
      *
-     * @return string
+     * @return int
      */
-    public function getSk()
+    public function getSize()
     {
-        return $this->container['sk'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets sk
+     * Sets size
      *
-     * @param string $sk sk
+     * @param int $size size
      *
      * @return $this
      */
-    public function setSk($sk)
+    public function setSize($size)
     {
-        $this->container['sk'] = $sk;
-
-        return $this;
-    }
-
-    /**
-     * Gets security_token
-     *
-     * @return string
-     */
-    public function getSecurityToken()
-    {
-        return $this->container['security_token'];
-    }
-
-    /**
-     * Sets security_token
-     *
-     * @param string $security_token security_token
-     *
-     * @return $this
-     */
-    public function setSecurityToken($security_token)
-    {
-        $this->container['security_token'] = $security_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets vendor
-     *
-     * @return string
-     */
-    public function getVendor()
-    {
-        return $this->container['vendor'];
-    }
-
-    /**
-     * Sets vendor
-     *
-     * @param string $vendor vendor
-     *
-     * @return $this
-     */
-    public function setVendor($vendor)
-    {
-        $this->container['vendor'] = $vendor;
+        $this->container['size'] = $size;
 
         return $this;
     }
