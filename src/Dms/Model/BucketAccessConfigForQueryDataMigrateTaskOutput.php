@@ -34,6 +34,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         'region' => 'string',
         'role_trn' => 'string',
         'sk' => 'string',
+        'security_token' => 'string',
         'vendor' => 'string'
     ];
 
@@ -49,6 +50,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         'region' => null,
         'role_trn' => null,
         'sk' => null,
+        'security_token' => null,
         'vendor' => null
     ];
 
@@ -85,6 +87,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         'region' => 'Region',
         'role_trn' => 'RoleTrn',
         'sk' => 'SK',
+        'security_token' => 'SecurityToken',
         'vendor' => 'Vendor'
     ];
 
@@ -100,6 +103,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         'region' => 'setRegion',
         'role_trn' => 'setRoleTrn',
         'sk' => 'setSk',
+        'security_token' => 'setSecurityToken',
         'vendor' => 'setVendor'
     ];
 
@@ -115,6 +119,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         'region' => 'getRegion',
         'role_trn' => 'getRoleTrn',
         'sk' => 'getSk',
+        'security_token' => 'getSecurityToken',
         'vendor' => 'getVendor'
     ];
 
@@ -184,6 +189,7 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
         $this->container['sk'] = isset($data['sk']) ? $data['sk'] : null;
+        $this->container['security_token'] = isset($data['security_token']) ? $data['security_token'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
 
@@ -351,6 +357,30 @@ class BucketAccessConfigForQueryDataMigrateTaskOutput implements ModelInterface,
     public function setSk($sk)
     {
         $this->container['sk'] = $sk;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_token
+     *
+     * @return string
+     */
+    public function getSecurityToken()
+    {
+        return $this->container['security_token'];
+    }
+
+    /**
+     * Sets security_token
+     *
+     * @param string $security_token security_token
+     *
+     * @return $this
+     */
+    public function setSecurityToken($security_token)
+    {
+        $this->container['security_token'] = $security_token;
 
         return $this;
     }

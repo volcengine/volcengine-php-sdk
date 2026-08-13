@@ -28,7 +28,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'details' => '\Volcengine\Acep\Model\DetailForDeletePodOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'details' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'details' => 'Details'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'details' => 'setDetails'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'details' => 'getDetails'
     ];
 
     /**
@@ -148,6 +148,7 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class DeletePodResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets details
+     *
+     * @return \Volcengine\Acep\Model\DetailForDeletePodOutput[]
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \Volcengine\Acep\Model\DetailForDeletePodOutput[] $details details
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

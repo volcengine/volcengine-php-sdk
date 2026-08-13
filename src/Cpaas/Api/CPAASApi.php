@@ -163,12 +163,13 @@ class CPAASApi
 
     protected function getTemplateV2Request($body)
     {
-        $resourcePath = '/GetTemplateV2/2026-04-30/cpaas/post/application_x-www-form-urlencoded/';
+        $resourcePath = '/GetTemplateV2/2026-04-30/cpaas/get/text_plain/';
         $queryParams = [];
+        $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/x-www-form-urlencoded']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
