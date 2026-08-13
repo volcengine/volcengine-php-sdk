@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
+class RetryMigrateTaskCallbackRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TargetForQueryDataMigrateTaskOutput';
+    protected static $swaggerModelName = 'RetryMigrateTaskCallbackRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ak' => 'string',
-        'bucket_name' => 'string',
-        'endpoint' => 'string',
-        'region' => 'string',
-        'role_trn' => 'string',
-        'sk' => 'string',
-        'security_token' => 'string',
-        'vendor' => 'string'
+        'task_id' => 'int'
     ];
 
     /**
@@ -44,14 +37,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ak' => null,
-        'bucket_name' => null,
-        'endpoint' => null,
-        'region' => null,
-        'role_trn' => null,
-        'sk' => null,
-        'security_token' => null,
-        'vendor' => null
+        'task_id' => 'int64'
     ];
 
     /**
@@ -81,14 +67,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ak' => 'AK',
-        'bucket_name' => 'BucketName',
-        'endpoint' => 'Endpoint',
-        'region' => 'Region',
-        'role_trn' => 'RoleTrn',
-        'sk' => 'SK',
-        'security_token' => 'SecurityToken',
-        'vendor' => 'Vendor'
+        'task_id' => 'TaskID'
     ];
 
     /**
@@ -97,14 +76,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ak' => 'setAk',
-        'bucket_name' => 'setBucketName',
-        'endpoint' => 'setEndpoint',
-        'region' => 'setRegion',
-        'role_trn' => 'setRoleTrn',
-        'sk' => 'setSk',
-        'security_token' => 'setSecurityToken',
-        'vendor' => 'setVendor'
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -113,14 +85,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ak' => 'getAk',
-        'bucket_name' => 'getBucketName',
-        'endpoint' => 'getEndpoint',
-        'region' => 'getRegion',
-        'role_trn' => 'getRoleTrn',
-        'sk' => 'getSk',
-        'security_token' => 'getSecurityToken',
-        'vendor' => 'getVendor'
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -183,14 +148,7 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ak'] = isset($data['ak']) ? $data['ak'] : null;
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
-        $this->container['sk'] = isset($data['sk']) ? $data['sk'] : null;
-        $this->container['security_token'] = isset($data['security_token']) ? $data['security_token'] : null;
-        $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -202,6 +160,9 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,193 +179,25 @@ class TargetForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ak
+     * Gets task_id
      *
-     * @return string
+     * @return int
      */
-    public function getAk()
+    public function getTaskId()
     {
-        return $this->container['ak'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets ak
+     * Sets task_id
      *
-     * @param string $ak ak
+     * @param int $task_id task_id
      *
      * @return $this
      */
-    public function setAk($ak)
+    public function setTaskId($task_id)
     {
-        $this->container['ak'] = $ak;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_name
-     *
-     * @return string
-     */
-    public function getBucketName()
-    {
-        return $this->container['bucket_name'];
-    }
-
-    /**
-     * Sets bucket_name
-     *
-     * @param string $bucket_name bucket_name
-     *
-     * @return $this
-     */
-    public function setBucketName($bucket_name)
-    {
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets role_trn
-     *
-     * @return string
-     */
-    public function getRoleTrn()
-    {
-        return $this->container['role_trn'];
-    }
-
-    /**
-     * Sets role_trn
-     *
-     * @param string $role_trn role_trn
-     *
-     * @return $this
-     */
-    public function setRoleTrn($role_trn)
-    {
-        $this->container['role_trn'] = $role_trn;
-
-        return $this;
-    }
-
-    /**
-     * Gets sk
-     *
-     * @return string
-     */
-    public function getSk()
-    {
-        return $this->container['sk'];
-    }
-
-    /**
-     * Sets sk
-     *
-     * @param string $sk sk
-     *
-     * @return $this
-     */
-    public function setSk($sk)
-    {
-        $this->container['sk'] = $sk;
-
-        return $this;
-    }
-
-    /**
-     * Gets security_token
-     *
-     * @return string
-     */
-    public function getSecurityToken()
-    {
-        return $this->container['security_token'];
-    }
-
-    /**
-     * Sets security_token
-     *
-     * @param string $security_token security_token
-     *
-     * @return $this
-     */
-    public function setSecurityToken($security_token)
-    {
-        $this->container['security_token'] = $security_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets vendor
-     *
-     * @return string
-     */
-    public function getVendor()
-    {
-        return $this->container['vendor'];
-    }
-
-    /**
-     * Sets vendor
-     *
-     * @param string $vendor vendor
-     *
-     * @return $this
-     */
-    public function setVendor($vendor)
-    {
-        $this->container['vendor'] = $vendor;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }
