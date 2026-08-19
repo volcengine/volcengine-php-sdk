@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "VideoEditorSaveSubtitle",
+    "VideoEditorAddSubtitle",
+    "VideoEditorListSubtitles"
+  ],
+  "description": "I18N_OPENAPI: 修改 VideoEditorAddSubtitle, VideoEditorListSubtitles, VideoEditorSaveSubtitle",
+  "modules": "service/i18n_openapi",
+  "type": "feature"
+}

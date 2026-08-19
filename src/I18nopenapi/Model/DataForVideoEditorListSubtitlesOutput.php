@@ -33,6 +33,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         'assist_text_type' => 'int',
         'create_time' => 'string',
         'effect_type' => 'int',
+        'emotion_tag' => 'string',
         'end_time' => 'string',
         'extra' => 'string',
         'operator' => 'string',
@@ -60,6 +61,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         'assist_text_type' => 'int32',
         'create_time' => null,
         'effect_type' => 'int32',
+        'emotion_tag' => null,
         'end_time' => null,
         'extra' => null,
         'operator' => null,
@@ -108,6 +110,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         'assist_text_type' => 'assistTextType',
         'create_time' => 'createTime',
         'effect_type' => 'effectType',
+        'emotion_tag' => 'emotionTag',
         'end_time' => 'endTime',
         'extra' => 'extra',
         'operator' => 'operator',
@@ -135,6 +138,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         'assist_text_type' => 'setAssistTextType',
         'create_time' => 'setCreateTime',
         'effect_type' => 'setEffectType',
+        'emotion_tag' => 'setEmotionTag',
         'end_time' => 'setEndTime',
         'extra' => 'setExtra',
         'operator' => 'setOperator',
@@ -162,6 +166,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         'assist_text_type' => 'getAssistTextType',
         'create_time' => 'getCreateTime',
         'effect_type' => 'getEffectType',
+        'emotion_tag' => 'getEmotionTag',
         'end_time' => 'getEndTime',
         'extra' => 'getExtra',
         'operator' => 'getOperator',
@@ -243,6 +248,7 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
         $this->container['assist_text_type'] = isset($data['assist_text_type']) ? $data['assist_text_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
+        $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
@@ -399,6 +405,30 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
     public function setEffectType($effect_type)
     {
         $this->container['effect_type'] = $effect_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets emotion_tag
+     *
+     * @return string
+     */
+    public function getEmotionTag()
+    {
+        return $this->container['emotion_tag'];
+    }
+
+    /**
+     * Sets emotion_tag
+     *
+     * @param string $emotion_tag emotion_tag
+     *
+     * @return $this
+     */
+    public function setEmotionTag($emotion_tag)
+    {
+        $this->container['emotion_tag'] = $emotion_tag;
 
         return $this;
     }
