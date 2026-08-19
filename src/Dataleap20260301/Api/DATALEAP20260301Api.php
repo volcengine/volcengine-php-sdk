@@ -130,6 +130,130 @@ class DATALEAP20260301Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createExclusiveComputeResourceGroup($body = null)
+    {
+        list($response) = $this->createExclusiveComputeResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createExclusiveComputeResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\CreateExclusiveComputeResourceGroupResponse';
+        $request = $this->createExclusiveComputeResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createExclusiveComputeResourceGroupAsync($body = null)
+    {
+        return $this->createExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\CreateExclusiveComputeResourceGroupResponse';
+        $request = $this->createExclusiveComputeResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createExclusiveComputeResourceGroupRequest($body)
+    {
+        $resourcePath = '/CreateExclusiveComputeResourceGroup/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createExclusiveScheduleResourceGroup($body = null)
+    {
+        list($response) = $this->createExclusiveScheduleResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createExclusiveScheduleResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\CreateExclusiveScheduleResourceGroupResponse';
+        $request = $this->createExclusiveScheduleResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createExclusiveScheduleResourceGroupAsync($body = null)
+    {
+        return $this->createExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\CreateExclusiveScheduleResourceGroupResponse';
+        $request = $this->createExclusiveScheduleResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createExclusiveScheduleResourceGroupRequest($body)
+    {
+        $resourcePath = '/CreateExclusiveScheduleResourceGroup/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createSolution($body = null)
     {
         list($response) = $this->createSolutionWithHttpInfo($body);
@@ -254,6 +378,254 @@ class DATALEAP20260301Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteEmrAccountRelation($body = null)
+    {
+        list($response) = $this->deleteEmrAccountRelationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteEmrAccountRelationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteEmrAccountRelationResponse';
+        $request = $this->deleteEmrAccountRelationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteEmrAccountRelationAsync($body = null)
+    {
+        return $this->deleteEmrAccountRelationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteEmrAccountRelationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteEmrAccountRelationResponse';
+        $request = $this->deleteEmrAccountRelationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteEmrAccountRelationRequest($body)
+    {
+        $resourcePath = '/DeleteEmrAccountRelation/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteEntityTag($body = null)
+    {
+        list($response) = $this->deleteEntityTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteEntityTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteEntityTagResponse';
+        $request = $this->deleteEntityTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteEntityTagAsync($body = null)
+    {
+        return $this->deleteEntityTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteEntityTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteEntityTagResponse';
+        $request = $this->deleteEntityTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteEntityTagRequest($body)
+    {
+        $resourcePath = '/DeleteEntityTag/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteExclusiveComputeResourceGroup($body = null)
+    {
+        list($response) = $this->deleteExclusiveComputeResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteExclusiveComputeResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteExclusiveComputeResourceGroupResponse';
+        $request = $this->deleteExclusiveComputeResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteExclusiveComputeResourceGroupAsync($body = null)
+    {
+        return $this->deleteExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteExclusiveComputeResourceGroupResponse';
+        $request = $this->deleteExclusiveComputeResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteExclusiveComputeResourceGroupRequest($body)
+    {
+        $resourcePath = '/DeleteExclusiveComputeResourceGroup/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteExclusiveScheduleResourceGroup($body = null)
+    {
+        list($response) = $this->deleteExclusiveScheduleResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteExclusiveScheduleResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteExclusiveScheduleResourceGroupResponse';
+        $request = $this->deleteExclusiveScheduleResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteExclusiveScheduleResourceGroupAsync($body = null)
+    {
+        return $this->deleteExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\DeleteExclusiveScheduleResourceGroupResponse';
+        $request = $this->deleteExclusiveScheduleResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteExclusiveScheduleResourceGroupRequest($body)
+    {
+        $resourcePath = '/DeleteExclusiveScheduleResourceGroup/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteSolution($body = null)
     {
         list($response) = $this->deleteSolutionWithHttpInfo($body);
@@ -316,6 +688,130 @@ class DATALEAP20260301Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getBackfill($body = null)
+    {
+        list($response) = $this->getBackfillWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getBackfillWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetBackfillResponse';
+        $request = $this->getBackfillRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getBackfillAsync($body = null)
+    {
+        return $this->getBackfillAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getBackfillAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetBackfillResponse';
+        $request = $this->getBackfillRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getBackfillRequest($body)
+    {
+        $resourcePath = '/GetBackfill/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getBackfillInstances($body = null)
+    {
+        list($response) = $this->getBackfillInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getBackfillInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetBackfillInstancesResponse';
+        $request = $this->getBackfillInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getBackfillInstancesAsync($body = null)
+    {
+        return $this->getBackfillInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getBackfillInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetBackfillInstancesResponse';
+        $request = $this->getBackfillInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getBackfillInstancesRequest($body)
+    {
+        $resourcePath = '/GetBackfillInstances/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getDataSource($body = null)
     {
         list($response) = $this->getDataSourceWithHttpInfo($body);
@@ -350,6 +846,192 @@ class DATALEAP20260301Api
     protected function getDataSourceRequest($body)
     {
         $resourcePath = '/GetDataSource/2026-03-01/dataleap/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getEmrAccountRelationByInternalId($body = null)
+    {
+        list($response) = $this->getEmrAccountRelationByInternalIdWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getEmrAccountRelationByInternalIdWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetEmrAccountRelationByInternalIdResponse';
+        $request = $this->getEmrAccountRelationByInternalIdRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getEmrAccountRelationByInternalIdAsync($body = null)
+    {
+        return $this->getEmrAccountRelationByInternalIdAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getEmrAccountRelationByInternalIdAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetEmrAccountRelationByInternalIdResponse';
+        $request = $this->getEmrAccountRelationByInternalIdRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getEmrAccountRelationByInternalIdRequest($body)
+    {
+        $resourcePath = '/GetEmrAccountRelationByInternalId/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getExclusiveComputeResourceGroup($body = null)
+    {
+        list($response) = $this->getExclusiveComputeResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getExclusiveComputeResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetExclusiveComputeResourceGroupResponse';
+        $request = $this->getExclusiveComputeResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getExclusiveComputeResourceGroupAsync($body = null)
+    {
+        return $this->getExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getExclusiveComputeResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetExclusiveComputeResourceGroupResponse';
+        $request = $this->getExclusiveComputeResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getExclusiveComputeResourceGroupRequest($body)
+    {
+        $resourcePath = '/GetExclusiveComputeResourceGroup/2026-03-01/dataleap/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getExclusiveScheduleResourceGroup($body = null)
+    {
+        list($response) = $this->getExclusiveScheduleResourceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getExclusiveScheduleResourceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetExclusiveScheduleResourceGroupResponse';
+        $request = $this->getExclusiveScheduleResourceGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getExclusiveScheduleResourceGroupAsync($body = null)
+    {
+        return $this->getExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getExclusiveScheduleResourceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\GetExclusiveScheduleResourceGroupResponse';
+        $request = $this->getExclusiveScheduleResourceGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getExclusiveScheduleResourceGroupRequest($body)
+    {
+        $resourcePath = '/GetExclusiveScheduleResourceGroup/2026-03-01/dataleap/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -502,6 +1184,68 @@ class DATALEAP20260301Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function launchBackfill($body = null)
+    {
+        list($response) = $this->launchBackfillWithHttpInfo($body);
+        return $response;
+    }
+
+    public function launchBackfillWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\LaunchBackfillResponse';
+        $request = $this->launchBackfillRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function launchBackfillAsync($body = null)
+    {
+        return $this->launchBackfillAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function launchBackfillAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\LaunchBackfillResponse';
+        $request = $this->launchBackfillRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function launchBackfillRequest($body)
+    {
+        $resourcePath = '/LaunchBackfill/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listDataSources($body = null)
     {
         list($response) = $this->listDataSourcesWithHttpInfo($body);
@@ -542,6 +1286,192 @@ class DATALEAP20260301Api
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listEntityTags($body = null)
+    {
+        list($response) = $this->listEntityTagsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listEntityTagsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListEntityTagsResponse';
+        $request = $this->listEntityTagsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listEntityTagsAsync($body = null)
+    {
+        return $this->listEntityTagsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listEntityTagsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListEntityTagsResponse';
+        $request = $this->listEntityTagsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listEntityTagsRequest($body)
+    {
+        $resourcePath = '/ListEntityTags/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listExclusiveComputeResourceGroups($body = null)
+    {
+        list($response) = $this->listExclusiveComputeResourceGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listExclusiveComputeResourceGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListExclusiveComputeResourceGroupsResponse';
+        $request = $this->listExclusiveComputeResourceGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listExclusiveComputeResourceGroupsAsync($body = null)
+    {
+        return $this->listExclusiveComputeResourceGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listExclusiveComputeResourceGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListExclusiveComputeResourceGroupsResponse';
+        $request = $this->listExclusiveComputeResourceGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listExclusiveComputeResourceGroupsRequest($body)
+    {
+        $resourcePath = '/ListExclusiveComputeResourceGroups/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listExclusiveScheduleResourceGroups($body = null)
+    {
+        list($response) = $this->listExclusiveScheduleResourceGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listExclusiveScheduleResourceGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListExclusiveScheduleResourceGroupsResponse';
+        $request = $this->listExclusiveScheduleResourceGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listExclusiveScheduleResourceGroupsAsync($body = null)
+    {
+        return $this->listExclusiveScheduleResourceGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listExclusiveScheduleResourceGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ListExclusiveScheduleResourceGroupsResponse';
+        $request = $this->listExclusiveScheduleResourceGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listExclusiveScheduleResourceGroupsRequest($body)
+    {
+        $resourcePath = '/ListExclusiveScheduleResourceGroups/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -812,6 +1742,68 @@ class DATALEAP20260301Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function modifyEmrAccountRelation($body = null)
+    {
+        list($response) = $this->modifyEmrAccountRelationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyEmrAccountRelationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ModifyEmrAccountRelationResponse';
+        $request = $this->modifyEmrAccountRelationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyEmrAccountRelationAsync($body = null)
+    {
+        return $this->modifyEmrAccountRelationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyEmrAccountRelationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\ModifyEmrAccountRelationResponse';
+        $request = $this->modifyEmrAccountRelationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyEmrAccountRelationRequest($body)
+    {
+        $resourcePath = '/ModifyEmrAccountRelation/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function startSolution($body = null)
     {
         list($response) = $this->startSolutionWithHttpInfo($body);
@@ -1032,6 +2024,68 @@ class DATALEAP20260301Api
     protected function updateDataSourceRequest($body)
     {
         $resourcePath = '/UpdateDataSource/2026-03-01/dataleap/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateEntityTag($body = null)
+    {
+        list($response) = $this->updateEntityTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateEntityTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\UpdateEntityTagResponse';
+        $request = $this->updateEntityTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateEntityTagAsync($body = null)
+    {
+        return $this->updateEntityTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateEntityTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dataleap20260301\Model\UpdateEntityTagResponse';
+        $request = $this->updateEntityTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateEntityTagRequest($body)
+    {
+        $resourcePath = '/UpdateEntityTag/2026-03-01/dataleap/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
