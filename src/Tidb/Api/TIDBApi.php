@@ -192,6 +192,192 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function changeBranchPassword($body = null)
+    {
+        list($response) = $this->changeBranchPasswordWithHttpInfo($body);
+        return $response;
+    }
+
+    public function changeBranchPasswordWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ChangeBranchPasswordResponse';
+        $request = $this->changeBranchPasswordRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function changeBranchPasswordAsync($body = null)
+    {
+        return $this->changeBranchPasswordAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function changeBranchPasswordAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ChangeBranchPasswordResponse';
+        $request = $this->changeBranchPasswordRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function changeBranchPasswordRequest($body)
+    {
+        $resourcePath = '/ChangeBranchPassword/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createBranch($body = null)
+    {
+        list($response) = $this->createBranchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createBranchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateBranchResponse';
+        $request = $this->createBranchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createBranchAsync($body = null)
+    {
+        return $this->createBranchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createBranchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateBranchResponse';
+        $request = $this->createBranchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createBranchRequest($body)
+    {
+        $resourcePath = '/CreateBranch/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createCluster($body = null)
+    {
+        list($response) = $this->createClusterWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createClusterWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateClusterResponse';
+        $request = $this->createClusterRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createClusterAsync($body = null)
+    {
+        return $this->createClusterAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createClusterAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateClusterResponse';
+        $request = $this->createClusterRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createClusterRequest($body)
+    {
+        $resourcePath = '/CreateCluster/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createExportTask($body = null)
     {
         list($response) = $this->createExportTaskWithHttpInfo($body);
@@ -378,6 +564,130 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteBranch($body = null)
+    {
+        list($response) = $this->deleteBranchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteBranchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteBranchResponse';
+        $request = $this->deleteBranchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteBranchAsync($body = null)
+    {
+        return $this->deleteBranchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteBranchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteBranchResponse';
+        $request = $this->deleteBranchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteBranchRequest($body)
+    {
+        $resourcePath = '/DeleteBranch/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteCluster($body = null)
+    {
+        list($response) = $this->deleteClusterWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteClusterWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteClusterResponse';
+        $request = $this->deleteClusterRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteClusterAsync($body = null)
+    {
+        return $this->deleteClusterAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteClusterAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteClusterResponse';
+        $request = $this->deleteClusterRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteClusterRequest($body)
+    {
+        $resourcePath = '/DeleteCluster/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteExportTask($body = null)
     {
         list($response) = $this->deleteExportTaskWithHttpInfo($body);
@@ -412,6 +722,68 @@ class TIDBApi
     protected function deleteExportTaskRequest($body)
     {
         $resourcePath = '/DeleteExportTask/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePriceDetail($body = null)
+    {
+        list($response) = $this->describePriceDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePriceDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DescribePriceDetailResponse';
+        $request = $this->describePriceDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePriceDetailAsync($body = null)
+    {
+        return $this->describePriceDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePriceDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DescribePriceDetailResponse';
+        $request = $this->describePriceDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePriceDetailRequest($body)
+    {
+        $resourcePath = '/DescribePriceDetail/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -536,6 +908,130 @@ class TIDBApi
     protected function getBackupRetentionRequest($body)
     {
         $resourcePath = '/GetBackupRetention/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getBranchDetails($body = null)
+    {
+        list($response) = $this->getBranchDetailsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getBranchDetailsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetBranchDetailsResponse';
+        $request = $this->getBranchDetailsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getBranchDetailsAsync($body = null)
+    {
+        return $this->getBranchDetailsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getBranchDetailsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetBranchDetailsResponse';
+        $request = $this->getBranchDetailsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getBranchDetailsRequest($body)
+    {
+        $resourcePath = '/GetBranchDetails/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getClusterDetails($body = null)
+    {
+        list($response) = $this->getClusterDetailsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getClusterDetailsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetClusterDetailsResponse';
+        $request = $this->getClusterDetailsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getClusterDetailsAsync($body = null)
+    {
+        return $this->getClusterDetailsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getClusterDetailsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetClusterDetailsResponse';
+        $request = $this->getClusterDetailsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getClusterDetailsRequest($body)
+    {
+        $resourcePath = '/GetClusterDetails/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1032,6 +1528,254 @@ class TIDBApi
     protected function listBackupsRequest($body)
     {
         $resourcePath = '/ListBackups/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listBranchDatabases($body = null)
+    {
+        list($response) = $this->listBranchDatabasesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listBranchDatabasesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListBranchDatabasesResponse';
+        $request = $this->listBranchDatabasesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listBranchDatabasesAsync($body = null)
+    {
+        return $this->listBranchDatabasesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listBranchDatabasesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListBranchDatabasesResponse';
+        $request = $this->listBranchDatabasesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listBranchDatabasesRequest($body)
+    {
+        $resourcePath = '/ListBranchDatabases/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listBranches($body = null)
+    {
+        list($response) = $this->listBranchesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listBranchesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListBranchesResponse';
+        $request = $this->listBranchesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listBranchesAsync($body = null)
+    {
+        return $this->listBranchesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listBranchesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListBranchesResponse';
+        $request = $this->listBranchesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listBranchesRequest($body)
+    {
+        $resourcePath = '/ListBranches/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listClusterDatabases($body = null)
+    {
+        list($response) = $this->listClusterDatabasesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listClusterDatabasesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListClusterDatabasesResponse';
+        $request = $this->listClusterDatabasesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listClusterDatabasesAsync($body = null)
+    {
+        return $this->listClusterDatabasesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listClusterDatabasesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListClusterDatabasesResponse';
+        $request = $this->listClusterDatabasesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listClusterDatabasesRequest($body)
+    {
+        $resourcePath = '/ListClusterDatabases/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listClusters($body = null)
+    {
+        list($response) = $this->listClustersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listClustersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListClustersResponse';
+        $request = $this->listClustersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listClustersAsync($body = null)
+    {
+        return $this->listClustersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listClustersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListClustersResponse';
+        $request = $this->listClustersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listClustersRequest($body)
+    {
+        $resourcePath = '/ListClusters/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1928,6 +2672,130 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function resetBranch($body = null)
+    {
+        list($response) = $this->resetBranchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resetBranchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ResetBranchResponse';
+        $request = $this->resetBranchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function resetBranchAsync($body = null)
+    {
+        return $this->resetBranchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resetBranchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ResetBranchResponse';
+        $request = $this->resetBranchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function resetBranchRequest($body)
+    {
+        $resourcePath = '/ResetBranch/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function resetClusterPassword($body = null)
+    {
+        list($response) = $this->resetClusterPasswordWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resetClusterPasswordWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ResetClusterPasswordResponse';
+        $request = $this->resetClusterPasswordRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function resetClusterPasswordAsync($body = null)
+    {
+        return $this->resetClusterPasswordAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resetClusterPasswordAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ResetClusterPasswordResponse';
+        $request = $this->resetClusterPasswordRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function resetClusterPasswordRequest($body)
+    {
+        $resourcePath = '/ResetClusterPassword/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function restoreCluster($body = null)
     {
         list($response) = $this->restoreClusterWithHttpInfo($body);
@@ -1962,6 +2830,130 @@ class TIDBApi
     protected function restoreClusterRequest($body)
     {
         $resourcePath = '/RestoreCluster/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateBranch($body = null)
+    {
+        list($response) = $this->updateBranchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateBranchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateBranchResponse';
+        $request = $this->updateBranchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateBranchAsync($body = null)
+    {
+        return $this->updateBranchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateBranchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateBranchResponse';
+        $request = $this->updateBranchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateBranchRequest($body)
+    {
+        $resourcePath = '/UpdateBranch/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateCluster($body = null)
+    {
+        list($response) = $this->updateClusterWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateClusterWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateClusterResponse';
+        $request = $this->updateClusterRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateClusterAsync($body = null)
+    {
+        return $this->updateClusterAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateClusterAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateClusterResponse';
+        $request = $this->updateClusterRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateClusterRequest($body)
+    {
+        $resourcePath = '/UpdateCluster/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
