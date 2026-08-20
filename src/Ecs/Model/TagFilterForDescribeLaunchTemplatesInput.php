@@ -29,7 +29,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'key' => 'string',
-        'value' => 'string[]',
         'values' => 'string[]'
     ];
 
@@ -40,7 +39,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'key' => null,
-        'value' => null,
         'values' => null
     ];
 
@@ -72,7 +70,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'key' => 'Key',
-        'value' => 'Value',
         'values' => 'Values'
     ];
 
@@ -83,7 +80,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'key' => 'setKey',
-        'value' => 'setValue',
         'values' => 'setValues'
     ];
 
@@ -94,7 +90,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'key' => 'getKey',
-        'value' => 'getValue',
         'values' => 'getValues'
     ];
 
@@ -159,7 +154,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
@@ -207,30 +201,6 @@ class TagFilterForDescribeLaunchTemplatesInput implements ModelInterface, ArrayA
     public function setKey($key)
     {
         $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string[]
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string[] $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
 
         return $this;
     }
