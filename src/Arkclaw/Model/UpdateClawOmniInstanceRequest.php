@@ -30,6 +30,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'field_mask' => 'string',
         'id' => 'string',
+        'name' => 'string',
+        'operation_lock' => '\Volcengine\Arkclaw\Model\OperationLockForUpdateClawOmniInstanceInput',
+        'timeout' => 'int',
         'token_limit_per_day' => 'int',
         'token_limit_per_min' => 'int',
         'token_limit_per_week' => 'string',
@@ -44,6 +47,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'field_mask' => null,
         'id' => null,
+        'name' => null,
+        'operation_lock' => null,
+        'timeout' => 'int32',
         'token_limit_per_day' => 'int32',
         'token_limit_per_min' => 'int32',
         'token_limit_per_week' => null,
@@ -79,6 +85,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'field_mask' => 'FieldMask',
         'id' => 'Id',
+        'name' => 'Name',
+        'operation_lock' => 'OperationLock',
+        'timeout' => 'Timeout',
         'token_limit_per_day' => 'TokenLimitPerDay',
         'token_limit_per_min' => 'TokenLimitPerMin',
         'token_limit_per_week' => 'TokenLimitPerWeek',
@@ -93,6 +102,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'field_mask' => 'setFieldMask',
         'id' => 'setId',
+        'name' => 'setName',
+        'operation_lock' => 'setOperationLock',
+        'timeout' => 'setTimeout',
         'token_limit_per_day' => 'setTokenLimitPerDay',
         'token_limit_per_min' => 'setTokenLimitPerMin',
         'token_limit_per_week' => 'setTokenLimitPerWeek',
@@ -107,6 +119,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'field_mask' => 'getFieldMask',
         'id' => 'getId',
+        'name' => 'getName',
+        'operation_lock' => 'getOperationLock',
+        'timeout' => 'getTimeout',
         'token_limit_per_day' => 'getTokenLimitPerDay',
         'token_limit_per_min' => 'getTokenLimitPerMin',
         'token_limit_per_week' => 'getTokenLimitPerWeek',
@@ -175,6 +190,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['field_mask'] = isset($data['field_mask']) ? $data['field_mask'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operation_lock'] = isset($data['operation_lock']) ? $data['operation_lock'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['token_limit_per_day'] = isset($data['token_limit_per_day']) ? $data['token_limit_per_day'] : null;
         $this->container['token_limit_per_min'] = isset($data['token_limit_per_min']) ? $data['token_limit_per_min'] : null;
         $this->container['token_limit_per_week'] = isset($data['token_limit_per_week']) ? $data['token_limit_per_week'] : null;
@@ -192,6 +210,9 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -252,6 +273,78 @@ class UpdateClawOmniInstanceRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation_lock
+     *
+     * @return \Volcengine\Arkclaw\Model\OperationLockForUpdateClawOmniInstanceInput
+     */
+    public function getOperationLock()
+    {
+        return $this->container['operation_lock'];
+    }
+
+    /**
+     * Sets operation_lock
+     *
+     * @param \Volcengine\Arkclaw\Model\OperationLockForUpdateClawOmniInstanceInput $operation_lock operation_lock
+     *
+     * @return $this
+     */
+    public function setOperationLock($operation_lock)
+    {
+        $this->container['operation_lock'] = $operation_lock;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param int $timeout timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }
