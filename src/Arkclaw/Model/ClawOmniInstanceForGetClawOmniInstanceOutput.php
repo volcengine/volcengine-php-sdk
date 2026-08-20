@@ -41,12 +41,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'memory_mb' => 'int',
         'model_config' => '\Volcengine\Arkclaw\Model\ModelConfigForGetClawOmniInstanceOutput',
         'name' => 'string',
+        'operation_lock' => '\Volcengine\Arkclaw\Model\OperationLockForGetClawOmniInstanceOutput',
         'project_name' => 'string',
         'soul' => 'string',
         'space_id' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Arkclaw\Model\TagForGetClawOmniInstanceOutput[]',
         'template_id' => 'string',
+        'token_limit_per_day' => 'string',
+        'token_limit_per_min' => 'string',
+        'token_limit_per_week' => 'string',
+        'token_quota' => '\Volcengine\Arkclaw\Model\TokenQuotaForGetClawOmniInstanceOutput',
         'updated_at' => 'string'
     ];
 
@@ -69,12 +74,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'memory_mb' => 'int32',
         'model_config' => null,
         'name' => null,
+        'operation_lock' => null,
         'project_name' => null,
         'soul' => null,
         'space_id' => null,
         'status' => null,
         'tags' => null,
         'template_id' => null,
+        'token_limit_per_day' => null,
+        'token_limit_per_min' => null,
+        'token_limit_per_week' => null,
+        'token_quota' => null,
         'updated_at' => null
     ];
 
@@ -118,12 +128,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'memory_mb' => 'MemoryMb',
         'model_config' => 'ModelConfig',
         'name' => 'Name',
+        'operation_lock' => 'OperationLock',
         'project_name' => 'ProjectName',
         'soul' => 'Soul',
         'space_id' => 'SpaceId',
         'status' => 'Status',
         'tags' => 'Tags',
         'template_id' => 'TemplateId',
+        'token_limit_per_day' => 'TokenLimitPerDay',
+        'token_limit_per_min' => 'TokenLimitPerMin',
+        'token_limit_per_week' => 'TokenLimitPerWeek',
+        'token_quota' => 'TokenQuota',
         'updated_at' => 'UpdatedAt'
     ];
 
@@ -146,12 +161,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'memory_mb' => 'setMemoryMb',
         'model_config' => 'setModelConfig',
         'name' => 'setName',
+        'operation_lock' => 'setOperationLock',
         'project_name' => 'setProjectName',
         'soul' => 'setSoul',
         'space_id' => 'setSpaceId',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'template_id' => 'setTemplateId',
+        'token_limit_per_day' => 'setTokenLimitPerDay',
+        'token_limit_per_min' => 'setTokenLimitPerMin',
+        'token_limit_per_week' => 'setTokenLimitPerWeek',
+        'token_quota' => 'setTokenQuota',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -174,12 +194,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         'memory_mb' => 'getMemoryMb',
         'model_config' => 'getModelConfig',
         'name' => 'getName',
+        'operation_lock' => 'getOperationLock',
         'project_name' => 'getProjectName',
         'soul' => 'getSoul',
         'space_id' => 'getSpaceId',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'template_id' => 'getTemplateId',
+        'token_limit_per_day' => 'getTokenLimitPerDay',
+        'token_limit_per_min' => 'getTokenLimitPerMin',
+        'token_limit_per_week' => 'getTokenLimitPerWeek',
+        'token_quota' => 'getTokenQuota',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -256,12 +281,17 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['model_config'] = isset($data['model_config']) ? $data['model_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operation_lock'] = isset($data['operation_lock']) ? $data['operation_lock'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['soul'] = isset($data['soul']) ? $data['soul'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
+        $this->container['token_limit_per_day'] = isset($data['token_limit_per_day']) ? $data['token_limit_per_day'] : null;
+        $this->container['token_limit_per_min'] = isset($data['token_limit_per_min']) ? $data['token_limit_per_min'] : null;
+        $this->container['token_limit_per_week'] = isset($data['token_limit_per_week']) ? $data['token_limit_per_week'] : null;
+        $this->container['token_quota'] = isset($data['token_quota']) ? $data['token_quota'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -602,6 +632,30 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     }
 
     /**
+     * Gets operation_lock
+     *
+     * @return \Volcengine\Arkclaw\Model\OperationLockForGetClawOmniInstanceOutput
+     */
+    public function getOperationLock()
+    {
+        return $this->container['operation_lock'];
+    }
+
+    /**
+     * Sets operation_lock
+     *
+     * @param \Volcengine\Arkclaw\Model\OperationLockForGetClawOmniInstanceOutput $operation_lock operation_lock
+     *
+     * @return $this
+     */
+    public function setOperationLock($operation_lock)
+    {
+        $this->container['operation_lock'] = $operation_lock;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -741,6 +795,102 @@ class ClawOmniInstanceForGetClawOmniInstanceOutput implements ModelInterface, Ar
     public function setTemplateId($template_id)
     {
         $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_day
+     *
+     * @return string
+     */
+    public function getTokenLimitPerDay()
+    {
+        return $this->container['token_limit_per_day'];
+    }
+
+    /**
+     * Sets token_limit_per_day
+     *
+     * @param string $token_limit_per_day token_limit_per_day
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerDay($token_limit_per_day)
+    {
+        $this->container['token_limit_per_day'] = $token_limit_per_day;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_min
+     *
+     * @return string
+     */
+    public function getTokenLimitPerMin()
+    {
+        return $this->container['token_limit_per_min'];
+    }
+
+    /**
+     * Sets token_limit_per_min
+     *
+     * @param string $token_limit_per_min token_limit_per_min
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerMin($token_limit_per_min)
+    {
+        $this->container['token_limit_per_min'] = $token_limit_per_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit_per_week
+     *
+     * @return string
+     */
+    public function getTokenLimitPerWeek()
+    {
+        return $this->container['token_limit_per_week'];
+    }
+
+    /**
+     * Sets token_limit_per_week
+     *
+     * @param string $token_limit_per_week token_limit_per_week
+     *
+     * @return $this
+     */
+    public function setTokenLimitPerWeek($token_limit_per_week)
+    {
+        $this->container['token_limit_per_week'] = $token_limit_per_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_quota
+     *
+     * @return \Volcengine\Arkclaw\Model\TokenQuotaForGetClawOmniInstanceOutput
+     */
+    public function getTokenQuota()
+    {
+        return $this->container['token_quota'];
+    }
+
+    /**
+     * Sets token_quota
+     *
+     * @param \Volcengine\Arkclaw\Model\TokenQuotaForGetClawOmniInstanceOutput $token_quota token_quota
+     *
+     * @return $this
+     */
+    public function setTokenQuota($token_quota)
+    {
+        $this->container['token_quota'] = $token_quota;
 
         return $this;
     }

@@ -33,6 +33,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
+        'enable_headless' => 'bool',
         'model_api_key' => 'string',
         'model_base_url' => 'string',
         'model_name' => 'string',
@@ -58,6 +59,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'dry_run' => null,
+        'enable_headless' => null,
         'model_api_key' => null,
         'model_base_url' => null,
         'model_name' => null,
@@ -104,6 +106,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'dry_run' => 'DryRun',
+        'enable_headless' => 'EnableHeadless',
         'model_api_key' => 'ModelApiKey',
         'model_base_url' => 'ModelBaseUrl',
         'model_name' => 'ModelName',
@@ -129,6 +132,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
+        'enable_headless' => 'setEnableHeadless',
         'model_api_key' => 'setModelApiKey',
         'model_base_url' => 'setModelBaseUrl',
         'model_name' => 'setModelName',
@@ -154,6 +158,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
+        'enable_headless' => 'getEnableHeadless',
         'model_api_key' => 'getModelApiKey',
         'model_base_url' => 'getModelBaseUrl',
         'model_name' => 'getModelName',
@@ -200,6 +205,20 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
+
+    
+
+    
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -219,6 +238,7 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['enable_headless'] = isset($data['enable_headless']) ? $data['enable_headless'] : null;
         $this->container['model_api_key'] = isset($data['model_api_key']) ? $data['model_api_key'] : null;
         $this->container['model_base_url'] = isset($data['model_base_url']) ? $data['model_base_url'] : null;
         $this->container['model_name'] = isset($data['model_name']) ? $data['model_name'] : null;
@@ -382,6 +402,30 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
     public function setDryRun($dry_run)
     {
         $this->container['dry_run'] = $dry_run;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_headless
+     *
+     * @return bool
+     */
+    public function getEnableHeadless()
+    {
+        return $this->container['enable_headless'];
+    }
+
+    /**
+     * Sets enable_headless
+     *
+     * @param bool $enable_headless enable_headless
+     *
+     * @return $this
+     */
+    public function setEnableHeadless($enable_headless)
+    {
+        $this->container['enable_headless'] = $enable_headless;
 
         return $this;
     }
@@ -747,3 +791,4 @@ class CreateClawInstanceRequest implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

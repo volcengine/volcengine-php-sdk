@@ -130,6 +130,20 @@ class ModelConfigForGetClawOmniInstanceOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
+
+    
+
+    
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -318,3 +332,4 @@ class ModelConfigForGetClawOmniInstanceOutput implements ModelInterface, ArrayAc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

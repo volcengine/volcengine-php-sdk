@@ -32,6 +32,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         'instructions' => 'string',
         'name' => 'string',
         'project_name' => 'string',
+        'result_delivery_channel' => 'string',
+        'result_delivery_chat_id' => 'string',
+        'result_delivery_target' => 'string',
         'schedule_expr' => 'string',
         'schedule_type' => 'string',
         'space_id' => 'string',
@@ -49,6 +52,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         'instructions' => null,
         'name' => null,
         'project_name' => null,
+        'result_delivery_channel' => null,
+        'result_delivery_chat_id' => null,
+        'result_delivery_target' => null,
         'schedule_expr' => null,
         'schedule_type' => null,
         'space_id' => null,
@@ -87,6 +93,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         'instructions' => 'Instructions',
         'name' => 'Name',
         'project_name' => 'ProjectName',
+        'result_delivery_channel' => 'ResultDelivery.Channel',
+        'result_delivery_chat_id' => 'ResultDelivery.ChatId',
+        'result_delivery_target' => 'ResultDelivery.Target',
         'schedule_expr' => 'ScheduleExpr',
         'schedule_type' => 'ScheduleType',
         'space_id' => 'SpaceId',
@@ -104,6 +113,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         'instructions' => 'setInstructions',
         'name' => 'setName',
         'project_name' => 'setProjectName',
+        'result_delivery_channel' => 'setResultDeliveryChannel',
+        'result_delivery_chat_id' => 'setResultDeliveryChatId',
+        'result_delivery_target' => 'setResultDeliveryTarget',
         'schedule_expr' => 'setScheduleExpr',
         'schedule_type' => 'setScheduleType',
         'space_id' => 'setSpaceId',
@@ -121,6 +133,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         'instructions' => 'getInstructions',
         'name' => 'getName',
         'project_name' => 'getProjectName',
+        'result_delivery_channel' => 'getResultDeliveryChannel',
+        'result_delivery_chat_id' => 'getResultDeliveryChatId',
+        'result_delivery_target' => 'getResultDeliveryTarget',
         'schedule_expr' => 'getScheduleExpr',
         'schedule_type' => 'getScheduleType',
         'space_id' => 'getSpaceId',
@@ -192,6 +207,9 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
         $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['result_delivery_channel'] = isset($data['result_delivery_channel']) ? $data['result_delivery_channel'] : null;
+        $this->container['result_delivery_chat_id'] = isset($data['result_delivery_chat_id']) ? $data['result_delivery_chat_id'] : null;
+        $this->container['result_delivery_target'] = isset($data['result_delivery_target']) ? $data['result_delivery_target'] : null;
         $this->container['schedule_expr'] = isset($data['schedule_expr']) ? $data['schedule_expr'] : null;
         $this->container['schedule_type'] = isset($data['schedule_type']) ? $data['schedule_type'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
@@ -330,6 +348,78 @@ class CreateScheduledJobRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_delivery_channel
+     *
+     * @return string
+     */
+    public function getResultDeliveryChannel()
+    {
+        return $this->container['result_delivery_channel'];
+    }
+
+    /**
+     * Sets result_delivery_channel
+     *
+     * @param string $result_delivery_channel result_delivery_channel
+     *
+     * @return $this
+     */
+    public function setResultDeliveryChannel($result_delivery_channel)
+    {
+        $this->container['result_delivery_channel'] = $result_delivery_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_delivery_chat_id
+     *
+     * @return string
+     */
+    public function getResultDeliveryChatId()
+    {
+        return $this->container['result_delivery_chat_id'];
+    }
+
+    /**
+     * Sets result_delivery_chat_id
+     *
+     * @param string $result_delivery_chat_id result_delivery_chat_id
+     *
+     * @return $this
+     */
+    public function setResultDeliveryChatId($result_delivery_chat_id)
+    {
+        $this->container['result_delivery_chat_id'] = $result_delivery_chat_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_delivery_target
+     *
+     * @return string
+     */
+    public function getResultDeliveryTarget()
+    {
+        return $this->container['result_delivery_target'];
+    }
+
+    /**
+     * Sets result_delivery_target
+     *
+     * @param string $result_delivery_target result_delivery_target
+     *
+     * @return $this
+     */
+    public function setResultDeliveryTarget($result_delivery_target)
+    {
+        $this->container['result_delivery_target'] = $result_delivery_target;
 
         return $this;
     }

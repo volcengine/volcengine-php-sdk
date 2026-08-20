@@ -440,6 +440,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->createIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreateIdentityProviderTokenExchangeResponse';
+        $request = $this->createIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->createIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreateIdentityProviderTokenExchangeResponse';
+        $request = $this->createIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/CreateIdentityProviderTokenExchange/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createPrivateClawOmniSpaceTemplate($body = null)
     {
         list($response) = $this->createPrivateClawOmniSpaceTemplateWithHttpInfo($body);
@@ -480,6 +542,254 @@ class ARKCLAWApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createPrivateEgressDnsBlockRule($body = null)
+    {
+        list($response) = $this->createPrivateEgressDnsBlockRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateEgressDnsBlockRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressDnsBlockRuleResponse';
+        $request = $this->createPrivateEgressDnsBlockRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateEgressDnsBlockRuleAsync($body = null)
+    {
+        return $this->createPrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressDnsBlockRuleResponse';
+        $request = $this->createPrivateEgressDnsBlockRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateEgressDnsBlockRuleRequest($body)
+    {
+        $resourcePath = '/CreatePrivateEgressDnsBlockRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createPrivateEgressEndpoint($body = null)
+    {
+        list($response) = $this->createPrivateEgressEndpointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateEgressEndpointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressEndpointResponse';
+        $request = $this->createPrivateEgressEndpointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateEgressEndpointAsync($body = null)
+    {
+        return $this->createPrivateEgressEndpointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateEgressEndpointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressEndpointResponse';
+        $request = $this->createPrivateEgressEndpointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateEgressEndpointRequest($body)
+    {
+        $resourcePath = '/CreatePrivateEgressEndpoint/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createPrivateEgressNetworkAccessRule($body = null)
+    {
+        list($response) = $this->createPrivateEgressNetworkAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateEgressNetworkAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressNetworkAccessRuleResponse';
+        $request = $this->createPrivateEgressNetworkAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateEgressNetworkAccessRuleAsync($body = null)
+    {
+        return $this->createPrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressNetworkAccessRuleResponse';
+        $request = $this->createPrivateEgressNetworkAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateEgressNetworkAccessRuleRequest($body)
+    {
+        $resourcePath = '/CreatePrivateEgressNetworkAccessRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createPrivateEgressWebAccessRule($body = null)
+    {
+        list($response) = $this->createPrivateEgressWebAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateEgressWebAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressWebAccessRuleResponse';
+        $request = $this->createPrivateEgressWebAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateEgressWebAccessRuleAsync($body = null)
+    {
+        return $this->createPrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\CreatePrivateEgressWebAccessRuleResponse';
+        $request = $this->createPrivateEgressWebAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateEgressWebAccessRuleRequest($body)
+    {
+        $resourcePath = '/CreatePrivateEgressWebAccessRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -750,6 +1060,316 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->deleteIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeleteIdentityProviderTokenExchangeResponse';
+        $request = $this->deleteIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->deleteIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeleteIdentityProviderTokenExchangeResponse';
+        $request = $this->deleteIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/DeleteIdentityProviderTokenExchange/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePrivateEgressDnsBlockRule($body = null)
+    {
+        list($response) = $this->deletePrivateEgressDnsBlockRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePrivateEgressDnsBlockRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressDnsBlockRuleResponse';
+        $request = $this->deletePrivateEgressDnsBlockRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePrivateEgressDnsBlockRuleAsync($body = null)
+    {
+        return $this->deletePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressDnsBlockRuleResponse';
+        $request = $this->deletePrivateEgressDnsBlockRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePrivateEgressDnsBlockRuleRequest($body)
+    {
+        $resourcePath = '/DeletePrivateEgressDnsBlockRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePrivateEgressEndpoint($body = null)
+    {
+        list($response) = $this->deletePrivateEgressEndpointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePrivateEgressEndpointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressEndpointResponse';
+        $request = $this->deletePrivateEgressEndpointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePrivateEgressEndpointAsync($body = null)
+    {
+        return $this->deletePrivateEgressEndpointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePrivateEgressEndpointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressEndpointResponse';
+        $request = $this->deletePrivateEgressEndpointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePrivateEgressEndpointRequest($body)
+    {
+        $resourcePath = '/DeletePrivateEgressEndpoint/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePrivateEgressNetworkAccessRule($body = null)
+    {
+        list($response) = $this->deletePrivateEgressNetworkAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePrivateEgressNetworkAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressNetworkAccessRuleResponse';
+        $request = $this->deletePrivateEgressNetworkAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePrivateEgressNetworkAccessRuleAsync($body = null)
+    {
+        return $this->deletePrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressNetworkAccessRuleResponse';
+        $request = $this->deletePrivateEgressNetworkAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePrivateEgressNetworkAccessRuleRequest($body)
+    {
+        $resourcePath = '/DeletePrivateEgressNetworkAccessRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePrivateEgressWebAccessRule($body = null)
+    {
+        list($response) = $this->deletePrivateEgressWebAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePrivateEgressWebAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressWebAccessRuleResponse';
+        $request = $this->deletePrivateEgressWebAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePrivateEgressWebAccessRuleAsync($body = null)
+    {
+        return $this->deletePrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DeletePrivateEgressWebAccessRuleResponse';
+        $request = $this->deletePrivateEgressWebAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePrivateEgressWebAccessRuleRequest($body)
+    {
+        $resourcePath = '/DeletePrivateEgressWebAccessRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteScheduledJob($body = null)
     {
         list($response) = $this->deleteScheduledJobWithHttpInfo($body);
@@ -812,6 +1432,1370 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeAccountWhiteList($body = null)
+    {
+        list($response) = $this->describeAccountWhiteListWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAccountWhiteListWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribeAccountWhiteListResponse';
+        $request = $this->describeAccountWhiteListRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAccountWhiteListAsync($body = null)
+    {
+        return $this->describeAccountWhiteListAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAccountWhiteListAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribeAccountWhiteListResponse';
+        $request = $this->describeAccountWhiteListRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAccountWhiteListRequest($body)
+    {
+        $resourcePath = '/DescribeAccountWhiteList/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgress($body = null)
+    {
+        list($response) = $this->describePrivateEgressWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressResponse';
+        $request = $this->describePrivateEgressRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressAsync($body = null)
+    {
+        return $this->describePrivateEgressAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressResponse';
+        $request = $this->describePrivateEgressRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgress/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressAvailableZones($body = null)
+    {
+        list($response) = $this->describePrivateEgressAvailableZonesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressAvailableZonesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressAvailableZonesResponse';
+        $request = $this->describePrivateEgressAvailableZonesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressAvailableZonesAsync($body = null)
+    {
+        return $this->describePrivateEgressAvailableZonesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressAvailableZonesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressAvailableZonesResponse';
+        $request = $this->describePrivateEgressAvailableZonesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressAvailableZonesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressAvailableZones/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressDnsBlockRules($body = null)
+    {
+        list($response) = $this->describePrivateEgressDnsBlockRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressDnsBlockRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressDnsBlockRulesResponse';
+        $request = $this->describePrivateEgressDnsBlockRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressDnsBlockRulesAsync($body = null)
+    {
+        return $this->describePrivateEgressDnsBlockRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressDnsBlockRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressDnsBlockRulesResponse';
+        $request = $this->describePrivateEgressDnsBlockRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressDnsBlockRulesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressDnsBlockRules/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressEndpoints($body = null)
+    {
+        list($response) = $this->describePrivateEgressEndpointsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressEndpointsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressEndpointsResponse';
+        $request = $this->describePrivateEgressEndpointsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressEndpointsAsync($body = null)
+    {
+        return $this->describePrivateEgressEndpointsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressEndpointsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressEndpointsResponse';
+        $request = $this->describePrivateEgressEndpointsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressEndpointsRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressEndpoints/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressManagedWebAccessRuleTemplates($body = null)
+    {
+        list($response) = $this->describePrivateEgressManagedWebAccessRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressManagedWebAccessRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressManagedWebAccessRuleTemplatesResponse';
+        $request = $this->describePrivateEgressManagedWebAccessRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressManagedWebAccessRuleTemplatesAsync($body = null)
+    {
+        return $this->describePrivateEgressManagedWebAccessRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressManagedWebAccessRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressManagedWebAccessRuleTemplatesResponse';
+        $request = $this->describePrivateEgressManagedWebAccessRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressManagedWebAccessRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressManagedWebAccessRuleTemplates/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressNetworkAccessPolicy($body = null)
+    {
+        list($response) = $this->describePrivateEgressNetworkAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressNetworkAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->describePrivateEgressNetworkAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressNetworkAccessPolicyAsync($body = null)
+    {
+        return $this->describePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->describePrivateEgressNetworkAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressNetworkAccessPolicyRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressNetworkAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressNetworkAccessRuleAttributes($body = null)
+    {
+        list($response) = $this->describePrivateEgressNetworkAccessRuleAttributesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressNetworkAccessRuleAttributesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessRuleAttributesResponse';
+        $request = $this->describePrivateEgressNetworkAccessRuleAttributesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressNetworkAccessRuleAttributesAsync($body = null)
+    {
+        return $this->describePrivateEgressNetworkAccessRuleAttributesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressNetworkAccessRuleAttributesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessRuleAttributesResponse';
+        $request = $this->describePrivateEgressNetworkAccessRuleAttributesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressNetworkAccessRuleAttributesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressNetworkAccessRuleAttributes/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressNetworkAccessRules($body = null)
+    {
+        list($response) = $this->describePrivateEgressNetworkAccessRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressNetworkAccessRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessRulesResponse';
+        $request = $this->describePrivateEgressNetworkAccessRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressNetworkAccessRulesAsync($body = null)
+    {
+        return $this->describePrivateEgressNetworkAccessRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressNetworkAccessRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressNetworkAccessRulesResponse';
+        $request = $this->describePrivateEgressNetworkAccessRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressNetworkAccessRulesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressNetworkAccessRules/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressWebAccessPolicy($body = null)
+    {
+        list($response) = $this->describePrivateEgressWebAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressWebAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessPolicyResponse';
+        $request = $this->describePrivateEgressWebAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressWebAccessPolicyAsync($body = null)
+    {
+        return $this->describePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessPolicyResponse';
+        $request = $this->describePrivateEgressWebAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressWebAccessPolicyRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressWebAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressWebAccessRuleAttributes($body = null)
+    {
+        list($response) = $this->describePrivateEgressWebAccessRuleAttributesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressWebAccessRuleAttributesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessRuleAttributesResponse';
+        $request = $this->describePrivateEgressWebAccessRuleAttributesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressWebAccessRuleAttributesAsync($body = null)
+    {
+        return $this->describePrivateEgressWebAccessRuleAttributesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressWebAccessRuleAttributesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessRuleAttributesResponse';
+        $request = $this->describePrivateEgressWebAccessRuleAttributesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressWebAccessRuleAttributesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressWebAccessRuleAttributes/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePrivateEgressWebAccessRules($body = null)
+    {
+        list($response) = $this->describePrivateEgressWebAccessRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePrivateEgressWebAccessRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessRulesResponse';
+        $request = $this->describePrivateEgressWebAccessRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePrivateEgressWebAccessRulesAsync($body = null)
+    {
+        return $this->describePrivateEgressWebAccessRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePrivateEgressWebAccessRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DescribePrivateEgressWebAccessRulesResponse';
+        $request = $this->describePrivateEgressWebAccessRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePrivateEgressWebAccessRulesRequest($body)
+    {
+        $resourcePath = '/DescribePrivateEgressWebAccessRules/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disablePrivateEgressAccessLog($body = null)
+    {
+        list($response) = $this->disablePrivateEgressAccessLogWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disablePrivateEgressAccessLogWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressAccessLogResponse';
+        $request = $this->disablePrivateEgressAccessLogRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disablePrivateEgressAccessLogAsync($body = null)
+    {
+        return $this->disablePrivateEgressAccessLogAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disablePrivateEgressAccessLogAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressAccessLogResponse';
+        $request = $this->disablePrivateEgressAccessLogRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disablePrivateEgressAccessLogRequest($body)
+    {
+        $resourcePath = '/DisablePrivateEgressAccessLog/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disablePrivateEgressDns($body = null)
+    {
+        list($response) = $this->disablePrivateEgressDnsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disablePrivateEgressDnsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressDnsResponse';
+        $request = $this->disablePrivateEgressDnsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disablePrivateEgressDnsAsync($body = null)
+    {
+        return $this->disablePrivateEgressDnsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disablePrivateEgressDnsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressDnsResponse';
+        $request = $this->disablePrivateEgressDnsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disablePrivateEgressDnsRequest($body)
+    {
+        $resourcePath = '/DisablePrivateEgressDns/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disablePrivateEgressDnsBlockRule($body = null)
+    {
+        list($response) = $this->disablePrivateEgressDnsBlockRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disablePrivateEgressDnsBlockRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressDnsBlockRuleResponse';
+        $request = $this->disablePrivateEgressDnsBlockRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disablePrivateEgressDnsBlockRuleAsync($body = null)
+    {
+        return $this->disablePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disablePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressDnsBlockRuleResponse';
+        $request = $this->disablePrivateEgressDnsBlockRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disablePrivateEgressDnsBlockRuleRequest($body)
+    {
+        $resourcePath = '/DisablePrivateEgressDnsBlockRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disablePrivateEgressNetworkAccessPolicy($body = null)
+    {
+        list($response) = $this->disablePrivateEgressNetworkAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disablePrivateEgressNetworkAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->disablePrivateEgressNetworkAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disablePrivateEgressNetworkAccessPolicyAsync($body = null)
+    {
+        return $this->disablePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disablePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->disablePrivateEgressNetworkAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disablePrivateEgressNetworkAccessPolicyRequest($body)
+    {
+        $resourcePath = '/DisablePrivateEgressNetworkAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disablePrivateEgressWebAccessPolicy($body = null)
+    {
+        list($response) = $this->disablePrivateEgressWebAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disablePrivateEgressWebAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressWebAccessPolicyResponse';
+        $request = $this->disablePrivateEgressWebAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disablePrivateEgressWebAccessPolicyAsync($body = null)
+    {
+        return $this->disablePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disablePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\DisablePrivateEgressWebAccessPolicyResponse';
+        $request = $this->disablePrivateEgressWebAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disablePrivateEgressWebAccessPolicyRequest($body)
+    {
+        $resourcePath = '/DisablePrivateEgressWebAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enablePrivateEgressAccessLog($body = null)
+    {
+        list($response) = $this->enablePrivateEgressAccessLogWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enablePrivateEgressAccessLogWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressAccessLogResponse';
+        $request = $this->enablePrivateEgressAccessLogRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enablePrivateEgressAccessLogAsync($body = null)
+    {
+        return $this->enablePrivateEgressAccessLogAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enablePrivateEgressAccessLogAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressAccessLogResponse';
+        $request = $this->enablePrivateEgressAccessLogRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enablePrivateEgressAccessLogRequest($body)
+    {
+        $resourcePath = '/EnablePrivateEgressAccessLog/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enablePrivateEgressDns($body = null)
+    {
+        list($response) = $this->enablePrivateEgressDnsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enablePrivateEgressDnsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressDnsResponse';
+        $request = $this->enablePrivateEgressDnsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enablePrivateEgressDnsAsync($body = null)
+    {
+        return $this->enablePrivateEgressDnsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enablePrivateEgressDnsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressDnsResponse';
+        $request = $this->enablePrivateEgressDnsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enablePrivateEgressDnsRequest($body)
+    {
+        $resourcePath = '/EnablePrivateEgressDns/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enablePrivateEgressDnsBlockRule($body = null)
+    {
+        list($response) = $this->enablePrivateEgressDnsBlockRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enablePrivateEgressDnsBlockRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressDnsBlockRuleResponse';
+        $request = $this->enablePrivateEgressDnsBlockRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enablePrivateEgressDnsBlockRuleAsync($body = null)
+    {
+        return $this->enablePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enablePrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressDnsBlockRuleResponse';
+        $request = $this->enablePrivateEgressDnsBlockRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enablePrivateEgressDnsBlockRuleRequest($body)
+    {
+        $resourcePath = '/EnablePrivateEgressDnsBlockRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enablePrivateEgressNetworkAccessPolicy($body = null)
+    {
+        list($response) = $this->enablePrivateEgressNetworkAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enablePrivateEgressNetworkAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->enablePrivateEgressNetworkAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enablePrivateEgressNetworkAccessPolicyAsync($body = null)
+    {
+        return $this->enablePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enablePrivateEgressNetworkAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressNetworkAccessPolicyResponse';
+        $request = $this->enablePrivateEgressNetworkAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enablePrivateEgressNetworkAccessPolicyRequest($body)
+    {
+        $resourcePath = '/EnablePrivateEgressNetworkAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enablePrivateEgressWebAccessPolicy($body = null)
+    {
+        list($response) = $this->enablePrivateEgressWebAccessPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enablePrivateEgressWebAccessPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressWebAccessPolicyResponse';
+        $request = $this->enablePrivateEgressWebAccessPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enablePrivateEgressWebAccessPolicyAsync($body = null)
+    {
+        return $this->enablePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enablePrivateEgressWebAccessPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\EnablePrivateEgressWebAccessPolicyResponse';
+        $request = $this->enablePrivateEgressWebAccessPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enablePrivateEgressWebAccessPolicyRequest($body)
+    {
+        $resourcePath = '/EnablePrivateEgressWebAccessPolicy/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function executeClawOmniInstanceCommand($body = null)
     {
         list($response) = $this->executeClawOmniInstanceCommandWithHttpInfo($body);
@@ -852,6 +2836,68 @@ class ARKCLAWApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getArkclawOmniInstanceWebui($body = null)
+    {
+        list($response) = $this->getArkclawOmniInstanceWebuiWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getArkclawOmniInstanceWebuiWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetArkclawOmniInstanceWebuiResponse';
+        $request = $this->getArkclawOmniInstanceWebuiRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getArkclawOmniInstanceWebuiAsync($body = null)
+    {
+        return $this->getArkclawOmniInstanceWebuiAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getArkclawOmniInstanceWebuiAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetArkclawOmniInstanceWebuiResponse';
+        $request = $this->getArkclawOmniInstanceWebuiRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getArkclawOmniInstanceWebuiRequest($body)
+    {
+        $resourcePath = '/GetArkclawOmniInstanceWebui/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -1308,6 +3354,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->getIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetIdentityProviderTokenExchangeResponse';
+        $request = $this->getIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->getIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetIdentityProviderTokenExchangeResponse';
+        $request = $this->getIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/GetIdentityProviderTokenExchange/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getScheduledJob($body = null)
     {
         list($response) = $this->getScheduledJobWithHttpInfo($body);
@@ -1342,6 +3450,68 @@ class ARKCLAWApi
     protected function getScheduledJobRequest($body)
     {
         $resourcePath = '/GetScheduledJob/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getUserPoolClient($body = null)
+    {
+        list($response) = $this->getUserPoolClientWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserPoolClientWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetUserPoolClientResponse';
+        $request = $this->getUserPoolClientRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserPoolClientAsync($body = null)
+    {
+        return $this->getUserPoolClientAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserPoolClientAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\GetUserPoolClientResponse';
+        $request = $this->getUserPoolClientRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserPoolClientRequest($body)
+    {
+        $resourcePath = '/GetUserPoolClient/2026-03-01/arkclaw/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1990,6 +4160,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listIdentityProvidersTokenExchange($body = null)
+    {
+        list($response) = $this->listIdentityProvidersTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listIdentityProvidersTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListIdentityProvidersTokenExchangeResponse';
+        $request = $this->listIdentityProvidersTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listIdentityProvidersTokenExchangeAsync($body = null)
+    {
+        return $this->listIdentityProvidersTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listIdentityProvidersTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ListIdentityProvidersTokenExchangeResponse';
+        $request = $this->listIdentityProvidersTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listIdentityProvidersTokenExchangeRequest($body)
+    {
+        $resourcePath = '/ListIdentityProvidersTokenExchange/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listScheduledJobRuns($body = null)
     {
         list($response) = $this->listScheduledJobRunsWithHttpInfo($body);
@@ -2148,6 +4380,378 @@ class ARKCLAWApi
     protected function listUsersRequest($body)
     {
         $resourcePath = '/ListUsers/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgress($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressResponse';
+        $request = $this->modifyPrivateEgressRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressAsync($body = null)
+    {
+        return $this->modifyPrivateEgressAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressResponse';
+        $request = $this->modifyPrivateEgressRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgress/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgressDns($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressDnsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressDnsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressDnsResponse';
+        $request = $this->modifyPrivateEgressDnsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressDnsAsync($body = null)
+    {
+        return $this->modifyPrivateEgressDnsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressDnsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressDnsResponse';
+        $request = $this->modifyPrivateEgressDnsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressDnsRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgressDns/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgressDnsBlockRule($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressDnsBlockRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressDnsBlockRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressDnsBlockRuleResponse';
+        $request = $this->modifyPrivateEgressDnsBlockRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressDnsBlockRuleAsync($body = null)
+    {
+        return $this->modifyPrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressDnsBlockRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressDnsBlockRuleResponse';
+        $request = $this->modifyPrivateEgressDnsBlockRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressDnsBlockRuleRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgressDnsBlockRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgressEndpoint($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressEndpointWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressEndpointWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressEndpointResponse';
+        $request = $this->modifyPrivateEgressEndpointRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressEndpointAsync($body = null)
+    {
+        return $this->modifyPrivateEgressEndpointAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressEndpointAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressEndpointResponse';
+        $request = $this->modifyPrivateEgressEndpointRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressEndpointRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgressEndpoint/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgressNetworkAccessRule($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressNetworkAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressNetworkAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressNetworkAccessRuleResponse';
+        $request = $this->modifyPrivateEgressNetworkAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressNetworkAccessRuleAsync($body = null)
+    {
+        return $this->modifyPrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressNetworkAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressNetworkAccessRuleResponse';
+        $request = $this->modifyPrivateEgressNetworkAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressNetworkAccessRuleRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgressNetworkAccessRule/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyPrivateEgressWebAccessRule($body = null)
+    {
+        list($response) = $this->modifyPrivateEgressWebAccessRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyPrivateEgressWebAccessRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressWebAccessRuleResponse';
+        $request = $this->modifyPrivateEgressWebAccessRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyPrivateEgressWebAccessRuleAsync($body = null)
+    {
+        return $this->modifyPrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyPrivateEgressWebAccessRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\ModifyPrivateEgressWebAccessRuleResponse';
+        $request = $this->modifyPrivateEgressWebAccessRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyPrivateEgressWebAccessRuleRequest($body)
+    {
+        $resourcePath = '/ModifyPrivateEgressWebAccessRule/2026-03-01/arkclaw/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2424,6 +5028,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function restartClawInstance($body = null)
+    {
+        list($response) = $this->restartClawInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function restartClawInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\RestartClawInstanceResponse';
+        $request = $this->restartClawInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function restartClawInstanceAsync($body = null)
+    {
+        return $this->restartClawInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function restartClawInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\RestartClawInstanceResponse';
+        $request = $this->restartClawInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function restartClawInstanceRequest($body)
+    {
+        $resourcePath = '/RestartClawInstance/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function resumeClawOmniInstance($body = null)
     {
         list($response) = $this->resumeClawOmniInstanceWithHttpInfo($body);
@@ -2610,6 +5276,68 @@ class ARKCLAWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function unbindClawInstance($body = null)
+    {
+        list($response) = $this->unbindClawInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unbindClawInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UnbindClawInstanceResponse';
+        $request = $this->unbindClawInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function unbindClawInstanceAsync($body = null)
+    {
+        return $this->unbindClawInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unbindClawInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UnbindClawInstanceResponse';
+        $request = $this->unbindClawInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function unbindClawInstanceRequest($body)
+    {
+        $resourcePath = '/UnbindClawInstance/2026-03-01/arkclaw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateClawOmniInstance($body = null)
     {
         list($response) = $this->updateClawOmniInstanceWithHttpInfo($body);
@@ -2643,13 +5371,13 @@ class ARKCLAWApi
 
     protected function updateClawOmniInstanceRequest($body)
     {
-        $resourcePath = '/UpdateClawOmniInstance/2026-03-01/arkclaw/post/application_json/';
+        $resourcePath = '/UpdateClawOmniInstance/2026-03-01/arkclaw/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -2706,6 +5434,68 @@ class ARKCLAWApi
     protected function updateClawOmniInstanceModelRequest($body)
     {
         $resourcePath = '/UpdateClawOmniInstanceModel/2026-03-01/arkclaw/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateIdentityProviderTokenExchange($body = null)
+    {
+        list($response) = $this->updateIdentityProviderTokenExchangeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIdentityProviderTokenExchangeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdateIdentityProviderTokenExchangeResponse';
+        $request = $this->updateIdentityProviderTokenExchangeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIdentityProviderTokenExchangeAsync($body = null)
+    {
+        return $this->updateIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIdentityProviderTokenExchangeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Arkclaw\Model\UpdateIdentityProviderTokenExchangeResponse';
+        $request = $this->updateIdentityProviderTokenExchangeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIdentityProviderTokenExchangeRequest($body)
+    {
+        $resourcePath = '/UpdateIdentityProviderTokenExchange/2026-03-01/arkclaw/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

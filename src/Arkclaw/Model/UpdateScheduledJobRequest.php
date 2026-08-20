@@ -33,6 +33,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         'job_id' => 'string',
         'name' => 'string',
         'project_name' => 'string',
+        'result_delivery' => '\Volcengine\Arkclaw\Model\ResultDeliveryForUpdateScheduledJobInput',
         'schedule_expr' => 'string',
         'schedule_type' => 'string',
         'space_id' => 'string',
@@ -51,6 +52,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         'job_id' => null,
         'name' => null,
         'project_name' => null,
+        'result_delivery' => null,
         'schedule_expr' => null,
         'schedule_type' => null,
         'space_id' => null,
@@ -90,6 +92,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         'job_id' => 'JobId',
         'name' => 'Name',
         'project_name' => 'ProjectName',
+        'result_delivery' => 'ResultDelivery',
         'schedule_expr' => 'ScheduleExpr',
         'schedule_type' => 'ScheduleType',
         'space_id' => 'SpaceId',
@@ -108,6 +111,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         'job_id' => 'setJobId',
         'name' => 'setName',
         'project_name' => 'setProjectName',
+        'result_delivery' => 'setResultDelivery',
         'schedule_expr' => 'setScheduleExpr',
         'schedule_type' => 'setScheduleType',
         'space_id' => 'setSpaceId',
@@ -126,6 +130,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         'job_id' => 'getJobId',
         'name' => 'getName',
         'project_name' => 'getProjectName',
+        'result_delivery' => 'getResultDelivery',
         'schedule_expr' => 'getScheduleExpr',
         'schedule_type' => 'getScheduleType',
         'space_id' => 'getSpaceId',
@@ -198,6 +203,7 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
         $this->container['job_id'] = isset($data['job_id']) ? $data['job_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['result_delivery'] = isset($data['result_delivery']) ? $data['result_delivery'] : null;
         $this->container['schedule_expr'] = isset($data['schedule_expr']) ? $data['schedule_expr'] : null;
         $this->container['schedule_type'] = isset($data['schedule_type']) ? $data['schedule_type'] : null;
         $this->container['space_id'] = isset($data['space_id']) ? $data['space_id'] : null;
@@ -351,6 +357,30 @@ class UpdateScheduledJobRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_delivery
+     *
+     * @return \Volcengine\Arkclaw\Model\ResultDeliveryForUpdateScheduledJobInput
+     */
+    public function getResultDelivery()
+    {
+        return $this->container['result_delivery'];
+    }
+
+    /**
+     * Sets result_delivery
+     *
+     * @param \Volcengine\Arkclaw\Model\ResultDeliveryForUpdateScheduledJobInput $result_delivery result_delivery
+     *
+     * @return $this
+     */
+    public function setResultDelivery($result_delivery)
+    {
+        $this->container['result_delivery'] = $result_delivery;
 
         return $this;
     }
