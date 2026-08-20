@@ -709,6 +709,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         return $this;
     }
 
+
     /**
      * Gets hostname
      *
@@ -1502,3 +1503,4 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

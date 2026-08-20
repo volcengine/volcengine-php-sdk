@@ -29,12 +29,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'action' => 'string',
-        'bot_type' => 'string',
         'enable' => 'int',
         'host' => 'string',
         'project_name' => 'string',
         'rule_tag_list' => 'string[]',
-        'sub_rules' => '\Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[]',
         'verification_exemption_time' => 'int'
     ];
 
@@ -45,12 +43,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'action' => null,
-        'bot_type' => null,
         'enable' => 'int32',
         'host' => null,
         'project_name' => null,
         'rule_tag_list' => null,
-        'sub_rules' => null,
         'verification_exemption_time' => 'int32'
     ];
 
@@ -82,12 +78,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'action' => 'Action',
-        'bot_type' => 'BotType',
         'enable' => 'Enable',
         'host' => 'Host',
         'project_name' => 'ProjectName',
         'rule_tag_list' => 'RuleTagList',
-        'sub_rules' => 'SubRules',
         'verification_exemption_time' => 'VerificationExemptionTime'
     ];
 
@@ -98,12 +92,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'action' => 'setAction',
-        'bot_type' => 'setBotType',
         'enable' => 'setEnable',
         'host' => 'setHost',
         'project_name' => 'setProjectName',
         'rule_tag_list' => 'setRuleTagList',
-        'sub_rules' => 'setSubRules',
         'verification_exemption_time' => 'setVerificationExemptionTime'
     ];
 
@@ -114,12 +106,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'action' => 'getAction',
-        'bot_type' => 'getBotType',
         'enable' => 'getEnable',
         'host' => 'getHost',
         'project_name' => 'getProjectName',
         'rule_tag_list' => 'getRuleTagList',
-        'sub_rules' => 'getSubRules',
         'verification_exemption_time' => 'getVerificationExemptionTime'
     ];
 
@@ -207,12 +197,10 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['bot_type'] = isset($data['bot_type']) ? $data['bot_type'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag_list'] = isset($data['rule_tag_list']) ? $data['rule_tag_list'] : null;
-        $this->container['sub_rules'] = isset($data['sub_rules']) ? $data['sub_rules'] : null;
         $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
     }
 
@@ -280,30 +268,6 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_type
-     *
-     * @return string
-     */
-    public function getBotType()
-    {
-        return $this->container['bot_type'];
-    }
-
-    /**
-     * Sets bot_type
-     *
-     * @param string $bot_type bot_type
-     *
-     * @return $this
-     */
-    public function setBotType($bot_type)
-    {
-        $this->container['bot_type'] = $bot_type;
 
         return $this;
     }
@@ -400,30 +364,6 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setRuleTagList($rule_tag_list)
     {
         $this->container['rule_tag_list'] = $rule_tag_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_rules
-     *
-     * @return \Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[]
-     */
-    public function getSubRules()
-    {
-        return $this->container['sub_rules'];
-    }
-
-    /**
-     * Sets sub_rules
-     *
-     * @param \Volcengine\Waf\Model\SubRuleForUpdateSystemBotConfigInput[] $sub_rules sub_rules
-     *
-     * @return $this
-     */
-    public function setSubRules($sub_rules)
-    {
-        $this->container['sub_rules'] = $sub_rules;
 
         return $this;
     }

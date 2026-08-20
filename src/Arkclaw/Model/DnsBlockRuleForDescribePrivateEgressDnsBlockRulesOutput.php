@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Arkclaw\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAccess
+class DnsBlockRuleForDescribePrivateEgressDnsBlockRulesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubRuleForUpdateSystemBotConfigInput';
+    protected static $swaggerModelName = 'DnsBlockRuleForDescribePrivateEgressDnsBlockRulesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'acc_rule_id_list' => 'int[]',
-        'action' => 'string',
+        'create_time' => 'string',
         'description' => 'string',
-        'enable' => 'int',
+        'domains' => 'string[]',
         'name' => 'string',
-        'type' => 'string',
-        'verification_conf_id' => 'int',
-        'verification_exemption_time' => 'int',
-        'verification_failed_action' => 'int'
+        'private_egress_id' => 'string',
+        'rule_id' => 'string',
+        'source_ids' => 'string[]',
+        'source_type' => 'string',
+        'space_network_id' => 'string',
+        'status' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -45,15 +47,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'acc_rule_id_list' => 'int32',
-        'action' => null,
+        'create_time' => null,
         'description' => null,
-        'enable' => 'int32',
+        'domains' => null,
         'name' => null,
-        'type' => null,
-        'verification_conf_id' => 'int32',
-        'verification_exemption_time' => 'int32',
-        'verification_failed_action' => 'int32'
+        'private_egress_id' => null,
+        'rule_id' => null,
+        'source_ids' => null,
+        'source_type' => null,
+        'space_network_id' => null,
+        'status' => null,
+        'update_time' => null
     ];
 
     /**
@@ -83,15 +87,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'acc_rule_id_list' => 'AccRuleIDList',
-        'action' => 'Action',
+        'create_time' => 'CreateTime',
         'description' => 'Description',
-        'enable' => 'Enable',
+        'domains' => 'Domains',
         'name' => 'Name',
-        'type' => 'Type',
-        'verification_conf_id' => 'VerificationConfID',
-        'verification_exemption_time' => 'VerificationExemptionTime',
-        'verification_failed_action' => 'VerificationFailedAction'
+        'private_egress_id' => 'PrivateEgressId',
+        'rule_id' => 'RuleId',
+        'source_ids' => 'SourceIds',
+        'source_type' => 'SourceType',
+        'space_network_id' => 'SpaceNetworkId',
+        'status' => 'Status',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -100,15 +106,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'acc_rule_id_list' => 'setAccRuleIdList',
-        'action' => 'setAction',
+        'create_time' => 'setCreateTime',
         'description' => 'setDescription',
-        'enable' => 'setEnable',
+        'domains' => 'setDomains',
         'name' => 'setName',
-        'type' => 'setType',
-        'verification_conf_id' => 'setVerificationConfId',
-        'verification_exemption_time' => 'setVerificationExemptionTime',
-        'verification_failed_action' => 'setVerificationFailedAction'
+        'private_egress_id' => 'setPrivateEgressId',
+        'rule_id' => 'setRuleId',
+        'source_ids' => 'setSourceIds',
+        'source_type' => 'setSourceType',
+        'space_network_id' => 'setSpaceNetworkId',
+        'status' => 'setStatus',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -117,15 +125,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'acc_rule_id_list' => 'getAccRuleIdList',
-        'action' => 'getAction',
+        'create_time' => 'getCreateTime',
         'description' => 'getDescription',
-        'enable' => 'getEnable',
+        'domains' => 'getDomains',
         'name' => 'getName',
-        'type' => 'getType',
-        'verification_conf_id' => 'getVerificationConfId',
-        'verification_exemption_time' => 'getVerificationExemptionTime',
-        'verification_failed_action' => 'getVerificationFailedAction'
+        'private_egress_id' => 'getPrivateEgressId',
+        'rule_id' => 'getRuleId',
+        'source_ids' => 'getSourceIds',
+        'source_type' => 'getSourceType',
+        'space_network_id' => 'getSpaceNetworkId',
+        'status' => 'getStatus',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -188,15 +198,17 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['acc_rule_id_list'] = isset($data['acc_rule_id_list']) ? $data['acc_rule_id_list'] : null;
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['verification_conf_id'] = isset($data['verification_conf_id']) ? $data['verification_conf_id'] : null;
-        $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
-        $this->container['verification_failed_action'] = isset($data['verification_failed_action']) ? $data['verification_failed_action'] : null;
+        $this->container['private_egress_id'] = isset($data['private_egress_id']) ? $data['private_egress_id'] : null;
+        $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
+        $this->container['source_ids'] = isset($data['source_ids']) ? $data['source_ids'] : null;
+        $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
+        $this->container['space_network_id'] = isset($data['space_network_id']) ? $data['space_network_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -224,49 +236,25 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets acc_rule_id_list
-     *
-     * @return int[]
-     */
-    public function getAccRuleIdList()
-    {
-        return $this->container['acc_rule_id_list'];
-    }
-
-    /**
-     * Sets acc_rule_id_list
-     *
-     * @param int[] $acc_rule_id_list acc_rule_id_list
-     *
-     * @return $this
-     */
-    public function setAccRuleIdList($acc_rule_id_list)
-    {
-        $this->container['acc_rule_id_list'] = $acc_rule_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets action
+     * Gets create_time
      *
      * @return string
      */
-    public function getAction()
+    public function getCreateTime()
     {
-        return $this->container['action'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets action
+     * Sets create_time
      *
-     * @param string $action action
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setCreateTime($create_time)
     {
-        $this->container['action'] = $action;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
@@ -296,25 +284,25 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets enable
+     * Gets domains
      *
-     * @return int
+     * @return string[]
      */
-    public function getEnable()
+    public function getDomains()
     {
-        return $this->container['enable'];
+        return $this->container['domains'];
     }
 
     /**
-     * Sets enable
+     * Sets domains
      *
-     * @param int $enable enable
+     * @param string[] $domains domains
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setDomains($domains)
     {
-        $this->container['enable'] = $enable;
+        $this->container['domains'] = $domains;
 
         return $this;
     }
@@ -344,97 +332,169 @@ class SubRuleForUpdateSystemBotConfigInput implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets type
+     * Gets private_egress_id
      *
      * @return string
      */
-    public function getType()
+    public function getPrivateEgressId()
     {
-        return $this->container['type'];
+        return $this->container['private_egress_id'];
     }
 
     /**
-     * Sets type
+     * Sets private_egress_id
      *
-     * @param string $type type
+     * @param string $private_egress_id private_egress_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setPrivateEgressId($private_egress_id)
     {
-        $this->container['type'] = $type;
+        $this->container['private_egress_id'] = $private_egress_id;
 
         return $this;
     }
 
     /**
-     * Gets verification_conf_id
+     * Gets rule_id
      *
-     * @return int
+     * @return string
      */
-    public function getVerificationConfId()
+    public function getRuleId()
     {
-        return $this->container['verification_conf_id'];
+        return $this->container['rule_id'];
     }
 
     /**
-     * Sets verification_conf_id
+     * Sets rule_id
      *
-     * @param int $verification_conf_id verification_conf_id
+     * @param string $rule_id rule_id
      *
      * @return $this
      */
-    public function setVerificationConfId($verification_conf_id)
+    public function setRuleId($rule_id)
     {
-        $this->container['verification_conf_id'] = $verification_conf_id;
+        $this->container['rule_id'] = $rule_id;
 
         return $this;
     }
 
     /**
-     * Gets verification_exemption_time
+     * Gets source_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getVerificationExemptionTime()
+    public function getSourceIds()
     {
-        return $this->container['verification_exemption_time'];
+        return $this->container['source_ids'];
     }
 
     /**
-     * Sets verification_exemption_time
+     * Sets source_ids
      *
-     * @param int $verification_exemption_time verification_exemption_time
+     * @param string[] $source_ids source_ids
      *
      * @return $this
      */
-    public function setVerificationExemptionTime($verification_exemption_time)
+    public function setSourceIds($source_ids)
     {
-        $this->container['verification_exemption_time'] = $verification_exemption_time;
+        $this->container['source_ids'] = $source_ids;
 
         return $this;
     }
 
     /**
-     * Gets verification_failed_action
+     * Gets source_type
      *
-     * @return int
+     * @return string
      */
-    public function getVerificationFailedAction()
+    public function getSourceType()
     {
-        return $this->container['verification_failed_action'];
+        return $this->container['source_type'];
     }
 
     /**
-     * Sets verification_failed_action
+     * Sets source_type
      *
-     * @param int $verification_failed_action verification_failed_action
+     * @param string $source_type source_type
      *
      * @return $this
      */
-    public function setVerificationFailedAction($verification_failed_action)
+    public function setSourceType($source_type)
     {
-        $this->container['verification_failed_action'] = $verification_failed_action;
+        $this->container['source_type'] = $source_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_network_id
+     *
+     * @return string
+     */
+    public function getSpaceNetworkId()
+    {
+        return $this->container['space_network_id'];
+    }
+
+    /**
+     * Sets space_network_id
+     *
+     * @param string $space_network_id space_network_id
+     *
+     * @return $this
+     */
+    public function setSpaceNetworkId($space_network_id)
+    {
+        $this->container['space_network_id'] = $space_network_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

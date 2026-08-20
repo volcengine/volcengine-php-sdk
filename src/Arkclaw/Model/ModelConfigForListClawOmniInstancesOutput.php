@@ -129,6 +129,10 @@ class ModelConfigForListClawOmniInstancesOutput implements ModelInterface, Array
         return self::$getters;
     }
 
+    
+
+    
+
     /**
      * Associative array for storing property values
      *
@@ -318,3 +322,4 @@ class ModelConfigForListClawOmniInstancesOutput implements ModelInterface, Array
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

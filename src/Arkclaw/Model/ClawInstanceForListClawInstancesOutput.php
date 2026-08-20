@@ -329,6 +329,10 @@ class ClawInstanceForListClawInstancesOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
+    
+
+    
+
     /**
      * Associative array for storing property values
      *
@@ -1518,3 +1522,4 @@ class ClawInstanceForListClawInstancesOutput implements ModelInterface, ArrayAcc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

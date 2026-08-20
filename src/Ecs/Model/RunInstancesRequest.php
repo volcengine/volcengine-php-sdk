@@ -802,6 +802,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         return $this;
     }
 
+
     /**
      * Gets hostname
      *
@@ -1571,3 +1572,4 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

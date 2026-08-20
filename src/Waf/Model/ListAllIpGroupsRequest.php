@@ -29,6 +29,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ip' => 'string',
+        'ip_group_id' => 'int',
+        'ip_group_ids' => 'int[]',
         'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -43,6 +45,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ip' => null,
+        'ip_group_id' => 'int32',
+        'ip_group_ids' => 'int32',
         'page' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
@@ -78,6 +82,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'ip' => 'Ip',
+        'ip_group_id' => 'IpGroupId',
+        'ip_group_ids' => 'IpGroupIds',
         'page' => 'Page',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -92,6 +98,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'ip' => 'setIp',
+        'ip_group_id' => 'setIpGroupId',
+        'ip_group_ids' => 'setIpGroupIds',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -106,6 +114,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'ip' => 'getIp',
+        'ip_group_id' => 'getIpGroupId',
+        'ip_group_ids' => 'getIpGroupIds',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -174,6 +184,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
+        $this->container['ip_group_ids'] = isset($data['ip_group_ids']) ? $data['ip_group_ids'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -228,6 +240,54 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
     public function setIp($ip)
     {
         $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_group_id
+     *
+     * @return int
+     */
+    public function getIpGroupId()
+    {
+        return $this->container['ip_group_id'];
+    }
+
+    /**
+     * Sets ip_group_id
+     *
+     * @param int $ip_group_id ip_group_id
+     *
+     * @return $this
+     */
+    public function setIpGroupId($ip_group_id)
+    {
+        $this->container['ip_group_id'] = $ip_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_group_ids
+     *
+     * @return int[]
+     */
+    public function getIpGroupIds()
+    {
+        return $this->container['ip_group_ids'];
+    }
+
+    /**
+     * Sets ip_group_ids
+     *
+     * @param int[] $ip_group_ids ip_group_ids
+     *
+     * @return $this
+     */
+    public function setIpGroupIds($ip_group_ids)
+    {
+        $this->container['ip_group_ids'] = $ip_group_ids;
 
         return $this;
     }

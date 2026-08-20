@@ -129,6 +129,10 @@ class ModelConfigForGetClawOmniInstanceOutput implements ModelInterface, ArrayAc
         return self::$getters;
     }
 
+    
+
+    
+
     /**
      * Associative array for storing property values
      *
@@ -318,3 +322,4 @@ class ModelConfigForGetClawOmniInstanceOutput implements ModelInterface, ArrayAc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
