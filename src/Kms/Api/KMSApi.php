@@ -936,6 +936,68 @@ class KMSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createKmsInstance($body = null)
+    {
+        list($response) = $this->createKmsInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createKmsInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\CreateKmsInstanceResponse';
+        $request = $this->createKmsInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createKmsInstanceAsync($body = null)
+    {
+        return $this->createKmsInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createKmsInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\CreateKmsInstanceResponse';
+        $request = $this->createKmsInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createKmsInstanceRequest($body)
+    {
+        $resourcePath = '/CreateKmsInstance/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createSecret($body = null)
     {
         list($response) = $this->createSecretWithHttpInfo($body);
@@ -970,6 +1032,68 @@ class KMSApi
     protected function createSecretRequest($body)
     {
         $resourcePath = '/CreateSecret/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createSecretInstance($body = null)
+    {
+        list($response) = $this->createSecretInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createSecretInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\CreateSecretInstanceResponse';
+        $request = $this->createSecretInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createSecretInstanceAsync($body = null)
+    {
+        return $this->createSecretInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createSecretInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\CreateSecretInstanceResponse';
+        $request = $this->createSecretInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createSecretInstanceRequest($body)
+    {
+        $resourcePath = '/CreateSecretInstance/2021-02-18/kms/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1556,6 +1680,68 @@ class KMSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeKmsInstances($body = null)
+    {
+        list($response) = $this->describeKmsInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeKmsInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DescribeKmsInstancesResponse';
+        $request = $this->describeKmsInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeKmsInstancesAsync($body = null)
+    {
+        return $this->describeKmsInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeKmsInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DescribeKmsInstancesResponse';
+        $request = $this->describeKmsInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeKmsInstancesRequest($body)
+    {
+        $resourcePath = '/DescribeKmsInstances/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeRegions($body = null)
     {
         list($response) = $this->describeRegionsWithHttpInfo($body);
@@ -1652,6 +1838,68 @@ class KMSApi
     protected function describeSecretRequest($body)
     {
         $resourcePath = '/DescribeSecret/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeSecretInstances($body = null)
+    {
+        list($response) = $this->describeSecretInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeSecretInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DescribeSecretInstancesResponse';
+        $request = $this->describeSecretInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeSecretInstancesAsync($body = null)
+    {
+        return $this->describeSecretInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeSecretInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DescribeSecretInstancesResponse';
+        $request = $this->describeSecretInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeSecretInstancesRequest($body)
+    {
+        $resourcePath = '/DescribeSecretInstances/2021-02-18/kms/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2582,6 +2830,130 @@ class KMSApi
     protected function listTagsForResourcesRequest($body)
     {
         $resourcePath = '/ListTagsForResources/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyKmsInstanceSpec($body = null)
+    {
+        list($response) = $this->modifyKmsInstanceSpecWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyKmsInstanceSpecWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\ModifyKmsInstanceSpecResponse';
+        $request = $this->modifyKmsInstanceSpecRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyKmsInstanceSpecAsync($body = null)
+    {
+        return $this->modifyKmsInstanceSpecAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyKmsInstanceSpecAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\ModifyKmsInstanceSpecResponse';
+        $request = $this->modifyKmsInstanceSpecRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyKmsInstanceSpecRequest($body)
+    {
+        $resourcePath = '/ModifyKmsInstanceSpec/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifySecretInstanceSpec($body = null)
+    {
+        list($response) = $this->modifySecretInstanceSpecWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifySecretInstanceSpecWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\ModifySecretInstanceSpecResponse';
+        $request = $this->modifySecretInstanceSpecRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifySecretInstanceSpecAsync($body = null)
+    {
+        return $this->modifySecretInstanceSpecAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifySecretInstanceSpecAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\ModifySecretInstanceSpecResponse';
+        $request = $this->modifySecretInstanceSpecRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifySecretInstanceSpecRequest($body)
+    {
+        $resourcePath = '/ModifySecretInstanceSpec/2021-02-18/kms/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

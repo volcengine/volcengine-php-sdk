@@ -1,0 +1,13 @@
+{
+  "actions": [
+    "CreateKmsInstance",
+    "CreateSecretInstance",
+    "DescribeKmsInstances",
+    "DescribeSecretInstances",
+    "ModifyKmsInstanceSpec",
+    "ModifySecretInstanceSpec"
+  ],
+  "description": "KMS: 新增 CreateKmsInstance, CreateSecretInstance, DescribeKmsInstances, DescribeSecretInstances, ModifyKmsInstanceSpec, ModifySecretInstanceSpec",
+  "modules": "service/kms",
+  "type": "feature"
+}
