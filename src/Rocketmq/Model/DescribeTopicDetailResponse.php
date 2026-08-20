@@ -33,6 +33,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_region' => 'string',
+        'lite_topic_ttl_minutes' => 'int',
         'message_type' => 'string',
         'service_status' => 'string',
         'topic_name' => 'string',
@@ -50,6 +51,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         'instance_id' => null,
         'instance_name' => null,
         'instance_region' => null,
+        'lite_topic_ttl_minutes' => 'int32',
         'message_type' => null,
         'service_status' => null,
         'topic_name' => null,
@@ -88,6 +90,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_region' => 'InstanceRegion',
+        'lite_topic_ttl_minutes' => 'LiteTopicTTLMinutes',
         'message_type' => 'MessageType',
         'service_status' => 'ServiceStatus',
         'topic_name' => 'TopicName',
@@ -105,6 +108,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_region' => 'setInstanceRegion',
+        'lite_topic_ttl_minutes' => 'setLiteTopicTtlMinutes',
         'message_type' => 'setMessageType',
         'service_status' => 'setServiceStatus',
         'topic_name' => 'setTopicName',
@@ -122,6 +126,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_region' => 'getInstanceRegion',
+        'lite_topic_ttl_minutes' => 'getLiteTopicTtlMinutes',
         'message_type' => 'getMessageType',
         'service_status' => 'getServiceStatus',
         'topic_name' => 'getTopicName',
@@ -193,6 +198,7 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_region'] = isset($data['instance_region']) ? $data['instance_region'] : null;
+        $this->container['lite_topic_ttl_minutes'] = isset($data['lite_topic_ttl_minutes']) ? $data['lite_topic_ttl_minutes'] : null;
         $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
         $this->container['service_status'] = isset($data['service_status']) ? $data['service_status'] : null;
         $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
@@ -339,6 +345,30 @@ class DescribeTopicDetailResponse implements ModelInterface, ArrayAccess
     public function setInstanceRegion($instance_region)
     {
         $this->container['instance_region'] = $instance_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets lite_topic_ttl_minutes
+     *
+     * @return int
+     */
+    public function getLiteTopicTtlMinutes()
+    {
+        return $this->container['lite_topic_ttl_minutes'];
+    }
+
+    /**
+     * Sets lite_topic_ttl_minutes
+     *
+     * @param int $lite_topic_ttl_minutes lite_topic_ttl_minutes
+     *
+     * @return $this
+     */
+    public function setLiteTopicTtlMinutes($lite_topic_ttl_minutes)
+    {
+        $this->container['lite_topic_ttl_minutes'] = $lite_topic_ttl_minutes;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
+class UpdateGroupResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeInstanceDetailResponse';
+    protected static $swaggerModelName = 'UpdateGroupResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'basic_info' => '\Volcengine\Rocketmq\Model\BasicInfoForDescribeInstanceDetailOutput',
-        'charge_detail' => '\Volcengine\Rocketmq\Model\ChargeDetailForDescribeInstanceDetailOutput',
-        'connection_info' => '\Volcengine\Rocketmq\Model\ConnectionInfoForDescribeInstanceDetailOutput[]',
-        'file_reserved_time' => 'int',
-        'quota_objects' => '\Volcengine\Rocketmq\Model\QuotaObjectForDescribeInstanceDetailOutput[]'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'basic_info' => null,
-        'charge_detail' => null,
-        'connection_info' => null,
-        'file_reserved_time' => 'int32',
-        'quota_objects' => null
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'basic_info' => 'BasicInfo',
-        'charge_detail' => 'ChargeDetail',
-        'connection_info' => 'ConnectionInfo',
-        'file_reserved_time' => 'FileReservedTime',
-        'quota_objects' => 'QuotaObjects'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'basic_info' => 'setBasicInfo',
-        'charge_detail' => 'setChargeDetail',
-        'connection_info' => 'setConnectionInfo',
-        'file_reserved_time' => 'setFileReservedTime',
-        'quota_objects' => 'setQuotaObjects'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'basic_info' => 'getBasicInfo',
-        'charge_detail' => 'getChargeDetail',
-        'connection_info' => 'getConnectionInfo',
-        'file_reserved_time' => 'getFileReservedTime',
-        'quota_objects' => 'getQuotaObjects'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['basic_info'] = isset($data['basic_info']) ? $data['basic_info'] : null;
-        $this->container['charge_detail'] = isset($data['charge_detail']) ? $data['charge_detail'] : null;
-        $this->container['connection_info'] = isset($data['connection_info']) ? $data['connection_info'] : null;
-        $this->container['file_reserved_time'] = isset($data['file_reserved_time']) ? $data['file_reserved_time'] : null;
-        $this->container['quota_objects'] = isset($data['quota_objects']) ? $data['quota_objects'] : null;
     }
 
     /**
@@ -198,126 +173,6 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets basic_info
-     *
-     * @return \Volcengine\Rocketmq\Model\BasicInfoForDescribeInstanceDetailOutput
-     */
-    public function getBasicInfo()
-    {
-        return $this->container['basic_info'];
-    }
-
-    /**
-     * Sets basic_info
-     *
-     * @param \Volcengine\Rocketmq\Model\BasicInfoForDescribeInstanceDetailOutput $basic_info basic_info
-     *
-     * @return $this
-     */
-    public function setBasicInfo($basic_info)
-    {
-        $this->container['basic_info'] = $basic_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets charge_detail
-     *
-     * @return \Volcengine\Rocketmq\Model\ChargeDetailForDescribeInstanceDetailOutput
-     */
-    public function getChargeDetail()
-    {
-        return $this->container['charge_detail'];
-    }
-
-    /**
-     * Sets charge_detail
-     *
-     * @param \Volcengine\Rocketmq\Model\ChargeDetailForDescribeInstanceDetailOutput $charge_detail charge_detail
-     *
-     * @return $this
-     */
-    public function setChargeDetail($charge_detail)
-    {
-        $this->container['charge_detail'] = $charge_detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets connection_info
-     *
-     * @return \Volcengine\Rocketmq\Model\ConnectionInfoForDescribeInstanceDetailOutput[]
-     */
-    public function getConnectionInfo()
-    {
-        return $this->container['connection_info'];
-    }
-
-    /**
-     * Sets connection_info
-     *
-     * @param \Volcengine\Rocketmq\Model\ConnectionInfoForDescribeInstanceDetailOutput[] $connection_info connection_info
-     *
-     * @return $this
-     */
-    public function setConnectionInfo($connection_info)
-    {
-        $this->container['connection_info'] = $connection_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_reserved_time
-     *
-     * @return int
-     */
-    public function getFileReservedTime()
-    {
-        return $this->container['file_reserved_time'];
-    }
-
-    /**
-     * Sets file_reserved_time
-     *
-     * @param int $file_reserved_time file_reserved_time
-     *
-     * @return $this
-     */
-    public function setFileReservedTime($file_reserved_time)
-    {
-        $this->container['file_reserved_time'] = $file_reserved_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets quota_objects
-     *
-     * @return \Volcengine\Rocketmq\Model\QuotaObjectForDescribeInstanceDetailOutput[]
-     */
-    public function getQuotaObjects()
-    {
-        return $this->container['quota_objects'];
-    }
-
-    /**
-     * Sets quota_objects
-     *
-     * @param \Volcengine\Rocketmq\Model\QuotaObjectForDescribeInstanceDetailOutput[] $quota_objects quota_objects
-     *
-     * @return $this
-     */
-    public function setQuotaObjects($quota_objects)
-    {
-        $this->container['quota_objects'] = $quota_objects;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

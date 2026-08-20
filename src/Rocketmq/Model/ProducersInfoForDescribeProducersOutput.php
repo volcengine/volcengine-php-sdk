@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
+class ProducersInfoForDescribeProducersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryMessageByTimestampRequest';
+    protected static $swaggerModelName = 'ProducersInfoForDescribeProducersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'lite_topic' => 'string',
-        'page_number' => 'int',
-        'query_end_timestamp' => 'string',
-        'query_start_timestamp' => 'string',
-        'topic_name' => 'string'
+        'client_address' => 'string',
+        'client_id' => 'string',
+        'language' => 'string',
+        'producer_group' => 'string',
+        'version' => 'string'
     ];
 
     /**
@@ -42,12 +41,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'lite_topic' => null,
-        'page_number' => 'int32',
-        'query_end_timestamp' => null,
-        'query_start_timestamp' => null,
-        'topic_name' => null
+        'client_address' => null,
+        'client_id' => null,
+        'language' => null,
+        'producer_group' => null,
+        'version' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'lite_topic' => 'LiteTopic',
-        'page_number' => 'PageNumber',
-        'query_end_timestamp' => 'QueryEndTimestamp',
-        'query_start_timestamp' => 'QueryStartTimestamp',
-        'topic_name' => 'TopicName'
+        'client_address' => 'ClientAddress',
+        'client_id' => 'ClientId',
+        'language' => 'Language',
+        'producer_group' => 'ProducerGroup',
+        'version' => 'Version'
     ];
 
     /**
@@ -91,12 +88,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'lite_topic' => 'setLiteTopic',
-        'page_number' => 'setPageNumber',
-        'query_end_timestamp' => 'setQueryEndTimestamp',
-        'query_start_timestamp' => 'setQueryStartTimestamp',
-        'topic_name' => 'setTopicName'
+        'client_address' => 'setClientAddress',
+        'client_id' => 'setClientId',
+        'language' => 'setLanguage',
+        'producer_group' => 'setProducerGroup',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -105,12 +101,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'lite_topic' => 'getLiteTopic',
-        'page_number' => 'getPageNumber',
-        'query_end_timestamp' => 'getQueryEndTimestamp',
-        'query_start_timestamp' => 'getQueryStartTimestamp',
-        'topic_name' => 'getTopicName'
+        'client_address' => 'getClientAddress',
+        'client_id' => 'getClientId',
+        'language' => 'getLanguage',
+        'producer_group' => 'getProducerGroup',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -173,12 +168,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['query_end_timestamp'] = isset($data['query_end_timestamp']) ? $data['query_end_timestamp'] : null;
-        $this->container['query_start_timestamp'] = isset($data['query_start_timestamp']) ? $data['query_start_timestamp'] : null;
-        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
+        $this->container['client_address'] = isset($data['client_address']) ? $data['client_address'] : null;
+        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['producer_group'] = isset($data['producer_group']) ? $data['producer_group'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -190,21 +184,6 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['query_end_timestamp'] === null) {
-            $invalidProperties[] = "'query_end_timestamp' can't be null";
-        }
-        if ($this->container['query_start_timestamp'] === null) {
-            $invalidProperties[] = "'query_start_timestamp' can't be null";
-        }
-        if ($this->container['topic_name'] === null) {
-            $invalidProperties[] = "'topic_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,145 +200,121 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets client_address
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getClientAddress()
     {
-        return $this->container['instance_id'];
+        return $this->container['client_address'];
     }
 
     /**
-     * Sets instance_id
+     * Sets client_address
      *
-     * @param string $instance_id instance_id
+     * @param string $client_address client_address
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setClientAddress($client_address)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['client_address'] = $client_address;
 
         return $this;
     }
 
     /**
-     * Gets lite_topic
+     * Gets client_id
      *
      * @return string
      */
-    public function getLiteTopic()
+    public function getClientId()
     {
-        return $this->container['lite_topic'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets lite_topic
+     * Sets client_id
      *
-     * @param string $lite_topic lite_topic
+     * @param string $client_id client_id
      *
      * @return $this
      */
-    public function setLiteTopic($lite_topic)
+    public function setClientId($client_id)
     {
-        $this->container['lite_topic'] = $lite_topic;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets language
      *
-     * @return int
+     * @return string
      */
-    public function getPageNumber()
+    public function getLanguage()
     {
-        return $this->container['page_number'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets page_number
+     * Sets language
      *
-     * @param int $page_number page_number
+     * @param string $language language
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setLanguage($language)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['language'] = $language;
 
         return $this;
     }
 
     /**
-     * Gets query_end_timestamp
+     * Gets producer_group
      *
      * @return string
      */
-    public function getQueryEndTimestamp()
+    public function getProducerGroup()
     {
-        return $this->container['query_end_timestamp'];
+        return $this->container['producer_group'];
     }
 
     /**
-     * Sets query_end_timestamp
+     * Sets producer_group
      *
-     * @param string $query_end_timestamp query_end_timestamp
+     * @param string $producer_group producer_group
      *
      * @return $this
      */
-    public function setQueryEndTimestamp($query_end_timestamp)
+    public function setProducerGroup($producer_group)
     {
-        $this->container['query_end_timestamp'] = $query_end_timestamp;
+        $this->container['producer_group'] = $producer_group;
 
         return $this;
     }
 
     /**
-     * Gets query_start_timestamp
+     * Gets version
      *
      * @return string
      */
-    public function getQueryStartTimestamp()
+    public function getVersion()
     {
-        return $this->container['query_start_timestamp'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets query_start_timestamp
+     * Sets version
      *
-     * @param string $query_start_timestamp query_start_timestamp
+     * @param string $version version
      *
      * @return $this
      */
-    public function setQueryStartTimestamp($query_start_timestamp)
+    public function setVersion($version)
     {
-        $this->container['query_start_timestamp'] = $query_start_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets topic_name
-     *
-     * @return string
-     */
-    public function getTopicName()
-    {
-        return $this->container['topic_name'];
-    }
-
-    /**
-     * Sets topic_name
-     *
-     * @param string $topic_name topic_name
-     *
-     * @return $this
-     */
-    public function setTopicName($topic_name)
-    {
-        $this->container['topic_name'] = $topic_name;
+        $this->container['version'] = $version;
 
         return $this;
     }
