@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
+class CronConfForCreateBotAnalyseProtectRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAllIpGroupsRequest';
+    protected static $swaggerModelName = 'CronConfForCreateBotAnalyseProtectRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ip' => 'string',
-        'ip_group_id' => 'int',
-        'ip_group_ids' => 'int[]',
-        'page' => 'int',
-        'page_size' => 'int',
-        'project_name' => 'string',
-        'rule_tag' => 'string',
-        'time_order_by' => 'string'
+        'crontab' => 'string',
+        'path_threshold' => 'int',
+        'single_threshold' => 'int'
     ];
 
     /**
@@ -44,14 +39,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ip' => null,
-        'ip_group_id' => 'int32',
-        'ip_group_ids' => 'int32',
-        'page' => 'int32',
-        'page_size' => 'int32',
-        'project_name' => null,
-        'rule_tag' => null,
-        'time_order_by' => null
+        'crontab' => null,
+        'path_threshold' => 'int32',
+        'single_threshold' => 'int32'
     ];
 
     /**
@@ -81,14 +71,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ip' => 'Ip',
-        'ip_group_id' => 'IpGroupId',
-        'ip_group_ids' => 'IpGroupIds',
-        'page' => 'Page',
-        'page_size' => 'PageSize',
-        'project_name' => 'ProjectName',
-        'rule_tag' => 'RuleTag',
-        'time_order_by' => 'TimeOrderBy'
+        'crontab' => 'Crontab',
+        'path_threshold' => 'PathThreshold',
+        'single_threshold' => 'SingleThreshold'
     ];
 
     /**
@@ -97,14 +82,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ip' => 'setIp',
-        'ip_group_id' => 'setIpGroupId',
-        'ip_group_ids' => 'setIpGroupIds',
-        'page' => 'setPage',
-        'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName',
-        'rule_tag' => 'setRuleTag',
-        'time_order_by' => 'setTimeOrderBy'
+        'crontab' => 'setCrontab',
+        'path_threshold' => 'setPathThreshold',
+        'single_threshold' => 'setSingleThreshold'
     ];
 
     /**
@@ -113,14 +93,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ip' => 'getIp',
-        'ip_group_id' => 'getIpGroupId',
-        'ip_group_ids' => 'getIpGroupIds',
-        'page' => 'getPage',
-        'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName',
-        'rule_tag' => 'getRuleTag',
-        'time_order_by' => 'getTimeOrderBy'
+        'crontab' => 'getCrontab',
+        'path_threshold' => 'getPathThreshold',
+        'single_threshold' => 'getSingleThreshold'
     ];
 
     /**
@@ -183,14 +158,9 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
-        $this->container['ip_group_ids'] = isset($data['ip_group_ids']) ? $data['ip_group_ids'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
-        $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
+        $this->container['crontab'] = isset($data['crontab']) ? $data['crontab'] : null;
+        $this->container['path_threshold'] = isset($data['path_threshold']) ? $data['path_threshold'] : null;
+        $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
     }
 
     /**
@@ -202,9 +172,6 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['time_order_by'] === null) {
-            $invalidProperties[] = "'time_order_by' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,193 +188,73 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ip
+     * Gets crontab
      *
      * @return string
      */
-    public function getIp()
+    public function getCrontab()
     {
-        return $this->container['ip'];
+        return $this->container['crontab'];
     }
 
     /**
-     * Sets ip
+     * Sets crontab
      *
-     * @param string $ip ip
+     * @param string $crontab crontab
      *
      * @return $this
      */
-    public function setIp($ip)
+    public function setCrontab($crontab)
     {
-        $this->container['ip'] = $ip;
+        $this->container['crontab'] = $crontab;
 
         return $this;
     }
 
     /**
-     * Gets ip_group_id
+     * Gets path_threshold
      *
      * @return int
      */
-    public function getIpGroupId()
+    public function getPathThreshold()
     {
-        return $this->container['ip_group_id'];
+        return $this->container['path_threshold'];
     }
 
     /**
-     * Sets ip_group_id
+     * Sets path_threshold
      *
-     * @param int $ip_group_id ip_group_id
+     * @param int $path_threshold path_threshold
      *
      * @return $this
      */
-    public function setIpGroupId($ip_group_id)
+    public function setPathThreshold($path_threshold)
     {
-        $this->container['ip_group_id'] = $ip_group_id;
+        $this->container['path_threshold'] = $path_threshold;
 
         return $this;
     }
 
     /**
-     * Gets ip_group_ids
-     *
-     * @return int[]
-     */
-    public function getIpGroupIds()
-    {
-        return $this->container['ip_group_ids'];
-    }
-
-    /**
-     * Sets ip_group_ids
-     *
-     * @param int[] $ip_group_ids ip_group_ids
-     *
-     * @return $this
-     */
-    public function setIpGroupIds($ip_group_ids)
-    {
-        $this->container['ip_group_ids'] = $ip_group_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets page
+     * Gets single_threshold
      *
      * @return int
      */
-    public function getPage()
+    public function getSingleThreshold()
     {
-        return $this->container['page'];
+        return $this->container['single_threshold'];
     }
 
     /**
-     * Sets page
+     * Sets single_threshold
      *
-     * @param int $page page
+     * @param int $single_threshold single_threshold
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setSingleThreshold($single_threshold)
     {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_tag
-     *
-     * @return string
-     */
-    public function getRuleTag()
-    {
-        return $this->container['rule_tag'];
-    }
-
-    /**
-     * Sets rule_tag
-     *
-     * @param string $rule_tag rule_tag
-     *
-     * @return $this
-     */
-    public function setRuleTag($rule_tag)
-    {
-        $this->container['rule_tag'] = $rule_tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_order_by
-     *
-     * @return string
-     */
-    public function getTimeOrderBy()
-    {
-        return $this->container['time_order_by'];
-    }
-
-    /**
-     * Sets time_order_by
-     *
-     * @param string $time_order_by time_order_by
-     *
-     * @return $this
-     */
-    public function setTimeOrderBy($time_order_by)
-    {
-        $this->container['time_order_by'] = $time_order_by;
+        $this->container['single_threshold'] = $single_threshold;
 
         return $this;
     }

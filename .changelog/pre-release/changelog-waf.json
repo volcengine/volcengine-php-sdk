@@ -1,0 +1,12 @@
+{
+  "actions": [
+    "UpdateSystemBotConfig",
+    "CreateBotAnalyseProtectRule",
+    "ListAllIpGroups",
+    "ListCustomBotConfig",
+    "UpdateBotAnalyseProtectRule"
+  ],
+  "description": "WAF: 修改 UpdateSystemBotConfig, CreateBotAnalyseProtectRule, ListAllIpGroups, ListCustomBotConfig, UpdateBotAnalyseProtectRule",
+  "modules": "service/waf",
+  "type": "breaking-change"
+}
