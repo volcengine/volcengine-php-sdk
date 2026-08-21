@@ -55,6 +55,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         'state' => 'string',
         'type' => 'string',
         'vuln_affect_version' => 'string',
+        'vuln_name' => 'string',
+        'vuln_name_en' => 'string',
         'workload_id' => 'string',
         'workload_name' => 'string'
     ];
@@ -92,6 +94,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         'state' => null,
         'type' => null,
         'vuln_affect_version' => null,
+        'vuln_name' => null,
+        'vuln_name_en' => null,
         'workload_id' => null,
         'workload_name' => null
     ];
@@ -150,6 +154,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         'state' => 'State',
         'type' => 'Type',
         'vuln_affect_version' => 'VulnAffectVersion',
+        'vuln_name' => 'VulnName',
+        'vuln_name_en' => 'VulnNameEn',
         'workload_id' => 'WorkloadID',
         'workload_name' => 'WorkloadName'
     ];
@@ -187,6 +193,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'type' => 'setType',
         'vuln_affect_version' => 'setVulnAffectVersion',
+        'vuln_name' => 'setVulnName',
+        'vuln_name_en' => 'setVulnNameEn',
         'workload_id' => 'setWorkloadId',
         'workload_name' => 'setWorkloadName'
     ];
@@ -224,6 +232,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'type' => 'getType',
         'vuln_affect_version' => 'getVulnAffectVersion',
+        'vuln_name' => 'getVulnName',
+        'vuln_name_en' => 'getVulnNameEn',
         'workload_id' => 'getWorkloadId',
         'workload_name' => 'getWorkloadName'
     ];
@@ -315,6 +325,8 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vuln_affect_version'] = isset($data['vuln_affect_version']) ? $data['vuln_affect_version'] : null;
+        $this->container['vuln_name'] = isset($data['vuln_name']) ? $data['vuln_name'] : null;
+        $this->container['vuln_name_en'] = isset($data['vuln_name_en']) ? $data['vuln_name_en'] : null;
         $this->container['workload_id'] = isset($data['workload_id']) ? $data['workload_id'] : null;
         $this->container['workload_name'] = isset($data['workload_name']) ? $data['workload_name'] : null;
     }
@@ -987,6 +999,54 @@ class AffectForGetAISessionVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setVulnAffectVersion($vuln_affect_version)
     {
         $this->container['vuln_affect_version'] = $vuln_affect_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets vuln_name
+     *
+     * @return string
+     */
+    public function getVulnName()
+    {
+        return $this->container['vuln_name'];
+    }
+
+    /**
+     * Sets vuln_name
+     *
+     * @param string $vuln_name vuln_name
+     *
+     * @return $this
+     */
+    public function setVulnName($vuln_name)
+    {
+        $this->container['vuln_name'] = $vuln_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vuln_name_en
+     *
+     * @return string
+     */
+    public function getVulnNameEn()
+    {
+        return $this->container['vuln_name_en'];
+    }
+
+    /**
+     * Sets vuln_name_en
+     *
+     * @param string $vuln_name_en vuln_name_en
+     *
+     * @return $this
+     */
+    public function setVulnNameEn($vuln_name_en)
+    {
+        $this->container['vuln_name_en'] = $vuln_name_en;
 
         return $this;
     }

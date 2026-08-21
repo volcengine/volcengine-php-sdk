@@ -28,6 +28,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'addon_json_config' => 'string',
         'config_type' => 'string',
         'varmor_simple_config' => '\Volcengine\Seccenter20240508\Model\VarmorSimpleConfigForListClustersAndVarmorAppsOutput',
         'yaml_config' => 'string'
@@ -39,6 +40,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'addon_json_config' => null,
         'config_type' => null,
         'varmor_simple_config' => null,
         'yaml_config' => null
@@ -71,6 +73,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'addon_json_config' => 'AddonJsonConfig',
         'config_type' => 'ConfigType',
         'varmor_simple_config' => 'VarmorSimpleConfig',
         'yaml_config' => 'YAMLConfig'
@@ -82,6 +85,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
+        'addon_json_config' => 'setAddonJsonConfig',
         'config_type' => 'setConfigType',
         'varmor_simple_config' => 'setVarmorSimpleConfig',
         'yaml_config' => 'setYamlConfig'
@@ -93,6 +97,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
+        'addon_json_config' => 'getAddonJsonConfig',
         'config_type' => 'getConfigType',
         'varmor_simple_config' => 'getVarmorSimpleConfig',
         'yaml_config' => 'getYamlConfig'
@@ -158,6 +163,7 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
+        $this->container['addon_json_config'] = isset($data['addon_json_config']) ? $data['addon_json_config'] : null;
         $this->container['config_type'] = isset($data['config_type']) ? $data['config_type'] : null;
         $this->container['varmor_simple_config'] = isset($data['varmor_simple_config']) ? $data['varmor_simple_config'] : null;
         $this->container['yaml_config'] = isset($data['yaml_config']) ? $data['yaml_config'] : null;
@@ -186,6 +192,30 @@ class VarmorConfigForListClustersAndVarmorAppsOutput implements ModelInterface, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets addon_json_config
+     *
+     * @return string
+     */
+    public function getAddonJsonConfig()
+    {
+        return $this->container['addon_json_config'];
+    }
+
+    /**
+     * Sets addon_json_config
+     *
+     * @param string $addon_json_config addon_json_config
+     *
+     * @return $this
+     */
+    public function setAddonJsonConfig($addon_json_config)
+    {
+        $this->container['addon_json_config'] = $addon_json_config;
+
+        return $this;
+    }
 
     /**
      * Gets config_type

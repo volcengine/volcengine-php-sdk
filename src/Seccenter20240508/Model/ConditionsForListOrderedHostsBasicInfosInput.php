@@ -32,6 +32,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         'agent_status' => 'string[]',
         'cloud_providers' => 'string[]',
         'hostname' => 'string',
+        'instance_status' => 'string[]',
         'ip' => 'string',
         'leaf_group_ids' => 'string[]',
         'platforms' => 'string[]',
@@ -53,6 +54,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         'agent_status' => null,
         'cloud_providers' => null,
         'hostname' => null,
+        'instance_status' => null,
         'ip' => null,
         'leaf_group_ids' => null,
         'platforms' => null,
@@ -95,6 +97,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         'agent_status' => 'AgentStatus',
         'cloud_providers' => 'CloudProviders',
         'hostname' => 'Hostname',
+        'instance_status' => 'InstanceStatus',
         'ip' => 'Ip',
         'leaf_group_ids' => 'LeafGroupIDs',
         'platforms' => 'Platforms',
@@ -116,6 +119,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         'agent_status' => 'setAgentStatus',
         'cloud_providers' => 'setCloudProviders',
         'hostname' => 'setHostname',
+        'instance_status' => 'setInstanceStatus',
         'ip' => 'setIp',
         'leaf_group_ids' => 'setLeafGroupIds',
         'platforms' => 'setPlatforms',
@@ -137,6 +141,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         'agent_status' => 'getAgentStatus',
         'cloud_providers' => 'getCloudProviders',
         'hostname' => 'getHostname',
+        'instance_status' => 'getInstanceStatus',
         'ip' => 'getIp',
         'leaf_group_ids' => 'getLeafGroupIds',
         'platforms' => 'getPlatforms',
@@ -212,6 +217,7 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
         $this->container['agent_status'] = isset($data['agent_status']) ? $data['agent_status'] : null;
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
@@ -339,6 +345,30 @@ class ConditionsForListOrderedHostsBasicInfosInput implements ModelInterface, Ar
     public function setHostname($hostname)
     {
         $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_status
+     *
+     * @return string[]
+     */
+    public function getInstanceStatus()
+    {
+        return $this->container['instance_status'];
+    }
+
+    /**
+     * Sets instance_status
+     *
+     * @param string[] $instance_status instance_status
+     *
+     * @return $this
+     */
+    public function setInstanceStatus($instance_status)
+    {
+        $this->container['instance_status'] = $instance_status;
 
         return $this;
     }

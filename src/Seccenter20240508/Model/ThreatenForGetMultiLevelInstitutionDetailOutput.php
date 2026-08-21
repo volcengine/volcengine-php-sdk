@@ -20,7 +20,7 @@ class ThreatenForGetMultiLevelInstitutionDetailOutput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'threatenForGetMultiLevelInstitutionDetailOutput';
+    protected static $swaggerModelName = 'ThreatenForGetMultiLevelInstitutionDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

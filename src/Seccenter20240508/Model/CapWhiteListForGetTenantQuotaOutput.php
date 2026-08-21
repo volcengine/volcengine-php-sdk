@@ -32,7 +32,8 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'client_bruteforce_ban_cap' => 'int',
         'collector_v140_cap' => 'int',
         'file_monitor_cap' => 'int',
-        'security_agent_cap' => 'int'
+        'security_agent_cap' => 'int',
+        'user_auto_defense_cap' => 'int'
     ];
 
     /**
@@ -45,7 +46,8 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'client_bruteforce_ban_cap' => 'int64',
         'collector_v140_cap' => 'int64',
         'file_monitor_cap' => 'int64',
-        'security_agent_cap' => 'int64'
+        'security_agent_cap' => 'int64',
+        'user_auto_defense_cap' => 'int64'
     ];
 
     /**
@@ -79,7 +81,8 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'client_bruteforce_ban_cap' => 'ClientBruteforceBanCap',
         'collector_v140_cap' => 'CollectorV140Cap',
         'file_monitor_cap' => 'FileMonitorCap',
-        'security_agent_cap' => 'SecurityAgentCap'
+        'security_agent_cap' => 'SecurityAgentCap',
+        'user_auto_defense_cap' => 'UserAutoDefenseCap'
     ];
 
     /**
@@ -92,7 +95,8 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'client_bruteforce_ban_cap' => 'setClientBruteforceBanCap',
         'collector_v140_cap' => 'setCollectorV140Cap',
         'file_monitor_cap' => 'setFileMonitorCap',
-        'security_agent_cap' => 'setSecurityAgentCap'
+        'security_agent_cap' => 'setSecurityAgentCap',
+        'user_auto_defense_cap' => 'setUserAutoDefenseCap'
     ];
 
     /**
@@ -105,7 +109,8 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'client_bruteforce_ban_cap' => 'getClientBruteforceBanCap',
         'collector_v140_cap' => 'getCollectorV140Cap',
         'file_monitor_cap' => 'getFileMonitorCap',
-        'security_agent_cap' => 'getSecurityAgentCap'
+        'security_agent_cap' => 'getSecurityAgentCap',
+        'user_auto_defense_cap' => 'getUserAutoDefenseCap'
     ];
 
     /**
@@ -173,6 +178,7 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         $this->container['collector_v140_cap'] = isset($data['collector_v140_cap']) ? $data['collector_v140_cap'] : null;
         $this->container['file_monitor_cap'] = isset($data['file_monitor_cap']) ? $data['file_monitor_cap'] : null;
         $this->container['security_agent_cap'] = isset($data['security_agent_cap']) ? $data['security_agent_cap'] : null;
+        $this->container['user_auto_defense_cap'] = isset($data['user_auto_defense_cap']) ? $data['user_auto_defense_cap'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class CapWhiteListForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
     public function setSecurityAgentCap($security_agent_cap)
     {
         $this->container['security_agent_cap'] = $security_agent_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_auto_defense_cap
+     *
+     * @return int
+     */
+    public function getUserAutoDefenseCap()
+    {
+        return $this->container['user_auto_defense_cap'];
+    }
+
+    /**
+     * Sets user_auto_defense_cap
+     *
+     * @param int $user_auto_defense_cap user_auto_defense_cap
+     *
+     * @return $this
+     */
+    public function setUserAutoDefenseCap($user_auto_defense_cap)
+    {
+        $this->container['user_auto_defense_cap'] = $user_auto_defense_cap;
 
         return $this;
     }

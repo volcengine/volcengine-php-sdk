@@ -31,7 +31,9 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         'agent_id' => 'string',
         'alarm_id_list' => 'string[]',
         'files' => '\Volcengine\Seccenter20240508\Model\FileForHandleEndpointAlarmsInput[]',
-        'processes' => '\Volcengine\Seccenter20240508\Model\ProcessForHandleEndpointAlarmsInput[]'
+        'processes' => '\Volcengine\Seccenter20240508\Model\ProcessForHandleEndpointAlarmsInput[]',
+        'span_trace_id' => 'int[]',
+        'span_unique_id' => 'int[]'
     ];
 
     /**
@@ -43,7 +45,9 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         'agent_id' => null,
         'alarm_id_list' => null,
         'files' => null,
-        'processes' => null
+        'processes' => null,
+        'span_trace_id' => 'int64',
+        'span_unique_id' => 'int64'
     ];
 
     /**
@@ -76,7 +80,9 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         'agent_id' => 'AgentID',
         'alarm_id_list' => 'AlarmIDList',
         'files' => 'Files',
-        'processes' => 'Processes'
+        'processes' => 'Processes',
+        'span_trace_id' => 'SpanTraceID',
+        'span_unique_id' => 'SpanUniqueID'
     ];
 
     /**
@@ -88,7 +94,9 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         'agent_id' => 'setAgentId',
         'alarm_id_list' => 'setAlarmIdList',
         'files' => 'setFiles',
-        'processes' => 'setProcesses'
+        'processes' => 'setProcesses',
+        'span_trace_id' => 'setSpanTraceId',
+        'span_unique_id' => 'setSpanUniqueId'
     ];
 
     /**
@@ -100,7 +108,9 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         'agent_id' => 'getAgentId',
         'alarm_id_list' => 'getAlarmIdList',
         'files' => 'getFiles',
-        'processes' => 'getProcesses'
+        'processes' => 'getProcesses',
+        'span_trace_id' => 'getSpanTraceId',
+        'span_unique_id' => 'getSpanUniqueId'
     ];
 
     /**
@@ -167,6 +177,8 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
         $this->container['alarm_id_list'] = isset($data['alarm_id_list']) ? $data['alarm_id_list'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
         $this->container['processes'] = isset($data['processes']) ? $data['processes'] : null;
+        $this->container['span_trace_id'] = isset($data['span_trace_id']) ? $data['span_trace_id'] : null;
+        $this->container['span_unique_id'] = isset($data['span_unique_id']) ? $data['span_unique_id'] : null;
     }
 
     /**
@@ -285,6 +297,54 @@ class HandleListForHandleEndpointAlarmsInput implements ModelInterface, ArrayAcc
     public function setProcesses($processes)
     {
         $this->container['processes'] = $processes;
+
+        return $this;
+    }
+
+    /**
+     * Gets span_trace_id
+     *
+     * @return int[]
+     */
+    public function getSpanTraceId()
+    {
+        return $this->container['span_trace_id'];
+    }
+
+    /**
+     * Sets span_trace_id
+     *
+     * @param int[] $span_trace_id span_trace_id
+     *
+     * @return $this
+     */
+    public function setSpanTraceId($span_trace_id)
+    {
+        $this->container['span_trace_id'] = $span_trace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets span_unique_id
+     *
+     * @return int[]
+     */
+    public function getSpanUniqueId()
+    {
+        return $this->container['span_unique_id'];
+    }
+
+    /**
+     * Sets span_unique_id
+     *
+     * @param int[] $span_unique_id span_unique_id
+     *
+     * @return $this
+     */
+    public function setSpanUniqueId($span_unique_id)
+    {
+        $this->container['span_unique_id'] = $span_unique_id;
 
         return $this;
     }

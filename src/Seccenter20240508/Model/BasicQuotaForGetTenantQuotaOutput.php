@@ -32,6 +32,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'int',
         'need_remove' => 'bool',
         'paid_type' => 'string',
+        'running_used_count' => 'int',
         'total_count' => 'int',
         'used_count' => 'int',
         'version' => 'int'
@@ -47,6 +48,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'int64',
         'need_remove' => null,
         'paid_type' => null,
+        'running_used_count' => 'int64',
         'total_count' => 'int64',
         'used_count' => 'int64',
         'version' => 'int64'
@@ -83,6 +85,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'ExpireTime',
         'need_remove' => 'NeedRemove',
         'paid_type' => 'PaidType',
+        'running_used_count' => 'RunningUsedCount',
         'total_count' => 'TotalCount',
         'used_count' => 'UsedCount',
         'version' => 'Version'
@@ -98,6 +101,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'setExpireTime',
         'need_remove' => 'setNeedRemove',
         'paid_type' => 'setPaidType',
+        'running_used_count' => 'setRunningUsedCount',
         'total_count' => 'setTotalCount',
         'used_count' => 'setUsedCount',
         'version' => 'setVersion'
@@ -113,6 +117,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'getExpireTime',
         'need_remove' => 'getNeedRemove',
         'paid_type' => 'getPaidType',
+        'running_used_count' => 'getRunningUsedCount',
         'total_count' => 'getTotalCount',
         'used_count' => 'getUsedCount',
         'version' => 'getVersion'
@@ -182,6 +187,7 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['need_remove'] = isset($data['need_remove']) ? $data['need_remove'] : null;
         $this->container['paid_type'] = isset($data['paid_type']) ? $data['paid_type'] : null;
+        $this->container['running_used_count'] = isset($data['running_used_count']) ? $data['running_used_count'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -303,6 +309,30 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
     public function setPaidType($paid_type)
     {
         $this->container['paid_type'] = $paid_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets running_used_count
+     *
+     * @return int
+     */
+    public function getRunningUsedCount()
+    {
+        return $this->container['running_used_count'];
+    }
+
+    /**
+     * Sets running_used_count
+     *
+     * @param int $running_used_count running_used_count
+     *
+     * @return $this
+     */
+    public function setRunningUsedCount($running_used_count)
+    {
+        $this->container['running_used_count'] = $running_used_count;
 
         return $this;
     }

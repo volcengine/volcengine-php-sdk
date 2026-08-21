@@ -59,7 +59,12 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'upload_name' => 'string',
         'vuln_name' => 'string',
         'vuln_name_en' => 'string',
-        'cwpp_id' => 'string'
+        'cwpp_id' => 'string',
+        'is_important_vul' => 'string',
+        'is_llm_vul' => 'string',
+        'need_quick_follow' => 'string',
+        'need_rasp' => 'string',
+        'need_varmor' => 'string'
     ];
 
     /**
@@ -99,7 +104,12 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'upload_name' => null,
         'vuln_name' => null,
         'vuln_name_en' => null,
-        'cwpp_id' => null
+        'cwpp_id' => null,
+        'is_important_vul' => null,
+        'is_llm_vul' => null,
+        'need_quick_follow' => null,
+        'need_rasp' => null,
+        'need_varmor' => null
     ];
 
     /**
@@ -160,7 +170,12 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'upload_name' => 'UploadName',
         'vuln_name' => 'VulnName',
         'vuln_name_en' => 'VulnNameEn',
-        'cwpp_id' => 'cwpp_id'
+        'cwpp_id' => 'cwpp_id',
+        'is_important_vul' => 'is_important_vul',
+        'is_llm_vul' => 'is_llm_vul',
+        'need_quick_follow' => 'need_quick_follow',
+        'need_rasp' => 'need_rasp',
+        'need_varmor' => 'need_varmor'
     ];
 
     /**
@@ -200,7 +215,12 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'upload_name' => 'setUploadName',
         'vuln_name' => 'setVulnName',
         'vuln_name_en' => 'setVulnNameEn',
-        'cwpp_id' => 'setCwppId'
+        'cwpp_id' => 'setCwppId',
+        'is_important_vul' => 'setIsImportantVul',
+        'is_llm_vul' => 'setIsLlmVul',
+        'need_quick_follow' => 'setNeedQuickFollow',
+        'need_rasp' => 'setNeedRasp',
+        'need_varmor' => 'setNeedVarmor'
     ];
 
     /**
@@ -240,7 +260,12 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'upload_name' => 'getUploadName',
         'vuln_name' => 'getVulnName',
         'vuln_name_en' => 'getVulnNameEn',
-        'cwpp_id' => 'getCwppId'
+        'cwpp_id' => 'getCwppId',
+        'is_important_vul' => 'getIsImportantVul',
+        'is_llm_vul' => 'getIsLlmVul',
+        'need_quick_follow' => 'getNeedQuickFollow',
+        'need_rasp' => 'getNeedRasp',
+        'need_varmor' => 'getNeedVarmor'
     ];
 
     /**
@@ -335,6 +360,11 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         $this->container['vuln_name'] = isset($data['vuln_name']) ? $data['vuln_name'] : null;
         $this->container['vuln_name_en'] = isset($data['vuln_name_en']) ? $data['vuln_name_en'] : null;
         $this->container['cwpp_id'] = isset($data['cwpp_id']) ? $data['cwpp_id'] : null;
+        $this->container['is_important_vul'] = isset($data['is_important_vul']) ? $data['is_important_vul'] : null;
+        $this->container['is_llm_vul'] = isset($data['is_llm_vul']) ? $data['is_llm_vul'] : null;
+        $this->container['need_quick_follow'] = isset($data['need_quick_follow']) ? $data['need_quick_follow'] : null;
+        $this->container['need_rasp'] = isset($data['need_rasp']) ? $data['need_rasp'] : null;
+        $this->container['need_varmor'] = isset($data['need_varmor']) ? $data['need_varmor'] : null;
     }
 
     /**
@@ -1125,6 +1155,126 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
     public function setCwppId($cwpp_id)
     {
         $this->container['cwpp_id'] = $cwpp_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_important_vul
+     *
+     * @return string
+     */
+    public function getIsImportantVul()
+    {
+        return $this->container['is_important_vul'];
+    }
+
+    /**
+     * Sets is_important_vul
+     *
+     * @param string $is_important_vul is_important_vul
+     *
+     * @return $this
+     */
+    public function setIsImportantVul($is_important_vul)
+    {
+        $this->container['is_important_vul'] = $is_important_vul;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_llm_vul
+     *
+     * @return string
+     */
+    public function getIsLlmVul()
+    {
+        return $this->container['is_llm_vul'];
+    }
+
+    /**
+     * Sets is_llm_vul
+     *
+     * @param string $is_llm_vul is_llm_vul
+     *
+     * @return $this
+     */
+    public function setIsLlmVul($is_llm_vul)
+    {
+        $this->container['is_llm_vul'] = $is_llm_vul;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_quick_follow
+     *
+     * @return string
+     */
+    public function getNeedQuickFollow()
+    {
+        return $this->container['need_quick_follow'];
+    }
+
+    /**
+     * Sets need_quick_follow
+     *
+     * @param string $need_quick_follow need_quick_follow
+     *
+     * @return $this
+     */
+    public function setNeedQuickFollow($need_quick_follow)
+    {
+        $this->container['need_quick_follow'] = $need_quick_follow;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_rasp
+     *
+     * @return string
+     */
+    public function getNeedRasp()
+    {
+        return $this->container['need_rasp'];
+    }
+
+    /**
+     * Sets need_rasp
+     *
+     * @param string $need_rasp need_rasp
+     *
+     * @return $this
+     */
+    public function setNeedRasp($need_rasp)
+    {
+        $this->container['need_rasp'] = $need_rasp;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_varmor
+     *
+     * @return string
+     */
+    public function getNeedVarmor()
+    {
+        return $this->container['need_varmor'];
+    }
+
+    /**
+     * Sets need_varmor
+     *
+     * @param string $need_varmor need_varmor
+     *
+     * @return $this
+     */
+    public function setNeedVarmor($need_varmor)
+    {
+        $this->container['need_varmor'] = $need_varmor;
 
         return $this;
     }

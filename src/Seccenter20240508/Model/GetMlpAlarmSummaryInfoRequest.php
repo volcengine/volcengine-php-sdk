@@ -160,6 +160,9 @@ class GetMlpAlarmSummaryInfoRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['alarm_id'] === null) {
+            $invalidProperties[] = "'alarm_id' can't be null";
+        }
         return $invalidProperties;
     }
 

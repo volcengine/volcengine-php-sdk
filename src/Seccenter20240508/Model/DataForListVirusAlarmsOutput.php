@@ -72,7 +72,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         'probe_hook' => 'string',
         'region' => 'string',
         'security_intelligence_complete' => 'bool',
+        'security_intelligence_error' => 'string',
         'security_intelligence_result' => 'string',
+        'security_intelligence_status' => 'string',
         'sid' => 'string',
         'stack_trace_format' => 'string',
         'stack_trace_hash' => 'string',
@@ -131,7 +133,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         'probe_hook' => null,
         'region' => null,
         'security_intelligence_complete' => null,
+        'security_intelligence_error' => null,
         'security_intelligence_result' => null,
+        'security_intelligence_status' => null,
         'sid' => null,
         'stack_trace_format' => null,
         'stack_trace_hash' => null,
@@ -211,7 +215,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         'probe_hook' => 'ProbeHook',
         'region' => 'Region',
         'security_intelligence_complete' => 'SecurityIntelligenceComplete',
+        'security_intelligence_error' => 'SecurityIntelligenceError',
         'security_intelligence_result' => 'SecurityIntelligenceResult',
+        'security_intelligence_status' => 'SecurityIntelligenceStatus',
         'sid' => 'Sid',
         'stack_trace_format' => 'StackTraceFormat',
         'stack_trace_hash' => 'StackTraceHash',
@@ -270,7 +276,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         'probe_hook' => 'setProbeHook',
         'region' => 'setRegion',
         'security_intelligence_complete' => 'setSecurityIntelligenceComplete',
+        'security_intelligence_error' => 'setSecurityIntelligenceError',
         'security_intelligence_result' => 'setSecurityIntelligenceResult',
+        'security_intelligence_status' => 'setSecurityIntelligenceStatus',
         'sid' => 'setSid',
         'stack_trace_format' => 'setStackTraceFormat',
         'stack_trace_hash' => 'setStackTraceHash',
@@ -329,7 +337,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         'probe_hook' => 'getProbeHook',
         'region' => 'getRegion',
         'security_intelligence_complete' => 'getSecurityIntelligenceComplete',
+        'security_intelligence_error' => 'getSecurityIntelligenceError',
         'security_intelligence_result' => 'getSecurityIntelligenceResult',
+        'security_intelligence_status' => 'getSecurityIntelligenceStatus',
         'sid' => 'getSid',
         'stack_trace_format' => 'getStackTraceFormat',
         'stack_trace_hash' => 'getStackTraceHash',
@@ -442,7 +452,9 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
         $this->container['probe_hook'] = isset($data['probe_hook']) ? $data['probe_hook'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['security_intelligence_complete'] = isset($data['security_intelligence_complete']) ? $data['security_intelligence_complete'] : null;
+        $this->container['security_intelligence_error'] = isset($data['security_intelligence_error']) ? $data['security_intelligence_error'] : null;
         $this->container['security_intelligence_result'] = isset($data['security_intelligence_result']) ? $data['security_intelligence_result'] : null;
+        $this->container['security_intelligence_status'] = isset($data['security_intelligence_status']) ? $data['security_intelligence_status'] : null;
         $this->container['sid'] = isset($data['sid']) ? $data['sid'] : null;
         $this->container['stack_trace_format'] = isset($data['stack_trace_format']) ? $data['stack_trace_format'] : null;
         $this->container['stack_trace_hash'] = isset($data['stack_trace_hash']) ? $data['stack_trace_hash'] : null;
@@ -1532,6 +1544,30 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets security_intelligence_error
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceError()
+    {
+        return $this->container['security_intelligence_error'];
+    }
+
+    /**
+     * Sets security_intelligence_error
+     *
+     * @param string $security_intelligence_error security_intelligence_error
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceError($security_intelligence_error)
+    {
+        $this->container['security_intelligence_error'] = $security_intelligence_error;
+
+        return $this;
+    }
+
+    /**
      * Gets security_intelligence_result
      *
      * @return string
@@ -1551,6 +1587,30 @@ class DataForListVirusAlarmsOutput implements ModelInterface, ArrayAccess
     public function setSecurityIntelligenceResult($security_intelligence_result)
     {
         $this->container['security_intelligence_result'] = $security_intelligence_result;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_status
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceStatus()
+    {
+        return $this->container['security_intelligence_status'];
+    }
+
+    /**
+     * Sets security_intelligence_status
+     *
+     * @param string $security_intelligence_status security_intelligence_status
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceStatus($security_intelligence_status)
+    {
+        $this->container['security_intelligence_status'] = $security_intelligence_status;
 
         return $this;
     }

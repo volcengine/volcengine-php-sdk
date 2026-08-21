@@ -20,7 +20,7 @@ class HostOverviewForGetMultiLevelInstitutionDetailOutput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'hostOverviewForGetMultiLevelInstitutionDetailOutput';
+    protected static $swaggerModelName = 'HostOverviewForGetMultiLevelInstitutionDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

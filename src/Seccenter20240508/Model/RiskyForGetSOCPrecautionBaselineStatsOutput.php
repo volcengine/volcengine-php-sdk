@@ -20,7 +20,7 @@ class RiskyForGetSOCPrecautionBaselineStatsOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'riskyForGetSOCPrecautionBaselineStatsOutput';
+    protected static $swaggerModelName = 'RiskyForGetSOCPrecautionBaselineStatsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -75,11 +75,11 @@ class RiskyForGetSOCPrecautionBaselineStatsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'critical' => 'critical',
-        'high' => 'high',
-        'info' => 'info',
-        'low' => 'low',
-        'medium' => 'medium'
+        'critical' => 'Critical',
+        'high' => 'High',
+        'info' => 'Info',
+        'low' => 'Low',
+        'medium' => 'Medium'
     ];
 
     /**

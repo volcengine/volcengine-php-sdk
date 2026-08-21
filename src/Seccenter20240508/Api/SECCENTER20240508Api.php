@@ -502,6 +502,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function addTrustDirectory($body = null)
+    {
+        list($response) = $this->addTrustDirectoryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addTrustDirectoryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\AddTrustDirectoryResponse';
+        $request = $this->addTrustDirectoryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function addTrustDirectoryAsync($body = null)
+    {
+        return $this->addTrustDirectoryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addTrustDirectoryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\AddTrustDirectoryResponse';
+        $request = $this->addTrustDirectoryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function addTrustDirectoryRequest($body)
+    {
+        $resourcePath = '/AddTrustDirectory/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function addUserAutoDefenseRule($body = null)
     {
         list($response) = $this->addUserAutoDefenseRuleWithHttpInfo($body);
@@ -1866,6 +1928,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createAutoHardeningConfig($body = null)
+    {
+        list($response) = $this->createAutoHardeningConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAutoHardeningConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\CreateAutoHardeningConfigResponse';
+        $request = $this->createAutoHardeningConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAutoHardeningConfigAsync($body = null)
+    {
+        return $this->createAutoHardeningConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAutoHardeningConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\CreateAutoHardeningConfigResponse';
+        $request = $this->createAutoHardeningConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAutoHardeningConfigRequest($body)
+    {
+        $resourcePath = '/CreateAutoHardeningConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createHostTag($body = null)
     {
         list($response) = $this->createHostTagWithHttpInfo($body);
@@ -2300,6 +2424,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createVulnExportJob($body = null)
+    {
+        list($response) = $this->createVulnExportJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createVulnExportJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\CreateVulnExportJobResponse';
+        $request = $this->createVulnExportJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createVulnExportJobAsync($body = null)
+    {
+        return $this->createVulnExportJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createVulnExportJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\CreateVulnExportJobResponse';
+        $request = $this->createVulnExportJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createVulnExportJobRequest($body)
+    {
+        $resourcePath = '/CreateVulnExportJob/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteAgentProxy($body = null)
     {
         list($response) = $this->deleteAgentProxyWithHttpInfo($body);
@@ -2396,6 +2582,68 @@ class SECCENTER20240508Api
     protected function deleteAgentProxyServerRequest($body)
     {
         $resourcePath = '/DeleteAgentProxyServer/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAutoHardeningConfig($body = null)
+    {
+        list($response) = $this->deleteAutoHardeningConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAutoHardeningConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteAutoHardeningConfigResponse';
+        $request = $this->deleteAutoHardeningConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAutoHardeningConfigAsync($body = null)
+    {
+        return $this->deleteAutoHardeningConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAutoHardeningConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteAutoHardeningConfigResponse';
+        $request = $this->deleteAutoHardeningConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAutoHardeningConfigRequest($body)
+    {
+        $resourcePath = '/DeleteAutoHardeningConfig/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2644,6 +2892,68 @@ class SECCENTER20240508Api
     protected function deleteCommandRequest($body)
     {
         $resourcePath = '/DeleteCommand/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteExportFileJob($body = null)
+    {
+        list($response) = $this->deleteExportFileJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteExportFileJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteExportFileJobResponse';
+        $request = $this->deleteExportFileJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteExportFileJobAsync($body = null)
+    {
+        return $this->deleteExportFileJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteExportFileJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteExportFileJobResponse';
+        $request = $this->deleteExportFileJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteExportFileJobRequest($body)
+    {
+        $resourcePath = '/DeleteExportFileJob/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3016,6 +3326,68 @@ class SECCENTER20240508Api
     protected function deleteRaspConfigRequest($body)
     {
         $resourcePath = '/DeleteRaspConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteTrustDirectory($body = null)
+    {
+        list($response) = $this->deleteTrustDirectoryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteTrustDirectoryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteTrustDirectoryResponse';
+        $request = $this->deleteTrustDirectoryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteTrustDirectoryAsync($body = null)
+    {
+        return $this->deleteTrustDirectoryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteTrustDirectoryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\DeleteTrustDirectoryResponse';
+        $request = $this->deleteTrustDirectoryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteTrustDirectoryRequest($body)
+    {
+        $resourcePath = '/DeleteTrustDirectory/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4504,6 +4876,68 @@ class SECCENTER20240508Api
     protected function editRaspConfigRequest($body)
     {
         $resourcePath = '/EditRaspConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function editTrustDirectory($body = null)
+    {
+        list($response) = $this->editTrustDirectoryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function editTrustDirectoryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\EditTrustDirectoryResponse';
+        $request = $this->editTrustDirectoryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function editTrustDirectoryAsync($body = null)
+    {
+        return $this->editTrustDirectoryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function editTrustDirectoryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\EditTrustDirectoryResponse';
+        $request = $this->editTrustDirectoryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function editTrustDirectoryRequest($body)
+    {
+        $resourcePath = '/EditTrustDirectory/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6860,6 +7294,192 @@ class SECCENTER20240508Api
     protected function getAssetWorkloadStatisticRequest($body)
     {
         $resourcePath = '/GetAssetWorkloadStatistic/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAutoHardeningConfig($body = null)
+    {
+        list($response) = $this->getAutoHardeningConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAutoHardeningConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningConfigResponse';
+        $request = $this->getAutoHardeningConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAutoHardeningConfigAsync($body = null)
+    {
+        return $this->getAutoHardeningConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAutoHardeningConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningConfigResponse';
+        $request = $this->getAutoHardeningConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAutoHardeningConfigRequest($body)
+    {
+        $resourcePath = '/GetAutoHardeningConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAutoHardeningEnabled($body = null)
+    {
+        list($response) = $this->getAutoHardeningEnabledWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAutoHardeningEnabledWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningEnabledResponse';
+        $request = $this->getAutoHardeningEnabledRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAutoHardeningEnabledAsync($body = null)
+    {
+        return $this->getAutoHardeningEnabledAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAutoHardeningEnabledAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningEnabledResponse';
+        $request = $this->getAutoHardeningEnabledRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAutoHardeningEnabledRequest($body)
+    {
+        $resourcePath = '/GetAutoHardeningEnabled/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAutoHardeningPolicy($body = null)
+    {
+        list($response) = $this->getAutoHardeningPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAutoHardeningPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningPolicyResponse';
+        $request = $this->getAutoHardeningPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAutoHardeningPolicyAsync($body = null)
+    {
+        return $this->getAutoHardeningPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAutoHardeningPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetAutoHardeningPolicyResponse';
+        $request = $this->getAutoHardeningPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAutoHardeningPolicyRequest($body)
+    {
+        $resourcePath = '/GetAutoHardeningPolicy/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -12406,6 +13026,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getSupportedVarmorVersions($body = null)
+    {
+        list($response) = $this->getSupportedVarmorVersionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getSupportedVarmorVersionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetSupportedVarmorVersionsResponse';
+        $request = $this->getSupportedVarmorVersionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getSupportedVarmorVersionsAsync($body = null)
+    {
+        return $this->getSupportedVarmorVersionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getSupportedVarmorVersionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetSupportedVarmorVersionsResponse';
+        $request = $this->getSupportedVarmorVersionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getSupportedVarmorVersionsRequest($body)
+    {
+        $resourcePath = '/GetSupportedVarmorVersions/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getTLSInfo($body = null)
     {
         list($response) = $this->getTLSInfoWithHttpInfo($body);
@@ -14080,6 +14762,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function judgeAlarmBySecurityIntelligence($body = null)
+    {
+        list($response) = $this->judgeAlarmBySecurityIntelligenceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function judgeAlarmBySecurityIntelligenceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\JudgeAlarmBySecurityIntelligenceResponse';
+        $request = $this->judgeAlarmBySecurityIntelligenceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function judgeAlarmBySecurityIntelligenceAsync($body = null)
+    {
+        return $this->judgeAlarmBySecurityIntelligenceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function judgeAlarmBySecurityIntelligenceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\JudgeAlarmBySecurityIntelligenceResponse';
+        $request = $this->judgeAlarmBySecurityIntelligenceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function judgeAlarmBySecurityIntelligenceRequest($body)
+    {
+        $resourcePath = '/JudgeAlarmBySecurityIntelligence/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listAIApplicationBasicInfo($body = null)
     {
         list($response) = $this->listAIApplicationBasicInfoWithHttpInfo($body);
@@ -15230,6 +15974,130 @@ class SECCENTER20240508Api
     protected function listAutoDefenseRulesRequest($body)
     {
         $resourcePath = '/ListAutoDefenseRules/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAutoHardeningConfigs($body = null)
+    {
+        list($response) = $this->listAutoHardeningConfigsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAutoHardeningConfigsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListAutoHardeningConfigsResponse';
+        $request = $this->listAutoHardeningConfigsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAutoHardeningConfigsAsync($body = null)
+    {
+        return $this->listAutoHardeningConfigsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAutoHardeningConfigsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListAutoHardeningConfigsResponse';
+        $request = $this->listAutoHardeningConfigsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAutoHardeningConfigsRequest($body)
+    {
+        $resourcePath = '/ListAutoHardeningConfigs/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAutoHardeningPolicies($body = null)
+    {
+        list($response) = $this->listAutoHardeningPoliciesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAutoHardeningPoliciesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListAutoHardeningPoliciesResponse';
+        $request = $this->listAutoHardeningPoliciesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAutoHardeningPoliciesAsync($body = null)
+    {
+        return $this->listAutoHardeningPoliciesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAutoHardeningPoliciesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListAutoHardeningPoliciesResponse';
+        $request = $this->listAutoHardeningPoliciesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAutoHardeningPoliciesRequest($body)
+    {
+        $resourcePath = '/ListAutoHardeningPolicies/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -16656,6 +17524,68 @@ class SECCENTER20240508Api
     protected function listEndpointHandleMethodsRequest($body)
     {
         $resourcePath = '/ListEndpointHandleMethods/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listExportFileJob($body = null)
+    {
+        list($response) = $this->listExportFileJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listExportFileJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListExportFileJobResponse';
+        $request = $this->listExportFileJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listExportFileJobAsync($body = null)
+    {
+        return $this->listExportFileJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listExportFileJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListExportFileJobResponse';
+        $request = $this->listExportFileJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listExportFileJobRequest($body)
+    {
+        $resourcePath = '/ListExportFileJob/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -19474,6 +20404,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listTrustDirectories($body = null)
+    {
+        list($response) = $this->listTrustDirectoriesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listTrustDirectoriesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListTrustDirectoriesResponse';
+        $request = $this->listTrustDirectoriesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listTrustDirectoriesAsync($body = null)
+    {
+        return $this->listTrustDirectoriesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listTrustDirectoriesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListTrustDirectoriesResponse';
+        $request = $this->listTrustDirectoriesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listTrustDirectoriesRequest($body)
+    {
+        $resourcePath = '/ListTrustDirectories/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listVarmorPolicies($body = null)
     {
         list($response) = $this->listVarmorPoliciesWithHttpInfo($body);
@@ -21582,6 +22574,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function setAutoHardeningEnabled($body = null)
+    {
+        list($response) = $this->setAutoHardeningEnabledWithHttpInfo($body);
+        return $response;
+    }
+
+    public function setAutoHardeningEnabledWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\SetAutoHardeningEnabledResponse';
+        $request = $this->setAutoHardeningEnabledRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function setAutoHardeningEnabledAsync($body = null)
+    {
+        return $this->setAutoHardeningEnabledAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function setAutoHardeningEnabledAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\SetAutoHardeningEnabledResponse';
+        $request = $this->setAutoHardeningEnabledRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function setAutoHardeningEnabledRequest($body)
+    {
+        $resourcePath = '/SetAutoHardeningEnabled/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function setBruteForceBanConfig($body = null)
     {
         list($response) = $this->setBruteForceBanConfigWithHttpInfo($body);
@@ -21802,6 +22856,68 @@ class SECCENTER20240508Api
     protected function stopMLPAssetSyncTaskRequest($body)
     {
         $resourcePath = '/StopMLPAssetSyncTask/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function stopScanTask($body = null)
+    {
+        list($response) = $this->stopScanTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function stopScanTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\StopScanTaskResponse';
+        $request = $this->stopScanTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function stopScanTaskAsync($body = null)
+    {
+        return $this->stopScanTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function stopScanTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\StopScanTaskResponse';
+        $request = $this->stopScanTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function stopScanTaskRequest($body)
+    {
+        $resourcePath = '/StopScanTask/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -22298,6 +23414,68 @@ class SECCENTER20240508Api
     protected function updateAssetClustersRequest($body)
     {
         $resourcePath = '/UpdateAssetClusters/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAutoHardeningConfig($body = null)
+    {
+        list($response) = $this->updateAutoHardeningConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAutoHardeningConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\UpdateAutoHardeningConfigResponse';
+        $request = $this->updateAutoHardeningConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAutoHardeningConfigAsync($body = null)
+    {
+        return $this->updateAutoHardeningConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAutoHardeningConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\UpdateAutoHardeningConfigResponse';
+        $request = $this->updateAutoHardeningConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAutoHardeningConfigRequest($body)
+    {
+        $resourcePath = '/UpdateAutoHardeningConfig/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

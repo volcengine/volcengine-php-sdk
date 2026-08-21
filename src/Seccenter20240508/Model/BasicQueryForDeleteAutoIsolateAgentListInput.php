@@ -20,7 +20,7 @@ class BasicQueryForDeleteAutoIsolateAgentListInput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'basicQueryForDeleteAutoIsolateAgentListInput';
+    protected static $swaggerModelName = 'BasicQueryForDeleteAutoIsolateAgentListInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

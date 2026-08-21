@@ -29,6 +29,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'app_id' => 'string',
+        'name' => 'string',
         'only_ai_application_asset' => 'bool',
         'page_number' => 'int',
         'page_size' => 'int',
@@ -45,6 +46,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'app_id' => null,
+        'name' => null,
         'only_ai_application_asset' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
@@ -82,6 +84,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'app_id' => 'AppID',
+        'name' => 'Name',
         'only_ai_application_asset' => 'OnlyAIApplicationAsset',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
@@ -98,6 +101,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'app_id' => 'setAppId',
+        'name' => 'setName',
         'only_ai_application_asset' => 'setOnlyAiApplicationAsset',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
@@ -114,6 +118,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'app_id' => 'getAppId',
+        'name' => 'getName',
         'only_ai_application_asset' => 'getOnlyAiApplicationAsset',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
@@ -184,6 +189,7 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['only_ai_application_asset'] = isset($data['only_ai_application_asset']) ? $data['only_ai_application_asset'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -243,6 +249,30 @@ class GetAIFingerprintAppRequest implements ModelInterface, ArrayAccess
     public function setAppId($app_id)
     {
         $this->container['app_id'] = $app_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

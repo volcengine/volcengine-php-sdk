@@ -28,7 +28,7 @@ class ExportAIFingerprintDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conditions' => 'int[]',
+        'conditions' => '\Volcengine\Seccenter20240508\Model\ConditionForExportAIFingerprintDataInput[]',
         'fingerprint_type' => 'string',
         'id_list' => 'string[]'
     ];
@@ -39,7 +39,7 @@ class ExportAIFingerprintDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conditions' => 'int64',
+        'conditions' => null,
         'fingerprint_type' => null,
         'id_list' => null
     ];
@@ -190,7 +190,7 @@ class ExportAIFingerprintDataRequest implements ModelInterface, ArrayAccess
     /**
      * Gets conditions
      *
-     * @return int[]
+     * @return \Volcengine\Seccenter20240508\Model\ConditionForExportAIFingerprintDataInput[]
      */
     public function getConditions()
     {
@@ -200,7 +200,7 @@ class ExportAIFingerprintDataRequest implements ModelInterface, ArrayAccess
     /**
      * Sets conditions
      *
-     * @param int[] $conditions conditions
+     * @param \Volcengine\Seccenter20240508\Model\ConditionForExportAIFingerprintDataInput[] $conditions conditions
      *
      * @return $this
      */
