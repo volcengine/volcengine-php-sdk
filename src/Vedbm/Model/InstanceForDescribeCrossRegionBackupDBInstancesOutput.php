@@ -174,23 +174,8 @@ class InstanceForDescribeCrossRegionBackupDBInstancesOutput implements ModelInte
         return self::$swaggerModelName;
     }
 
-    const DB_ENGINE_VERSION_MY_SQL_5_7 = 'MySQL_5_7';
-    const DB_ENGINE_VERSION_MY_SQL_8_0 = 'MySQL_8_0';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDbEngineVersionAllowableValues()
-    {
-        return [
-            self::DB_ENGINE_VERSION_MY_SQL_5_7,
-            self::DB_ENGINE_VERSION_MY_SQL_8_0,
-        ];
-    }
     
 
     /**
@@ -228,14 +213,6 @@ class InstanceForDescribeCrossRegionBackupDBInstancesOutput implements ModelInte
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getDbEngineVersionAllowableValues();
-        if (!is_null($this->container['db_engine_version']) && !in_array($this->container['db_engine_version'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'db_engine_version', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -295,15 +272,6 @@ class InstanceForDescribeCrossRegionBackupDBInstancesOutput implements ModelInte
      */
     public function setDbEngineVersion($db_engine_version)
     {
-        $allowedValues = $this->getDbEngineVersionAllowableValues();
-        if (!is_null($db_engine_version) && !in_array($db_engine_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'db_engine_version', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['db_engine_version'] = $db_engine_version;
 
         return $this;

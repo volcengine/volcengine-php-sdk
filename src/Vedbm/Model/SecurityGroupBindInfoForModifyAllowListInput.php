@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayAccess
+class SecurityGroupBindInfoForModifyAllowListInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NodeSpecForDescribeDBInstanceSpecsOutput';
+    protected static $swaggerModelName = 'SecurityGroupBindInfoForModifyAllowListInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'connection' => 'int',
-        'max_iops' => 'int',
-        'memory' => 'int',
-        'node_spec' => 'string',
-        'pre_paid_max_storage' => 'int',
-        'pre_paid_min_storage' => 'int',
-        'spec_family' => 'string',
-        'v_cpu' => 'int'
+        'bind_mode' => 'string',
+        'ip_list' => 'string[]',
+        'security_group_id' => 'string',
+        'security_group_name' => 'string'
     ];
 
     /**
@@ -44,14 +40,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'connection' => 'int32',
-        'max_iops' => 'int32',
-        'memory' => 'int32',
-        'node_spec' => null,
-        'pre_paid_max_storage' => 'int32',
-        'pre_paid_min_storage' => 'int32',
-        'spec_family' => null,
-        'v_cpu' => 'int32'
+        'bind_mode' => null,
+        'ip_list' => null,
+        'security_group_id' => null,
+        'security_group_name' => null
     ];
 
     /**
@@ -81,14 +73,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection' => 'Connection',
-        'max_iops' => 'MaxIops',
-        'memory' => 'Memory',
-        'node_spec' => 'NodeSpec',
-        'pre_paid_max_storage' => 'PrePaidMaxStorage',
-        'pre_paid_min_storage' => 'PrePaidMinStorage',
-        'spec_family' => 'SpecFamily',
-        'v_cpu' => 'vCPU'
+        'bind_mode' => 'BindMode',
+        'ip_list' => 'IpList',
+        'security_group_id' => 'SecurityGroupId',
+        'security_group_name' => 'SecurityGroupName'
     ];
 
     /**
@@ -97,14 +85,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'connection' => 'setConnection',
-        'max_iops' => 'setMaxIops',
-        'memory' => 'setMemory',
-        'node_spec' => 'setNodeSpec',
-        'pre_paid_max_storage' => 'setPrePaidMaxStorage',
-        'pre_paid_min_storage' => 'setPrePaidMinStorage',
-        'spec_family' => 'setSpecFamily',
-        'v_cpu' => 'setVCpu'
+        'bind_mode' => 'setBindMode',
+        'ip_list' => 'setIpList',
+        'security_group_id' => 'setSecurityGroupId',
+        'security_group_name' => 'setSecurityGroupName'
     ];
 
     /**
@@ -113,14 +97,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'connection' => 'getConnection',
-        'max_iops' => 'getMaxIops',
-        'memory' => 'getMemory',
-        'node_spec' => 'getNodeSpec',
-        'pre_paid_max_storage' => 'getPrePaidMaxStorage',
-        'pre_paid_min_storage' => 'getPrePaidMinStorage',
-        'spec_family' => 'getSpecFamily',
-        'v_cpu' => 'getVCpu'
+        'bind_mode' => 'getBindMode',
+        'ip_list' => 'getIpList',
+        'security_group_id' => 'getSecurityGroupId',
+        'security_group_name' => 'getSecurityGroupName'
     ];
 
     /**
@@ -164,8 +144,23 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
+    const BIND_MODE_ASSOCIATE_ECS_IP = 'AssociateEcsIp';
+    const BIND_MODE_INGRESS_DIRECTION_IP = 'IngressDirectionIp';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBindModeAllowableValues()
+    {
+        return [
+            self::BIND_MODE_ASSOCIATE_ECS_IP,
+            self::BIND_MODE_INGRESS_DIRECTION_IP,
+        ];
+    }
     
 
     /**
@@ -183,14 +178,10 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['connection'] = isset($data['connection']) ? $data['connection'] : null;
-        $this->container['max_iops'] = isset($data['max_iops']) ? $data['max_iops'] : null;
-        $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
-        $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
-        $this->container['pre_paid_max_storage'] = isset($data['pre_paid_max_storage']) ? $data['pre_paid_max_storage'] : null;
-        $this->container['pre_paid_min_storage'] = isset($data['pre_paid_min_storage']) ? $data['pre_paid_min_storage'] : null;
-        $this->container['spec_family'] = isset($data['spec_family']) ? $data['spec_family'] : null;
-        $this->container['v_cpu'] = isset($data['v_cpu']) ? $data['v_cpu'] : null;
+        $this->container['bind_mode'] = isset($data['bind_mode']) ? $data['bind_mode'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['security_group_id'] = isset($data['security_group_id']) ? $data['security_group_id'] : null;
+        $this->container['security_group_name'] = isset($data['security_group_name']) ? $data['security_group_name'] : null;
     }
 
     /**
@@ -201,6 +192,14 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getBindModeAllowableValues();
+        if (!is_null($this->container['bind_mode']) && !in_array($this->container['bind_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'bind_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -218,193 +217,106 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets connection
-     *
-     * @return int
-     */
-    public function getConnection()
-    {
-        return $this->container['connection'];
-    }
-
-    /**
-     * Sets connection
-     *
-     * @param int $connection connection
-     *
-     * @return $this
-     */
-    public function setConnection($connection)
-    {
-        $this->container['connection'] = $connection;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_iops
-     *
-     * @return int
-     */
-    public function getMaxIops()
-    {
-        return $this->container['max_iops'];
-    }
-
-    /**
-     * Sets max_iops
-     *
-     * @param int $max_iops max_iops
-     *
-     * @return $this
-     */
-    public function setMaxIops($max_iops)
-    {
-        $this->container['max_iops'] = $max_iops;
-
-        return $this;
-    }
-
-    /**
-     * Gets memory
-     *
-     * @return int
-     */
-    public function getMemory()
-    {
-        return $this->container['memory'];
-    }
-
-    /**
-     * Sets memory
-     *
-     * @param int $memory memory
-     *
-     * @return $this
-     */
-    public function setMemory($memory)
-    {
-        $this->container['memory'] = $memory;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_spec
+     * Gets bind_mode
      *
      * @return string
      */
-    public function getNodeSpec()
+    public function getBindMode()
     {
-        return $this->container['node_spec'];
+        return $this->container['bind_mode'];
     }
 
     /**
-     * Sets node_spec
+     * Sets bind_mode
      *
-     * @param string $node_spec node_spec
+     * @param string $bind_mode bind_mode
      *
      * @return $this
      */
-    public function setNodeSpec($node_spec)
+    public function setBindMode($bind_mode)
     {
-        $this->container['node_spec'] = $node_spec;
+        $allowedValues = $this->getBindModeAllowableValues();
+        if (!is_null($bind_mode) && !in_array($bind_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'bind_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['bind_mode'] = $bind_mode;
 
         return $this;
     }
 
     /**
-     * Gets pre_paid_max_storage
+     * Gets ip_list
      *
-     * @return int
+     * @return string[]
      */
-    public function getPrePaidMaxStorage()
+    public function getIpList()
     {
-        return $this->container['pre_paid_max_storage'];
+        return $this->container['ip_list'];
     }
 
     /**
-     * Sets pre_paid_max_storage
+     * Sets ip_list
      *
-     * @param int $pre_paid_max_storage pre_paid_max_storage
+     * @param string[] $ip_list ip_list
      *
      * @return $this
      */
-    public function setPrePaidMaxStorage($pre_paid_max_storage)
+    public function setIpList($ip_list)
     {
-        $this->container['pre_paid_max_storage'] = $pre_paid_max_storage;
+        $this->container['ip_list'] = $ip_list;
 
         return $this;
     }
 
     /**
-     * Gets pre_paid_min_storage
-     *
-     * @return int
-     */
-    public function getPrePaidMinStorage()
-    {
-        return $this->container['pre_paid_min_storage'];
-    }
-
-    /**
-     * Sets pre_paid_min_storage
-     *
-     * @param int $pre_paid_min_storage pre_paid_min_storage
-     *
-     * @return $this
-     */
-    public function setPrePaidMinStorage($pre_paid_min_storage)
-    {
-        $this->container['pre_paid_min_storage'] = $pre_paid_min_storage;
-
-        return $this;
-    }
-
-    /**
-     * Gets spec_family
+     * Gets security_group_id
      *
      * @return string
      */
-    public function getSpecFamily()
+    public function getSecurityGroupId()
     {
-        return $this->container['spec_family'];
+        return $this->container['security_group_id'];
     }
 
     /**
-     * Sets spec_family
+     * Sets security_group_id
      *
-     * @param string $spec_family spec_family
+     * @param string $security_group_id security_group_id
      *
      * @return $this
      */
-    public function setSpecFamily($spec_family)
+    public function setSecurityGroupId($security_group_id)
     {
-        $this->container['spec_family'] = $spec_family;
+        $this->container['security_group_id'] = $security_group_id;
 
         return $this;
     }
 
     /**
-     * Gets v_cpu
+     * Gets security_group_name
      *
-     * @return int
+     * @return string
      */
-    public function getVCpu()
+    public function getSecurityGroupName()
     {
-        return $this->container['v_cpu'];
+        return $this->container['security_group_name'];
     }
 
     /**
-     * Sets v_cpu
+     * Sets security_group_name
      *
-     * @param int $v_cpu v_cpu
+     * @param string $security_group_name security_group_name
      *
      * @return $this
      */
-    public function setVCpu($v_cpu)
+    public function setSecurityGroupName($security_group_name)
     {
-        $this->container['v_cpu'] = $v_cpu;
+        $this->container['security_group_name'] = $security_group_name;
 
         return $this;
     }

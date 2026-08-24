@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
+class ModifyConnectionPersistenceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountPrivilegeForDescribeDBAccountsOutput';
+    protected static $swaggerModelName = 'ModifyConnectionPersistenceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_privilege' => 'string',
-        'account_privilege_detail' => 'string',
-        'db_name' => 'string'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_privilege' => null,
-        'account_privilege_detail' => null,
-        'db_name' => null
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_privilege' => 'AccountPrivilege',
-        'account_privilege_detail' => 'AccountPrivilegeDetail',
-        'db_name' => 'DBName'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'account_privilege' => 'setAccountPrivilege',
-        'account_privilege_detail' => 'setAccountPrivilegeDetail',
-        'db_name' => 'setDbName'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'account_privilege' => 'getAccountPrivilege',
-        'account_privilege_detail' => 'getAccountPrivilegeDetail',
-        'db_name' => 'getDbName'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['account_privilege'] = isset($data['account_privilege']) ? $data['account_privilege'] : null;
-        $this->container['account_privilege_detail'] = isset($data['account_privilege_detail']) ? $data['account_privilege_detail'] : null;
-        $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
     }
 
     /**
@@ -186,78 +173,6 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets account_privilege
-     *
-     * @return string
-     */
-    public function getAccountPrivilege()
-    {
-        return $this->container['account_privilege'];
-    }
-
-    /**
-     * Sets account_privilege
-     *
-     * @param string $account_privilege account_privilege
-     *
-     * @return $this
-     */
-    public function setAccountPrivilege($account_privilege)
-    {
-        $this->container['account_privilege'] = $account_privilege;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_privilege_detail
-     *
-     * @return string
-     */
-    public function getAccountPrivilegeDetail()
-    {
-        return $this->container['account_privilege_detail'];
-    }
-
-    /**
-     * Sets account_privilege_detail
-     *
-     * @param string $account_privilege_detail account_privilege_detail
-     *
-     * @return $this
-     */
-    public function setAccountPrivilegeDetail($account_privilege_detail)
-    {
-        $this->container['account_privilege_detail'] = $account_privilege_detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets db_name
-     *
-     * @return string
-     */
-    public function getDbName()
-    {
-        return $this->container['db_name'];
-    }
-
-    /**
-     * Sets db_name
-     *
-     * @param string $db_name db_name
-     *
-     * @return $this
-     */
-    public function setDbName($db_name)
-    {
-        $this->container['db_name'] = $db_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

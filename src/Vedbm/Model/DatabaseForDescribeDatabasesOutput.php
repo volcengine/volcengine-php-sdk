@@ -144,27 +144,8 @@ class DatabaseForDescribeDatabasesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CHARACTER_SET_NAME_ASCII = 'ascii';
-    const CHARACTER_SET_NAME_LATIN1 = 'latin1';
-    const CHARACTER_SET_NAME_UTF8 = 'utf8';
-    const CHARACTER_SET_NAME_UTF8MB4 = 'utf8mb4';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCharacterSetNameAllowableValues()
-    {
-        return [
-            self::CHARACTER_SET_NAME_ASCII,
-            self::CHARACTER_SET_NAME_LATIN1,
-            self::CHARACTER_SET_NAME_UTF8,
-            self::CHARACTER_SET_NAME_UTF8MB4,
-        ];
-    }
     
 
     /**
@@ -196,14 +177,6 @@ class DatabaseForDescribeDatabasesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getCharacterSetNameAllowableValues();
-        if (!is_null($this->container['character_set_name']) && !in_array($this->container['character_set_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'character_set_name', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -239,15 +212,6 @@ class DatabaseForDescribeDatabasesOutput implements ModelInterface, ArrayAccess
      */
     public function setCharacterSetName($character_set_name)
     {
-        $allowedValues = $this->getCharacterSetNameAllowableValues();
-        if (!is_null($character_set_name) && !in_array($character_set_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'character_set_name', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['character_set_name'] = $character_set_name;
 
         return $this;

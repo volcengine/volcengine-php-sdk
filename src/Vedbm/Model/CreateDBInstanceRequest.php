@@ -45,6 +45,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'pre_paid_storage_in_gb' => 'int',
         'project_name' => 'string',
         'storage_charge_type' => 'string',
+        'storage_type' => 'string',
         'subnet_id' => 'string',
         'super_account_name' => 'string',
         'super_account_password' => 'string',
@@ -77,6 +78,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'pre_paid_storage_in_gb' => 'int32',
         'project_name' => null,
         'storage_charge_type' => null,
+        'storage_type' => null,
         'subnet_id' => null,
         'super_account_name' => null,
         'super_account_password' => null,
@@ -130,6 +132,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'pre_paid_storage_in_gb' => 'PrePaidStorageInGB',
         'project_name' => 'ProjectName',
         'storage_charge_type' => 'StorageChargeType',
+        'storage_type' => 'StorageType',
         'subnet_id' => 'SubnetId',
         'super_account_name' => 'SuperAccountName',
         'super_account_password' => 'SuperAccountPassword',
@@ -162,6 +165,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'pre_paid_storage_in_gb' => 'setPrePaidStorageInGb',
         'project_name' => 'setProjectName',
         'storage_charge_type' => 'setStorageChargeType',
+        'storage_type' => 'setStorageType',
         'subnet_id' => 'setSubnetId',
         'super_account_name' => 'setSuperAccountName',
         'super_account_password' => 'setSuperAccountPassword',
@@ -194,6 +198,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'pre_paid_storage_in_gb' => 'getPrePaidStorageInGb',
         'project_name' => 'getProjectName',
         'storage_charge_type' => 'getStorageChargeType',
+        'storage_type' => 'getStorageType',
         'subnet_id' => 'getSubnetId',
         'super_account_name' => 'getSuperAccountName',
         'super_account_password' => 'getSuperAccountPassword',
@@ -277,6 +282,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     const PERIOD_UNIT_YEAR = 'Year';
     const STORAGE_CHARGE_TYPE_POST_PAID = 'PostPaid';
     const STORAGE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
+    const STORAGE_TYPE_IO_OPTIMIZED_STORAGE = 'IOOptimizedStorage';
+    const STORAGE_TYPE_SMART_COMPRESSED_STORAGE = 'SmartCompressedStorage';
     
 
     
@@ -401,6 +408,19 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageTypeAllowableValues()
+    {
+        return [
+            self::STORAGE_TYPE_IO_OPTIMIZED_STORAGE,
+            self::STORAGE_TYPE_SMART_COMPRESSED_STORAGE,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -434,6 +454,7 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['pre_paid_storage_in_gb'] = isset($data['pre_paid_storage_in_gb']) ? $data['pre_paid_storage_in_gb'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['storage_charge_type'] = isset($data['storage_charge_type']) ? $data['storage_charge_type'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['super_account_name'] = isset($data['super_account_name']) ? $data['super_account_name'] : null;
         $this->container['super_account_password'] = isset($data['super_account_password']) ? $data['super_account_password'] : null;
@@ -524,6 +545,14 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         if (!is_null($this->container['storage_charge_type']) && !in_array($this->container['storage_charge_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'storage_charge_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($this->container['storage_type']) && !in_array($this->container['storage_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'storage_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -1028,6 +1057,39 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['storage_charge_type'] = $storage_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($storage_type) && !in_array($storage_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'storage_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }

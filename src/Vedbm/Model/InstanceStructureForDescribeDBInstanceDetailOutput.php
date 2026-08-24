@@ -139,25 +139,8 @@ class InstanceStructureForDescribeDBInstanceDetailOutput implements ModelInterfa
         return self::$swaggerModelName;
     }
 
-    const SUB_INSTANCE_TYPE_HOT_STANDBY = 'HotStandby';
-    const SUB_INSTANCE_TYPE_PRIMARY = 'Primary';
-    const SUB_INSTANCE_TYPE_ZONE_STANDBY = 'ZoneStandby';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubInstanceTypeAllowableValues()
-    {
-        return [
-            self::SUB_INSTANCE_TYPE_HOT_STANDBY,
-            self::SUB_INSTANCE_TYPE_PRIMARY,
-            self::SUB_INSTANCE_TYPE_ZONE_STANDBY,
-        ];
-    }
     
 
     /**
@@ -188,14 +171,6 @@ class InstanceStructureForDescribeDBInstanceDetailOutput implements ModelInterfa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($this->container['sub_instance_type']) && !in_array($this->container['sub_instance_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -255,15 +230,6 @@ class InstanceStructureForDescribeDBInstanceDetailOutput implements ModelInterfa
      */
     public function setSubInstanceType($sub_instance_type)
     {
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($sub_instance_type) && !in_array($sub_instance_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sub_instance_type'] = $sub_instance_type;
 
         return $this;

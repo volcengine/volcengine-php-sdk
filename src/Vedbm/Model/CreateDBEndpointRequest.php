@@ -29,6 +29,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_add_new_nodes' => 'bool',
+        'connection_pool' => 'string',
         'consist_level' => 'string',
         'consist_timeout' => 'int',
         'consist_timeout_action' => 'string',
@@ -49,6 +50,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_add_new_nodes' => null,
+        'connection_pool' => null,
         'consist_level' => null,
         'consist_timeout' => 'int32',
         'consist_timeout_action' => null,
@@ -90,6 +92,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_add_new_nodes' => 'AutoAddNewNodes',
+        'connection_pool' => 'ConnectionPool',
         'consist_level' => 'ConsistLevel',
         'consist_timeout' => 'ConsistTimeout',
         'consist_timeout_action' => 'ConsistTimeoutAction',
@@ -110,6 +113,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_add_new_nodes' => 'setAutoAddNewNodes',
+        'connection_pool' => 'setConnectionPool',
         'consist_level' => 'setConsistLevel',
         'consist_timeout' => 'setConsistTimeout',
         'consist_timeout_action' => 'setConsistTimeoutAction',
@@ -130,6 +134,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_add_new_nodes' => 'getAutoAddNewNodes',
+        'connection_pool' => 'getConnectionPool',
         'consist_level' => 'getConsistLevel',
         'consist_timeout' => 'getConsistTimeout',
         'consist_timeout_action' => 'getConsistTimeoutAction',
@@ -184,6 +189,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const CONNECTION_POOL_OFF = 'Off';
     const CONSIST_LEVEL_EVENTUAL = 'Eventual';
     const CONSIST_LEVEL__GLOBAL = 'Global';
     const CONSIST_LEVEL_SESSION = 'Session';
@@ -194,6 +200,18 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
     const READ_WRITE_MODE_READ_WRITE = 'ReadWrite';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getConnectionPoolAllowableValues()
+    {
+        return [
+            self::CONNECTION_POOL_OFF,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -264,6 +282,7 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['auto_add_new_nodes'] = isset($data['auto_add_new_nodes']) ? $data['auto_add_new_nodes'] : null;
+        $this->container['connection_pool'] = isset($data['connection_pool']) ? $data['connection_pool'] : null;
         $this->container['consist_level'] = isset($data['consist_level']) ? $data['consist_level'] : null;
         $this->container['consist_timeout'] = isset($data['consist_timeout']) ? $data['consist_timeout'] : null;
         $this->container['consist_timeout_action'] = isset($data['consist_timeout_action']) ? $data['consist_timeout_action'] : null;
@@ -285,6 +304,17 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['connection_pool'] === null) {
+            $invalidProperties[] = "'connection_pool' can't be null";
+        }
+        $allowedValues = $this->getConnectionPoolAllowableValues();
+        if (!is_null($this->container['connection_pool']) && !in_array($this->container['connection_pool'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'connection_pool', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getConsistLevelAllowableValues();
         if (!is_null($this->container['consist_level']) && !in_array($this->container['consist_level'], $allowedValues, true)) {
@@ -362,6 +392,39 @@ class CreateDBEndpointRequest implements ModelInterface, ArrayAccess
     public function setAutoAddNewNodes($auto_add_new_nodes)
     {
         $this->container['auto_add_new_nodes'] = $auto_add_new_nodes;
+
+        return $this;
+    }
+
+    /**
+     * Gets connection_pool
+     *
+     * @return string
+     */
+    public function getConnectionPool()
+    {
+        return $this->container['connection_pool'];
+    }
+
+    /**
+     * Sets connection_pool
+     *
+     * @param string $connection_pool connection_pool
+     *
+     * @return $this
+     */
+    public function setConnectionPool($connection_pool)
+    {
+        $allowedValues = $this->getConnectionPoolAllowableValues();
+        if (!in_array($connection_pool, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'connection_pool', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['connection_pool'] = $connection_pool;
 
         return $this;
     }

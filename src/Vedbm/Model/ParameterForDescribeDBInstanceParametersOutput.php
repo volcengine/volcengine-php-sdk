@@ -174,40 +174,8 @@ class ParameterForDescribeDBInstanceParametersOutput implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
-    const DATA_TYPE_FLOAT = 'FLOAT';
-    const DATA_TYPE_INT = 'INT';
-    const DATA_TYPE_STRING = 'STRING';
-    const STATUS_APPLIED = 'Applied';
-    const STATUS_SYNCING = 'Syncing';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDataTypeAllowableValues()
-    {
-        return [
-            self::DATA_TYPE_FLOAT,
-            self::DATA_TYPE_INT,
-            self::DATA_TYPE_STRING,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_APPLIED,
-            self::STATUS_SYNCING,
-        ];
-    }
     
 
     /**
@@ -245,22 +213,6 @@ class ParameterForDescribeDBInstanceParametersOutput implements ModelInterface, 
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getDataTypeAllowableValues();
-        if (!is_null($this->container['data_type']) && !in_array($this->container['data_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'data_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -320,15 +272,6 @@ class ParameterForDescribeDBInstanceParametersOutput implements ModelInterface, 
      */
     public function setDataType($data_type)
     {
-        $allowedValues = $this->getDataTypeAllowableValues();
-        if (!is_null($data_type) && !in_array($data_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'data_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['data_type'] = $data_type;
 
         return $this;
@@ -521,15 +464,6 @@ class ParameterForDescribeDBInstanceParametersOutput implements ModelInterface, 
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

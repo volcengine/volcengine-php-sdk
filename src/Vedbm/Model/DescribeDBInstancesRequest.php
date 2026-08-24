@@ -40,6 +40,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'project_name' => 'string',
         'storage_charge_type' => 'string',
+        'storage_type' => 'string',
         'tag_filters' => '\Volcengine\Vedbm\Model\TagFilterForDescribeDBInstancesInput[]',
         'zone_id' => 'string'
     ];
@@ -62,6 +63,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int32',
         'project_name' => null,
         'storage_charge_type' => null,
+        'storage_type' => null,
         'tag_filters' => null,
         'zone_id' => null
     ];
@@ -105,6 +107,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'storage_charge_type' => 'StorageChargeType',
+        'storage_type' => 'StorageType',
         'tag_filters' => 'TagFilters',
         'zone_id' => 'ZoneId'
     ];
@@ -127,6 +130,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
         'storage_charge_type' => 'setStorageChargeType',
+        'storage_type' => 'setStorageType',
         'tag_filters' => 'setTagFilters',
         'zone_id' => 'setZoneId'
     ];
@@ -149,6 +153,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
         'storage_charge_type' => 'getStorageChargeType',
+        'storage_type' => 'getStorageType',
         'tag_filters' => 'getTagFilters',
         'zone_id' => 'getZoneId'
     ];
@@ -233,6 +238,8 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
     const NODE_SPEC_VEDBMYSQLX8XLARGE = 'vedb.mysql.x8.xlarge';
     const STORAGE_CHARGE_TYPE_POST_PAID = 'PostPaid';
     const STORAGE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
+    const STORAGE_TYPE_IO_OPTIMIZED_STORAGE = 'IOOptimizedStorage';
+    const STORAGE_TYPE_SMART_COMPRESSED_STORAGE = 'SmartCompressedStorage';
     
 
     
@@ -330,6 +337,19 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageTypeAllowableValues()
+    {
+        return [
+            self::STORAGE_TYPE_IO_OPTIMIZED_STORAGE,
+            self::STORAGE_TYPE_SMART_COMPRESSED_STORAGE,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -358,6 +378,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['storage_charge_type'] = isset($data['storage_charge_type']) ? $data['storage_charge_type'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -407,6 +428,14 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         if (!is_null($this->container['storage_charge_type']) && !in_array($this->container['storage_charge_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'storage_charge_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($this->container['storage_type']) && !in_array($this->container['storage_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'storage_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -755,6 +784,39 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['storage_charge_type'] = $storage_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($storage_type) && !in_array($storage_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'storage_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }
