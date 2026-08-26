@@ -35,7 +35,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         'levels' => '\Volcengine\Vmp\Model\LevelForUpdateAlertingRuleInput[]',
         'name' => 'string',
         'notify_group_policy_id' => 'string',
+        'notify_group_policy_source' => 'string',
         'notify_policy_id' => 'string',
+        'notify_policy_source' => 'string',
         'query' => '\Volcengine\Vmp\Model\QueryForUpdateAlertingRuleInput',
         'type' => 'string'
     ];
@@ -53,7 +55,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         'levels' => null,
         'name' => null,
         'notify_group_policy_id' => null,
+        'notify_group_policy_source' => null,
         'notify_policy_id' => null,
+        'notify_policy_source' => null,
         'query' => null,
         'type' => null
     ];
@@ -92,7 +96,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         'levels' => 'Levels',
         'name' => 'Name',
         'notify_group_policy_id' => 'NotifyGroupPolicyId',
+        'notify_group_policy_source' => 'NotifyGroupPolicySource',
         'notify_policy_id' => 'NotifyPolicyId',
+        'notify_policy_source' => 'NotifyPolicySource',
         'query' => 'Query',
         'type' => 'Type'
     ];
@@ -110,7 +116,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         'levels' => 'setLevels',
         'name' => 'setName',
         'notify_group_policy_id' => 'setNotifyGroupPolicyId',
+        'notify_group_policy_source' => 'setNotifyGroupPolicySource',
         'notify_policy_id' => 'setNotifyPolicyId',
+        'notify_policy_source' => 'setNotifyPolicySource',
         'query' => 'setQuery',
         'type' => 'setType'
     ];
@@ -128,7 +136,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         'levels' => 'getLevels',
         'name' => 'getName',
         'notify_group_policy_id' => 'getNotifyGroupPolicyId',
+        'notify_group_policy_source' => 'getNotifyGroupPolicySource',
         'notify_policy_id' => 'getNotifyPolicyId',
+        'notify_policy_source' => 'getNotifyPolicySource',
         'query' => 'getQuery',
         'type' => 'getType'
     ];
@@ -200,7 +210,9 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
         $this->container['levels'] = isset($data['levels']) ? $data['levels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['notify_group_policy_id'] = isset($data['notify_group_policy_id']) ? $data['notify_group_policy_id'] : null;
+        $this->container['notify_group_policy_source'] = isset($data['notify_group_policy_source']) ? $data['notify_group_policy_source'] : null;
         $this->container['notify_policy_id'] = isset($data['notify_policy_id']) ? $data['notify_policy_id'] : null;
+        $this->container['notify_policy_source'] = isset($data['notify_policy_source']) ? $data['notify_policy_source'] : null;
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -401,6 +413,30 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets notify_group_policy_source
+     *
+     * @return string
+     */
+    public function getNotifyGroupPolicySource()
+    {
+        return $this->container['notify_group_policy_source'];
+    }
+
+    /**
+     * Sets notify_group_policy_source
+     *
+     * @param string $notify_group_policy_source notify_group_policy_source
+     *
+     * @return $this
+     */
+    public function setNotifyGroupPolicySource($notify_group_policy_source)
+    {
+        $this->container['notify_group_policy_source'] = $notify_group_policy_source;
+
+        return $this;
+    }
+
+    /**
      * Gets notify_policy_id
      *
      * @return string
@@ -420,6 +456,30 @@ class UpdateAlertingRuleRequest implements ModelInterface, ArrayAccess
     public function setNotifyPolicyId($notify_policy_id)
     {
         $this->container['notify_policy_id'] = $notify_policy_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_policy_source
+     *
+     * @return string
+     */
+    public function getNotifyPolicySource()
+    {
+        return $this->container['notify_policy_source'];
+    }
+
+    /**
+     * Sets notify_policy_source
+     *
+     * @param string $notify_policy_source notify_policy_source
+     *
+     * @return $this
+     */
+    public function setNotifyPolicySource($notify_policy_source)
+    {
+        $this->container['notify_policy_source'] = $notify_policy_source;
 
         return $this;
     }
