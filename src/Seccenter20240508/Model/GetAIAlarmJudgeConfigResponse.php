@@ -31,7 +31,8 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         'auto_ai_judge_alarm' => 'bool',
         'auto_handle' => 'bool',
         'auto_handle_list' => 'string[]',
-        'manager_id' => 'string'
+        'manager_id' => 'string',
+        'remain_quota' => 'int'
     ];
 
     /**
@@ -43,7 +44,8 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         'auto_ai_judge_alarm' => null,
         'auto_handle' => null,
         'auto_handle_list' => null,
-        'manager_id' => null
+        'manager_id' => null,
+        'remain_quota' => 'int64'
     ];
 
     /**
@@ -76,7 +78,8 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         'auto_ai_judge_alarm' => 'AutoAIJudgeAlarm',
         'auto_handle' => 'AutoHandle',
         'auto_handle_list' => 'AutoHandleList',
-        'manager_id' => 'ManagerID'
+        'manager_id' => 'ManagerID',
+        'remain_quota' => 'RemainQuota'
     ];
 
     /**
@@ -88,7 +91,8 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         'auto_ai_judge_alarm' => 'setAutoAiJudgeAlarm',
         'auto_handle' => 'setAutoHandle',
         'auto_handle_list' => 'setAutoHandleList',
-        'manager_id' => 'setManagerId'
+        'manager_id' => 'setManagerId',
+        'remain_quota' => 'setRemainQuota'
     ];
 
     /**
@@ -100,7 +104,8 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         'auto_ai_judge_alarm' => 'getAutoAiJudgeAlarm',
         'auto_handle' => 'getAutoHandle',
         'auto_handle_list' => 'getAutoHandleList',
-        'manager_id' => 'getManagerId'
+        'manager_id' => 'getManagerId',
+        'remain_quota' => 'getRemainQuota'
     ];
 
     /**
@@ -167,6 +172,7 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
         $this->container['auto_handle'] = isset($data['auto_handle']) ? $data['auto_handle'] : null;
         $this->container['auto_handle_list'] = isset($data['auto_handle_list']) ? $data['auto_handle_list'] : null;
         $this->container['manager_id'] = isset($data['manager_id']) ? $data['manager_id'] : null;
+        $this->container['remain_quota'] = isset($data['remain_quota']) ? $data['remain_quota'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class GetAIAlarmJudgeConfigResponse implements ModelInterface, ArrayAccess
     public function setManagerId($manager_id)
     {
         $this->container['manager_id'] = $manager_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets remain_quota
+     *
+     * @return int
+     */
+    public function getRemainQuota()
+    {
+        return $this->container['remain_quota'];
+    }
+
+    /**
+     * Sets remain_quota
+     *
+     * @param int $remain_quota remain_quota
+     *
+     * @return $this
+     */
+    public function setRemainQuota($remain_quota)
+    {
+        $this->container['remain_quota'] = $remain_quota;
 
         return $this;
     }

@@ -194,35 +194,8 @@ class DataForListVarmorPoliciesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const STATUS_PENDING = 'Pending';
-    const STATUS_PROTECTING = 'Protecting';
-    const STATUS_MODELING = 'Modeling';
-    const STATUS_COMPLETED = 'Completed';
-    const STATUS_ERROR = 'Error';
-    const STATUS_FAILED = 'Failed';
-    const STATUS_UNKNOWN = 'Unknown';
-    const STATUS_UNCHANGED = 'Unchanged';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_PENDING,
-            self::STATUS_PROTECTING,
-            self::STATUS_MODELING,
-            self::STATUS_COMPLETED,
-            self::STATUS_ERROR,
-            self::STATUS_FAILED,
-            self::STATUS_UNKNOWN,
-            self::STATUS_UNCHANGED,
-        ];
-    }
     
 
     /**
@@ -264,14 +237,6 @@ class DataForListVarmorPoliciesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -619,15 +584,6 @@ class DataForListVarmorPoliciesOutput implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

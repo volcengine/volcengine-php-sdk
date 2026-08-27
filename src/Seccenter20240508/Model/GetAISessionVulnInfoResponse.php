@@ -34,7 +34,9 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         'platform' => 'string',
         'primary_ip_address' => 'string',
         'session_name' => 'string',
-        'suggest' => 'string'
+        'suggest' => 'string',
+        'tool_id' => 'string',
+        'tool_name' => 'string'
     ];
 
     /**
@@ -49,7 +51,9 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         'platform' => null,
         'primary_ip_address' => null,
         'session_name' => null,
-        'suggest' => null
+        'suggest' => null,
+        'tool_id' => null,
+        'tool_name' => null
     ];
 
     /**
@@ -85,7 +89,9 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         'platform' => 'Platform',
         'primary_ip_address' => 'PrimaryIpAddress',
         'session_name' => 'SessionName',
-        'suggest' => 'Suggest'
+        'suggest' => 'Suggest',
+        'tool_id' => 'ToolID',
+        'tool_name' => 'ToolName'
     ];
 
     /**
@@ -100,7 +106,9 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         'platform' => 'setPlatform',
         'primary_ip_address' => 'setPrimaryIpAddress',
         'session_name' => 'setSessionName',
-        'suggest' => 'setSuggest'
+        'suggest' => 'setSuggest',
+        'tool_id' => 'setToolId',
+        'tool_name' => 'setToolName'
     ];
 
     /**
@@ -115,7 +123,9 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         'platform' => 'getPlatform',
         'primary_ip_address' => 'getPrimaryIpAddress',
         'session_name' => 'getSessionName',
-        'suggest' => 'getSuggest'
+        'suggest' => 'getSuggest',
+        'tool_id' => 'getToolId',
+        'tool_name' => 'getToolName'
     ];
 
     /**
@@ -185,6 +195,8 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
         $this->container['session_name'] = isset($data['session_name']) ? $data['session_name'] : null;
         $this->container['suggest'] = isset($data['suggest']) ? $data['suggest'] : null;
+        $this->container['tool_id'] = isset($data['tool_id']) ? $data['tool_id'] : null;
+        $this->container['tool_name'] = isset($data['tool_name']) ? $data['tool_name'] : null;
     }
 
     /**
@@ -375,6 +387,54 @@ class GetAISessionVulnInfoResponse implements ModelInterface, ArrayAccess
     public function setSuggest($suggest)
     {
         $this->container['suggest'] = $suggest;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool_id
+     *
+     * @return string
+     */
+    public function getToolId()
+    {
+        return $this->container['tool_id'];
+    }
+
+    /**
+     * Sets tool_id
+     *
+     * @param string $tool_id tool_id
+     *
+     * @return $this
+     */
+    public function setToolId($tool_id)
+    {
+        $this->container['tool_id'] = $tool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool_name
+     *
+     * @return string
+     */
+    public function getToolName()
+    {
+        return $this->container['tool_name'];
+    }
+
+    /**
+     * Sets tool_name
+     *
+     * @param string $tool_name tool_name
+     *
+     * @return $this
+     */
+    public function setToolName($tool_name)
+    {
+        $this->container['tool_name'] = $tool_name;
 
         return $this;
     }

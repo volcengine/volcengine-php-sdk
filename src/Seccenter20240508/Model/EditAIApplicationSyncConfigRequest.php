@@ -28,6 +28,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'enable' => 'bool',
         'period' => 'int'
     ];
 
@@ -37,6 +38,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'enable' => null,
         'period' => 'int64'
     ];
 
@@ -67,6 +69,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'enable' => 'Enable',
         'period' => 'Period'
     ];
 
@@ -76,6 +79,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'enable' => 'setEnable',
         'period' => 'setPeriod'
     ];
 
@@ -85,6 +89,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'enable' => 'getEnable',
         'period' => 'getPeriod'
     ];
 
@@ -148,6 +153,7 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
@@ -174,6 +180,30 @@ class EditAIApplicationSyncConfigRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets enable
+     *
+     * @return bool
+     */
+    public function getEnable()
+    {
+        return $this->container['enable'];
+    }
+
+    /**
+     * Sets enable
+     *
+     * @param bool $enable enable
+     *
+     * @return $this
+     */
+    public function setEnable($enable)
+    {
+        $this->container['enable'] = $enable;
+
+        return $this;
+    }
 
     /**
      * Gets period

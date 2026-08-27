@@ -160,6 +160,9 @@ class GetFingerprintTop5Request implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['fingerprint_type'] === null) {
+            $invalidProperties[] = "'fingerprint_type' can't be null";
+        }
         return $invalidProperties;
     }
 

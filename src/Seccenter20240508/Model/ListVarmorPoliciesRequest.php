@@ -34,6 +34,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'policy_ids' => 'string[]',
         'policy_mode' => 'string',
         'policy_name' => 'string',
         'policy_type' => 'string',
@@ -56,6 +57,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         'namespace' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
+        'policy_ids' => null,
         'policy_mode' => null,
         'policy_name' => null,
         'policy_type' => null,
@@ -99,6 +101,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'Namespace',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'policy_ids' => 'PolicyIds',
         'policy_mode' => 'PolicyMode',
         'policy_name' => 'PolicyName',
         'policy_type' => 'PolicyType',
@@ -121,6 +124,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'setNamespace',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'policy_ids' => 'setPolicyIds',
         'policy_mode' => 'setPolicyMode',
         'policy_name' => 'setPolicyName',
         'policy_type' => 'setPolicyType',
@@ -143,6 +147,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'getNamespace',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'policy_ids' => 'getPolicyIds',
         'policy_mode' => 'getPolicyMode',
         'policy_name' => 'getPolicyName',
         'policy_type' => 'getPolicyType',
@@ -219,6 +224,7 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['policy_ids'] = isset($data['policy_ids']) ? $data['policy_ids'] : null;
         $this->container['policy_mode'] = isset($data['policy_mode']) ? $data['policy_mode'] : null;
         $this->container['policy_name'] = isset($data['policy_name']) ? $data['policy_name'] : null;
         $this->container['policy_type'] = isset($data['policy_type']) ? $data['policy_type'] : null;
@@ -399,6 +405,30 @@ class ListVarmorPoliciesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets policy_ids
+     *
+     * @return string[]
+     */
+    public function getPolicyIds()
+    {
+        return $this->container['policy_ids'];
+    }
+
+    /**
+     * Sets policy_ids
+     *
+     * @param string[] $policy_ids policy_ids
+     *
+     * @return $this
+     */
+    public function setPolicyIds($policy_ids)
+    {
+        $this->container['policy_ids'] = $policy_ids;
 
         return $this;
     }

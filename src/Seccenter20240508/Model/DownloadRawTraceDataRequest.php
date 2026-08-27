@@ -160,6 +160,9 @@ class DownloadRawTraceDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['trace_id'] === null) {
+            $invalidProperties[] = "'trace_id' can't be null";
+        }
         return $invalidProperties;
     }
 

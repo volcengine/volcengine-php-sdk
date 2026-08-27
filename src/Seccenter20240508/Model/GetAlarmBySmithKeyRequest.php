@@ -172,6 +172,12 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['alarm_category'] === null) {
+            $invalidProperties[] = "'alarm_category' can't be null";
+        }
+        if ($this->container['smith_key'] === null) {
+            $invalidProperties[] = "'smith_key' can't be null";
+        }
         return $invalidProperties;
     }
 

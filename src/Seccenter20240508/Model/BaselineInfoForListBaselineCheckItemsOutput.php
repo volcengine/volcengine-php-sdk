@@ -42,7 +42,8 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => 'string',
         'type' => 'string',
         'type_cn' => 'string',
-        'update_time' => 'int'
+        'update_time' => 'int',
+        'whitelist_status' => 'bool'
     ];
 
     /**
@@ -65,7 +66,8 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => null,
         'type' => null,
         'type_cn' => null,
-        'update_time' => 'int64'
+        'update_time' => 'int64',
+        'whitelist_status' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => 'TitleCn',
         'type' => 'Type',
         'type_cn' => 'TypeCn',
-        'update_time' => 'UpdateTime'
+        'update_time' => 'UpdateTime',
+        'whitelist_status' => 'WhitelistStatus'
     ];
 
     /**
@@ -132,7 +135,8 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => 'setTitleCn',
         'type' => 'setType',
         'type_cn' => 'setTypeCn',
-        'update_time' => 'setUpdateTime'
+        'update_time' => 'setUpdateTime',
+        'whitelist_status' => 'setWhitelistStatus'
     ];
 
     /**
@@ -155,7 +159,8 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => 'getTitleCn',
         'type' => 'getType',
         'type_cn' => 'getTypeCn',
-        'update_time' => 'getUpdateTime'
+        'update_time' => 'getUpdateTime',
+        'whitelist_status' => 'getWhitelistStatus'
     ];
 
     /**
@@ -233,6 +238,7 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['type_cn'] = isset($data['type_cn']) ? $data['type_cn'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['whitelist_status'] = isset($data['whitelist_status']) ? $data['whitelist_status'] : null;
     }
 
     /**
@@ -615,6 +621,30 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets whitelist_status
+     *
+     * @return bool
+     */
+    public function getWhitelistStatus()
+    {
+        return $this->container['whitelist_status'];
+    }
+
+    /**
+     * Sets whitelist_status
+     *
+     * @param bool $whitelist_status whitelist_status
+     *
+     * @return $this
+     */
+    public function setWhitelistStatus($whitelist_status)
+    {
+        $this->container['whitelist_status'] = $whitelist_status;
 
         return $this;
     }

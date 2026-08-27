@@ -41,11 +41,11 @@ class DataForGetRepoImageScanScopeOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'image_size_limit' => 'int32',
-        'latest_push' => 'int32',
+        'image_size_limit' => 'int64',
+        'latest_push' => 'int64',
         'namespace_ids' => null,
         'scan_items' => null,
-        'timeout' => 'int32'
+        'timeout' => 'int64'
     ];
 
     /**

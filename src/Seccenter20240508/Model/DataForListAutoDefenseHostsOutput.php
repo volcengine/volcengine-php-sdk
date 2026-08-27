@@ -55,6 +55,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         'risk' => '\Volcengine\Seccenter20240508\Model\RiskForListAutoDefenseHostsOutput',
         'security_enhancement' => 'bool',
         'start_time' => 'int',
+        'state' => 'string',
+        'state_detail' => 'string',
         'status' => 'string',
         'tags' => 'string[]',
         'total_mem' => 'int',
@@ -96,6 +98,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         'risk' => null,
         'security_enhancement' => null,
         'start_time' => 'int64',
+        'state' => null,
+        'state_detail' => null,
         'status' => null,
         'tags' => null,
         'total_mem' => 'int64',
@@ -158,6 +162,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         'risk' => 'Risk',
         'security_enhancement' => 'SecurityEnhancement',
         'start_time' => 'StartTime',
+        'state' => 'State',
+        'state_detail' => 'StateDetail',
         'status' => 'Status',
         'tags' => 'Tags',
         'total_mem' => 'TotalMem',
@@ -199,6 +205,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         'risk' => 'setRisk',
         'security_enhancement' => 'setSecurityEnhancement',
         'start_time' => 'setStartTime',
+        'state' => 'setState',
+        'state_detail' => 'setStateDetail',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'total_mem' => 'setTotalMem',
@@ -240,6 +248,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         'risk' => 'getRisk',
         'security_enhancement' => 'getSecurityEnhancement',
         'start_time' => 'getStartTime',
+        'state' => 'getState',
+        'state_detail' => 'getStateDetail',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'total_mem' => 'getTotalMem',
@@ -335,6 +345,8 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
         $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
         $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['state_detail'] = isset($data['state_detail']) ? $data['state_detail'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['total_mem'] = isset($data['total_mem']) ? $data['total_mem'] : null;
@@ -1011,6 +1023,54 @@ class DataForListAutoDefenseHostsOutput implements ModelInterface, ArrayAccess
     public function setStartTime($start_time)
     {
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_detail
+     *
+     * @return string
+     */
+    public function getStateDetail()
+    {
+        return $this->container['state_detail'];
+    }
+
+    /**
+     * Sets state_detail
+     *
+     * @param string $state_detail state_detail
+     *
+     * @return $this
+     */
+    public function setStateDetail($state_detail)
+    {
+        $this->container['state_detail'] = $state_detail;
 
         return $this;
     }
