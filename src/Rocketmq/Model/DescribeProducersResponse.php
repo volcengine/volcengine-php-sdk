@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
+class DescribeProducersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryMessageByTimestampRequest';
+    protected static $swaggerModelName = 'DescribeProducersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'lite_topic' => 'string',
-        'page_number' => 'int',
-        'query_end_timestamp' => 'string',
-        'query_start_timestamp' => 'string',
-        'topic_name' => 'string'
+        'producers_info' => '\Volcengine\Rocketmq\Model\ProducersInfoForDescribeProducersOutput[]',
+        'total_count' => 'int'
     ];
 
     /**
@@ -42,12 +38,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'lite_topic' => null,
-        'page_number' => 'int32',
-        'query_end_timestamp' => null,
-        'query_start_timestamp' => null,
-        'topic_name' => null
+        'producers_info' => null,
+        'total_count' => 'int32'
     ];
 
     /**
@@ -77,12 +69,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'lite_topic' => 'LiteTopic',
-        'page_number' => 'PageNumber',
-        'query_end_timestamp' => 'QueryEndTimestamp',
-        'query_start_timestamp' => 'QueryStartTimestamp',
-        'topic_name' => 'TopicName'
+        'producers_info' => 'ProducersInfo',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -91,12 +79,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'lite_topic' => 'setLiteTopic',
-        'page_number' => 'setPageNumber',
-        'query_end_timestamp' => 'setQueryEndTimestamp',
-        'query_start_timestamp' => 'setQueryStartTimestamp',
-        'topic_name' => 'setTopicName'
+        'producers_info' => 'setProducersInfo',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -105,12 +89,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'lite_topic' => 'getLiteTopic',
-        'page_number' => 'getPageNumber',
-        'query_end_timestamp' => 'getQueryEndTimestamp',
-        'query_start_timestamp' => 'getQueryStartTimestamp',
-        'topic_name' => 'getTopicName'
+        'producers_info' => 'getProducersInfo',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -173,12 +153,8 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['query_end_timestamp'] = isset($data['query_end_timestamp']) ? $data['query_end_timestamp'] : null;
-        $this->container['query_start_timestamp'] = isset($data['query_start_timestamp']) ? $data['query_start_timestamp'] : null;
-        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
+        $this->container['producers_info'] = isset($data['producers_info']) ? $data['producers_info'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -190,21 +166,6 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['query_end_timestamp'] === null) {
-            $invalidProperties[] = "'query_end_timestamp' can't be null";
-        }
-        if ($this->container['query_start_timestamp'] === null) {
-            $invalidProperties[] = "'query_start_timestamp' can't be null";
-        }
-        if ($this->container['topic_name'] === null) {
-            $invalidProperties[] = "'topic_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,145 +182,49 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets producers_info
      *
-     * @return string
+     * @return \Volcengine\Rocketmq\Model\ProducersInfoForDescribeProducersOutput[]
      */
-    public function getInstanceId()
+    public function getProducersInfo()
     {
-        return $this->container['instance_id'];
+        return $this->container['producers_info'];
     }
 
     /**
-     * Sets instance_id
+     * Sets producers_info
      *
-     * @param string $instance_id instance_id
+     * @param \Volcengine\Rocketmq\Model\ProducersInfoForDescribeProducersOutput[] $producers_info producers_info
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setProducersInfo($producers_info)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['producers_info'] = $producers_info;
 
         return $this;
     }
 
     /**
-     * Gets lite_topic
-     *
-     * @return string
-     */
-    public function getLiteTopic()
-    {
-        return $this->container['lite_topic'];
-    }
-
-    /**
-     * Sets lite_topic
-     *
-     * @param string $lite_topic lite_topic
-     *
-     * @return $this
-     */
-    public function setLiteTopic($lite_topic)
-    {
-        $this->container['lite_topic'] = $lite_topic;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
+     * Gets total_count
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getTotalCount()
     {
-        return $this->container['page_number'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets page_number
+     * Sets total_count
      *
-     * @param int $page_number page_number
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setTotalCount($total_count)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_end_timestamp
-     *
-     * @return string
-     */
-    public function getQueryEndTimestamp()
-    {
-        return $this->container['query_end_timestamp'];
-    }
-
-    /**
-     * Sets query_end_timestamp
-     *
-     * @param string $query_end_timestamp query_end_timestamp
-     *
-     * @return $this
-     */
-    public function setQueryEndTimestamp($query_end_timestamp)
-    {
-        $this->container['query_end_timestamp'] = $query_end_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_start_timestamp
-     *
-     * @return string
-     */
-    public function getQueryStartTimestamp()
-    {
-        return $this->container['query_start_timestamp'];
-    }
-
-    /**
-     * Sets query_start_timestamp
-     *
-     * @param string $query_start_timestamp query_start_timestamp
-     *
-     * @return $this
-     */
-    public function setQueryStartTimestamp($query_start_timestamp)
-    {
-        $this->container['query_start_timestamp'] = $query_start_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets topic_name
-     *
-     * @return string
-     */
-    public function getTopicName()
-    {
-        return $this->container['topic_name'];
-    }
-
-    /**
-     * Sets topic_name
-     *
-     * @param string $topic_name topic_name
-     *
-     * @return $this
-     */
-    public function setTopicName($topic_name)
-    {
-        $this->container['topic_name'] = $topic_name;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

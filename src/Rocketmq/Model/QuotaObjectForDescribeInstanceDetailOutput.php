@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
+class QuotaObjectForDescribeInstanceDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryMessageByTimestampRequest';
+    protected static $swaggerModelName = 'QuotaObjectForDescribeInstanceDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'lite_topic' => 'string',
-        'page_number' => 'int',
-        'query_end_timestamp' => 'string',
-        'query_start_timestamp' => 'string',
-        'topic_name' => 'string'
+        'free_count' => 'string',
+        'quota_name' => 'string',
+        'total_count' => 'int',
+        'used_count' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'lite_topic' => null,
-        'page_number' => 'int32',
-        'query_end_timestamp' => null,
-        'query_start_timestamp' => null,
-        'topic_name' => null
+        'free_count' => null,
+        'quota_name' => null,
+        'total_count' => 'int32',
+        'used_count' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'lite_topic' => 'LiteTopic',
-        'page_number' => 'PageNumber',
-        'query_end_timestamp' => 'QueryEndTimestamp',
-        'query_start_timestamp' => 'QueryStartTimestamp',
-        'topic_name' => 'TopicName'
+        'free_count' => 'freeCount',
+        'quota_name' => 'quotaName',
+        'total_count' => 'totalCount',
+        'used_count' => 'usedCount'
     ];
 
     /**
@@ -91,12 +85,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'lite_topic' => 'setLiteTopic',
-        'page_number' => 'setPageNumber',
-        'query_end_timestamp' => 'setQueryEndTimestamp',
-        'query_start_timestamp' => 'setQueryStartTimestamp',
-        'topic_name' => 'setTopicName'
+        'free_count' => 'setFreeCount',
+        'quota_name' => 'setQuotaName',
+        'total_count' => 'setTotalCount',
+        'used_count' => 'setUsedCount'
     ];
 
     /**
@@ -105,12 +97,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'lite_topic' => 'getLiteTopic',
-        'page_number' => 'getPageNumber',
-        'query_end_timestamp' => 'getQueryEndTimestamp',
-        'query_start_timestamp' => 'getQueryStartTimestamp',
-        'topic_name' => 'getTopicName'
+        'free_count' => 'getFreeCount',
+        'quota_name' => 'getQuotaName',
+        'total_count' => 'getTotalCount',
+        'used_count' => 'getUsedCount'
     ];
 
     /**
@@ -154,8 +144,23 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const QUOTA_NAME_LITE_TOPIC_QUOTA = 'LITE_TOPIC_QUOTA';
+    const QUOTA_NAME_LITE_SUBSCRIPTION_QUOTA = 'LITE_SUBSCRIPTION_QUOTA';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQuotaNameAllowableValues()
+    {
+        return [
+            self::QUOTA_NAME_LITE_TOPIC_QUOTA,
+            self::QUOTA_NAME_LITE_SUBSCRIPTION_QUOTA,
+        ];
+    }
     
 
     /**
@@ -173,12 +178,10 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['query_end_timestamp'] = isset($data['query_end_timestamp']) ? $data['query_end_timestamp'] : null;
-        $this->container['query_start_timestamp'] = isset($data['query_start_timestamp']) ? $data['query_start_timestamp'] : null;
-        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
+        $this->container['free_count'] = isset($data['free_count']) ? $data['free_count'] : null;
+        $this->container['quota_name'] = isset($data['quota_name']) ? $data['quota_name'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;
     }
 
     /**
@@ -190,21 +193,14 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        $allowedValues = $this->getQuotaNameAllowableValues();
+        if (!is_null($this->container['quota_name']) && !in_array($this->container['quota_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'quota_name', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['query_end_timestamp'] === null) {
-            $invalidProperties[] = "'query_end_timestamp' can't be null";
-        }
-        if ($this->container['query_start_timestamp'] === null) {
-            $invalidProperties[] = "'query_start_timestamp' can't be null";
-        }
-        if ($this->container['topic_name'] === null) {
-            $invalidProperties[] = "'topic_name' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -221,145 +217,106 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets free_count
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getFreeCount()
     {
-        return $this->container['instance_id'];
+        return $this->container['free_count'];
     }
 
     /**
-     * Sets instance_id
+     * Sets free_count
      *
-     * @param string $instance_id instance_id
+     * @param string $free_count free_count
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setFreeCount($free_count)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['free_count'] = $free_count;
 
         return $this;
     }
 
     /**
-     * Gets lite_topic
+     * Gets quota_name
      *
      * @return string
      */
-    public function getLiteTopic()
+    public function getQuotaName()
     {
-        return $this->container['lite_topic'];
+        return $this->container['quota_name'];
     }
 
     /**
-     * Sets lite_topic
+     * Sets quota_name
      *
-     * @param string $lite_topic lite_topic
+     * @param string $quota_name quota_name
      *
      * @return $this
      */
-    public function setLiteTopic($lite_topic)
+    public function setQuotaName($quota_name)
     {
-        $this->container['lite_topic'] = $lite_topic;
+        $allowedValues = $this->getQuotaNameAllowableValues();
+        if (!is_null($quota_name) && !in_array($quota_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'quota_name', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['quota_name'] = $quota_name;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets total_count
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getTotalCount()
     {
-        return $this->container['page_number'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets page_number
+     * Sets total_count
      *
-     * @param int $page_number page_number
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setTotalCount($total_count)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
 
     /**
-     * Gets query_end_timestamp
+     * Gets used_count
      *
      * @return string
      */
-    public function getQueryEndTimestamp()
+    public function getUsedCount()
     {
-        return $this->container['query_end_timestamp'];
+        return $this->container['used_count'];
     }
 
     /**
-     * Sets query_end_timestamp
+     * Sets used_count
      *
-     * @param string $query_end_timestamp query_end_timestamp
+     * @param string $used_count used_count
      *
      * @return $this
      */
-    public function setQueryEndTimestamp($query_end_timestamp)
+    public function setUsedCount($used_count)
     {
-        $this->container['query_end_timestamp'] = $query_end_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_start_timestamp
-     *
-     * @return string
-     */
-    public function getQueryStartTimestamp()
-    {
-        return $this->container['query_start_timestamp'];
-    }
-
-    /**
-     * Sets query_start_timestamp
-     *
-     * @param string $query_start_timestamp query_start_timestamp
-     *
-     * @return $this
-     */
-    public function setQueryStartTimestamp($query_start_timestamp)
-    {
-        $this->container['query_start_timestamp'] = $query_start_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets topic_name
-     *
-     * @return string
-     */
-    public function getTopicName()
-    {
-        return $this->container['topic_name'];
-    }
-
-    /**
-     * Sets topic_name
-     *
-     * @param string $topic_name topic_name
-     *
-     * @return $this
-     */
-    public function setTopicName($topic_name)
-    {
-        $this->container['topic_name'] = $topic_name;
+        $this->container['used_count'] = $used_count;
 
         return $this;
     }

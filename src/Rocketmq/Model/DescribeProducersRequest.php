@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateGroupRequest implements ModelInterface, ArrayAccess
+class DescribeProducersRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateGroupRequest';
+    protected static $swaggerModelName = 'DescribeProducersRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'consume_message_orderly' => 'bool',
-        'description' => 'string',
-        'group_id' => 'string',
-        'group_type' => 'string',
         'instance_id' => 'string',
-        'message_model' => 'string',
-        'retry_max_times' => 'int',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'topic_name' => 'string'
     ];
 
@@ -44,13 +40,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'consume_message_orderly' => null,
-        'description' => null,
-        'group_id' => null,
-        'group_type' => null,
         'instance_id' => null,
-        'message_model' => null,
-        'retry_max_times' => 'int32',
+        'page_number' => 'int32',
+        'page_size' => 'int32',
         'topic_name' => null
     ];
 
@@ -81,13 +73,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'consume_message_orderly' => 'ConsumeMessageOrderly',
-        'description' => 'Description',
-        'group_id' => 'GroupId',
-        'group_type' => 'GroupType',
         'instance_id' => 'InstanceId',
-        'message_model' => 'MessageModel',
-        'retry_max_times' => 'RetryMaxTimes',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'topic_name' => 'TopicName'
     ];
 
@@ -97,13 +85,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'consume_message_orderly' => 'setConsumeMessageOrderly',
-        'description' => 'setDescription',
-        'group_id' => 'setGroupId',
-        'group_type' => 'setGroupType',
         'instance_id' => 'setInstanceId',
-        'message_model' => 'setMessageModel',
-        'retry_max_times' => 'setRetryMaxTimes',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'topic_name' => 'setTopicName'
     ];
 
@@ -113,13 +97,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'consume_message_orderly' => 'getConsumeMessageOrderly',
-        'description' => 'getDescription',
-        'group_id' => 'getGroupId',
-        'group_type' => 'getGroupType',
         'instance_id' => 'getInstanceId',
-        'message_model' => 'getMessageModel',
-        'retry_max_times' => 'getRetryMaxTimes',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'topic_name' => 'getTopicName'
     ];
 
@@ -164,23 +144,8 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const MESSAGE_MODEL_CLUSTERING = 'CLUSTERING';
-    const MESSAGE_MODEL_LITE_SELECTIVE = 'LITE_SELECTIVE';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMessageModelAllowableValues()
-    {
-        return [
-            self::MESSAGE_MODEL_CLUSTERING,
-            self::MESSAGE_MODEL_LITE_SELECTIVE,
-        ];
-    }
     
 
     /**
@@ -198,13 +163,9 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['consume_message_orderly'] = isset($data['consume_message_orderly']) ? $data['consume_message_orderly'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
-        $this->container['group_type'] = isset($data['group_type']) ? $data['group_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['message_model'] = isset($data['message_model']) ? $data['message_model'] : null;
-        $this->container['retry_max_times'] = isset($data['retry_max_times']) ? $data['retry_max_times'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
     }
 
@@ -217,23 +178,15 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['group_id'] === null) {
-            $invalidProperties[] = "'group_id' can't be null";
-        }
-        if ($this->container['group_type'] === null) {
-            $invalidProperties[] = "'group_type' can't be null";
-        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
         }
-        $allowedValues = $this->getMessageModelAllowableValues();
-        if (!is_null($this->container['message_model']) && !in_array($this->container['message_model'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'message_model', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['page_number'] === null) {
+            $invalidProperties[] = "'page_number' can't be null";
         }
-
+        if ($this->container['page_size'] === null) {
+            $invalidProperties[] = "'page_size' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -248,102 +201,6 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets consume_message_orderly
-     *
-     * @return bool
-     */
-    public function getConsumeMessageOrderly()
-    {
-        return $this->container['consume_message_orderly'];
-    }
-
-    /**
-     * Sets consume_message_orderly
-     *
-     * @param bool $consume_message_orderly consume_message_orderly
-     *
-     * @return $this
-     */
-    public function setConsumeMessageOrderly($consume_message_orderly)
-    {
-        $this->container['consume_message_orderly'] = $consume_message_orderly;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_id
-     *
-     * @return string
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param string $group_id group_id
-     *
-     * @return $this
-     */
-    public function setGroupId($group_id)
-    {
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_type
-     *
-     * @return string
-     */
-    public function getGroupType()
-    {
-        return $this->container['group_type'];
-    }
-
-    /**
-     * Sets group_type
-     *
-     * @param string $group_type group_type
-     *
-     * @return $this
-     */
-    public function setGroupType($group_type)
-    {
-        $this->container['group_type'] = $group_type;
-
-        return $this;
-    }
 
     /**
      * Gets instance_id
@@ -370,58 +227,49 @@ class CreateGroupRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets message_model
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getMessageModel()
+    public function getPageNumber()
     {
-        return $this->container['message_model'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets message_model
+     * Sets page_number
      *
-     * @param string $message_model message_model
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setMessageModel($message_model)
+    public function setPageNumber($page_number)
     {
-        $allowedValues = $this->getMessageModelAllowableValues();
-        if (!is_null($message_model) && !in_array($message_model, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'message_model', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['message_model'] = $message_model;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets retry_max_times
+     * Gets page_size
      *
      * @return int
      */
-    public function getRetryMaxTimes()
+    public function getPageSize()
     {
-        return $this->container['retry_max_times'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets retry_max_times
+     * Sets page_size
      *
-     * @param int $retry_max_times retry_max_times
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setRetryMaxTimes($retry_max_times)
+    public function setPageSize($page_size)
     {
-        $this->container['retry_max_times'] = $retry_max_times;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

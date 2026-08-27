@@ -392,6 +392,23 @@ class ROCKETMQApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
+    public function createGroupAsync($body = null)
+    {
+        return $this->createGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\CreateGroupResponse';
+        $request = $this->createGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
     protected function createGroupRequest($body)
     {
         $resourcePath = '/CreateGroup/2023-01-01/rocketmq/post/application_json/';
@@ -685,6 +702,23 @@ class ROCKETMQApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
+    public function createTopicAsync($body = null)
+    {
+        return $this->createTopicAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTopicAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\CreateTopicResponse';
+        $request = $this->createTopicRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
     protected function createTopicRequest($body)
     {
         $resourcePath = '/CreateTopic/2023-01-01/rocketmq/post/application_json/';
@@ -902,6 +936,68 @@ class ROCKETMQApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteConsumerGroupSubscription($body = null)
+    {
+        list($response) = $this->deleteConsumerGroupSubscriptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteConsumerGroupSubscriptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DeleteConsumerGroupSubscriptionResponse';
+        $request = $this->deleteConsumerGroupSubscriptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteConsumerGroupSubscriptionAsync($body = null)
+    {
+        return $this->deleteConsumerGroupSubscriptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteConsumerGroupSubscriptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DeleteConsumerGroupSubscriptionResponse';
+        $request = $this->deleteConsumerGroupSubscriptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteConsumerGroupSubscriptionRequest($body)
+    {
+        $resourcePath = '/DeleteConsumerGroupSubscription/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteGroup($body = null)
     {
         list($response) = $this->deleteGroupWithHttpInfo($body);
@@ -914,6 +1010,23 @@ class ROCKETMQApi
         $request = $this->deleteGroupRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteGroupAsync($body = null)
+    {
+        return $this->deleteGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DeleteGroupResponse';
+        $request = $this->deleteGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteGroupRequest($body)
@@ -1269,6 +1382,23 @@ class ROCKETMQApi
         $request = $this->deleteTopicRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteTopicAsync($body = null)
+    {
+        return $this->deleteTopicAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteTopicAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DeleteTopicResponse';
+        $request = $this->deleteTopicRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteTopicRequest($body)
@@ -2232,6 +2362,68 @@ class ROCKETMQApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeProducers($body = null)
+    {
+        list($response) = $this->describeProducersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeProducersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DescribeProducersResponse';
+        $request = $this->describeProducersRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeProducersAsync($body = null)
+    {
+        return $this->describeProducersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeProducersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\DescribeProducersResponse';
+        $request = $this->describeProducersRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeProducersRequest($body)
+    {
+        $resourcePath = '/DescribeProducers/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeRegions($body = null)
     {
         list($response) = $this->describeRegionsWithHttpInfo($body);
@@ -2976,6 +3168,68 @@ class ROCKETMQApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function exportDLQMessages($body = null)
+    {
+        list($response) = $this->exportDLQMessagesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function exportDLQMessagesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\ExportDLQMessagesResponse';
+        $request = $this->exportDLQMessagesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function exportDLQMessagesAsync($body = null)
+    {
+        return $this->exportDLQMessagesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function exportDLQMessagesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\ExportDLQMessagesResponse';
+        $request = $this->exportDLQMessagesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function exportDLQMessagesRequest($body)
+    {
+        $resourcePath = '/ExportDLQMessages/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getInspectConfig($body = null)
     {
         list($response) = $this->getInspectConfigWithHttpInfo($body);
@@ -3072,6 +3326,68 @@ class ROCKETMQApi
     protected function getInstanceInspectResultRequest($body)
     {
         $resourcePath = '/GetInstanceInspectResult/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRocketmqVersions($body = null)
+    {
+        list($response) = $this->listRocketmqVersionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRocketmqVersionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\ListRocketmqVersionsResponse';
+        $request = $this->listRocketmqVersionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRocketmqVersionsAsync($body = null)
+    {
+        return $this->listRocketmqVersionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRocketmqVersionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\ListRocketmqVersionsResponse';
+        $request = $this->listRocketmqVersionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRocketmqVersionsRequest($body)
+    {
+        $resourcePath = '/ListRocketmqVersions/2023-01-01/rocketmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4498,6 +4814,130 @@ class ROCKETMQApi
     protected function resetConsumedOffsetsRequest($body)
     {
         $resourcePath = '/ResetConsumedOffsets/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateGroup($body = null)
+    {
+        list($response) = $this->updateGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\UpdateGroupResponse';
+        $request = $this->updateGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateGroupAsync($body = null)
+    {
+        return $this->updateGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\UpdateGroupResponse';
+        $request = $this->updateGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateGroupRequest($body)
+    {
+        $resourcePath = '/UpdateGroup/2023-01-01/rocketmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateTopic($body = null)
+    {
+        list($response) = $this->updateTopicWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateTopicWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\UpdateTopicResponse';
+        $request = $this->updateTopicRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateTopicAsync($body = null)
+    {
+        return $this->updateTopicAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateTopicAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Rocketmq\Model\UpdateTopicResponse';
+        $request = $this->updateTopicRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateTopicRequest($body)
+    {
+        $resourcePath = '/UpdateTopic/2023-01-01/rocketmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
+class ExportDLQMessagesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryMessageByTimestampRequest';
+    protected static $swaggerModelName = 'ExportDLQMessagesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'group' => 'string',
         'instance_id' => 'string',
-        'lite_topic' => 'string',
-        'page_number' => 'int',
-        'query_end_timestamp' => 'string',
-        'query_start_timestamp' => 'string',
-        'topic_name' => 'string'
+        'message_ids' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'group' => null,
         'instance_id' => null,
-        'lite_topic' => null,
-        'page_number' => 'int32',
-        'query_end_timestamp' => null,
-        'query_start_timestamp' => null,
-        'topic_name' => null
+        'message_ids' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'group' => 'Group',
         'instance_id' => 'InstanceId',
-        'lite_topic' => 'LiteTopic',
-        'page_number' => 'PageNumber',
-        'query_end_timestamp' => 'QueryEndTimestamp',
-        'query_start_timestamp' => 'QueryStartTimestamp',
-        'topic_name' => 'TopicName'
+        'message_ids' => 'MessageIds'
     ];
 
     /**
@@ -91,12 +82,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'group' => 'setGroup',
         'instance_id' => 'setInstanceId',
-        'lite_topic' => 'setLiteTopic',
-        'page_number' => 'setPageNumber',
-        'query_end_timestamp' => 'setQueryEndTimestamp',
-        'query_start_timestamp' => 'setQueryStartTimestamp',
-        'topic_name' => 'setTopicName'
+        'message_ids' => 'setMessageIds'
     ];
 
     /**
@@ -105,12 +93,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'group' => 'getGroup',
         'instance_id' => 'getInstanceId',
-        'lite_topic' => 'getLiteTopic',
-        'page_number' => 'getPageNumber',
-        'query_end_timestamp' => 'getQueryEndTimestamp',
-        'query_start_timestamp' => 'getQueryStartTimestamp',
-        'topic_name' => 'getTopicName'
+        'message_ids' => 'getMessageIds'
     ];
 
     /**
@@ -173,12 +158,9 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['query_end_timestamp'] = isset($data['query_end_timestamp']) ? $data['query_end_timestamp'] : null;
-        $this->container['query_start_timestamp'] = isset($data['query_start_timestamp']) ? $data['query_start_timestamp'] : null;
-        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
+        $this->container['message_ids'] = isset($data['message_ids']) ? $data['message_ids'] : null;
     }
 
     /**
@@ -190,20 +172,11 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['group'] === null) {
+            $invalidProperties[] = "'group' can't be null";
+        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
-        }
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['query_end_timestamp'] === null) {
-            $invalidProperties[] = "'query_end_timestamp' can't be null";
-        }
-        if ($this->container['query_start_timestamp'] === null) {
-            $invalidProperties[] = "'query_start_timestamp' can't be null";
-        }
-        if ($this->container['topic_name'] === null) {
-            $invalidProperties[] = "'topic_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -219,6 +192,30 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string $group group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $this->container['group'] = $group;
+
+        return $this;
+    }
 
     /**
      * Gets instance_id
@@ -245,121 +242,25 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets lite_topic
+     * Gets message_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getLiteTopic()
+    public function getMessageIds()
     {
-        return $this->container['lite_topic'];
+        return $this->container['message_ids'];
     }
 
     /**
-     * Sets lite_topic
+     * Sets message_ids
      *
-     * @param string $lite_topic lite_topic
+     * @param string[] $message_ids message_ids
      *
      * @return $this
      */
-    public function setLiteTopic($lite_topic)
+    public function setMessageIds($message_ids)
     {
-        $this->container['lite_topic'] = $lite_topic;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_end_timestamp
-     *
-     * @return string
-     */
-    public function getQueryEndTimestamp()
-    {
-        return $this->container['query_end_timestamp'];
-    }
-
-    /**
-     * Sets query_end_timestamp
-     *
-     * @param string $query_end_timestamp query_end_timestamp
-     *
-     * @return $this
-     */
-    public function setQueryEndTimestamp($query_end_timestamp)
-    {
-        $this->container['query_end_timestamp'] = $query_end_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_start_timestamp
-     *
-     * @return string
-     */
-    public function getQueryStartTimestamp()
-    {
-        return $this->container['query_start_timestamp'];
-    }
-
-    /**
-     * Sets query_start_timestamp
-     *
-     * @param string $query_start_timestamp query_start_timestamp
-     *
-     * @return $this
-     */
-    public function setQueryStartTimestamp($query_start_timestamp)
-    {
-        $this->container['query_start_timestamp'] = $query_start_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets topic_name
-     *
-     * @return string
-     */
-    public function getTopicName()
-    {
-        return $this->container['topic_name'];
-    }
-
-    /**
-     * Sets topic_name
-     *
-     * @param string $topic_name topic_name
-     *
-     * @return $this
-     */
-    public function setTopicName($topic_name)
-    {
-        $this->container['topic_name'] = $topic_name;
+        $this->container['message_ids'] = $message_ids;
 
         return $this;
     }
