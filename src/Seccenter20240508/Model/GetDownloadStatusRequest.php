@@ -160,6 +160,9 @@ class GetDownloadStatusRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['file_name'] === null) {
+            $invalidProperties[] = "'file_name' can't be null";
+        }
         return $invalidProperties;
     }
 

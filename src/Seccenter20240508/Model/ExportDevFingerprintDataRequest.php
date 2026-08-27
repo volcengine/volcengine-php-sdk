@@ -139,25 +139,8 @@ class ExportDevFingerprintDataRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const FINGERPRINT_TYPE_PROCESS = 'process';
-    const FINGERPRINT_TYPE_PORT = 'port';
-    const FINGERPRINT_TYPE_SOFTWARE = 'software';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFingerprintTypeAllowableValues()
-    {
-        return [
-            self::FINGERPRINT_TYPE_PROCESS,
-            self::FINGERPRINT_TYPE_PORT,
-            self::FINGERPRINT_TYPE_SOFTWARE,
-        ];
-    }
     
 
     /**
@@ -188,14 +171,6 @@ class ExportDevFingerprintDataRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getFingerprintTypeAllowableValues();
-        if (!is_null($this->container['fingerprint_type']) && !in_array($this->container['fingerprint_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'fingerprint_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -255,15 +230,6 @@ class ExportDevFingerprintDataRequest implements ModelInterface, ArrayAccess
      */
     public function setFingerprintType($fingerprint_type)
     {
-        $allowedValues = $this->getFingerprintTypeAllowableValues();
-        if (!is_null($fingerprint_type) && !in_array($fingerprint_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fingerprint_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['fingerprint_type'] = $fingerprint_type;
 
         return $this;

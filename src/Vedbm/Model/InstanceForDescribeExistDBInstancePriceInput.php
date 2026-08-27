@@ -31,7 +31,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         'instance_id' => 'string',
         'node_specs' => '\Volcengine\Vedbm\Model\NodeSpecForDescribeExistDBInstancePriceInput[]',
         'pre_paid_storage_in_gb' => 'int',
-        'storage_charge_type' => 'string'
+        'storage_charge_type' => 'string',
+        'storage_type' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         'instance_id' => null,
         'node_specs' => null,
         'pre_paid_storage_in_gb' => 'int32',
-        'storage_charge_type' => null
+        'storage_charge_type' => null,
+        'storage_type' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         'instance_id' => 'InstanceId',
         'node_specs' => 'NodeSpecs',
         'pre_paid_storage_in_gb' => 'PrePaidStorageInGB',
-        'storage_charge_type' => 'StorageChargeType'
+        'storage_charge_type' => 'StorageChargeType',
+        'storage_type' => 'StorageType'
     ];
 
     /**
@@ -88,7 +91,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         'instance_id' => 'setInstanceId',
         'node_specs' => 'setNodeSpecs',
         'pre_paid_storage_in_gb' => 'setPrePaidStorageInGb',
-        'storage_charge_type' => 'setStorageChargeType'
+        'storage_charge_type' => 'setStorageChargeType',
+        'storage_type' => 'setStorageType'
     ];
 
     /**
@@ -100,7 +104,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         'instance_id' => 'getInstanceId',
         'node_specs' => 'getNodeSpecs',
         'pre_paid_storage_in_gb' => 'getPrePaidStorageInGb',
-        'storage_charge_type' => 'getStorageChargeType'
+        'storage_charge_type' => 'getStorageChargeType',
+        'storage_type' => 'getStorageType'
     ];
 
     /**
@@ -146,6 +151,8 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
 
     const STORAGE_CHARGE_TYPE_POST_PAID = 'PostPaid';
     const STORAGE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
+    const STORAGE_TYPE_IO_OPTIMIZED_STORAGE = 'IOOptimizedStorage';
+    const STORAGE_TYPE_SMART_COMPRESSED_STORAGE = 'SmartCompressedStorage';
     
 
     
@@ -159,6 +166,19 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         return [
             self::STORAGE_CHARGE_TYPE_POST_PAID,
             self::STORAGE_CHARGE_TYPE_PRE_PAID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageTypeAllowableValues()
+    {
+        return [
+            self::STORAGE_TYPE_IO_OPTIMIZED_STORAGE,
+            self::STORAGE_TYPE_SMART_COMPRESSED_STORAGE,
         ];
     }
     
@@ -182,6 +202,7 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         $this->container['node_specs'] = isset($data['node_specs']) ? $data['node_specs'] : null;
         $this->container['pre_paid_storage_in_gb'] = isset($data['pre_paid_storage_in_gb']) ? $data['pre_paid_storage_in_gb'] : null;
         $this->container['storage_charge_type'] = isset($data['storage_charge_type']) ? $data['storage_charge_type'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
     }
 
     /**
@@ -197,6 +218,14 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
         if (!is_null($this->container['storage_charge_type']) && !in_array($this->container['storage_charge_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'storage_charge_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($this->container['storage_type']) && !in_array($this->container['storage_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'storage_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -317,6 +346,39 @@ class InstanceForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
             );
         }
         $this->container['storage_charge_type'] = $storage_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($storage_type) && !in_array($storage_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'storage_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }

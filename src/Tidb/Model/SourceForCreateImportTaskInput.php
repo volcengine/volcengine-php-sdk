@@ -28,12 +28,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'azure_blob' => '\Volcengine\Tidb\Model\AzureBlobForCreateImportTaskInput',
-        'gcs' => '\Volcengine\Tidb\Model\GcsForCreateImportTaskInput',
         'local' => '\Volcengine\Tidb\Model\LocalForCreateImportTaskInput',
-        'oss' => '\Volcengine\Tidb\Model\OssForCreateImportTaskInput',
-        's3' => '\Volcengine\Tidb\Model\S3ForCreateImportTaskInput',
-        's3_compatible' => '\Volcengine\Tidb\Model\S3CompatibleForCreateImportTaskInput',
         'target_table_infos' => '\Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]',
         'tos' => '\Volcengine\Tidb\Model\TosForCreateImportTaskInput',
         'type' => 'string'
@@ -45,12 +40,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'azure_blob' => null,
-        'gcs' => null,
         'local' => null,
-        'oss' => null,
-        's3' => null,
-        's3_compatible' => null,
         'target_table_infos' => null,
         'tos' => null,
         'type' => null
@@ -83,12 +73,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'azure_blob' => 'AzureBlob',
-        'gcs' => 'Gcs',
         'local' => 'Local',
-        'oss' => 'Oss',
-        's3' => 'S3',
-        's3_compatible' => 'S3Compatible',
         'target_table_infos' => 'TargetTableInfos',
         'tos' => 'Tos',
         'type' => 'Type'
@@ -100,12 +85,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'azure_blob' => 'setAzureBlob',
-        'gcs' => 'setGcs',
         'local' => 'setLocal',
-        'oss' => 'setOss',
-        's3' => 'setS3',
-        's3_compatible' => 'setS3Compatible',
         'target_table_infos' => 'setTargetTableInfos',
         'tos' => 'setTos',
         'type' => 'setType'
@@ -117,12 +97,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'azure_blob' => 'getAzureBlob',
-        'gcs' => 'getGcs',
         'local' => 'getLocal',
-        'oss' => 'getOss',
-        's3' => 'getS3',
-        's3_compatible' => 'getS3Compatible',
         'target_table_infos' => 'getTargetTableInfos',
         'tos' => 'getTos',
         'type' => 'getType'
@@ -203,12 +178,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['azure_blob'] = isset($data['azure_blob']) ? $data['azure_blob'] : null;
-        $this->container['gcs'] = isset($data['gcs']) ? $data['gcs'] : null;
         $this->container['local'] = isset($data['local']) ? $data['local'] : null;
-        $this->container['oss'] = isset($data['oss']) ? $data['oss'] : null;
-        $this->container['s3'] = isset($data['s3']) ? $data['s3'] : null;
-        $this->container['s3_compatible'] = isset($data['s3_compatible']) ? $data['s3_compatible'] : null;
         $this->container['target_table_infos'] = isset($data['target_table_infos']) ? $data['target_table_infos'] : null;
         $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -247,54 +217,6 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets azure_blob
-     *
-     * @return \Volcengine\Tidb\Model\AzureBlobForCreateImportTaskInput
-     */
-    public function getAzureBlob()
-    {
-        return $this->container['azure_blob'];
-    }
-
-    /**
-     * Sets azure_blob
-     *
-     * @param \Volcengine\Tidb\Model\AzureBlobForCreateImportTaskInput $azure_blob azure_blob
-     *
-     * @return $this
-     */
-    public function setAzureBlob($azure_blob)
-    {
-        $this->container['azure_blob'] = $azure_blob;
-
-        return $this;
-    }
-
-    /**
-     * Gets gcs
-     *
-     * @return \Volcengine\Tidb\Model\GcsForCreateImportTaskInput
-     */
-    public function getGcs()
-    {
-        return $this->container['gcs'];
-    }
-
-    /**
-     * Sets gcs
-     *
-     * @param \Volcengine\Tidb\Model\GcsForCreateImportTaskInput $gcs gcs
-     *
-     * @return $this
-     */
-    public function setGcs($gcs)
-    {
-        $this->container['gcs'] = $gcs;
-
-        return $this;
-    }
-
-    /**
      * Gets local
      *
      * @return \Volcengine\Tidb\Model\LocalForCreateImportTaskInput
@@ -314,78 +236,6 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
     public function setLocal($local)
     {
         $this->container['local'] = $local;
-
-        return $this;
-    }
-
-    /**
-     * Gets oss
-     *
-     * @return \Volcengine\Tidb\Model\OssForCreateImportTaskInput
-     */
-    public function getOss()
-    {
-        return $this->container['oss'];
-    }
-
-    /**
-     * Sets oss
-     *
-     * @param \Volcengine\Tidb\Model\OssForCreateImportTaskInput $oss oss
-     *
-     * @return $this
-     */
-    public function setOss($oss)
-    {
-        $this->container['oss'] = $oss;
-
-        return $this;
-    }
-
-    /**
-     * Gets s3
-     *
-     * @return \Volcengine\Tidb\Model\S3ForCreateImportTaskInput
-     */
-    public function getS3()
-    {
-        return $this->container['s3'];
-    }
-
-    /**
-     * Sets s3
-     *
-     * @param \Volcengine\Tidb\Model\S3ForCreateImportTaskInput $s3 s3
-     *
-     * @return $this
-     */
-    public function setS3($s3)
-    {
-        $this->container['s3'] = $s3;
-
-        return $this;
-    }
-
-    /**
-     * Gets s3_compatible
-     *
-     * @return \Volcengine\Tidb\Model\S3CompatibleForCreateImportTaskInput
-     */
-    public function getS3Compatible()
-    {
-        return $this->container['s3_compatible'];
-    }
-
-    /**
-     * Sets s3_compatible
-     *
-     * @param \Volcengine\Tidb\Model\S3CompatibleForCreateImportTaskInput $s3_compatible s3_compatible
-     *
-     * @return $this
-     */
-    public function setS3Compatible($s3_compatible)
-    {
-        $this->container['s3_compatible'] = $s3_compatible;
 
         return $this;
     }

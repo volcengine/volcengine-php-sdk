@@ -30,7 +30,7 @@ class DataForGetAIFingerprintAppOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'app_id' => 'string',
         'description' => 'string',
-        'enabled' => 'bool',
+        'enabled' => 'string',
         'id' => 'string',
         'name' => 'string',
         'session_id' => 'string',
@@ -304,7 +304,7 @@ class DataForGetAIFingerprintAppOutput implements ModelInterface, ArrayAccess
     /**
      * Gets enabled
      *
-     * @return bool
+     * @return string
      */
     public function getEnabled()
     {
@@ -314,7 +314,7 @@ class DataForGetAIFingerprintAppOutput implements ModelInterface, ArrayAccess
     /**
      * Sets enabled
      *
-     * @param bool $enabled enabled
+     * @param string $enabled enabled
      *
      * @return $this
      */

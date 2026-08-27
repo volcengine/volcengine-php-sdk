@@ -71,9 +71,9 @@ class GetSOCPrecautionBaselineStatsResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'passed' => 'passed',
-        'risky' => 'risky',
-        'total' => 'total'
+        'passed' => 'Passed',
+        'risky' => 'Risky',
+        'total' => 'Total'
     ];
 
     /**

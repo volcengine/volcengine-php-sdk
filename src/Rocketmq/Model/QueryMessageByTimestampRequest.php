@@ -29,6 +29,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_id' => 'string',
+        'lite_topic' => 'string',
         'page_number' => 'int',
         'query_end_timestamp' => 'string',
         'query_start_timestamp' => 'string',
@@ -42,6 +43,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_id' => null,
+        'lite_topic' => null,
         'page_number' => 'int32',
         'query_end_timestamp' => null,
         'query_start_timestamp' => null,
@@ -76,6 +78,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
+        'lite_topic' => 'LiteTopic',
         'page_number' => 'PageNumber',
         'query_end_timestamp' => 'QueryEndTimestamp',
         'query_start_timestamp' => 'QueryStartTimestamp',
@@ -89,6 +92,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_id' => 'setInstanceId',
+        'lite_topic' => 'setLiteTopic',
         'page_number' => 'setPageNumber',
         'query_end_timestamp' => 'setQueryEndTimestamp',
         'query_start_timestamp' => 'setQueryStartTimestamp',
@@ -102,6 +106,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_id' => 'getInstanceId',
+        'lite_topic' => 'getLiteTopic',
         'page_number' => 'getPageNumber',
         'query_end_timestamp' => 'getQueryEndTimestamp',
         'query_start_timestamp' => 'getQueryStartTimestamp',
@@ -169,6 +174,7 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['lite_topic'] = isset($data['lite_topic']) ? $data['lite_topic'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['query_end_timestamp'] = isset($data['query_end_timestamp']) ? $data['query_end_timestamp'] : null;
         $this->container['query_start_timestamp'] = isset($data['query_start_timestamp']) ? $data['query_start_timestamp'] : null;
@@ -234,6 +240,30 @@ class QueryMessageByTimestampRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lite_topic
+     *
+     * @return string
+     */
+    public function getLiteTopic()
+    {
+        return $this->container['lite_topic'];
+    }
+
+    /**
+     * Sets lite_topic
+     *
+     * @param string $lite_topic lite_topic
+     *
+     * @return $this
+     */
+    public function setLiteTopic($lite_topic)
+    {
+        $this->container['lite_topic'] = $lite_topic;
 
         return $this;
     }

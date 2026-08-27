@@ -131,6 +131,7 @@ class DescribeStoragePayablePriceRequest implements ModelInterface, ArrayAccess
 
     const STORAGE_TYPES_CLUSTERPOOL = 'Clusterpool';
     const STORAGE_TYPES_COLD_DATA_ARCHIVE = 'ColdDataArchive';
+    const STORAGE_TYPES_COMPRESS_CLUSTERPOOL = 'CompressClusterpool';
     
 
     
@@ -144,6 +145,7 @@ class DescribeStoragePayablePriceRequest implements ModelInterface, ArrayAccess
         return [
             self::STORAGE_TYPES_CLUSTERPOOL,
             self::STORAGE_TYPES_COLD_DATA_ARCHIVE,
+            self::STORAGE_TYPES_COMPRESS_CLUSTERPOOL,
         ];
     }
     

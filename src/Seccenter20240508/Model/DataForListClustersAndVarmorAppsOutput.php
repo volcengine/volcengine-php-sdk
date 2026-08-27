@@ -194,48 +194,8 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
-    const VARMOR_INSTALL_STATUS_NOT_INSTALLED = 'NotInstalled';
-    const VARMOR_INSTALL_STATUS_INSTALLED = 'Installed';
-    const VARMOR_INSTALL_STATUS_CHANGING = 'Changing';
-    const VARMOR_INSTALL_STATUS_INSTALL_FAILED = 'InstallFailed';
-    const VARMOR_INSTALL_STATUS_UNINSTALL_FAILED = 'UninstallFailed';
-    const VARMOR_VERSION_STATUS_NOT_INSTALLED = 'NotInstalled';
-    const VARMOR_VERSION_STATUS_UPGRADABLE = 'Upgradable';
-    const VARMOR_VERSION_STATUS_UPGRADE_FAILED = 'UpgradeFailed';
-    const VARMOR_VERSION_STATUS_LATEST = 'Latest';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVarmorInstallStatusAllowableValues()
-    {
-        return [
-            self::VARMOR_INSTALL_STATUS_NOT_INSTALLED,
-            self::VARMOR_INSTALL_STATUS_INSTALLED,
-            self::VARMOR_INSTALL_STATUS_CHANGING,
-            self::VARMOR_INSTALL_STATUS_INSTALL_FAILED,
-            self::VARMOR_INSTALL_STATUS_UNINSTALL_FAILED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVarmorVersionStatusAllowableValues()
-    {
-        return [
-            self::VARMOR_VERSION_STATUS_NOT_INSTALLED,
-            self::VARMOR_VERSION_STATUS_UPGRADABLE,
-            self::VARMOR_VERSION_STATUS_UPGRADE_FAILED,
-            self::VARMOR_VERSION_STATUS_LATEST,
-        ];
-    }
     
 
     /**
@@ -277,22 +237,6 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getVarmorInstallStatusAllowableValues();
-        if (!is_null($this->container['varmor_install_status']) && !in_array($this->container['varmor_install_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'varmor_install_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getVarmorVersionStatusAllowableValues();
-        if (!is_null($this->container['varmor_version_status']) && !in_array($this->container['varmor_version_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'varmor_version_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -568,15 +512,6 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
      */
     public function setVarmorInstallStatus($varmor_install_status)
     {
-        $allowedValues = $this->getVarmorInstallStatusAllowableValues();
-        if (!is_null($varmor_install_status) && !in_array($varmor_install_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'varmor_install_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['varmor_install_status'] = $varmor_install_status;
 
         return $this;
@@ -649,15 +584,6 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
      */
     public function setVarmorVersionStatus($varmor_version_status)
     {
-        $allowedValues = $this->getVarmorVersionStatusAllowableValues();
-        if (!is_null($varmor_version_status) && !in_array($varmor_version_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'varmor_version_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['varmor_version_status'] = $varmor_version_status;
 
         return $this;

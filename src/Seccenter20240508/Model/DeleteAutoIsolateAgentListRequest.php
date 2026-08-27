@@ -70,7 +70,7 @@ class DeleteAutoIsolateAgentListRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'agent_id_list' => 'AgentIDList',
-        'basic_query' => 'basicQuery'
+        'basic_query' => 'BasicQuery'
     ];
 
     /**

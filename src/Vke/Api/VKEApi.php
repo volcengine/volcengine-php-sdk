@@ -2982,6 +2982,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateKubernetesObservabilityComponentConfigs($body = null)
+    {
+        list($response) = $this->updateKubernetesObservabilityComponentConfigsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateKubernetesObservabilityComponentConfigsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateKubernetesObservabilityComponentConfigsResponse';
+        $request = $this->updateKubernetesObservabilityComponentConfigsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateKubernetesObservabilityComponentConfigsAsync($body = null)
+    {
+        return $this->updateKubernetesObservabilityComponentConfigsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateKubernetesObservabilityComponentConfigsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateKubernetesObservabilityComponentConfigsResponse';
+        $request = $this->updateKubernetesObservabilityComponentConfigsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateKubernetesObservabilityComponentConfigsRequest($body)
+    {
+        $resourcePath = '/UpdateKubernetesObservabilityComponentConfigs/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateNodePoolConfig($body = null)
     {
         list($response) = $this->updateNodePoolConfigWithHttpInfo($body);

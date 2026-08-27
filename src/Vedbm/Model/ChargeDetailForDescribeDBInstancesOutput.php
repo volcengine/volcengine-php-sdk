@@ -159,44 +159,8 @@ class ChargeDetailForDescribeDBInstancesOutput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
-    const CHARGE_STATUS_EXPIRED = 'Expired';
-    const CHARGE_STATUS_NORMAL = 'Normal';
-    const CHARGE_STATUS_OVERDUE = 'Overdue';
-    const CHARGE_STATUS_RECYCLED = 'Recycled';
-    const CHARGE_STATUS_SHUTDOWN = 'Shutdown';
-    const CHARGE_TYPE_POST_PAID = 'PostPaid';
-    const CHARGE_TYPE_PRE_PAID = 'PrePaid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChargeStatusAllowableValues()
-    {
-        return [
-            self::CHARGE_STATUS_EXPIRED,
-            self::CHARGE_STATUS_NORMAL,
-            self::CHARGE_STATUS_OVERDUE,
-            self::CHARGE_STATUS_RECYCLED,
-            self::CHARGE_STATUS_SHUTDOWN,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChargeTypeAllowableValues()
-    {
-        return [
-            self::CHARGE_TYPE_POST_PAID,
-            self::CHARGE_TYPE_PRE_PAID,
-        ];
-    }
     
 
     /**
@@ -231,22 +195,6 @@ class ChargeDetailForDescribeDBInstancesOutput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getChargeStatusAllowableValues();
-        if (!is_null($this->container['charge_status']) && !in_array($this->container['charge_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'charge_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getChargeTypeAllowableValues();
-        if (!is_null($this->container['charge_type']) && !in_array($this->container['charge_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'charge_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -354,15 +302,6 @@ class ChargeDetailForDescribeDBInstancesOutput implements ModelInterface, ArrayA
      */
     public function setChargeStatus($charge_status)
     {
-        $allowedValues = $this->getChargeStatusAllowableValues();
-        if (!is_null($charge_status) && !in_array($charge_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'charge_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['charge_status'] = $charge_status;
 
         return $this;
@@ -387,15 +326,6 @@ class ChargeDetailForDescribeDBInstancesOutput implements ModelInterface, ArrayA
      */
     public function setChargeType($charge_type)
     {
-        $allowedValues = $this->getChargeTypeAllowableValues();
-        if (!is_null($charge_type) && !in_array($charge_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'charge_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['charge_type'] = $charge_type;
 
         return $this;

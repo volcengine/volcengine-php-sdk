@@ -35,7 +35,8 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_type' => 'string',
         'associated_instance_num' => 'int',
         'associated_instances' => '\Volcengine\Vedbm\Model\AssociatedInstanceForDescribeAllowListDetailOutput[]',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'user_allow_list' => 'string'
     ];
 
     /**
@@ -51,7 +52,8 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_type' => null,
         'associated_instance_num' => 'int32',
         'associated_instances' => null,
-        'project_name' => null
+        'project_name' => null,
+        'user_allow_list' => null
     ];
 
     /**
@@ -88,7 +90,8 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_type' => 'AllowListType',
         'associated_instance_num' => 'AssociatedInstanceNum',
         'associated_instances' => 'AssociatedInstances',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'user_allow_list' => 'UserAllowList'
     ];
 
     /**
@@ -104,7 +107,8 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_type' => 'setAllowListType',
         'associated_instance_num' => 'setAssociatedInstanceNum',
         'associated_instances' => 'setAssociatedInstances',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'user_allow_list' => 'setUserAllowList'
     ];
 
     /**
@@ -120,7 +124,8 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         'allow_list_type' => 'getAllowListType',
         'associated_instance_num' => 'getAssociatedInstanceNum',
         'associated_instances' => 'getAssociatedInstances',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'user_allow_list' => 'getUserAllowList'
     ];
 
     /**
@@ -191,6 +196,7 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
         $this->container['associated_instance_num'] = isset($data['associated_instance_num']) ? $data['associated_instance_num'] : null;
         $this->container['associated_instances'] = isset($data['associated_instances']) ? $data['associated_instances'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['user_allow_list'] = isset($data['user_allow_list']) ? $data['user_allow_list'] : null;
     }
 
     /**
@@ -405,6 +411,30 @@ class DescribeAllowListDetailResponse implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_allow_list
+     *
+     * @return string
+     */
+    public function getUserAllowList()
+    {
+        return $this->container['user_allow_list'];
+    }
+
+    /**
+     * Sets user_allow_list
+     *
+     * @param string $user_allow_list user_allow_list
+     *
+     * @return $this
+     */
+    public function setUserAllowList($user_allow_list)
+    {
+        $this->container['user_allow_list'] = $user_allow_list;
 
         return $this;
     }

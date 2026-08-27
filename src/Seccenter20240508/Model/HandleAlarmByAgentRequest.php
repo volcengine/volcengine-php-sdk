@@ -31,7 +31,9 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         'alarm_id' => 'string',
         'alarm_type' => 'string',
         'files' => '\Volcengine\Seccenter20240508\Model\FileForHandleAlarmByAgentInput[]',
-        'processes' => '\Volcengine\Seccenter20240508\Model\ProcessForHandleAlarmByAgentInput[]'
+        'processes' => '\Volcengine\Seccenter20240508\Model\ProcessForHandleAlarmByAgentInput[]',
+        'span_trace_id' => 'int[]',
+        'span_unique_id' => 'int[]'
     ];
 
     /**
@@ -43,7 +45,9 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         'alarm_id' => null,
         'alarm_type' => null,
         'files' => null,
-        'processes' => null
+        'processes' => null,
+        'span_trace_id' => 'int64',
+        'span_unique_id' => 'int64'
     ];
 
     /**
@@ -76,7 +80,9 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         'alarm_id' => 'AlarmID',
         'alarm_type' => 'AlarmType',
         'files' => 'Files',
-        'processes' => 'Processes'
+        'processes' => 'Processes',
+        'span_trace_id' => 'SpanTraceID',
+        'span_unique_id' => 'SpanUniqueID'
     ];
 
     /**
@@ -88,7 +94,9 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         'alarm_id' => 'setAlarmId',
         'alarm_type' => 'setAlarmType',
         'files' => 'setFiles',
-        'processes' => 'setProcesses'
+        'processes' => 'setProcesses',
+        'span_trace_id' => 'setSpanTraceId',
+        'span_unique_id' => 'setSpanUniqueId'
     ];
 
     /**
@@ -100,7 +108,9 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         'alarm_id' => 'getAlarmId',
         'alarm_type' => 'getAlarmType',
         'files' => 'getFiles',
-        'processes' => 'getProcesses'
+        'processes' => 'getProcesses',
+        'span_trace_id' => 'getSpanTraceId',
+        'span_unique_id' => 'getSpanUniqueId'
     ];
 
     /**
@@ -144,23 +154,8 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ALARM_TYPE_HIDS = 'hids';
-    const ALARM_TYPE_VIRUS = 'virus';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAlarmTypeAllowableValues()
-    {
-        return [
-            self::ALARM_TYPE_HIDS,
-            self::ALARM_TYPE_VIRUS,
-        ];
-    }
     
 
     /**
@@ -182,6 +177,8 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         $this->container['alarm_type'] = isset($data['alarm_type']) ? $data['alarm_type'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
         $this->container['processes'] = isset($data['processes']) ? $data['processes'] : null;
+        $this->container['span_trace_id'] = isset($data['span_trace_id']) ? $data['span_trace_id'] : null;
+        $this->container['span_unique_id'] = isset($data['span_unique_id']) ? $data['span_unique_id'] : null;
     }
 
     /**
@@ -196,14 +193,6 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
         if ($this->container['alarm_type'] === null) {
             $invalidProperties[] = "'alarm_type' can't be null";
         }
-        $allowedValues = $this->getAlarmTypeAllowableValues();
-        if (!is_null($this->container['alarm_type']) && !in_array($this->container['alarm_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'alarm_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -262,15 +251,6 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
      */
     public function setAlarmType($alarm_type)
     {
-        $allowedValues = $this->getAlarmTypeAllowableValues();
-        if (!in_array($alarm_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'alarm_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['alarm_type'] = $alarm_type;
 
         return $this;
@@ -320,6 +300,54 @@ class HandleAlarmByAgentRequest implements ModelInterface, ArrayAccess
     public function setProcesses($processes)
     {
         $this->container['processes'] = $processes;
+
+        return $this;
+    }
+
+    /**
+     * Gets span_trace_id
+     *
+     * @return int[]
+     */
+    public function getSpanTraceId()
+    {
+        return $this->container['span_trace_id'];
+    }
+
+    /**
+     * Sets span_trace_id
+     *
+     * @param int[] $span_trace_id span_trace_id
+     *
+     * @return $this
+     */
+    public function setSpanTraceId($span_trace_id)
+    {
+        $this->container['span_trace_id'] = $span_trace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets span_unique_id
+     *
+     * @return int[]
+     */
+    public function getSpanUniqueId()
+    {
+        return $this->container['span_unique_id'];
+    }
+
+    /**
+     * Sets span_unique_id
+     *
+     * @param int[] $span_unique_id span_unique_id
+     *
+     * @return $this
+     */
+    public function setSpanUniqueId($span_unique_id)
+    {
+        $this->container['span_unique_id'] = $span_unique_id;
 
         return $this;
     }

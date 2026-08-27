@@ -31,6 +31,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         'access_policies' => '\Volcengine\Rocketmq\Model\AccessPolicyForCreateTopicAsyncInput[]',
         'description' => 'string',
         'instance_id' => 'string',
+        'lite_topic_ttl_minutes' => 'int',
         'message_type' => 'int',
         'queue_number' => 'int',
         'topic_name' => 'string'
@@ -45,6 +46,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         'access_policies' => null,
         'description' => null,
         'instance_id' => null,
+        'lite_topic_ttl_minutes' => 'int32',
         'message_type' => 'int32',
         'queue_number' => 'int32',
         'topic_name' => null
@@ -80,6 +82,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         'access_policies' => 'AccessPolicies',
         'description' => 'Description',
         'instance_id' => 'InstanceId',
+        'lite_topic_ttl_minutes' => 'LiteTopicTTLMinutes',
         'message_type' => 'MessageType',
         'queue_number' => 'QueueNumber',
         'topic_name' => 'TopicName'
@@ -94,6 +97,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         'access_policies' => 'setAccessPolicies',
         'description' => 'setDescription',
         'instance_id' => 'setInstanceId',
+        'lite_topic_ttl_minutes' => 'setLiteTopicTtlMinutes',
         'message_type' => 'setMessageType',
         'queue_number' => 'setQueueNumber',
         'topic_name' => 'setTopicName'
@@ -108,6 +112,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         'access_policies' => 'getAccessPolicies',
         'description' => 'getDescription',
         'instance_id' => 'getInstanceId',
+        'lite_topic_ttl_minutes' => 'getLiteTopicTtlMinutes',
         'message_type' => 'getMessageType',
         'queue_number' => 'getQueueNumber',
         'topic_name' => 'getTopicName'
@@ -176,6 +181,7 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
         $this->container['access_policies'] = isset($data['access_policies']) ? $data['access_policies'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['lite_topic_ttl_minutes'] = isset($data['lite_topic_ttl_minutes']) ? $data['lite_topic_ttl_minutes'] : null;
         $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
         $this->container['queue_number'] = isset($data['queue_number']) ? $data['queue_number'] : null;
         $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
@@ -285,6 +291,30 @@ class CreateTopicAsyncRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lite_topic_ttl_minutes
+     *
+     * @return int
+     */
+    public function getLiteTopicTtlMinutes()
+    {
+        return $this->container['lite_topic_ttl_minutes'];
+    }
+
+    /**
+     * Sets lite_topic_ttl_minutes
+     *
+     * @param int $lite_topic_ttl_minutes lite_topic_ttl_minutes
+     *
+     * @return $this
+     */
+    public function setLiteTopicTtlMinutes($lite_topic_ttl_minutes)
+    {
+        $this->container['lite_topic_ttl_minutes'] = $lite_topic_ttl_minutes;
 
         return $this;
     }

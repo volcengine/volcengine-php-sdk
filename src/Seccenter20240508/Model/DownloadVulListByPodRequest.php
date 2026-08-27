@@ -34,6 +34,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'string',
         'cluster_name' => 'string',
         'conditions' => '\Volcengine\Seccenter20240508\Model\ConditionsForDownloadVulListByPodInput',
+        'export_job_type' => 'string',
         'id_list' => 'string[]',
         'namespace' => 'string',
         'status' => 'string[]',
@@ -54,6 +55,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         'cluster_id' => null,
         'cluster_name' => null,
         'conditions' => null,
+        'export_job_type' => null,
         'id_list' => null,
         'namespace' => null,
         'status' => null,
@@ -95,6 +97,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'ClusterID',
         'cluster_name' => 'ClusterName',
         'conditions' => 'Conditions',
+        'export_job_type' => 'ExportJobType',
         'id_list' => 'IDList',
         'namespace' => 'Namespace',
         'status' => 'Status',
@@ -115,6 +118,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'setClusterId',
         'cluster_name' => 'setClusterName',
         'conditions' => 'setConditions',
+        'export_job_type' => 'setExportJobType',
         'id_list' => 'setIdList',
         'namespace' => 'setNamespace',
         'status' => 'setStatus',
@@ -135,6 +139,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'getClusterId',
         'cluster_name' => 'getClusterName',
         'conditions' => 'getConditions',
+        'export_job_type' => 'getExportJobType',
         'id_list' => 'getIdList',
         'namespace' => 'getNamespace',
         'status' => 'getStatus',
@@ -209,6 +214,7 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
+        $this->container['export_job_type'] = isset($data['export_job_type']) ? $data['export_job_type'] : null;
         $this->container['id_list'] = isset($data['id_list']) ? $data['id_list'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -396,6 +402,30 @@ class DownloadVulListByPodRequest implements ModelInterface, ArrayAccess
     public function setConditions($conditions)
     {
         $this->container['conditions'] = $conditions;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_job_type
+     *
+     * @return string
+     */
+    public function getExportJobType()
+    {
+        return $this->container['export_job_type'];
+    }
+
+    /**
+     * Sets export_job_type
+     *
+     * @param string $export_job_type export_job_type
+     *
+     * @return $this
+     */
+    public function setExportJobType($export_job_type)
+    {
+        $this->container['export_job_type'] = $export_job_type;
 
         return $this;
     }

@@ -159,23 +159,8 @@ class AddressForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
-    const NETWORK_TYPE__PRIVATE = 'Private';
-    const NETWORK_TYPE__PUBLIC = 'Public';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNetworkTypeAllowableValues()
-    {
-        return [
-            self::NETWORK_TYPE__PRIVATE,
-            self::NETWORK_TYPE__PUBLIC,
-        ];
-    }
     
 
     /**
@@ -210,14 +195,6 @@ class AddressForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getNetworkTypeAllowableValues();
-        if (!is_null($this->container['network_type']) && !in_array($this->container['network_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'network_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -349,15 +326,6 @@ class AddressForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayA
      */
     public function setNetworkType($network_type)
     {
-        $allowedValues = $this->getNetworkTypeAllowableValues();
-        if (!is_null($network_type) && !in_array($network_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'network_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['network_type'] = $network_type;
 
         return $this;

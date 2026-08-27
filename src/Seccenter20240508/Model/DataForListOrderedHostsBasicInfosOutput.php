@@ -42,6 +42,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'plugins_status' => 'string',
         'reason' => 'string',
         'security_enhancement' => 'bool',
+        'state' => 'string',
+        'state_detail' => 'string',
         'status' => 'string',
         'tags' => 'string[]',
         'user_status' => 'string',
@@ -69,6 +71,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'plugins_status' => null,
         'reason' => null,
         'security_enhancement' => null,
+        'state' => null,
+        'state_detail' => null,
         'status' => null,
         'tags' => null,
         'user_status' => null,
@@ -117,6 +121,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'plugins_status' => 'PluginsStatus',
         'reason' => 'Reason',
         'security_enhancement' => 'SecurityEnhancement',
+        'state' => 'State',
+        'state_detail' => 'StateDetail',
         'status' => 'Status',
         'tags' => 'Tags',
         'user_status' => 'UserStatus',
@@ -144,6 +150,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'plugins_status' => 'setPluginsStatus',
         'reason' => 'setReason',
         'security_enhancement' => 'setSecurityEnhancement',
+        'state' => 'setState',
+        'state_detail' => 'setStateDetail',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'user_status' => 'setUserStatus',
@@ -171,6 +179,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'plugins_status' => 'getPluginsStatus',
         'reason' => 'getReason',
         'security_enhancement' => 'getSecurityEnhancement',
+        'state' => 'getState',
+        'state_detail' => 'getStateDetail',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'user_status' => 'getUserStatus',
@@ -252,6 +262,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         $this->container['plugins_status'] = isset($data['plugins_status']) ? $data['plugins_status'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['state_detail'] = isset($data['state_detail']) ? $data['state_detail'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['user_status'] = isset($data['user_status']) ? $data['user_status'] : null;
@@ -615,6 +627,54 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
     public function setSecurityEnhancement($security_enhancement)
     {
         $this->container['security_enhancement'] = $security_enhancement;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_detail
+     *
+     * @return string
+     */
+    public function getStateDetail()
+    {
+        return $this->container['state_detail'];
+    }
+
+    /**
+     * Sets state_detail
+     *
+     * @param string $state_detail state_detail
+     *
+     * @return $this
+     */
+    public function setStateDetail($state_detail)
+    {
+        $this->container['state_detail'] = $state_detail;
 
         return $this;
     }

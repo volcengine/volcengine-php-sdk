@@ -32,6 +32,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'string',
         'asset_type' => 'string',
         'conditions' => '\Volcengine\Seccenter20240508\Model\ConditionsForListVulDetailInput',
+        'export_job_type' => 'string',
         'id_list' => 'string[]',
         'status' => 'string[]',
         'vuln_type_list' => 'string[]'
@@ -47,6 +48,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         'asset_id' => null,
         'asset_type' => null,
         'conditions' => null,
+        'export_job_type' => null,
         'id_list' => null,
         'status' => null,
         'vuln_type_list' => null
@@ -83,6 +85,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'AssetID',
         'asset_type' => 'AssetType',
         'conditions' => 'Conditions',
+        'export_job_type' => 'ExportJobType',
         'id_list' => 'IDList',
         'status' => 'Status',
         'vuln_type_list' => 'VulnTypeList'
@@ -98,6 +101,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'setAssetId',
         'asset_type' => 'setAssetType',
         'conditions' => 'setConditions',
+        'export_job_type' => 'setExportJobType',
         'id_list' => 'setIdList',
         'status' => 'setStatus',
         'vuln_type_list' => 'setVulnTypeList'
@@ -113,6 +117,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'getAssetId',
         'asset_type' => 'getAssetType',
         'conditions' => 'getConditions',
+        'export_job_type' => 'getExportJobType',
         'id_list' => 'getIdList',
         'status' => 'getStatus',
         'vuln_type_list' => 'getVulnTypeList'
@@ -182,6 +187,7 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
+        $this->container['export_job_type'] = isset($data['export_job_type']) ? $data['export_job_type'] : null;
         $this->container['id_list'] = isset($data['id_list']) ? $data['id_list'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['vuln_type_list'] = isset($data['vuln_type_list']) ? $data['vuln_type_list'] : null;
@@ -303,6 +309,30 @@ class ListVulDetailRequest implements ModelInterface, ArrayAccess
     public function setConditions($conditions)
     {
         $this->container['conditions'] = $conditions;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_job_type
+     *
+     * @return string
+     */
+    public function getExportJobType()
+    {
+        return $this->container['export_job_type'];
+    }
+
+    /**
+     * Sets export_job_type
+     *
+     * @param string $export_job_type export_job_type
+     *
+     * @return $this
+     */
+    public function setExportJobType($export_job_type)
+    {
+        $this->container['export_job_type'] = $export_job_type;
 
         return $this;
     }

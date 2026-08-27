@@ -31,10 +31,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         'account_id' => 'string',
         'auth_info' => '\Volcengine\Seccenter20240508\Model\AuthInfoForGetMultiLevelInstitutionDetailOutput',
         'base_info' => '\Volcengine\Seccenter20240508\Model\BaseInfoForGetMultiLevelInstitutionDetailOutput',
-        'id' => 'string',
-        'configuration' => '\Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput',
         'host_overview' => '\Volcengine\Seccenter20240508\Model\HostOverviewForGetMultiLevelInstitutionDetailOutput',
-        'threaten' => '\Volcengine\Seccenter20240508\Model\ThreatenForGetMultiLevelInstitutionDetailOutput'
+        'id' => 'string',
+        'threaten' => '\Volcengine\Seccenter20240508\Model\ThreatenForGetMultiLevelInstitutionDetailOutput',
+        'configuration' => '\Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput'
     ];
 
     /**
@@ -46,10 +46,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         'account_id' => null,
         'auth_info' => null,
         'base_info' => null,
-        'id' => null,
-        'configuration' => null,
         'host_overview' => null,
-        'threaten' => null
+        'id' => null,
+        'threaten' => null,
+        'configuration' => null
     ];
 
     /**
@@ -82,10 +82,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         'account_id' => 'AccountID',
         'auth_info' => 'AuthInfo',
         'base_info' => 'BaseInfo',
+        'host_overview' => 'HostOverview',
         'id' => 'ID',
-        'configuration' => 'configuration',
-        'host_overview' => 'hostOverview',
-        'threaten' => 'threaten'
+        'threaten' => 'Threaten',
+        'configuration' => 'configuration'
     ];
 
     /**
@@ -97,10 +97,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         'account_id' => 'setAccountId',
         'auth_info' => 'setAuthInfo',
         'base_info' => 'setBaseInfo',
-        'id' => 'setId',
-        'configuration' => 'setConfiguration',
         'host_overview' => 'setHostOverview',
-        'threaten' => 'setThreaten'
+        'id' => 'setId',
+        'threaten' => 'setThreaten',
+        'configuration' => 'setConfiguration'
     ];
 
     /**
@@ -112,10 +112,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         'account_id' => 'getAccountId',
         'auth_info' => 'getAuthInfo',
         'base_info' => 'getBaseInfo',
-        'id' => 'getId',
-        'configuration' => 'getConfiguration',
         'host_overview' => 'getHostOverview',
-        'threaten' => 'getThreaten'
+        'id' => 'getId',
+        'threaten' => 'getThreaten',
+        'configuration' => 'getConfiguration'
     ];
 
     /**
@@ -181,10 +181,10 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['auth_info'] = isset($data['auth_info']) ? $data['auth_info'] : null;
         $this->container['base_info'] = isset($data['base_info']) ? $data['base_info'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['host_overview'] = isset($data['host_overview']) ? $data['host_overview'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['threaten'] = isset($data['threaten']) ? $data['threaten'] : null;
+        $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
     }
 
     /**
@@ -284,54 +284,6 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets configuration
-     *
-     * @return \Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput
-     */
-    public function getConfiguration()
-    {
-        return $this->container['configuration'];
-    }
-
-    /**
-     * Sets configuration
-     *
-     * @param \Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput $configuration configuration
-     *
-     * @return $this
-     */
-    public function setConfiguration($configuration)
-    {
-        $this->container['configuration'] = $configuration;
-
-        return $this;
-    }
-
-    /**
      * Gets host_overview
      *
      * @return \Volcengine\Seccenter20240508\Model\HostOverviewForGetMultiLevelInstitutionDetailOutput
@@ -356,6 +308,30 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets threaten
      *
      * @return \Volcengine\Seccenter20240508\Model\ThreatenForGetMultiLevelInstitutionDetailOutput
@@ -375,6 +351,30 @@ class GetMultiLevelInstitutionDetailResponse implements ModelInterface, ArrayAcc
     public function setThreaten($threaten)
     {
         $this->container['threaten'] = $threaten;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration
+     *
+     * @return \Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput
+     */
+    public function getConfiguration()
+    {
+        return $this->container['configuration'];
+    }
+
+    /**
+     * Sets configuration
+     *
+     * @param \Volcengine\Seccenter20240508\Model\ConfigurationForGetMultiLevelInstitutionDetailOutput $configuration configuration
+     *
+     * @return $this
+     */
+    public function setConfiguration($configuration)
+    {
+        $this->container['configuration'] = $configuration;
 
         return $this;
     }

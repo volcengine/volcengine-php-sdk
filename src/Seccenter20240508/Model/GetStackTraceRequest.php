@@ -160,6 +160,9 @@ class GetStackTraceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['stack_trace_hash'] === null) {
+            $invalidProperties[] = "'stack_trace_hash' can't be null";
+        }
         return $invalidProperties;
     }
 

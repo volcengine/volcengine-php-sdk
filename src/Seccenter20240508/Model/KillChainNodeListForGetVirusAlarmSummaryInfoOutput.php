@@ -129,7 +129,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'run_path' => 'string',
         'sam_account_name' => 'string',
         'security_intelligence_complete' => 'bool',
+        'security_intelligence_error' => 'string',
         'security_intelligence_result' => 'string',
+        'security_intelligence_status' => 'string',
         'service_account' => 'string',
         'service_file_name' => 'string',
         'service_name' => 'string',
@@ -288,7 +290,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'run_path' => null,
         'sam_account_name' => null,
         'security_intelligence_complete' => null,
+        'security_intelligence_error' => null,
         'security_intelligence_result' => null,
+        'security_intelligence_status' => null,
         'service_account' => null,
         'service_file_name' => null,
         'service_name' => null,
@@ -468,7 +472,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'run_path' => 'RunPath',
         'sam_account_name' => 'SamAccountName',
         'security_intelligence_complete' => 'SecurityIntelligenceComplete',
+        'security_intelligence_error' => 'SecurityIntelligenceError',
         'security_intelligence_result' => 'SecurityIntelligenceResult',
+        'security_intelligence_status' => 'SecurityIntelligenceStatus',
         'service_account' => 'ServiceAccount',
         'service_file_name' => 'ServiceFileName',
         'service_name' => 'ServiceName',
@@ -627,7 +633,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'run_path' => 'setRunPath',
         'sam_account_name' => 'setSamAccountName',
         'security_intelligence_complete' => 'setSecurityIntelligenceComplete',
+        'security_intelligence_error' => 'setSecurityIntelligenceError',
         'security_intelligence_result' => 'setSecurityIntelligenceResult',
+        'security_intelligence_status' => 'setSecurityIntelligenceStatus',
         'service_account' => 'setServiceAccount',
         'service_file_name' => 'setServiceFileName',
         'service_name' => 'setServiceName',
@@ -786,7 +794,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         'run_path' => 'getRunPath',
         'sam_account_name' => 'getSamAccountName',
         'security_intelligence_complete' => 'getSecurityIntelligenceComplete',
+        'security_intelligence_error' => 'getSecurityIntelligenceError',
         'security_intelligence_result' => 'getSecurityIntelligenceResult',
+        'security_intelligence_status' => 'getSecurityIntelligenceStatus',
         'service_account' => 'getServiceAccount',
         'service_file_name' => 'getServiceFileName',
         'service_name' => 'getServiceName',
@@ -999,7 +1009,9 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
         $this->container['run_path'] = isset($data['run_path']) ? $data['run_path'] : null;
         $this->container['sam_account_name'] = isset($data['sam_account_name']) ? $data['sam_account_name'] : null;
         $this->container['security_intelligence_complete'] = isset($data['security_intelligence_complete']) ? $data['security_intelligence_complete'] : null;
+        $this->container['security_intelligence_error'] = isset($data['security_intelligence_error']) ? $data['security_intelligence_error'] : null;
         $this->container['security_intelligence_result'] = isset($data['security_intelligence_result']) ? $data['security_intelligence_result'] : null;
+        $this->container['security_intelligence_status'] = isset($data['security_intelligence_status']) ? $data['security_intelligence_status'] : null;
         $this->container['service_account'] = isset($data['service_account']) ? $data['service_account'] : null;
         $this->container['service_file_name'] = isset($data['service_file_name']) ? $data['service_file_name'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
@@ -3500,6 +3512,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     }
 
     /**
+     * Gets security_intelligence_error
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceError()
+    {
+        return $this->container['security_intelligence_error'];
+    }
+
+    /**
+     * Sets security_intelligence_error
+     *
+     * @param string $security_intelligence_error security_intelligence_error
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceError($security_intelligence_error)
+    {
+        $this->container['security_intelligence_error'] = $security_intelligence_error;
+
+        return $this;
+    }
+
+    /**
      * Gets security_intelligence_result
      *
      * @return string
@@ -3519,6 +3555,30 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
     public function setSecurityIntelligenceResult($security_intelligence_result)
     {
         $this->container['security_intelligence_result'] = $security_intelligence_result;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_status
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceStatus()
+    {
+        return $this->container['security_intelligence_status'];
+    }
+
+    /**
+     * Sets security_intelligence_status
+     *
+     * @param string $security_intelligence_status security_intelligence_status
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceStatus($security_intelligence_status)
+    {
+        $this->container['security_intelligence_status'] = $security_intelligence_status;
 
         return $this;
     }

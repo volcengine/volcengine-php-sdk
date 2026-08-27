@@ -45,6 +45,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'src_instance_id' => 'string',
         'src_project_name' => 'string',
         'storage_charge_type' => 'string',
+        'storage_type' => 'string',
         'subnet_id' => 'string',
         'tags' => '\Volcengine\Vedbm\Model\TagForRestoreToNewInstanceInput[]',
         'template_id' => 'string',
@@ -75,6 +76,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'src_instance_id' => null,
         'src_project_name' => null,
         'storage_charge_type' => null,
+        'storage_type' => null,
         'subnet_id' => null,
         'tags' => null,
         'template_id' => null,
@@ -126,6 +128,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'src_instance_id' => 'SrcInstanceId',
         'src_project_name' => 'SrcProjectName',
         'storage_charge_type' => 'StorageChargeType',
+        'storage_type' => 'StorageType',
         'subnet_id' => 'SubnetId',
         'tags' => 'Tags',
         'template_id' => 'TemplateId',
@@ -156,6 +159,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'src_instance_id' => 'setSrcInstanceId',
         'src_project_name' => 'setSrcProjectName',
         'storage_charge_type' => 'setStorageChargeType',
+        'storage_type' => 'setStorageType',
         'subnet_id' => 'setSubnetId',
         'tags' => 'setTags',
         'template_id' => 'setTemplateId',
@@ -186,6 +190,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'src_instance_id' => 'getSrcInstanceId',
         'src_project_name' => 'getSrcProjectName',
         'storage_charge_type' => 'getStorageChargeType',
+        'storage_type' => 'getStorageType',
         'subnet_id' => 'getSubnetId',
         'tags' => 'getTags',
         'template_id' => 'getTemplateId',
@@ -243,6 +248,8 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
     const DELETION_PROTECTION_ENABLED = 'enabled';
     const PERIOD_UNIT_MONTH = 'Month';
     const PERIOD_UNIT_YEAR = 'Year';
+    const STORAGE_TYPE_IO_OPTIMIZED_STORAGE = 'IOOptimizedStorage';
+    const STORAGE_TYPE_SMART_COMPRESSED_STORAGE = 'SmartCompressedStorage';
     
 
     
@@ -288,6 +295,19 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageTypeAllowableValues()
+    {
+        return [
+            self::STORAGE_TYPE_IO_OPTIMIZED_STORAGE,
+            self::STORAGE_TYPE_SMART_COMPRESSED_STORAGE,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -321,6 +341,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['src_instance_id'] = isset($data['src_instance_id']) ? $data['src_instance_id'] : null;
         $this->container['src_project_name'] = isset($data['src_project_name']) ? $data['src_project_name'] : null;
         $this->container['storage_charge_type'] = isset($data['storage_charge_type']) ? $data['storage_charge_type'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
@@ -373,6 +394,14 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         if ($this->container['src_instance_id'] === null) {
             $invalidProperties[] = "'src_instance_id' can't be null";
         }
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($this->container['storage_type']) && !in_array($this->container['storage_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'storage_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['subnet_id'] === null) {
             $invalidProperties[] = "'subnet_id' can't be null";
         }
@@ -828,6 +857,39 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
     public function setStorageChargeType($storage_charge_type)
     {
         $this->container['storage_charge_type'] = $storage_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $allowedValues = $this->getStorageTypeAllowableValues();
+        if (!is_null($storage_type) && !in_array($storage_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'storage_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }

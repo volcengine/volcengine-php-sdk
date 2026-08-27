@@ -164,23 +164,8 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
-    const SPEC_FAMILY_EXCLUSIVE = 'Exclusive';
-    const SPEC_FAMILY_GENERAL = 'General';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSpecFamilyAllowableValues()
-    {
-        return [
-            self::SPEC_FAMILY_EXCLUSIVE,
-            self::SPEC_FAMILY_GENERAL,
-        ];
-    }
     
 
     /**
@@ -216,14 +201,6 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSpecFamilyAllowableValues();
-        if (!is_null($this->container['spec_family']) && !in_array($this->container['spec_family'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'spec_family', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -403,15 +380,6 @@ class NodeSpecForDescribeDBInstanceSpecsOutput implements ModelInterface, ArrayA
      */
     public function setSpecFamily($spec_family)
     {
-        $allowedValues = $this->getSpecFamilyAllowableValues();
-        if (!is_null($spec_family) && !in_array($spec_family, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'spec_family', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['spec_family'] = $spec_family;
 
         return $this;

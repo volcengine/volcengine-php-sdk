@@ -139,29 +139,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
         return self::$swaggerModelName;
     }
 
-    const ACCOUNT_PRIVILEGE_CUSTOM = 'Custom';
-    const ACCOUNT_PRIVILEGE_DDL_ONLY = 'DDLOnly';
-    const ACCOUNT_PRIVILEGE_DML_ONLY = 'DMLOnly';
-    const ACCOUNT_PRIVILEGE_READ_ONLY = 'ReadOnly';
-    const ACCOUNT_PRIVILEGE_READ_WRITE = 'ReadWrite';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountPrivilegeAllowableValues()
-    {
-        return [
-            self::ACCOUNT_PRIVILEGE_CUSTOM,
-            self::ACCOUNT_PRIVILEGE_DDL_ONLY,
-            self::ACCOUNT_PRIVILEGE_DML_ONLY,
-            self::ACCOUNT_PRIVILEGE_READ_ONLY,
-            self::ACCOUNT_PRIVILEGE_READ_WRITE,
-        ];
-    }
     
 
     /**
@@ -192,14 +171,6 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAccountPrivilegeAllowableValues();
-        if (!is_null($this->container['account_privilege']) && !in_array($this->container['account_privilege'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'account_privilege', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -235,15 +206,6 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      */
     public function setAccountPrivilege($account_privilege)
     {
-        $allowedValues = $this->getAccountPrivilegeAllowableValues();
-        if (!is_null($account_privilege) && !in_array($account_privilege, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'account_privilege', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['account_privilege'] = $account_privilege;
 
         return $this;

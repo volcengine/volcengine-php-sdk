@@ -169,25 +169,8 @@ class BackupsInfoForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_STATUS_FAILED = 'Failed';
-    const BACKUP_STATUS_RUNNING = 'Running';
-    const BACKUP_STATUS_SUCCESS = 'Success';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupStatusAllowableValues()
-    {
-        return [
-            self::BACKUP_STATUS_FAILED,
-            self::BACKUP_STATUS_RUNNING,
-            self::BACKUP_STATUS_SUCCESS,
-        ];
-    }
     
 
     /**
@@ -224,14 +207,6 @@ class BackupsInfoForDescribeBackupsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBackupStatusAllowableValues();
-        if (!is_null($this->container['backup_status']) && !in_array($this->container['backup_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -387,15 +362,6 @@ class BackupsInfoForDescribeBackupsOutput implements ModelInterface, ArrayAccess
      */
     public function setBackupStatus($backup_status)
     {
-        $allowedValues = $this->getBackupStatusAllowableValues();
-        if (!is_null($backup_status) && !in_array($backup_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['backup_status'] = $backup_status;
 
         return $this;

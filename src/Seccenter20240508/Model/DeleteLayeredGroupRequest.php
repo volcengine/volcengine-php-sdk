@@ -160,6 +160,9 @@ class DeleteLayeredGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['group_id'] === null) {
+            $invalidProperties[] = "'group_id' can't be null";
+        }
         return $invalidProperties;
     }
 
