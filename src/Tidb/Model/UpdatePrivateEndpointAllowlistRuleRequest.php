@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
+class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SourceForCreateImportTaskInput';
+    protected static $swaggerModelName = 'UpdatePrivateEndpointAllowlistRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'local' => '\Volcengine\Tidb\Model\LocalForCreateImportTaskInput',
-        'target_table_infos' => '\Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]',
-        'tos' => '\Volcengine\Tidb\Model\TosForCreateImportTaskInput',
-        'type' => 'string'
+        'cluster_id' => 'string',
+        'display_name' => 'string',
+        'project_name' => 'string',
+        'vpc_endpoint_id' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'local' => null,
-        'target_table_infos' => null,
-        'tos' => null,
-        'type' => null
+        'cluster_id' => null,
+        'display_name' => null,
+        'project_name' => null,
+        'vpc_endpoint_id' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'local' => 'Local',
-        'target_table_infos' => 'TargetTableInfos',
-        'tos' => 'Tos',
-        'type' => 'Type'
+        'cluster_id' => 'ClusterId',
+        'display_name' => 'DisplayName',
+        'project_name' => 'ProjectName',
+        'vpc_endpoint_id' => 'VpcEndpointId'
     ];
 
     /**
@@ -85,10 +85,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'local' => 'setLocal',
-        'target_table_infos' => 'setTargetTableInfos',
-        'tos' => 'setTos',
-        'type' => 'setType'
+        'cluster_id' => 'setClusterId',
+        'display_name' => 'setDisplayName',
+        'project_name' => 'setProjectName',
+        'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
 
     /**
@@ -97,10 +97,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'local' => 'getLocal',
-        'target_table_infos' => 'getTargetTableInfos',
-        'tos' => 'getTos',
-        'type' => 'getType'
+        'cluster_id' => 'getClusterId',
+        'display_name' => 'getDisplayName',
+        'project_name' => 'getProjectName',
+        'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
 
     /**
@@ -144,23 +144,8 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE__6 = '6';
-    const TYPE__7 = '7';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE__6,
-            self::TYPE__7,
-        ];
-    }
     
 
     /**
@@ -178,10 +163,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
-        $this->container['target_table_infos'] = isset($data['target_table_infos']) ? $data['target_table_infos'] : null;
-        $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -193,14 +178,15 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
         }
-
+        if ($this->container['display_name'] === null) {
+            $invalidProperties[] = "'display_name' can't be null";
+        }
+        if ($this->container['vpc_endpoint_id'] === null) {
+            $invalidProperties[] = "'vpc_endpoint_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -217,106 +203,97 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets local
-     *
-     * @return \Volcengine\Tidb\Model\LocalForCreateImportTaskInput
-     */
-    public function getLocal()
-    {
-        return $this->container['local'];
-    }
-
-    /**
-     * Sets local
-     *
-     * @param \Volcengine\Tidb\Model\LocalForCreateImportTaskInput $local local
-     *
-     * @return $this
-     */
-    public function setLocal($local)
-    {
-        $this->container['local'] = $local;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_table_infos
-     *
-     * @return \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]
-     */
-    public function getTargetTableInfos()
-    {
-        return $this->container['target_table_infos'];
-    }
-
-    /**
-     * Sets target_table_infos
-     *
-     * @param \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[] $target_table_infos target_table_infos
-     *
-     * @return $this
-     */
-    public function setTargetTableInfos($target_table_infos)
-    {
-        $this->container['target_table_infos'] = $target_table_infos;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos
-     *
-     * @return \Volcengine\Tidb\Model\TosForCreateImportTaskInput
-     */
-    public function getTos()
-    {
-        return $this->container['tos'];
-    }
-
-    /**
-     * Sets tos
-     *
-     * @param \Volcengine\Tidb\Model\TosForCreateImportTaskInput $tos tos
-     *
-     * @return $this
-     */
-    public function setTos($tos)
-    {
-        $this->container['tos'] = $tos;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets cluster_id
      *
      * @return string
      */
-    public function getType()
+    public function getClusterId()
     {
-        return $this->container['type'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets type
+     * Sets cluster_id
      *
-     * @param string $type type
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setClusterId($cluster_id)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string $display_name display_name
+     *
+     * @return $this
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getVpcEndpointId()
+    {
+        return $this->container['vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets vpc_endpoint_id
+     *
+     * @param string $vpc_endpoint_id vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setVpcEndpointId($vpc_endpoint_id)
+    {
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }

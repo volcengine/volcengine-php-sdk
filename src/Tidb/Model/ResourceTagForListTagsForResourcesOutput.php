@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
+class ResourceTagForListTagsForResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SourceForCreateImportTaskInput';
+    protected static $swaggerModelName = 'ResourceTagForListTagsForResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'local' => '\Volcengine\Tidb\Model\LocalForCreateImportTaskInput',
-        'target_table_infos' => '\Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]',
-        'tos' => '\Volcengine\Tidb\Model\TosForCreateImportTaskInput',
-        'type' => 'string'
+        'resource_id' => 'string',
+        'resource_type' => 'string',
+        'tag_key' => 'string',
+        'tag_value' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'local' => null,
-        'target_table_infos' => null,
-        'tos' => null,
-        'type' => null
+        'resource_id' => null,
+        'resource_type' => null,
+        'tag_key' => null,
+        'tag_value' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'local' => 'Local',
-        'target_table_infos' => 'TargetTableInfos',
-        'tos' => 'Tos',
-        'type' => 'Type'
+        'resource_id' => 'ResourceId',
+        'resource_type' => 'ResourceType',
+        'tag_key' => 'TagKey',
+        'tag_value' => 'TagValue'
     ];
 
     /**
@@ -85,10 +85,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'local' => 'setLocal',
-        'target_table_infos' => 'setTargetTableInfos',
-        'tos' => 'setTos',
-        'type' => 'setType'
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
+        'tag_key' => 'setTagKey',
+        'tag_value' => 'setTagValue'
     ];
 
     /**
@@ -97,10 +97,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'local' => 'getLocal',
-        'target_table_infos' => 'getTargetTableInfos',
-        'tos' => 'getTos',
-        'type' => 'getType'
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
+        'tag_key' => 'getTagKey',
+        'tag_value' => 'getTagValue'
     ];
 
     /**
@@ -144,23 +144,8 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE__6 = '6';
-    const TYPE__7 = '7';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE__6,
-            self::TYPE__7,
-        ];
-    }
     
 
     /**
@@ -178,10 +163,10 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
-        $this->container['target_table_infos'] = isset($data['target_table_infos']) ? $data['target_table_infos'] : null;
-        $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['tag_key'] = isset($data['tag_key']) ? $data['tag_key'] : null;
+        $this->container['tag_value'] = isset($data['tag_value']) ? $data['tag_value'] : null;
     }
 
     /**
@@ -192,14 +177,6 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -217,106 +194,97 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets local
-     *
-     * @return \Volcengine\Tidb\Model\LocalForCreateImportTaskInput
-     */
-    public function getLocal()
-    {
-        return $this->container['local'];
-    }
-
-    /**
-     * Sets local
-     *
-     * @param \Volcengine\Tidb\Model\LocalForCreateImportTaskInput $local local
-     *
-     * @return $this
-     */
-    public function setLocal($local)
-    {
-        $this->container['local'] = $local;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_table_infos
-     *
-     * @return \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]
-     */
-    public function getTargetTableInfos()
-    {
-        return $this->container['target_table_infos'];
-    }
-
-    /**
-     * Sets target_table_infos
-     *
-     * @param \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[] $target_table_infos target_table_infos
-     *
-     * @return $this
-     */
-    public function setTargetTableInfos($target_table_infos)
-    {
-        $this->container['target_table_infos'] = $target_table_infos;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos
-     *
-     * @return \Volcengine\Tidb\Model\TosForCreateImportTaskInput
-     */
-    public function getTos()
-    {
-        return $this->container['tos'];
-    }
-
-    /**
-     * Sets tos
-     *
-     * @param \Volcengine\Tidb\Model\TosForCreateImportTaskInput $tos tos
-     *
-     * @return $this
-     */
-    public function setTos($tos)
-    {
-        $this->container['tos'] = $tos;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets resource_id
      *
      * @return string
      */
-    public function getType()
+    public function getResourceId()
     {
-        return $this->container['type'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets type
+     * Sets resource_id
      *
-     * @param string $type type
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setResourceId($resource_id)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_key
+     *
+     * @return string
+     */
+    public function getTagKey()
+    {
+        return $this->container['tag_key'];
+    }
+
+    /**
+     * Sets tag_key
+     *
+     * @param string $tag_key tag_key
+     *
+     * @return $this
+     */
+    public function setTagKey($tag_key)
+    {
+        $this->container['tag_key'] = $tag_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_value
+     *
+     * @return string
+     */
+    public function getTagValue()
+    {
+        return $this->container['tag_value'];
+    }
+
+    /**
+     * Sets tag_value
+     *
+     * @param string $tag_value tag_value
+     *
+     * @return $this
+     */
+    public function setTagValue($tag_value)
+    {
+        $this->container['tag_value'] = $tag_value;
 
         return $this;
     }
