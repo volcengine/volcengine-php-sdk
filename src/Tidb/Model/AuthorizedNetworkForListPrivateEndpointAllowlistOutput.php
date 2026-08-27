@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
+class AuthorizedNetworkForListPrivateEndpointAllowlistOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SourceForCreateImportTaskInput';
+    protected static $swaggerModelName = 'AuthorizedNetworkForListPrivateEndpointAllowlistOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'local' => '\Volcengine\Tidb\Model\LocalForCreateImportTaskInput',
-        'target_table_infos' => '\Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]',
-        'tos' => '\Volcengine\Tidb\Model\TosForCreateImportTaskInput',
-        'type' => 'string'
+        'display_name' => 'string',
+        'security_group_count' => 'int',
+        'vpc_endpoint_id' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'local' => null,
-        'target_table_infos' => null,
-        'tos' => null,
-        'type' => null
+        'display_name' => null,
+        'security_group_count' => 'int32',
+        'vpc_endpoint_id' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'local' => 'Local',
-        'target_table_infos' => 'TargetTableInfos',
-        'tos' => 'Tos',
-        'type' => 'Type'
+        'display_name' => 'DisplayName',
+        'security_group_count' => 'SecurityGroupCount',
+        'vpc_endpoint_id' => 'VpcEndpointId'
     ];
 
     /**
@@ -85,10 +82,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'local' => 'setLocal',
-        'target_table_infos' => 'setTargetTableInfos',
-        'tos' => 'setTos',
-        'type' => 'setType'
+        'display_name' => 'setDisplayName',
+        'security_group_count' => 'setSecurityGroupCount',
+        'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
 
     /**
@@ -97,10 +93,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'local' => 'getLocal',
-        'target_table_infos' => 'getTargetTableInfos',
-        'tos' => 'getTos',
-        'type' => 'getType'
+        'display_name' => 'getDisplayName',
+        'security_group_count' => 'getSecurityGroupCount',
+        'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
 
     /**
@@ -144,23 +139,8 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE__6 = '6';
-    const TYPE__7 = '7';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE__6,
-            self::TYPE__7,
-        ];
-    }
     
 
     /**
@@ -178,10 +158,9 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
-        $this->container['target_table_infos'] = isset($data['target_table_infos']) ? $data['target_table_infos'] : null;
-        $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -192,14 +171,6 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -217,106 +188,73 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets local
-     *
-     * @return \Volcengine\Tidb\Model\LocalForCreateImportTaskInput
-     */
-    public function getLocal()
-    {
-        return $this->container['local'];
-    }
-
-    /**
-     * Sets local
-     *
-     * @param \Volcengine\Tidb\Model\LocalForCreateImportTaskInput $local local
-     *
-     * @return $this
-     */
-    public function setLocal($local)
-    {
-        $this->container['local'] = $local;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_table_infos
-     *
-     * @return \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]
-     */
-    public function getTargetTableInfos()
-    {
-        return $this->container['target_table_infos'];
-    }
-
-    /**
-     * Sets target_table_infos
-     *
-     * @param \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[] $target_table_infos target_table_infos
-     *
-     * @return $this
-     */
-    public function setTargetTableInfos($target_table_infos)
-    {
-        $this->container['target_table_infos'] = $target_table_infos;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos
-     *
-     * @return \Volcengine\Tidb\Model\TosForCreateImportTaskInput
-     */
-    public function getTos()
-    {
-        return $this->container['tos'];
-    }
-
-    /**
-     * Sets tos
-     *
-     * @param \Volcengine\Tidb\Model\TosForCreateImportTaskInput $tos tos
-     *
-     * @return $this
-     */
-    public function setTos($tos)
-    {
-        $this->container['tos'] = $tos;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets display_name
      *
      * @return string
      */
-    public function getType()
+    public function getDisplayName()
     {
-        return $this->container['type'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets type
+     * Sets display_name
      *
-     * @param string $type type
+     * @param string $display_name display_name
      *
      * @return $this
      */
-    public function setType($type)
+    public function setDisplayName($display_name)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_count
+     *
+     * @return int
+     */
+    public function getSecurityGroupCount()
+    {
+        return $this->container['security_group_count'];
+    }
+
+    /**
+     * Sets security_group_count
+     *
+     * @param int $security_group_count security_group_count
+     *
+     * @return $this
+     */
+    public function setSecurityGroupCount($security_group_count)
+    {
+        $this->container['security_group_count'] = $security_group_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getVpcEndpointId()
+    {
+        return $this->container['vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets vpc_endpoint_id
+     *
+     * @param string $vpc_endpoint_id vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setVpcEndpointId($vpc_endpoint_id)
+    {
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }

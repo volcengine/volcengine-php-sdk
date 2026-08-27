@@ -139,10 +139,7 @@ class TosForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const AUTH_TYPE_ROLE_ARN = 'ROLE_ARN';
-    const AUTH_TYPE_ACCESS_KEY = 'ACCESS_KEY';
-    const AUTH_TYPE_SERVICE_ACCOUNT_KEY = 'SERVICE_ACCOUNT_KEY';
-    const AUTH_TYPE_SAS_TOKEN = 'SAS_TOKEN';
+    const AUTH_TYPE__2 = '2';
     
 
     
@@ -154,10 +151,7 @@ class TosForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public function getAuthTypeAllowableValues()
     {
         return [
-            self::AUTH_TYPE_ROLE_ARN,
-            self::AUTH_TYPE_ACCESS_KEY,
-            self::AUTH_TYPE_SERVICE_ACCOUNT_KEY,
-            self::AUTH_TYPE_SAS_TOKEN,
+            self::AUTH_TYPE__2,
         ];
     }
     

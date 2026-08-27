@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
+class UpdatePrivateEndpointAllowlistRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SourceForCreateImportTaskInput';
+    protected static $swaggerModelName = 'UpdatePrivateEndpointAllowlistRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'local' => '\Volcengine\Tidb\Model\LocalForCreateImportTaskInput',
-        'target_table_infos' => '\Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]',
-        'tos' => '\Volcengine\Tidb\Model\TosForCreateImportTaskInput',
-        'type' => 'string'
+        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput[]'
     ];
 
     /**
@@ -40,10 +37,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'local' => null,
-        'target_table_infos' => null,
-        'tos' => null,
-        'type' => null
+        'authorized_networks' => null
     ];
 
     /**
@@ -73,10 +67,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'local' => 'Local',
-        'target_table_infos' => 'TargetTableInfos',
-        'tos' => 'Tos',
-        'type' => 'Type'
+        'authorized_networks' => 'AuthorizedNetworks'
     ];
 
     /**
@@ -85,10 +76,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'local' => 'setLocal',
-        'target_table_infos' => 'setTargetTableInfos',
-        'tos' => 'setTos',
-        'type' => 'setType'
+        'authorized_networks' => 'setAuthorizedNetworks'
     ];
 
     /**
@@ -97,10 +85,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'local' => 'getLocal',
-        'target_table_infos' => 'getTargetTableInfos',
-        'tos' => 'getTos',
-        'type' => 'getType'
+        'authorized_networks' => 'getAuthorizedNetworks'
     ];
 
     /**
@@ -144,23 +129,8 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE__6 = '6';
-    const TYPE__7 = '7';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE__6,
-            self::TYPE__7,
-        ];
-    }
     
 
     /**
@@ -178,10 +148,7 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
-        $this->container['target_table_infos'] = isset($data['target_table_infos']) ? $data['target_table_infos'] : null;
-        $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['authorized_networks'] = isset($data['authorized_networks']) ? $data['authorized_networks'] : null;
     }
 
     /**
@@ -192,14 +159,6 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -217,106 +176,25 @@ class SourceForCreateImportTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets local
+     * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\LocalForCreateImportTaskInput
+     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput[]
      */
-    public function getLocal()
+    public function getAuthorizedNetworks()
     {
-        return $this->container['local'];
+        return $this->container['authorized_networks'];
     }
 
     /**
-     * Sets local
+     * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\LocalForCreateImportTaskInput $local local
+     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput[] $authorized_networks authorized_networks
      *
      * @return $this
      */
-    public function setLocal($local)
+    public function setAuthorizedNetworks($authorized_networks)
     {
-        $this->container['local'] = $local;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_table_infos
-     *
-     * @return \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[]
-     */
-    public function getTargetTableInfos()
-    {
-        return $this->container['target_table_infos'];
-    }
-
-    /**
-     * Sets target_table_infos
-     *
-     * @param \Volcengine\Tidb\Model\TargetTableInfoForCreateImportTaskInput[] $target_table_infos target_table_infos
-     *
-     * @return $this
-     */
-    public function setTargetTableInfos($target_table_infos)
-    {
-        $this->container['target_table_infos'] = $target_table_infos;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos
-     *
-     * @return \Volcengine\Tidb\Model\TosForCreateImportTaskInput
-     */
-    public function getTos()
-    {
-        return $this->container['tos'];
-    }
-
-    /**
-     * Sets tos
-     *
-     * @param \Volcengine\Tidb\Model\TosForCreateImportTaskInput $tos tos
-     *
-     * @return $this
-     */
-    public function setTos($tos)
-    {
-        $this->container['tos'] = $tos;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['authorized_networks'] = $authorized_networks;
 
         return $this;
     }

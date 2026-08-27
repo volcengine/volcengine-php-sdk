@@ -564,6 +564,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createPrivateEndpointAllowlistRule($body = null)
+    {
+        list($response) = $this->createPrivateEndpointAllowlistRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createPrivateEndpointAllowlistRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreatePrivateEndpointAllowlistRuleResponse';
+        $request = $this->createPrivateEndpointAllowlistRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createPrivateEndpointAllowlistRuleAsync($body = null)
+    {
+        return $this->createPrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createPrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreatePrivateEndpointAllowlistRuleResponse';
+        $request = $this->createPrivateEndpointAllowlistRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createPrivateEndpointAllowlistRuleRequest($body)
+    {
+        $resourcePath = '/CreatePrivateEndpointAllowlistRule/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteBranch($body = null)
     {
         list($response) = $this->deleteBranchWithHttpInfo($body);
@@ -722,6 +784,68 @@ class TIDBApi
     protected function deleteExportTaskRequest($body)
     {
         $resourcePath = '/DeleteExportTask/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deletePrivateEndpointAllowlistRule($body = null)
+    {
+        list($response) = $this->deletePrivateEndpointAllowlistRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deletePrivateEndpointAllowlistRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeletePrivateEndpointAllowlistRuleResponse';
+        $request = $this->deletePrivateEndpointAllowlistRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deletePrivateEndpointAllowlistRuleAsync($body = null)
+    {
+        return $this->deletePrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deletePrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeletePrivateEndpointAllowlistRuleResponse';
+        $request = $this->deletePrivateEndpointAllowlistRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deletePrivateEndpointAllowlistRuleRequest($body)
+    {
+        $resourcePath = '/DeletePrivateEndpointAllowlistRule/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2114,6 +2238,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listPrivateEndpointAllowlist($body = null)
+    {
+        list($response) = $this->listPrivateEndpointAllowlistWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listPrivateEndpointAllowlistWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListPrivateEndpointAllowlistResponse';
+        $request = $this->listPrivateEndpointAllowlistRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listPrivateEndpointAllowlistAsync($body = null)
+    {
+        return $this->listPrivateEndpointAllowlistAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listPrivateEndpointAllowlistAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListPrivateEndpointAllowlistResponse';
+        $request = $this->listPrivateEndpointAllowlistRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listPrivateEndpointAllowlistRequest($body)
+    {
+        $resourcePath = '/ListPrivateEndpointAllowlist/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listRegions($body = null)
     {
         list($response) = $this->listRegionsWithHttpInfo($body);
@@ -2458,6 +2644,68 @@ class TIDBApi
     protected function listStatementsRequest($body)
     {
         $resourcePath = '/ListStatements/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listTagsForResources($body = null)
+    {
+        list($response) = $this->listTagsForResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listTagsForResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListTagsForResourcesResponse';
+        $request = $this->listTagsForResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listTagsForResourcesAsync($body = null)
+    {
+        return $this->listTagsForResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listTagsForResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListTagsForResourcesResponse';
+        $request = $this->listTagsForResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listTagsForResourcesRequest($body)
+    {
+        $resourcePath = '/ListTagsForResources/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2858,6 +3106,130 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function tagResources($body = null)
+    {
+        list($response) = $this->tagResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function tagResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\TagResourcesResponse';
+        $request = $this->tagResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function tagResourcesAsync($body = null)
+    {
+        return $this->tagResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function tagResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\TagResourcesResponse';
+        $request = $this->tagResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function tagResourcesRequest($body)
+    {
+        $resourcePath = '/TagResources/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function untagResources($body = null)
+    {
+        list($response) = $this->untagResourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function untagResourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UntagResourcesResponse';
+        $request = $this->untagResourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function untagResourcesAsync($body = null)
+    {
+        return $this->untagResourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function untagResourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UntagResourcesResponse';
+        $request = $this->untagResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function untagResourcesRequest($body)
+    {
+        $resourcePath = '/UntagResources/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateBranch($body = null)
     {
         list($response) = $this->updateBranchWithHttpInfo($body);
@@ -2954,6 +3326,68 @@ class TIDBApi
     protected function updateClusterRequest($body)
     {
         $resourcePath = '/UpdateCluster/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updatePrivateEndpointAllowlistRule($body = null)
+    {
+        list($response) = $this->updatePrivateEndpointAllowlistRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updatePrivateEndpointAllowlistRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdatePrivateEndpointAllowlistRuleResponse';
+        $request = $this->updatePrivateEndpointAllowlistRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updatePrivateEndpointAllowlistRuleAsync($body = null)
+    {
+        return $this->updatePrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updatePrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdatePrivateEndpointAllowlistRuleResponse';
+        $request = $this->updatePrivateEndpointAllowlistRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updatePrivateEndpointAllowlistRuleRequest($body)
+    {
+        $resourcePath = '/UpdatePrivateEndpointAllowlistRule/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

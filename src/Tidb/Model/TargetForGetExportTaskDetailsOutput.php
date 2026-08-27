@@ -28,10 +28,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'azure_blob' => '\Volcengine\Tidb\Model\AzureBlobForGetExportTaskDetailsOutput',
-        'gcs' => '\Volcengine\Tidb\Model\GcsForGetExportTaskDetailsOutput',
-        'oss' => '\Volcengine\Tidb\Model\OssForGetExportTaskDetailsOutput',
-        's3' => '\Volcengine\Tidb\Model\S3ForGetExportTaskDetailsOutput',
         'tos' => '\Volcengine\Tidb\Model\TosForGetExportTaskDetailsOutput',
         'type' => 'string'
     ];
@@ -42,10 +38,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'azure_blob' => null,
-        'gcs' => null,
-        'oss' => null,
-        's3' => null,
         'tos' => null,
         'type' => null
     ];
@@ -77,10 +69,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'azure_blob' => 'AzureBlob',
-        'gcs' => 'Gcs',
-        'oss' => 'Oss',
-        's3' => 'S3',
         'tos' => 'Tos',
         'type' => 'Type'
     ];
@@ -91,10 +79,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'azure_blob' => 'setAzureBlob',
-        'gcs' => 'setGcs',
-        'oss' => 'setOss',
-        's3' => 'setS3',
         'tos' => 'setTos',
         'type' => 'setType'
     ];
@@ -105,10 +89,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'azure_blob' => 'getAzureBlob',
-        'gcs' => 'getGcs',
-        'oss' => 'getOss',
-        's3' => 'getS3',
         'tos' => 'getTos',
         'type' => 'getType'
     ];
@@ -154,12 +134,7 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_LOCAL = 'LOCAL';
-    const TYPE_S3 = 'S3';
-    const TYPE_GCS = 'GCS';
-    const TYPE_AZURE_BLOB = 'AZURE_BLOB';
-    const TYPE_OSS = 'OSS';
-    const TYPE_TOS = 'TOS';
+    const TYPE__6 = '6';
     
 
     
@@ -171,12 +146,7 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_LOCAL,
-            self::TYPE_S3,
-            self::TYPE_GCS,
-            self::TYPE_AZURE_BLOB,
-            self::TYPE_OSS,
-            self::TYPE_TOS,
+            self::TYPE__6,
         ];
     }
     
@@ -196,10 +166,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['azure_blob'] = isset($data['azure_blob']) ? $data['azure_blob'] : null;
-        $this->container['gcs'] = isset($data['gcs']) ? $data['gcs'] : null;
-        $this->container['oss'] = isset($data['oss']) ? $data['oss'] : null;
-        $this->container['s3'] = isset($data['s3']) ? $data['s3'] : null;
         $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -235,102 +201,6 @@ class TargetForGetExportTaskDetailsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets azure_blob
-     *
-     * @return \Volcengine\Tidb\Model\AzureBlobForGetExportTaskDetailsOutput
-     */
-    public function getAzureBlob()
-    {
-        return $this->container['azure_blob'];
-    }
-
-    /**
-     * Sets azure_blob
-     *
-     * @param \Volcengine\Tidb\Model\AzureBlobForGetExportTaskDetailsOutput $azure_blob azure_blob
-     *
-     * @return $this
-     */
-    public function setAzureBlob($azure_blob)
-    {
-        $this->container['azure_blob'] = $azure_blob;
-
-        return $this;
-    }
-
-    /**
-     * Gets gcs
-     *
-     * @return \Volcengine\Tidb\Model\GcsForGetExportTaskDetailsOutput
-     */
-    public function getGcs()
-    {
-        return $this->container['gcs'];
-    }
-
-    /**
-     * Sets gcs
-     *
-     * @param \Volcengine\Tidb\Model\GcsForGetExportTaskDetailsOutput $gcs gcs
-     *
-     * @return $this
-     */
-    public function setGcs($gcs)
-    {
-        $this->container['gcs'] = $gcs;
-
-        return $this;
-    }
-
-    /**
-     * Gets oss
-     *
-     * @return \Volcengine\Tidb\Model\OssForGetExportTaskDetailsOutput
-     */
-    public function getOss()
-    {
-        return $this->container['oss'];
-    }
-
-    /**
-     * Sets oss
-     *
-     * @param \Volcengine\Tidb\Model\OssForGetExportTaskDetailsOutput $oss oss
-     *
-     * @return $this
-     */
-    public function setOss($oss)
-    {
-        $this->container['oss'] = $oss;
-
-        return $this;
-    }
-
-    /**
-     * Gets s3
-     *
-     * @return \Volcengine\Tidb\Model\S3ForGetExportTaskDetailsOutput
-     */
-    public function getS3()
-    {
-        return $this->container['s3'];
-    }
-
-    /**
-     * Sets s3
-     *
-     * @param \Volcengine\Tidb\Model\S3ForGetExportTaskDetailsOutput $s3 s3
-     *
-     * @return $this
-     */
-    public function setS3($s3)
-    {
-        $this->container['s3'] = $s3;
-
-        return $this;
-    }
 
     /**
      * Gets tos
