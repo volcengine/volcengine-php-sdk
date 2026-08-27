@@ -148,7 +148,7 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     const CASCADING_DELETE_RESOURCES_CLB = 'Clb';
     const CASCADING_DELETE_RESOURCES_NODE_POOL_RESOURCE = 'NodePoolResource';
     const CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE = 'DefaultNodePoolResource';
-    const CASCADING_DELETE_RESOURCES_TRY_BEST = 'TryBest';
+    const CASCADING_DELETE_RESOURCES_ALL = 'All';
     const RETAIN_RESOURCES_NAT = 'Nat';
     const RETAIN_RESOURCES_CLB = 'Clb';
     const RETAIN_RESOURCES_ALB = 'Alb';
@@ -171,7 +171,7 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
             self::CASCADING_DELETE_RESOURCES_CLB,
             self::CASCADING_DELETE_RESOURCES_NODE_POOL_RESOURCE,
             self::CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE,
-            self::CASCADING_DELETE_RESOURCES_TRY_BEST,
+            self::CASCADING_DELETE_RESOURCES_ALL,
         ];
     }
     
