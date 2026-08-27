@@ -189,69 +189,8 @@ class ScheduleTasksInfoForDescribeScheduleEventsOutput implements ModelInterface
         return self::$swaggerModelName;
     }
 
-    const EVENT_KIND_INSPECTION = 'Inspection';
-    const EVENT_KIND_MODIFY_CLUSTER_PARAMS = 'ModifyClusterParams';
-    const EVENT_KIND_MODIFY_DB_INSTANCE_PARAMETERS = 'ModifyDBInstanceParameters';
-    const EVENT_KIND_MODIFY_DB_INSTANCE_SPEC = 'ModifyDBInstanceSpec';
-    const EVENT_KIND_RESTART_DB_INSTANCE = 'RestartDBInstance';
-    const EVENT_KIND_UPGRADE_INSTANCE = 'UpgradeInstance';
-    const SCHEDULE_TYPE_IMMEDIATE = 'Immediate';
-    const SCHEDULE_TYPE_MAINTAIN_TIME = 'MaintainTime';
-    const SCHEDULE_TYPE_SPECIFIED_TIME = 'SpecifiedTime';
-    const STATUS_CANCEL = 'cancel';
-    const STATUS_EXECUTING = 'executing';
-    const STATUS_FAILURE = 'failure';
-    const STATUS_FINISH = 'finish';
-    const STATUS_PENDING = 'pending';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEventKindAllowableValues()
-    {
-        return [
-            self::EVENT_KIND_INSPECTION,
-            self::EVENT_KIND_MODIFY_CLUSTER_PARAMS,
-            self::EVENT_KIND_MODIFY_DB_INSTANCE_PARAMETERS,
-            self::EVENT_KIND_MODIFY_DB_INSTANCE_SPEC,
-            self::EVENT_KIND_RESTART_DB_INSTANCE,
-            self::EVENT_KIND_UPGRADE_INSTANCE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getScheduleTypeAllowableValues()
-    {
-        return [
-            self::SCHEDULE_TYPE_IMMEDIATE,
-            self::SCHEDULE_TYPE_MAINTAIN_TIME,
-            self::SCHEDULE_TYPE_SPECIFIED_TIME,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_CANCEL,
-            self::STATUS_EXECUTING,
-            self::STATUS_FAILURE,
-            self::STATUS_FINISH,
-            self::STATUS_PENDING,
-        ];
-    }
     
 
     /**
@@ -292,30 +231,6 @@ class ScheduleTasksInfoForDescribeScheduleEventsOutput implements ModelInterface
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getEventKindAllowableValues();
-        if (!is_null($this->container['event_kind']) && !in_array($this->container['event_kind'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'event_kind', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getScheduleTypeAllowableValues();
-        if (!is_null($this->container['schedule_type']) && !in_array($this->container['schedule_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'schedule_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -447,15 +362,6 @@ class ScheduleTasksInfoForDescribeScheduleEventsOutput implements ModelInterface
      */
     public function setEventKind($event_kind)
     {
-        $allowedValues = $this->getEventKindAllowableValues();
-        if (!is_null($event_kind) && !in_array($event_kind, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'event_kind', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['event_kind'] = $event_kind;
 
         return $this;
@@ -624,15 +530,6 @@ class ScheduleTasksInfoForDescribeScheduleEventsOutput implements ModelInterface
      */
     public function setScheduleType($schedule_type)
     {
-        $allowedValues = $this->getScheduleTypeAllowableValues();
-        if (!is_null($schedule_type) && !in_array($schedule_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'schedule_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['schedule_type'] = $schedule_type;
 
         return $this;
@@ -657,15 +554,6 @@ class ScheduleTasksInfoForDescribeScheduleEventsOutput implements ModelInterface
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

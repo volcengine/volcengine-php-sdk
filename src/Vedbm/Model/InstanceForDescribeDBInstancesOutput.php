@@ -43,6 +43,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'region_id' => 'string',
         'spec_family' => 'string',
         'storage_charge_type' => 'string',
+        'storage_type' => 'string',
         'storage_used_gi_b' => 'double',
         'subnet_id' => 'string',
         'tags' => '\Volcengine\Vedbm\Model\TagForDescribeDBInstancesOutput[]',
@@ -72,6 +73,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'region_id' => null,
         'spec_family' => null,
         'storage_charge_type' => null,
+        'storage_type' => null,
         'storage_used_gi_b' => 'double',
         'subnet_id' => null,
         'tags' => null,
@@ -122,6 +124,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'region_id' => 'RegionId',
         'spec_family' => 'SpecFamily',
         'storage_charge_type' => 'StorageChargeType',
+        'storage_type' => 'StorageType',
         'storage_used_gi_b' => 'StorageUsedGiB',
         'subnet_id' => 'SubnetId',
         'tags' => 'Tags',
@@ -151,6 +154,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'region_id' => 'setRegionId',
         'spec_family' => 'setSpecFamily',
         'storage_charge_type' => 'setStorageChargeType',
+        'storage_type' => 'setStorageType',
         'storage_used_gi_b' => 'setStorageUsedGiB',
         'subnet_id' => 'setSubnetId',
         'tags' => 'setTags',
@@ -180,6 +184,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'region_id' => 'getRegionId',
         'spec_family' => 'getSpecFamily',
         'storage_charge_type' => 'getStorageChargeType',
+        'storage_type' => 'getStorageType',
         'storage_used_gi_b' => 'getStorageUsedGiB',
         'subnet_id' => 'getSubnetId',
         'tags' => 'getTags',
@@ -229,98 +234,8 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const DB_ENGINE_VERSION_MY_SQL_5_7 = 'MySQL_5_7';
-    const DB_ENGINE_VERSION_MY_SQL_8_0 = 'MySQL_8_0';
-    const DELETION_PROTECTION_DISABLED = 'disabled';
-    const DELETION_PROTECTION_ENABLED = 'enabled';
-    const INSTANCE_STATUS_ADDRESS_MODIFYING = 'AddressModifying';
-    const INSTANCE_STATUS_ALLOW_LIST_MAINTAINING = 'AllowListMaintaining';
-    const INSTANCE_STATUS_CREATE_FAILED = 'CreateFailed';
-    const INSTANCE_STATUS_CREATING = 'Creating';
-    const INSTANCE_STATUS_DELETING = 'Deleting';
-    const INSTANCE_STATUS_ERROR = 'Error';
-    const INSTANCE_STATUS_EXPIRED = 'Expired';
-    const INSTANCE_STATUS_OWING = 'Owing';
-    const INSTANCE_STATUS_PRIMARY_CHANGING = 'PrimaryChanging';
-    const INSTANCE_STATUS_RECLAIMING = 'Reclaiming';
-    const INSTANCE_STATUS_RESTARTING = 'Restarting';
-    const INSTANCE_STATUS_RESTORING = 'Restoring';
-    const INSTANCE_STATUS_RESUMING = 'Resuming';
-    const INSTANCE_STATUS_RUNNING = 'Running';
-    const INSTANCE_STATUS_SCALING = 'Scaling';
-    const INSTANCE_STATUS_UPGRADING = 'Upgrading';
-    const INSTANCE_STATUS_WAITING_PAID = 'WaitingPaid';
-    const STORAGE_CHARGE_TYPE_POST_PAID = 'PostPaid';
-    const STORAGE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDbEngineVersionAllowableValues()
-    {
-        return [
-            self::DB_ENGINE_VERSION_MY_SQL_5_7,
-            self::DB_ENGINE_VERSION_MY_SQL_8_0,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDeletionProtectionAllowableValues()
-    {
-        return [
-            self::DELETION_PROTECTION_DISABLED,
-            self::DELETION_PROTECTION_ENABLED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getInstanceStatusAllowableValues()
-    {
-        return [
-            self::INSTANCE_STATUS_ADDRESS_MODIFYING,
-            self::INSTANCE_STATUS_ALLOW_LIST_MAINTAINING,
-            self::INSTANCE_STATUS_CREATE_FAILED,
-            self::INSTANCE_STATUS_CREATING,
-            self::INSTANCE_STATUS_DELETING,
-            self::INSTANCE_STATUS_ERROR,
-            self::INSTANCE_STATUS_EXPIRED,
-            self::INSTANCE_STATUS_OWING,
-            self::INSTANCE_STATUS_PRIMARY_CHANGING,
-            self::INSTANCE_STATUS_RECLAIMING,
-            self::INSTANCE_STATUS_RESTARTING,
-            self::INSTANCE_STATUS_RESTORING,
-            self::INSTANCE_STATUS_RESUMING,
-            self::INSTANCE_STATUS_RUNNING,
-            self::INSTANCE_STATUS_SCALING,
-            self::INSTANCE_STATUS_UPGRADING,
-            self::INSTANCE_STATUS_WAITING_PAID,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStorageChargeTypeAllowableValues()
-    {
-        return [
-            self::STORAGE_CHARGE_TYPE_POST_PAID,
-            self::STORAGE_CHARGE_TYPE_PRE_PAID,
-        ];
-    }
     
 
     /**
@@ -353,6 +268,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['spec_family'] = isset($data['spec_family']) ? $data['spec_family'] : null;
         $this->container['storage_charge_type'] = isset($data['storage_charge_type']) ? $data['storage_charge_type'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['storage_used_gi_b'] = isset($data['storage_used_gi_b']) ? $data['storage_used_gi_b'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -369,38 +285,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getDbEngineVersionAllowableValues();
-        if (!is_null($this->container['db_engine_version']) && !in_array($this->container['db_engine_version'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'db_engine_version', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getDeletionProtectionAllowableValues();
-        if (!is_null($this->container['deletion_protection']) && !in_array($this->container['deletion_protection'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'deletion_protection', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getInstanceStatusAllowableValues();
-        if (!is_null($this->container['instance_status']) && !in_array($this->container['instance_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'instance_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStorageChargeTypeAllowableValues();
-        if (!is_null($this->container['storage_charge_type']) && !in_array($this->container['storage_charge_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'storage_charge_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -484,15 +368,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function setDbEngineVersion($db_engine_version)
     {
-        $allowedValues = $this->getDbEngineVersionAllowableValues();
-        if (!is_null($db_engine_version) && !in_array($db_engine_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'db_engine_version', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['db_engine_version'] = $db_engine_version;
 
         return $this;
@@ -541,15 +416,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function setDeletionProtection($deletion_protection)
     {
-        $allowedValues = $this->getDeletionProtectionAllowableValues();
-        if (!is_null($deletion_protection) && !in_array($deletion_protection, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'deletion_protection', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['deletion_protection'] = $deletion_protection;
 
         return $this;
@@ -622,15 +488,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function setInstanceStatus($instance_status)
     {
-        $allowedValues = $this->getInstanceStatusAllowableValues();
-        if (!is_null($instance_status) && !in_array($instance_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'instance_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['instance_status'] = $instance_status;
 
         return $this;
@@ -799,16 +656,31 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function setStorageChargeType($storage_charge_type)
     {
-        $allowedValues = $this->getStorageChargeTypeAllowableValues();
-        if (!is_null($storage_charge_type) && !in_array($storage_charge_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'storage_charge_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['storage_charge_type'] = $storage_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }

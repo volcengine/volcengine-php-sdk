@@ -179,64 +179,8 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
         return self::$swaggerModelName;
     }
 
-    const TEMPLATE_CATEGORY_DB_ENGINE = 'DBEngine';
-    const TEMPLATE_SOURCE_SYSTEM = 'System';
-    const TEMPLATE_SOURCE_USER = 'User';
-    const TEMPLATE_TYPE_MY_SQL = 'MySQL';
-    const TEMPLATE_TYPE_VERSION_MY_SQL_5_7 = 'MySQL_5_7';
-    const TEMPLATE_TYPE_VERSION_MY_SQL_8_0 = 'MySQL_8_0';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTemplateCategoryAllowableValues()
-    {
-        return [
-            self::TEMPLATE_CATEGORY_DB_ENGINE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTemplateSourceAllowableValues()
-    {
-        return [
-            self::TEMPLATE_SOURCE_SYSTEM,
-            self::TEMPLATE_SOURCE_USER,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTemplateTypeAllowableValues()
-    {
-        return [
-            self::TEMPLATE_TYPE_MY_SQL,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTemplateTypeVersionAllowableValues()
-    {
-        return [
-            self::TEMPLATE_TYPE_VERSION_MY_SQL_5_7,
-            self::TEMPLATE_TYPE_VERSION_MY_SQL_8_0,
-        ];
-    }
     
 
     /**
@@ -275,38 +219,6 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTemplateCategoryAllowableValues();
-        if (!is_null($this->container['template_category']) && !in_array($this->container['template_category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'template_category', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getTemplateSourceAllowableValues();
-        if (!is_null($this->container['template_source']) && !in_array($this->container['template_source'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'template_source', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getTemplateTypeAllowableValues();
-        if (!is_null($this->container['template_type']) && !in_array($this->container['template_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'template_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getTemplateTypeVersionAllowableValues();
-        if (!is_null($this->container['template_type_version']) && !in_array($this->container['template_type_version'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'template_type_version', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -414,15 +326,6 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
      */
     public function setTemplateCategory($template_category)
     {
-        $allowedValues = $this->getTemplateCategoryAllowableValues();
-        if (!is_null($template_category) && !in_array($template_category, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'template_category', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['template_category'] = $template_category;
 
         return $this;
@@ -519,15 +422,6 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
      */
     public function setTemplateSource($template_source)
     {
-        $allowedValues = $this->getTemplateSourceAllowableValues();
-        if (!is_null($template_source) && !in_array($template_source, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'template_source', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['template_source'] = $template_source;
 
         return $this;
@@ -552,15 +446,6 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
      */
     public function setTemplateType($template_type)
     {
-        $allowedValues = $this->getTemplateTypeAllowableValues();
-        if (!is_null($template_type) && !in_array($template_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'template_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['template_type'] = $template_type;
 
         return $this;
@@ -585,15 +470,6 @@ class TemplateInfoForDescribeParameterTemplatesOutput implements ModelInterface,
      */
     public function setTemplateTypeVersion($template_type_version)
     {
-        $allowedValues = $this->getTemplateTypeVersionAllowableValues();
-        if (!is_null($template_type_version) && !in_array($template_type_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'template_type_version', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['template_type_version'] = $template_type_version;
 
         return $this;

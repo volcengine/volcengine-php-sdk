@@ -33,6 +33,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         'node_id' => 'string',
         'node_spec' => 'string',
         'node_type' => 'string',
+        'sub_instance_type' => 'string',
         'zone_id' => 'string',
         'v_cpu' => 'int'
     ];
@@ -48,6 +49,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         'node_id' => null,
         'node_spec' => null,
         'node_type' => null,
+        'sub_instance_type' => null,
         'zone_id' => null,
         'v_cpu' => 'int32'
     ];
@@ -84,6 +86,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         'node_id' => 'NodeId',
         'node_spec' => 'NodeSpec',
         'node_type' => 'NodeType',
+        'sub_instance_type' => 'SubInstanceType',
         'zone_id' => 'ZoneId',
         'v_cpu' => 'vCPU'
     ];
@@ -99,6 +102,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         'node_id' => 'setNodeId',
         'node_spec' => 'setNodeSpec',
         'node_type' => 'setNodeType',
+        'sub_instance_type' => 'setSubInstanceType',
         'zone_id' => 'setZoneId',
         'v_cpu' => 'setVCpu'
     ];
@@ -114,6 +118,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         'node_id' => 'getNodeId',
         'node_spec' => 'getNodeSpec',
         'node_type' => 'getNodeType',
+        'sub_instance_type' => 'getSubInstanceType',
         'zone_id' => 'getZoneId',
         'v_cpu' => 'getVCpu'
     ];
@@ -159,66 +164,8 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const NODE_SPEC_VEDBMYSQLG42XLARGE = 'vedb.mysql.g4.2xlarge';
-    const NODE_SPEC_VEDBMYSQLG44XLARGE = 'vedb.mysql.g4.4xlarge';
-    const NODE_SPEC_VEDBMYSQLG4LARGE = 'vedb.mysql.g4.large';
-    const NODE_SPEC_VEDBMYSQLG4XLARGE = 'vedb.mysql.g4.xlarge';
-    const NODE_SPEC_VEDBMYSQLG82XLARGE = 'vedb.mysql.g8.2xlarge';
-    const NODE_SPEC_VEDBMYSQLX42XLARGE = 'vedb.mysql.x4.2xlarge';
-    const NODE_SPEC_VEDBMYSQLX44XLARGE = 'vedb.mysql.x4.4xlarge';
-    const NODE_SPEC_VEDBMYSQLX48XLARGE = 'vedb.mysql.x4.8xlarge';
-    const NODE_SPEC_VEDBMYSQLX4LARGE = 'vedb.mysql.x4.large';
-    const NODE_SPEC_VEDBMYSQLX4XLARGE = 'vedb.mysql.x4.xlarge';
-    const NODE_SPEC_VEDBMYSQLX82XLARGE = 'vedb.mysql.x8.2xlarge';
-    const NODE_SPEC_VEDBMYSQLX84XLARGE = 'vedb.mysql.x8.4xlarge';
-    const NODE_SPEC_VEDBMYSQLX86XLARGE = 'vedb.mysql.x8.6xlarge';
-    const NODE_SPEC_VEDBMYSQLX88XLARGE = 'vedb.mysql.x8.8xlarge';
-    const NODE_SPEC_VEDBMYSQLX8LARGE = 'vedb.mysql.x8.large';
-    const NODE_SPEC_VEDBMYSQLX8XLARGE = 'vedb.mysql.x8.xlarge';
-    const NODE_TYPE_PRIMARY = 'Primary';
-    const NODE_TYPE_READ_ONLY = 'ReadOnly';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNodeSpecAllowableValues()
-    {
-        return [
-            self::NODE_SPEC_VEDBMYSQLG42XLARGE,
-            self::NODE_SPEC_VEDBMYSQLG44XLARGE,
-            self::NODE_SPEC_VEDBMYSQLG4LARGE,
-            self::NODE_SPEC_VEDBMYSQLG4XLARGE,
-            self::NODE_SPEC_VEDBMYSQLG82XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX42XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX44XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX48XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX4LARGE,
-            self::NODE_SPEC_VEDBMYSQLX4XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX82XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX84XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX86XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX88XLARGE,
-            self::NODE_SPEC_VEDBMYSQLX8LARGE,
-            self::NODE_SPEC_VEDBMYSQLX8XLARGE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNodeTypeAllowableValues()
-    {
-        return [
-            self::NODE_TYPE_PRIMARY,
-            self::NODE_TYPE_READ_ONLY,
-        ];
-    }
     
 
     /**
@@ -241,6 +188,7 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
         $this->container['node_id'] = isset($data['node_id']) ? $data['node_id'] : null;
         $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
         $this->container['node_type'] = isset($data['node_type']) ? $data['node_type'] : null;
+        $this->container['sub_instance_type'] = isset($data['sub_instance_type']) ? $data['sub_instance_type'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
         $this->container['v_cpu'] = isset($data['v_cpu']) ? $data['v_cpu'] : null;
     }
@@ -253,22 +201,6 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getNodeSpecAllowableValues();
-        if (!is_null($this->container['node_spec']) && !in_array($this->container['node_spec'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'node_spec', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getNodeTypeAllowableValues();
-        if (!is_null($this->container['node_type']) && !in_array($this->container['node_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'node_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -376,15 +308,6 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
      */
     public function setNodeSpec($node_spec)
     {
-        $allowedValues = $this->getNodeSpecAllowableValues();
-        if (!is_null($node_spec) && !in_array($node_spec, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'node_spec', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['node_spec'] = $node_spec;
 
         return $this;
@@ -409,16 +332,31 @@ class NodeForDescribeDBInstanceDetailOutput implements ModelInterface, ArrayAcce
      */
     public function setNodeType($node_type)
     {
-        $allowedValues = $this->getNodeTypeAllowableValues();
-        if (!is_null($node_type) && !in_array($node_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'node_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['node_type'] = $node_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_instance_type
+     *
+     * @return string
+     */
+    public function getSubInstanceType()
+    {
+        return $this->container['sub_instance_type'];
+    }
+
+    /**
+     * Sets sub_instance_type
+     *
+     * @param string $sub_instance_type sub_instance_type
+     *
+     * @return $this
+     */
+    public function setSubInstanceType($sub_instance_type)
+    {
+        $this->container['sub_instance_type'] = $sub_instance_type;
 
         return $this;
     }

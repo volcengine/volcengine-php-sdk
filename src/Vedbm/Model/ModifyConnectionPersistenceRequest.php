@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
+class ModifyConnectionPersistenceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountPrivilegeForDescribeDBAccountsOutput';
+    protected static $swaggerModelName = 'ModifyConnectionPersistenceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_privilege' => 'string',
-        'account_privilege_detail' => 'string',
-        'db_name' => 'string'
+        'connection_persistence' => 'string',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_privilege' => null,
-        'account_privilege_detail' => null,
-        'db_name' => null
+        'connection_persistence' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_privilege' => 'AccountPrivilege',
-        'account_privilege_detail' => 'AccountPrivilegeDetail',
-        'db_name' => 'DBName'
+        'connection_persistence' => 'ConnectionPersistence',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -82,9 +79,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'account_privilege' => 'setAccountPrivilege',
-        'account_privilege_detail' => 'setAccountPrivilegeDetail',
-        'db_name' => 'setDbName'
+        'connection_persistence' => 'setConnectionPersistence',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -93,9 +89,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'account_privilege' => 'getAccountPrivilege',
-        'account_privilege_detail' => 'getAccountPrivilegeDetail',
-        'db_name' => 'getDbName'
+        'connection_persistence' => 'getConnectionPersistence',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -139,8 +134,23 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
         return self::$swaggerModelName;
     }
 
+    const CONNECTION_PERSISTENCE_OFF = 'OFF';
+    const CONNECTION_PERSISTENCE_ON = 'ON';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getConnectionPersistenceAllowableValues()
+    {
+        return [
+            self::CONNECTION_PERSISTENCE_OFF,
+            self::CONNECTION_PERSISTENCE_ON,
+        ];
+    }
     
 
     /**
@@ -158,9 +168,8 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['account_privilege'] = isset($data['account_privilege']) ? $data['account_privilege'] : null;
-        $this->container['account_privilege_detail'] = isset($data['account_privilege_detail']) ? $data['account_privilege_detail'] : null;
-        $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
+        $this->container['connection_persistence'] = isset($data['connection_persistence']) ? $data['connection_persistence'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -172,6 +181,20 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['connection_persistence'] === null) {
+            $invalidProperties[] = "'connection_persistence' can't be null";
+        }
+        $allowedValues = $this->getConnectionPersistenceAllowableValues();
+        if (!is_null($this->container['connection_persistence']) && !in_array($this->container['connection_persistence'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'connection_persistence', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +211,58 @@ class AccountPrivilegeForDescribeDBAccountsOutput implements ModelInterface, Arr
 
 
     /**
-     * Gets account_privilege
+     * Gets connection_persistence
      *
      * @return string
      */
-    public function getAccountPrivilege()
+    public function getConnectionPersistence()
     {
-        return $this->container['account_privilege'];
+        return $this->container['connection_persistence'];
     }
 
     /**
-     * Sets account_privilege
+     * Sets connection_persistence
      *
-     * @param string $account_privilege account_privilege
+     * @param string $connection_persistence connection_persistence
      *
      * @return $this
      */
-    public function setAccountPrivilege($account_privilege)
+    public function setConnectionPersistence($connection_persistence)
     {
-        $this->container['account_privilege'] = $account_privilege;
+        $allowedValues = $this->getConnectionPersistenceAllowableValues();
+        if (!in_array($connection_persistence, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'connection_persistence', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['connection_persistence'] = $connection_persistence;
 
         return $this;
     }
 
     /**
-     * Gets account_privilege_detail
+     * Gets instance_id
      *
      * @return string
      */
-    public function getAccountPrivilegeDetail()
+    public function getInstanceId()
     {
-        return $this->container['account_privilege_detail'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets account_privilege_detail
+     * Sets instance_id
      *
-     * @param string $account_privilege_detail account_privilege_detail
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setAccountPrivilegeDetail($account_privilege_detail)
+    public function setInstanceId($instance_id)
     {
-        $this->container['account_privilege_detail'] = $account_privilege_detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets db_name
-     *
-     * @return string
-     */
-    public function getDbName()
-    {
-        return $this->container['db_name'];
-    }
-
-    /**
-     * Sets db_name
-     *
-     * @param string $db_name db_name
-     *
-     * @return $this
-     */
-    public function setDbName($db_name)
-    {
-        $this->container['db_name'] = $db_name;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

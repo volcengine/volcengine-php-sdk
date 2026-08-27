@@ -155,6 +155,7 @@ class DescribeExistDBInstancePriceRequest implements ModelInterface, ArrayAccess
     const PERIOD_UNIT_YEAR = 'year';
     const USER_ACTION_MODIFY_DB_INSTANCE_CHARGE_TYPE = 'ModifyDBInstanceChargeType';
     const USER_ACTION_MODIFY_DB_INSTANCE_SPEC = 'ModifyDBInstanceSpec';
+    const USER_ACTION_MODIFY_DB_INSTANCE_STORAGE_TYPE = 'ModifyDBInstanceStorageType';
     
 
     
@@ -194,6 +195,7 @@ class DescribeExistDBInstancePriceRequest implements ModelInterface, ArrayAccess
         return [
             self::USER_ACTION_MODIFY_DB_INSTANCE_CHARGE_TYPE,
             self::USER_ACTION_MODIFY_DB_INSTANCE_SPEC,
+            self::USER_ACTION_MODIFY_DB_INSTANCE_STORAGE_TYPE,
         ];
     }
     

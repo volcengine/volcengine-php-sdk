@@ -144,23 +144,8 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACCOUNT_TYPE_NORMAL = 'Normal';
-    const ACCOUNT_TYPE_SUPER = 'Super';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountTypeAllowableValues()
-    {
-        return [
-            self::ACCOUNT_TYPE_NORMAL,
-            self::ACCOUNT_TYPE_SUPER,
-        ];
-    }
     
 
     /**
@@ -192,14 +177,6 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!is_null($this->container['account_type']) && !in_array($this->container['account_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'account_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -307,15 +284,6 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
      */
     public function setAccountType($account_type)
     {
-        $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!is_null($account_type) && !in_array($account_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'account_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['account_type'] = $account_type;
 
         return $this;

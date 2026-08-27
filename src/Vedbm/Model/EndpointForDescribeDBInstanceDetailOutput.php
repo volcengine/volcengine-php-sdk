@@ -30,6 +30,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     protected static $swaggerTypes = [
         'addresses' => '\Volcengine\Vedbm\Model\AddressForDescribeDBInstanceDetailOutput[]',
         'auto_add_new_nodes' => 'bool',
+        'connection_pool' => 'string',
         'consist_level' => 'string',
         'consist_timeout' => 'int',
         'consist_timeout_action' => 'string',
@@ -51,6 +52,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     protected static $swaggerFormats = [
         'addresses' => null,
         'auto_add_new_nodes' => null,
+        'connection_pool' => null,
         'consist_level' => null,
         'consist_timeout' => 'int32',
         'consist_timeout_action' => null,
@@ -93,6 +95,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     protected static $attributeMap = [
         'addresses' => 'Addresses',
         'auto_add_new_nodes' => 'AutoAddNewNodes',
+        'connection_pool' => 'ConnectionPool',
         'consist_level' => 'ConsistLevel',
         'consist_timeout' => 'ConsistTimeout',
         'consist_timeout_action' => 'ConsistTimeoutAction',
@@ -114,6 +117,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     protected static $setters = [
         'addresses' => 'setAddresses',
         'auto_add_new_nodes' => 'setAutoAddNewNodes',
+        'connection_pool' => 'setConnectionPool',
         'consist_level' => 'setConsistLevel',
         'consist_timeout' => 'setConsistTimeout',
         'consist_timeout_action' => 'setConsistTimeoutAction',
@@ -135,6 +139,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     protected static $getters = [
         'addresses' => 'getAddresses',
         'auto_add_new_nodes' => 'getAutoAddNewNodes',
+        'connection_pool' => 'getConnectionPool',
         'consist_level' => 'getConsistLevel',
         'consist_timeout' => 'getConsistTimeout',
         'consist_timeout_action' => 'getConsistTimeoutAction',
@@ -189,72 +194,8 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
         return self::$swaggerModelName;
     }
 
-    const CONSIST_LEVEL_EVENTUAL = 'Eventual';
-    const CONSIST_LEVEL__GLOBAL = 'Global';
-    const CONSIST_LEVEL_SESSION = 'Session';
-    const CONSIST_TIMEOUT_ACTION_READ_MASTER = 'ReadMaster';
-    const CONSIST_TIMEOUT_ACTION_RETURN_ERROR = 'ReturnError';
-    const ENDPOINT_TYPE_CLUSTER = 'Cluster';
-    const ENDPOINT_TYPE_CUSTOM = 'Custom';
-    const ENDPOINT_TYPE_PRIMARY = 'Primary';
-    const READ_WRITE_MODE_READ_ONLY = 'ReadOnly';
-    const READ_WRITE_MODE_READ_WRITE = 'ReadWrite';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getConsistLevelAllowableValues()
-    {
-        return [
-            self::CONSIST_LEVEL_EVENTUAL,
-            self::CONSIST_LEVEL__GLOBAL,
-            self::CONSIST_LEVEL_SESSION,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getConsistTimeoutActionAllowableValues()
-    {
-        return [
-            self::CONSIST_TIMEOUT_ACTION_READ_MASTER,
-            self::CONSIST_TIMEOUT_ACTION_RETURN_ERROR,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEndpointTypeAllowableValues()
-    {
-        return [
-            self::ENDPOINT_TYPE_CLUSTER,
-            self::ENDPOINT_TYPE_CUSTOM,
-            self::ENDPOINT_TYPE_PRIMARY,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReadWriteModeAllowableValues()
-    {
-        return [
-            self::READ_WRITE_MODE_READ_ONLY,
-            self::READ_WRITE_MODE_READ_WRITE,
-        ];
-    }
     
 
     /**
@@ -274,6 +215,7 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     {
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
         $this->container['auto_add_new_nodes'] = isset($data['auto_add_new_nodes']) ? $data['auto_add_new_nodes'] : null;
+        $this->container['connection_pool'] = isset($data['connection_pool']) ? $data['connection_pool'] : null;
         $this->container['consist_level'] = isset($data['consist_level']) ? $data['consist_level'] : null;
         $this->container['consist_timeout'] = isset($data['consist_timeout']) ? $data['consist_timeout'] : null;
         $this->container['consist_timeout_action'] = isset($data['consist_timeout_action']) ? $data['consist_timeout_action'] : null;
@@ -295,38 +237,6 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getConsistLevelAllowableValues();
-        if (!is_null($this->container['consist_level']) && !in_array($this->container['consist_level'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'consist_level', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getConsistTimeoutActionAllowableValues();
-        if (!is_null($this->container['consist_timeout_action']) && !in_array($this->container['consist_timeout_action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'consist_timeout_action', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getEndpointTypeAllowableValues();
-        if (!is_null($this->container['endpoint_type']) && !in_array($this->container['endpoint_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'endpoint_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getReadWriteModeAllowableValues();
-        if (!is_null($this->container['read_write_mode']) && !in_array($this->container['read_write_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'read_write_mode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -392,6 +302,30 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets connection_pool
+     *
+     * @return string
+     */
+    public function getConnectionPool()
+    {
+        return $this->container['connection_pool'];
+    }
+
+    /**
+     * Sets connection_pool
+     *
+     * @param string $connection_pool connection_pool
+     *
+     * @return $this
+     */
+    public function setConnectionPool($connection_pool)
+    {
+        $this->container['connection_pool'] = $connection_pool;
+
+        return $this;
+    }
+
+    /**
      * Gets consist_level
      *
      * @return string
@@ -410,15 +344,6 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
      */
     public function setConsistLevel($consist_level)
     {
-        $allowedValues = $this->getConsistLevelAllowableValues();
-        if (!is_null($consist_level) && !in_array($consist_level, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'consist_level', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['consist_level'] = $consist_level;
 
         return $this;
@@ -467,15 +392,6 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
      */
     public function setConsistTimeoutAction($consist_timeout_action)
     {
-        $allowedValues = $this->getConsistTimeoutActionAllowableValues();
-        if (!is_null($consist_timeout_action) && !in_array($consist_timeout_action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'consist_timeout_action', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['consist_timeout_action'] = $consist_timeout_action;
 
         return $this;
@@ -596,15 +512,6 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
      */
     public function setEndpointType($endpoint_type)
     {
-        $allowedValues = $this->getEndpointTypeAllowableValues();
-        if (!is_null($endpoint_type) && !in_array($endpoint_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'endpoint_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['endpoint_type'] = $endpoint_type;
 
         return $this;
@@ -677,15 +584,6 @@ class EndpointForDescribeDBInstanceDetailOutput implements ModelInterface, Array
      */
     public function setReadWriteMode($read_write_mode)
     {
-        $allowedValues = $this->getReadWriteModeAllowableValues();
-        if (!is_null($read_write_mode) && !in_array($read_write_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'read_write_mode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['read_write_mode'] = $read_write_mode;
 
         return $this;

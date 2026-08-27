@@ -3292,6 +3292,68 @@ class VEDBMApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function modifyConnectionPersistence($body = null)
+    {
+        list($response) = $this->modifyConnectionPersistenceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyConnectionPersistenceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vedbm\Model\ModifyConnectionPersistenceResponse';
+        $request = $this->modifyConnectionPersistenceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyConnectionPersistenceAsync($body = null)
+    {
+        return $this->modifyConnectionPersistenceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyConnectionPersistenceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vedbm\Model\ModifyConnectionPersistenceResponse';
+        $request = $this->modifyConnectionPersistenceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyConnectionPersistenceRequest($body)
+    {
+        $resourcePath = '/ModifyConnectionPersistence/2022-01-01/vedbm/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function modifyCrossRegionBackupPolicy($body = null)
     {
         list($response) = $this->modifyCrossRegionBackupPolicyWithHttpInfo($body);
@@ -3946,6 +4008,68 @@ class VEDBMApi
     protected function modifyDBInstanceSpecRequest($body)
     {
         $resourcePath = '/ModifyDBInstanceSpec/2022-01-01/vedbm/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyDBInstanceStorageType($body = null)
+    {
+        list($response) = $this->modifyDBInstanceStorageTypeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyDBInstanceStorageTypeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vedbm\Model\ModifyDBInstanceStorageTypeResponse';
+        $request = $this->modifyDBInstanceStorageTypeRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyDBInstanceStorageTypeAsync($body = null)
+    {
+        return $this->modifyDBInstanceStorageTypeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyDBInstanceStorageTypeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vedbm\Model\ModifyDBInstanceStorageTypeResponse';
+        $request = $this->modifyDBInstanceStorageTypeRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyDBInstanceStorageTypeRequest($body)
+    {
+        $resourcePath = '/ModifyDBInstanceStorageType/2022-01-01/vedbm/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

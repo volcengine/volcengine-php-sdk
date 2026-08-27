@@ -33,7 +33,9 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_id' => 'string',
         'allow_list_name' => 'string',
         'apply_instance_num' => 'int',
-        'modify_mode' => 'string'
+        'modify_mode' => 'string',
+        'security_group_bind_infos' => '\Volcengine\Vedbm\Model\SecurityGroupBindInfoForModifyAllowListInput[]',
+        'user_allow_list' => 'string'
     ];
 
     /**
@@ -47,7 +49,9 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_id' => null,
         'allow_list_name' => null,
         'apply_instance_num' => 'int32',
-        'modify_mode' => null
+        'modify_mode' => null,
+        'security_group_bind_infos' => null,
+        'user_allow_list' => null
     ];
 
     /**
@@ -82,7 +86,9 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_id' => 'AllowListId',
         'allow_list_name' => 'AllowListName',
         'apply_instance_num' => 'ApplyInstanceNum',
-        'modify_mode' => 'ModifyMode'
+        'modify_mode' => 'ModifyMode',
+        'security_group_bind_infos' => 'SecurityGroupBindInfos',
+        'user_allow_list' => 'UserAllowList'
     ];
 
     /**
@@ -96,7 +102,9 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_id' => 'setAllowListId',
         'allow_list_name' => 'setAllowListName',
         'apply_instance_num' => 'setApplyInstanceNum',
-        'modify_mode' => 'setModifyMode'
+        'modify_mode' => 'setModifyMode',
+        'security_group_bind_infos' => 'setSecurityGroupBindInfos',
+        'user_allow_list' => 'setUserAllowList'
     ];
 
     /**
@@ -110,7 +118,9 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         'allow_list_id' => 'getAllowListId',
         'allow_list_name' => 'getAllowListName',
         'apply_instance_num' => 'getApplyInstanceNum',
-        'modify_mode' => 'getModifyMode'
+        'modify_mode' => 'getModifyMode',
+        'security_group_bind_infos' => 'getSecurityGroupBindInfos',
+        'user_allow_list' => 'getUserAllowList'
     ];
 
     /**
@@ -196,6 +206,8 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
         $this->container['allow_list_name'] = isset($data['allow_list_name']) ? $data['allow_list_name'] : null;
         $this->container['apply_instance_num'] = isset($data['apply_instance_num']) ? $data['apply_instance_num'] : null;
         $this->container['modify_mode'] = isset($data['modify_mode']) ? $data['modify_mode'] : null;
+        $this->container['security_group_bind_infos'] = isset($data['security_group_bind_infos']) ? $data['security_group_bind_infos'] : null;
+        $this->container['user_allow_list'] = isset($data['user_allow_list']) ? $data['user_allow_list'] : null;
     }
 
     /**
@@ -385,6 +397,54 @@ class ModifyAllowListRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['modify_mode'] = $modify_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_bind_infos
+     *
+     * @return \Volcengine\Vedbm\Model\SecurityGroupBindInfoForModifyAllowListInput[]
+     */
+    public function getSecurityGroupBindInfos()
+    {
+        return $this->container['security_group_bind_infos'];
+    }
+
+    /**
+     * Sets security_group_bind_infos
+     *
+     * @param \Volcengine\Vedbm\Model\SecurityGroupBindInfoForModifyAllowListInput[] $security_group_bind_infos security_group_bind_infos
+     *
+     * @return $this
+     */
+    public function setSecurityGroupBindInfos($security_group_bind_infos)
+    {
+        $this->container['security_group_bind_infos'] = $security_group_bind_infos;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_allow_list
+     *
+     * @return string
+     */
+    public function getUserAllowList()
+    {
+        return $this->container['user_allow_list'];
+    }
+
+    /**
+     * Sets user_allow_list
+     *
+     * @param string $user_allow_list user_allow_list
+     *
+     * @return $this
+     */
+    public function setUserAllowList($user_allow_list)
+    {
+        $this->container['user_allow_list'] = $user_allow_list;
 
         return $this;
     }

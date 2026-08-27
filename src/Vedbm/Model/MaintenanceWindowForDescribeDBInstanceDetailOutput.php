@@ -144,48 +144,8 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput implements ModelInterfa
         return self::$swaggerModelName;
     }
 
-    const DAY_KIND_MONTH = 'Month';
-    const DAY_KIND_WEEK = 'Week';
-    const DAY_OF_WEEK_FRIDAY = 'Friday';
-    const DAY_OF_WEEK_MONDAY = 'Monday';
-    const DAY_OF_WEEK_SATURDAY = 'Saturday';
-    const DAY_OF_WEEK_SUNDAY = 'Sunday';
-    const DAY_OF_WEEK_THURSDAY = 'Thursday';
-    const DAY_OF_WEEK_TUESDAY = 'Tuesday';
-    const DAY_OF_WEEK_WEDNESDAY = 'Wednesday';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDayKindAllowableValues()
-    {
-        return [
-            self::DAY_KIND_MONTH,
-            self::DAY_KIND_WEEK,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDayOfWeekAllowableValues()
-    {
-        return [
-            self::DAY_OF_WEEK_FRIDAY,
-            self::DAY_OF_WEEK_MONDAY,
-            self::DAY_OF_WEEK_SATURDAY,
-            self::DAY_OF_WEEK_SUNDAY,
-            self::DAY_OF_WEEK_THURSDAY,
-            self::DAY_OF_WEEK_TUESDAY,
-            self::DAY_OF_WEEK_WEDNESDAY,
-        ];
-    }
     
 
     /**
@@ -217,14 +177,6 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput implements ModelInterfa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getDayKindAllowableValues();
-        if (!is_null($this->container['day_kind']) && !in_array($this->container['day_kind'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'day_kind', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -260,15 +212,6 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput implements ModelInterfa
      */
     public function setDayKind($day_kind)
     {
-        $allowedValues = $this->getDayKindAllowableValues();
-        if (!is_null($day_kind) && !in_array($day_kind, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'day_kind', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['day_kind'] = $day_kind;
 
         return $this;
@@ -317,15 +260,6 @@ class MaintenanceWindowForDescribeDBInstanceDetailOutput implements ModelInterfa
      */
     public function setDayOfWeek($day_of_week)
     {
-        $allowedValues = $this->getDayOfWeekAllowableValues();
-        if (!is_null($day_of_week) && array_diff($day_of_week, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'day_of_week', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['day_of_week'] = $day_of_week;
 
         return $this;
