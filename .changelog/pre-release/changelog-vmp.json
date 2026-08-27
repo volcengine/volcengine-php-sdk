@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "UpdateAlertingRule",
-    "CreateAlertingRule"
-  ],
-  "description": "VMP: 修改 CreateAlertingRule, UpdateAlertingRule",
-  "modules": "service/vmp",
-  "type": "feature"
-}
