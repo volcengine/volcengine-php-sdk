@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateBranchResponse implements ModelInterface, ArrayAccess
+class GetPrivateEndpointAllowlistRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateBranchResponse';
+    protected static $swaggerModelName = 'GetPrivateEndpointAllowlistRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch_id' => 'string',
-        'cluster_id' => 'string'
+        'cluster_id' => 'string',
+        'project_name' => 'string',
+        'vpc_endpoint_id' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch_id' => null,
-        'cluster_id' => null
+        'cluster_id' => null,
+        'project_name' => null,
+        'vpc_endpoint_id' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId'
+        'cluster_id' => 'ClusterId',
+        'project_name' => 'ProjectName',
+        'vpc_endpoint_id' => 'VpcEndpointId'
     ];
 
     /**
@@ -79,8 +82,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId'
+        'cluster_id' => 'setClusterId',
+        'project_name' => 'setProjectName',
+        'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
 
     /**
@@ -89,8 +93,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId'
+        'cluster_id' => 'getClusterId',
+        'project_name' => 'getProjectName',
+        'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
 
     /**
@@ -153,8 +158,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['vpc_endpoint_id'] === null) {
+            $invalidProperties[] = "'vpc_endpoint_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -180,30 +192,6 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets branch_id
-     *
-     * @return string
-     */
-    public function getBranchId()
-    {
-        return $this->container['branch_id'];
-    }
-
-    /**
-     * Sets branch_id
-     *
-     * @param string $branch_id branch_id
-     *
-     * @return $this
-     */
-    public function setBranchId($branch_id)
-    {
-        $this->container['branch_id'] = $branch_id;
-
-        return $this;
-    }
 
     /**
      * Gets cluster_id
@@ -225,6 +213,54 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getVpcEndpointId()
+    {
+        return $this->container['vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets vpc_endpoint_id
+     *
+     * @param string $vpc_endpoint_id vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setVpcEndpointId($vpc_endpoint_id)
+    {
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }
