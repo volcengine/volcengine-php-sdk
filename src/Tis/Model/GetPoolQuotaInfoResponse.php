@@ -67,7 +67,7 @@ class GetPoolQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'quota_info_list' => 'QuotaInfoList'
+        'quota_info_list' => 'quotaInfoList'
     ];
 
     /**
