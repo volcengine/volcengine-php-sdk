@@ -45,7 +45,7 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'create_date' => null,
         'description' => null,
         'display_name' => null,
