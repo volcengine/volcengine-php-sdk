@@ -31,6 +31,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         'bucket_access_config' => '\Volcengine\Dms\Model\BucketAccessConfigForCreateDataMigrateTaskInput',
         'is_excluded' => 'bool',
         'key_list_file' => 'string',
+        'list_end_time' => 'int',
+        'list_start_time' => 'int',
         'prefix_list' => 'string[]',
         'prefix_list_file' => 'string',
         'scan_with_delimiter' => 'bool',
@@ -46,6 +48,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         'bucket_access_config' => null,
         'is_excluded' => null,
         'key_list_file' => null,
+        'list_end_time' => 'int64',
+        'list_start_time' => 'int64',
         'prefix_list' => null,
         'prefix_list_file' => null,
         'scan_with_delimiter' => null,
@@ -82,6 +86,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         'bucket_access_config' => 'BucketAccessConfig',
         'is_excluded' => 'IsExcluded',
         'key_list_file' => 'KeyListFile',
+        'list_end_time' => 'ListEndTime',
+        'list_start_time' => 'ListStartTime',
         'prefix_list' => 'PrefixList',
         'prefix_list_file' => 'PrefixListFile',
         'scan_with_delimiter' => 'ScanWithDelimiter',
@@ -97,6 +103,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         'bucket_access_config' => 'setBucketAccessConfig',
         'is_excluded' => 'setIsExcluded',
         'key_list_file' => 'setKeyListFile',
+        'list_end_time' => 'setListEndTime',
+        'list_start_time' => 'setListStartTime',
         'prefix_list' => 'setPrefixList',
         'prefix_list_file' => 'setPrefixListFile',
         'scan_with_delimiter' => 'setScanWithDelimiter',
@@ -112,6 +120,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         'bucket_access_config' => 'getBucketAccessConfig',
         'is_excluded' => 'getIsExcluded',
         'key_list_file' => 'getKeyListFile',
+        'list_end_time' => 'getListEndTime',
+        'list_start_time' => 'getListStartTime',
         'prefix_list' => 'getPrefixList',
         'prefix_list_file' => 'getPrefixListFile',
         'scan_with_delimiter' => 'getScanWithDelimiter',
@@ -181,6 +191,8 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
         $this->container['bucket_access_config'] = isset($data['bucket_access_config']) ? $data['bucket_access_config'] : null;
         $this->container['is_excluded'] = isset($data['is_excluded']) ? $data['is_excluded'] : null;
         $this->container['key_list_file'] = isset($data['key_list_file']) ? $data['key_list_file'] : null;
+        $this->container['list_end_time'] = isset($data['list_end_time']) ? $data['list_end_time'] : null;
+        $this->container['list_start_time'] = isset($data['list_start_time']) ? $data['list_start_time'] : null;
         $this->container['prefix_list'] = isset($data['prefix_list']) ? $data['prefix_list'] : null;
         $this->container['prefix_list_file'] = isset($data['prefix_list_file']) ? $data['prefix_list_file'] : null;
         $this->container['scan_with_delimiter'] = isset($data['scan_with_delimiter']) ? $data['scan_with_delimiter'] : null;
@@ -279,6 +291,54 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
     public function setKeyListFile($key_list_file)
     {
         $this->container['key_list_file'] = $key_list_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets list_end_time
+     *
+     * @return int
+     */
+    public function getListEndTime()
+    {
+        return $this->container['list_end_time'];
+    }
+
+    /**
+     * Sets list_end_time
+     *
+     * @param int $list_end_time list_end_time
+     *
+     * @return $this
+     */
+    public function setListEndTime($list_end_time)
+    {
+        $this->container['list_end_time'] = $list_end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets list_start_time
+     *
+     * @return int
+     */
+    public function getListStartTime()
+    {
+        return $this->container['list_start_time'];
+    }
+
+    /**
+     * Sets list_start_time
+     *
+     * @param int $list_start_time list_start_time
+     *
+     * @return $this
+     */
+    public function setListStartTime($list_start_time)
+    {
+        $this->container['list_start_time'] = $list_start_time;
 
         return $this;
     }
