@@ -51,7 +51,46 @@ class Request
     public $query;
     public $isPresigned = false;
     public $presignedUrl;
+    public $invocationId;
+    public $retryCount = 0;
 
+    public function __construct()
+    {
+        $this->invocationId = self::generateInvocationId();
+    }
+
+    private static function generateInvocationId()
+    {
+        $bytes = false;
+        if (function_exists('random_bytes')) {
+            try {
+                $bytes = random_bytes(16);
+            } catch (\Exception $e) {
+                // No secure randomness source available; fall through to the
+                // weaker sources below. The invocation id only correlates
+                // retries, so cryptographic strength is not required.
+                $bytes = false;
+            }
+        }
+        if ($bytes === false && function_exists('openssl_random_pseudo_bytes')) {
+            try {
+                // Returns false on failure before PHP 8.0, throws from 8.0 on.
+                $bytes = openssl_random_pseudo_bytes(16);
+            } catch (\Exception $e) {
+                $bytes = false;
+            }
+        }
+        if ($bytes === false || strlen($bytes) !== 16) {
+            $bytes = md5(uniqid(mt_rand(), true), true);
+        }
+
+        $bytes[6] = chr((ord($bytes[6]) & 0x0f) | 0x40);
+        $bytes[8] = chr((ord($bytes[8]) & 0x3f) | 0x80);
+        $hex = bin2hex($bytes);
+
+        return substr($hex, 0, 8) . '-' . substr($hex, 8, 4) . '-' . substr($hex, 12, 4) . '-'
+            . substr($hex, 16, 4) . '-' . substr($hex, 20, 12);
+    }
 
     public function getMethod()
     {

@@ -174,7 +174,7 @@ class ApiClient
 
         while (true) {
             if ($retryCount > 0) {
-                $context = $this->prepareRetryAttempt($context, $lastError);
+                $context = $this->prepareRetryAttempt($context, $lastError, $retryCount);
                 $request = $context->getRequest();
                 $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
             }
@@ -349,7 +349,7 @@ class ApiClient
         $request = $context->getRequest();
         $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         if ($retryCount > 0) {
-            $context = $this->prepareRetryAttempt($context, $previousError);
+            $context = $this->prepareRetryAttempt($context, $previousError, $retryCount);
             $request = $context->getRequest();
             $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         }
@@ -422,9 +422,10 @@ class ApiClient
             });
     }
 
-    private function prepareRetryAttempt(Context $context, $error)
+    private function prepareRetryAttempt(Context $context, $error, $retryCount)
     {
         $request = $context->getRequest();
+        $request->retryCount = $retryCount;
 
         if ($this->shouldRefreshCredentials($error)) {
             $this->refreshRequestCredentials($request);

@@ -4,6 +4,7 @@ namespace Volcengine\Common\Interceptor\Interceptors;
 
 use GuzzleHttp\RequestOptions;
 use Volcengine\Common\LogHelper;
+use Volcengine\Common\Retry\Retryer;
 use Volcengine\Common\SdkLogger;
 use Volcengine\Common\Utils;
 
@@ -27,6 +28,13 @@ class SignRequestInterceptor extends Interceptor
          * @var Request $request
          */
         $request = $context->request;
+        $maxAttempts = $request->autoRetry && $request->retryer instanceof Retryer
+            ? $request->retryer->getNumMaxRetries() + 1
+            : 1;
+        $this->setHeader($request, 'X-Sdk-Invocation-Id', $request->invocationId);
+        $this->setHeader($request, 'X-Sdk-Request',
+            'attempt=' . ($request->retryCount + 1) . '; max=' . $maxAttempts);
+
         if (strpos($request->host, 'http') !== false) {
             // 字符串包含"http"
             $a = explode('://', $request->host);
@@ -88,5 +96,15 @@ class SignRequestInterceptor extends Interceptor
             $request->options = $options;
         }
         return $context;
+    }
+
+    private function setHeader(Request $request, $name, $value)
+    {
+        foreach (array_keys($request->headers) as $key) {
+            if (strcasecmp($key, $name) === 0 && $key !== $name) {
+                unset($request->headers[$key]);
+            }
+        }
+        $request->headers[$name] = $value;
     }
 }
