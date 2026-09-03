@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayAccess
+class DataForVideoProjectTaskBatchSetExpeditedOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'toolResourceForVideoProjectGetToolTaskOutput';
+    protected static $swaggerModelName = 'dataForVideoProjectTaskBatchSetExpeditedOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'name' => 'string',
-        'resource_id' => 'string',
-        'resource_type' => 'int',
-        'update_time' => 'string',
-        'url' => 'string'
+        'failed_cascaded_task_items' => '\Volcengine\I18nopenapi\Model\FailedCascadedTaskItemForVideoProjectTaskBatchSetExpeditedOutput[]',
+        'failed_input_task_items' => '\Volcengine\I18nopenapi\Model\FailedInputTaskItemForVideoProjectTaskBatchSetExpeditedOutput[]',
+        'success_cascaded_task_ids' => 'string[]',
+        'success_input_task_ids' => 'string[]'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'name' => null,
-        'resource_id' => null,
-        'resource_type' => 'int32',
-        'update_time' => null,
-        'url' => null
+        'failed_cascaded_task_items' => null,
+        'failed_input_task_items' => null,
+        'success_cascaded_task_ids' => null,
+        'success_input_task_ids' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'createTime',
-        'name' => 'name',
-        'resource_id' => 'resourceId',
-        'resource_type' => 'resourceType',
-        'update_time' => 'updateTime',
-        'url' => 'url'
+        'failed_cascaded_task_items' => 'failedCascadedTaskItems',
+        'failed_input_task_items' => 'failedInputTaskItems',
+        'success_cascaded_task_ids' => 'successCascadedTaskIDs',
+        'success_input_task_ids' => 'successInputTaskIDs'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'name' => 'setName',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'update_time' => 'setUpdateTime',
-        'url' => 'setUrl'
+        'failed_cascaded_task_items' => 'setFailedCascadedTaskItems',
+        'failed_input_task_items' => 'setFailedInputTaskItems',
+        'success_cascaded_task_ids' => 'setSuccessCascadedTaskIds',
+        'success_input_task_ids' => 'setSuccessInputTaskIds'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'name' => 'getName',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'update_time' => 'getUpdateTime',
-        'url' => 'getUrl'
+        'failed_cascaded_task_items' => 'getFailedCascadedTaskItems',
+        'failed_input_task_items' => 'getFailedInputTaskItems',
+        'success_cascaded_task_ids' => 'getSuccessCascadedTaskIds',
+        'success_input_task_ids' => 'getSuccessInputTaskIds'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['failed_cascaded_task_items'] = isset($data['failed_cascaded_task_items']) ? $data['failed_cascaded_task_items'] : null;
+        $this->container['failed_input_task_items'] = isset($data['failed_input_task_items']) ? $data['failed_input_task_items'] : null;
+        $this->container['success_cascaded_task_ids'] = isset($data['success_cascaded_task_ids']) ? $data['success_cascaded_task_ids'] : null;
+        $this->container['success_input_task_ids'] = isset($data['success_input_task_ids']) ? $data['success_input_task_ids'] : null;
     }
 
     /**
@@ -206,145 +194,97 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets create_time
+     * Gets failed_cascaded_task_items
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\FailedCascadedTaskItemForVideoProjectTaskBatchSetExpeditedOutput[]
      */
-    public function getCreateTime()
+    public function getFailedCascadedTaskItems()
     {
-        return $this->container['create_time'];
+        return $this->container['failed_cascaded_task_items'];
     }
 
     /**
-     * Sets create_time
+     * Sets failed_cascaded_task_items
      *
-     * @param string $create_time create_time
+     * @param \Volcengine\I18nopenapi\Model\FailedCascadedTaskItemForVideoProjectTaskBatchSetExpeditedOutput[] $failed_cascaded_task_items failed_cascaded_task_items
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setFailedCascadedTaskItems($failed_cascaded_task_items)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['failed_cascaded_task_items'] = $failed_cascaded_task_items;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets failed_input_task_items
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\FailedInputTaskItemForVideoProjectTaskBatchSetExpeditedOutput[]
      */
-    public function getName()
+    public function getFailedInputTaskItems()
     {
-        return $this->container['name'];
+        return $this->container['failed_input_task_items'];
     }
 
     /**
-     * Sets name
+     * Sets failed_input_task_items
      *
-     * @param string $name name
+     * @param \Volcengine\I18nopenapi\Model\FailedInputTaskItemForVideoProjectTaskBatchSetExpeditedOutput[] $failed_input_task_items failed_input_task_items
      *
      * @return $this
      */
-    public function setName($name)
+    public function setFailedInputTaskItems($failed_input_task_items)
     {
-        $this->container['name'] = $name;
+        $this->container['failed_input_task_items'] = $failed_input_task_items;
 
         return $this;
     }
 
     /**
-     * Gets resource_id
+     * Gets success_cascaded_task_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getResourceId()
+    public function getSuccessCascadedTaskIds()
     {
-        return $this->container['resource_id'];
+        return $this->container['success_cascaded_task_ids'];
     }
 
     /**
-     * Sets resource_id
+     * Sets success_cascaded_task_ids
      *
-     * @param string $resource_id resource_id
+     * @param string[] $success_cascaded_task_ids success_cascaded_task_ids
      *
      * @return $this
      */
-    public function setResourceId($resource_id)
+    public function setSuccessCascadedTaskIds($success_cascaded_task_ids)
     {
-        $this->container['resource_id'] = $resource_id;
+        $this->container['success_cascaded_task_ids'] = $success_cascaded_task_ids;
 
         return $this;
     }
 
     /**
-     * Gets resource_type
+     * Gets success_input_task_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getResourceType()
+    public function getSuccessInputTaskIds()
     {
-        return $this->container['resource_type'];
+        return $this->container['success_input_task_ids'];
     }
 
     /**
-     * Sets resource_type
+     * Sets success_input_task_ids
      *
-     * @param int $resource_type resource_type
+     * @param string[] $success_input_task_ids success_input_task_ids
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setSuccessInputTaskIds($success_input_task_ids)
     {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url url
-     *
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
+        $this->container['success_input_task_ids'] = $success_input_task_ids;
 
         return $this;
     }

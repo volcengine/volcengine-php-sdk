@@ -28,7 +28,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style' => 'string',
         'text' => 'string'
     ];
 
@@ -38,7 +37,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'style' => null,
         'text' => null
     ];
 
@@ -69,7 +67,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'style' => 'style',
         'text' => 'text'
     ];
 
@@ -79,7 +76,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'style' => 'setStyle',
         'text' => 'setText'
     ];
 
@@ -89,7 +85,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'style' => 'getStyle',
         'text' => 'getText'
     ];
 
@@ -153,7 +148,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
      */
     public function __construct($data = null)
     {
-        $this->container['style'] = isset($data['style']) ? $data['style'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
@@ -180,30 +174,6 @@ class TargetForVideoEditorSaveSubtitleOutput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets style
-     *
-     * @return string
-     */
-    public function getStyle()
-    {
-        return $this->container['style'];
-    }
-
-    /**
-     * Sets style
-     *
-     * @param string $style style
-     *
-     * @return $this
-     */
-    public function setStyle($style)
-    {
-        $this->container['style'] = $style;
-
-        return $this;
-    }
 
     /**
      * Gets text

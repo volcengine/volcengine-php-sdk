@@ -29,8 +29,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'create_time' => 'string',
-        'input_vid' => 'string',
-        'output_vid' => 'string',
         'project_id' => 'string',
         'resource_id' => 'string',
         'task_id' => 'string',
@@ -51,8 +49,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'create_time' => null,
-        'input_vid' => null,
-        'output_vid' => null,
         'project_id' => null,
         'resource_id' => null,
         'task_id' => null,
@@ -94,8 +90,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'create_time' => 'createTime',
-        'input_vid' => 'inputVid',
-        'output_vid' => 'outputVid',
         'project_id' => 'projectId',
         'resource_id' => 'resourceId',
         'task_id' => 'taskId',
@@ -116,8 +110,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'create_time' => 'setCreateTime',
-        'input_vid' => 'setInputVid',
-        'output_vid' => 'setOutputVid',
         'project_id' => 'setProjectId',
         'resource_id' => 'setResourceId',
         'task_id' => 'setTaskId',
@@ -138,8 +130,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'create_time' => 'getCreateTime',
-        'input_vid' => 'getInputVid',
-        'output_vid' => 'getOutputVid',
         'project_id' => 'getProjectId',
         'resource_id' => 'getResourceId',
         'task_id' => 'getTaskId',
@@ -214,8 +204,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['input_vid'] = isset($data['input_vid']) ? $data['input_vid'] : null;
-        $this->container['output_vid'] = isset($data['output_vid']) ? $data['output_vid'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
@@ -273,54 +261,6 @@ class ToolTaskForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayA
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets input_vid
-     *
-     * @return string
-     */
-    public function getInputVid()
-    {
-        return $this->container['input_vid'];
-    }
-
-    /**
-     * Sets input_vid
-     *
-     * @param string $input_vid input_vid
-     *
-     * @return $this
-     */
-    public function setInputVid($input_vid)
-    {
-        $this->container['input_vid'] = $input_vid;
-
-        return $this;
-    }
-
-    /**
-     * Gets output_vid
-     *
-     * @return string
-     */
-    public function getOutputVid()
-    {
-        return $this->container['output_vid'];
-    }
-
-    /**
-     * Sets output_vid
-     *
-     * @param string $output_vid output_vid
-     *
-     * @return $this
-     */
-    public function setOutputVid($output_vid)
-    {
-        $this->container['output_vid'] = $output_vid;
 
         return $this;
     }
