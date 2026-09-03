@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateBranchResponse implements ModelInterface, ArrayAccess
+class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateBranchResponse';
+    protected static $swaggerModelName = 'AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch_id' => 'string',
-        'cluster_id' => 'string'
+        'display_name' => 'string',
+        'security_group_count' => 'int',
+        'vpc_endpoint_id' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch_id' => null,
-        'cluster_id' => null
+        'display_name' => null,
+        'security_group_count' => 'int32',
+        'vpc_endpoint_id' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId'
+        'display_name' => 'DisplayName',
+        'security_group_count' => 'SecurityGroupCount',
+        'vpc_endpoint_id' => 'VpcEndpointId'
     ];
 
     /**
@@ -79,8 +82,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId'
+        'display_name' => 'setDisplayName',
+        'security_group_count' => 'setSecurityGroupCount',
+        'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
 
     /**
@@ -89,8 +93,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId'
+        'display_name' => 'getDisplayName',
+        'security_group_count' => 'getSecurityGroupCount',
+        'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
 
     /**
@@ -153,8 +158,9 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets branch_id
+     * Gets display_name
      *
      * @return string
      */
-    public function getBranchId()
+    public function getDisplayName()
     {
-        return $this->container['branch_id'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets branch_id
+     * Sets display_name
      *
-     * @param string $branch_id branch_id
+     * @param string $display_name display_name
      *
      * @return $this
      */
-    public function setBranchId($branch_id)
+    public function setDisplayName($display_name)
     {
-        $this->container['branch_id'] = $branch_id;
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
 
     /**
-     * Gets cluster_id
+     * Gets security_group_count
      *
-     * @return string
+     * @return int
      */
-    public function getClusterId()
+    public function getSecurityGroupCount()
     {
-        return $this->container['cluster_id'];
+        return $this->container['security_group_count'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets security_group_count
      *
-     * @param string $cluster_id cluster_id
+     * @param int $security_group_count security_group_count
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setSecurityGroupCount($security_group_count)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['security_group_count'] = $security_group_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getVpcEndpointId()
+    {
+        return $this->container['vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets vpc_endpoint_id
+     *
+     * @param string $vpc_endpoint_id vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setVpcEndpointId($vpc_endpoint_id)
+    {
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }

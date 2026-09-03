@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateBranchResponse implements ModelInterface, ArrayAccess
+class GetPrivateEndpointAllowlistRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateBranchResponse';
+    protected static $swaggerModelName = 'GetPrivateEndpointAllowlistRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch_id' => 'string',
-        'cluster_id' => 'string'
+        'authorized_network' => '\Volcengine\Tidb\Model\AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput'
     ];
 
     /**
@@ -38,8 +37,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch_id' => null,
-        'cluster_id' => null
+        'authorized_network' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId'
+        'authorized_network' => 'AuthorizedNetwork'
     ];
 
     /**
@@ -79,8 +76,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId'
+        'authorized_network' => 'setAuthorizedNetwork'
     ];
 
     /**
@@ -89,8 +85,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId'
+        'authorized_network' => 'getAuthorizedNetwork'
     ];
 
     /**
@@ -153,8 +148,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['authorized_network'] = isset($data['authorized_network']) ? $data['authorized_network'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets branch_id
+     * Gets authorized_network
      *
-     * @return string
+     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput
      */
-    public function getBranchId()
+    public function getAuthorizedNetwork()
     {
-        return $this->container['branch_id'];
+        return $this->container['authorized_network'];
     }
 
     /**
-     * Sets branch_id
+     * Sets authorized_network
      *
-     * @param string $branch_id branch_id
+     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput $authorized_network authorized_network
      *
      * @return $this
      */
-    public function setBranchId($branch_id)
+    public function setAuthorizedNetwork($authorized_network)
     {
-        $this->container['branch_id'] = $branch_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['authorized_network'] = $authorized_network;
 
         return $this;
     }
