@@ -1432,6 +1432,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getPrivateEndpointAllowlistRule($body = null)
+    {
+        list($response) = $this->getPrivateEndpointAllowlistRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPrivateEndpointAllowlistRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetPrivateEndpointAllowlistRuleResponse';
+        $request = $this->getPrivateEndpointAllowlistRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPrivateEndpointAllowlistRuleAsync($body = null)
+    {
+        return $this->getPrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPrivateEndpointAllowlistRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetPrivateEndpointAllowlistRuleResponse';
+        $request = $this->getPrivateEndpointAllowlistRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPrivateEndpointAllowlistRuleRequest($body)
+    {
+        $resourcePath = '/GetPrivateEndpointAllowlistRule/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getRestoreProgress($body = null)
     {
         list($response) = $this->getRestoreProgressWithHttpInfo($body);

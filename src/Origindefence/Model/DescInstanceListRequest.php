@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Iam20210801\Model;
+namespace Volcengine\Origindefence\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateProjectResponse implements ModelInterface, ArrayAccess
+class DescInstanceListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateProjectResponse';
+    protected static $swaggerModelName = 'DescInstanceListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'create_date' => 'string',
-        'description' => 'string',
-        'display_name' => 'string',
-        'parent_project_name' => 'string',
-        'path' => 'string',
+        'curr_page' => 'int',
+        'page_size' => 'int',
         'project_name' => 'string',
-        'status' => 'string',
-        'update_date' => 'string'
+        'search_name' => 'string',
+        'spec' => 'string'
     ];
 
     /**
@@ -45,15 +41,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'create_date' => null,
-        'description' => null,
-        'display_name' => null,
-        'parent_project_name' => null,
-        'path' => null,
+        'curr_page' => 'int32',
+        'page_size' => 'int32',
         'project_name' => null,
-        'status' => null,
-        'update_date' => null
+        'search_name' => null,
+        'spec' => null
     ];
 
     /**
@@ -83,15 +75,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountID',
-        'create_date' => 'CreateDate',
-        'description' => 'Description',
-        'display_name' => 'DisplayName',
-        'parent_project_name' => 'ParentProjectName',
-        'path' => 'Path',
+        'curr_page' => 'CurrPage',
+        'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_date' => 'UpdateDate'
+        'search_name' => 'SearchName',
+        'spec' => 'Spec'
     ];
 
     /**
@@ -100,15 +88,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'create_date' => 'setCreateDate',
-        'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
-        'parent_project_name' => 'setParentProjectName',
-        'path' => 'setPath',
+        'curr_page' => 'setCurrPage',
+        'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_date' => 'setUpdateDate'
+        'search_name' => 'setSearchName',
+        'spec' => 'setSpec'
     ];
 
     /**
@@ -117,15 +101,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'create_date' => 'getCreateDate',
-        'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
-        'parent_project_name' => 'getParentProjectName',
-        'path' => 'getPath',
+        'curr_page' => 'getCurrPage',
+        'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_date' => 'getUpdateDate'
+        'search_name' => 'getSearchName',
+        'spec' => 'getSpec'
     ];
 
     /**
@@ -188,15 +168,11 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['parent_project_name'] = isset($data['parent_project_name']) ? $data['parent_project_name'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['curr_page'] = isset($data['curr_page']) ? $data['curr_page'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['search_name'] = isset($data['search_name']) ? $data['search_name'] : null;
+        $this->container['spec'] = isset($data['spec']) ? $data['spec'] : null;
     }
 
     /**
@@ -224,145 +200,49 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets curr_page
      *
      * @return int
      */
-    public function getAccountId()
+    public function getCurrPage()
     {
-        return $this->container['account_id'];
+        return $this->container['curr_page'];
     }
 
     /**
-     * Sets account_id
+     * Sets curr_page
      *
-     * @param int $account_id account_id
+     * @param int $curr_page curr_page
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setCurrPage($curr_page)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['curr_page'] = $curr_page;
 
         return $this;
     }
 
     /**
-     * Gets create_date
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getCreateDate()
+    public function getPageSize()
     {
-        return $this->container['create_date'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets create_date
+     * Sets page_size
      *
-     * @param string $create_date create_date
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setCreateDate($create_date)
+    public function setPageSize($page_size)
     {
-        $this->container['create_date'] = $create_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent_project_name
-     *
-     * @return string
-     */
-    public function getParentProjectName()
-    {
-        return $this->container['parent_project_name'];
-    }
-
-    /**
-     * Sets parent_project_name
-     *
-     * @param string $parent_project_name parent_project_name
-     *
-     * @return $this
-     */
-    public function setParentProjectName($parent_project_name)
-    {
-        $this->container['parent_project_name'] = $parent_project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string $path path
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
@@ -392,49 +272,49 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets search_name
      *
      * @return string
      */
-    public function getStatus()
+    public function getSearchName()
     {
-        return $this->container['status'];
+        return $this->container['search_name'];
     }
 
     /**
-     * Sets status
+     * Sets search_name
      *
-     * @param string $status status
+     * @param string $search_name search_name
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setSearchName($search_name)
     {
-        $this->container['status'] = $status;
+        $this->container['search_name'] = $search_name;
 
         return $this;
     }
 
     /**
-     * Gets update_date
+     * Gets spec
      *
      * @return string
      */
-    public function getUpdateDate()
+    public function getSpec()
     {
-        return $this->container['update_date'];
+        return $this->container['spec'];
     }
 
     /**
-     * Sets update_date
+     * Sets spec
      *
-     * @param string $update_date update_date
+     * @param string $spec spec
      *
      * @return $this
      */
-    public function setUpdateDate($update_date)
+    public function setSpec($spec)
     {
-        $this->container['update_date'] = $update_date;
+        $this->container['spec'] = $spec;
 
         return $this;
     }

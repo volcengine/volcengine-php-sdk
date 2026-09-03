@@ -28,11 +28,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'can_expedite' => 'bool',
         'comment' => 'string',
         'created_at' => 'string',
         'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskListOutput',
         'deadline' => 'string',
         'drama_task_workflow' => 'int',
+        'is_expedited' => 'bool',
         'name' => 'string',
         'project_name' => 'string',
         'source_language' => 'string',
@@ -48,11 +50,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'can_expedite' => null,
         'comment' => null,
         'created_at' => null,
         'creator' => null,
         'deadline' => null,
         'drama_task_workflow' => 'int32',
+        'is_expedited' => null,
         'name' => null,
         'project_name' => null,
         'source_language' => null,
@@ -89,11 +93,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'can_expedite' => 'canExpedite',
         'comment' => 'comment',
         'created_at' => 'createdAt',
         'creator' => 'creator',
         'deadline' => 'deadline',
         'drama_task_workflow' => 'dramaTaskWorkflow',
+        'is_expedited' => 'isExpedited',
         'name' => 'name',
         'project_name' => 'projectName',
         'source_language' => 'sourceLanguage',
@@ -109,11 +115,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'can_expedite' => 'setCanExpedite',
         'comment' => 'setComment',
         'created_at' => 'setCreatedAt',
         'creator' => 'setCreator',
         'deadline' => 'setDeadline',
         'drama_task_workflow' => 'setDramaTaskWorkflow',
+        'is_expedited' => 'setIsExpedited',
         'name' => 'setName',
         'project_name' => 'setProjectName',
         'source_language' => 'setSourceLanguage',
@@ -129,11 +137,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'can_expedite' => 'getCanExpedite',
         'comment' => 'getComment',
         'created_at' => 'getCreatedAt',
         'creator' => 'getCreator',
         'deadline' => 'getDeadline',
         'drama_task_workflow' => 'getDramaTaskWorkflow',
+        'is_expedited' => 'getIsExpedited',
         'name' => 'getName',
         'project_name' => 'getProjectName',
         'source_language' => 'getSourceLanguage',
@@ -203,11 +213,13 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['can_expedite'] = isset($data['can_expedite']) ? $data['can_expedite'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
         $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
         $this->container['drama_task_workflow'] = isset($data['drama_task_workflow']) ? $data['drama_task_workflow'] : null;
+        $this->container['is_expedited'] = isset($data['is_expedited']) ? $data['is_expedited'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
@@ -240,6 +252,30 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets can_expedite
+     *
+     * @return bool
+     */
+    public function getCanExpedite()
+    {
+        return $this->container['can_expedite'];
+    }
+
+    /**
+     * Sets can_expedite
+     *
+     * @param bool $can_expedite can_expedite
+     *
+     * @return $this
+     */
+    public function setCanExpedite($can_expedite)
+    {
+        $this->container['can_expedite'] = $can_expedite;
+
+        return $this;
+    }
 
     /**
      * Gets comment
@@ -357,6 +393,30 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
     public function setDramaTaskWorkflow($drama_task_workflow)
     {
         $this->container['drama_task_workflow'] = $drama_task_workflow;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_expedited
+     *
+     * @return bool
+     */
+    public function getIsExpedited()
+    {
+        return $this->container['is_expedited'];
+    }
+
+    /**
+     * Sets is_expedited
+     *
+     * @param bool $is_expedited is_expedited
+     *
+     * @return $this
+     */
+    public function setIsExpedited($is_expedited)
+    {
+        $this->container['is_expedited'] = $is_expedited;
 
         return $this;
     }

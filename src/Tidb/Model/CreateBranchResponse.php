@@ -28,7 +28,8 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch_id' => 'string'
+        'branch_id' => 'string',
+        'cluster_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch_id' => null
+        'branch_id' => null,
+        'cluster_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch_id' => 'BranchId'
+        'branch_id' => 'BranchId',
+        'cluster_id' => 'ClusterId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch_id' => 'setBranchId'
+        'branch_id' => 'setBranchId',
+        'cluster_id' => 'setClusterId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch_id' => 'getBranchId'
+        'branch_id' => 'getBranchId',
+        'cluster_id' => 'getClusterId'
     ];
 
     /**
@@ -149,6 +154,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     public function setBranchId($branch_id)
     {
         $this->container['branch_id'] = $branch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_id
+     *
+     * @return string
+     */
+    public function getClusterId()
+    {
+        return $this->container['cluster_id'];
+    }
+
+    /**
+     * Sets cluster_id
+     *
+     * @param string $cluster_id cluster_id
+     *
+     * @return $this
+     */
+    public function setClusterId($cluster_id)
+    {
+        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Origindefence\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayAccess
+class DescInstanceListResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'toolResourceForVideoProjectGetToolTaskOutput';
+    protected static $swaggerModelName = 'DescInstanceListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'name' => 'string',
-        'resource_id' => 'string',
-        'resource_type' => 'int',
-        'update_time' => 'string',
-        'url' => 'string'
+        'count' => 'int',
+        'current_page' => 'int',
+        'ins_list' => '\Volcengine\Origindefence\Model\InsListForDescInstanceListOutput[]',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -42,12 +41,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'name' => null,
-        'resource_id' => null,
-        'resource_type' => 'int32',
-        'update_time' => null,
-        'url' => null
+        'count' => 'int32',
+        'current_page' => 'int32',
+        'ins_list' => null,
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -77,12 +75,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'createTime',
-        'name' => 'name',
-        'resource_id' => 'resourceId',
-        'resource_type' => 'resourceType',
-        'update_time' => 'updateTime',
-        'url' => 'url'
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
+        'ins_list' => 'InsList',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -91,12 +88,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'name' => 'setName',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'update_time' => 'setUpdateTime',
-        'url' => 'setUrl'
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
+        'ins_list' => 'setInsList',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -105,12 +101,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'name' => 'getName',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'update_time' => 'getUpdateTime',
-        'url' => 'getUrl'
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
+        'ins_list' => 'getInsList',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -173,12 +168,11 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['ins_list'] = isset($data['ins_list']) ? $data['ins_list'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -206,145 +200,121 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets create_time
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param string $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_id
-     *
-     * @return string
-     */
-    public function getResourceId()
-    {
-        return $this->container['resource_id'];
-    }
-
-    /**
-     * Sets resource_id
-     *
-     * @param string $resource_id resource_id
-     *
-     * @return $this
-     */
-    public function setResourceId($resource_id)
-    {
-        $this->container['resource_id'] = $resource_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets count
      *
      * @return int
      */
-    public function getResourceType()
+    public function getCount()
     {
-        return $this->container['resource_type'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets resource_type
+     * Sets count
      *
-     * @param int $resource_type resource_type
+     * @param int $count count
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setCount($count)
     {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets update_time
+     * Gets current_page
      *
-     * @return string
+     * @return int
      */
-    public function getUpdateTime()
+    public function getCurrentPage()
     {
-        return $this->container['update_time'];
+        return $this->container['current_page'];
     }
 
     /**
-     * Sets update_time
+     * Sets current_page
      *
-     * @param string $update_time update_time
+     * @param int $current_page current_page
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setCurrentPage($current_page)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets ins_list
      *
-     * @return string
+     * @return \Volcengine\Origindefence\Model\InsListForDescInstanceListOutput[]
      */
-    public function getUrl()
+    public function getInsList()
     {
-        return $this->container['url'];
+        return $this->container['ins_list'];
     }
 
     /**
-     * Sets url
+     * Sets ins_list
      *
-     * @param string $url url
+     * @param \Volcengine\Origindefence\Model\InsListForDescInstanceListOutput[] $ins_list ins_list
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setInsList($ins_list)
     {
-        $this->container['url'] = $url;
+        $this->container['ins_list'] = $ins_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

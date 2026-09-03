@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Iam20210801\Model;
+namespace Volcengine\Tidb\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateProjectResponse implements ModelInterface, ArrayAccess
+class AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateProjectResponse';
+    protected static $swaggerModelName = 'AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'create_date' => 'string',
-        'description' => 'string',
         'display_name' => 'string',
-        'parent_project_name' => 'string',
-        'path' => 'string',
-        'project_name' => 'string',
-        'status' => 'string',
-        'update_date' => 'string'
+        'security_group_count' => 'int',
+        'vpc_endpoint_id' => 'string'
     ];
 
     /**
@@ -45,15 +39,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'create_date' => null,
-        'description' => null,
         'display_name' => null,
-        'parent_project_name' => null,
-        'path' => null,
-        'project_name' => null,
-        'status' => null,
-        'update_date' => null
+        'security_group_count' => 'int32',
+        'vpc_endpoint_id' => null
     ];
 
     /**
@@ -83,15 +71,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountID',
-        'create_date' => 'CreateDate',
-        'description' => 'Description',
         'display_name' => 'DisplayName',
-        'parent_project_name' => 'ParentProjectName',
-        'path' => 'Path',
-        'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_date' => 'UpdateDate'
+        'security_group_count' => 'SecurityGroupCount',
+        'vpc_endpoint_id' => 'VpcEndpointId'
     ];
 
     /**
@@ -100,15 +82,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'create_date' => 'setCreateDate',
-        'description' => 'setDescription',
         'display_name' => 'setDisplayName',
-        'parent_project_name' => 'setParentProjectName',
-        'path' => 'setPath',
-        'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_date' => 'setUpdateDate'
+        'security_group_count' => 'setSecurityGroupCount',
+        'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
 
     /**
@@ -117,15 +93,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'create_date' => 'getCreateDate',
-        'description' => 'getDescription',
         'display_name' => 'getDisplayName',
-        'parent_project_name' => 'getParentProjectName',
-        'path' => 'getPath',
-        'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_date' => 'getUpdateDate'
+        'security_group_count' => 'getSecurityGroupCount',
+        'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
 
     /**
@@ -188,15 +158,9 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['parent_project_name'] = isset($data['parent_project_name']) ? $data['parent_project_name'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -224,78 +188,6 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
-     *
-     * @return int
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param int $account_id account_id
-     *
-     * @return $this
-     */
-    public function setAccountId($account_id)
-    {
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_date
-     *
-     * @return string
-     */
-    public function getCreateDate()
-    {
-        return $this->container['create_date'];
-    }
-
-    /**
-     * Sets create_date
-     *
-     * @param string $create_date create_date
-     *
-     * @return $this
-     */
-    public function setCreateDate($create_date)
-    {
-        $this->container['create_date'] = $create_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
      * Gets display_name
      *
      * @return string
@@ -320,121 +212,49 @@ class CreateProjectResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets parent_project_name
+     * Gets security_group_count
      *
-     * @return string
+     * @return int
      */
-    public function getParentProjectName()
+    public function getSecurityGroupCount()
     {
-        return $this->container['parent_project_name'];
+        return $this->container['security_group_count'];
     }
 
     /**
-     * Sets parent_project_name
+     * Sets security_group_count
      *
-     * @param string $parent_project_name parent_project_name
+     * @param int $security_group_count security_group_count
      *
      * @return $this
      */
-    public function setParentProjectName($parent_project_name)
+    public function setSecurityGroupCount($security_group_count)
     {
-        $this->container['parent_project_name'] = $parent_project_name;
+        $this->container['security_group_count'] = $security_group_count;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets vpc_endpoint_id
      *
      * @return string
      */
-    public function getPath()
+    public function getVpcEndpointId()
     {
-        return $this->container['path'];
+        return $this->container['vpc_endpoint_id'];
     }
 
     /**
-     * Sets path
+     * Sets vpc_endpoint_id
      *
-     * @param string $path path
+     * @param string $vpc_endpoint_id vpc_endpoint_id
      *
      * @return $this
      */
-    public function setPath($path)
+    public function setVpcEndpointId($vpc_endpoint_id)
     {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_date
-     *
-     * @return string
-     */
-    public function getUpdateDate()
-    {
-        return $this->container['update_date'];
-    }
-
-    /**
-     * Sets update_date
-     *
-     * @param string $update_date update_date
-     *
-     * @return $this
-     */
-    public function setUpdateDate($update_date)
-    {
-        $this->container['update_date'] = $update_date;
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }

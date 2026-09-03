@@ -30,6 +30,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'drama_id' => 'string',
         'end_time' => 'int',
+        'is_expedited' => 'string',
         'limit' => 'int',
         'offset' => 'int',
         'project_id' => 'string',
@@ -52,6 +53,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'drama_id' => null,
         'end_time' => 'int32',
+        'is_expedited' => null,
         'limit' => 'int32',
         'offset' => 'int32',
         'project_id' => null,
@@ -95,6 +97,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'drama_id' => 'dramaId',
         'end_time' => 'endTime',
+        'is_expedited' => 'isExpedited',
         'limit' => 'limit',
         'offset' => 'offset',
         'project_id' => 'projectId',
@@ -117,6 +120,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'drama_id' => 'setDramaId',
         'end_time' => 'setEndTime',
+        'is_expedited' => 'setIsExpedited',
         'limit' => 'setLimit',
         'offset' => 'setOffset',
         'project_id' => 'setProjectId',
@@ -139,6 +143,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'drama_id' => 'getDramaId',
         'end_time' => 'getEndTime',
+        'is_expedited' => 'getIsExpedited',
         'limit' => 'getLimit',
         'offset' => 'getOffset',
         'project_id' => 'getProjectId',
@@ -215,6 +220,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     {
         $this->container['drama_id'] = isset($data['drama_id']) ? $data['drama_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['is_expedited'] = isset($data['is_expedited']) ? $data['is_expedited'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -300,6 +306,30 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_expedited
+     *
+     * @return string
+     */
+    public function getIsExpedited()
+    {
+        return $this->container['is_expedited'];
+    }
+
+    /**
+     * Sets is_expedited
+     *
+     * @param string $is_expedited is_expedited
+     *
+     * @return $this
+     */
+    public function setIsExpedited($is_expedited)
+    {
+        $this->container['is_expedited'] = $is_expedited;
 
         return $this;
     }

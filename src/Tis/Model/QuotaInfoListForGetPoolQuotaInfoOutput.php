@@ -20,7 +20,7 @@ class QuotaInfoListForGetPoolQuotaInfoOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QuotaInfoListForGetPoolQuotaInfoOutput';
+    protected static $swaggerModelName = 'quotaInfoListForGetPoolQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -40,10 +40,10 @@ class QuotaInfoListForGetPoolQuotaInfoOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_amount' => 'int32',
+        'available_amount' => 'int64',
         'configuration_code' => null,
         'package_name' => null,
-        'total_amount' => 'int32'
+        'total_amount' => 'int64'
     ];
 
     /**
@@ -73,10 +73,10 @@ class QuotaInfoListForGetPoolQuotaInfoOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_amount' => 'availableAmount',
-        'configuration_code' => 'configurationCode',
-        'package_name' => 'packageName',
-        'total_amount' => 'totalAmount'
+        'available_amount' => 'AvailableAmount',
+        'configuration_code' => 'ConfigurationCode',
+        'package_name' => 'PackageName',
+        'total_amount' => 'TotalAmount'
     ];
 
     /**

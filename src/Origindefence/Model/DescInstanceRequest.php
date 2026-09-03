@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Origindefence\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, ArrayAccess
+class DescInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'toolResourceForVideoProjectGetToolTaskOutput';
+    protected static $swaggerModelName = 'DescInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'name' => 'string',
-        'resource_id' => 'string',
-        'resource_type' => 'int',
-        'update_time' => 'string',
-        'url' => 'string'
+        'ins_id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'name' => null,
-        'resource_id' => null,
-        'resource_type' => 'int32',
-        'update_time' => null,
-        'url' => null
+        'ins_id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'createTime',
-        'name' => 'name',
-        'resource_id' => 'resourceId',
-        'resource_type' => 'resourceType',
-        'update_time' => 'updateTime',
-        'url' => 'url'
+        'ins_id' => 'InsId',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'name' => 'setName',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'update_time' => 'setUpdateTime',
-        'url' => 'setUrl'
+        'ins_id' => 'setInsId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'name' => 'getName',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'update_time' => 'getUpdateTime',
-        'url' => 'getUrl'
+        'ins_id' => 'getInsId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
      */
     public function __construct($data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['ins_id'] = isset($data['ins_id']) ? $data['ins_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -190,6 +166,9 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
+        if ($this->container['ins_id'] === null) {
+            $invalidProperties[] = "'ins_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,145 +185,49 @@ class ToolResourceForVideoProjectGetToolTaskOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets create_time
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param string $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_id
-     *
-     * @return string
-     */
-    public function getResourceId()
-    {
-        return $this->container['resource_id'];
-    }
-
-    /**
-     * Sets resource_id
-     *
-     * @param string $resource_id resource_id
-     *
-     * @return $this
-     */
-    public function setResourceId($resource_id)
-    {
-        $this->container['resource_id'] = $resource_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets ins_id
      *
      * @return int
      */
-    public function getResourceType()
+    public function getInsId()
     {
-        return $this->container['resource_type'];
+        return $this->container['ins_id'];
     }
 
     /**
-     * Sets resource_type
+     * Sets ins_id
      *
-     * @param int $resource_type resource_type
+     * @param int $ins_id ins_id
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setInsId($ins_id)
     {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['ins_id'] = $ins_id;
 
         return $this;
     }
 
     /**
-     * Gets update_time
+     * Gets project_name
      *
      * @return string
      */
-    public function getUpdateTime()
+    public function getProjectName()
     {
-        return $this->container['update_time'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets update_time
+     * Sets project_name
      *
-     * @param string $update_time update_time
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setProjectName($project_name)
     {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url url
-     *
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

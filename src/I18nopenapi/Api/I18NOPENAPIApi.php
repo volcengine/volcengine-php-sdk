@@ -7012,6 +7012,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectTaskBatchSetExpedited($body = null)
+    {
+        list($response) = $this->videoProjectTaskBatchSetExpeditedWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectTaskBatchSetExpeditedWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectTaskBatchSetExpeditedResponse';
+        $request = $this->videoProjectTaskBatchSetExpeditedRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectTaskBatchSetExpeditedAsync($body = null)
+    {
+        return $this->videoProjectTaskBatchSetExpeditedAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectTaskBatchSetExpeditedAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectTaskBatchSetExpeditedResponse';
+        $request = $this->videoProjectTaskBatchSetExpeditedRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectTaskBatchSetExpeditedRequest($body)
+    {
+        $resourcePath = '/VideoProjectTaskBatchSetExpedited/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectTaskBatchStartAIFlow($body = null)
     {
         list($response) = $this->videoProjectTaskBatchStartAIFlowWithHttpInfo($body);
