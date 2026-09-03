@@ -1432,6 +1432,68 @@ class KMSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deriveSharedSecret($body = null)
+    {
+        list($response) = $this->deriveSharedSecretWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deriveSharedSecretWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DeriveSharedSecretResponse';
+        $request = $this->deriveSharedSecretRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deriveSharedSecretAsync($body = null)
+    {
+        return $this->deriveSharedSecretAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deriveSharedSecretAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kms\Model\DeriveSharedSecretResponse';
+        $request = $this->deriveSharedSecretRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deriveSharedSecretRequest($body)
+    {
+        $resourcePath = '/DeriveSharedSecret/2021-02-18/kms/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeCustomKeyStores($body = null)
     {
         list($response) = $this->describeCustomKeyStoresWithHttpInfo($body);
