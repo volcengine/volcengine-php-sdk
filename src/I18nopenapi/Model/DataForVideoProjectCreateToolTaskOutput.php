@@ -67,7 +67,7 @@ class DataForVideoProjectCreateToolTaskOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'task_id' => 'taskID'
+        'task_id' => 'taskId'
     ];
 
     /**

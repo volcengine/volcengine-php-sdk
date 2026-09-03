@@ -29,15 +29,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'ai_voice_id' => 'string',
-        'assist_text' => 'string',
-        'assist_text_type' => 'int',
         'create_time' => 'string',
         'effect_type' => 'int',
         'emotion_tag' => 'string',
         'end_time' => 'string',
-        'extra' => 'string',
         'operator' => 'string',
-        'related_segment_id' => 'string',
         'segment_id' => 'string',
         'source' => '\Volcengine\I18nopenapi\Model\SourceForVideoEditorListSubtitlesOutput',
         'source_style' => 'string',
@@ -57,15 +53,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'ai_voice_id' => null,
-        'assist_text' => null,
-        'assist_text_type' => 'int32',
         'create_time' => null,
         'effect_type' => 'int32',
         'emotion_tag' => null,
         'end_time' => null,
-        'extra' => null,
         'operator' => null,
-        'related_segment_id' => null,
         'segment_id' => null,
         'source' => null,
         'source_style' => null,
@@ -106,15 +98,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'ai_voice_id' => 'aiVoiceId',
-        'assist_text' => 'assistText',
-        'assist_text_type' => 'assistTextType',
         'create_time' => 'createTime',
         'effect_type' => 'effectType',
         'emotion_tag' => 'emotionTag',
         'end_time' => 'endTime',
-        'extra' => 'extra',
         'operator' => 'operator',
-        'related_segment_id' => 'relatedSegmentId',
         'segment_id' => 'segmentId',
         'source' => 'source',
         'source_style' => 'sourceStyle',
@@ -134,15 +122,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'ai_voice_id' => 'setAiVoiceId',
-        'assist_text' => 'setAssistText',
-        'assist_text_type' => 'setAssistTextType',
         'create_time' => 'setCreateTime',
         'effect_type' => 'setEffectType',
         'emotion_tag' => 'setEmotionTag',
         'end_time' => 'setEndTime',
-        'extra' => 'setExtra',
         'operator' => 'setOperator',
-        'related_segment_id' => 'setRelatedSegmentId',
         'segment_id' => 'setSegmentId',
         'source' => 'setSource',
         'source_style' => 'setSourceStyle',
@@ -162,15 +146,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'ai_voice_id' => 'getAiVoiceId',
-        'assist_text' => 'getAssistText',
-        'assist_text_type' => 'getAssistTextType',
         'create_time' => 'getCreateTime',
         'effect_type' => 'getEffectType',
         'emotion_tag' => 'getEmotionTag',
         'end_time' => 'getEndTime',
-        'extra' => 'getExtra',
         'operator' => 'getOperator',
-        'related_segment_id' => 'getRelatedSegmentId',
         'segment_id' => 'getSegmentId',
         'source' => 'getSource',
         'source_style' => 'getSourceStyle',
@@ -244,15 +224,11 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
     public function __construct($data = null)
     {
         $this->container['ai_voice_id'] = isset($data['ai_voice_id']) ? $data['ai_voice_id'] : null;
-        $this->container['assist_text'] = isset($data['assist_text']) ? $data['assist_text'] : null;
-        $this->container['assist_text_type'] = isset($data['assist_text_type']) ? $data['assist_text_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
         $this->container['emotion_tag'] = isset($data['emotion_tag']) ? $data['emotion_tag'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
         $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
-        $this->container['related_segment_id'] = isset($data['related_segment_id']) ? $data['related_segment_id'] : null;
         $this->container['segment_id'] = isset($data['segment_id']) ? $data['segment_id'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_style'] = isset($data['source_style']) ? $data['source_style'] : null;
@@ -309,54 +285,6 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
     public function setAiVoiceId($ai_voice_id)
     {
         $this->container['ai_voice_id'] = $ai_voice_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets assist_text
-     *
-     * @return string
-     */
-    public function getAssistText()
-    {
-        return $this->container['assist_text'];
-    }
-
-    /**
-     * Sets assist_text
-     *
-     * @param string $assist_text assist_text
-     *
-     * @return $this
-     */
-    public function setAssistText($assist_text)
-    {
-        $this->container['assist_text'] = $assist_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets assist_text_type
-     *
-     * @return int
-     */
-    public function getAssistTextType()
-    {
-        return $this->container['assist_text_type'];
-    }
-
-    /**
-     * Sets assist_text_type
-     *
-     * @param int $assist_text_type assist_text_type
-     *
-     * @return $this
-     */
-    public function setAssistTextType($assist_text_type)
-    {
-        $this->container['assist_text_type'] = $assist_text_type;
 
         return $this;
     }
@@ -458,30 +386,6 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets extra
-     *
-     * @return string
-     */
-    public function getExtra()
-    {
-        return $this->container['extra'];
-    }
-
-    /**
-     * Sets extra
-     *
-     * @param string $extra extra
-     *
-     * @return $this
-     */
-    public function setExtra($extra)
-    {
-        $this->container['extra'] = $extra;
-
-        return $this;
-    }
-
-    /**
      * Gets operator
      *
      * @return string
@@ -501,30 +405,6 @@ class DataForVideoEditorListSubtitlesOutput implements ModelInterface, ArrayAcce
     public function setOperator($operator)
     {
         $this->container['operator'] = $operator;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_segment_id
-     *
-     * @return string
-     */
-    public function getRelatedSegmentId()
-    {
-        return $this->container['related_segment_id'];
-    }
-
-    /**
-     * Sets related_segment_id
-     *
-     * @param string $related_segment_id related_segment_id
-     *
-     * @return $this
-     */
-    public function setRelatedSegmentId($related_segment_id)
-    {
-        $this->container['related_segment_id'] = $related_segment_id;
 
         return $this;
     }
