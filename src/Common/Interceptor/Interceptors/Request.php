@@ -63,9 +63,22 @@ class Request
     {
         $bytes = false;
         if (function_exists('random_bytes')) {
-            $bytes = random_bytes(16);
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $bytes = openssl_random_pseudo_bytes(16);
+            try {
+                $bytes = random_bytes(16);
+            } catch (\Exception $e) {
+                // No secure randomness source available; fall through to the
+                // weaker sources below. The invocation id only correlates
+                // retries, so cryptographic strength is not required.
+                $bytes = false;
+            }
+        }
+        if ($bytes === false && function_exists('openssl_random_pseudo_bytes')) {
+            try {
+                // Returns false on failure before PHP 8.0, throws from 8.0 on.
+                $bytes = openssl_random_pseudo_bytes(16);
+            } catch (\Exception $e) {
+                $bytes = false;
+            }
         }
         if ($bytes === false || strlen($bytes) !== 16) {
             $bytes = md5(uniqid(mt_rand(), true), true);
