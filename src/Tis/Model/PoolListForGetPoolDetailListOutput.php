@@ -47,7 +47,7 @@ class PoolListForGetPoolDetailListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_amount' => 'int32',
+        'available_amount' => 'int64',
         'begin_time' => 'int64',
         'bill_time' => 'int64',
         'configuration_code' => null,
@@ -57,7 +57,7 @@ class PoolListForGetPoolDetailListOutput implements ModelInterface, ArrayAccess
         'pool_type' => 'int32',
         'status' => 'int32',
         'tc_order_id' => null,
-        'total_amount' => 'int32'
+        'total_amount' => 'int64'
     ];
 
     /**
