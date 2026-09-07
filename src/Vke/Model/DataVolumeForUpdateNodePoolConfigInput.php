@@ -29,10 +29,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerTypes = [
         'burst_enabled' => 'bool',
+        'encrypted' => 'bool',
         'extra_performance_iops' => 'int',
         'extra_performance_throughput_mb' => 'int',
         'extra_performance_type_id' => 'string',
         'file_system' => 'string',
+        'kms_key_id' => 'string',
         'mount_point' => 'string',
         'placement_group_id' => 'string',
         'size' => 'int',
@@ -48,10 +50,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'burst_enabled' => null,
+        'encrypted' => null,
         'extra_performance_iops' => 'int32',
         'extra_performance_throughput_mb' => 'int32',
         'extra_performance_type_id' => null,
         'file_system' => null,
+        'kms_key_id' => null,
         'mount_point' => null,
         'placement_group_id' => null,
         'size' => 'int32',
@@ -88,10 +92,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'burst_enabled' => 'BurstEnabled',
+        'encrypted' => 'Encrypted',
         'extra_performance_iops' => 'ExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'file_system' => 'FileSystem',
+        'kms_key_id' => 'KmsKeyId',
         'mount_point' => 'MountPoint',
         'placement_group_id' => 'PlacementGroupId',
         'size' => 'Size',
@@ -107,10 +113,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'burst_enabled' => 'setBurstEnabled',
+        'encrypted' => 'setEncrypted',
         'extra_performance_iops' => 'setExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'file_system' => 'setFileSystem',
+        'kms_key_id' => 'setKmsKeyId',
         'mount_point' => 'setMountPoint',
         'placement_group_id' => 'setPlacementGroupId',
         'size' => 'setSize',
@@ -126,10 +134,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'burst_enabled' => 'getBurstEnabled',
+        'encrypted' => 'getEncrypted',
         'extra_performance_iops' => 'getExtraPerformanceIops',
         'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
         'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'file_system' => 'getFileSystem',
+        'kms_key_id' => 'getKmsKeyId',
         'mount_point' => 'getMountPoint',
         'placement_group_id' => 'getPlacementGroupId',
         'size' => 'getSize',
@@ -262,10 +272,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function __construct($data = null)
     {
         $this->container['burst_enabled'] = isset($data['burst_enabled']) ? $data['burst_enabled'] : null;
+        $this->container['encrypted'] = isset($data['encrypted']) ? $data['encrypted'] : null;
         $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
         $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
         $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['file_system'] = isset($data['file_system']) ? $data['file_system'] : null;
+        $this->container['kms_key_id'] = isset($data['kms_key_id']) ? $data['kms_key_id'] : null;
         $this->container['mount_point'] = isset($data['mount_point']) ? $data['mount_point'] : null;
         $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
@@ -342,6 +354,30 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function setBurstEnabled($burst_enabled)
     {
         $this->container['burst_enabled'] = $burst_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets encrypted
+     *
+     * @return bool
+     */
+    public function getEncrypted()
+    {
+        return $this->container['encrypted'];
+    }
+
+    /**
+     * Sets encrypted
+     *
+     * @param bool $encrypted encrypted
+     *
+     * @return $this
+     */
+    public function setEncrypted($encrypted)
+    {
+        $this->container['encrypted'] = $encrypted;
 
         return $this;
     }
@@ -456,6 +492,30 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
             );
         }
         $this->container['file_system'] = $file_system;
+
+        return $this;
+    }
+
+    /**
+     * Gets kms_key_id
+     *
+     * @return string
+     */
+    public function getKmsKeyId()
+    {
+        return $this->container['kms_key_id'];
+    }
+
+    /**
+     * Sets kms_key_id
+     *
+     * @param string $kms_key_id kms_key_id
+     *
+     * @return $this
+     */
+    public function setKmsKeyId($kms_key_id)
+    {
+        $this->container['kms_key_id'] = $kms_key_id;
 
         return $this;
     }

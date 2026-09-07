@@ -31,7 +31,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'cpu_cfs_quota' => 'bool',
         'cpu_manager_policy' => 'string',
         'eviction_hard' => '\Volcengine\Vke\Model\EvictionHardForCreateNodePoolInput[]',
+        'fail_swap_on' => 'bool',
         'feature_gates' => '\Volcengine\Vke\Model\FeatureGatesForCreateNodePoolInput',
+        'image_gc_high_threshold_percent' => 'int',
+        'image_gc_low_threshold_percent' => 'int',
         'kube_api_burst' => 'int',
         'kube_api_qps' => 'int',
         'kube_reserved' => '\Volcengine\Vke\Model\KubeReservedForCreateNodePoolInput[]',
@@ -53,7 +56,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'cpu_cfs_quota' => null,
         'cpu_manager_policy' => null,
         'eviction_hard' => null,
+        'fail_swap_on' => null,
         'feature_gates' => null,
+        'image_gc_high_threshold_percent' => 'int32',
+        'image_gc_low_threshold_percent' => 'int32',
         'kube_api_burst' => 'int32',
         'kube_api_qps' => 'int32',
         'kube_reserved' => null,
@@ -96,7 +102,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'cpu_cfs_quota' => 'CpuCfsQuota',
         'cpu_manager_policy' => 'CpuManagerPolicy',
         'eviction_hard' => 'EvictionHard',
+        'fail_swap_on' => 'FailSwapOn',
         'feature_gates' => 'FeatureGates',
+        'image_gc_high_threshold_percent' => 'ImageGCHighThresholdPercent',
+        'image_gc_low_threshold_percent' => 'ImageGCLowThresholdPercent',
         'kube_api_burst' => 'KubeApiBurst',
         'kube_api_qps' => 'KubeApiQps',
         'kube_reserved' => 'KubeReserved',
@@ -118,7 +127,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'cpu_cfs_quota' => 'setCpuCfsQuota',
         'cpu_manager_policy' => 'setCpuManagerPolicy',
         'eviction_hard' => 'setEvictionHard',
+        'fail_swap_on' => 'setFailSwapOn',
         'feature_gates' => 'setFeatureGates',
+        'image_gc_high_threshold_percent' => 'setImageGcHighThresholdPercent',
+        'image_gc_low_threshold_percent' => 'setImageGcLowThresholdPercent',
         'kube_api_burst' => 'setKubeApiBurst',
         'kube_api_qps' => 'setKubeApiQps',
         'kube_reserved' => 'setKubeReserved',
@@ -140,7 +152,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'cpu_cfs_quota' => 'getCpuCfsQuota',
         'cpu_manager_policy' => 'getCpuManagerPolicy',
         'eviction_hard' => 'getEvictionHard',
+        'fail_swap_on' => 'getFailSwapOn',
         'feature_gates' => 'getFeatureGates',
+        'image_gc_high_threshold_percent' => 'getImageGcHighThresholdPercent',
+        'image_gc_low_threshold_percent' => 'getImageGcLowThresholdPercent',
         'kube_api_burst' => 'getKubeApiBurst',
         'kube_api_qps' => 'getKubeApiQps',
         'kube_reserved' => 'getKubeReserved',
@@ -265,7 +280,10 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         $this->container['cpu_cfs_quota'] = isset($data['cpu_cfs_quota']) ? $data['cpu_cfs_quota'] : null;
         $this->container['cpu_manager_policy'] = isset($data['cpu_manager_policy']) ? $data['cpu_manager_policy'] : null;
         $this->container['eviction_hard'] = isset($data['eviction_hard']) ? $data['eviction_hard'] : null;
+        $this->container['fail_swap_on'] = isset($data['fail_swap_on']) ? $data['fail_swap_on'] : null;
         $this->container['feature_gates'] = isset($data['feature_gates']) ? $data['feature_gates'] : null;
+        $this->container['image_gc_high_threshold_percent'] = isset($data['image_gc_high_threshold_percent']) ? $data['image_gc_high_threshold_percent'] : null;
+        $this->container['image_gc_low_threshold_percent'] = isset($data['image_gc_low_threshold_percent']) ? $data['image_gc_low_threshold_percent'] : null;
         $this->container['kube_api_burst'] = isset($data['kube_api_burst']) ? $data['kube_api_burst'] : null;
         $this->container['kube_api_qps'] = isset($data['kube_api_qps']) ? $data['kube_api_qps'] : null;
         $this->container['kube_reserved'] = isset($data['kube_reserved']) ? $data['kube_reserved'] : null;
@@ -408,6 +426,30 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets fail_swap_on
+     *
+     * @return bool
+     */
+    public function getFailSwapOn()
+    {
+        return $this->container['fail_swap_on'];
+    }
+
+    /**
+     * Sets fail_swap_on
+     *
+     * @param bool $fail_swap_on fail_swap_on
+     *
+     * @return $this
+     */
+    public function setFailSwapOn($fail_swap_on)
+    {
+        $this->container['fail_swap_on'] = $fail_swap_on;
+
+        return $this;
+    }
+
+    /**
      * Gets feature_gates
      *
      * @return \Volcengine\Vke\Model\FeatureGatesForCreateNodePoolInput
@@ -427,6 +469,54 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     public function setFeatureGates($feature_gates)
     {
         $this->container['feature_gates'] = $feature_gates;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_gc_high_threshold_percent
+     *
+     * @return int
+     */
+    public function getImageGcHighThresholdPercent()
+    {
+        return $this->container['image_gc_high_threshold_percent'];
+    }
+
+    /**
+     * Sets image_gc_high_threshold_percent
+     *
+     * @param int $image_gc_high_threshold_percent image_gc_high_threshold_percent
+     *
+     * @return $this
+     */
+    public function setImageGcHighThresholdPercent($image_gc_high_threshold_percent)
+    {
+        $this->container['image_gc_high_threshold_percent'] = $image_gc_high_threshold_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_gc_low_threshold_percent
+     *
+     * @return int
+     */
+    public function getImageGcLowThresholdPercent()
+    {
+        return $this->container['image_gc_low_threshold_percent'];
+    }
+
+    /**
+     * Sets image_gc_low_threshold_percent
+     *
+     * @param int $image_gc_low_threshold_percent image_gc_low_threshold_percent
+     *
+     * @return $this
+     */
+    public function setImageGcLowThresholdPercent($image_gc_low_threshold_percent)
+    {
+        $this->container['image_gc_low_threshold_percent'] = $image_gc_low_threshold_percent;
 
         return $this;
     }
