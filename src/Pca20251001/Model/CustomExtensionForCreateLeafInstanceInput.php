@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, ArrayAccess
+class CustomExtensionForCreateLeafInstanceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomExtensionsForCreateSubInstanceInput';
+    protected static $swaggerModelName = 'CustomExtensionForCreateLeafInstanceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -30,7 +30,8 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     protected static $swaggerTypes = [
         'critical' => 'bool',
         'object_identifier' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'value_bytes' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     protected static $swaggerFormats = [
         'critical' => null,
         'object_identifier' => null,
-        'value' => null
+        'value' => null,
+        'value_bytes' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     protected static $attributeMap = [
         'critical' => 'Critical',
         'object_identifier' => 'ObjectIdentifier',
-        'value' => 'Value'
+        'value' => 'Value',
+        'value_bytes' => 'ValueBytes'
     ];
 
     /**
@@ -84,7 +87,8 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     protected static $setters = [
         'critical' => 'setCritical',
         'object_identifier' => 'setObjectIdentifier',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'value_bytes' => 'setValueBytes'
     ];
 
     /**
@@ -95,7 +99,8 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     protected static $getters = [
         'critical' => 'getCritical',
         'object_identifier' => 'getObjectIdentifier',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'value_bytes' => 'getValueBytes'
     ];
 
     /**
@@ -161,6 +166,7 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
         $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
         $this->container['object_identifier'] = isset($data['object_identifier']) ? $data['object_identifier'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['value_bytes'] = isset($data['value_bytes']) ? $data['value_bytes'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets value_bytes
+     *
+     * @return string
+     */
+    public function getValueBytes()
+    {
+        return $this->container['value_bytes'];
+    }
+
+    /**
+     * Sets value_bytes
+     *
+     * @param string $value_bytes value_bytes
+     *
+     * @return $this
+     */
+    public function setValueBytes($value_bytes)
+    {
+        $this->container['value_bytes'] = $value_bytes;
 
         return $this;
     }

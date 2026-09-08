@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class GetC2PAInstanceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'GetC2PAInstanceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'certificate' => 'string',
+        'certificate_chain' => 'string',
+        'instance_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'certificate' => null,
+        'certificate_chain' => null,
+        'instance_id' => null,
+        'status' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'certificate' => 'Certificate',
+        'certificate_chain' => 'CertificateChain',
+        'instance_id' => 'InstanceId',
+        'status' => 'Status'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'certificate' => 'setCertificate',
+        'certificate_chain' => 'setCertificateChain',
+        'instance_id' => 'setInstanceId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'certificate' => 'getCertificate',
+        'certificate_chain' => 'getCertificateChain',
+        'instance_id' => 'getInstanceId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
+        $this->container['certificate_chain'] = isset($data['certificate_chain']) ? $data['certificate_chain'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets certificate
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getCertificate()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['certificate'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets certificate
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $certificate certificate
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setCertificate($certificate)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['certificate'] = $certificate;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets certificate_chain
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getCertificateChain()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['certificate_chain'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets certificate_chain
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $certificate_chain certificate_chain
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setCertificateChain($certificate_chain)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['certificate_chain'] = $certificate_chain;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets instance_id
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getInstanceId()
     {
-        return $this->container['key_usages'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets key_usages
+     * Sets instance_id
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setInstanceId($instance_id)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

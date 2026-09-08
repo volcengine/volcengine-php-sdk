@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class C2PAVerifyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'C2PAVerifyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'critical' => 'bool',
-        'object_identifier' => 'string',
-        'value' => 'string'
+        'instance_id' => 'string',
+        'message' => 'string',
+        'message_type' => 'string',
+        'signature' => 'string',
+        'signing_algorithm' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'critical' => null,
-        'object_identifier' => null,
-        'value' => null
+        'instance_id' => null,
+        'message' => null,
+        'message_type' => null,
+        'signature' => null,
+        'signing_algorithm' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'critical' => 'Critical',
-        'object_identifier' => 'ObjectIdentifier',
-        'value' => 'Value'
+        'instance_id' => 'InstanceId',
+        'message' => 'Message',
+        'message_type' => 'MessageType',
+        'signature' => 'Signature',
+        'signing_algorithm' => 'SigningAlgorithm'
     ];
 
     /**
@@ -82,9 +88,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'critical' => 'setCritical',
-        'object_identifier' => 'setObjectIdentifier',
-        'value' => 'setValue'
+        'instance_id' => 'setInstanceId',
+        'message' => 'setMessage',
+        'message_type' => 'setMessageType',
+        'signature' => 'setSignature',
+        'signing_algorithm' => 'setSigningAlgorithm'
     ];
 
     /**
@@ -93,9 +101,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'critical' => 'getCritical',
-        'object_identifier' => 'getObjectIdentifier',
-        'value' => 'getValue'
+        'instance_id' => 'getInstanceId',
+        'message' => 'getMessage',
+        'message_type' => 'getMessageType',
+        'signature' => 'getSignature',
+        'signing_algorithm' => 'getSigningAlgorithm'
     ];
 
     /**
@@ -158,9 +168,11 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
-        $this->container['object_identifier'] = isset($data['object_identifier']) ? $data['object_identifier'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
+        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
+        $this->container['signing_algorithm'] = isset($data['signing_algorithm']) ? $data['signing_algorithm'] : null;
     }
 
     /**
@@ -172,6 +184,21 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['message_type'] === null) {
+            $invalidProperties[] = "'message_type' can't be null";
+        }
+        if ($this->container['signature'] === null) {
+            $invalidProperties[] = "'signature' can't be null";
+        }
+        if ($this->container['signing_algorithm'] === null) {
+            $invalidProperties[] = "'signing_algorithm' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +215,121 @@ class CustomExtensionsForCreateRootInstanceInput implements ModelInterface, Arra
 
 
     /**
-     * Gets critical
+     * Gets instance_id
      *
-     * @return bool
+     * @return string
      */
-    public function getCritical()
+    public function getInstanceId()
     {
-        return $this->container['critical'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets critical
+     * Sets instance_id
      *
-     * @param bool $critical critical
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setCritical($critical)
+    public function setInstanceId($instance_id)
     {
-        $this->container['critical'] = $critical;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets object_identifier
+     * Gets message
      *
      * @return string
      */
-    public function getObjectIdentifier()
+    public function getMessage()
     {
-        return $this->container['object_identifier'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets object_identifier
+     * Sets message
      *
-     * @param string $object_identifier object_identifier
+     * @param string $message message
      *
      * @return $this
      */
-    public function setObjectIdentifier($object_identifier)
+    public function setMessage($message)
     {
-        $this->container['object_identifier'] = $object_identifier;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets message_type
      *
      * @return string
      */
-    public function getValue()
+    public function getMessageType()
     {
-        return $this->container['value'];
+        return $this->container['message_type'];
     }
 
     /**
-     * Sets value
+     * Sets message_type
      *
-     * @param string $value value
+     * @param string $message_type message_type
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setMessageType($message_type)
     {
-        $this->container['value'] = $value;
+        $this->container['message_type'] = $message_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
+     *
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string $signature signature
+     *
+     * @return $this
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets signing_algorithm
+     *
+     * @return string
+     */
+    public function getSigningAlgorithm()
+    {
+        return $this->container['signing_algorithm'];
+    }
+
+    /**
+     * Sets signing_algorithm
+     *
+     * @param string $signing_algorithm signing_algorithm
+     *
+     * @return $this
+     */
+    public function setSigningAlgorithm($signing_algorithm)
+    {
+        $this->container['signing_algorithm'] = $signing_algorithm;
 
         return $this;
     }

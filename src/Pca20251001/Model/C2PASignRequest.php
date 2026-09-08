@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class C2PASignRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'C2PASignRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'instance_id' => 'string',
+        'message' => 'string',
+        'message_type' => 'string',
+        'signing_algorithm' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'instance_id' => null,
+        'message' => null,
+        'message_type' => null,
+        'signing_algorithm' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'instance_id' => 'InstanceId',
+        'message' => 'Message',
+        'message_type' => 'MessageType',
+        'signing_algorithm' => 'SigningAlgorithm'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'instance_id' => 'setInstanceId',
+        'message' => 'setMessage',
+        'message_type' => 'setMessageType',
+        'signing_algorithm' => 'setSigningAlgorithm'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'instance_id' => 'getInstanceId',
+        'message' => 'getMessage',
+        'message_type' => 'getMessageType',
+        'signing_algorithm' => 'getSigningAlgorithm'
     ];
 
     /**
@@ -139,8 +144,21 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const MESSAGE_TYPE_DIGEST = 'DIGEST';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMessageTypeAllowableValues()
+    {
+        return [
+            self::MESSAGE_TYPE_DIGEST,
+        ];
+    }
     
 
     /**
@@ -158,9 +176,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
+        $this->container['signing_algorithm'] = isset($data['signing_algorithm']) ? $data['signing_algorithm'] : null;
     }
 
     /**
@@ -172,6 +191,26 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['message_type'] === null) {
+            $invalidProperties[] = "'message_type' can't be null";
+        }
+        $allowedValues = $this->getMessageTypeAllowableValues();
+        if (!is_null($this->container['message_type']) && !in_array($this->container['message_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'message_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['signing_algorithm'] === null) {
+            $invalidProperties[] = "'signing_algorithm' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +227,106 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets instance_id
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getInstanceId()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets instance_id
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setInstanceId($instance_id)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets message
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getMessage()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets message
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $message message
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setMessage($message)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets message_type
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getMessageType()
     {
-        return $this->container['key_usages'];
+        return $this->container['message_type'];
     }
 
     /**
-     * Sets key_usages
+     * Sets message_type
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $message_type message_type
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setMessageType($message_type)
     {
-        $this->container['key_usages'] = $key_usages;
+        $allowedValues = $this->getMessageTypeAllowableValues();
+        if (!in_array($message_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'message_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['message_type'] = $message_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets signing_algorithm
+     *
+     * @return string
+     */
+    public function getSigningAlgorithm()
+    {
+        return $this->container['signing_algorithm'];
+    }
+
+    /**
+     * Sets signing_algorithm
+     *
+     * @param string $signing_algorithm signing_algorithm
+     *
+     * @return $this
+     */
+    public function setSigningAlgorithm($signing_algorithm)
+    {
+        $this->container['signing_algorithm'] = $signing_algorithm;
 
         return $this;
     }

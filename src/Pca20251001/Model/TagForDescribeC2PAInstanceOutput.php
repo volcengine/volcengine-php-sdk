@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class TagForDescribeC2PAInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'TagForDescribeC2PAInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets key
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getKey()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets key
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $key key
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setKey($key)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets value
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getValue()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets value
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $value value
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setValue($value)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_usages
-     *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
-     */
-    public function getKeyUsages()
-    {
-        return $this->container['key_usages'];
-    }
-
-    /**
-     * Sets key_usages
-     *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
-     *
-     * @return $this
-     */
-    public function setKeyUsages($key_usages)
-    {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['value'] = $value;
 
         return $this;
     }

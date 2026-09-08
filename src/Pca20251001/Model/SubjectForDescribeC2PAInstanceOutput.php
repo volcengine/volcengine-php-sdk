@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class SubjectForDescribeC2PAInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'SubjectForDescribeC2PAInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'common_name' => 'string',
+        'country' => 'string',
+        'organization' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'common_name' => null,
+        'country' => null,
+        'organization' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'common_name' => 'CommonName',
+        'country' => 'Country',
+        'organization' => 'Organization'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'common_name' => 'setCommonName',
+        'country' => 'setCountry',
+        'organization' => 'setOrganization'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'common_name' => 'getCommonName',
+        'country' => 'getCountry',
+        'organization' => 'getOrganization'
     ];
 
     /**
@@ -158,9 +158,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['common_name'] = isset($data['common_name']) ? $data['common_name'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets common_name
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getCommonName()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['common_name'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets common_name
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $common_name common_name
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setCommonName($common_name)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['common_name'] = $common_name;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets country
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getCountry()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets country
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $country country
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setCountry($country)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets organization
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getOrganization()
     {
-        return $this->container['key_usages'];
+        return $this->container['organization'];
     }
 
     /**
-     * Sets key_usages
+     * Sets organization
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $organization organization
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setOrganization($organization)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['organization'] = $organization;
 
         return $this;
     }
