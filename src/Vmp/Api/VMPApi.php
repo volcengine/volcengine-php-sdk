@@ -192,6 +192,130 @@ class VMPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createAlertingRuleGroup($body = null)
+    {
+        list($response) = $this->createAlertingRuleGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAlertingRuleGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\CreateAlertingRuleGroupResponse';
+        $request = $this->createAlertingRuleGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAlertingRuleGroupAsync($body = null)
+    {
+        return $this->createAlertingRuleGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAlertingRuleGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\CreateAlertingRuleGroupResponse';
+        $request = $this->createAlertingRuleGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAlertingRuleGroupRequest($body)
+    {
+        $resourcePath = '/CreateAlertingRuleGroup/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createAlertingRuleTemplate($body = null)
+    {
+        list($response) = $this->createAlertingRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAlertingRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\CreateAlertingRuleTemplateResponse';
+        $request = $this->createAlertingRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAlertingRuleTemplateAsync($body = null)
+    {
+        return $this->createAlertingRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAlertingRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\CreateAlertingRuleTemplateResponse';
+        $request = $this->createAlertingRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAlertingRuleTemplateRequest($body)
+    {
+        $resourcePath = '/CreateAlertingRuleTemplate/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createContact($body = null)
     {
         list($response) = $this->createContactWithHttpInfo($body);
@@ -846,6 +970,130 @@ class VMPApi
     protected function deleteAggregateWorkspaceRequest($body)
     {
         $resourcePath = '/DeleteAggregateWorkspace/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAlertingRuleGroup($body = null)
+    {
+        list($response) = $this->deleteAlertingRuleGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAlertingRuleGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\DeleteAlertingRuleGroupResponse';
+        $request = $this->deleteAlertingRuleGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAlertingRuleGroupAsync($body = null)
+    {
+        return $this->deleteAlertingRuleGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAlertingRuleGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\DeleteAlertingRuleGroupResponse';
+        $request = $this->deleteAlertingRuleGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAlertingRuleGroupRequest($body)
+    {
+        $resourcePath = '/DeleteAlertingRuleGroup/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteAlertingRuleTemplate($body = null)
+    {
+        list($response) = $this->deleteAlertingRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAlertingRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\DeleteAlertingRuleTemplateResponse';
+        $request = $this->deleteAlertingRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAlertingRuleTemplateAsync($body = null)
+    {
+        return $this->deleteAlertingRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAlertingRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\DeleteAlertingRuleTemplateResponse';
+        $request = $this->deleteAlertingRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAlertingRuleTemplateRequest($body)
+    {
+        $resourcePath = '/DeleteAlertingRuleTemplate/2021-03-03/vmp/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2114,6 +2362,68 @@ class VMPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getAlertingRuleTemplate($body = null)
+    {
+        list($response) = $this->getAlertingRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAlertingRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\GetAlertingRuleTemplateResponse';
+        $request = $this->getAlertingRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAlertingRuleTemplateAsync($body = null)
+    {
+        return $this->getAlertingRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAlertingRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\GetAlertingRuleTemplateResponse';
+        $request = $this->getAlertingRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAlertingRuleTemplateRequest($body)
+    {
+        $resourcePath = '/GetAlertingRuleTemplate/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getContact($body = null)
     {
         list($response) = $this->getContactWithHttpInfo($body);
@@ -2706,6 +3016,130 @@ class VMPApi
     protected function listAlertSamplesRequest($body)
     {
         $resourcePath = '/ListAlertSamples/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAlertingRuleGroups($body = null)
+    {
+        list($response) = $this->listAlertingRuleGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAlertingRuleGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\ListAlertingRuleGroupsResponse';
+        $request = $this->listAlertingRuleGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAlertingRuleGroupsAsync($body = null)
+    {
+        return $this->listAlertingRuleGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAlertingRuleGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\ListAlertingRuleGroupsResponse';
+        $request = $this->listAlertingRuleGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAlertingRuleGroupsRequest($body)
+    {
+        $resourcePath = '/ListAlertingRuleGroups/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAlertingRuleTemplates($body = null)
+    {
+        list($response) = $this->listAlertingRuleTemplatesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAlertingRuleTemplatesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\ListAlertingRuleTemplatesResponse';
+        $request = $this->listAlertingRuleTemplatesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAlertingRuleTemplatesAsync($body = null)
+    {
+        return $this->listAlertingRuleTemplatesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAlertingRuleTemplatesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\ListAlertingRuleTemplatesResponse';
+        $request = $this->listAlertingRuleTemplatesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAlertingRuleTemplatesRequest($body)
+    {
+        $resourcePath = '/ListAlertingRuleTemplates/2021-03-03/vmp/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4036,6 +4470,68 @@ class VMPApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function unbindAlertingRuleGroupTemplate($body = null)
+    {
+        list($response) = $this->unbindAlertingRuleGroupTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unbindAlertingRuleGroupTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UnbindAlertingRuleGroupTemplateResponse';
+        $request = $this->unbindAlertingRuleGroupTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function unbindAlertingRuleGroupTemplateAsync($body = null)
+    {
+        return $this->unbindAlertingRuleGroupTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unbindAlertingRuleGroupTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UnbindAlertingRuleGroupTemplateResponse';
+        $request = $this->unbindAlertingRuleGroupTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function unbindAlertingRuleGroupTemplateRequest($body)
+    {
+        $resourcePath = '/UnbindAlertingRuleGroupTemplate/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function untagResources($body = null)
     {
         list($response) = $this->untagResourcesWithHttpInfo($body);
@@ -4194,6 +4690,130 @@ class VMPApi
     protected function updateAlertingRuleRequest($body)
     {
         $resourcePath = '/UpdateAlertingRule/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAlertingRuleGroup($body = null)
+    {
+        list($response) = $this->updateAlertingRuleGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAlertingRuleGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpdateAlertingRuleGroupResponse';
+        $request = $this->updateAlertingRuleGroupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAlertingRuleGroupAsync($body = null)
+    {
+        return $this->updateAlertingRuleGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAlertingRuleGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpdateAlertingRuleGroupResponse';
+        $request = $this->updateAlertingRuleGroupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAlertingRuleGroupRequest($body)
+    {
+        $resourcePath = '/UpdateAlertingRuleGroup/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAlertingRuleTemplate($body = null)
+    {
+        list($response) = $this->updateAlertingRuleTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAlertingRuleTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpdateAlertingRuleTemplateResponse';
+        $request = $this->updateAlertingRuleTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAlertingRuleTemplateAsync($body = null)
+    {
+        return $this->updateAlertingRuleTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAlertingRuleTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpdateAlertingRuleTemplateResponse';
+        $request = $this->updateAlertingRuleTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAlertingRuleTemplateRequest($body)
+    {
+        $resourcePath = '/UpdateAlertingRuleTemplate/2021-03-03/vmp/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4814,6 +5434,68 @@ class VMPApi
     protected function updateWorkspaceRequest($body)
     {
         $resourcePath = '/UpdateWorkspace/2021-03-03/vmp/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upgradeAlertingRuleGroups($body = null)
+    {
+        list($response) = $this->upgradeAlertingRuleGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upgradeAlertingRuleGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpgradeAlertingRuleGroupsResponse';
+        $request = $this->upgradeAlertingRuleGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upgradeAlertingRuleGroupsAsync($body = null)
+    {
+        return $this->upgradeAlertingRuleGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upgradeAlertingRuleGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vmp\Model\UpgradeAlertingRuleGroupsResponse';
+        $request = $this->upgradeAlertingRuleGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upgradeAlertingRuleGroupsRequest($body)
+    {
+        $resourcePath = '/UpgradeAlertingRuleGroups/2021-03-03/vmp/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
