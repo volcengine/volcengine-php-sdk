@@ -34,6 +34,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'metric_name' => 'string',
         'namespace' => 'string',
         'period' => 'string',
+        'project_name' => 'string',
         'start_time' => 'int',
         'statistics_methods' => 'string[]',
         'sub_namespace' => 'string'
@@ -51,6 +52,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'metric_name' => null,
         'namespace' => null,
         'period' => null,
+        'project_name' => null,
         'start_time' => 'int32',
         'statistics_methods' => null,
         'sub_namespace' => null
@@ -89,6 +91,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'metric_name' => 'MetricName',
         'namespace' => 'Namespace',
         'period' => 'Period',
+        'project_name' => 'ProjectName',
         'start_time' => 'StartTime',
         'statistics_methods' => 'StatisticsMethods',
         'sub_namespace' => 'SubNamespace'
@@ -106,6 +109,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'metric_name' => 'setMetricName',
         'namespace' => 'setNamespace',
         'period' => 'setPeriod',
+        'project_name' => 'setProjectName',
         'start_time' => 'setStartTime',
         'statistics_methods' => 'setStatisticsMethods',
         'sub_namespace' => 'setSubNamespace'
@@ -123,6 +127,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         'metric_name' => 'getMetricName',
         'namespace' => 'getNamespace',
         'period' => 'getPeriod',
+        'project_name' => 'getProjectName',
         'start_time' => 'getStartTime',
         'statistics_methods' => 'getStatisticsMethods',
         'sub_namespace' => 'getSubNamespace'
@@ -194,6 +199,7 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
         $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['statistics_methods'] = isset($data['statistics_methods']) ? $data['statistics_methods'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
@@ -372,6 +378,30 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
     public function setPeriod($period)
     {
         $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
