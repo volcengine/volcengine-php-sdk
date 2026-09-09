@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
+class DeleteRecycledInstanceBackupRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AwsForGetClusterDetailsOutput';
+    protected static $swaggerModelName = 'DeleteRecycledInstanceBackupRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'backup_id' => 'string',
+        'cluster_id' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'backup_id' => null,
+        'cluster_id' => null,
+        'project_name' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'backup_id' => 'BackupId',
+        'cluster_id' => 'ClusterId',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'backup_id' => 'setBackupId',
+        'cluster_id' => 'setClusterId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'backup_id' => 'getBackupId',
+        'cluster_id' => 'getClusterId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['backup_id'] === null) {
+            $invalidProperties[] = "'backup_id' can't be null";
+        }
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +194,73 @@ class AwsForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets backup_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getAvailabilityZone()
+    public function getBackupId()
     {
-        return $this->container['availability_zone'];
+        return $this->container['backup_id'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets backup_id
      *
-     * @param string[] $availability_zone availability_zone
+     * @param string $backup_id backup_id
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setBackupId($backup_id)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['backup_id'] = $backup_id;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets cluster_id
      *
      * @return string
      */
-    public function getServiceName()
+    public function getClusterId()
     {
-        return $this->container['service_name'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets service_name
+     * Sets cluster_id
      *
-     * @param string $service_name service_name
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setClusterId($cluster_id)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

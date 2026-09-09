@@ -28,7 +28,7 @@ class PublicEndpointForUpdateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateClusterInput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForUpdateClusterInput implements ModelInterface, ArrayAccess
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateClusterInput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForUpdateClusterInput implements ModelInterface, ArrayAccess
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateClusterInput[] $authorized_networks authorized_networks
      *
      * @return $this
      */

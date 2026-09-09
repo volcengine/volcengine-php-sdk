@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
+class ConvertAuthorizedNetworkForCreateBranchInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AlicloudForUpdateClusterInput';
+    protected static $swaggerModelName = 'ConvertAuthorizedNetworkForCreateBranchInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'display_name' => 'string',
+        'end_ip_address' => 'string',
+        'start_ip_address' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'display_name' => null,
+        'end_ip_address' => null,
+        'start_ip_address' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'display_name' => 'DisplayName',
+        'end_ip_address' => 'EndIpAddress',
+        'start_ip_address' => 'StartIpAddress'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'display_name' => 'setDisplayName',
+        'end_ip_address' => 'setEndIpAddress',
+        'start_ip_address' => 'setStartIpAddress'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'display_name' => 'getDisplayName',
+        'end_ip_address' => 'getEndIpAddress',
+        'start_ip_address' => 'getStartIpAddress'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['end_ip_address'] = isset($data['end_ip_address']) ? $data['end_ip_address'] : null;
+        $this->container['start_ip_address'] = isset($data['start_ip_address']) ? $data['start_ip_address'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class AlicloudForUpdateClusterInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets display_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getAvailabilityZone()
+    public function getDisplayName()
     {
-        return $this->container['availability_zone'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets display_name
      *
-     * @param string[] $availability_zone availability_zone
+     * @param string $display_name display_name
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setDisplayName($display_name)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets end_ip_address
      *
      * @return string
      */
-    public function getServiceName()
+    public function getEndIpAddress()
     {
-        return $this->container['service_name'];
+        return $this->container['end_ip_address'];
     }
 
     /**
-     * Sets service_name
+     * Sets end_ip_address
      *
-     * @param string $service_name service_name
+     * @param string $end_ip_address end_ip_address
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setEndIpAddress($end_ip_address)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['end_ip_address'] = $end_ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_ip_address
+     *
+     * @return string
+     */
+    public function getStartIpAddress()
+    {
+        return $this->container['start_ip_address'];
+    }
+
+    /**
+     * Sets start_ip_address
+     *
+     * @param string $start_ip_address start_ip_address
+     *
+     * @return $this
+     */
+    public function setStartIpAddress($start_ip_address)
+    {
+        $this->container['start_ip_address'] = $start_ip_address;
 
         return $this;
     }
