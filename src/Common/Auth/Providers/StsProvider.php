@@ -28,6 +28,9 @@ class StsProvider extends Provider
     private $maxRetries = 3;
     private $retryInterval = 1;
 
+    /** @var StsHttpConfig proxy / TLS configuration for reaching the STS endpoint */
+    private $httpConfig;
+
     public function __construct(
         $ak,
         $sk,
@@ -52,6 +55,7 @@ class StsProvider extends Provider
         $this->policy = $policy;
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->config = \Volcengine\Common\Configuration::getDefaultConfiguration();
+        $this->httpConfig = new StsHttpConfig();
     }
 
     public function getCredentials()
@@ -148,23 +152,70 @@ class StsProvider extends Provider
         return $this;
     }
 
+    /**
+     * Set the forward proxy used to reach the STS endpoint.
+     *
+     * Format: scheme://[user:password@]host:port. Proxy credentials are sent
+     * with Basic auth. Leave unset to fall back to the standard HTTP_PROXY /
+     * HTTPS_PROXY / NO_PROXY environment variables handled by curl.
+     *
+     * @param string|null $proxyUrl
+     * @return $this
+     */
+    public function setProxyUrl($proxyUrl)
+    {
+        $this->httpConfig->setProxyUrl($proxyUrl);
+        return $this;
+    }
+
+    /**
+     * Set a custom CA bundle (PEM) used to verify the STS server certificate.
+     * Useful when a corporate proxy performs TLS interception with a private CA
+     * that is not installed in the system trust store.
+     *
+     * @param string|null $caFile
+     * @return $this
+     */
+    public function setCaFile($caFile)
+    {
+        $this->httpConfig->setCaFile($caFile);
+        return $this;
+    }
+
+    /**
+     * Skip STS TLS certificate and hostname verification.
+     *
+     * WARNING: only for debugging (self-signed certs / proxy interception).
+     * Never enable in production; use setCaFile() instead.
+     *
+     * @param bool $insecureSkipVerify
+     * @return $this
+     */
+    public function setInsecureSkipVerify($insecureSkipVerify)
+    {
+        $this->httpConfig->setInsecureSkipVerify($insecureSkipVerify);
+        return $this;
+    }
+
     private function sendWithRetry(Request $request)
     {
-        $client = new Client([
+        $clientOptions = $this->httpConfig->applyTo([
             'timeout' => $this->readTimeout,
             'connect_timeout' => $this->connectTimeout,
-            'verify' => true,
             'http_errors' => false,
         ]);
+        $client = new Client($clientOptions);
         $lastException = null;
+
+        $sendOptions = [
+            'timeout' => $this->readTimeout,
+            'connect_timeout' => $this->connectTimeout,
+            'http_errors' => false,
+        ];
 
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             try {
-                $response = $client->send($request, [
-                    'timeout' => $this->readTimeout,
-                    'connect_timeout' => $this->connectTimeout,
-                    'http_errors' => false,
-                ]);
+                $response = $client->send($request, $sendOptions);
 
                 if (!$this->isRetryableStatusCode($response->getStatusCode()) || $attempt >= $this->maxRetries) {
                     return $response;

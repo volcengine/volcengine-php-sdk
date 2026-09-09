@@ -158,6 +158,11 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
 // $sts->setMaxRetries(3)
 //     ->setRetryInterval(1);
 
+// 可选：通过正向代理访问 STS，并自定义 TLS 信任。
+// $sts->setProxyUrl('http://user:pass@10.0.0.1:8080') // 正向代理，格式 scheme://[user:password@]host:port；代理认证以 Basic 方式发送；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+//     ->setCaFile('/path/to/ca.pem')                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书信任库
+//     ->setInsecureSkipVerify(false);                 // 传 true 才会跳过 STS TLS 证书校验（仅限联调，生产禁用）
+
 try {
     $result = $sts->getCredentials();
     print_r($result);
@@ -209,6 +214,11 @@ $provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
 //          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
 //          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
 
+// 可选：通过正向代理访问 STS，并自定义 TLS 信任。
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // 正向代理；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+//          ->setCaFile('/path/to/ca.pem')                  // 自定义 CA 证书（PEM）；留空使用系统根证书信任库
+//          ->setInsecureSkipVerify(false);                 // 传 true 才会跳过 STS TLS 证书校验（仅限联调）
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider($provider);
@@ -258,9 +268,54 @@ $provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
 //          ->setMaxRetries(3)          // 额外重试次数；0 = 不重试，默认 3
 //          ->setRetryInterval(1);      // 重试间隔秒数，默认 1
 
+// 可选：通过正向代理访问 STS，并自定义 TLS 信任。
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // 正向代理；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+//          ->setCaFile('/path/to/ca.pem')                  // 自定义 CA 证书（PEM）；留空使用系统根证书信任库
+//          ->setInsecureSkipVerify(false);                 // 传 true 才会跳过 STS TLS 证书校验（仅限联调）
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider($provider);
+```
+
+### STS 代理与 TLS 配置（AssumeRole / OIDC / SAML）
+
+`StsProvider`、`OidcCredentialProvider` 与 `SamlCredentialProvider` 共享三个可选的
+fluent setter，用于控制 SDK 访问 STS 端点的方式。适用于客户端位于企业内网需经统一
+出口代理访问公网，或代理对 HTTPS 流量做 TLS 拦截（使用私有 CA 重新签发证书）的场景。
+
+| 方法 | 用途 | 默认值 |
+| --- | --- | --- |
+| `setProxyUrl($url)` | 正向代理，格式 `scheme://[user:password@]host:port`。代理认证信息（用户名/密码）以 Basic 方式随请求发送。留空时回退到标准环境变量 `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY`（由 curl 处理）。 | 未设置（回退环境变量） |
+| `setCaFile($path)` | 自定义 CA 证书文件路径（PEM），用于校验 STS 服务端证书。当 STS/代理证书由未安装到系统信任库的私有 CA 签发时使用。 | 未设置（系统根证书） |
+| `setInsecureSkipVerify($bool)` | 置为 `true` 时跳过 STS TLS 证书链与主机名校验。 | `false` |
+
+> ⚠️ **注意事项**
+>
+> 1. `setInsecureSkipVerify(true)` 会关闭证书校验，使连接易受中间人攻击，仅限联调；
+>    生产环境请改用 `setCaFile()` 显式信任所需的 CA 证书。
+> 2. `setInsecureSkipVerify(true)` 优先级高于 `setCaFile()`。
+> 3. 非法的代理地址或不可读的 CA 文件会在获取凭证时抛出 `InvalidArgumentException`。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// 示例：经使用私有 CA 做 HTTPS 拦截的企业代理执行 AssumeRole。
+// OidcCredentialProvider / SamlCredentialProvider 用法相同。
+$sts = new \Volcengine\Common\Auth\Providers\StsProvider(
+    "Your ak",
+    "Your sk",
+    "Your role name",
+    "Your account id",
+    "cn-beijing"
+);
+$sts->setProxyUrl('http://user:pass@10.0.0.1:8080')
+    ->setCaFile('/etc/pki/corp-ca.pem');
+    // ->setInsecureSkipVerify(true); // 仅限联调
+
+$result = $sts->getCredentials();
+print_r($result);
 ```
 
 ### 环境变量凭证提供者

@@ -105,7 +105,7 @@ class OidcCredentialProvider extends Provider
         $responseBody = StsFormRequest::doPostWithRetry(
             $this->stsEndpoint, $this->schema, $queryParams,
             $formBody, $this->maxRetries, $this->retryInterval,
-            self::PROVIDER_NAME
+            self::PROVIDER_NAME, $this->httpConfig
         );
 
         $content = json_decode($responseBody, true);

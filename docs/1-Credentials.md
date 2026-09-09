@@ -156,6 +156,11 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
 // $sts->setMaxRetries(3)
 //     ->setRetryInterval(1);
 
+// Optional: reach STS through a forward proxy and/or customize TLS trust.
+// $sts->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy, scheme://[user:password@]host:port; proxy credentials sent via Basic auth; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+//     ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM) to verify the STS server certificate; empty uses the system trust store
+//     ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only, never in production)
+
 try {
     $result = $sts->getCredentials();
     print_r($result);
@@ -196,6 +201,11 @@ $provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
 // $provider->setSchema('https')       // 'http' or 'https', default 'https'
 //          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
 //          ->setRetryInterval(1);      // seconds between retries, default 1
+
+// Optional: reach STS through a forward proxy and/or customize TLS trust.
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+//          ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM); empty uses the system trust store
+//          ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only)
 
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
@@ -246,9 +256,57 @@ $provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
 //          ->setMaxRetries(3)          // extra retry attempts; 0 = no retry, default 3
 //          ->setRetryInterval(1);      // seconds between retries, default 1
 
+// Optional: reach STS through a forward proxy and/or customize TLS trust.
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+//          ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM); empty uses the system trust store
+//          ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only)
+
 $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setRegion("cn-beijing")
     ->setCredentialProvider($provider);
+```
+
+### STS Proxy and TLS (AssumeRole / OIDC / SAML)
+
+`StsProvider`, `OidcCredentialProvider` and `SamlCredentialProvider` share three
+optional fluent setters that control how the SDK reaches the STS endpoint. They
+are useful when the client sits behind a corporate forward proxy, or when the
+proxy performs TLS interception with a private CA.
+
+| Setter | Purpose | Default |
+| --- | --- | --- |
+| `setProxyUrl($url)` | Forward proxy in the form `scheme://[user:password@]host:port`. Proxy credentials are sent with Basic auth. When empty, the SDK falls back to the standard `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` environment variables (handled by curl). | unset (env fallback) |
+| `setCaFile($path)` | Path to a custom CA bundle (PEM) used to verify the STS server certificate. Use it when the STS/proxy certificate is signed by a private CA that is not in the system trust store. | unset (system trust store) |
+| `setInsecureSkipVerify($bool)` | When `true`, skips STS TLS certificate and hostname verification. | `false` |
+
+> ⚠️ **Notes**
+>
+> 1. `setInsecureSkipVerify(true)` disables certificate validation and exposes the
+>    connection to man-in-the-middle attacks. Use it only for debugging; in
+>    production trust a private CA via `setCaFile()` instead.
+> 2. `setInsecureSkipVerify(true)` takes precedence over `setCaFile()`.
+> 3. An invalid proxy URL or an unreadable CA file raises an
+>    `InvalidArgumentException` when credentials are fetched.
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Example: AssumeRole through an HTTPS-intercepting corporate proxy that uses a
+// private CA. Works the same way on OidcCredentialProvider / SamlCredentialProvider.
+$sts = new \Volcengine\Common\Auth\Providers\StsProvider(
+    "Your ak",
+    "Your sk",
+    "Your role name",
+    "Your account id",
+    "cn-beijing"
+);
+$sts->setProxyUrl('http://user:pass@10.0.0.1:8080')
+    ->setCaFile('/etc/pki/corp-ca.pem');
+    // ->setInsecureSkipVerify(true); // debugging only
+
+$result = $sts->getCredentials();
+print_r($result);
 ```
 
 ### Environment Variable Credential Provider
