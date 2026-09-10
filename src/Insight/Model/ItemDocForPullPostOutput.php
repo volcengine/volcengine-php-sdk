@@ -32,12 +32,15 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => 'string',
         'cover_url' => 'string',
         'dedup_id' => 'string',
-        'doc_status' => 'string',
+        'doc_status' => 'int',
         'emotion' => 'string',
         'fans_count' => 'int',
         'is_follow' => 'bool',
+        'keywords' => 'string[]',
+        'level_name' => 'string',
         'main_domain' => 'string',
         'media_name' => 'string',
+        'media_uid' => 'string',
         'ocr' => 'string',
         'ocr_high' => 'string',
         'post_id' => 'string',
@@ -47,6 +50,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'summary' => 'string',
         'title' => 'string',
         'url' => 'string',
+        'warn_level' => 'int',
         'locations' => '\Volcengine\Insight\Model\LocationForPullPostOutput[]'
     ];
 
@@ -60,12 +64,15 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'content' => null,
         'cover_url' => null,
         'dedup_id' => null,
-        'doc_status' => null,
+        'doc_status' => 'int32',
         'emotion' => null,
         'fans_count' => 'int32',
         'is_follow' => null,
+        'keywords' => null,
+        'level_name' => null,
         'main_domain' => null,
         'media_name' => null,
+        'media_uid' => null,
         'ocr' => null,
         'ocr_high' => null,
         'post_id' => null,
@@ -75,6 +82,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'summary' => null,
         'title' => null,
         'url' => null,
+        'warn_level' => 'int32',
         'locations' => null
     ];
 
@@ -113,8 +121,11 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'emotion' => 'Emotion',
         'fans_count' => 'FansCount',
         'is_follow' => 'IsFollow',
+        'keywords' => 'Keywords',
+        'level_name' => 'LevelName',
         'main_domain' => 'MainDomain',
         'media_name' => 'MediaName',
+        'media_uid' => 'MediaUid',
         'ocr' => 'Ocr',
         'ocr_high' => 'OcrHigh',
         'post_id' => 'PostID',
@@ -124,6 +135,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'summary' => 'Summary',
         'title' => 'Title',
         'url' => 'Url',
+        'warn_level' => 'WarnLevel',
         'locations' => 'locations'
     ];
 
@@ -141,8 +153,11 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'emotion' => 'setEmotion',
         'fans_count' => 'setFansCount',
         'is_follow' => 'setIsFollow',
+        'keywords' => 'setKeywords',
+        'level_name' => 'setLevelName',
         'main_domain' => 'setMainDomain',
         'media_name' => 'setMediaName',
+        'media_uid' => 'setMediaUid',
         'ocr' => 'setOcr',
         'ocr_high' => 'setOcrHigh',
         'post_id' => 'setPostId',
@@ -152,6 +167,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'summary' => 'setSummary',
         'title' => 'setTitle',
         'url' => 'setUrl',
+        'warn_level' => 'setWarnLevel',
         'locations' => 'setLocations'
     ];
 
@@ -169,8 +185,11 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'emotion' => 'getEmotion',
         'fans_count' => 'getFansCount',
         'is_follow' => 'getIsFollow',
+        'keywords' => 'getKeywords',
+        'level_name' => 'getLevelName',
         'main_domain' => 'getMainDomain',
         'media_name' => 'getMediaName',
+        'media_uid' => 'getMediaUid',
         'ocr' => 'getOcr',
         'ocr_high' => 'getOcrHigh',
         'post_id' => 'getPostId',
@@ -180,6 +199,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         'summary' => 'getSummary',
         'title' => 'getTitle',
         'url' => 'getUrl',
+        'warn_level' => 'getWarnLevel',
         'locations' => 'getLocations'
     ];
 
@@ -251,8 +271,11 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         $this->container['emotion'] = isset($data['emotion']) ? $data['emotion'] : null;
         $this->container['fans_count'] = isset($data['fans_count']) ? $data['fans_count'] : null;
         $this->container['is_follow'] = isset($data['is_follow']) ? $data['is_follow'] : null;
+        $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
+        $this->container['level_name'] = isset($data['level_name']) ? $data['level_name'] : null;
         $this->container['main_domain'] = isset($data['main_domain']) ? $data['main_domain'] : null;
         $this->container['media_name'] = isset($data['media_name']) ? $data['media_name'] : null;
+        $this->container['media_uid'] = isset($data['media_uid']) ? $data['media_uid'] : null;
         $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
         $this->container['ocr_high'] = isset($data['ocr_high']) ? $data['ocr_high'] : null;
         $this->container['post_id'] = isset($data['post_id']) ? $data['post_id'] : null;
@@ -262,6 +285,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['warn_level'] = isset($data['warn_level']) ? $data['warn_level'] : null;
         $this->container['locations'] = isset($data['locations']) ? $data['locations'] : null;
     }
 
@@ -388,7 +412,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     /**
      * Gets doc_status
      *
-     * @return string
+     * @return int
      */
     public function getDocStatus()
     {
@@ -398,7 +422,7 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     /**
      * Sets doc_status
      *
-     * @param string $doc_status doc_status
+     * @param int $doc_status doc_status
      *
      * @return $this
      */
@@ -482,6 +506,54 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets keywords
+     *
+     * @return string[]
+     */
+    public function getKeywords()
+    {
+        return $this->container['keywords'];
+    }
+
+    /**
+     * Sets keywords
+     *
+     * @param string[] $keywords keywords
+     *
+     * @return $this
+     */
+    public function setKeywords($keywords)
+    {
+        $this->container['keywords'] = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Gets level_name
+     *
+     * @return string
+     */
+    public function getLevelName()
+    {
+        return $this->container['level_name'];
+    }
+
+    /**
+     * Sets level_name
+     *
+     * @param string $level_name level_name
+     *
+     * @return $this
+     */
+    public function setLevelName($level_name)
+    {
+        $this->container['level_name'] = $level_name;
+
+        return $this;
+    }
+
+    /**
      * Gets main_domain
      *
      * @return string
@@ -525,6 +597,30 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     public function setMediaName($media_name)
     {
         $this->container['media_name'] = $media_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_uid
+     *
+     * @return string
+     */
+    public function getMediaUid()
+    {
+        return $this->container['media_uid'];
+    }
+
+    /**
+     * Sets media_uid
+     *
+     * @param string $media_uid media_uid
+     *
+     * @return $this
+     */
+    public function setMediaUid($media_uid)
+    {
+        $this->container['media_uid'] = $media_uid;
 
         return $this;
     }
@@ -741,6 +837,30 @@ class ItemDocForPullPostOutput implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets warn_level
+     *
+     * @return int
+     */
+    public function getWarnLevel()
+    {
+        return $this->container['warn_level'];
+    }
+
+    /**
+     * Sets warn_level
+     *
+     * @param int $warn_level warn_level
+     *
+     * @return $this
+     */
+    public function setWarnLevel($warn_level)
+    {
+        $this->container['warn_level'] = $warn_level;
 
         return $this;
     }
