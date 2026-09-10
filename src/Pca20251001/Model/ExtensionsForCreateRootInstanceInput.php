@@ -28,7 +28,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionsForCreateRootInstanceInput',
+        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
         'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
         'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
     ];
@@ -190,7 +190,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
     /**
      * Gets custom_extensions
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionsForCreateRootInstanceInput
+     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
      */
     public function getCustomExtensions()
     {
@@ -200,7 +200,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
     /**
      * Sets custom_extensions
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionsForCreateRootInstanceInput $custom_extensions custom_extensions
+     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
      *
      * @return $this
      */

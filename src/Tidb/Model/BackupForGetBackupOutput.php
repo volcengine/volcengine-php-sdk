@@ -34,7 +34,8 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         'create_time' => 'string',
         'expire_time' => 'string',
         'name' => 'string',
-        'state' => 'string'
+        'state' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -49,7 +50,8 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         'create_time' => null,
         'expire_time' => null,
         'name' => null,
-        'state' => null
+        'state' => null,
+        'type' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         'create_time' => 'CreateTime',
         'expire_time' => 'ExpireTime',
         'name' => 'Name',
-        'state' => 'State'
+        'state' => 'State',
+        'type' => 'Type'
     ];
 
     /**
@@ -100,7 +103,8 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         'create_time' => 'setCreateTime',
         'expire_time' => 'setExpireTime',
         'name' => 'setName',
-        'state' => 'setState'
+        'state' => 'setState',
+        'type' => 'setType'
     ];
 
     /**
@@ -115,7 +119,8 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         'create_time' => 'getCreateTime',
         'expire_time' => 'getExpireTime',
         'name' => 'getName',
-        'state' => 'getState'
+        'state' => 'getState',
+        'type' => 'getType'
     ];
 
     /**
@@ -200,6 +205,7 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -407,6 +413,30 @@ class BackupForGetBackupOutput implements ModelInterface, ArrayAccess
             );
         }
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

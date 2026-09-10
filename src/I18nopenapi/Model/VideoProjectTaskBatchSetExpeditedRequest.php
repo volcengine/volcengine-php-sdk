@@ -29,7 +29,7 @@ class VideoProjectTaskBatchSetExpeditedRequest implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'project_id' => 'string',
-        'task_ids' => 'int[]'
+        'task_ids' => 'string[]'
     ];
 
     /**
@@ -39,7 +39,7 @@ class VideoProjectTaskBatchSetExpeditedRequest implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'project_id' => null,
-        'task_ids' => 'int32'
+        'task_ids' => null
     ];
 
     /**
@@ -211,7 +211,7 @@ class VideoProjectTaskBatchSetExpeditedRequest implements ModelInterface, ArrayA
     /**
      * Gets task_ids
      *
-     * @return int[]
+     * @return string[]
      */
     public function getTaskIds()
     {
@@ -221,7 +221,7 @@ class VideoProjectTaskBatchSetExpeditedRequest implements ModelInterface, ArrayA
     /**
      * Sets task_ids
      *
-     * @param int[] $task_ids task_ids
+     * @param string[] $task_ids task_ids
      *
      * @return $this
      */

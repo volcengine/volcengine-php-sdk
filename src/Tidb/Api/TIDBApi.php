@@ -874,6 +874,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteRecycledInstanceBackup($body = null)
+    {
+        list($response) = $this->deleteRecycledInstanceBackupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRecycledInstanceBackupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteRecycledInstanceBackupResponse';
+        $request = $this->deleteRecycledInstanceBackupRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRecycledInstanceBackupAsync($body = null)
+    {
+        return $this->deleteRecycledInstanceBackupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRecycledInstanceBackupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteRecycledInstanceBackupResponse';
+        $request = $this->deleteRecycledInstanceBackupRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRecycledInstanceBackupRequest($body)
+    {
+        $resourcePath = '/DeleteRecycledInstanceBackup/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describePriceDetail($body = null)
     {
         list($response) = $this->describePriceDetailWithHttpInfo($body);
@@ -1466,6 +1528,68 @@ class TIDBApi
     protected function getPrivateEndpointAllowlistRuleRequest($body)
     {
         $resourcePath = '/GetPrivateEndpointAllowlistRule/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getRecycledInstance($body = null)
+    {
+        list($response) = $this->getRecycledInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getRecycledInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetRecycledInstanceResponse';
+        $request = $this->getRecycledInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getRecycledInstanceAsync($body = null)
+    {
+        return $this->getRecycledInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getRecycledInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetRecycledInstanceResponse';
+        $request = $this->getRecycledInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getRecycledInstanceRequest($body)
+    {
+        $resourcePath = '/GetRecycledInstance/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2334,6 +2458,130 @@ class TIDBApi
     protected function listPrivateEndpointAllowlistRequest($body)
     {
         $resourcePath = '/ListPrivateEndpointAllowlist/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRecycledInstanceBackups($body = null)
+    {
+        list($response) = $this->listRecycledInstanceBackupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRecycledInstanceBackupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListRecycledInstanceBackupsResponse';
+        $request = $this->listRecycledInstanceBackupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRecycledInstanceBackupsAsync($body = null)
+    {
+        return $this->listRecycledInstanceBackupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRecycledInstanceBackupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListRecycledInstanceBackupsResponse';
+        $request = $this->listRecycledInstanceBackupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRecycledInstanceBackupsRequest($body)
+    {
+        $resourcePath = '/ListRecycledInstanceBackups/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listRecycledInstances($body = null)
+    {
+        list($response) = $this->listRecycledInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRecycledInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListRecycledInstancesResponse';
+        $request = $this->listRecycledInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRecycledInstancesAsync($body = null)
+    {
+        return $this->listRecycledInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRecycledInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListRecycledInstancesResponse';
+        $request = $this->listRecycledInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRecycledInstancesRequest($body)
+    {
+        $resourcePath = '/ListRecycledInstances/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
