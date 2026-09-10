@@ -193,8 +193,7 @@ class StsProvider extends Provider
 
     private function isRetryableStatusCode($statusCode)
     {
-        $statusCode = (int) $statusCode;
-        return $statusCode === 429 || ($statusCode >= 500 && $statusCode < 600);
+        return in_array((int) $statusCode, [429, 500, 502, 503, 504], true);
     }
 
     private function isRetryableRequestException(RequestException $e)
