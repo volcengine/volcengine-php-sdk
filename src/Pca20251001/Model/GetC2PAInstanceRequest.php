@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, ArrayAccess
+class GetC2PAInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomExtensionsForCreateLeafInstanceInput';
+    protected static $swaggerModelName = 'GetC2PAInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'critical' => 'bool',
-        'object_identifier' => 'string',
-        'value' => 'string'
+        'instance_id' => 'string'
     ];
 
     /**
@@ -39,9 +37,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'critical' => null,
-        'object_identifier' => null,
-        'value' => null
+        'instance_id' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'critical' => 'Critical',
-        'object_identifier' => 'ObjectIdentifier',
-        'value' => 'Value'
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -82,9 +76,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'critical' => 'setCritical',
-        'object_identifier' => 'setObjectIdentifier',
-        'value' => 'setValue'
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -93,9 +85,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'critical' => 'getCritical',
-        'object_identifier' => 'getObjectIdentifier',
-        'value' => 'getValue'
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -158,9 +148,7 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
      */
     public function __construct($data = null)
     {
-        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
-        $this->container['object_identifier'] = isset($data['object_identifier']) ? $data['object_identifier'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -172,6 +160,9 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +179,25 @@ class CustomExtensionsForCreateLeafInstanceInput implements ModelInterface, Arra
 
 
     /**
-     * Gets critical
-     *
-     * @return bool
-     */
-    public function getCritical()
-    {
-        return $this->container['critical'];
-    }
-
-    /**
-     * Sets critical
-     *
-     * @param bool $critical critical
-     *
-     * @return $this
-     */
-    public function setCritical($critical)
-    {
-        $this->container['critical'] = $critical;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_identifier
+     * Gets instance_id
      *
      * @return string
      */
-    public function getObjectIdentifier()
+    public function getInstanceId()
     {
-        return $this->container['object_identifier'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets object_identifier
+     * Sets instance_id
      *
-     * @param string $object_identifier object_identifier
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setObjectIdentifier($object_identifier)
+    public function setInstanceId($instance_id)
     {
-        $this->container['object_identifier'] = $object_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

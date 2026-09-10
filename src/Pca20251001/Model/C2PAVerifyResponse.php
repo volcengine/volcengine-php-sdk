@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class C2PAVerifyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'C2PAVerifyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'instance_id' => 'string',
+        'signature_valid' => 'bool',
+        'signing_algorithm' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'instance_id' => null,
+        'signature_valid' => null,
+        'signing_algorithm' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'instance_id' => 'InstanceId',
+        'signature_valid' => 'SignatureValid',
+        'signing_algorithm' => 'SigningAlgorithm'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'instance_id' => 'setInstanceId',
+        'signature_valid' => 'setSignatureValid',
+        'signing_algorithm' => 'setSigningAlgorithm'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'instance_id' => 'getInstanceId',
+        'signature_valid' => 'getSignatureValid',
+        'signing_algorithm' => 'getSigningAlgorithm'
     ];
 
     /**
@@ -158,9 +158,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['signature_valid'] = isset($data['signature_valid']) ? $data['signature_valid'] : null;
+        $this->container['signing_algorithm'] = isset($data['signing_algorithm']) ? $data['signing_algorithm'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets instance_id
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getInstanceId()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets instance_id
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setInstanceId($instance_id)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets signature_valid
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return bool
      */
-    public function getExtendedKeyUsages()
+    public function getSignatureValid()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['signature_valid'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets signature_valid
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param bool $signature_valid signature_valid
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setSignatureValid($signature_valid)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['signature_valid'] = $signature_valid;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets signing_algorithm
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getSigningAlgorithm()
     {
-        return $this->container['key_usages'];
+        return $this->container['signing_algorithm'];
     }
 
     /**
-     * Sets key_usages
+     * Sets signing_algorithm
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $signing_algorithm signing_algorithm
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setSigningAlgorithm($signing_algorithm)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['signing_algorithm'] = $signing_algorithm;
 
         return $this;
     }

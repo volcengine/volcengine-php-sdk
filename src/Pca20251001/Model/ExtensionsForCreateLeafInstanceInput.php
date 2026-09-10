@@ -28,7 +28,7 @@ class ExtensionsForCreateLeafInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionsForCreateLeafInstanceInput',
+        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateLeafInstanceInput[]',
         'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateLeafInstanceInput',
         'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateLeafInstanceInput'
     ];
@@ -190,7 +190,7 @@ class ExtensionsForCreateLeafInstanceInput implements ModelInterface, ArrayAcces
     /**
      * Gets custom_extensions
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionsForCreateLeafInstanceInput
+     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateLeafInstanceInput[]
      */
     public function getCustomExtensions()
     {
@@ -200,7 +200,7 @@ class ExtensionsForCreateLeafInstanceInput implements ModelInterface, ArrayAcces
     /**
      * Sets custom_extensions
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionsForCreateLeafInstanceInput $custom_extensions custom_extensions
+     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateLeafInstanceInput[] $custom_extensions custom_extensions
      *
      * @return $this
      */

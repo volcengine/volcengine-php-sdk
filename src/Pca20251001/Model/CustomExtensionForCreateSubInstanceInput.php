@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class CustomExtensionForCreateSubInstanceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'CustomExtensionForCreateSubInstanceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'critical' => 'bool',
+        'object_identifier' => 'string',
+        'value' => 'string',
+        'value_bytes' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'critical' => null,
+        'object_identifier' => null,
+        'value' => null,
+        'value_bytes' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'critical' => 'Critical',
+        'object_identifier' => 'ObjectIdentifier',
+        'value' => 'Value',
+        'value_bytes' => 'ValueBytes'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'critical' => 'setCritical',
+        'object_identifier' => 'setObjectIdentifier',
+        'value' => 'setValue',
+        'value_bytes' => 'setValueBytes'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'critical' => 'getCritical',
+        'object_identifier' => 'getObjectIdentifier',
+        'value' => 'getValue',
+        'value_bytes' => 'getValueBytes'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
+        $this->container['object_identifier'] = isset($data['object_identifier']) ? $data['object_identifier'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['value_bytes'] = isset($data['value_bytes']) ? $data['value_bytes'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets critical
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return bool
      */
-    public function getCustomExtensions()
+    public function getCritical()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['critical'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets critical
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param bool $critical critical
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setCritical($critical)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['critical'] = $critical;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets object_identifier
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getObjectIdentifier()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['object_identifier'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets object_identifier
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $object_identifier object_identifier
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setObjectIdentifier($object_identifier)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['object_identifier'] = $object_identifier;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets value
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getValue()
     {
-        return $this->container['key_usages'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets key_usages
+     * Sets value
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $value value
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setValue($value)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets value_bytes
+     *
+     * @return string
+     */
+    public function getValueBytes()
+    {
+        return $this->container['value_bytes'];
+    }
+
+    /**
+     * Sets value_bytes
+     *
+     * @param string $value_bytes value_bytes
+     *
+     * @return $this
+     */
+    public function setValueBytes($value_bytes)
+    {
+        $this->container['value_bytes'] = $value_bytes;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class ListC2PAInstancesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'ListC2PAInstancesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'instances' => '\Volcengine\Pca20251001\Model\InstanceForListC2PAInstancesOutput[]',
+        'limit' => 'int',
+        'page' => 'int',
+        'total' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'instances' => null,
+        'limit' => 'int32',
+        'page' => 'int32',
+        'total' => 'int32'
     ];
 
     /**
@@ -71,9 +73,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'instances' => 'Instances',
+        'limit' => 'Limit',
+        'page' => 'Page',
+        'total' => 'Total'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'instances' => 'setInstances',
+        'limit' => 'setLimit',
+        'page' => 'setPage',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'instances' => 'getInstances',
+        'limit' => 'getLimit',
+        'page' => 'getPage',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['instances'] = isset($data['instances']) ? $data['instances'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets instances
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return \Volcengine\Pca20251001\Model\InstanceForListC2PAInstancesOutput[]
      */
-    public function getCustomExtensions()
+    public function getInstances()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['instances'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets instances
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param \Volcengine\Pca20251001\Model\InstanceForListC2PAInstancesOutput[] $instances instances
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setInstances($instances)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['instances'] = $instances;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets limit
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return int
      */
-    public function getExtendedKeyUsages()
+    public function getLimit()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets limit
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setLimit($limit)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets page
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return int
      */
-    public function getKeyUsages()
+    public function getPage()
     {
-        return $this->container['key_usages'];
+        return $this->container['page'];
     }
 
     /**
-     * Sets key_usages
+     * Sets page
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param int $page page
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setPage($page)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

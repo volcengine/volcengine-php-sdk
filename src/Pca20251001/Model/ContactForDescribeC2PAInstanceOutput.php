@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAccess
+class ContactForDescribeC2PAInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExtensionsForCreateRootInstanceInput';
+    protected static $swaggerModelName = 'ContactForDescribeC2PAInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]',
-        'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput',
-        'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput'
+        'email' => 'string',
+        'name' => 'string',
+        'phone' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_extensions' => null,
-        'extended_key_usages' => null,
-        'key_usages' => null
+        'email' => null,
+        'name' => null,
+        'phone' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_extensions' => 'CustomExtensions',
-        'extended_key_usages' => 'ExtendedKeyUsages',
-        'key_usages' => 'KeyUsages'
+        'email' => 'Email',
+        'name' => 'Name',
+        'phone' => 'Phone'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_extensions' => 'setCustomExtensions',
-        'extended_key_usages' => 'setExtendedKeyUsages',
-        'key_usages' => 'setKeyUsages'
+        'email' => 'setEmail',
+        'name' => 'setName',
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_extensions' => 'getCustomExtensions',
-        'extended_key_usages' => 'getExtendedKeyUsages',
-        'key_usages' => 'getKeyUsages'
+        'email' => 'getEmail',
+        'name' => 'getName',
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -158,9 +158,9 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
-        $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;
-        $this->container['key_usages'] = isset($data['key_usages']) ? $data['key_usages'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_extensions
+     * Gets email
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[]
+     * @return string
      */
-    public function getCustomExtensions()
+    public function getEmail()
     {
-        return $this->container['custom_extensions'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets custom_extensions
+     * Sets email
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateRootInstanceInput[] $custom_extensions custom_extensions
+     * @param string $email email
      *
      * @return $this
      */
-    public function setCustomExtensions($custom_extensions)
+    public function setEmail($email)
     {
-        $this->container['custom_extensions'] = $custom_extensions;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets extended_key_usages
+     * Gets name
      *
-     * @return \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getExtendedKeyUsages()
+    public function getName()
     {
-        return $this->container['extended_key_usages'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets extended_key_usages
+     * Sets name
      *
-     * @param \Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateRootInstanceInput $extended_key_usages extended_key_usages
+     * @param string $name name
      *
      * @return $this
      */
-    public function setExtendedKeyUsages($extended_key_usages)
+    public function setName($name)
     {
-        $this->container['extended_key_usages'] = $extended_key_usages;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets key_usages
+     * Gets phone
      *
-     * @return \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput
+     * @return string
      */
-    public function getKeyUsages()
+    public function getPhone()
     {
-        return $this->container['key_usages'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets key_usages
+     * Sets phone
      *
-     * @param \Volcengine\Pca20251001\Model\KeyUsagesForCreateRootInstanceInput $key_usages key_usages
+     * @param string $phone phone
      *
      * @return $this
      */
-    public function setKeyUsages($key_usages)
+    public function setPhone($phone)
     {
-        $this->container['key_usages'] = $key_usages;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
