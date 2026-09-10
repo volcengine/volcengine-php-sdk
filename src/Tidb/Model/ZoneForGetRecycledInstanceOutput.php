@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
+class ZoneForGetRecycledInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AlicloudForListClustersOutput';
+    protected static $swaggerModelName = 'ZoneForGetRecycledInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'subnet_id' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'subnet_id' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'subnet_id' => 'SubnetId',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'subnet_id' => 'setSubnetId',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'subnet_id' => 'getSubnetId',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AlicloudForListClustersOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets subnet_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getAvailabilityZone()
+    public function getSubnetId()
     {
-        return $this->container['availability_zone'];
+        return $this->container['subnet_id'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets subnet_id
      *
-     * @param string[] $availability_zone availability_zone
+     * @param string $subnet_id subnet_id
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setSubnetId($subnet_id)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['subnet_id'] = $subnet_id;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets zone_id
      *
      * @return string
      */
-    public function getServiceName()
+    public function getZoneId()
     {
-        return $this->container['service_name'];
+        return $this->container['zone_id'];
     }
 
     /**
-     * Sets service_name
+     * Sets zone_id
      *
-     * @param string $service_name service_name
+     * @param string $zone_id zone_id
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setZoneId($zone_id)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

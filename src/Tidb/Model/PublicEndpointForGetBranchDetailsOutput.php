@@ -28,7 +28,7 @@ class PublicEndpointForGetBranchDetailsOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForGetBranchDetailsOutput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetBranchDetailsOutput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForGetBranchDetailsOutput implements ModelInterface, ArrayAc
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForGetBranchDetailsOutput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetBranchDetailsOutput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForGetBranchDetailsOutput implements ModelInterface, ArrayAc
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForGetBranchDetailsOutput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetBranchDetailsOutput[] $authorized_networks authorized_networks
      *
      * @return $this
      */

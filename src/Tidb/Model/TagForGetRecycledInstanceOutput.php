@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
+class TagForGetRecycledInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AwsForDeleteClusterOutput';
+    protected static $swaggerModelName = 'TagForGetRecycledInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AwsForDeleteClusterOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets key
      *
-     * @return string[]
+     * @return string
      */
-    public function getAvailabilityZone()
+    public function getKey()
     {
-        return $this->container['availability_zone'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets key
      *
-     * @param string[] $availability_zone availability_zone
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setKey($key)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets value
      *
      * @return string
      */
-    public function getServiceName()
+    public function getValue()
     {
-        return $this->container['service_name'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets service_name
+     * Sets value
      *
-     * @param string $service_name service_name
+     * @param string $value value
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setValue($value)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['value'] = $value;
 
         return $this;
     }

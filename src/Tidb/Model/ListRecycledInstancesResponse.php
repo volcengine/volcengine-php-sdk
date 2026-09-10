@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
+class ListRecycledInstancesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AwsForUpdateBranchInput';
+    protected static $swaggerModelName = 'ListRecycledInstancesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'items' => '\Volcengine\Tidb\Model\ItemForListRecycledInstancesOutput[]',
+        'next_page_token' => 'string',
+        'total_size' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'items' => null,
+        'next_page_token' => null,
+        'total_size' => 'int64'
     ];
 
     /**
@@ -69,8 +71,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'items' => 'Items',
+        'next_page_token' => 'NextPageToken',
+        'total_size' => 'TotalSize'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'items' => 'setItems',
+        'next_page_token' => 'setNextPageToken',
+        'total_size' => 'setTotalSize'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'items' => 'getItems',
+        'next_page_token' => 'getNextPageToken',
+        'total_size' => 'getTotalSize'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['next_page_token'] = isset($data['next_page_token']) ? $data['next_page_token'] : null;
+        $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class AwsForUpdateBranchInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets items
      *
-     * @return string[]
+     * @return \Volcengine\Tidb\Model\ItemForListRecycledInstancesOutput[]
      */
-    public function getAvailabilityZone()
+    public function getItems()
     {
-        return $this->container['availability_zone'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets items
      *
-     * @param string[] $availability_zone availability_zone
+     * @param \Volcengine\Tidb\Model\ItemForListRecycledInstancesOutput[] $items items
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setItems($items)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets next_page_token
      *
      * @return string
      */
-    public function getServiceName()
+    public function getNextPageToken()
     {
-        return $this->container['service_name'];
+        return $this->container['next_page_token'];
     }
 
     /**
-     * Sets service_name
+     * Sets next_page_token
      *
-     * @param string $service_name service_name
+     * @param string $next_page_token next_page_token
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setNextPageToken($next_page_token)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['next_page_token'] = $next_page_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_size
+     *
+     * @return int
+     */
+    public function getTotalSize()
+    {
+        return $this->container['total_size'];
+    }
+
+    /**
+     * Sets total_size
+     *
+     * @param int $total_size total_size
+     *
+     * @return $this
+     */
+    public function setTotalSize($total_size)
+    {
+        $this->container['total_size'] = $total_size;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
+class AutoScalingForGetRecycledInstanceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AwsForUpdateClusterInput';
+    protected static $swaggerModelName = 'AutoScalingForGetRecycledInstanceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        'max_rcu' => 'int',
+        'min_rcu' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        'max_rcu' => 'int32',
+        'min_rcu' => 'int32'
     ];
 
     /**
@@ -69,8 +69,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        'max_rcu' => 'MaxRcu',
+        'min_rcu' => 'MinRcu'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        'max_rcu' => 'setMaxRcu',
+        'min_rcu' => 'setMinRcu'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        'max_rcu' => 'getMaxRcu',
+        'min_rcu' => 'getMinRcu'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['max_rcu'] = isset($data['max_rcu']) ? $data['max_rcu'] : null;
+        $this->container['min_rcu'] = isset($data['min_rcu']) ? $data['min_rcu'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AwsForUpdateClusterInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets max_rcu
      *
-     * @return string[]
+     * @return int
      */
-    public function getAvailabilityZone()
+    public function getMaxRcu()
     {
-        return $this->container['availability_zone'];
+        return $this->container['max_rcu'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets max_rcu
      *
-     * @param string[] $availability_zone availability_zone
+     * @param int $max_rcu max_rcu
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setMaxRcu($max_rcu)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['max_rcu'] = $max_rcu;
 
         return $this;
     }
 
     /**
-     * Gets service_name
+     * Gets min_rcu
      *
-     * @return string
+     * @return int
      */
-    public function getServiceName()
+    public function getMinRcu()
     {
-        return $this->container['service_name'];
+        return $this->container['min_rcu'];
     }
 
     /**
-     * Sets service_name
+     * Sets min_rcu
      *
-     * @param string $service_name service_name
+     * @param int $min_rcu min_rcu
      *
      * @return $this
      */
-    public function setServiceName($service_name)
+    public function setMinRcu($min_rcu)
     {
-        $this->container['service_name'] = $service_name;
+        $this->container['min_rcu'] = $min_rcu;
 
         return $this;
     }

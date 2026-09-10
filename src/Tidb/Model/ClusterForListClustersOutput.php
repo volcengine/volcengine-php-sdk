@@ -28,7 +28,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'annotations' => 'string',
+        'annotations' => '\Volcengine\Tidb\Model\AnnotationForListClustersOutput[]',
         'audit_log_config' => '\Volcengine\Tidb\Model\AuditLogConfigForListClustersOutput',
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForListClustersOutput',
         'automated_backup_policy' => '\Volcengine\Tidb\Model\AutomatedBackupPolicyForListClustersOutput',
@@ -38,13 +38,14 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         'encryption_config' => '\Volcengine\Tidb\Model\EncryptionConfigForListClustersOutput',
         'endpoints' => '\Volcengine\Tidb\Model\EndpointsForListClustersOutput',
         'high_availability_type' => 'string',
-        'labels' => 'string',
+        'labels' => '\Volcengine\Tidb\Model\LabelForListClustersOutput[]',
         'name' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
         'service_plan' => 'string',
         'spending_limit' => '\Volcengine\Tidb\Model\SpendingLimitForListClustersOutput',
         'state' => 'string',
+        'tags' => '\Volcengine\Tidb\Model\TagForListClustersOutput[]',
         'update_time' => 'string',
         'user_prefix' => 'string',
         'version' => 'string',
@@ -75,6 +76,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         'service_plan' => null,
         'spending_limit' => null,
         'state' => null,
+        'tags' => null,
         'update_time' => null,
         'user_prefix' => null,
         'version' => null,
@@ -126,6 +128,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         'service_plan' => 'ServicePlan',
         'spending_limit' => 'SpendingLimit',
         'state' => 'State',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'user_prefix' => 'UserPrefix',
         'version' => 'Version',
@@ -156,6 +159,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         'service_plan' => 'setServicePlan',
         'spending_limit' => 'setSpendingLimit',
         'state' => 'setState',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'user_prefix' => 'setUserPrefix',
         'version' => 'setVersion',
@@ -186,6 +190,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         'service_plan' => 'getServicePlan',
         'spending_limit' => 'getSpendingLimit',
         'state' => 'getState',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'user_prefix' => 'getUserPrefix',
         'version' => 'getVersion',
@@ -343,6 +348,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
         $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
         $this->container['spending_limit'] = isset($data['spending_limit']) ? $data['spending_limit'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['user_prefix'] = isset($data['user_prefix']) ? $data['user_prefix'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -401,7 +407,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
     /**
      * Gets annotations
      *
-     * @return string
+     * @return \Volcengine\Tidb\Model\AnnotationForListClustersOutput[]
      */
     public function getAnnotations()
     {
@@ -411,7 +417,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
     /**
      * Sets annotations
      *
-     * @param string $annotations annotations
+     * @param \Volcengine\Tidb\Model\AnnotationForListClustersOutput[] $annotations annotations
      *
      * @return $this
      */
@@ -650,7 +656,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
     /**
      * Gets labels
      *
-     * @return string
+     * @return \Volcengine\Tidb\Model\LabelForListClustersOutput[]
      */
     public function getLabels()
     {
@@ -660,7 +666,7 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
     /**
      * Sets labels
      *
-     * @param string $labels labels
+     * @param \Volcengine\Tidb\Model\LabelForListClustersOutput[] $labels labels
      *
      * @return $this
      */
@@ -829,6 +835,30 @@ class ClusterForListClustersOutput implements ModelInterface, ArrayAccess
             );
         }
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Tidb\Model\TagForListClustersOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Tidb\Model\TagForListClustersOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

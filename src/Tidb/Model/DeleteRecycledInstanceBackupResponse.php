@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
+class DeleteRecycledInstanceBackupResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AwsForGetBranchDetailsOutput';
+    protected static $swaggerModelName = 'DeleteRecycledInstanceBackupResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string[]',
-        'service_name' => 'string'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'service_name' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'service_name' => 'ServiceName'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'service_name' => 'setServiceName'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'service_name' => 'getServiceName'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class AwsForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets availability_zone
-     *
-     * @return string[]
-     */
-    public function getAvailabilityZone()
-    {
-        return $this->container['availability_zone'];
-    }
-
-    /**
-     * Sets availability_zone
-     *
-     * @param string[] $availability_zone availability_zone
-     *
-     * @return $this
-     */
-    public function setAvailabilityZone($availability_zone)
-    {
-        $this->container['availability_zone'] = $availability_zone;
-
-        return $this;
-    }
-
-    /**
-     * Gets service_name
-     *
-     * @return string
-     */
-    public function getServiceName()
-    {
-        return $this->container['service_name'];
-    }
-
-    /**
-     * Sets service_name
-     *
-     * @param string $service_name service_name
-     *
-     * @return $this
-     */
-    public function setServiceName($service_name)
-    {
-        $this->container['service_name'] = $service_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
