@@ -4,7 +4,7 @@ namespace Volcengine\Common\Auth\Providers;
 
 use Volcengine\Common\ApiException;
 
-class SamlCredentialProvider extends Provider
+class SamlCredentialProvider extends Provider implements StsProxyConfigurableProvider
 {
     use StsCredentialTrait;
 

@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use Volcengine\Common\Auth\Providers\DefaultCredentialProvider;
+use Volcengine\Common\Auth\Providers\StsProxyConfigurableProvider;
 use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
@@ -125,6 +126,13 @@ class ApiClient
         $request->sk = $this->configuration->getSk();
         $request->sessionToken = $this->configuration->getSessionToken();
         $request->credentialProvider = $this->configuration->getCredentialProvider();
+        // Inject the Configuration proxy fallback independently of ak/sk: the
+        // fallback is only ever read when the provider actually issues an STS
+        // request (getCredentials), so setting it here is a no-op otherwise and
+        // it also covers the credential-refresh path taken on retry.
+        if ($request->credentialProvider instanceof StsProxyConfigurableProvider) {
+            $request->credentialProvider->setProxyFallback($this->getCredentialProxyFallback());
+        }
         $request->region = $this->configuration->getRegion();
         $request->schema = $this->configuration->getSchema();
         if (empty($request->ak) && empty($request->sk)) {
@@ -161,6 +169,30 @@ class ApiClient
         $request->getDebugFile = $this->configuration->getDebugFile();
 
         return $context;
+    }
+
+    /**
+     * Resolve the existing business proxy settings as a Guzzle proxy option.
+     * The provider-specific proxy URL remains higher priority.
+     *
+     * @return string|array|null
+     */
+    private function getCredentialProxyFallback()
+    {
+        $proxy = $this->configuration->getProxy();
+        if ($proxy !== null) {
+            return $proxy;
+        }
+
+        $proxy = [];
+        if ($this->configuration->getHttpProxy() !== null) {
+            $proxy['http'] = $this->configuration->getHttpProxy();
+        }
+        if ($this->configuration->getHttpsProxy() !== null) {
+            $proxy['https'] = $this->configuration->getHttpsProxy();
+        }
+
+        return empty($proxy) ? null : $proxy;
     }
 
     private function sendSync(Context $context)

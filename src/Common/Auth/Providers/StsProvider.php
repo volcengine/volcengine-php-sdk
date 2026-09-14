@@ -10,7 +10,7 @@ use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\Utils;
 
-class StsProvider extends Provider
+class StsProvider extends Provider implements StsProxyConfigurableProvider
 {
     private $ak;
     private $sk;
@@ -156,8 +156,8 @@ class StsProvider extends Provider
      * Set the forward proxy used to reach the STS endpoint.
      *
      * Format: scheme://[user:password@]host:port. Proxy credentials are sent
-     * with Basic auth. Leave unset to fall back to the standard HTTP_PROXY /
-     * HTTPS_PROXY / NO_PROXY environment variables handled by curl.
+     * with Basic auth. Leave unset to use the Configuration proxy fallback
+     * when supplied, then standard proxy environment variables.
      *
      * @param string|null $proxyUrl
      * @return $this
@@ -165,6 +165,17 @@ class StsProvider extends Provider
     public function setProxyUrl($proxyUrl)
     {
         $this->httpConfig->setProxyUrl($proxyUrl);
+        return $this;
+    }
+
+    /**
+     * @internal
+     * @param string|array|null $proxy Guzzle proxy option inherited from Configuration
+     * @return $this
+     */
+    public function setProxyFallback($proxy)
+    {
+        $this->httpConfig->setProxyFallback($proxy);
         return $this;
     }
 

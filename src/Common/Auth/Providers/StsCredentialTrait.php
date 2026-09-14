@@ -59,8 +59,8 @@ trait StsCredentialTrait
      * Set the forward proxy used to reach the STS endpoint.
      *
      * Format: scheme://[user:password@]host:port. Proxy credentials are sent
-     * with Basic auth. Leave unset to fall back to the standard HTTP_PROXY /
-     * HTTPS_PROXY / NO_PROXY environment variables handled by curl.
+     * with Basic auth. Leave unset to use the Configuration proxy fallback
+     * when supplied, then standard proxy environment variables.
      *
      * @param string|null $proxyUrl
      * @return $this
@@ -68,6 +68,17 @@ trait StsCredentialTrait
     public function setProxyUrl($proxyUrl)
     {
         $this->httpConfig()->setProxyUrl($proxyUrl);
+        return $this;
+    }
+
+    /**
+     * @internal
+     * @param string|array|null $proxy Guzzle proxy option inherited from Configuration
+     * @return $this
+     */
+    public function setProxyFallback($proxy)
+    {
+        $this->httpConfig()->setProxyFallback($proxy);
         return $this;
     }
 

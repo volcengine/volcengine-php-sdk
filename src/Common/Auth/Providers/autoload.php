@@ -4,6 +4,7 @@
 require_once __DIR__ . '/Provider.php';
 require_once __DIR__ . '/StaticCredentialProvider.php';
 require_once __DIR__ . '/StsHttpConfig.php';
+require_once __DIR__ . '/StsProxyConfigurableProvider.php';
 require_once __DIR__ . '/StsProvider.php';
 require_once __DIR__ . '/EnvironmentVariableCredentialProvider.php';
 require_once __DIR__ . '/StsFormRequest.php';

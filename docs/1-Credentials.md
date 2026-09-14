@@ -157,7 +157,7 @@ $sts = new \Volcengine\Common\Auth\Providers\StsProvider(
 //     ->setRetryInterval(1);
 
 // Optional: reach STS through a forward proxy and/or customize TLS trust.
-// $sts->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy, scheme://[user:password@]host:port; proxy credentials sent via Basic auth; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+// $sts->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy, scheme://[user:password@]host:port; Basic auth; empty falls back to Configuration, then proxy environment variables
 //     ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM) to verify the STS server certificate; empty uses the system trust store
 //     ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only, never in production)
 
@@ -203,7 +203,7 @@ $provider = new \Volcengine\Common\Auth\Providers\OidcCredentialProvider(
 //          ->setRetryInterval(1);      // seconds between retries, default 1
 
 // Optional: reach STS through a forward proxy and/or customize TLS trust.
-// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to Configuration, then proxy environment variables
 //          ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM); empty uses the system trust store
 //          ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only)
 
@@ -257,7 +257,7 @@ $provider = new \Volcengine\Common\Auth\Providers\SamlCredentialProvider(
 //          ->setRetryInterval(1);      // seconds between retries, default 1
 
 // Optional: reach STS through a forward proxy and/or customize TLS trust.
-// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
+// $provider->setProxyUrl('http://user:pass@10.0.0.1:8080') // forward proxy; empty falls back to Configuration, then proxy environment variables
 //          ->setCaFile('/path/to/ca.pem')                  // custom CA bundle (PEM); empty uses the system trust store
 //          ->setInsecureSkipVerify(false);                 // set true to skip STS TLS verification (debugging only)
 
@@ -273,9 +273,16 @@ optional fluent setters that control how the SDK reaches the STS endpoint. They
 are useful when the client sits behind a corporate forward proxy, or when the
 proxy performs TLS interception with a private CA.
 
+When one of these providers is installed directly on `Configuration`, the existing
+`setProxy()`, `setHttpProxy()` and `setHttpsProxy()` settings are also used for
+the STS credential request. The priority is: provider `setProxyUrl()` >
+`Configuration::setProxy()` > the HTTP/HTTPS proxy settings > standard proxy
+environment variables. This fallback applies to the proxy only; the provider TLS
+settings remain independent from the business API TLS settings.
+
 | Setter | Purpose | Default |
 | --- | --- | --- |
-| `setProxyUrl($url)` | Forward proxy in the form `scheme://[user:password@]host:port`. Proxy credentials are sent with Basic auth. When empty, the SDK falls back to the standard `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` environment variables (handled by curl). | unset (env fallback) |
+| `setProxyUrl($url)` | Forward proxy in the form `scheme://[user:password@]host:port`. Proxy credentials are sent with Basic auth; percent-encode special characters in the username or password as required by RFC 3986. When empty, the SDK falls back to the `Configuration` proxy and then standard `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` environment variables (handled by Guzzle/curl). | unset (Configuration/env fallback) |
 | `setCaFile($path)` | Path to a custom CA bundle (PEM) used to verify the STS server certificate. Use it when the STS/proxy certificate is signed by a private CA that is not in the system trust store. | unset (system trust store) |
 | `setInsecureSkipVerify($bool)` | When `true`, skips STS TLS certificate and hostname verification. | `false` |
 
@@ -285,7 +292,8 @@ proxy performs TLS interception with a private CA.
 >    connection to man-in-the-middle attacks. Use it only for debugging; in
 >    production trust a private CA via `setCaFile()` instead.
 > 2. `setInsecureSkipVerify(true)` takes precedence over `setCaFile()`.
-> 3. An invalid proxy URL or an unreadable CA file raises an
+>    If both are set, the CA file must still exist and be readable.
+> 3. An invalid provider proxy URL or an unreadable CA file raises an
 >    `InvalidArgumentException` when credentials are fetched.
 
 ```php
