@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
+class SubtitleFileInfoForVideoProjectBatchReuploadForSubtasksInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
+    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectBatchReuploadForSubtasksInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

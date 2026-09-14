@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
+class ReuploadSubtaskInfoForVideoProjectBatchReuploadForSubtasksInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
+    protected static $swaggerModelName = 'reuploadSubtaskInfoForVideoProjectBatchReuploadForSubtasksInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'effect_type' => 'int',
-        'file_name' => 'string',
-        'file_type' => 'int',
-        'file_url' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int'
+        'name' => 'string',
+        'resource_type' => 'int',
+        'subtask_id' => 'string',
+        'subtitle_file_info' => '\Volcengine\I18nopenapi\Model\SubtitleFileInfoForVideoProjectBatchReuploadForSubtasksInput',
+        'url' => 'string',
+        'vid' => 'string'
     ];
 
     /**
@@ -43,13 +42,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'effect_type' => 'int32',
-        'file_name' => null,
-        'file_type' => 'int32',
-        'file_url' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32'
+        'name' => null,
+        'resource_type' => 'int32',
+        'subtask_id' => null,
+        'subtitle_file_info' => null,
+        'url' => null,
+        'vid' => null
     ];
 
     /**
@@ -79,13 +77,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'effect_type' => 'effectType',
-        'file_name' => 'fileName',
-        'file_type' => 'fileType',
-        'file_url' => 'fileUrl',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang'
+        'name' => 'name',
+        'resource_type' => 'resourceType',
+        'subtask_id' => 'subtaskId',
+        'subtitle_file_info' => 'subtitleFileInfo',
+        'url' => 'url',
+        'vid' => 'vid'
     ];
 
     /**
@@ -94,13 +91,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'effect_type' => 'setEffectType',
-        'file_name' => 'setFileName',
-        'file_type' => 'setFileType',
-        'file_url' => 'setFileUrl',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang'
+        'name' => 'setName',
+        'resource_type' => 'setResourceType',
+        'subtask_id' => 'setSubtaskId',
+        'subtitle_file_info' => 'setSubtitleFileInfo',
+        'url' => 'setUrl',
+        'vid' => 'setVid'
     ];
 
     /**
@@ -109,13 +105,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'effect_type' => 'getEffectType',
-        'file_name' => 'getFileName',
-        'file_type' => 'getFileType',
-        'file_url' => 'getFileUrl',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang'
+        'name' => 'getName',
+        'resource_type' => 'getResourceType',
+        'subtask_id' => 'getSubtaskId',
+        'subtitle_file_info' => 'getSubtitleFileInfo',
+        'url' => 'getUrl',
+        'vid' => 'getVid'
     ];
 
     /**
@@ -178,13 +173,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
+        $this->container['subtitle_file_info'] = isset($data['subtitle_file_info']) ? $data['subtitle_file_info'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
     /**
@@ -212,169 +206,145 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
 
 
     /**
-     * Gets arrangement
-     *
-     * @return int
-     */
-    public function getArrangement()
-    {
-        return $this->container['arrangement'];
-    }
-
-    /**
-     * Sets arrangement
-     *
-     * @param int $arrangement arrangement
-     *
-     * @return $this
-     */
-    public function setArrangement($arrangement)
-    {
-        $this->container['arrangement'] = $arrangement;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_type
-     *
-     * @return int
-     */
-    public function getEffectType()
-    {
-        return $this->container['effect_type'];
-    }
-
-    /**
-     * Sets effect_type
-     *
-     * @param int $effect_type effect_type
-     *
-     * @return $this
-     */
-    public function setEffectType($effect_type)
-    {
-        $this->container['effect_type'] = $effect_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets name
      *
      * @return string
      */
-    public function getFileName()
+    public function getName()
     {
-        return $this->container['file_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets file_name
+     * Sets name
      *
-     * @param string $file_name file_name
+     * @param string $name name
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setName($name)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets file_type
+     * Gets resource_type
      *
      * @return int
      */
-    public function getFileType()
+    public function getResourceType()
     {
-        return $this->container['file_type'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets file_type
+     * Sets resource_type
      *
-     * @param int $file_type file_type
+     * @param int $resource_type resource_type
      *
      * @return $this
      */
-    public function setFileType($file_type)
+    public function setResourceType($resource_type)
     {
-        $this->container['file_type'] = $file_type;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets subtask_id
      *
      * @return string
      */
-    public function getFileUrl()
+    public function getSubtaskId()
     {
-        return $this->container['file_url'];
+        return $this->container['subtask_id'];
     }
 
     /**
-     * Sets file_url
+     * Sets subtask_id
      *
-     * @param string $file_url file_url
+     * @param string $subtask_id subtask_id
      *
      * @return $this
      */
-    public function setFileUrl($file_url)
+    public function setSubtaskId($subtask_id)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['subtask_id'] = $subtask_id;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_id
+     * Gets subtitle_file_info
+     *
+     * @return \Volcengine\I18nopenapi\Model\SubtitleFileInfoForVideoProjectBatchReuploadForSubtasksInput
+     */
+    public function getSubtitleFileInfo()
+    {
+        return $this->container['subtitle_file_info'];
+    }
+
+    /**
+     * Sets subtitle_file_info
+     *
+     * @param \Volcengine\I18nopenapi\Model\SubtitleFileInfoForVideoProjectBatchReuploadForSubtasksInput $subtitle_file_info subtitle_file_info
+     *
+     * @return $this
+     */
+    public function setSubtitleFileInfo($subtitle_file_info)
+    {
+        $this->container['subtitle_file_info'] = $subtitle_file_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
      *
      * @return string
      */
-    public function getSubtitleId()
+    public function getUrl()
     {
-        return $this->container['subtitle_id'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets subtitle_id
+     * Sets url
      *
-     * @param string $subtitle_id subtitle_id
+     * @param string $url url
      *
      * @return $this
      */
-    public function setSubtitleId($subtitle_id)
+    public function setUrl($url)
     {
-        $this->container['subtitle_id'] = $subtitle_id;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_lang
+     * Gets vid
      *
-     * @return int
+     * @return string
      */
-    public function getSubtitleLang()
+    public function getVid()
     {
-        return $this->container['subtitle_lang'];
+        return $this->container['vid'];
     }
 
     /**
-     * Sets subtitle_lang
+     * Sets vid
      *
-     * @param int $subtitle_lang subtitle_lang
+     * @param string $vid vid
      *
      * @return $this
      */
-    public function setSubtitleLang($subtitle_lang)
+    public function setVid($vid)
     {
-        $this->container['subtitle_lang'] = $subtitle_lang;
+        $this->container['vid'] = $vid;
 
         return $this;
     }

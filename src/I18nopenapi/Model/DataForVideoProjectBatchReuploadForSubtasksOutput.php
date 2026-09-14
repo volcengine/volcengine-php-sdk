@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
+class DataForVideoProjectBatchReuploadForSubtasksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
+    protected static $swaggerModelName = 'dataForVideoProjectBatchReuploadForSubtasksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'effect_type' => 'int',
-        'file_name' => 'string',
-        'file_type' => 'int',
-        'file_url' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int'
+        'resumed_subtask_ids' => 'string[]'
     ];
 
     /**
@@ -43,13 +37,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'effect_type' => 'int32',
-        'file_name' => null,
-        'file_type' => 'int32',
-        'file_url' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32'
+        'resumed_subtask_ids' => null
     ];
 
     /**
@@ -79,13 +67,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'effect_type' => 'effectType',
-        'file_name' => 'fileName',
-        'file_type' => 'fileType',
-        'file_url' => 'fileUrl',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang'
+        'resumed_subtask_ids' => 'resumedSubtaskIDs'
     ];
 
     /**
@@ -94,13 +76,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'effect_type' => 'setEffectType',
-        'file_name' => 'setFileName',
-        'file_type' => 'setFileType',
-        'file_url' => 'setFileUrl',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang'
+        'resumed_subtask_ids' => 'setResumedSubtaskIds'
     ];
 
     /**
@@ -109,13 +85,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'effect_type' => 'getEffectType',
-        'file_name' => 'getFileName',
-        'file_type' => 'getFileType',
-        'file_url' => 'getFileUrl',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang'
+        'resumed_subtask_ids' => 'getResumedSubtaskIds'
     ];
 
     /**
@@ -178,13 +148,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['resumed_subtask_ids'] = isset($data['resumed_subtask_ids']) ? $data['resumed_subtask_ids'] : null;
     }
 
     /**
@@ -212,169 +176,25 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
 
 
     /**
-     * Gets arrangement
+     * Gets resumed_subtask_ids
      *
-     * @return int
+     * @return string[]
      */
-    public function getArrangement()
+    public function getResumedSubtaskIds()
     {
-        return $this->container['arrangement'];
+        return $this->container['resumed_subtask_ids'];
     }
 
     /**
-     * Sets arrangement
+     * Sets resumed_subtask_ids
      *
-     * @param int $arrangement arrangement
+     * @param string[] $resumed_subtask_ids resumed_subtask_ids
      *
      * @return $this
      */
-    public function setArrangement($arrangement)
+    public function setResumedSubtaskIds($resumed_subtask_ids)
     {
-        $this->container['arrangement'] = $arrangement;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_type
-     *
-     * @return int
-     */
-    public function getEffectType()
-    {
-        return $this->container['effect_type'];
-    }
-
-    /**
-     * Sets effect_type
-     *
-     * @param int $effect_type effect_type
-     *
-     * @return $this
-     */
-    public function setEffectType($effect_type)
-    {
-        $this->container['effect_type'] = $effect_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
-     *
-     * @return string
-     */
-    public function getFileName()
-    {
-        return $this->container['file_name'];
-    }
-
-    /**
-     * Sets file_name
-     *
-     * @param string $file_name file_name
-     *
-     * @return $this
-     */
-    public function setFileName($file_name)
-    {
-        $this->container['file_name'] = $file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_type
-     *
-     * @return int
-     */
-    public function getFileType()
-    {
-        return $this->container['file_type'];
-    }
-
-    /**
-     * Sets file_type
-     *
-     * @param int $file_type file_type
-     *
-     * @return $this
-     */
-    public function setFileType($file_type)
-    {
-        $this->container['file_type'] = $file_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_url
-     *
-     * @return string
-     */
-    public function getFileUrl()
-    {
-        return $this->container['file_url'];
-    }
-
-    /**
-     * Sets file_url
-     *
-     * @param string $file_url file_url
-     *
-     * @return $this
-     */
-    public function setFileUrl($file_url)
-    {
-        $this->container['file_url'] = $file_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_id
-     *
-     * @return string
-     */
-    public function getSubtitleId()
-    {
-        return $this->container['subtitle_id'];
-    }
-
-    /**
-     * Sets subtitle_id
-     *
-     * @param string $subtitle_id subtitle_id
-     *
-     * @return $this
-     */
-    public function setSubtitleId($subtitle_id)
-    {
-        $this->container['subtitle_id'] = $subtitle_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_lang
-     *
-     * @return int
-     */
-    public function getSubtitleLang()
-    {
-        return $this->container['subtitle_lang'];
-    }
-
-    /**
-     * Sets subtitle_lang
-     *
-     * @param int $subtitle_lang subtitle_lang
-     *
-     * @return $this
-     */
-    public function setSubtitleLang($subtitle_lang)
-    {
-        $this->container['subtitle_lang'] = $subtitle_lang;
+        $this->container['resumed_subtask_ids'] = $resumed_subtask_ids;
 
         return $this;
     }
