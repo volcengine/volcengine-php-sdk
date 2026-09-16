@@ -45,6 +45,17 @@ RFC 3986 进行百分号编码。
 该继承只作用于代理。STS 自定义 CA 或关闭证书校验仍需在 Provider 上分别调用
 `setCaFile()` 或 `setInsecureSkipVerify()`。
 
+对于上述内置 Provider 类本身，每个 `ApiClient` 会在首次请求时创建私有 Provider
+快照，即使已配置 AK/SK 也不例外。快照独立持有代理/TLS 设置及已有的凭证缓存机制，
+不继承源 Provider 的热缓存，也不回写源 Provider。后续请求复用该快照，尚未完成的
+异步请求在重试时继续使用原快照。
+
+更换配置中的 Provider，或修改 Configuration 的有效代理（包括清空），会在下次
+请求时创建新快照。修改同一个源 Provider 的设置后，应调用
+`ApiClient::setNewClientConfig()` 或创建新客户端，使后续请求采用新设置。
+OIDC token 文件仍在刷新时读取。自定义 Provider、子类以及凭证链内部的 Provider
+不会被自动克隆，也不具备上述隔离保证。
+
 如果需要，也仍然可以传入自定义 Guzzle Client，但仅为了代理配置已经不再必需。
 
 ---

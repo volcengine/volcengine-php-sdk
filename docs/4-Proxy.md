@@ -47,6 +47,19 @@ This inheritance applies only to the proxy. Configure a custom STS CA or disable
 STS certificate verification explicitly on the provider with `setCaFile()` or
 `setInsecureSkipVerify()`.
 
+For these exact built-in provider classes, each `ApiClient` creates a private
+provider snapshot on its first request, even when AK/SK are supplied. The
+snapshot owns its proxy/TLS settings and any credential cache; it does not
+inherit a warm source cache or modify the source provider. Subsequent requests
+reuse it, and pending async retries retain their original snapshot.
+
+Changing the configured provider or effective Configuration proxy (including
+clearing it) creates a new snapshot on the next request. After changing settings
+on the same source provider, call `ApiClient::setNewClientConfig()` or create a
+new client to apply them to future requests. OIDC token files are still read on
+refresh. Custom providers, subclasses, and providers inside credential chains
+are not automatically cloned and do not gain this isolation guarantee.
+
 Custom Guzzle clients remain supported, but the SDK no longer requires users to
 inject one just to apply proxy settings.
 

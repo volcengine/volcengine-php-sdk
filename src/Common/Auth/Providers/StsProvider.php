@@ -58,6 +58,21 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
         $this->httpConfig = new StsHttpConfig();
     }
 
+    /**
+     * @internal Create a client-local proxy/TLS snapshot.
+     * @param string|array|null $proxy
+     * @return static
+     */
+    public function bindToProxy($proxy)
+    {
+        $bound = clone $this;
+        $bound->httpConfig = clone $this->httpConfig;
+        $bound->httpConfig->setProxyFallback($proxy);
+        // Only User-Agent is read from this Configuration during STS requests.
+        $bound->config = clone $this->config;
+        return $bound;
+    }
+
     public function getCredentials()
     {
         $headers = $this->headerSelector->selectHeaders(

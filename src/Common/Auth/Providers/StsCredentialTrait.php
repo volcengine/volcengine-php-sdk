@@ -17,6 +17,21 @@ trait StsCredentialTrait
     private $httpConfig;
 
     /**
+     * @internal Create a client-local snapshot without inheriting cached credentials.
+     * @param string|array|null $proxy
+     * @return static
+     */
+    public function bindToProxy($proxy)
+    {
+        $bound = clone $this;
+        $bound->httpConfig = $this->httpConfig === null ? new StsHttpConfig() : clone $this->httpConfig;
+        $bound->httpConfig->setProxyFallback($proxy);
+        $bound->cachedCredentials = null;
+        $bound->expirationTime = 0;
+        return $bound;
+    }
+
+    /**
      * @param string $schema 'http' or 'https'
      * @return $this
      */
