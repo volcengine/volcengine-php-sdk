@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteNodesRequest implements ModelInterface, ArrayAccess
+class FilterForListDiagnosticTaskInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteNodesRequest';
+    protected static $swaggerModelName = 'FilterForListDiagnosticTaskInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cascading_delete_resources' => 'string[]',
-        'cluster_id' => 'string',
-        'drain' => 'bool',
+        'end_time' => 'string',
         'ids' => 'string[]',
-        'node_pool_id' => 'string',
-        'retain_resources' => 'string[]'
+        'params' => '\Volcengine\Vke\Model\ParamForListDiagnosticTaskInput[]',
+        'start_time' => 'string',
+        'statuses' => 'string[]',
+        'target_resources_resource_ids' => 'string[]',
+        'target_resources_resource_types' => 'string[]',
+        'types' => 'string[]'
     ];
 
     /**
@@ -42,12 +44,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cascading_delete_resources' => null,
-        'cluster_id' => null,
-        'drain' => null,
+        'end_time' => null,
         'ids' => null,
-        'node_pool_id' => null,
-        'retain_resources' => null
+        'params' => null,
+        'start_time' => null,
+        'statuses' => null,
+        'target_resources_resource_ids' => null,
+        'target_resources_resource_types' => null,
+        'types' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cascading_delete_resources' => 'CascadingDeleteResources',
-        'cluster_id' => 'ClusterId',
-        'drain' => 'Drain',
+        'end_time' => 'EndTime',
         'ids' => 'Ids',
-        'node_pool_id' => 'NodePoolId',
-        'retain_resources' => 'RetainResources'
+        'params' => 'Params',
+        'start_time' => 'StartTime',
+        'statuses' => 'Statuses',
+        'target_resources_resource_ids' => 'TargetResources.ResourceIds',
+        'target_resources_resource_types' => 'TargetResources.ResourceTypes',
+        'types' => 'Types'
     ];
 
     /**
@@ -91,12 +97,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cascading_delete_resources' => 'setCascadingDeleteResources',
-        'cluster_id' => 'setClusterId',
-        'drain' => 'setDrain',
+        'end_time' => 'setEndTime',
         'ids' => 'setIds',
-        'node_pool_id' => 'setNodePoolId',
-        'retain_resources' => 'setRetainResources'
+        'params' => 'setParams',
+        'start_time' => 'setStartTime',
+        'statuses' => 'setStatuses',
+        'target_resources_resource_ids' => 'setTargetResourcesResourceIds',
+        'target_resources_resource_types' => 'setTargetResourcesResourceTypes',
+        'types' => 'setTypes'
     ];
 
     /**
@@ -105,12 +113,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cascading_delete_resources' => 'getCascadingDeleteResources',
-        'cluster_id' => 'getClusterId',
-        'drain' => 'getDrain',
+        'end_time' => 'getEndTime',
         'ids' => 'getIds',
-        'node_pool_id' => 'getNodePoolId',
-        'retain_resources' => 'getRetainResources'
+        'params' => 'getParams',
+        'start_time' => 'getStartTime',
+        'statuses' => 'getStatuses',
+        'target_resources_resource_ids' => 'getTargetResourcesResourceIds',
+        'target_resources_resource_types' => 'getTargetResourcesResourceTypes',
+        'types' => 'getTypes'
     ];
 
     /**
@@ -154,34 +164,8 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CASCADING_DELETE_RESOURCES_ECS = 'Ecs';
-    const RETAIN_RESOURCES_ECS = 'Ecs';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCascadingDeleteResourcesAllowableValues()
-    {
-        return [
-            self::CASCADING_DELETE_RESOURCES_ECS,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRetainResourcesAllowableValues()
-    {
-        return [
-            self::RETAIN_RESOURCES_ECS,
-        ];
-    }
     
 
     /**
@@ -199,12 +183,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
-        $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
+        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
+        $this->container['target_resources_resource_ids'] = isset($data['target_resources_resource_ids']) ? $data['target_resources_resource_ids'] : null;
+        $this->container['target_resources_resource_types'] = isset($data['target_resources_resource_types']) ? $data['target_resources_resource_types'] : null;
+        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
     }
 
     /**
@@ -216,9 +202,6 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -235,82 +218,25 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cascading_delete_resources
-     *
-     * @return string[]
-     */
-    public function getCascadingDeleteResources()
-    {
-        return $this->container['cascading_delete_resources'];
-    }
-
-    /**
-     * Sets cascading_delete_resources
-     *
-     * @param string[] $cascading_delete_resources cascading_delete_resources
-     *
-     * @return $this
-     */
-    public function setCascadingDeleteResources($cascading_delete_resources)
-    {
-        $allowedValues = $this->getCascadingDeleteResourcesAllowableValues();
-        if (!is_null($cascading_delete_resources) && array_diff($cascading_delete_resources, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'cascading_delete_resources', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cascading_delete_resources'] = $cascading_delete_resources;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
+     * Gets end_time
      *
      * @return string
      */
-    public function getClusterId()
+    public function getEndTime()
     {
-        return $this->container['cluster_id'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets end_time
      *
-     * @param string $cluster_id cluster_id
+     * @param string $end_time end_time
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setEndTime($end_time)
     {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets drain
-     *
-     * @return bool
-     */
-    public function getDrain()
-    {
-        return $this->container['drain'];
-    }
-
-    /**
-     * Sets drain
-     *
-     * @param bool $drain drain
-     *
-     * @return $this
-     */
-    public function setDrain($drain)
-    {
-        $this->container['drain'] = $drain;
+        $this->container['end_time'] = $end_time;
 
         return $this;
     }
@@ -340,58 +266,145 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets node_pool_id
+     * Gets params
      *
-     * @return string
+     * @return \Volcengine\Vke\Model\ParamForListDiagnosticTaskInput[]
      */
-    public function getNodePoolId()
+    public function getParams()
     {
-        return $this->container['node_pool_id'];
+        return $this->container['params'];
     }
 
     /**
-     * Sets node_pool_id
+     * Sets params
      *
-     * @param string $node_pool_id node_pool_id
+     * @param \Volcengine\Vke\Model\ParamForListDiagnosticTaskInput[] $params params
      *
      * @return $this
      */
-    public function setNodePoolId($node_pool_id)
+    public function setParams($params)
     {
-        $this->container['node_pool_id'] = $node_pool_id;
+        $this->container['params'] = $params;
 
         return $this;
     }
 
     /**
-     * Gets retain_resources
+     * Gets start_time
      *
-     * @return string[]
+     * @return string
      */
-    public function getRetainResources()
+    public function getStartTime()
     {
-        return $this->container['retain_resources'];
+        return $this->container['start_time'];
     }
 
     /**
-     * Sets retain_resources
+     * Sets start_time
      *
-     * @param string[] $retain_resources retain_resources
+     * @param string $start_time start_time
      *
      * @return $this
      */
-    public function setRetainResources($retain_resources)
+    public function setStartTime($start_time)
     {
-        $allowedValues = $this->getRetainResourcesAllowableValues();
-        if (!is_null($retain_resources) && array_diff($retain_resources, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'retain_resources', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['retain_resources'] = $retain_resources;
+        $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets statuses
+     *
+     * @return string[]
+     */
+    public function getStatuses()
+    {
+        return $this->container['statuses'];
+    }
+
+    /**
+     * Sets statuses
+     *
+     * @param string[] $statuses statuses
+     *
+     * @return $this
+     */
+    public function setStatuses($statuses)
+    {
+        $this->container['statuses'] = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_resources_resource_ids
+     *
+     * @return string[]
+     */
+    public function getTargetResourcesResourceIds()
+    {
+        return $this->container['target_resources_resource_ids'];
+    }
+
+    /**
+     * Sets target_resources_resource_ids
+     *
+     * @param string[] $target_resources_resource_ids target_resources_resource_ids
+     *
+     * @return $this
+     */
+    public function setTargetResourcesResourceIds($target_resources_resource_ids)
+    {
+        $this->container['target_resources_resource_ids'] = $target_resources_resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_resources_resource_types
+     *
+     * @return string[]
+     */
+    public function getTargetResourcesResourceTypes()
+    {
+        return $this->container['target_resources_resource_types'];
+    }
+
+    /**
+     * Sets target_resources_resource_types
+     *
+     * @param string[] $target_resources_resource_types target_resources_resource_types
+     *
+     * @return $this
+     */
+    public function setTargetResourcesResourceTypes($target_resources_resource_types)
+    {
+        $this->container['target_resources_resource_types'] = $target_resources_resource_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return string[]
+     */
+    public function getTypes()
+    {
+        return $this->container['types'];
+    }
+
+    /**
+     * Sets types
+     *
+     * @param string[] $types types
+     *
+     * @return $this
+     */
+    public function setTypes($types)
+    {
+        $this->container['types'] = $types;
 
         return $this;
     }

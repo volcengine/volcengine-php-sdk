@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class UpdateClusterVersionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RuleForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'UpdateClusterVersionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fault_type' => 'string',
-        'incident_types' => 'string[]',
-        'remedy_strategy' => '\Volcengine\Vke\Model\RemedyStrategyForListRemedyConfigsOutput'
+        'client_token' => 'string',
+        'id' => 'string',
+        'ignore_precheck_warning' => 'bool',
+        'kubernetes_version' => 'string',
+        'operation' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fault_type' => null,
-        'incident_types' => null,
-        'remedy_strategy' => null
+        'client_token' => null,
+        'id' => null,
+        'ignore_precheck_warning' => null,
+        'kubernetes_version' => null,
+        'operation' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fault_type' => 'FaultType',
-        'incident_types' => 'IncidentTypes',
-        'remedy_strategy' => 'RemedyStrategy'
+        'client_token' => 'ClientToken',
+        'id' => 'Id',
+        'ignore_precheck_warning' => 'IgnorePrecheckWarning',
+        'kubernetes_version' => 'KubernetesVersion',
+        'operation' => 'Operation'
     ];
 
     /**
@@ -82,9 +88,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fault_type' => 'setFaultType',
-        'incident_types' => 'setIncidentTypes',
-        'remedy_strategy' => 'setRemedyStrategy'
+        'client_token' => 'setClientToken',
+        'id' => 'setId',
+        'ignore_precheck_warning' => 'setIgnorePrecheckWarning',
+        'kubernetes_version' => 'setKubernetesVersion',
+        'operation' => 'setOperation'
     ];
 
     /**
@@ -93,9 +101,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fault_type' => 'getFaultType',
-        'incident_types' => 'getIncidentTypes',
-        'remedy_strategy' => 'getRemedyStrategy'
+        'client_token' => 'getClientToken',
+        'id' => 'getId',
+        'ignore_precheck_warning' => 'getIgnorePrecheckWarning',
+        'kubernetes_version' => 'getKubernetesVersion',
+        'operation' => 'getOperation'
     ];
 
     /**
@@ -139,8 +149,29 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const OPERATION_PRECHECK = 'Precheck';
+    const OPERATION_UPGRADE = 'Upgrade';
+    const OPERATION_PAUSE = 'Pause';
+    const OPERATION_RESUME = 'Resume';
+    const OPERATION_ABORT = 'Abort';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperationAllowableValues()
+    {
+        return [
+            self::OPERATION_PRECHECK,
+            self::OPERATION_UPGRADE,
+            self::OPERATION_PAUSE,
+            self::OPERATION_RESUME,
+            self::OPERATION_ABORT,
+        ];
+    }
     
 
     /**
@@ -158,9 +189,11 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['fault_type'] = isset($data['fault_type']) ? $data['fault_type'] : null;
-        $this->container['incident_types'] = isset($data['incident_types']) ? $data['incident_types'] : null;
-        $this->container['remedy_strategy'] = isset($data['remedy_strategy']) ? $data['remedy_strategy'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['ignore_precheck_warning'] = isset($data['ignore_precheck_warning']) ? $data['ignore_precheck_warning'] : null;
+        $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
+        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
     }
 
     /**
@@ -171,6 +204,20 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['kubernetes_version'] === null) {
+            $invalidProperties[] = "'kubernetes_version' can't be null";
+        }
+        $allowedValues = $this->getOperationAllowableValues();
+        if (!is_null($this->container['operation']) && !in_array($this->container['operation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'operation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -188,73 +235,130 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets fault_type
+     * Gets client_token
      *
      * @return string
      */
-    public function getFaultType()
+    public function getClientToken()
     {
-        return $this->container['fault_type'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets fault_type
+     * Sets client_token
      *
-     * @param string $fault_type fault_type
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setFaultType($fault_type)
+    public function setClientToken($client_token)
     {
-        $this->container['fault_type'] = $fault_type;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
 
     /**
-     * Gets incident_types
+     * Gets id
      *
-     * @return string[]
+     * @return string
      */
-    public function getIncidentTypes()
+    public function getId()
     {
-        return $this->container['incident_types'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets incident_types
+     * Sets id
      *
-     * @param string[] $incident_types incident_types
+     * @param string $id id
      *
      * @return $this
      */
-    public function setIncidentTypes($incident_types)
+    public function setId($id)
     {
-        $this->container['incident_types'] = $incident_types;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets remedy_strategy
+     * Gets ignore_precheck_warning
      *
-     * @return \Volcengine\Vke\Model\RemedyStrategyForListRemedyConfigsOutput
+     * @return bool
      */
-    public function getRemedyStrategy()
+    public function getIgnorePrecheckWarning()
     {
-        return $this->container['remedy_strategy'];
+        return $this->container['ignore_precheck_warning'];
     }
 
     /**
-     * Sets remedy_strategy
+     * Sets ignore_precheck_warning
      *
-     * @param \Volcengine\Vke\Model\RemedyStrategyForListRemedyConfigsOutput $remedy_strategy remedy_strategy
+     * @param bool $ignore_precheck_warning ignore_precheck_warning
      *
      * @return $this
      */
-    public function setRemedyStrategy($remedy_strategy)
+    public function setIgnorePrecheckWarning($ignore_precheck_warning)
     {
-        $this->container['remedy_strategy'] = $remedy_strategy;
+        $this->container['ignore_precheck_warning'] = $ignore_precheck_warning;
+
+        return $this;
+    }
+
+    /**
+     * Gets kubernetes_version
+     *
+     * @return string
+     */
+    public function getKubernetesVersion()
+    {
+        return $this->container['kubernetes_version'];
+    }
+
+    /**
+     * Sets kubernetes_version
+     *
+     * @param string $kubernetes_version kubernetes_version
+     *
+     * @return $this
+     */
+    public function setKubernetesVersion($kubernetes_version)
+    {
+        $this->container['kubernetes_version'] = $kubernetes_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation
+     *
+     * @return string
+     */
+    public function getOperation()
+    {
+        return $this->container['operation'];
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param string $operation operation
+     *
+     * @return $this
+     */
+    public function setOperation($operation)
+    {
+        $allowedValues = $this->getOperationAllowableValues();
+        if (!is_null($operation) && !in_array($operation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'operation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operation'] = $operation;
 
         return $this;
     }

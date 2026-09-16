@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class FilterForListInspectionPoliciesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'FilterForListInspectionPoliciesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'cluster_ids' => 'string[]',
+        'ids' => 'string[]',
+        'name' => 'string',
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'types' => 'string[]'
     ];
 
     /**
@@ -37,7 +42,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'cluster_ids' => null,
+        'ids' => null,
+        'name' => null,
+        'resource_ids' => null,
+        'resource_type' => null,
+        'types' => null
     ];
 
     /**
@@ -67,7 +77,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'cluster_ids' => 'ClusterIds',
+        'ids' => 'Ids',
+        'name' => 'Name',
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'types' => 'Types'
     ];
 
     /**
@@ -76,7 +91,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'cluster_ids' => 'setClusterIds',
+        'ids' => 'setIds',
+        'name' => 'setName',
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'types' => 'setTypes'
     ];
 
     /**
@@ -85,7 +105,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'cluster_ids' => 'getClusterIds',
+        'ids' => 'getIds',
+        'name' => 'getName',
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'types' => 'getTypes'
     ];
 
     /**
@@ -148,7 +173,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
     }
 
     /**
@@ -176,25 +206,145 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets cluster_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getClusterIds()
     {
-        return $this->container['type'];
+        return $this->container['cluster_ids'];
     }
 
     /**
-     * Sets type
+     * Sets cluster_ids
      *
-     * @param string $type type
+     * @param string[] $cluster_ids cluster_ids
      *
      * @return $this
      */
-    public function setType($type)
+    public function setClusterIds($cluster_ids)
     {
-        $this->container['type'] = $type;
+        $this->container['cluster_ids'] = $cluster_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets ids
+     *
+     * @return string[]
+     */
+    public function getIds()
+    {
+        return $this->container['ids'];
+    }
+
+    /**
+     * Sets ids
+     *
+     * @param string[] $ids ids
+     *
+     * @return $this
+     */
+    public function setIds($ids)
+    {
+        $this->container['ids'] = $ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_ids
+     *
+     * @return string[]
+     */
+    public function getResourceIds()
+    {
+        return $this->container['resource_ids'];
+    }
+
+    /**
+     * Sets resource_ids
+     *
+     * @param string[] $resource_ids resource_ids
+     *
+     * @return $this
+     */
+    public function setResourceIds($resource_ids)
+    {
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return string[]
+     */
+    public function getTypes()
+    {
+        return $this->container['types'];
+    }
+
+    /**
+     * Sets types
+     *
+     * @param string[] $types types
+     *
+     * @return $this
+     */
+    public function setTypes($types)
+    {
+        $this->container['types'] = $types;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class UpdateInspectionPolicyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'UpdateInspectionPolicyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'client_token' => 'string',
+        'enabled' => 'bool',
+        'id' => 'string',
+        'name' => 'string',
+        'resource_ids' => 'string[]',
+        'schedule' => 'string'
     ];
 
     /**
@@ -37,7 +42,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'client_token' => null,
+        'enabled' => null,
+        'id' => null,
+        'name' => null,
+        'resource_ids' => null,
+        'schedule' => null
     ];
 
     /**
@@ -67,7 +77,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'client_token' => 'ClientToken',
+        'enabled' => 'Enabled',
+        'id' => 'Id',
+        'name' => 'Name',
+        'resource_ids' => 'ResourceIds',
+        'schedule' => 'Schedule'
     ];
 
     /**
@@ -76,7 +91,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'client_token' => 'setClientToken',
+        'enabled' => 'setEnabled',
+        'id' => 'setId',
+        'name' => 'setName',
+        'resource_ids' => 'setResourceIds',
+        'schedule' => 'setSchedule'
     ];
 
     /**
@@ -85,7 +105,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'client_token' => 'getClientToken',
+        'enabled' => 'getEnabled',
+        'id' => 'getId',
+        'name' => 'getName',
+        'resource_ids' => 'getResourceIds',
+        'schedule' => 'getSchedule'
     ];
 
     /**
@@ -148,7 +173,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['schedule'] = isset($data['schedule']) ? $data['schedule'] : null;
     }
 
     /**
@@ -160,6 +190,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +209,145 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets client_token
      *
      * @return string
      */
-    public function getType()
+    public function getClientToken()
     {
-        return $this->container['type'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets type
+     * Sets client_token
      *
-     * @param string $type type
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setType($type)
+    public function setClientToken($client_token)
     {
-        $this->container['type'] = $type;
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_ids
+     *
+     * @return string[]
+     */
+    public function getResourceIds()
+    {
+        return $this->container['resource_ids'];
+    }
+
+    /**
+     * Sets resource_ids
+     *
+     * @param string[] $resource_ids resource_ids
+     *
+     * @return $this
+     */
+    public function setResourceIds($resource_ids)
+    {
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule
+     *
+     * @return string
+     */
+    public function getSchedule()
+    {
+        return $this->container['schedule'];
+    }
+
+    /**
+     * Sets schedule
+     *
+     * @param string $schedule schedule
+     *
+     * @return $this
+     */
+    public function setSchedule($schedule)
+    {
+        $this->container['schedule'] = $schedule;
 
         return $this;
     }

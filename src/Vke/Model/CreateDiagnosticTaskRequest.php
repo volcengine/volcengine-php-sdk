@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class CreateDiagnosticTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'CreateDiagnosticTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,6 +28,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
+        'params' => '\Volcengine\Vke\Model\ParamForCreateDiagnosticTaskInput[]',
+        'target_resources' => '\Volcengine\Vke\Model\TargetResourceForCreateDiagnosticTaskInput[]',
         'type' => 'string'
     ];
 
@@ -37,6 +40,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
+        'params' => null,
+        'target_resources' => null,
         'type' => null
     ];
 
@@ -67,6 +73,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
+        'params' => 'Params',
+        'target_resources' => 'TargetResources',
         'type' => 'Type'
     ];
 
@@ -76,6 +85,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
+        'params' => 'setParams',
+        'target_resources' => 'setTargetResources',
         'type' => 'setType'
     ];
 
@@ -85,6 +97,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
+        'params' => 'getParams',
+        'target_resources' => 'getTargetResources',
         'type' => 'getType'
     ];
 
@@ -148,6 +163,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
+        $this->container['target_resources'] = isset($data['target_resources']) ? $data['target_resources'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -160,6 +178,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -174,6 +195,78 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets params
+     *
+     * @return \Volcengine\Vke\Model\ParamForCreateDiagnosticTaskInput[]
+     */
+    public function getParams()
+    {
+        return $this->container['params'];
+    }
+
+    /**
+     * Sets params
+     *
+     * @param \Volcengine\Vke\Model\ParamForCreateDiagnosticTaskInput[] $params params
+     *
+     * @return $this
+     */
+    public function setParams($params)
+    {
+        $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_resources
+     *
+     * @return \Volcengine\Vke\Model\TargetResourceForCreateDiagnosticTaskInput[]
+     */
+    public function getTargetResources()
+    {
+        return $this->container['target_resources'];
+    }
+
+    /**
+     * Sets target_resources
+     *
+     * @param \Volcengine\Vke\Model\TargetResourceForCreateDiagnosticTaskInput[] $target_resources target_resources
+     *
+     * @return $this
+     */
+    public function setTargetResources($target_resources)
+    {
+        $this->container['target_resources'] = $target_resources;
+
+        return $this;
+    }
 
     /**
      * Gets type

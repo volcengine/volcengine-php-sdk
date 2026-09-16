@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteNodesRequest implements ModelInterface, ArrayAccess
+class UpgradeNodePoolsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteNodesRequest';
+    protected static $swaggerModelName = 'UpgradeNodePoolsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cascading_delete_resources' => 'string[]',
+        'client_token' => 'string',
         'cluster_id' => 'string',
-        'drain' => 'bool',
-        'ids' => 'string[]',
-        'node_pool_id' => 'string',
-        'retain_resources' => 'string[]'
+        'ignore_precheck_warning' => 'bool',
+        'kubernetes_version' => 'string',
+        'node_pools' => '\Volcengine\Vke\Model\NodePoolForUpgradeNodePoolsInput[]',
+        'operation' => 'string',
+        'runtime' => '\Volcengine\Vke\Model\RuntimeForUpgradeNodePoolsInput',
+        'upgrade_policy' => '\Volcengine\Vke\Model\UpgradePolicyForUpgradeNodePoolsInput'
     ];
 
     /**
@@ -42,12 +44,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cascading_delete_resources' => null,
+        'client_token' => null,
         'cluster_id' => null,
-        'drain' => null,
-        'ids' => null,
-        'node_pool_id' => null,
-        'retain_resources' => null
+        'ignore_precheck_warning' => null,
+        'kubernetes_version' => null,
+        'node_pools' => null,
+        'operation' => null,
+        'runtime' => null,
+        'upgrade_policy' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cascading_delete_resources' => 'CascadingDeleteResources',
+        'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
-        'drain' => 'Drain',
-        'ids' => 'Ids',
-        'node_pool_id' => 'NodePoolId',
-        'retain_resources' => 'RetainResources'
+        'ignore_precheck_warning' => 'IgnorePrecheckWarning',
+        'kubernetes_version' => 'KubernetesVersion',
+        'node_pools' => 'NodePools',
+        'operation' => 'Operation',
+        'runtime' => 'Runtime',
+        'upgrade_policy' => 'UpgradePolicy'
     ];
 
     /**
@@ -91,12 +97,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cascading_delete_resources' => 'setCascadingDeleteResources',
+        'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
-        'drain' => 'setDrain',
-        'ids' => 'setIds',
-        'node_pool_id' => 'setNodePoolId',
-        'retain_resources' => 'setRetainResources'
+        'ignore_precheck_warning' => 'setIgnorePrecheckWarning',
+        'kubernetes_version' => 'setKubernetesVersion',
+        'node_pools' => 'setNodePools',
+        'operation' => 'setOperation',
+        'runtime' => 'setRuntime',
+        'upgrade_policy' => 'setUpgradePolicy'
     ];
 
     /**
@@ -105,12 +113,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cascading_delete_resources' => 'getCascadingDeleteResources',
+        'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
-        'drain' => 'getDrain',
-        'ids' => 'getIds',
-        'node_pool_id' => 'getNodePoolId',
-        'retain_resources' => 'getRetainResources'
+        'ignore_precheck_warning' => 'getIgnorePrecheckWarning',
+        'kubernetes_version' => 'getKubernetesVersion',
+        'node_pools' => 'getNodePools',
+        'operation' => 'getOperation',
+        'runtime' => 'getRuntime',
+        'upgrade_policy' => 'getUpgradePolicy'
     ];
 
     /**
@@ -154,8 +164,11 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CASCADING_DELETE_RESOURCES_ECS = 'Ecs';
-    const RETAIN_RESOURCES_ECS = 'Ecs';
+    const OPERATION_PRECHECK = 'Precheck';
+    const OPERATION_UPGRADE = 'Upgrade';
+    const OPERATION_PAUSE = 'Pause';
+    const OPERATION_RESUME = 'Resume';
+    const OPERATION_ABORT = 'Abort';
     
 
     
@@ -164,22 +177,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getCascadingDeleteResourcesAllowableValues()
+    public function getOperationAllowableValues()
     {
         return [
-            self::CASCADING_DELETE_RESOURCES_ECS,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRetainResourcesAllowableValues()
-    {
-        return [
-            self::RETAIN_RESOURCES_ECS,
+            self::OPERATION_PRECHECK,
+            self::OPERATION_UPGRADE,
+            self::OPERATION_PAUSE,
+            self::OPERATION_RESUME,
+            self::OPERATION_ABORT,
         ];
     }
     
@@ -199,12 +204,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
-        $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
+        $this->container['ignore_precheck_warning'] = isset($data['ignore_precheck_warning']) ? $data['ignore_precheck_warning'] : null;
+        $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
+        $this->container['node_pools'] = isset($data['node_pools']) ? $data['node_pools'] : null;
+        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
+        $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
+        $this->container['upgrade_policy'] = isset($data['upgrade_policy']) ? $data['upgrade_policy'] : null;
     }
 
     /**
@@ -219,6 +226,14 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
+        $allowedValues = $this->getOperationAllowableValues();
+        if (!is_null($this->container['operation']) && !in_array($this->container['operation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'operation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -235,34 +250,25 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cascading_delete_resources
+     * Gets client_token
      *
-     * @return string[]
+     * @return string
      */
-    public function getCascadingDeleteResources()
+    public function getClientToken()
     {
-        return $this->container['cascading_delete_resources'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets cascading_delete_resources
+     * Sets client_token
      *
-     * @param string[] $cascading_delete_resources cascading_delete_resources
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setCascadingDeleteResources($cascading_delete_resources)
+    public function setClientToken($client_token)
     {
-        $allowedValues = $this->getCascadingDeleteResourcesAllowableValues();
-        if (!is_null($cascading_delete_resources) && array_diff($cascading_delete_resources, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'cascading_delete_resources', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cascading_delete_resources'] = $cascading_delete_resources;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
@@ -292,106 +298,154 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets drain
+     * Gets ignore_precheck_warning
      *
      * @return bool
      */
-    public function getDrain()
+    public function getIgnorePrecheckWarning()
     {
-        return $this->container['drain'];
+        return $this->container['ignore_precheck_warning'];
     }
 
     /**
-     * Sets drain
+     * Sets ignore_precheck_warning
      *
-     * @param bool $drain drain
+     * @param bool $ignore_precheck_warning ignore_precheck_warning
      *
      * @return $this
      */
-    public function setDrain($drain)
+    public function setIgnorePrecheckWarning($ignore_precheck_warning)
     {
-        $this->container['drain'] = $drain;
+        $this->container['ignore_precheck_warning'] = $ignore_precheck_warning;
 
         return $this;
     }
 
     /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_pool_id
+     * Gets kubernetes_version
      *
      * @return string
      */
-    public function getNodePoolId()
+    public function getKubernetesVersion()
     {
-        return $this->container['node_pool_id'];
+        return $this->container['kubernetes_version'];
     }
 
     /**
-     * Sets node_pool_id
+     * Sets kubernetes_version
      *
-     * @param string $node_pool_id node_pool_id
+     * @param string $kubernetes_version kubernetes_version
      *
      * @return $this
      */
-    public function setNodePoolId($node_pool_id)
+    public function setKubernetesVersion($kubernetes_version)
     {
-        $this->container['node_pool_id'] = $node_pool_id;
+        $this->container['kubernetes_version'] = $kubernetes_version;
 
         return $this;
     }
 
     /**
-     * Gets retain_resources
+     * Gets node_pools
      *
-     * @return string[]
+     * @return \Volcengine\Vke\Model\NodePoolForUpgradeNodePoolsInput[]
      */
-    public function getRetainResources()
+    public function getNodePools()
     {
-        return $this->container['retain_resources'];
+        return $this->container['node_pools'];
     }
 
     /**
-     * Sets retain_resources
+     * Sets node_pools
      *
-     * @param string[] $retain_resources retain_resources
+     * @param \Volcengine\Vke\Model\NodePoolForUpgradeNodePoolsInput[] $node_pools node_pools
      *
      * @return $this
      */
-    public function setRetainResources($retain_resources)
+    public function setNodePools($node_pools)
     {
-        $allowedValues = $this->getRetainResourcesAllowableValues();
-        if (!is_null($retain_resources) && array_diff($retain_resources, $allowedValues)) {
+        $this->container['node_pools'] = $node_pools;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation
+     *
+     * @return string
+     */
+    public function getOperation()
+    {
+        return $this->container['operation'];
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param string $operation operation
+     *
+     * @return $this
+     */
+    public function setOperation($operation)
+    {
+        $allowedValues = $this->getOperationAllowableValues();
+        if (!is_null($operation) && !in_array($operation, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'retain_resources', must be one of '%s'",
+                    "Invalid value for 'operation', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['retain_resources'] = $retain_resources;
+        $this->container['operation'] = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Gets runtime
+     *
+     * @return \Volcengine\Vke\Model\RuntimeForUpgradeNodePoolsInput
+     */
+    public function getRuntime()
+    {
+        return $this->container['runtime'];
+    }
+
+    /**
+     * Sets runtime
+     *
+     * @param \Volcengine\Vke\Model\RuntimeForUpgradeNodePoolsInput $runtime runtime
+     *
+     * @return $this
+     */
+    public function setRuntime($runtime)
+    {
+        $this->container['runtime'] = $runtime;
+
+        return $this;
+    }
+
+    /**
+     * Gets upgrade_policy
+     *
+     * @return \Volcengine\Vke\Model\UpgradePolicyForUpgradeNodePoolsInput
+     */
+    public function getUpgradePolicy()
+    {
+        return $this->container['upgrade_policy'];
+    }
+
+    /**
+     * Sets upgrade_policy
+     *
+     * @param \Volcengine\Vke\Model\UpgradePolicyForUpgradeNodePoolsInput $upgrade_policy upgrade_policy
+     *
+     * @return $this
+     */
+    public function setUpgradePolicy($upgrade_policy)
+    {
+        $this->container['upgrade_policy'] = $upgrade_policy;
 
         return $this;
     }

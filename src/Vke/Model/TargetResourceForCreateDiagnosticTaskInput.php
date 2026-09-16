@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class TargetResourceForCreateDiagnosticTaskInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'TargetResourceForCreateDiagnosticTaskInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'resource_ids' => null,
+        'resource_type' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType'
     ];
 
     /**
@@ -148,7 +153,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets resource_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getResourceIds()
     {
-        return $this->container['type'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets type
+     * Sets resource_ids
      *
-     * @param string $type type
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setType($type)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['type'] = $type;
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

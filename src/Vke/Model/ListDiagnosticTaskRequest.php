@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ListDiagnosticTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ListDiagnosticTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => '\Volcengine\Vke\Model\ActionForListRemedyConfigsOutput',
-        'auto_restore_schedule' => 'bool',
-        'drain' => '\Volcengine\Vke\Model\DrainForListRemedyConfigsOutput',
-        'iaas_events' => 'string[]',
-        'intervene_cordon' => '\Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput',
-        'intervene_drain' => '\Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput'
+        'filter' => '\Volcengine\Vke\Model\FilterForListDiagnosticTaskInput',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'auto_restore_schedule' => null,
-        'drain' => null,
-        'iaas_events' => null,
-        'intervene_cordon' => null,
-        'intervene_drain' => null
+        'filter' => null,
+        'page_number' => 'int64',
+        'page_size' => 'int64'
     ];
 
     /**
@@ -77,12 +71,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'auto_restore_schedule' => 'AutoRestoreSchedule',
-        'drain' => 'Drain',
-        'iaas_events' => 'IaasEvents',
-        'intervene_cordon' => 'InterveneCordon',
-        'intervene_drain' => 'InterveneDrain'
+        'filter' => 'Filter',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'auto_restore_schedule' => 'setAutoRestoreSchedule',
-        'drain' => 'setDrain',
-        'iaas_events' => 'setIaasEvents',
-        'intervene_cordon' => 'setInterveneCordon',
-        'intervene_drain' => 'setInterveneDrain'
+        'filter' => 'setFilter',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'auto_restore_schedule' => 'getAutoRestoreSchedule',
-        'drain' => 'getDrain',
-        'iaas_events' => 'getIaasEvents',
-        'intervene_cordon' => 'getInterveneCordon',
-        'intervene_drain' => 'getInterveneDrain'
+        'filter' => 'getFilter',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['auto_restore_schedule'] = isset($data['auto_restore_schedule']) ? $data['auto_restore_schedule'] : null;
-        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
-        $this->container['iaas_events'] = isset($data['iaas_events']) ? $data['iaas_events'] : null;
-        $this->container['intervene_cordon'] = isset($data['intervene_cordon']) ? $data['intervene_cordon'] : null;
-        $this->container['intervene_drain'] = isset($data['intervene_drain']) ? $data['intervene_drain'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets filter
      *
-     * @return \Volcengine\Vke\Model\ActionForListRemedyConfigsOutput
+     * @return \Volcengine\Vke\Model\FilterForListDiagnosticTaskInput
      */
-    public function getAction()
+    public function getFilter()
     {
-        return $this->container['action'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets action
+     * Sets filter
      *
-     * @param \Volcengine\Vke\Model\ActionForListRemedyConfigsOutput $action action
+     * @param \Volcengine\Vke\Model\FilterForListDiagnosticTaskInput $filter filter
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setFilter($filter)
     {
-        $this->container['action'] = $action;
+        $this->container['filter'] = $filter;
 
         return $this;
     }
 
     /**
-     * Gets auto_restore_schedule
+     * Gets page_number
      *
-     * @return bool
+     * @return int
      */
-    public function getAutoRestoreSchedule()
+    public function getPageNumber()
     {
-        return $this->container['auto_restore_schedule'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets auto_restore_schedule
+     * Sets page_number
      *
-     * @param bool $auto_restore_schedule auto_restore_schedule
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setAutoRestoreSchedule($auto_restore_schedule)
+    public function setPageNumber($page_number)
     {
-        $this->container['auto_restore_schedule'] = $auto_restore_schedule;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets drain
+     * Gets page_size
      *
-     * @return \Volcengine\Vke\Model\DrainForListRemedyConfigsOutput
+     * @return int
      */
-    public function getDrain()
+    public function getPageSize()
     {
-        return $this->container['drain'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets drain
+     * Sets page_size
      *
-     * @param \Volcengine\Vke\Model\DrainForListRemedyConfigsOutput $drain drain
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setDrain($drain)
+    public function setPageSize($page_size)
     {
-        $this->container['drain'] = $drain;
-
-        return $this;
-    }
-
-    /**
-     * Gets iaas_events
-     *
-     * @return string[]
-     */
-    public function getIaasEvents()
-    {
-        return $this->container['iaas_events'];
-    }
-
-    /**
-     * Sets iaas_events
-     *
-     * @param string[] $iaas_events iaas_events
-     *
-     * @return $this
-     */
-    public function setIaasEvents($iaas_events)
-    {
-        $this->container['iaas_events'] = $iaas_events;
-
-        return $this;
-    }
-
-    /**
-     * Gets intervene_cordon
-     *
-     * @return \Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput
-     */
-    public function getInterveneCordon()
-    {
-        return $this->container['intervene_cordon'];
-    }
-
-    /**
-     * Sets intervene_cordon
-     *
-     * @param \Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput $intervene_cordon intervene_cordon
-     *
-     * @return $this
-     */
-    public function setInterveneCordon($intervene_cordon)
-    {
-        $this->container['intervene_cordon'] = $intervene_cordon;
-
-        return $this;
-    }
-
-    /**
-     * Gets intervene_drain
-     *
-     * @return \Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput
-     */
-    public function getInterveneDrain()
-    {
-        return $this->container['intervene_drain'];
-    }
-
-    /**
-     * Sets intervene_drain
-     *
-     * @param \Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput $intervene_drain intervene_drain
-     *
-     * @return $this
-     */
-    public function setInterveneDrain($intervene_drain)
-    {
-        $this->container['intervene_drain'] = $intervene_drain;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

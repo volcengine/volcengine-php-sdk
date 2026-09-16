@@ -316,6 +316,130 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createDiagnosticTask($body = null)
+    {
+        list($response) = $this->createDiagnosticTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDiagnosticTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateDiagnosticTaskResponse';
+        $request = $this->createDiagnosticTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDiagnosticTaskAsync($body = null)
+    {
+        return $this->createDiagnosticTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDiagnosticTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateDiagnosticTaskResponse';
+        $request = $this->createDiagnosticTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDiagnosticTaskRequest($body)
+    {
+        $resourcePath = '/CreateDiagnosticTask/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createInspectionPolicy($body = null)
+    {
+        list($response) = $this->createInspectionPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createInspectionPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateInspectionPolicyResponse';
+        $request = $this->createInspectionPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createInspectionPolicyAsync($body = null)
+    {
+        return $this->createInspectionPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createInspectionPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateInspectionPolicyResponse';
+        $request = $this->createInspectionPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createInspectionPolicyRequest($body)
+    {
+        $resourcePath = '/CreateInspectionPolicy/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createKubeconfig($body = null)
     {
         list($response) = $this->createKubeconfigWithHttpInfo($body);
@@ -474,6 +598,68 @@ class VKEApi
     protected function createNodesRequest($body)
     {
         $resourcePath = '/CreateNodes/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRemedyRule($body = null)
+    {
+        list($response) = $this->createRemedyRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRemedyRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateRemedyRuleResponse';
+        $request = $this->createRemedyRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRemedyRuleAsync($body = null)
+    {
+        return $this->createRemedyRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRemedyRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateRemedyRuleResponse';
+        $request = $this->createRemedyRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRemedyRuleRequest($body)
+    {
+        $resourcePath = '/CreateRemedyRule/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -750,6 +936,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteInspectionPolicy($body = null)
+    {
+        list($response) = $this->deleteInspectionPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteInspectionPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteInspectionPolicyResponse';
+        $request = $this->deleteInspectionPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteInspectionPolicyAsync($body = null)
+    {
+        return $this->deleteInspectionPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteInspectionPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteInspectionPolicyResponse';
+        $request = $this->deleteInspectionPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteInspectionPolicyRequest($body)
+    {
+        $resourcePath = '/DeleteInspectionPolicy/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteKubeconfigs($body = null)
     {
         list($response) = $this->deleteKubeconfigsWithHttpInfo($body);
@@ -908,6 +1156,68 @@ class VKEApi
     protected function deleteNodesRequest($body)
     {
         $resourcePath = '/DeleteNodes/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteRemedyRule($body = null)
+    {
+        list($response) = $this->deleteRemedyRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRemedyRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteRemedyRuleResponse';
+        $request = $this->deleteRemedyRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRemedyRuleAsync($body = null)
+    {
+        return $this->deleteRemedyRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRemedyRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\DeleteRemedyRuleResponse';
+        $request = $this->deleteRemedyRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRemedyRuleRequest($body)
+    {
+        $resourcePath = '/DeleteRemedyRule/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1528,6 +1838,192 @@ class VKEApi
     protected function listClustersRequest($body)
     {
         $resourcePath = '/ListClusters/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDiagnosticTask($body = null)
+    {
+        list($response) = $this->listDiagnosticTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDiagnosticTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListDiagnosticTaskResponse';
+        $request = $this->listDiagnosticTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDiagnosticTaskAsync($body = null)
+    {
+        return $this->listDiagnosticTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDiagnosticTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListDiagnosticTaskResponse';
+        $request = $this->listDiagnosticTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDiagnosticTaskRequest($body)
+    {
+        $resourcePath = '/ListDiagnosticTask/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listDiagnosticTaskResults($body = null)
+    {
+        list($response) = $this->listDiagnosticTaskResultsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listDiagnosticTaskResultsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListDiagnosticTaskResultsResponse';
+        $request = $this->listDiagnosticTaskResultsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listDiagnosticTaskResultsAsync($body = null)
+    {
+        return $this->listDiagnosticTaskResultsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listDiagnosticTaskResultsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListDiagnosticTaskResultsResponse';
+        $request = $this->listDiagnosticTaskResultsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listDiagnosticTaskResultsRequest($body)
+    {
+        $resourcePath = '/ListDiagnosticTaskResults/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listInspectionPolicies($body = null)
+    {
+        list($response) = $this->listInspectionPoliciesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listInspectionPoliciesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListInspectionPoliciesResponse';
+        $request = $this->listInspectionPoliciesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listInspectionPoliciesAsync($body = null)
+    {
+        return $this->listInspectionPoliciesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listInspectionPoliciesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListInspectionPoliciesResponse';
+        $request = $this->listInspectionPoliciesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listInspectionPoliciesRequest($body)
+    {
+        $resourcePath = '/ListInspectionPolicies/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2982,6 +3478,130 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateClusterVersion($body = null)
+    {
+        list($response) = $this->updateClusterVersionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateClusterVersionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateClusterVersionResponse';
+        $request = $this->updateClusterVersionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateClusterVersionAsync($body = null)
+    {
+        return $this->updateClusterVersionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateClusterVersionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateClusterVersionResponse';
+        $request = $this->updateClusterVersionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateClusterVersionRequest($body)
+    {
+        $resourcePath = '/UpdateClusterVersion/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateInspectionPolicy($body = null)
+    {
+        list($response) = $this->updateInspectionPolicyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateInspectionPolicyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateInspectionPolicyResponse';
+        $request = $this->updateInspectionPolicyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateInspectionPolicyAsync($body = null)
+    {
+        return $this->updateInspectionPolicyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateInspectionPolicyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateInspectionPolicyResponse';
+        $request = $this->updateInspectionPolicyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateInspectionPolicyRequest($body)
+    {
+        $resourcePath = '/UpdateInspectionPolicy/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateKubernetesObservabilityComponentConfigs($body = null)
     {
         list($response) = $this->updateKubernetesObservabilityComponentConfigsWithHttpInfo($body);
@@ -3106,6 +3726,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateRemedyRule($body = null)
+    {
+        list($response) = $this->updateRemedyRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRemedyRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateRemedyRuleResponse';
+        $request = $this->updateRemedyRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRemedyRuleAsync($body = null)
+    {
+        return $this->updateRemedyRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRemedyRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpdateRemedyRuleResponse';
+        $request = $this->updateRemedyRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRemedyRuleRequest($body)
+    {
+        $resourcePath = '/UpdateRemedyRule/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateScalingPolicy($body = null)
     {
         list($response) = $this->updateScalingPolicyWithHttpInfo($body);
@@ -3140,6 +3822,68 @@ class VKEApi
     protected function updateScalingPolicyRequest($body)
     {
         $resourcePath = '/UpdateScalingPolicy/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function upgradeNodePools($body = null)
+    {
+        list($response) = $this->upgradeNodePoolsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function upgradeNodePoolsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpgradeNodePoolsResponse';
+        $request = $this->upgradeNodePoolsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function upgradeNodePoolsAsync($body = null)
+    {
+        return $this->upgradeNodePoolsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function upgradeNodePoolsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\UpgradeNodePoolsResponse';
+        $request = $this->upgradeNodePoolsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function upgradeNodePoolsRequest($body)
+    {
+        $resourcePath = '/UpgradeNodePools/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

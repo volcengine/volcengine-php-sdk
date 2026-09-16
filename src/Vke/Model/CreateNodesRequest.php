@@ -31,6 +31,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'bool',
         'client_token' => 'string',
         'cluster_id' => 'string',
+        'container_storage_mount_point' => 'string',
         'container_storage_path' => 'string',
         'gpu_driver_config' => '\Volcengine\Vke\Model\GpuDriverConfigForCreateNodesInput',
         'gpu_driver_version' => 'string',
@@ -53,6 +54,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => null,
         'client_token' => null,
         'cluster_id' => null,
+        'container_storage_mount_point' => null,
         'container_storage_path' => null,
         'gpu_driver_config' => null,
         'gpu_driver_version' => null,
@@ -96,6 +98,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'AdditionalContainerStorageEnabled',
         'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
+        'container_storage_mount_point' => 'ContainerStorageMountPoint',
         'container_storage_path' => 'ContainerStoragePath',
         'gpu_driver_config' => 'GpuDriverConfig',
         'gpu_driver_version' => 'GpuDriverVersion',
@@ -118,6 +121,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'setAdditionalContainerStorageEnabled',
         'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
+        'container_storage_mount_point' => 'setContainerStorageMountPoint',
         'container_storage_path' => 'setContainerStoragePath',
         'gpu_driver_config' => 'setGpuDriverConfig',
         'gpu_driver_version' => 'setGpuDriverVersion',
@@ -140,6 +144,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'getAdditionalContainerStorageEnabled',
         'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
+        'container_storage_mount_point' => 'getContainerStorageMountPoint',
         'container_storage_path' => 'getContainerStoragePath',
         'gpu_driver_config' => 'getGpuDriverConfig',
         'gpu_driver_version' => 'getGpuDriverVersion',
@@ -216,6 +221,7 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         $this->container['additional_container_storage_enabled'] = isset($data['additional_container_storage_enabled']) ? $data['additional_container_storage_enabled'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['container_storage_mount_point'] = isset($data['container_storage_mount_point']) ? $data['container_storage_mount_point'] : null;
         $this->container['container_storage_path'] = isset($data['container_storage_path']) ? $data['container_storage_path'] : null;
         $this->container['gpu_driver_config'] = isset($data['gpu_driver_config']) ? $data['gpu_driver_config'] : null;
         $this->container['gpu_driver_version'] = isset($data['gpu_driver_version']) ? $data['gpu_driver_version'] : null;
@@ -324,6 +330,30 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets container_storage_mount_point
+     *
+     * @return string
+     */
+    public function getContainerStorageMountPoint()
+    {
+        return $this->container['container_storage_mount_point'];
+    }
+
+    /**
+     * Sets container_storage_mount_point
+     *
+     * @param string $container_storage_mount_point container_storage_mount_point
+     *
+     * @return $this
+     */
+    public function setContainerStorageMountPoint($container_storage_mount_point)
+    {
+        $this->container['container_storage_mount_point'] = $container_storage_mount_point;
 
         return $this;
     }

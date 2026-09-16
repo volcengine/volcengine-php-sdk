@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ResultSummaryForListDiagnosticTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ResultSummaryForListDiagnosticTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'count' => 'int',
+        'result' => 'string',
+        'rule' => '\Volcengine\Vke\Model\RuleForListDiagnosticTaskOutput',
+        'target_resources' => '\Volcengine\Vke\Model\TargetResourceForListDiagnosticTaskOutput[]'
     ];
 
     /**
@@ -37,7 +40,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'count' => 'int32',
+        'result' => null,
+        'rule' => null,
+        'target_resources' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'count' => 'Count',
+        'result' => 'Result',
+        'rule' => 'Rule',
+        'target_resources' => 'TargetResources'
     ];
 
     /**
@@ -76,7 +85,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'count' => 'setCount',
+        'result' => 'setResult',
+        'rule' => 'setRule',
+        'target_resources' => 'setTargetResources'
     ];
 
     /**
@@ -85,7 +97,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'count' => 'getCount',
+        'result' => 'getResult',
+        'rule' => 'getRule',
+        'target_resources' => 'getTargetResources'
     ];
 
     /**
@@ -148,7 +163,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
+        $this->container['target_resources'] = isset($data['target_resources']) ? $data['target_resources'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets count
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getCount()
     {
-        return $this->container['type'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets type
+     * Sets count
      *
-     * @param string $type type
+     * @param int $count count
      *
      * @return $this
      */
-    public function setType($type)
+    public function setCount($count)
     {
-        $this->container['type'] = $type;
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param string $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule
+     *
+     * @return \Volcengine\Vke\Model\RuleForListDiagnosticTaskOutput
+     */
+    public function getRule()
+    {
+        return $this->container['rule'];
+    }
+
+    /**
+     * Sets rule
+     *
+     * @param \Volcengine\Vke\Model\RuleForListDiagnosticTaskOutput $rule rule
+     *
+     * @return $this
+     */
+    public function setRule($rule)
+    {
+        $this->container['rule'] = $rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_resources
+     *
+     * @return \Volcengine\Vke\Model\TargetResourceForListDiagnosticTaskOutput[]
+     */
+    public function getTargetResources()
+    {
+        return $this->container['target_resources'];
+    }
+
+    /**
+     * Sets target_resources
+     *
+     * @param \Volcengine\Vke\Model\TargetResourceForListDiagnosticTaskOutput[] $target_resources target_resources
+     *
+     * @return $this
+     */
+    public function setTargetResources($target_resources)
+    {
+        $this->container['target_resources'] = $target_resources;
 
         return $this;
     }

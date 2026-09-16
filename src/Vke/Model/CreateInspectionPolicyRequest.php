@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class CreateInspectionPolicyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'CreateInspectionPolicyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,6 +28,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
+        'cluster_id' => 'string',
+        'enabled' => 'bool',
+        'name' => 'string',
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'schedule' => 'string',
         'type' => 'string'
     ];
 
@@ -37,6 +44,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
+        'cluster_id' => null,
+        'enabled' => null,
+        'name' => null,
+        'resource_ids' => null,
+        'resource_type' => null,
+        'schedule' => null,
         'type' => null
     ];
 
@@ -67,6 +81,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
+        'cluster_id' => 'ClusterId',
+        'enabled' => 'Enabled',
+        'name' => 'Name',
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'schedule' => 'Schedule',
         'type' => 'Type'
     ];
 
@@ -76,6 +97,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
+        'cluster_id' => 'setClusterId',
+        'enabled' => 'setEnabled',
+        'name' => 'setName',
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'schedule' => 'setSchedule',
         'type' => 'setType'
     ];
 
@@ -85,6 +113,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
+        'cluster_id' => 'getClusterId',
+        'enabled' => 'getEnabled',
+        'name' => 'getName',
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'schedule' => 'getSchedule',
         'type' => 'getType'
     ];
 
@@ -148,6 +183,13 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['schedule'] = isset($data['schedule']) ? $data['schedule'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -160,6 +202,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -174,6 +222,174 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_id
+     *
+     * @return string
+     */
+    public function getClusterId()
+    {
+        return $this->container['cluster_id'];
+    }
+
+    /**
+     * Sets cluster_id
+     *
+     * @param string $cluster_id cluster_id
+     *
+     * @return $this
+     */
+    public function setClusterId($cluster_id)
+    {
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_ids
+     *
+     * @return string[]
+     */
+    public function getResourceIds()
+    {
+        return $this->container['resource_ids'];
+    }
+
+    /**
+     * Sets resource_ids
+     *
+     * @param string[] $resource_ids resource_ids
+     *
+     * @return $this
+     */
+    public function setResourceIds($resource_ids)
+    {
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule
+     *
+     * @return string
+     */
+    public function getSchedule()
+    {
+        return $this->container['schedule'];
+    }
+
+    /**
+     * Sets schedule
+     *
+     * @param string $schedule schedule
+     *
+     * @return $this
+     */
+    public function setSchedule($schedule)
+    {
+        $this->container['schedule'] = $schedule;
+
+        return $this;
+    }
 
     /**
      * Gets type

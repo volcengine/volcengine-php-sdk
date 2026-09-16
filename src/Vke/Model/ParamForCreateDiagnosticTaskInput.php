@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ParamForCreateDiagnosticTaskInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InterveneCordonForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ParamForCreateDiagnosticTaskInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool',
-        'label' => '\Volcengine\Vke\Model\LabelForListRemedyConfigsOutput'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null,
-        'label' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'Enabled',
-        'label' => 'Label'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'label' => 'setLabel'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'label' => 'getLabel'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
 
 
     /**
-     * Gets enabled
+     * Gets key
      *
-     * @return bool
+     * @return string
      */
-    public function getEnabled()
+    public function getKey()
     {
-        return $this->container['enabled'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets enabled
+     * Sets key
      *
-     * @param bool $enabled enabled
+     * @param string $key key
      *
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setKey($key)
     {
-        $this->container['enabled'] = $enabled;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets label
+     * Gets value
      *
-     * @return \Volcengine\Vke\Model\LabelForListRemedyConfigsOutput
+     * @return string
      */
-    public function getLabel()
+    public function getValue()
     {
-        return $this->container['label'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets label
+     * Sets value
      *
-     * @param \Volcengine\Vke\Model\LabelForListRemedyConfigsOutput $label label
+     * @param string $value value
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setValue($value)
     {
-        $this->container['label'] = $label;
+        $this->container['value'] = $value;
 
         return $this;
     }
