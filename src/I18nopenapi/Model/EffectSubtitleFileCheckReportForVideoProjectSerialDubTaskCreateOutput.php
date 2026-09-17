@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
+class EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
+    protected static $swaggerModelName = 'EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'effect_type' => 'int',
-        'file_name' => 'string',
-        'file_type' => 'int',
-        'file_url' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int'
+        'episode_num' => 'string',
+        'issues' => '\Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[]',
+        'source_language' => 'string',
+        'target_language' => 'string'
     ];
 
     /**
@@ -43,13 +40,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'effect_type' => 'int32',
-        'file_name' => null,
-        'file_type' => 'int32',
-        'file_url' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32'
+        'episode_num' => null,
+        'issues' => null,
+        'source_language' => null,
+        'target_language' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'effect_type' => 'effectType',
-        'file_name' => 'fileName',
-        'file_type' => 'fileType',
-        'file_url' => 'fileUrl',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang'
+        'episode_num' => 'EpisodeNum',
+        'issues' => 'Issues',
+        'source_language' => 'SourceLanguage',
+        'target_language' => 'TargetLanguage'
     ];
 
     /**
@@ -94,13 +85,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'effect_type' => 'setEffectType',
-        'file_name' => 'setFileName',
-        'file_type' => 'setFileType',
-        'file_url' => 'setFileUrl',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang'
+        'episode_num' => 'setEpisodeNum',
+        'issues' => 'setIssues',
+        'source_language' => 'setSourceLanguage',
+        'target_language' => 'setTargetLanguage'
     ];
 
     /**
@@ -109,13 +97,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'effect_type' => 'getEffectType',
-        'file_name' => 'getFileName',
-        'file_type' => 'getFileType',
-        'file_url' => 'getFileUrl',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang'
+        'episode_num' => 'getEpisodeNum',
+        'issues' => 'getIssues',
+        'source_language' => 'getSourceLanguage',
+        'target_language' => 'getTargetLanguage'
     ];
 
     /**
@@ -178,13 +163,10 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
+        $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
+        $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
+        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
     }
 
     /**
@@ -212,169 +194,97 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
 
 
     /**
-     * Gets arrangement
-     *
-     * @return int
-     */
-    public function getArrangement()
-    {
-        return $this->container['arrangement'];
-    }
-
-    /**
-     * Sets arrangement
-     *
-     * @param int $arrangement arrangement
-     *
-     * @return $this
-     */
-    public function setArrangement($arrangement)
-    {
-        $this->container['arrangement'] = $arrangement;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_type
-     *
-     * @return int
-     */
-    public function getEffectType()
-    {
-        return $this->container['effect_type'];
-    }
-
-    /**
-     * Sets effect_type
-     *
-     * @param int $effect_type effect_type
-     *
-     * @return $this
-     */
-    public function setEffectType($effect_type)
-    {
-        $this->container['effect_type'] = $effect_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets episode_num
      *
      * @return string
      */
-    public function getFileName()
+    public function getEpisodeNum()
     {
-        return $this->container['file_name'];
+        return $this->container['episode_num'];
     }
 
     /**
-     * Sets file_name
+     * Sets episode_num
      *
-     * @param string $file_name file_name
+     * @param string $episode_num episode_num
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setEpisodeNum($episode_num)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['episode_num'] = $episode_num;
 
         return $this;
     }
 
     /**
-     * Gets file_type
+     * Gets issues
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[]
      */
-    public function getFileType()
+    public function getIssues()
     {
-        return $this->container['file_type'];
+        return $this->container['issues'];
     }
 
     /**
-     * Sets file_type
+     * Sets issues
      *
-     * @param int $file_type file_type
+     * @param \Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[] $issues issues
      *
      * @return $this
      */
-    public function setFileType($file_type)
+    public function setIssues($issues)
     {
-        $this->container['file_type'] = $file_type;
+        $this->container['issues'] = $issues;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets source_language
      *
      * @return string
      */
-    public function getFileUrl()
+    public function getSourceLanguage()
     {
-        return $this->container['file_url'];
+        return $this->container['source_language'];
     }
 
     /**
-     * Sets file_url
+     * Sets source_language
      *
-     * @param string $file_url file_url
+     * @param string $source_language source_language
      *
      * @return $this
      */
-    public function setFileUrl($file_url)
+    public function setSourceLanguage($source_language)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['source_language'] = $source_language;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_id
+     * Gets target_language
      *
      * @return string
      */
-    public function getSubtitleId()
+    public function getTargetLanguage()
     {
-        return $this->container['subtitle_id'];
+        return $this->container['target_language'];
     }
 
     /**
-     * Sets subtitle_id
+     * Sets target_language
      *
-     * @param string $subtitle_id subtitle_id
+     * @param string $target_language target_language
      *
      * @return $this
      */
-    public function setSubtitleId($subtitle_id)
+    public function setTargetLanguage($target_language)
     {
-        $this->container['subtitle_id'] = $subtitle_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_lang
-     *
-     * @return int
-     */
-    public function getSubtitleLang()
-    {
-        return $this->container['subtitle_lang'];
-    }
-
-    /**
-     * Sets subtitle_lang
-     *
-     * @param int $subtitle_lang subtitle_lang
-     *
-     * @return $this
-     */
-    public function setSubtitleLang($subtitle_lang)
-    {
-        $this->container['subtitle_lang'] = $subtitle_lang;
+        $this->container['target_language'] = $target_language;
 
         return $this;
     }

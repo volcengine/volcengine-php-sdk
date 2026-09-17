@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implements ModelInterface, ArrayAccess
+class VideoProjectBatchReuploadForSubtasksRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       *
       * @var string
       */
-    protected static $swaggerModelName = 'subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput';
+    protected static $swaggerModelName = 'VideoProjectBatchReuploadForSubtasksRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arrangement' => 'int',
-        'effect_type' => 'int',
-        'file_name' => 'string',
-        'file_type' => 'int',
-        'file_url' => 'string',
-        'subtitle_id' => 'string',
-        'subtitle_lang' => 'int'
+        'project_id' => 'string',
+        'reupload_subtask_infos' => '\Volcengine\I18nopenapi\Model\ReuploadSubtaskInfoForVideoProjectBatchReuploadForSubtasksInput[]',
+        'task_id' => 'string'
     ];
 
     /**
@@ -43,13 +39,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'arrangement' => 'int32',
-        'effect_type' => 'int32',
-        'file_name' => null,
-        'file_type' => 'int32',
-        'file_url' => null,
-        'subtitle_id' => null,
-        'subtitle_lang' => 'int32'
+        'project_id' => null,
+        'reupload_subtask_infos' => null,
+        'task_id' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $attributeMap = [
-        'arrangement' => 'arrangement',
-        'effect_type' => 'effectType',
-        'file_name' => 'fileName',
-        'file_type' => 'fileType',
-        'file_url' => 'fileUrl',
-        'subtitle_id' => 'subtitleId',
-        'subtitle_lang' => 'subtitleLang'
+        'project_id' => 'projectId',
+        'reupload_subtask_infos' => 'reuploadSubtaskInfos',
+        'task_id' => 'taskId'
     ];
 
     /**
@@ -94,13 +82,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $setters = [
-        'arrangement' => 'setArrangement',
-        'effect_type' => 'setEffectType',
-        'file_name' => 'setFileName',
-        'file_type' => 'setFileType',
-        'file_url' => 'setFileUrl',
-        'subtitle_id' => 'setSubtitleId',
-        'subtitle_lang' => 'setSubtitleLang'
+        'project_id' => 'setProjectId',
+        'reupload_subtask_infos' => 'setReuploadSubtaskInfos',
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -109,13 +93,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $getters = [
-        'arrangement' => 'getArrangement',
-        'effect_type' => 'getEffectType',
-        'file_name' => 'getFileName',
-        'file_type' => 'getFileType',
-        'file_url' => 'getFileUrl',
-        'subtitle_id' => 'getSubtitleId',
-        'subtitle_lang' => 'getSubtitleLang'
+        'project_id' => 'getProjectId',
+        'reupload_subtask_infos' => 'getReuploadSubtaskInfos',
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -178,13 +158,9 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      */
     public function __construct($data = null)
     {
-        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
-        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
-        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
-        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['reupload_subtask_infos'] = isset($data['reupload_subtask_infos']) ? $data['reupload_subtask_infos'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -196,6 +172,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,169 +194,73 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
 
 
     /**
-     * Gets arrangement
-     *
-     * @return int
-     */
-    public function getArrangement()
-    {
-        return $this->container['arrangement'];
-    }
-
-    /**
-     * Sets arrangement
-     *
-     * @param int $arrangement arrangement
-     *
-     * @return $this
-     */
-    public function setArrangement($arrangement)
-    {
-        $this->container['arrangement'] = $arrangement;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_type
-     *
-     * @return int
-     */
-    public function getEffectType()
-    {
-        return $this->container['effect_type'];
-    }
-
-    /**
-     * Sets effect_type
-     *
-     * @param int $effect_type effect_type
-     *
-     * @return $this
-     */
-    public function setEffectType($effect_type)
-    {
-        $this->container['effect_type'] = $effect_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets project_id
      *
      * @return string
      */
-    public function getFileName()
+    public function getProjectId()
     {
-        return $this->container['file_name'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets file_name
+     * Sets project_id
      *
-     * @param string $file_name file_name
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setProjectId($project_id)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets file_type
+     * Gets reupload_subtask_infos
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\ReuploadSubtaskInfoForVideoProjectBatchReuploadForSubtasksInput[]
      */
-    public function getFileType()
+    public function getReuploadSubtaskInfos()
     {
-        return $this->container['file_type'];
+        return $this->container['reupload_subtask_infos'];
     }
 
     /**
-     * Sets file_type
+     * Sets reupload_subtask_infos
      *
-     * @param int $file_type file_type
+     * @param \Volcengine\I18nopenapi\Model\ReuploadSubtaskInfoForVideoProjectBatchReuploadForSubtasksInput[] $reupload_subtask_infos reupload_subtask_infos
      *
      * @return $this
      */
-    public function setFileType($file_type)
+    public function setReuploadSubtaskInfos($reupload_subtask_infos)
     {
-        $this->container['file_type'] = $file_type;
+        $this->container['reupload_subtask_infos'] = $reupload_subtask_infos;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets task_id
      *
      * @return string
      */
-    public function getFileUrl()
+    public function getTaskId()
     {
-        return $this->container['file_url'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets file_url
+     * Sets task_id
      *
-     * @param string $file_url file_url
+     * @param string $task_id task_id
      *
      * @return $this
      */
-    public function setFileUrl($file_url)
+    public function setTaskId($task_id)
     {
-        $this->container['file_url'] = $file_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_id
-     *
-     * @return string
-     */
-    public function getSubtitleId()
-    {
-        return $this->container['subtitle_id'];
-    }
-
-    /**
-     * Sets subtitle_id
-     *
-     * @param string $subtitle_id subtitle_id
-     *
-     * @return $this
-     */
-    public function setSubtitleId($subtitle_id)
-    {
-        $this->container['subtitle_id'] = $subtitle_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_lang
-     *
-     * @return int
-     */
-    public function getSubtitleLang()
-    {
-        return $this->container['subtitle_lang'];
-    }
-
-    /**
-     * Sets subtitle_lang
-     *
-     * @param int $subtitle_lang subtitle_lang
-     *
-     * @return $this
-     */
-    public function setSubtitleLang($subtitle_lang)
-    {
-        $this->container['subtitle_lang'] = $subtitle_lang;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }
