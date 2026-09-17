@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class DeleteRemedyRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ActionForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'DeleteRemedyRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reboot_ecs' => 'bool',
-        'wait_for' => 'int'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reboot_ecs' => null,
-        'wait_for' => 'int32'
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reboot_ecs' => 'RebootEcs',
-        'wait_for' => 'WaitFor'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reboot_ecs' => 'setRebootEcs',
-        'wait_for' => 'setWaitFor'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reboot_ecs' => 'getRebootEcs',
-        'wait_for' => 'getWaitFor'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['reboot_ecs'] = isset($data['reboot_ecs']) ? $data['reboot_ecs'] : null;
-        $this->container['wait_for'] = isset($data['wait_for']) ? $data['wait_for'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets reboot_ecs
-     *
-     * @return bool
-     */
-    public function getRebootEcs()
-    {
-        return $this->container['reboot_ecs'];
-    }
-
-    /**
-     * Sets reboot_ecs
-     *
-     * @param bool $reboot_ecs reboot_ecs
-     *
-     * @return $this
-     */
-    public function setRebootEcs($reboot_ecs)
-    {
-        $this->container['reboot_ecs'] = $reboot_ecs;
-
-        return $this;
-    }
-
-    /**
-     * Gets wait_for
-     *
-     * @return int
-     */
-    public function getWaitFor()
-    {
-        return $this->container['wait_for'];
-    }
-
-    /**
-     * Sets wait_for
-     *
-     * @param int $wait_for wait_for
-     *
-     * @return $this
-     */
-    public function setWaitFor($wait_for)
-    {
-        $this->container['wait_for'] = $wait_for;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ListDiagnosticTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LabelForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ListDiagnosticTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'filter' => '\Volcengine\Vke\Model\FilterForListDiagnosticTaskInput',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'filter' => null,
+        'page_number' => 'int64',
+        'page_size' => 'int64'
     ];
 
     /**
@@ -69,8 +71,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'filter' => 'Filter',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -79,8 +82,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'filter' => 'setFilter',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -89,8 +93,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'filter' => 'getFilter',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -153,8 +158,9 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class LabelForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets filter
      *
-     * @return string
+     * @return \Volcengine\Vke\Model\FilterForListDiagnosticTaskInput
      */
-    public function getKey()
+    public function getFilter()
     {
-        return $this->container['key'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets key
+     * Sets filter
      *
-     * @param string $key key
+     * @param \Volcengine\Vke\Model\FilterForListDiagnosticTaskInput $filter filter
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setFilter($filter)
     {
-        $this->container['key'] = $key;
+        $this->container['filter'] = $filter;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getValue()
+    public function getPageNumber()
     {
-        return $this->container['value'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets value
+     * Sets page_number
      *
-     * @param string $value value
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setPageNumber($page_number)
     {
-        $this->container['value'] = $value;
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ParamForCreateDiagnosticTaskInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ParamForCreateDiagnosticTaskInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => '\Volcengine\Vke\Model\ActionForListRemedyConfigsOutput',
-        'auto_restore_schedule' => 'bool',
-        'drain' => '\Volcengine\Vke\Model\DrainForListRemedyConfigsOutput',
-        'iaas_events' => 'string[]',
-        'intervene_cordon' => '\Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput',
-        'intervene_drain' => '\Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'auto_restore_schedule' => null,
-        'drain' => null,
-        'iaas_events' => null,
-        'intervene_cordon' => null,
-        'intervene_drain' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'auto_restore_schedule' => 'AutoRestoreSchedule',
-        'drain' => 'Drain',
-        'iaas_events' => 'IaasEvents',
-        'intervene_cordon' => 'InterveneCordon',
-        'intervene_drain' => 'InterveneDrain'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'auto_restore_schedule' => 'setAutoRestoreSchedule',
-        'drain' => 'setDrain',
-        'iaas_events' => 'setIaasEvents',
-        'intervene_cordon' => 'setInterveneCordon',
-        'intervene_drain' => 'setInterveneDrain'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'auto_restore_schedule' => 'getAutoRestoreSchedule',
-        'drain' => 'getDrain',
-        'iaas_events' => 'getIaasEvents',
-        'intervene_cordon' => 'getInterveneCordon',
-        'intervene_drain' => 'getInterveneDrain'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['auto_restore_schedule'] = isset($data['auto_restore_schedule']) ? $data['auto_restore_schedule'] : null;
-        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
-        $this->container['iaas_events'] = isset($data['iaas_events']) ? $data['iaas_events'] : null;
-        $this->container['intervene_cordon'] = isset($data['intervene_cordon']) ? $data['intervene_cordon'] : null;
-        $this->container['intervene_drain'] = isset($data['intervene_drain']) ? $data['intervene_drain'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class ConfigForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets key
      *
-     * @return \Volcengine\Vke\Model\ActionForListRemedyConfigsOutput
+     * @return string
      */
-    public function getAction()
+    public function getKey()
     {
-        return $this->container['action'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets action
+     * Sets key
      *
-     * @param \Volcengine\Vke\Model\ActionForListRemedyConfigsOutput $action action
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setKey($key)
     {
-        $this->container['action'] = $action;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets auto_restore_schedule
+     * Gets value
      *
-     * @return bool
+     * @return string
      */
-    public function getAutoRestoreSchedule()
+    public function getValue()
     {
-        return $this->container['auto_restore_schedule'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets auto_restore_schedule
+     * Sets value
      *
-     * @param bool $auto_restore_schedule auto_restore_schedule
+     * @param string $value value
      *
      * @return $this
      */
-    public function setAutoRestoreSchedule($auto_restore_schedule)
+    public function setValue($value)
     {
-        $this->container['auto_restore_schedule'] = $auto_restore_schedule;
-
-        return $this;
-    }
-
-    /**
-     * Gets drain
-     *
-     * @return \Volcengine\Vke\Model\DrainForListRemedyConfigsOutput
-     */
-    public function getDrain()
-    {
-        return $this->container['drain'];
-    }
-
-    /**
-     * Sets drain
-     *
-     * @param \Volcengine\Vke\Model\DrainForListRemedyConfigsOutput $drain drain
-     *
-     * @return $this
-     */
-    public function setDrain($drain)
-    {
-        $this->container['drain'] = $drain;
-
-        return $this;
-    }
-
-    /**
-     * Gets iaas_events
-     *
-     * @return string[]
-     */
-    public function getIaasEvents()
-    {
-        return $this->container['iaas_events'];
-    }
-
-    /**
-     * Sets iaas_events
-     *
-     * @param string[] $iaas_events iaas_events
-     *
-     * @return $this
-     */
-    public function setIaasEvents($iaas_events)
-    {
-        $this->container['iaas_events'] = $iaas_events;
-
-        return $this;
-    }
-
-    /**
-     * Gets intervene_cordon
-     *
-     * @return \Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput
-     */
-    public function getInterveneCordon()
-    {
-        return $this->container['intervene_cordon'];
-    }
-
-    /**
-     * Sets intervene_cordon
-     *
-     * @param \Volcengine\Vke\Model\InterveneCordonForListRemedyConfigsOutput $intervene_cordon intervene_cordon
-     *
-     * @return $this
-     */
-    public function setInterveneCordon($intervene_cordon)
-    {
-        $this->container['intervene_cordon'] = $intervene_cordon;
-
-        return $this;
-    }
-
-    /**
-     * Gets intervene_drain
-     *
-     * @return \Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput
-     */
-    public function getInterveneDrain()
-    {
-        return $this->container['intervene_drain'];
-    }
-
-    /**
-     * Sets intervene_drain
-     *
-     * @param \Volcengine\Vke\Model\InterveneDrainForListRemedyConfigsOutput $intervene_drain intervene_drain
-     *
-     * @return $this
-     */
-    public function setInterveneDrain($intervene_drain)
-    {
-        $this->container['intervene_drain'] = $intervene_drain;
+        $this->container['value'] = $value;
 
         return $this;
     }

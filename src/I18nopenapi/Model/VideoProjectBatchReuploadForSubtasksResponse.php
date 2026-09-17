@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vke\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class VideoProjectBatchReuploadForSubtasksResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DrainForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'VideoProjectBatchReuploadForSubtasksResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'wait_for' => 'int'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectBatchReuploadForSubtasksOutput'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'wait_for' => 'int32'
+        'data' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'wait_for' => 'WaitFor'
+        'data' => 'data'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'wait_for' => 'setWaitFor'
+        'data' => 'setData'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'wait_for' => 'getWaitFor'
+        'data' => 'getData'
     ];
 
     /**
@@ -148,7 +148,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['wait_for'] = isset($data['wait_for']) ? $data['wait_for'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets wait_for
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectBatchReuploadForSubtasksOutput
      */
-    public function getWaitFor()
+    public function getData()
     {
-        return $this->container['wait_for'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets wait_for
+     * Sets data
      *
-     * @param int $wait_for wait_for
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectBatchReuploadForSubtasksOutput $data data
      *
      * @return $this
      */
-    public function setWaitFor($wait_for)
+    public function setData($data)
     {
-        $this->container['wait_for'] = $wait_for;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class RemedyStrategyForUpdateRemedyRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InterveneCordonForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'RemedyStrategyForUpdateRemedyRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool',
-        'label' => '\Volcengine\Vke\Model\LabelForListRemedyConfigsOutput'
+        'type' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null,
-        'label' => null
+        'type' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'Enabled',
-        'label' => 'Label'
+        'type' => 'Type'
     ];
 
     /**
@@ -79,8 +76,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'label' => 'setLabel'
+        'type' => 'setType'
     ];
 
     /**
@@ -89,8 +85,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'label' => 'getLabel'
+        'type' => 'getType'
     ];
 
     /**
@@ -153,8 +148,7 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class InterveneCordonForListRemedyConfigsOutput implements ModelInterface, Array
 
 
     /**
-     * Gets enabled
+     * Gets type
      *
-     * @return bool
+     * @return string
      */
-    public function getEnabled()
+    public function getType()
     {
-        return $this->container['enabled'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets enabled
+     * Sets type
      *
-     * @param bool $enabled enabled
+     * @param string $type type
      *
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setType($type)
     {
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return \Volcengine\Vke\Model\LabelForListRemedyConfigsOutput
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param \Volcengine\Vke\Model\LabelForListRemedyConfigsOutput $label label
-     *
-     * @return $this
-     */
-    public function setLabel($label)
-    {
-        $this->container['label'] = $label;
+        $this->container['type'] = $type;
 
         return $this;
     }

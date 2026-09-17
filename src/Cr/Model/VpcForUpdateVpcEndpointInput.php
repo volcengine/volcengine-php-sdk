@@ -30,6 +30,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'account_id' => 'int',
         'description' => 'string',
+        'region' => 'string',
         'subnet_id' => 'string',
         'vpc_id' => 'string'
     ];
@@ -42,6 +43,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'account_id' => 'int64',
         'description' => null,
+        'region' => null,
         'subnet_id' => null,
         'vpc_id' => null
     ];
@@ -75,6 +77,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'description' => 'Description',
+        'region' => 'Region',
         'subnet_id' => 'SubnetId',
         'vpc_id' => 'VpcId'
     ];
@@ -87,6 +90,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'account_id' => 'setAccountId',
         'description' => 'setDescription',
+        'region' => 'setRegion',
         'subnet_id' => 'setSubnetId',
         'vpc_id' => 'setVpcId'
     ];
@@ -99,6 +103,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'account_id' => 'getAccountId',
         'description' => 'getDescription',
+        'region' => 'getRegion',
         'subnet_id' => 'getSubnetId',
         'vpc_id' => 'getVpcId'
     ];
@@ -165,6 +170,7 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -237,6 +243,30 @@ class VpcForUpdateVpcEndpointInput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
 
         return $this;
     }

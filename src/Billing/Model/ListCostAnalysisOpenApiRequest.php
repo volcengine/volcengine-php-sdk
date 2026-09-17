@@ -220,6 +220,12 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         if ($this->container['end_time_str'] === null) {
             $invalidProperties[] = "'end_time_str' can't be null";
         }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
         if ($this->container['time_granularity'] === null) {
             $invalidProperties[] = "'time_granularity' can't be null";
         }

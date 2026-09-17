@@ -139,25 +139,8 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const FAULT_TYPE_GPU_FAULT = 'GPUFault';
-    const FAULT_TYPE_NODE_FAULT = 'NodeFault';
-    const FAULT_TYPE_SYSTEM_FAULT = 'SystemFault';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFaultTypeAllowableValues()
-    {
-        return [
-            self::FAULT_TYPE_GPU_FAULT,
-            self::FAULT_TYPE_NODE_FAULT,
-            self::FAULT_TYPE_SYSTEM_FAULT,
-        ];
-    }
     
 
     /**
@@ -188,14 +171,6 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getFaultTypeAllowableValues();
-        if (!is_null($this->container['fault_type']) && !in_array($this->container['fault_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'fault_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -231,15 +206,6 @@ class RuleForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function setFaultType($fault_type)
     {
-        $allowedValues = $this->getFaultTypeAllowableValues();
-        if (!is_null($fault_type) && !in_array($fault_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fault_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['fault_type'] = $fault_type;
 
         return $this;

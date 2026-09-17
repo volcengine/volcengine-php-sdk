@@ -28,7 +28,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\Volcengine\Vke\Model\ConfigForListRemedyConfigsOutput',
         'type' => 'string'
     ];
 
@@ -38,7 +37,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
         'type' => null
     ];
 
@@ -69,7 +67,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'Config',
         'type' => 'Type'
     ];
 
@@ -79,7 +76,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
         'type' => 'setType'
     ];
 
@@ -89,7 +85,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
         'type' => 'getType'
     ];
 
@@ -134,27 +129,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
-    const TYPE_NOTIFY = 'Notify';
-    const TYPE_CORDON_NODE = 'CordonNode';
-    const TYPE_DRAIN_NODE = 'DrainNode';
-    const TYPE_REMEDY = 'Remedy';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_NOTIFY,
-            self::TYPE_CORDON_NODE,
-            self::TYPE_DRAIN_NODE,
-            self::TYPE_REMEDY,
-        ];
-    }
     
 
     /**
@@ -172,7 +148,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -184,14 +159,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -207,30 +174,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets config
-     *
-     * @return \Volcengine\Vke\Model\ConfigForListRemedyConfigsOutput
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     *
-     * @param \Volcengine\Vke\Model\ConfigForListRemedyConfigsOutput $config config
-     *
-     * @return $this
-     */
-    public function setConfig($config)
-    {
-        $this->container['config'] = $config;
-
-        return $this;
-    }
 
     /**
      * Gets type
@@ -251,15 +194,6 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;

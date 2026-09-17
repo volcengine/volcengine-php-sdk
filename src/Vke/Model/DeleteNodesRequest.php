@@ -30,6 +30,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cascading_delete_resources' => 'string[]',
         'cluster_id' => 'string',
+        'drain' => 'bool',
         'ids' => 'string[]',
         'node_pool_id' => 'string',
         'retain_resources' => 'string[]'
@@ -43,6 +44,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cascading_delete_resources' => null,
         'cluster_id' => null,
+        'drain' => null,
         'ids' => null,
         'node_pool_id' => null,
         'retain_resources' => null
@@ -77,6 +79,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cascading_delete_resources' => 'CascadingDeleteResources',
         'cluster_id' => 'ClusterId',
+        'drain' => 'Drain',
         'ids' => 'Ids',
         'node_pool_id' => 'NodePoolId',
         'retain_resources' => 'RetainResources'
@@ -90,6 +93,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cascading_delete_resources' => 'setCascadingDeleteResources',
         'cluster_id' => 'setClusterId',
+        'drain' => 'setDrain',
         'ids' => 'setIds',
         'node_pool_id' => 'setNodePoolId',
         'retain_resources' => 'setRetainResources'
@@ -103,6 +107,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cascading_delete_resources' => 'getCascadingDeleteResources',
         'cluster_id' => 'getClusterId',
+        'drain' => 'getDrain',
         'ids' => 'getIds',
         'node_pool_id' => 'getNodePoolId',
         'retain_resources' => 'getRetainResources'
@@ -196,6 +201,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
         $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
@@ -281,6 +287,30 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets drain
+     *
+     * @return bool
+     */
+    public function getDrain()
+    {
+        return $this->container['drain'];
+    }
+
+    /**
+     * Sets drain
+     *
+     * @param bool $drain drain
+     *
+     * @return $this
+     */
+    public function setDrain($drain)
+    {
+        $this->container['drain'] = $drain;
 
         return $this;
     }

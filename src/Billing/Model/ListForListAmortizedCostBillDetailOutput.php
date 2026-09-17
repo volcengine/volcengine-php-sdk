@@ -54,7 +54,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_coupon_amount' => 'string',
         'daily_amortized_discount_bill_amount' => 'string',
         'daily_amortized_original_bill_amount' => 'string',
-        'daily_amortized_paid_amount' => 'string',
         'daily_amortized_payable_amount' => 'string',
         'daily_amortized_point_deduct_amount' => 'string',
         'daily_amortized_posttax_amount' => 'string',
@@ -97,7 +96,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
         'owner_user_name' => 'string',
-        'paid_amount' => 'string',
         'payable_amount' => 'string',
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
@@ -180,7 +178,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_coupon_amount' => null,
         'daily_amortized_discount_bill_amount' => null,
         'daily_amortized_original_bill_amount' => null,
-        'daily_amortized_paid_amount' => null,
         'daily_amortized_payable_amount' => null,
         'daily_amortized_point_deduct_amount' => null,
         'daily_amortized_posttax_amount' => null,
@@ -223,7 +220,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'owner_customer_name' => null,
         'owner_id' => null,
         'owner_user_name' => null,
-        'paid_amount' => null,
         'payable_amount' => null,
         'payer_customer_name' => null,
         'payer_id' => null,
@@ -327,7 +323,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_coupon_amount' => 'DailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'DailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'DailyAmortizedOriginalBillAmount',
-        'daily_amortized_paid_amount' => 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'DailyAmortizedPayableAmount',
         'daily_amortized_point_deduct_amount' => 'DailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'DailyAmortizedPosttaxAmount',
@@ -370,7 +365,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
-        'paid_amount' => 'PaidAmount',
         'payable_amount' => 'PayableAmount',
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
@@ -453,7 +447,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_coupon_amount' => 'setDailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'setDailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'setDailyAmortizedOriginalBillAmount',
-        'daily_amortized_paid_amount' => 'setDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'setDailyAmortizedPayableAmount',
         'daily_amortized_point_deduct_amount' => 'setDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'setDailyAmortizedPosttaxAmount',
@@ -496,7 +489,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
-        'paid_amount' => 'setPaidAmount',
         'payable_amount' => 'setPayableAmount',
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
@@ -579,7 +571,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'daily_amortized_coupon_amount' => 'getDailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'getDailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'getDailyAmortizedOriginalBillAmount',
-        'daily_amortized_paid_amount' => 'getDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'getDailyAmortizedPayableAmount',
         'daily_amortized_point_deduct_amount' => 'getDailyAmortizedPointDeductAmount',
         'daily_amortized_posttax_amount' => 'getDailyAmortizedPosttaxAmount',
@@ -622,7 +613,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
-        'paid_amount' => 'getPaidAmount',
         'payable_amount' => 'getPayableAmount',
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
@@ -759,7 +749,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['daily_amortized_coupon_amount'] = isset($data['daily_amortized_coupon_amount']) ? $data['daily_amortized_coupon_amount'] : null;
         $this->container['daily_amortized_discount_bill_amount'] = isset($data['daily_amortized_discount_bill_amount']) ? $data['daily_amortized_discount_bill_amount'] : null;
         $this->container['daily_amortized_original_bill_amount'] = isset($data['daily_amortized_original_bill_amount']) ? $data['daily_amortized_original_bill_amount'] : null;
-        $this->container['daily_amortized_paid_amount'] = isset($data['daily_amortized_paid_amount']) ? $data['daily_amortized_paid_amount'] : null;
         $this->container['daily_amortized_payable_amount'] = isset($data['daily_amortized_payable_amount']) ? $data['daily_amortized_payable_amount'] : null;
         $this->container['daily_amortized_point_deduct_amount'] = isset($data['daily_amortized_point_deduct_amount']) ? $data['daily_amortized_point_deduct_amount'] : null;
         $this->container['daily_amortized_posttax_amount'] = isset($data['daily_amortized_posttax_amount']) ? $data['daily_amortized_posttax_amount'] : null;
@@ -802,7 +791,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
-        $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
@@ -1497,30 +1485,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setDailyAmortizedOriginalBillAmount($daily_amortized_original_bill_amount)
     {
         $this->container['daily_amortized_original_bill_amount'] = $daily_amortized_original_bill_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets daily_amortized_paid_amount
-     *
-     * @return string
-     */
-    public function getDailyAmortizedPaidAmount()
-    {
-        return $this->container['daily_amortized_paid_amount'];
-    }
-
-    /**
-     * Sets daily_amortized_paid_amount
-     *
-     * @param string $daily_amortized_paid_amount daily_amortized_paid_amount
-     *
-     * @return $this
-     */
-    public function setDailyAmortizedPaidAmount($daily_amortized_paid_amount)
-    {
-        $this->container['daily_amortized_paid_amount'] = $daily_amortized_paid_amount;
 
         return $this;
     }
@@ -2529,30 +2493,6 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setOwnerUserName($owner_user_name)
     {
         $this->container['owner_user_name'] = $owner_user_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets paid_amount
-     *
-     * @return string
-     */
-    public function getPaidAmount()
-    {
-        return $this->container['paid_amount'];
-    }
-
-    /**
-     * Sets paid_amount
-     *
-     * @param string $paid_amount paid_amount
-     *
-     * @return $this
-     */
-    public function setPaidAmount($paid_amount)
-    {
-        $this->container['paid_amount'] = $paid_amount;
 
         return $this;
     }

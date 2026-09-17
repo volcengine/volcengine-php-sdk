@@ -5958,6 +5958,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectBatchReuploadForSubtasks($body = null)
+    {
+        list($response) = $this->videoProjectBatchReuploadForSubtasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectBatchReuploadForSubtasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchReuploadForSubtasksResponse';
+        $request = $this->videoProjectBatchReuploadForSubtasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectBatchReuploadForSubtasksAsync($body = null)
+    {
+        return $this->videoProjectBatchReuploadForSubtasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectBatchReuploadForSubtasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchReuploadForSubtasksResponse';
+        $request = $this->videoProjectBatchReuploadForSubtasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectBatchReuploadForSubtasksRequest($body)
+    {
+        $resourcePath = '/VideoProjectBatchReuploadForSubtasks/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectCreate($body = null)
     {
         list($response) = $this->videoProjectCreateWithHttpInfo($body);
