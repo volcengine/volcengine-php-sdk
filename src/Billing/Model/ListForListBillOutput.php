@@ -64,6 +64,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'string',
         'real_value' => 'string',
         'round_bill_amount' => 'string',
+        'sales_channel' => 'string',
         'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
@@ -125,6 +126,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'product_zh' => null,
         'real_value' => null,
         'round_bill_amount' => null,
+        'sales_channel' => null,
         'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => null,
@@ -207,6 +209,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'ProductZh',
         'real_value' => 'RealValue',
         'round_bill_amount' => 'RoundBillAmount',
+        'sales_channel' => 'SalesChannel',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
@@ -268,6 +271,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'setProductZh',
         'real_value' => 'setRealValue',
         'round_bill_amount' => 'setRoundBillAmount',
+        'sales_channel' => 'setSalesChannel',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
@@ -329,6 +333,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'getProductZh',
         'real_value' => 'getRealValue',
         'round_bill_amount' => 'getRoundBillAmount',
+        'sales_channel' => 'getSalesChannel',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
@@ -444,6 +449,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['round_bill_amount'] = isset($data['round_bill_amount']) ? $data['round_bill_amount'] : null;
+        $this->container['sales_channel'] = isset($data['sales_channel']) ? $data['sales_channel'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
@@ -1347,6 +1353,30 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
     public function setRoundBillAmount($round_bill_amount)
     {
         $this->container['round_bill_amount'] = $round_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets sales_channel
+     *
+     * @return string
+     */
+    public function getSalesChannel()
+    {
+        return $this->container['sales_channel'];
+    }
+
+    /**
+     * Sets sales_channel
+     *
+     * @param string $sales_channel sales_channel
+     *
+     * @return $this
+     */
+    public function setSalesChannel($sales_channel)
+    {
+        $this->container['sales_channel'] = $sales_channel;
 
         return $this;
     }
