@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class RuntimeForUpgradeNodePoolsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'RuntimeForUpgradeNodePoolsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'type' => 'string',
+        'version' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'type' => null,
+        'version' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'type' => 'Type',
+        'version' => 'Version'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'type' => 'setType',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'type' => 'getType',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -149,6 +154,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

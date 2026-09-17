@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class RuleForCreateRemedyRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'RuleForCreateRemedyRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'fault_type' => 'string',
+        'incident_types' => 'string[]',
+        'remedy_strategy' => '\Volcengine\Vke\Model\RemedyStrategyForCreateRemedyRuleInput'
     ];
 
     /**
@@ -37,7 +39,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'fault_type' => null,
+        'incident_types' => null,
+        'remedy_strategy' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'fault_type' => 'FaultType',
+        'incident_types' => 'IncidentTypes',
+        'remedy_strategy' => 'RemedyStrategy'
     ];
 
     /**
@@ -76,7 +82,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'fault_type' => 'setFaultType',
+        'incident_types' => 'setIncidentTypes',
+        'remedy_strategy' => 'setRemedyStrategy'
     ];
 
     /**
@@ -85,7 +93,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'fault_type' => 'getFaultType',
+        'incident_types' => 'getIncidentTypes',
+        'remedy_strategy' => 'getRemedyStrategy'
     ];
 
     /**
@@ -148,7 +158,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['fault_type'] = isset($data['fault_type']) ? $data['fault_type'] : null;
+        $this->container['incident_types'] = isset($data['incident_types']) ? $data['incident_types'] : null;
+        $this->container['remedy_strategy'] = isset($data['remedy_strategy']) ? $data['remedy_strategy'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets fault_type
      *
      * @return string
      */
-    public function getType()
+    public function getFaultType()
     {
-        return $this->container['type'];
+        return $this->container['fault_type'];
     }
 
     /**
-     * Sets type
+     * Sets fault_type
      *
-     * @param string $type type
+     * @param string $fault_type fault_type
      *
      * @return $this
      */
-    public function setType($type)
+    public function setFaultType($fault_type)
     {
-        $this->container['type'] = $type;
+        $this->container['fault_type'] = $fault_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets incident_types
+     *
+     * @return string[]
+     */
+    public function getIncidentTypes()
+    {
+        return $this->container['incident_types'];
+    }
+
+    /**
+     * Sets incident_types
+     *
+     * @param string[] $incident_types incident_types
+     *
+     * @return $this
+     */
+    public function setIncidentTypes($incident_types)
+    {
+        $this->container['incident_types'] = $incident_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets remedy_strategy
+     *
+     * @return \Volcengine\Vke\Model\RemedyStrategyForCreateRemedyRuleInput
+     */
+    public function getRemedyStrategy()
+    {
+        return $this->container['remedy_strategy'];
+    }
+
+    /**
+     * Sets remedy_strategy
+     *
+     * @param \Volcengine\Vke\Model\RemedyStrategyForCreateRemedyRuleInput $remedy_strategy remedy_strategy
+     *
+     * @return $this
+     */
+    public function setRemedyStrategy($remedy_strategy)
+    {
+        $this->container['remedy_strategy'] = $remedy_strategy;
 
         return $this;
     }

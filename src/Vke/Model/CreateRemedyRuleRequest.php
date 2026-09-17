@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class CreateRemedyRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'CreateRemedyRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'client_token' => 'string',
+        'cluster_id' => 'string',
+        'name' => 'string',
+        'rules' => '\Volcengine\Vke\Model\RuleForCreateRemedyRuleInput[]'
     ];
 
     /**
@@ -37,7 +40,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'client_token' => null,
+        'cluster_id' => null,
+        'name' => null,
+        'rules' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'client_token' => 'ClientToken',
+        'cluster_id' => 'ClusterId',
+        'name' => 'Name',
+        'rules' => 'Rules'
     ];
 
     /**
@@ -76,7 +85,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'client_token' => 'setClientToken',
+        'cluster_id' => 'setClusterId',
+        'name' => 'setName',
+        'rules' => 'setRules'
     ];
 
     /**
@@ -85,7 +97,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'client_token' => 'getClientToken',
+        'cluster_id' => 'getClusterId',
+        'name' => 'getName',
+        'rules' => 'getRules'
     ];
 
     /**
@@ -148,7 +163,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
     }
 
     /**
@@ -160,6 +178,12 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +200,97 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets client_token
      *
      * @return string
      */
-    public function getType()
+    public function getClientToken()
     {
-        return $this->container['type'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets type
+     * Sets client_token
      *
-     * @param string $type type
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setType($type)
+    public function setClientToken($client_token)
     {
-        $this->container['type'] = $type;
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_id
+     *
+     * @return string
+     */
+    public function getClusterId()
+    {
+        return $this->container['cluster_id'];
+    }
+
+    /**
+     * Sets cluster_id
+     *
+     * @param string $cluster_id cluster_id
+     *
+     * @return $this
+     */
+    public function setClusterId($cluster_id)
+    {
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rules
+     *
+     * @return \Volcengine\Vke\Model\RuleForCreateRemedyRuleInput[]
+     */
+    public function getRules()
+    {
+        return $this->container['rules'];
+    }
+
+    /**
+     * Sets rules
+     *
+     * @param \Volcengine\Vke\Model\RuleForCreateRemedyRuleInput[] $rules rules
+     *
+     * @return $this
+     */
+    public function setRules($rules)
+    {
+        $this->container['rules'] = $rules;
 
         return $this;
     }

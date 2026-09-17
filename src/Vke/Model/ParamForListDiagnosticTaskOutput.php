@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ParamForListDiagnosticTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ActionForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ParamForListDiagnosticTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reboot_ecs' => 'bool',
-        'wait_for' => 'int'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reboot_ecs' => null,
-        'wait_for' => 'int32'
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reboot_ecs' => 'RebootEcs',
-        'wait_for' => 'WaitFor'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reboot_ecs' => 'setRebootEcs',
-        'wait_for' => 'setWaitFor'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reboot_ecs' => 'getRebootEcs',
-        'wait_for' => 'getWaitFor'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['reboot_ecs'] = isset($data['reboot_ecs']) ? $data['reboot_ecs'] : null;
-        $this->container['wait_for'] = isset($data['wait_for']) ? $data['wait_for'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class ActionForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reboot_ecs
+     * Gets key
      *
-     * @return bool
+     * @return string
      */
-    public function getRebootEcs()
+    public function getKey()
     {
-        return $this->container['reboot_ecs'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets reboot_ecs
+     * Sets key
      *
-     * @param bool $reboot_ecs reboot_ecs
+     * @param string $key key
      *
      * @return $this
      */
-    public function setRebootEcs($reboot_ecs)
+    public function setKey($key)
     {
-        $this->container['reboot_ecs'] = $reboot_ecs;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets wait_for
+     * Gets value
      *
-     * @return int
+     * @return string
      */
-    public function getWaitFor()
+    public function getValue()
     {
-        return $this->container['wait_for'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets wait_for
+     * Sets value
      *
-     * @param int $wait_for wait_for
+     * @param string $value value
      *
      * @return $this
      */
-    public function setWaitFor($wait_for)
+    public function setValue($value)
     {
-        $this->container['wait_for'] = $wait_for;
+        $this->container['value'] = $value;
 
         return $this;
     }

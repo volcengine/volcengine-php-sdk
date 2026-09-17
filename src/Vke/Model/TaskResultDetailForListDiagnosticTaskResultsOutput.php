@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class TaskResultDetailForListDiagnosticTaskResultsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'TaskResultDetailForListDiagnosticTaskResultsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'is_silenced' => 'bool',
+        'resource_id' => 'string',
+        'resource_labels' => 'string[]',
+        'resource_type' => 'string',
+        'result' => 'string'
     ];
 
     /**
@@ -37,7 +41,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'is_silenced' => null,
+        'resource_id' => null,
+        'resource_labels' => null,
+        'resource_type' => null,
+        'result' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'is_silenced' => 'IsSilenced',
+        'resource_id' => 'ResourceId',
+        'resource_labels' => 'ResourceLabels',
+        'resource_type' => 'ResourceType',
+        'result' => 'Result'
     ];
 
     /**
@@ -76,7 +88,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'is_silenced' => 'setIsSilenced',
+        'resource_id' => 'setResourceId',
+        'resource_labels' => 'setResourceLabels',
+        'resource_type' => 'setResourceType',
+        'result' => 'setResult'
     ];
 
     /**
@@ -85,7 +101,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'is_silenced' => 'getIsSilenced',
+        'resource_id' => 'getResourceId',
+        'resource_labels' => 'getResourceLabels',
+        'resource_type' => 'getResourceType',
+        'result' => 'getResult'
     ];
 
     /**
@@ -148,7 +168,11 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['is_silenced'] = isset($data['is_silenced']) ? $data['is_silenced'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_labels'] = isset($data['resource_labels']) ? $data['resource_labels'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -176,25 +200,121 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets is_silenced
      *
-     * @return string
+     * @return bool
      */
-    public function getType()
+    public function getIsSilenced()
     {
-        return $this->container['type'];
+        return $this->container['is_silenced'];
     }
 
     /**
-     * Sets type
+     * Sets is_silenced
      *
-     * @param string $type type
+     * @param bool $is_silenced is_silenced
      *
      * @return $this
      */
-    public function setType($type)
+    public function setIsSilenced($is_silenced)
     {
-        $this->container['type'] = $type;
+        $this->container['is_silenced'] = $is_silenced;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_labels
+     *
+     * @return string[]
+     */
+    public function getResourceLabels()
+    {
+        return $this->container['resource_labels'];
+    }
+
+    /**
+     * Sets resource_labels
+     *
+     * @param string[] $resource_labels resource_labels
+     *
+     * @return $this
+     */
+    public function setResourceLabels($resource_labels)
+    {
+        $this->container['resource_labels'] = $resource_labels;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param string $result result
+     *
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }

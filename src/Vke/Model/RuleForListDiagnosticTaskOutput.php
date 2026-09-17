@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class RuleForListDiagnosticTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'RuleForListDiagnosticTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'description' => 'string',
+        'group' => 'string',
+        'name' => 'string',
+        'sub_group' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'description' => null,
+        'group' => null,
+        'name' => null,
+        'sub_group' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'description' => 'Description',
+        'group' => 'Group',
+        'name' => 'Name',
+        'sub_group' => 'SubGroup'
     ];
 
     /**
@@ -76,7 +85,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'description' => 'setDescription',
+        'group' => 'setGroup',
+        'name' => 'setName',
+        'sub_group' => 'setSubGroup'
     ];
 
     /**
@@ -85,7 +97,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'description' => 'getDescription',
+        'group' => 'getGroup',
+        'name' => 'getName',
+        'sub_group' => 'getSubGroup'
     ];
 
     /**
@@ -148,7 +163,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['sub_group'] = isset($data['sub_group']) ? $data['sub_group'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets description
      *
      * @return string
      */
-    public function getType()
+    public function getDescription()
     {
-        return $this->container['type'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets type
+     * Sets description
      *
-     * @param string $type type
+     * @param string $description description
      *
      * @return $this
      */
-    public function setType($type)
+    public function setDescription($description)
     {
-        $this->container['type'] = $type;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string $group group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $this->container['group'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_group
+     *
+     * @return string
+     */
+    public function getSubGroup()
+    {
+        return $this->container['sub_group'];
+    }
+
+    /**
+     * Sets sub_group
+     *
+     * @param string $sub_group sub_group
+     *
+     * @return $this
+     */
+    public function setSubGroup($sub_group)
+    {
+        $this->container['sub_group'] = $sub_group;
 
         return $this;
     }

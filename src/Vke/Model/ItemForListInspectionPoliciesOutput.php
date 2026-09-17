@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteNodesRequest implements ModelInterface, ArrayAccess
+class ItemForListInspectionPoliciesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteNodesRequest';
+    protected static $swaggerModelName = 'ItemForListInspectionPoliciesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cascading_delete_resources' => 'string[]',
+        'client_token' => 'string',
         'cluster_id' => 'string',
-        'drain' => 'bool',
-        'ids' => 'string[]',
-        'node_pool_id' => 'string',
-        'retain_resources' => 'string[]'
+        'create_time' => 'string',
+        'enabled' => 'bool',
+        'id' => 'string',
+        'name' => 'string',
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'schedule' => 'string',
+        'type' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -42,12 +47,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cascading_delete_resources' => null,
+        'client_token' => null,
         'cluster_id' => null,
-        'drain' => null,
-        'ids' => null,
-        'node_pool_id' => null,
-        'retain_resources' => null
+        'create_time' => null,
+        'enabled' => null,
+        'id' => null,
+        'name' => null,
+        'resource_ids' => null,
+        'resource_type' => null,
+        'schedule' => null,
+        'type' => null,
+        'update_time' => null
     ];
 
     /**
@@ -77,12 +87,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cascading_delete_resources' => 'CascadingDeleteResources',
+        'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
-        'drain' => 'Drain',
-        'ids' => 'Ids',
-        'node_pool_id' => 'NodePoolId',
-        'retain_resources' => 'RetainResources'
+        'create_time' => 'CreateTime',
+        'enabled' => 'Enabled',
+        'id' => 'Id',
+        'name' => 'Name',
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'schedule' => 'Schedule',
+        'type' => 'Type',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -91,12 +106,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cascading_delete_resources' => 'setCascadingDeleteResources',
+        'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
-        'drain' => 'setDrain',
-        'ids' => 'setIds',
-        'node_pool_id' => 'setNodePoolId',
-        'retain_resources' => 'setRetainResources'
+        'create_time' => 'setCreateTime',
+        'enabled' => 'setEnabled',
+        'id' => 'setId',
+        'name' => 'setName',
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'schedule' => 'setSchedule',
+        'type' => 'setType',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -105,12 +125,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cascading_delete_resources' => 'getCascadingDeleteResources',
+        'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
-        'drain' => 'getDrain',
-        'ids' => 'getIds',
-        'node_pool_id' => 'getNodePoolId',
-        'retain_resources' => 'getRetainResources'
+        'create_time' => 'getCreateTime',
+        'enabled' => 'getEnabled',
+        'id' => 'getId',
+        'name' => 'getName',
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'schedule' => 'getSchedule',
+        'type' => 'getType',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -154,34 +179,8 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CASCADING_DELETE_RESOURCES_ECS = 'Ecs';
-    const RETAIN_RESOURCES_ECS = 'Ecs';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCascadingDeleteResourcesAllowableValues()
-    {
-        return [
-            self::CASCADING_DELETE_RESOURCES_ECS,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRetainResourcesAllowableValues()
-    {
-        return [
-            self::RETAIN_RESOURCES_ECS,
-        ];
-    }
     
 
     /**
@@ -199,12 +198,17 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['drain'] = isset($data['drain']) ? $data['drain'] : null;
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
-        $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['schedule'] = isset($data['schedule']) ? $data['schedule'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -216,9 +220,6 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -235,34 +236,25 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cascading_delete_resources
+     * Gets client_token
      *
-     * @return string[]
+     * @return string
      */
-    public function getCascadingDeleteResources()
+    public function getClientToken()
     {
-        return $this->container['cascading_delete_resources'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets cascading_delete_resources
+     * Sets client_token
      *
-     * @param string[] $cascading_delete_resources cascading_delete_resources
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setCascadingDeleteResources($cascading_delete_resources)
+    public function setClientToken($client_token)
     {
-        $allowedValues = $this->getCascadingDeleteResourcesAllowableValues();
-        if (!is_null($cascading_delete_resources) && array_diff($cascading_delete_resources, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'cascading_delete_resources', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cascading_delete_resources'] = $cascading_delete_resources;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
@@ -292,106 +284,217 @@ class DeleteNodesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets drain
-     *
-     * @return bool
-     */
-    public function getDrain()
-    {
-        return $this->container['drain'];
-    }
-
-    /**
-     * Sets drain
-     *
-     * @param bool $drain drain
-     *
-     * @return $this
-     */
-    public function setDrain($drain)
-    {
-        $this->container['drain'] = $drain;
-
-        return $this;
-    }
-
-    /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets node_pool_id
+     * Gets create_time
      *
      * @return string
      */
-    public function getNodePoolId()
+    public function getCreateTime()
     {
-        return $this->container['node_pool_id'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets node_pool_id
+     * Sets create_time
      *
-     * @param string $node_pool_id node_pool_id
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setNodePoolId($node_pool_id)
+    public function setCreateTime($create_time)
     {
-        $this->container['node_pool_id'] = $node_pool_id;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets retain_resources
+     * Gets enabled
      *
-     * @return string[]
+     * @return bool
      */
-    public function getRetainResources()
+    public function getEnabled()
     {
-        return $this->container['retain_resources'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets retain_resources
+     * Sets enabled
      *
-     * @param string[] $retain_resources retain_resources
+     * @param bool $enabled enabled
      *
      * @return $this
      */
-    public function setRetainResources($retain_resources)
+    public function setEnabled($enabled)
     {
-        $allowedValues = $this->getRetainResourcesAllowableValues();
-        if (!is_null($retain_resources) && array_diff($retain_resources, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'retain_resources', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['retain_resources'] = $retain_resources;
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_ids
+     *
+     * @return string[]
+     */
+    public function getResourceIds()
+    {
+        return $this->container['resource_ids'];
+    }
+
+    /**
+     * Sets resource_ids
+     *
+     * @param string[] $resource_ids resource_ids
+     *
+     * @return $this
+     */
+    public function setResourceIds($resource_ids)
+    {
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule
+     *
+     * @return string
+     */
+    public function getSchedule()
+    {
+        return $this->container['schedule'];
+    }
+
+    /**
+     * Sets schedule
+     *
+     * @param string $schedule schedule
+     *
+     * @return $this
+     */
+    public function setSchedule($schedule)
+    {
+        $this->container['schedule'] = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

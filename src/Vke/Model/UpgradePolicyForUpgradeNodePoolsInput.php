@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class UpgradePolicyForUpgradeNodePoolsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'UpgradePolicyForUpgradeNodePoolsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'max_failed' => 'int',
+        'max_unavailable' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'max_failed' => 'int32',
+        'max_unavailable' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'max_failed' => 'MaxFailed',
+        'max_unavailable' => 'MaxUnavailable'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'max_failed' => 'setMaxFailed',
+        'max_unavailable' => 'setMaxUnavailable'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'max_failed' => 'getMaxFailed',
+        'max_unavailable' => 'getMaxUnavailable'
     ];
 
     /**
@@ -148,7 +153,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['max_failed'] = isset($data['max_failed']) ? $data['max_failed'] : null;
+        $this->container['max_unavailable'] = isset($data['max_unavailable']) ? $data['max_unavailable'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets max_failed
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getMaxFailed()
     {
-        return $this->container['type'];
+        return $this->container['max_failed'];
     }
 
     /**
-     * Sets type
+     * Sets max_failed
      *
-     * @param string $type type
+     * @param int $max_failed max_failed
      *
      * @return $this
      */
-    public function setType($type)
+    public function setMaxFailed($max_failed)
     {
-        $this->container['type'] = $type;
+        $this->container['max_failed'] = $max_failed;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_unavailable
+     *
+     * @return int
+     */
+    public function getMaxUnavailable()
+    {
+        return $this->container['max_unavailable'];
+    }
+
+    /**
+     * Sets max_unavailable
+     *
+     * @param int $max_unavailable max_unavailable
+     *
+     * @return $this
+     */
+    public function setMaxUnavailable($max_unavailable)
+    {
+        $this->container['max_unavailable'] = $max_unavailable;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class ListInspectionPoliciesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'ListInspectionPoliciesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'filter' => '\Volcengine\Vke\Model\FilterForListInspectionPoliciesInput',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'filter' => null,
+        'page_number' => 'int64',
+        'page_size' => 'int64'
     ];
 
     /**
@@ -67,7 +71,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'filter' => 'Filter',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -76,7 +82,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'filter' => 'setFilter',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -85,7 +93,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'filter' => 'getFilter',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -148,7 +158,9 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets filter
      *
-     * @return string
+     * @return \Volcengine\Vke\Model\FilterForListInspectionPoliciesInput
      */
-    public function getType()
+    public function getFilter()
     {
-        return $this->container['type'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets type
+     * Sets filter
      *
-     * @param string $type type
+     * @param \Volcengine\Vke\Model\FilterForListInspectionPoliciesInput $filter filter
      *
      * @return $this
      */
-    public function setType($type)
+    public function setFilter($filter)
     {
-        $this->container['type'] = $type;
+        $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

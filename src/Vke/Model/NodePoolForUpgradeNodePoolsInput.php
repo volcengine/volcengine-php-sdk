@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class NodePoolForUpgradeNodePoolsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'NodePoolForUpgradeNodePoolsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'node_ids' => 'string[]',
+        'node_pool_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'node_ids' => null,
+        'node_pool_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'node_ids' => 'NodeIds',
+        'node_pool_id' => 'NodePoolId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'node_ids' => 'setNodeIds',
+        'node_pool_id' => 'setNodePoolId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'node_ids' => 'getNodeIds',
+        'node_pool_id' => 'getNodePoolId'
     ];
 
     /**
@@ -148,7 +153,8 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['node_ids'] = isset($data['node_ids']) ? $data['node_ids'] : null;
+        $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets node_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getNodeIds()
     {
-        return $this->container['type'];
+        return $this->container['node_ids'];
     }
 
     /**
-     * Sets type
+     * Sets node_ids
      *
-     * @param string $type type
+     * @param string[] $node_ids node_ids
      *
      * @return $this
      */
-    public function setType($type)
+    public function setNodeIds($node_ids)
     {
-        $this->container['type'] = $type;
+        $this->container['node_ids'] = $node_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets node_pool_id
+     *
+     * @return string
+     */
+    public function getNodePoolId()
+    {
+        return $this->container['node_pool_id'];
+    }
+
+    /**
+     * Sets node_pool_id
+     *
+     * @param string $node_pool_id node_pool_id
+     *
+     * @return $this
+     */
+    public function setNodePoolId($node_pool_id)
+    {
+        $this->container['node_pool_id'] = $node_pool_id;
 
         return $this;
     }

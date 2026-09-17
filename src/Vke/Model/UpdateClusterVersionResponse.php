@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class UpdateClusterVersionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'UpdateClusterVersionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'task_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'task_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'task_id' => 'TaskId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -148,7 +148,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets task_id
      *
      * @return string
      */
-    public function getType()
+    public function getTaskId()
     {
-        return $this->container['type'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets type
+     * Sets task_id
      *
-     * @param string $type type
+     * @param string $task_id task_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setTaskId($task_id)
     {
-        $this->container['type'] = $type;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

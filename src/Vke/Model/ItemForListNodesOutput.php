@@ -31,6 +31,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'bool',
         'affinity_group_id' => 'string',
         'cluster_id' => 'string',
+        'container_storage_mount_point' => 'string',
         'container_storage_path' => 'string',
         'create_client_token' => 'string',
         'create_time' => 'string',
@@ -60,6 +61,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => null,
         'affinity_group_id' => null,
         'cluster_id' => null,
+        'container_storage_mount_point' => null,
         'container_storage_path' => null,
         'create_client_token' => null,
         'create_time' => null,
@@ -110,6 +112,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'AdditionalContainerStorageEnabled',
         'affinity_group_id' => 'AffinityGroupId',
         'cluster_id' => 'ClusterId',
+        'container_storage_mount_point' => 'ContainerStorageMountPoint',
         'container_storage_path' => 'ContainerStoragePath',
         'create_client_token' => 'CreateClientToken',
         'create_time' => 'CreateTime',
@@ -139,6 +142,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'setAdditionalContainerStorageEnabled',
         'affinity_group_id' => 'setAffinityGroupId',
         'cluster_id' => 'setClusterId',
+        'container_storage_mount_point' => 'setContainerStorageMountPoint',
         'container_storage_path' => 'setContainerStoragePath',
         'create_client_token' => 'setCreateClientToken',
         'create_time' => 'setCreateTime',
@@ -168,6 +172,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'additional_container_storage_enabled' => 'getAdditionalContainerStorageEnabled',
         'affinity_group_id' => 'getAffinityGroupId',
         'cluster_id' => 'getClusterId',
+        'container_storage_mount_point' => 'getContainerStorageMountPoint',
         'container_storage_path' => 'getContainerStoragePath',
         'create_client_token' => 'getCreateClientToken',
         'create_time' => 'getCreateTime',
@@ -268,6 +273,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         $this->container['additional_container_storage_enabled'] = isset($data['additional_container_storage_enabled']) ? $data['additional_container_storage_enabled'] : null;
         $this->container['affinity_group_id'] = isset($data['affinity_group_id']) ? $data['affinity_group_id'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['container_storage_mount_point'] = isset($data['container_storage_mount_point']) ? $data['container_storage_mount_point'] : null;
         $this->container['container_storage_path'] = isset($data['container_storage_path']) ? $data['container_storage_path'] : null;
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
@@ -380,6 +386,30 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets container_storage_mount_point
+     *
+     * @return string
+     */
+    public function getContainerStorageMountPoint()
+    {
+        return $this->container['container_storage_mount_point'];
+    }
+
+    /**
+     * Sets container_storage_mount_point
+     *
+     * @param string $container_storage_mount_point container_storage_mount_point
+     *
+     * @return $this
+     */
+    public function setContainerStorageMountPoint($container_storage_mount_point)
+    {
+        $this->container['container_storage_mount_point'] = $container_storage_mount_point;
 
         return $this;
     }

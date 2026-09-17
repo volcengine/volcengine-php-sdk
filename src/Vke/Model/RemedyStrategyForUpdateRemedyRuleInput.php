@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class RemedyStrategyForUpdateRemedyRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DrainForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'RemedyStrategyForUpdateRemedyRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'wait_for' => 'int'
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'wait_for' => 'int32'
+        'type' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'wait_for' => 'WaitFor'
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'wait_for' => 'setWaitFor'
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'wait_for' => 'getWaitFor'
+        'type' => 'getType'
     ];
 
     /**
@@ -148,7 +148,7 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['wait_for'] = isset($data['wait_for']) ? $data['wait_for'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class DrainForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets wait_for
+     * Gets type
      *
-     * @return int
+     * @return string
      */
-    public function getWaitFor()
+    public function getType()
     {
-        return $this->container['wait_for'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets wait_for
+     * Sets type
      *
-     * @param int $wait_for wait_for
+     * @param string $type type
      *
      * @return $this
      */
-    public function setWaitFor($wait_for)
+    public function setType($type)
     {
-        $this->container['wait_for'] = $wait_for;
+        $this->container['type'] = $type;
 
         return $this;
     }

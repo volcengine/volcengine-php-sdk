@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayAccess
+class FilterForListDiagnosticTaskResultsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemedyStrategyForListRemedyConfigsOutput';
+    protected static $swaggerModelName = 'FilterForListDiagnosticTaskResultsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'resource_ids' => 'string[]',
+        'resource_types' => 'string[]',
+        'results' => 'string[]',
+        'rule_names' => 'string[]'
     ];
 
     /**
@@ -37,7 +40,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'resource_ids' => null,
+        'resource_types' => null,
+        'results' => null,
+        'rule_names' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'resource_ids' => 'ResourceIds',
+        'resource_types' => 'ResourceTypes',
+        'results' => 'Results',
+        'rule_names' => 'Rule.Names'
     ];
 
     /**
@@ -76,7 +85,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'resource_ids' => 'setResourceIds',
+        'resource_types' => 'setResourceTypes',
+        'results' => 'setResults',
+        'rule_names' => 'setRuleNames'
     ];
 
     /**
@@ -85,7 +97,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'resource_ids' => 'getResourceIds',
+        'resource_types' => 'getResourceTypes',
+        'results' => 'getResults',
+        'rule_names' => 'getRuleNames'
     ];
 
     /**
@@ -148,7 +163,10 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
      */
     public function __construct($data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_types'] = isset($data['resource_types']) ? $data['resource_types'] : null;
+        $this->container['results'] = isset($data['results']) ? $data['results'] : null;
+        $this->container['rule_names'] = isset($data['rule_names']) ? $data['rule_names'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class RemedyStrategyForListRemedyConfigsOutput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets resource_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getResourceIds()
     {
-        return $this->container['type'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets type
+     * Sets resource_ids
      *
-     * @param string $type type
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setType($type)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['type'] = $type;
+        $this->container['resource_ids'] = $resource_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_types
+     *
+     * @return string[]
+     */
+    public function getResourceTypes()
+    {
+        return $this->container['resource_types'];
+    }
+
+    /**
+     * Sets resource_types
+     *
+     * @param string[] $resource_types resource_types
+     *
+     * @return $this
+     */
+    public function setResourceTypes($resource_types)
+    {
+        $this->container['resource_types'] = $resource_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets results
+     *
+     * @return string[]
+     */
+    public function getResults()
+    {
+        return $this->container['results'];
+    }
+
+    /**
+     * Sets results
+     *
+     * @param string[] $results results
+     *
+     * @return $this
+     */
+    public function setResults($results)
+    {
+        $this->container['results'] = $results;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_names
+     *
+     * @return string[]
+     */
+    public function getRuleNames()
+    {
+        return $this->container['rule_names'];
+    }
+
+    /**
+     * Sets rule_names
+     *
+     * @param string[] $rule_names rule_names
+     *
+     * @return $this
+     */
+    public function setRuleNames($rule_names)
+    {
+        $this->container['rule_names'] = $rule_names;
 
         return $this;
     }
