@@ -130,7 +130,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### AssumeRole
 
-动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。默认会重试临时 STS 失败：网络/传输错误、HTTP `429` 和 HTTP `5xx`。
+动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。默认会重试临时 STS 失败：网络/传输错误及 HTTP `429/500/502/503/504`。其他状态码（包括 `501/505/599`）不触发状态码重试。`setMaxRetries()` 指首次请求之后的额外重试次数，`0` 表示不重试。
 
 > ⚠️ **注意事项**
 >
@@ -323,9 +323,11 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 #### 运行时刷新行为（sso / console-login）
 
-`sso` 与 `console-login` 模式下，SDK 会在 access token 临近过期时刷新缓存。
-刷新后的 token 会写回 CLI 缓存文件，供后续 PHP 请求复用。如果登录态失效，
-异常信息会包含 `ve login` 或 `ve sso login`。
+`sso` 与 `console-login` 模式下，SDK 在满足对应 Provider 的过期判定条件时刷新 access token。
+
+- **共享磁盘缓存**：PHP SDK 与 `ve login` / `ve sso login` 共同写入缓存。SDK 先写临时文件，尝试设置 `0600` 权限，再通过支持原子替换的文件系统上的 `rename` 更新缓存。SSO 的编码、写入或 rename 失败会抛出异常；console-login 持久化为 best-effort，这些失败不会中止凭证获取。写入失败时不保证下一进程能复用本次刷新结果。
+- **SSO 轮换恢复**：收到 HTTP 400 `invalid_grant` 后只重读磁盘一次。恢复前提是磁盘 refresh token 非空且不同于失败请求使用的 token。满足后，复用磁盘上非空且未过期的 access token，否则再发起一次 OAuth 刷新请求。该恢复流程最多发出两次 OAuth 刷新请求。磁盘 refresh token 未变化或为空，或再次收到 `invalid_grant` 时，返回包含 `ve sso login` 的错误提示。
+- **Console-login 轮换恢复**：收到 HTTP 400 `invalid_grant` 后也只重读磁盘一次，要求磁盘 refresh token 非空且已变化；随后复用有效的缓存凭证，或再尝试一次刷新。
 
 ### ECS 角色凭证提供者
 

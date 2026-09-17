@@ -128,7 +128,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### AssumeRole
 
-AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response. Transient STS failures are retried by default: network/transport errors, HTTP `429`, and HTTP `5xx`.
+AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response. Transient STS failures are retried by default: network/transport errors and HTTP `429/500/502/503/504`. Other HTTP statuses, including `501/505/599`, do not trigger status-based retries. `setMaxRetries()` specifies extra attempts after the first request; `0` disables retries.
 
 > ⚠️ **Notes**
 >
@@ -311,10 +311,25 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 #### Runtime Refresh Behavior (sso / console-login)
 
-For `sso` and `console-login` modes, the SDK refreshes cached access tokens when
-they are close to expiry. Refreshed tokens are written back to the CLI cache file
-so later PHP requests can reuse them. If refresh fails because the login state is
-invalid, the exception message includes `ve login` or `ve sso login`.
+For `sso` and `console-login` modes, the SDK refreshes access tokens when the
+provider's expiry condition is met.
+
+- **Shared disk cache**: both the PHP SDK and `ve login` / `ve sso login` write
+  the cache. The SDK writes a temporary file, attempts to set permissions to
+  `0600`, then updates the cache using atomic `rename` on supported filesystems.
+  SSO reports encoding/write/rename failures as exceptions; console-login
+  persistence is best-effort and does not abort retrieval on these failures.
+  A failed write does not guarantee reuse by the next process.
+- **SSO rotation recovery**: on HTTP 400 `invalid_grant`, the provider reloads
+  the disk cache once. Recovery requires a nonempty disk refresh token that
+  differs from the token used by the failed call. It then reuses a nonempty,
+  unexpired disk access token or makes one further OAuth refresh request.
+  This recovery flow issues at most two OAuth refresh requests. An unchanged
+  or empty disk refresh token, or another `invalid_grant`, produces an error
+  asking the caller to run `ve sso login`.
+- **Console-login rotation recovery**: on HTTP 400 `invalid_grant`, the provider
+  also reloads the cache once and requires a different, nonempty refresh token.
+  It reuses valid cached credentials or attempts one further refresh.
 
 ### ECS Role Credential Provider
 

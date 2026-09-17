@@ -296,12 +296,17 @@ class StandardEndpointProvider extends EndpointProvider
 
     private function render($format, array $variables)
     {
-        $result = $format ?: self::DEFAULT_FORMAT;
-        foreach ($variables as $key => $value) {
-            $result = str_replace('{' . $key . '}', $value, $result);
-            $result = str_replace('${' . $key . '}', $value, $result);
-            $result = str_replace('{{.' . $key . '}}', $value, $result);
-        }
-        return $result;
+        $format = $format ?: self::DEFAULT_FORMAT;
+        // Match complete placeholders once; never re-parse substituted values.
+        $pattern = '/\{\{\.([^{}]+)\}\}|\$\{([^{}]+)\}|\{([^{}]+)\}/';
+        return preg_replace_callback($pattern, function ($matches) use ($variables, $format) {
+            $key = $matches[count($matches) - 1];
+            if (!array_key_exists($key, $variables)) {
+                throw new \InvalidArgumentException(
+                    'TemplateExecuteError: failed to execute template for format ' . $format . ', missing variable ' . $key
+                );
+            }
+            return $variables[$key];
+        }, $format);
     }
 }
