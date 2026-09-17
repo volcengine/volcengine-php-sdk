@@ -28,10 +28,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_create_repository_disabled' => 'bool',
         'client_token' => 'string',
         'name' => 'string',
         'project' => 'string',
-        'registry' => 'string'
+        'registry' => 'string',
+        'repository_default_access_level' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_create_repository_disabled' => null,
         'client_token' => null,
         'name' => null,
         'project' => null,
-        'registry' => null
+        'registry' => null,
+        'repository_default_access_level' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_create_repository_disabled' => 'AutoCreateRepositoryDisabled',
         'client_token' => 'ClientToken',
         'name' => 'Name',
         'project' => 'Project',
-        'registry' => 'Registry'
+        'registry' => 'Registry',
+        'repository_default_access_level' => 'RepositoryDefaultAccessLevel'
     ];
 
     /**
@@ -85,10 +91,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_create_repository_disabled' => 'setAutoCreateRepositoryDisabled',
         'client_token' => 'setClientToken',
         'name' => 'setName',
         'project' => 'setProject',
-        'registry' => 'setRegistry'
+        'registry' => 'setRegistry',
+        'repository_default_access_level' => 'setRepositoryDefaultAccessLevel'
     ];
 
     /**
@@ -97,10 +105,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_create_repository_disabled' => 'getAutoCreateRepositoryDisabled',
         'client_token' => 'getClientToken',
         'name' => 'getName',
         'project' => 'getProject',
-        'registry' => 'getRegistry'
+        'registry' => 'getRegistry',
+        'repository_default_access_level' => 'getRepositoryDefaultAccessLevel'
     ];
 
     /**
@@ -163,10 +173,12 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['auto_create_repository_disabled'] = isset($data['auto_create_repository_disabled']) ? $data['auto_create_repository_disabled'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
+        $this->container['repository_default_access_level'] = isset($data['repository_default_access_level']) ? $data['repository_default_access_level'] : null;
     }
 
     /**
@@ -198,6 +210,30 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_create_repository_disabled
+     *
+     * @return bool
+     */
+    public function getAutoCreateRepositoryDisabled()
+    {
+        return $this->container['auto_create_repository_disabled'];
+    }
+
+    /**
+     * Sets auto_create_repository_disabled
+     *
+     * @param bool $auto_create_repository_disabled auto_create_repository_disabled
+     *
+     * @return $this
+     */
+    public function setAutoCreateRepositoryDisabled($auto_create_repository_disabled)
+    {
+        $this->container['auto_create_repository_disabled'] = $auto_create_repository_disabled;
+
+        return $this;
+    }
 
     /**
      * Gets client_token
@@ -291,6 +327,30 @@ class CreateNamespaceRequest implements ModelInterface, ArrayAccess
     public function setRegistry($registry)
     {
         $this->container['registry'] = $registry;
+
+        return $this;
+    }
+
+    /**
+     * Gets repository_default_access_level
+     *
+     * @return string
+     */
+    public function getRepositoryDefaultAccessLevel()
+    {
+        return $this->container['repository_default_access_level'];
+    }
+
+    /**
+     * Sets repository_default_access_level
+     *
+     * @param string $repository_default_access_level repository_default_access_level
+     *
+     * @return $this
+     */
+    public function setRepositoryDefaultAccessLevel($repository_default_access_level)
+    {
+        $this->container['repository_default_access_level'] = $repository_default_access_level;
 
         return $this;
     }
