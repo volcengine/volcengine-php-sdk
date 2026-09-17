@@ -174,38 +174,8 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BUDGET_TYPE_COST_BUDGET = 'cost_budget';
-    const PERIOD_MONTH = 'month';
-    const PERIOD_QUARTER = 'quarter';
-    const PERIOD_YEAR = 'year';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBudgetTypeAllowableValues()
-    {
-        return [
-            self::BUDGET_TYPE_COST_BUDGET,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPeriodAllowableValues()
-    {
-        return [
-            self::PERIOD_MONTH,
-            self::PERIOD_QUARTER,
-            self::PERIOD_YEAR,
-        ];
-    }
     
 
     /**
@@ -243,22 +213,6 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBudgetTypeAllowableValues();
-        if (!is_null($this->container['budget_type']) && !in_array($this->container['budget_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'budget_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getPeriodAllowableValues();
-        if (!is_null($this->container['period']) && !in_array($this->container['period'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'period', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -438,15 +392,6 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
      */
     public function setBudgetType($budget_type)
     {
-        $allowedValues = $this->getBudgetTypeAllowableValues();
-        if (!is_null($budget_type) && !in_array($budget_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'budget_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['budget_type'] = $budget_type;
 
         return $this;
@@ -471,15 +416,6 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
      */
     public function setPeriod($period)
     {
-        $allowedValues = $this->getPeriodAllowableValues();
-        if (!is_null($period) && !in_array($period, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'period', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['period'] = $period;
 
         return $this;

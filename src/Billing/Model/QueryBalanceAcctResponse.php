@@ -33,6 +33,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         'available_balance' => 'string',
         'cash_balance' => 'string',
         'credit_limit' => 'string',
+        'currency' => 'string',
         'freeze_amount' => 'string'
     ];
 
@@ -47,6 +48,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         'available_balance' => null,
         'cash_balance' => null,
         'credit_limit' => null,
+        'currency' => null,
         'freeze_amount' => null
     ];
 
@@ -82,6 +84,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         'available_balance' => 'AvailableBalance',
         'cash_balance' => 'CashBalance',
         'credit_limit' => 'CreditLimit',
+        'currency' => 'Currency',
         'freeze_amount' => 'FreezeAmount'
     ];
 
@@ -96,6 +99,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         'available_balance' => 'setAvailableBalance',
         'cash_balance' => 'setCashBalance',
         'credit_limit' => 'setCreditLimit',
+        'currency' => 'setCurrency',
         'freeze_amount' => 'setFreezeAmount'
     ];
 
@@ -110,6 +114,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         'available_balance' => 'getAvailableBalance',
         'cash_balance' => 'getCashBalance',
         'credit_limit' => 'getCreditLimit',
+        'currency' => 'getCurrency',
         'freeze_amount' => 'getFreezeAmount'
     ];
 
@@ -178,6 +183,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
         $this->container['available_balance'] = isset($data['available_balance']) ? $data['available_balance'] : null;
         $this->container['cash_balance'] = isset($data['cash_balance']) ? $data['cash_balance'] : null;
         $this->container['credit_limit'] = isset($data['credit_limit']) ? $data['credit_limit'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['freeze_amount'] = isset($data['freeze_amount']) ? $data['freeze_amount'] : null;
     }
 
@@ -321,6 +327,30 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
     public function setCreditLimit($credit_limit)
     {
         $this->container['credit_limit'] = $credit_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
 
         return $this;
     }

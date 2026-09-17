@@ -299,25 +299,8 @@ class ListForListPackageUsageDetailsOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const PACKAGE_TYPE_PERIODIC = 'Periodic';
-    const PACKAGE_TYPE_DIMINISHING = 'Diminishing';
-    const PACKAGE_TYPE_HYBRID = 'Hybrid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPackageTypeAllowableValues()
-    {
-        return [
-            self::PACKAGE_TYPE_PERIODIC,
-            self::PACKAGE_TYPE_DIMINISHING,
-            self::PACKAGE_TYPE_HYBRID,
-        ];
-    }
     
 
     /**
@@ -380,14 +363,6 @@ class ListForListPackageUsageDetailsOutput implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getPackageTypeAllowableValues();
-        if (!is_null($this->container['package_type']) && !in_array($this->container['package_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'package_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -999,15 +974,6 @@ class ListForListPackageUsageDetailsOutput implements ModelInterface, ArrayAcces
      */
     public function setPackageType($package_type)
     {
-        $allowedValues = $this->getPackageTypeAllowableValues();
-        if (!is_null($package_type) && !in_array($package_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'package_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['package_type'] = $package_type;
 
         return $this;

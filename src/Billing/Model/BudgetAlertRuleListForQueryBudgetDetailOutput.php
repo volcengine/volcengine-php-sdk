@@ -144,36 +144,8 @@ class BudgetAlertRuleListForQueryBudgetDetailOutput implements ModelInterface, A
         return self::$swaggerModelName;
     }
 
-    const BUDGET_ALERT_ITEM_ACTUAL_AMOUNT = 'actual_amount';
-    const BUDGET_ALERT_THRESHOLD_TYPE_AMOUNT = 'amount';
-    const BUDGET_ALERT_THRESHOLD_TYPE_RATIO = 'ratio';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBudgetAlertItemAllowableValues()
-    {
-        return [
-            self::BUDGET_ALERT_ITEM_ACTUAL_AMOUNT,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBudgetAlertThresholdTypeAllowableValues()
-    {
-        return [
-            self::BUDGET_ALERT_THRESHOLD_TYPE_AMOUNT,
-            self::BUDGET_ALERT_THRESHOLD_TYPE_RATIO,
-        ];
-    }
     
 
     /**
@@ -205,22 +177,6 @@ class BudgetAlertRuleListForQueryBudgetDetailOutput implements ModelInterface, A
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBudgetAlertItemAllowableValues();
-        if (!is_null($this->container['budget_alert_item']) && !in_array($this->container['budget_alert_item'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'budget_alert_item', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getBudgetAlertThresholdTypeAllowableValues();
-        if (!is_null($this->container['budget_alert_threshold_type']) && !in_array($this->container['budget_alert_threshold_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'budget_alert_threshold_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -256,15 +212,6 @@ class BudgetAlertRuleListForQueryBudgetDetailOutput implements ModelInterface, A
      */
     public function setBudgetAlertItem($budget_alert_item)
     {
-        $allowedValues = $this->getBudgetAlertItemAllowableValues();
-        if (!is_null($budget_alert_item) && !in_array($budget_alert_item, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'budget_alert_item', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['budget_alert_item'] = $budget_alert_item;
 
         return $this;
@@ -337,15 +284,6 @@ class BudgetAlertRuleListForQueryBudgetDetailOutput implements ModelInterface, A
      */
     public function setBudgetAlertThresholdType($budget_alert_threshold_type)
     {
-        $allowedValues = $this->getBudgetAlertThresholdTypeAllowableValues();
-        if (!is_null($budget_alert_threshold_type) && !in_array($budget_alert_threshold_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'budget_alert_threshold_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['budget_alert_threshold_type'] = $budget_alert_threshold_type;
 
         return $this;
