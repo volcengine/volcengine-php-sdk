@@ -33,6 +33,9 @@ class StsHttpConfig
     /** @var string|array|null fallback proxy inherited from Configuration */
     private $proxyFallback;
 
+    /** @var bool whether Configuration supplied a non-null proxy value */
+    private $proxyFallbackSet = false;
+
     /** @var string|null custom CA bundle path (PEM) used to verify the STS server certificate */
     private $caFile;
 
@@ -66,6 +69,7 @@ class StsHttpConfig
     public function setProxyFallback($proxy)
     {
         $this->proxyFallback = $proxy;
+        $this->proxyFallbackSet = $proxy !== null;
         return $this;
     }
 
@@ -114,7 +118,7 @@ class StsHttpConfig
     public function isZero()
     {
         return !$this->hasValue($this->proxyUrl)
-            && !$this->hasValue($this->proxyFallback)
+            && !$this->proxyFallbackSet
             && !$this->hasValue($this->caFile)
             && !$this->insecureSkipVerify;
     }
@@ -145,32 +149,11 @@ class StsHttpConfig
         if ($this->hasValue($this->proxyUrl)) {
             $this->assertValidProxyUrl();
             $options['proxy'] = $this->proxyUrl;
-        } elseif ($this->hasValue($this->proxyFallback)) {
-            $options['proxy'] = $this->normalizeProxyFallback($this->proxyFallback);
+        } elseif ($this->proxyFallbackSet) {
+            $options['proxy'] = $this->proxyFallback;
         }
 
         return $options;
-    }
-
-    /**
-     * Prevent libcurl from consulting environment proxies for schemes omitted
-     * from an explicitly configured proxy map.
-     *
-     * @param string|array $proxy
-     * @return string|array
-     */
-    private function normalizeProxyFallback($proxy)
-    {
-        if (!is_array($proxy)) {
-            return $proxy;
-        }
-        if (!array_key_exists('http', $proxy)) {
-            $proxy['http'] = '';
-        }
-        if (!array_key_exists('https', $proxy)) {
-            $proxy['https'] = '';
-        }
-        return $proxy;
     }
 
     /**
@@ -192,9 +175,7 @@ class StsHttpConfig
     {
         $parts = parse_url($this->proxyUrl);
         if ($parts === false || empty($parts['scheme']) || empty($parts['host'])) {
-            throw new \InvalidArgumentException(
-                sprintf('invalid proxy url %s', var_export($this->proxyUrl, true))
-            );
+            throw new \InvalidArgumentException('invalid proxy url');
         }
     }
 

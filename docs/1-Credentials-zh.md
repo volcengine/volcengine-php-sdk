@@ -242,7 +242,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### SAML 凭证提供者
 
-`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证并缓存复用，在到期前自动刷新。过期时间按本地 `durationSeconds` 估算；建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
+`SamlCredentialProvider` 通过 SAML 2.0 IdP 返回的 SAML 断言调用 STS `AssumeRoleWithSAML` 接口换取临时凭证并缓存复用，在到期前自动刷新。过期时间优先使用 STS 返回的 `Expiration`；若响应中未携带该字段，则按本地 `durationSeconds` 估算。建议把 `durationSeconds` 设得略短，留出网络与时钟漂移余量。
 
 > ⚠️ **注意事项**
 >
@@ -288,6 +288,11 @@ fluent setter，用于控制 SDK 访问 STS 端点的方式。适用于客户端
 `setHttpProxy()` 和 `setHttpsProxy()` 也会用于 STS 凭证请求。优先级为：
 Provider 的 `setProxyUrl()` > `Configuration::setProxy()` > HTTP/HTTPS 分项代理 >
 标准代理环境变量。该回退只传播代理；Provider 的 TLS 设置与业务 API 的 TLS 设置保持独立。
+
+代理空值语义与业务 API 请求一致。Provider 的 `setProxyUrl()` 留空时不覆盖
+Configuration。Configuration 的有效代理为 `null` 时不设置 Guzzle `proxy` 选项，
+可继续使用环境变量；`''` 表示显式关闭代理。代理映射会原样传递：空映射或未包含当前
+请求协议的映射可回退到对应环境变量，而为该协议显式配置空值会关闭该协议的代理。
 
 | 方法 | 用途 | 默认值 |
 | --- | --- | --- |

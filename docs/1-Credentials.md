@@ -230,7 +230,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### SAML Credential Provider
 
-`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are cached and auto-refreshed before expiry. The expiry is estimated from the local `durationSeconds`; we recommend setting `durationSeconds` slightly shorter than your STS TTL to absorb network latency and clock skew.
+`SamlCredentialProvider` exchanges a SAML 2.0 assertion (returned by your IdP) for temporary STS credentials via `AssumeRoleWithSAML`. Credentials are cached and auto-refreshed before expiry. The expiry prefers the `Expiration` returned by STS; if the response does not include that field, it falls back to the local `durationSeconds` estimate. We recommend setting `durationSeconds` slightly shorter than your actual STS TTL to absorb network latency and clock skew.
 
 > ⚠️ **Notes**
 >
@@ -279,6 +279,14 @@ the STS credential request. The priority is: provider `setProxyUrl()` >
 `Configuration::setProxy()` > the HTTP/HTTPS proxy settings > standard proxy
 environment variables. This fallback applies to the proxy only; the provider TLS
 settings remain independent from the business API TLS settings.
+
+Proxy empty-value behavior matches business API requests. An empty provider
+`setProxyUrl()` value does not override Configuration. An effective Configuration
+proxy of `null` leaves Guzzle's `proxy` option unset, so environment variables may
+apply; `''` explicitly disables proxying. Proxy maps are passed through unchanged:
+an empty map or a map that omits the request scheme may fall back to the
+corresponding environment variable, while an explicit empty value for that scheme
+disables its proxy.
 
 | Setter | Purpose | Default |
 | --- | --- | --- |

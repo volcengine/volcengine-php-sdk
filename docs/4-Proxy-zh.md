@@ -42,6 +42,15 @@ RFC 3986 进行百分号编码。
 凭证。Provider 自身的 `setProxyUrl()` 优先；两者均未配置时，Guzzle/curl 使用
 标准 `HTTP_PROXY`、`HTTPS_PROXY` 和 `NO_PROXY` 环境变量。
 
+凭证请求与业务 API 请求采用相同的空值语义：
+
+- Provider 的 `setProxyUrl(null)` 或 `setProxyUrl('')` 不覆盖 Configuration。
+- Configuration 的有效代理为 `null` 时不设置 Guzzle `proxy` 选项，允许标准代理
+  环境变量生效。
+- `Configuration::setProxy('')` 表示显式关闭代理。
+- 代理映射原样传递。空映射或未包含当前请求协议的映射可使用该协议的环境代理；
+  为某个协议显式配置空值则关闭该协议的代理。
+
 该继承只作用于代理。STS 自定义 CA 或关闭证书校验仍需在 Provider 上分别调用
 `setCaFile()` 或 `setInsecureSkipVerify()`。
 
