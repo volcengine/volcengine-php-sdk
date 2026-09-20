@@ -44,7 +44,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'count' => 'string',
         'country_region' => 'string',
         'coupon_deduction_amount' => 'string',
-        'credit_carried_amount' => 'string',
         'currency' => 'string',
         'currency_settlement' => 'string',
         'deduction_count' => 'string',
@@ -73,7 +72,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
         'owner_user_name' => 'string',
-        'paid_amount' => 'string',
         'payable_amount' => 'string',
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
@@ -98,7 +96,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'reservation_instance' => 'string',
         'resource_id' => 'string',
         'round_amount' => 'string',
-        'saving_plan_deduction_discount_amount' => 'string',
+        'sales_channel' => 'string',
         'saving_plan_deduction_discount_total_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
         'saving_plan_original_amount' => 'string',
@@ -127,7 +125,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'tax_rate' => 'string',
         'trade_time' => 'string',
         'unit' => 'string',
-        'unpaid_amount' => 'string',
         'use_duration' => 'string',
         'use_duration_unit' => 'string',
         'zone' => 'string',
@@ -156,7 +153,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'count' => null,
         'country_region' => null,
         'coupon_deduction_amount' => null,
-        'credit_carried_amount' => null,
         'currency' => null,
         'currency_settlement' => null,
         'deduction_count' => null,
@@ -185,7 +181,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'owner_customer_name' => null,
         'owner_id' => null,
         'owner_user_name' => null,
-        'paid_amount' => null,
         'payable_amount' => null,
         'payer_customer_name' => null,
         'payer_id' => null,
@@ -210,7 +205,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'reservation_instance' => null,
         'resource_id' => null,
         'round_amount' => null,
-        'saving_plan_deduction_discount_amount' => null,
+        'sales_channel' => null,
         'saving_plan_deduction_discount_total_amount' => null,
         'saving_plan_deduction_sp_id' => null,
         'saving_plan_original_amount' => null,
@@ -239,7 +234,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'tax_rate' => null,
         'trade_time' => null,
         'unit' => null,
-        'unpaid_amount' => null,
         'use_duration' => null,
         'use_duration_unit' => null,
         'zone' => null,
@@ -289,7 +283,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'count' => 'Count',
         'country_region' => 'CountryRegion',
         'coupon_deduction_amount' => 'CouponDeductionAmount',
-        'credit_carried_amount' => 'CreditCarriedAmount',
         'currency' => 'Currency',
         'currency_settlement' => 'CurrencySettlement',
         'deduction_count' => 'DeductionCount',
@@ -318,7 +311,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
-        'paid_amount' => 'PaidAmount',
         'payable_amount' => 'PayableAmount',
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
@@ -343,7 +335,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'reservation_instance' => 'ReservationInstance',
         'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
-        'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
+        'sales_channel' => 'SalesChannel',
         'saving_plan_deduction_discount_total_amount' => 'SavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
@@ -372,7 +364,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'tax_rate' => 'TaxRate',
         'trade_time' => 'TradeTime',
         'unit' => 'Unit',
-        'unpaid_amount' => 'UnpaidAmount',
         'use_duration' => 'UseDuration',
         'use_duration_unit' => 'UseDurationUnit',
         'zone' => 'Zone',
@@ -401,7 +392,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'count' => 'setCount',
         'country_region' => 'setCountryRegion',
         'coupon_deduction_amount' => 'setCouponDeductionAmount',
-        'credit_carried_amount' => 'setCreditCarriedAmount',
         'currency' => 'setCurrency',
         'currency_settlement' => 'setCurrencySettlement',
         'deduction_count' => 'setDeductionCount',
@@ -430,7 +420,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
-        'paid_amount' => 'setPaidAmount',
         'payable_amount' => 'setPayableAmount',
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
@@ -455,7 +444,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'reservation_instance' => 'setReservationInstance',
         'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
-        'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
+        'sales_channel' => 'setSalesChannel',
         'saving_plan_deduction_discount_total_amount' => 'setSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
@@ -484,7 +473,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'tax_rate' => 'setTaxRate',
         'trade_time' => 'setTradeTime',
         'unit' => 'setUnit',
-        'unpaid_amount' => 'setUnpaidAmount',
         'use_duration' => 'setUseDuration',
         'use_duration_unit' => 'setUseDurationUnit',
         'zone' => 'setZone',
@@ -513,7 +501,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'count' => 'getCount',
         'country_region' => 'getCountryRegion',
         'coupon_deduction_amount' => 'getCouponDeductionAmount',
-        'credit_carried_amount' => 'getCreditCarriedAmount',
         'currency' => 'getCurrency',
         'currency_settlement' => 'getCurrencySettlement',
         'deduction_count' => 'getDeductionCount',
@@ -542,7 +529,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
-        'paid_amount' => 'getPaidAmount',
         'payable_amount' => 'getPayableAmount',
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
@@ -567,7 +553,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'reservation_instance' => 'getReservationInstance',
         'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
-        'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
+        'sales_channel' => 'getSalesChannel',
         'saving_plan_deduction_discount_total_amount' => 'getSavingPlanDeductionDiscountTotalAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
@@ -596,7 +582,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'tax_rate' => 'getTaxRate',
         'trade_time' => 'getTradeTime',
         'unit' => 'getUnit',
-        'unpaid_amount' => 'getUnpaidAmount',
         'use_duration' => 'getUseDuration',
         'use_duration_unit' => 'getUseDurationUnit',
         'zone' => 'getZone',
@@ -679,7 +664,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_deduction_amount'] = isset($data['coupon_deduction_amount']) ? $data['coupon_deduction_amount'] : null;
-        $this->container['credit_carried_amount'] = isset($data['credit_carried_amount']) ? $data['credit_carried_amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
@@ -708,7 +692,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
-        $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
@@ -733,7 +716,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
-        $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
+        $this->container['sales_channel'] = isset($data['sales_channel']) ? $data['sales_channel'] : null;
         $this->container['saving_plan_deduction_discount_total_amount'] = isset($data['saving_plan_deduction_discount_total_amount']) ? $data['saving_plan_deduction_discount_total_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
@@ -762,7 +745,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['trade_time'] = isset($data['trade_time']) ? $data['trade_time'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['unpaid_amount'] = isset($data['unpaid_amount']) ? $data['unpaid_amount'] : null;
         $this->container['use_duration'] = isset($data['use_duration']) ? $data['use_duration'] : null;
         $this->container['use_duration_unit'] = isset($data['use_duration_unit']) ? $data['use_duration_unit'] : null;
         $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
@@ -1173,30 +1155,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setCouponDeductionAmount($coupon_deduction_amount)
     {
         $this->container['coupon_deduction_amount'] = $coupon_deduction_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_carried_amount
-     *
-     * @return string
-     */
-    public function getCreditCarriedAmount()
-    {
-        return $this->container['credit_carried_amount'];
-    }
-
-    /**
-     * Sets credit_carried_amount
-     *
-     * @param string $credit_carried_amount credit_carried_amount
-     *
-     * @return $this
-     */
-    public function setCreditCarriedAmount($credit_carried_amount)
-    {
-        $this->container['credit_carried_amount'] = $credit_carried_amount;
 
         return $this;
     }
@@ -1874,30 +1832,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets paid_amount
-     *
-     * @return string
-     */
-    public function getPaidAmount()
-    {
-        return $this->container['paid_amount'];
-    }
-
-    /**
-     * Sets paid_amount
-     *
-     * @param string $paid_amount paid_amount
-     *
-     * @return $this
-     */
-    public function setPaidAmount($paid_amount)
-    {
-        $this->container['paid_amount'] = $paid_amount;
-
-        return $this;
-    }
-
-    /**
      * Gets payable_amount
      *
      * @return string
@@ -2474,25 +2408,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets saving_plan_deduction_discount_amount
+     * Gets sales_channel
      *
      * @return string
      */
-    public function getSavingPlanDeductionDiscountAmount()
+    public function getSalesChannel()
     {
-        return $this->container['saving_plan_deduction_discount_amount'];
+        return $this->container['sales_channel'];
     }
 
     /**
-     * Sets saving_plan_deduction_discount_amount
+     * Sets sales_channel
      *
-     * @param string $saving_plan_deduction_discount_amount saving_plan_deduction_discount_amount
+     * @param string $sales_channel sales_channel
      *
      * @return $this
      */
-    public function setSavingPlanDeductionDiscountAmount($saving_plan_deduction_discount_amount)
+    public function setSalesChannel($sales_channel)
     {
-        $this->container['saving_plan_deduction_discount_amount'] = $saving_plan_deduction_discount_amount;
+        $this->container['sales_channel'] = $sales_channel;
 
         return $this;
     }
@@ -3165,30 +3099,6 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setUnit($unit)
     {
         $this->container['unit'] = $unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets unpaid_amount
-     *
-     * @return string
-     */
-    public function getUnpaidAmount()
-    {
-        return $this->container['unpaid_amount'];
-    }
-
-    /**
-     * Sets unpaid_amount
-     *
-     * @param string $unpaid_amount unpaid_amount
-     *
-     * @return $this
-     */
-    public function setUnpaidAmount($unpaid_amount)
-    {
-        $this->container['unpaid_amount'] = $unpaid_amount;
 
         return $this;
     }

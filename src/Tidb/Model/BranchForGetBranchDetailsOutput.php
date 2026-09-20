@@ -28,7 +28,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'annotations' => 'string',
+        'annotations' => '\Volcengine\Tidb\Model\AnnotationForGetBranchDetailsOutput[]',
         'branch_id' => 'string',
         'cluster_id' => 'string',
         'create_time' => 'string',
@@ -40,6 +40,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'parent_display_name' => 'string',
         'parent_id' => 'string',
         'parent_timestamp' => 'string',
+        'project_name' => 'string',
         'state' => 'string',
         'update_time' => 'string',
         'usages' => '\Volcengine\Tidb\Model\UsagesForGetBranchDetailsOutput',
@@ -64,6 +65,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'parent_display_name' => null,
         'parent_id' => null,
         'parent_timestamp' => null,
+        'project_name' => null,
         'state' => null,
         'update_time' => null,
         'usages' => null,
@@ -109,6 +111,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'parent_display_name' => 'ParentDisplayName',
         'parent_id' => 'ParentId',
         'parent_timestamp' => 'ParentTimestamp',
+        'project_name' => 'ProjectName',
         'state' => 'State',
         'update_time' => 'UpdateTime',
         'usages' => 'Usages',
@@ -133,6 +136,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'parent_display_name' => 'setParentDisplayName',
         'parent_id' => 'setParentId',
         'parent_timestamp' => 'setParentTimestamp',
+        'project_name' => 'setProjectName',
         'state' => 'setState',
         'update_time' => 'setUpdateTime',
         'usages' => 'setUsages',
@@ -157,6 +161,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'parent_display_name' => 'getParentDisplayName',
         'parent_id' => 'getParentId',
         'parent_timestamp' => 'getParentTimestamp',
+        'project_name' => 'getProjectName',
         'state' => 'getState',
         'update_time' => 'getUpdateTime',
         'usages' => 'getUsages',
@@ -235,6 +240,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         $this->container['parent_display_name'] = isset($data['parent_display_name']) ? $data['parent_display_name'] : null;
         $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
         $this->container['parent_timestamp'] = isset($data['parent_timestamp']) ? $data['parent_timestamp'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['usages'] = isset($data['usages']) ? $data['usages'] : null;
@@ -268,7 +274,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets annotations
      *
-     * @return string
+     * @return \Volcengine\Tidb\Model\AnnotationForGetBranchDetailsOutput[]
      */
     public function getAnnotations()
     {
@@ -278,7 +284,7 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets annotations
      *
-     * @param string $annotations annotations
+     * @param \Volcengine\Tidb\Model\AnnotationForGetBranchDetailsOutput[] $annotations annotations
      *
      * @return $this
      */
@@ -549,6 +555,30 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     public function setParentTimestamp($parent_timestamp)
     {
         $this->container['parent_timestamp'] = $parent_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -35,6 +35,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'region_id' => 'string',
         'service_plan' => 'string',
+        'tags' => '\Volcengine\Tidb\Model\TagForCreateClusterInput[]',
         'vpc_id' => 'string',
         'zones' => '\Volcengine\Tidb\Model\ZoneForCreateClusterInput[]'
     ];
@@ -52,6 +53,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'region_id' => null,
         'service_plan' => null,
+        'tags' => null,
         'vpc_id' => null,
         'zones' => null
     ];
@@ -90,6 +92,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
         'service_plan' => 'ServicePlan',
+        'tags' => 'Tags',
         'vpc_id' => 'VpcId',
         'zones' => 'Zones'
     ];
@@ -107,6 +110,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
         'service_plan' => 'setServicePlan',
+        'tags' => 'setTags',
         'vpc_id' => 'setVpcId',
         'zones' => 'setZones'
     ];
@@ -124,6 +128,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
         'service_plan' => 'getServicePlan',
+        'tags' => 'getTags',
         'vpc_id' => 'getVpcId',
         'zones' => 'getZones'
     ];
@@ -231,6 +236,7 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zones'] = isset($data['zones']) ? $data['zones'] : null;
     }
@@ -460,6 +466,30 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['service_plan'] = $service_plan;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Tidb\Model\TagForCreateClusterInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Tidb\Model\TagForCreateClusterInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

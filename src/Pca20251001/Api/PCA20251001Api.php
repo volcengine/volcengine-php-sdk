@@ -68,6 +68,130 @@ class PCA20251001Api
         return $this->config;
     }
 
+    public function c2PASign($body = null)
+    {
+        list($response) = $this->c2PASignWithHttpInfo($body);
+        return $response;
+    }
+
+    public function c2PASignWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\C2PASignResponse';
+        $request = $this->c2PASignRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function c2PASignAsync($body = null)
+    {
+        return $this->c2PASignAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function c2PASignAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\C2PASignResponse';
+        $request = $this->c2PASignRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function c2PASignRequest($body)
+    {
+        $resourcePath = '/C2PASign/2025-10-01/pca/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function c2PAVerify($body = null)
+    {
+        list($response) = $this->c2PAVerifyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function c2PAVerifyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\C2PAVerifyResponse';
+        $request = $this->c2PAVerifyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function c2PAVerifyAsync($body = null)
+    {
+        return $this->c2PAVerifyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function c2PAVerifyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\C2PAVerifyResponse';
+        $request = $this->c2PAVerifyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function c2PAVerifyRequest($body)
+    {
+        $resourcePath = '/C2PAVerify/2025-10-01/pca/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createLeafInstance($body = null)
     {
         list($response) = $this->createLeafInstanceWithHttpInfo($body);
@@ -440,6 +564,68 @@ class PCA20251001Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeC2PAInstance($body = null)
+    {
+        list($response) = $this->describeC2PAInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeC2PAInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\DescribeC2PAInstanceResponse';
+        $request = $this->describeC2PAInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeC2PAInstanceAsync($body = null)
+    {
+        return $this->describeC2PAInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeC2PAInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\DescribeC2PAInstanceResponse';
+        $request = $this->describeC2PAInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeC2PAInstanceRequest($body)
+    {
+        $resourcePath = '/DescribeC2PAInstance/2025-10-01/pca/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function disableRootInstance($body = null)
     {
         list($response) = $this->disableRootInstanceWithHttpInfo($body);
@@ -750,6 +936,68 @@ class PCA20251001Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getC2PAInstance($body = null)
+    {
+        list($response) = $this->getC2PAInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getC2PAInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\GetC2PAInstanceResponse';
+        $request = $this->getC2PAInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getC2PAInstanceAsync($body = null)
+    {
+        return $this->getC2PAInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getC2PAInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\GetC2PAInstanceResponse';
+        $request = $this->getC2PAInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getC2PAInstanceRequest($body)
+    {
+        $resourcePath = '/GetC2PAInstance/2025-10-01/pca/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getLeafInstance($body = null)
     {
         list($response) = $this->getLeafInstanceWithHttpInfo($body);
@@ -976,6 +1224,68 @@ class PCA20251001Api
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listC2PAInstances($body = null)
+    {
+        list($response) = $this->listC2PAInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listC2PAInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\ListC2PAInstancesResponse';
+        $request = $this->listC2PAInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listC2PAInstancesAsync($body = null)
+    {
+        return $this->listC2PAInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listC2PAInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Pca20251001\Model\ListC2PAInstancesResponse';
+        $request = $this->listC2PAInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listC2PAInstancesRequest($body)
+    {
+        $resourcePath = '/ListC2PAInstances/2025-10-01/pca/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];

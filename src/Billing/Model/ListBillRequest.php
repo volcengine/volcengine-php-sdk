@@ -38,7 +38,8 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int[]',
         'pay_status' => 'string',
         'payer_id' => 'int[]',
-        'product' => 'string[]'
+        'product' => 'string[]',
+        'sales_channel' => 'string[]'
     ];
 
     /**
@@ -57,7 +58,8 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'int64',
         'pay_status' => null,
         'payer_id' => 'int64',
-        'product' => null
+        'product' => null,
+        'sales_channel' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'OwnerID',
         'pay_status' => 'PayStatus',
         'payer_id' => 'PayerID',
-        'product' => 'Product'
+        'product' => 'Product',
+        'sales_channel' => 'SalesChannel'
     ];
 
     /**
@@ -116,7 +119,8 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'setOwnerId',
         'pay_status' => 'setPayStatus',
         'payer_id' => 'setPayerId',
-        'product' => 'setProduct'
+        'product' => 'setProduct',
+        'sales_channel' => 'setSalesChannel'
     ];
 
     /**
@@ -135,7 +139,8 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         'owner_id' => 'getOwnerId',
         'pay_status' => 'getPayStatus',
         'payer_id' => 'getPayerId',
-        'product' => 'getProduct'
+        'product' => 'getProduct',
+        'sales_channel' => 'getSalesChannel'
     ];
 
     /**
@@ -209,6 +214,7 @@ class ListBillRequest implements ModelInterface, ArrayAccess
         $this->container['pay_status'] = isset($data['pay_status']) ? $data['pay_status'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['sales_channel'] = isset($data['sales_channel']) ? $data['sales_channel'] : null;
     }
 
     /**
@@ -501,6 +507,30 @@ class ListBillRequest implements ModelInterface, ArrayAccess
     public function setProduct($product)
     {
         $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets sales_channel
+     *
+     * @return string[]
+     */
+    public function getSalesChannel()
+    {
+        return $this->container['sales_channel'];
+    }
+
+    /**
+     * Sets sales_channel
+     *
+     * @param string[] $sales_channel sales_channel
+     *
+     * @return $this
+     */
+    public function setSalesChannel($sales_channel)
+    {
+        $this->container['sales_channel'] = $sales_channel;
 
         return $this;
     }

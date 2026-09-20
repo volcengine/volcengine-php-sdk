@@ -33,7 +33,12 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         'discount_amount' => 'string',
         'original_amount' => 'string',
         'paid_amount' => 'string',
-        'payable_amount' => 'string'
+        'payable_amount' => 'string',
+        'point_deduct_amount' => 'string',
+        'pre_tax_payable_amount' => 'string',
+        'settle_payable_amount' => 'string',
+        'settle_tax' => 'string',
+        'tax' => 'string'
     ];
 
     /**
@@ -47,7 +52,12 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         'discount_amount' => null,
         'original_amount' => null,
         'paid_amount' => null,
-        'payable_amount' => null
+        'payable_amount' => null,
+        'point_deduct_amount' => null,
+        'pre_tax_payable_amount' => null,
+        'settle_payable_amount' => null,
+        'settle_tax' => null,
+        'tax' => null
     ];
 
     /**
@@ -82,7 +92,12 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         'discount_amount' => 'DiscountAmount',
         'original_amount' => 'OriginalAmount',
         'paid_amount' => 'PaidAmount',
-        'payable_amount' => 'PayableAmount'
+        'payable_amount' => 'PayableAmount',
+        'point_deduct_amount' => 'PointDeductAmount',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_tax' => 'SettleTax',
+        'tax' => 'Tax'
     ];
 
     /**
@@ -96,7 +111,12 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         'discount_amount' => 'setDiscountAmount',
         'original_amount' => 'setOriginalAmount',
         'paid_amount' => 'setPaidAmount',
-        'payable_amount' => 'setPayableAmount'
+        'payable_amount' => 'setPayableAmount',
+        'point_deduct_amount' => 'setPointDeductAmount',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_tax' => 'setSettleTax',
+        'tax' => 'setTax'
     ];
 
     /**
@@ -110,7 +130,12 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         'discount_amount' => 'getDiscountAmount',
         'original_amount' => 'getOriginalAmount',
         'paid_amount' => 'getPaidAmount',
-        'payable_amount' => 'getPayableAmount'
+        'payable_amount' => 'getPayableAmount',
+        'point_deduct_amount' => 'getPointDeductAmount',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_tax' => 'getSettleTax',
+        'tax' => 'getTax'
     ];
 
     /**
@@ -179,6 +204,11 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
         $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
         $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_tax'] = isset($data['settle_tax']) ? $data['settle_tax'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
     }
 
     /**
@@ -345,6 +375,126 @@ class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAcces
     public function setPayableAmount($payable_amount)
     {
         $this->container['payable_amount'] = $payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax
+     *
+     * @return string
+     */
+    public function getSettleTax()
+    {
+        return $this->container['settle_tax'];
+    }
+
+    /**
+     * Sets settle_tax
+     *
+     * @param string $settle_tax settle_tax
+     *
+     * @return $this
+     */
+    public function setSettleTax($settle_tax)
+    {
+        $this->container['settle_tax'] = $settle_tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
 
         return $this;
     }

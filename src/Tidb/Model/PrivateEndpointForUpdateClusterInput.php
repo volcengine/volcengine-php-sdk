@@ -28,10 +28,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alicloud' => '\Volcengine\Tidb\Model\AlicloudForUpdateClusterInput',
-        'aws' => '\Volcengine\Tidb\Model\AwsForUpdateClusterInput',
+        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[]',
+        'disabled' => 'bool',
         'host' => 'string',
-        'port' => 'int'
+        'port' => 'int',
+        'security_group_count' => 'int',
+        'service_name' => 'string',
+        'vpc_endpoint_id' => 'string',
+        'vpc_endpoint_name' => 'string'
     ];
 
     /**
@@ -40,10 +44,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alicloud' => null,
-        'aws' => null,
+        'authorized_networks' => null,
+        'disabled' => null,
         'host' => null,
-        'port' => 'int32'
+        'port' => 'int32',
+        'security_group_count' => 'int32',
+        'service_name' => null,
+        'vpc_endpoint_id' => null,
+        'vpc_endpoint_name' => null
     ];
 
     /**
@@ -73,10 +81,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'alicloud' => 'Alicloud',
-        'aws' => 'Aws',
+        'authorized_networks' => 'AuthorizedNetworks',
+        'disabled' => 'Disabled',
         'host' => 'Host',
-        'port' => 'Port'
+        'port' => 'Port',
+        'security_group_count' => 'SecurityGroupCount',
+        'service_name' => 'ServiceName',
+        'vpc_endpoint_id' => 'VpcEndpointId',
+        'vpc_endpoint_name' => 'VpcEndpointName'
     ];
 
     /**
@@ -85,10 +97,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'alicloud' => 'setAlicloud',
-        'aws' => 'setAws',
+        'authorized_networks' => 'setAuthorizedNetworks',
+        'disabled' => 'setDisabled',
         'host' => 'setHost',
-        'port' => 'setPort'
+        'port' => 'setPort',
+        'security_group_count' => 'setSecurityGroupCount',
+        'service_name' => 'setServiceName',
+        'vpc_endpoint_id' => 'setVpcEndpointId',
+        'vpc_endpoint_name' => 'setVpcEndpointName'
     ];
 
     /**
@@ -97,10 +113,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'alicloud' => 'getAlicloud',
-        'aws' => 'getAws',
+        'authorized_networks' => 'getAuthorizedNetworks',
+        'disabled' => 'getDisabled',
         'host' => 'getHost',
-        'port' => 'getPort'
+        'port' => 'getPort',
+        'security_group_count' => 'getSecurityGroupCount',
+        'service_name' => 'getServiceName',
+        'vpc_endpoint_id' => 'getVpcEndpointId',
+        'vpc_endpoint_name' => 'getVpcEndpointName'
     ];
 
     /**
@@ -163,10 +183,14 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
-        $this->container['alicloud'] = isset($data['alicloud']) ? $data['alicloud'] : null;
-        $this->container['aws'] = isset($data['aws']) ? $data['aws'] : null;
+        $this->container['authorized_networks'] = isset($data['authorized_networks']) ? $data['authorized_networks'] : null;
+        $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
+        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
+        $this->container['vpc_endpoint_name'] = isset($data['vpc_endpoint_name']) ? $data['vpc_endpoint_name'] : null;
     }
 
     /**
@@ -194,49 +218,49 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets alicloud
+     * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AlicloudForUpdateClusterInput
+     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[]
      */
-    public function getAlicloud()
+    public function getAuthorizedNetworks()
     {
-        return $this->container['alicloud'];
+        return $this->container['authorized_networks'];
     }
 
     /**
-     * Sets alicloud
+     * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AlicloudForUpdateClusterInput $alicloud alicloud
+     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateClusterInput[] $authorized_networks authorized_networks
      *
      * @return $this
      */
-    public function setAlicloud($alicloud)
+    public function setAuthorizedNetworks($authorized_networks)
     {
-        $this->container['alicloud'] = $alicloud;
+        $this->container['authorized_networks'] = $authorized_networks;
 
         return $this;
     }
 
     /**
-     * Gets aws
+     * Gets disabled
      *
-     * @return \Volcengine\Tidb\Model\AwsForUpdateClusterInput
+     * @return bool
      */
-    public function getAws()
+    public function getDisabled()
     {
-        return $this->container['aws'];
+        return $this->container['disabled'];
     }
 
     /**
-     * Sets aws
+     * Sets disabled
      *
-     * @param \Volcengine\Tidb\Model\AwsForUpdateClusterInput $aws aws
+     * @param bool $disabled disabled
      *
      * @return $this
      */
-    public function setAws($aws)
+    public function setDisabled($disabled)
     {
-        $this->container['aws'] = $aws;
+        $this->container['disabled'] = $disabled;
 
         return $this;
     }
@@ -285,6 +309,102 @@ class PrivateEndpointForUpdateClusterInput implements ModelInterface, ArrayAcces
     public function setPort($port)
     {
         $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_count
+     *
+     * @return int
+     */
+    public function getSecurityGroupCount()
+    {
+        return $this->container['security_group_count'];
+    }
+
+    /**
+     * Sets security_group_count
+     *
+     * @param int $security_group_count security_group_count
+     *
+     * @return $this
+     */
+    public function setSecurityGroupCount($security_group_count)
+    {
+        $this->container['security_group_count'] = $security_group_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_name
+     *
+     * @return string
+     */
+    public function getServiceName()
+    {
+        return $this->container['service_name'];
+    }
+
+    /**
+     * Sets service_name
+     *
+     * @param string $service_name service_name
+     *
+     * @return $this
+     */
+    public function setServiceName($service_name)
+    {
+        $this->container['service_name'] = $service_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getVpcEndpointId()
+    {
+        return $this->container['vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets vpc_endpoint_id
+     *
+     * @param string $vpc_endpoint_id vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setVpcEndpointId($vpc_endpoint_id)
+    {
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_name
+     *
+     * @return string
+     */
+    public function getVpcEndpointName()
+    {
+        return $this->container['vpc_endpoint_name'];
+    }
+
+    /**
+     * Sets vpc_endpoint_name
+     *
+     * @param string $vpc_endpoint_name vpc_endpoint_name
+     *
+     * @return $this
+     */
+    public function setVpcEndpointName($vpc_endpoint_name)
+    {
+        $this->container['vpc_endpoint_name'] = $vpc_endpoint_name;
 
         return $this;
     }

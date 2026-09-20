@@ -35,10 +35,9 @@ class SignRequestInterceptor extends Interceptor
         $this->setHeader($request, 'X-Sdk-Request',
             'attempt=' . ($request->retryCount + 1) . '; max=' . $maxAttempts);
 
-        if (strpos($request->host, 'http') !== false) {
-            // 字符串包含"http"
-            $a = explode('://', $request->host);
-            $request->schema = $a[0];
+        if (preg_match('/^https?:\/\//i', (string) $request->host)) {
+            $a = explode('://', $request->host, 2);
+            $request->schema = strtolower($a[0]);
             $request->host = $a[1];
             $request->headers['Host'] = $request->host;
         }
@@ -63,6 +62,17 @@ class SignRequestInterceptor extends Interceptor
                 $request->presignedUrl = $pos !== false ? substr($signedPath, $pos + 1) : $signedPath;
             }
         } else {
+            // Generated API headers may come from a different configuration than the ApiClient.
+            foreach ($request->headers as $name => $value) {
+                if (strcasecmp($name, 'Host') !== 0) {
+                    continue;
+                }
+                $value = is_array($value) ? reset($value) : $value;
+                if (is_string($value) && preg_match('/^https?:\/\//i', $value) && !empty($request->host)) {
+                    $this->setHeader($request, 'Host', $request->host);
+                    break;
+                }
+            }
             if (!isset($request->headers['Host']) && !empty($request->host)) {
                 $request->headers['Host'] = $request->host;
             }

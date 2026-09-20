@@ -28,7 +28,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string'
+        'endpoint' => 'string',
+        'skip_ssl_verify' => 'bool',
+        'type' => 'string',
+        'username' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null
+        'endpoint' => null,
+        'skip_ssl_verify' => null,
+        'type' => null,
+        'username' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type'
+        'endpoint' => 'Endpoint',
+        'skip_ssl_verify' => 'SkipSSLVerify',
+        'type' => 'Type',
+        'username' => 'Username'
     ];
 
     /**
@@ -76,7 +85,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'endpoint' => 'setEndpoint',
+        'skip_ssl_verify' => 'setSkipSslVerify',
+        'type' => 'setType',
+        'username' => 'setUsername'
     ];
 
     /**
@@ -85,7 +97,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'endpoint' => 'getEndpoint',
+        'skip_ssl_verify' => 'getSkipSslVerify',
+        'type' => 'getType',
+        'username' => 'getUsername'
     ];
 
     /**
@@ -148,7 +163,10 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
+        $this->container['skip_ssl_verify'] = isset($data['skip_ssl_verify']) ? $data['skip_ssl_verify'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
 
     /**
@@ -176,6 +194,54 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->container['endpoint'];
+    }
+
+    /**
+     * Sets endpoint
+     *
+     * @param string $endpoint endpoint
+     *
+     * @return $this
+     */
+    public function setEndpoint($endpoint)
+    {
+        $this->container['endpoint'] = $endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_ssl_verify
+     *
+     * @return bool
+     */
+    public function getSkipSslVerify()
+    {
+        return $this->container['skip_ssl_verify'];
+    }
+
+    /**
+     * Sets skip_ssl_verify
+     *
+     * @param bool $skip_ssl_verify skip_ssl_verify
+     *
+     * @return $this
+     */
+    public function setSkipSslVerify($skip_ssl_verify)
+    {
+        $this->container['skip_ssl_verify'] = $skip_ssl_verify;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -195,6 +261,30 @@ class ProxyCacheForListRegistriesOutput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string $username username
+     *
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        $this->container['username'] = $username;
 
         return $this;
     }

@@ -31,10 +31,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'string',
         'configuration_code' => 'string',
         'coupon_amount' => 'string',
+        'currency_settlement' => 'string',
         'deduction_count' => 'string',
         'deduction_count_unit' => 'string',
         'discount_amount' => 'string',
         'end_time' => 'string',
+        'exchange_rate' => 'string',
         'instance_id' => 'string',
         'order_fail_refund_info' => '\Volcengine\Billing\Model\OrderFailRefundInfoForListOrderProductDetailsOutput',
         'original_amount' => 'string',
@@ -45,8 +47,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payment_method' => 'string',
         'period' => 'string',
         'pickup_voucher_id' => 'string',
+        'point_deduct_amount' => 'string',
+        'points' => 'string',
+        'pre_tax_payable_amount' => 'string',
         'product' => 'string',
+        'settle_payable_amount' => 'string',
+        'settle_tax' => 'string',
         'status' => 'string',
+        'tax' => 'string',
+        'tax_rate' => 'string',
         'times' => 'string'
     ];
 
@@ -59,10 +68,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => null,
         'configuration_code' => null,
         'coupon_amount' => null,
+        'currency_settlement' => null,
         'deduction_count' => null,
         'deduction_count_unit' => null,
         'discount_amount' => null,
         'end_time' => null,
+        'exchange_rate' => null,
         'instance_id' => null,
         'order_fail_refund_info' => null,
         'original_amount' => null,
@@ -73,8 +84,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payment_method' => null,
         'period' => null,
         'pickup_voucher_id' => null,
+        'point_deduct_amount' => null,
+        'points' => null,
+        'pre_tax_payable_amount' => null,
         'product' => null,
+        'settle_payable_amount' => null,
+        'settle_tax' => null,
         'status' => null,
+        'tax' => null,
+        'tax_rate' => null,
         'times' => null
     ];
 
@@ -108,10 +126,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'BeginTime',
         'configuration_code' => 'ConfigurationCode',
         'coupon_amount' => 'CouponAmount',
+        'currency_settlement' => 'CurrencySettlement',
         'deduction_count' => 'DeductionCount',
         'deduction_count_unit' => 'DeductionCountUnit',
         'discount_amount' => 'DiscountAmount',
         'end_time' => 'EndTime',
+        'exchange_rate' => 'ExchangeRate',
         'instance_id' => 'InstanceID',
         'order_fail_refund_info' => 'OrderFailRefundInfo',
         'original_amount' => 'OriginalAmount',
@@ -122,8 +142,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payment_method' => 'PaymentMethod',
         'period' => 'Period',
         'pickup_voucher_id' => 'PickupVoucherID',
+        'point_deduct_amount' => 'PointDeductAmount',
+        'points' => 'Points',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'product' => 'Product',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_tax' => 'SettleTax',
         'status' => 'Status',
+        'tax' => 'Tax',
+        'tax_rate' => 'TaxRate',
         'times' => 'Times'
     ];
 
@@ -136,10 +163,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'setBeginTime',
         'configuration_code' => 'setConfigurationCode',
         'coupon_amount' => 'setCouponAmount',
+        'currency_settlement' => 'setCurrencySettlement',
         'deduction_count' => 'setDeductionCount',
         'deduction_count_unit' => 'setDeductionCountUnit',
         'discount_amount' => 'setDiscountAmount',
         'end_time' => 'setEndTime',
+        'exchange_rate' => 'setExchangeRate',
         'instance_id' => 'setInstanceId',
         'order_fail_refund_info' => 'setOrderFailRefundInfo',
         'original_amount' => 'setOriginalAmount',
@@ -150,8 +179,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payment_method' => 'setPaymentMethod',
         'period' => 'setPeriod',
         'pickup_voucher_id' => 'setPickupVoucherId',
+        'point_deduct_amount' => 'setPointDeductAmount',
+        'points' => 'setPoints',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'product' => 'setProduct',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_tax' => 'setSettleTax',
         'status' => 'setStatus',
+        'tax' => 'setTax',
+        'tax_rate' => 'setTaxRate',
         'times' => 'setTimes'
     ];
 
@@ -164,10 +200,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'begin_time' => 'getBeginTime',
         'configuration_code' => 'getConfigurationCode',
         'coupon_amount' => 'getCouponAmount',
+        'currency_settlement' => 'getCurrencySettlement',
         'deduction_count' => 'getDeductionCount',
         'deduction_count_unit' => 'getDeductionCountUnit',
         'discount_amount' => 'getDiscountAmount',
         'end_time' => 'getEndTime',
+        'exchange_rate' => 'getExchangeRate',
         'instance_id' => 'getInstanceId',
         'order_fail_refund_info' => 'getOrderFailRefundInfo',
         'original_amount' => 'getOriginalAmount',
@@ -178,8 +216,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'payment_method' => 'getPaymentMethod',
         'period' => 'getPeriod',
         'pickup_voucher_id' => 'getPickupVoucherId',
+        'point_deduct_amount' => 'getPointDeductAmount',
+        'points' => 'getPoints',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'product' => 'getProduct',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_tax' => 'getSettleTax',
         'status' => 'getStatus',
+        'tax' => 'getTax',
+        'tax_rate' => 'getTaxRate',
         'times' => 'getTimes'
     ];
 
@@ -246,10 +291,12 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
         $this->container['deduction_count_unit'] = isset($data['deduction_count_unit']) ? $data['deduction_count_unit'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['order_fail_refund_info'] = isset($data['order_fail_refund_info']) ? $data['order_fail_refund_info'] : null;
         $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
@@ -260,8 +307,15 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['pickup_voucher_id'] = isset($data['pickup_voucher_id']) ? $data['pickup_voucher_id'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
+        $this->container['points'] = isset($data['points']) ? $data['points'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_tax'] = isset($data['settle_tax']) ? $data['settle_tax'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['times'] = isset($data['times']) ? $data['times'] : null;
     }
 
@@ -362,6 +416,30 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     }
 
     /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
+
+        return $this;
+    }
+
+    /**
      * Gets deduction_count
      *
      * @return string
@@ -453,6 +531,30 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets exchange_rate
+     *
+     * @return string
+     */
+    public function getExchangeRate()
+    {
+        return $this->container['exchange_rate'];
+    }
+
+    /**
+     * Sets exchange_rate
+     *
+     * @param string $exchange_rate exchange_rate
+     *
+     * @return $this
+     */
+    public function setExchangeRate($exchange_rate)
+    {
+        $this->container['exchange_rate'] = $exchange_rate;
 
         return $this;
     }
@@ -698,6 +800,78 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     }
 
     /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets points
+     *
+     * @return string
+     */
+    public function getPoints()
+    {
+        return $this->container['points'];
+    }
+
+    /**
+     * Sets points
+     *
+     * @param string $points points
+     *
+     * @return $this
+     */
+    public function setPoints($points)
+    {
+        $this->container['points'] = $points;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets product
      *
      * @return string
@@ -722,6 +896,54 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     }
 
     /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax
+     *
+     * @return string
+     */
+    public function getSettleTax()
+    {
+        return $this->container['settle_tax'];
+    }
+
+    /**
+     * Sets settle_tax
+     *
+     * @param string $settle_tax settle_tax
+     *
+     * @return $this
+     */
+    public function setSettleTax($settle_tax)
+    {
+        $this->container['settle_tax'] = $settle_tax;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -741,6 +963,54 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate
+     *
+     * @return string
+     */
+    public function getTaxRate()
+    {
+        return $this->container['tax_rate'];
+    }
+
+    /**
+     * Sets tax_rate
+     *
+     * @param string $tax_rate tax_rate
+     *
+     * @return $this
+     */
+    public function setTaxRate($tax_rate)
+    {
+        $this->container['tax_rate'] = $tax_rate;
 
         return $this;
     }

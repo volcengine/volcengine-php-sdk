@@ -28,7 +28,7 @@ class PublicEndpointForCreateBranchInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForCreateBranchInput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForCreateBranchInput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForCreateBranchInput implements ModelInterface, ArrayAccess
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForCreateBranchInput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForCreateBranchInput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForCreateBranchInput implements ModelInterface, ArrayAccess
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForCreateBranchInput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForCreateBranchInput[] $authorized_networks authorized_networks
      *
      * @return $this
      */

@@ -30,7 +30,8 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     protected static $swaggerTypes = [
         'display_name' => 'string',
         'security_group_count' => 'int',
-        'vpc_endpoint_id' => 'string'
+        'vpc_endpoint_id' => 'string',
+        'vpc_endpoint_name' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     protected static $swaggerFormats = [
         'display_name' => null,
         'security_group_count' => 'int32',
-        'vpc_endpoint_id' => null
+        'vpc_endpoint_id' => null,
+        'vpc_endpoint_name' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     protected static $attributeMap = [
         'display_name' => 'DisplayName',
         'security_group_count' => 'SecurityGroupCount',
-        'vpc_endpoint_id' => 'VpcEndpointId'
+        'vpc_endpoint_id' => 'VpcEndpointId',
+        'vpc_endpoint_name' => 'VpcEndpointName'
     ];
 
     /**
@@ -84,7 +87,8 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     protected static $setters = [
         'display_name' => 'setDisplayName',
         'security_group_count' => 'setSecurityGroupCount',
-        'vpc_endpoint_id' => 'setVpcEndpointId'
+        'vpc_endpoint_id' => 'setVpcEndpointId',
+        'vpc_endpoint_name' => 'setVpcEndpointName'
     ];
 
     /**
@@ -95,7 +99,8 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     protected static $getters = [
         'display_name' => 'getDisplayName',
         'security_group_count' => 'getSecurityGroupCount',
-        'vpc_endpoint_id' => 'getVpcEndpointId'
+        'vpc_endpoint_id' => 'getVpcEndpointId',
+        'vpc_endpoint_name' => 'getVpcEndpointName'
     ];
 
     /**
@@ -161,6 +166,7 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
         $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
+        $this->container['vpc_endpoint_name'] = isset($data['vpc_endpoint_name']) ? $data['vpc_endpoint_name'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput implements Mo
     public function setVpcEndpointId($vpc_endpoint_id)
     {
         $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_name
+     *
+     * @return string
+     */
+    public function getVpcEndpointName()
+    {
+        return $this->container['vpc_endpoint_name'];
+    }
+
+    /**
+     * Sets vpc_endpoint_name
+     *
+     * @param string $vpc_endpoint_name vpc_endpoint_name
+     *
+     * @return $this
+     */
+    public function setVpcEndpointName($vpc_endpoint_name)
+    {
+        $this->container['vpc_endpoint_name'] = $vpc_endpoint_name;
 
         return $this;
     }

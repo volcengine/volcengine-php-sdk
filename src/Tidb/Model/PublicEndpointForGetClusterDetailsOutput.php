@@ -28,7 +28,7 @@ class PublicEndpointForGetClusterDetailsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForGetClusterDetailsOutput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetClusterDetailsOutput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForGetClusterDetailsOutput implements ModelInterface, ArrayA
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForGetClusterDetailsOutput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetClusterDetailsOutput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForGetClusterDetailsOutput implements ModelInterface, ArrayA
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForGetClusterDetailsOutput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForGetClusterDetailsOutput[] $authorized_networks authorized_networks
      *
      * @return $this
      */

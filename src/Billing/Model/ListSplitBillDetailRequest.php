@@ -42,6 +42,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'payer_id' => 'int[]',
         'product' => 'string[]',
         'project' => 'string[]',
+        'sales_channel' => 'string[]',
         'split_dimension' => 'string',
         'split_item_id' => 'string',
         'tag_kv' => '\Volcengine\Billing\Model\TagKVForListSplitBillDetailInput[]',
@@ -68,6 +69,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'payer_id' => 'int64',
         'product' => null,
         'project' => null,
+        'sales_channel' => null,
         'split_dimension' => null,
         'split_item_id' => null,
         'tag_kv' => null,
@@ -115,6 +117,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'payer_id' => 'PayerID',
         'product' => 'Product',
         'project' => 'Project',
+        'sales_channel' => 'SalesChannel',
         'split_dimension' => 'SplitDimension',
         'split_item_id' => 'SplitItemID',
         'tag_kv' => 'TagKV',
@@ -141,6 +144,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'payer_id' => 'setPayerId',
         'product' => 'setProduct',
         'project' => 'setProject',
+        'sales_channel' => 'setSalesChannel',
         'split_dimension' => 'setSplitDimension',
         'split_item_id' => 'setSplitItemId',
         'tag_kv' => 'setTagKv',
@@ -167,6 +171,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'payer_id' => 'getPayerId',
         'product' => 'getProduct',
         'project' => 'getProject',
+        'sales_channel' => 'getSalesChannel',
         'split_dimension' => 'getSplitDimension',
         'split_item_id' => 'getSplitItemId',
         'tag_kv' => 'getTagKv',
@@ -247,6 +252,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['sales_channel'] = isset($data['sales_channel']) ? $data['sales_channel'] : null;
         $this->container['split_dimension'] = isset($data['split_dimension']) ? $data['split_dimension'] : null;
         $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
         $this->container['tag_kv'] = isset($data['tag_kv']) ? $data['tag_kv'] : null;
@@ -615,6 +621,30 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
     public function setProject($project)
     {
         $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets sales_channel
+     *
+     * @return string[]
+     */
+    public function getSalesChannel()
+    {
+        return $this->container['sales_channel'];
+    }
+
+    /**
+     * Sets sales_channel
+     *
+     * @param string[] $sales_channel sales_channel
+     *
+     * @return $this
+     */
+    public function setSalesChannel($sales_channel)
+    {
+        $this->container['sales_channel'] = $sales_channel;
 
         return $this;
     }

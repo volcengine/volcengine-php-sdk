@@ -378,6 +378,68 @@ class CLOUDMONITORApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createIntegrationCenterIntegrationConfig($body = null)
+    {
+        list($response) = $this->createIntegrationCenterIntegrationConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createIntegrationCenterIntegrationConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\CreateIntegrationCenterIntegrationConfigResponse';
+        $request = $this->createIntegrationCenterIntegrationConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createIntegrationCenterIntegrationConfigAsync($body = null)
+    {
+        return $this->createIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\CreateIntegrationCenterIntegrationConfigResponse';
+        $request = $this->createIntegrationCenterIntegrationConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createIntegrationCenterIntegrationConfigRequest($body)
+    {
+        $resourcePath = '/CreateIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createNotification($body = null)
     {
         list($response) = $this->createNotificationWithHttpInfo($body);
@@ -1060,6 +1122,68 @@ class CLOUDMONITORApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteIntegrationCenterIntegrationConfig($body = null)
+    {
+        list($response) = $this->deleteIntegrationCenterIntegrationConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteIntegrationCenterIntegrationConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\DeleteIntegrationCenterIntegrationConfigResponse';
+        $request = $this->deleteIntegrationCenterIntegrationConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteIntegrationCenterIntegrationConfigAsync($body = null)
+    {
+        return $this->deleteIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\DeleteIntegrationCenterIntegrationConfigResponse';
+        $request = $this->deleteIntegrationCenterIntegrationConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteIntegrationCenterIntegrationConfigRequest($body)
+    {
+        $resourcePath = '/DeleteIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteNotificationsByIds($body = null)
     {
         list($response) = $this->deleteNotificationsByIdsWithHttpInfo($body);
@@ -1652,6 +1776,68 @@ class CLOUDMONITORApi
     protected function enablePresetAlertTemplateRequest($body)
     {
         $resourcePath = '/EnablePresetAlertTemplate/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getIntegrationCenterIntegrationConfig($body = null)
+    {
+        list($response) = $this->getIntegrationCenterIntegrationConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getIntegrationCenterIntegrationConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\GetIntegrationCenterIntegrationConfigResponse';
+        $request = $this->getIntegrationCenterIntegrationConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getIntegrationCenterIntegrationConfigAsync($body = null)
+    {
+        return $this->getIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\GetIntegrationCenterIntegrationConfigResponse';
+        $request = $this->getIntegrationCenterIntegrationConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getIntegrationCenterIntegrationConfigRequest($body)
+    {
+        $resourcePath = '/GetIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2458,6 +2644,68 @@ class CLOUDMONITORApi
     protected function listEventsRequest($body)
     {
         $resourcePath = '/ListEvents/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listIntegrationCenterIntegrationConfigs($body = null)
+    {
+        list($response) = $this->listIntegrationCenterIntegrationConfigsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listIntegrationCenterIntegrationConfigsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\ListIntegrationCenterIntegrationConfigsResponse';
+        $request = $this->listIntegrationCenterIntegrationConfigsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listIntegrationCenterIntegrationConfigsAsync($body = null)
+    {
+        return $this->listIntegrationCenterIntegrationConfigsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listIntegrationCenterIntegrationConfigsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\ListIntegrationCenterIntegrationConfigsResponse';
+        $request = $this->listIntegrationCenterIntegrationConfigsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listIntegrationCenterIntegrationConfigsRequest($body)
+    {
+        $resourcePath = '/ListIntegrationCenterIntegrationConfigs/2018-01-01/cloudmonitor/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3416,6 +3664,68 @@ class CLOUDMONITORApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function performIntegrationCenterIntegrationConfig($body = null)
+    {
+        list($response) = $this->performIntegrationCenterIntegrationConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function performIntegrationCenterIntegrationConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\PerformIntegrationCenterIntegrationConfigResponse';
+        $request = $this->performIntegrationCenterIntegrationConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function performIntegrationCenterIntegrationConfigAsync($body = null)
+    {
+        return $this->performIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function performIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\PerformIntegrationCenterIntegrationConfigResponse';
+        $request = $this->performIntegrationCenterIntegrationConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function performIntegrationCenterIntegrationConfigRequest($body)
+    {
+        $resourcePath = '/PerformIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function performO11yAgentECSDeployTask($body = null)
     {
         list($response) = $this->performO11yAgentECSDeployTaskWithHttpInfo($body);
@@ -4008,6 +4318,68 @@ class CLOUDMONITORApi
     protected function updateEventRuleRequest($body)
     {
         $resourcePath = '/UpdateEventRule/2018-01-01/cloudmonitor/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateIntegrationCenterIntegrationConfig($body = null)
+    {
+        list($response) = $this->updateIntegrationCenterIntegrationConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateIntegrationCenterIntegrationConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\UpdateIntegrationCenterIntegrationConfigResponse';
+        $request = $this->updateIntegrationCenterIntegrationConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateIntegrationCenterIntegrationConfigAsync($body = null)
+    {
+        return $this->updateIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateIntegrationCenterIntegrationConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudmonitor\Model\UpdateIntegrationCenterIntegrationConfigResponse';
+        $request = $this->updateIntegrationCenterIntegrationConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateIntegrationCenterIntegrationConfigRequest($body)
+    {
+        $resourcePath = '/UpdateIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

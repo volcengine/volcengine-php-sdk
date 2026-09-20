@@ -32,7 +32,8 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'page_token' => 'string',
         'project_name' => 'string',
-        'skip' => 'int'
+        'skip' => 'int',
+        'tag_filters' => '\Volcengine\Tidb\Model\TagFilterForListClustersInput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int32',
         'page_token' => null,
         'project_name' => null,
-        'skip' => 'int32'
+        'skip' => 'int32',
+        'tag_filters' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'page_token' => 'PageToken',
         'project_name' => 'ProjectName',
-        'skip' => 'Skip'
+        'skip' => 'Skip',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'page_token' => 'setPageToken',
         'project_name' => 'setProjectName',
-        'skip' => 'setSkip'
+        'skip' => 'setSkip',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'page_token' => 'getPageToken',
         'project_name' => 'getProjectName',
-        'skip' => 'getSkip'
+        'skip' => 'getSkip',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         $this->container['page_token'] = isset($data['page_token']) ? $data['page_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['skip'] = isset($data['skip']) ? $data['skip'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
     public function setSkip($skip)
     {
         $this->container['skip'] = $skip;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Tidb\Model\TagFilterForListClustersInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Tidb\Model\TagFilterForListClustersInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

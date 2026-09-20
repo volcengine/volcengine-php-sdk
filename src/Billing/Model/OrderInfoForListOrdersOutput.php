@@ -32,7 +32,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'buyer_id' => 'int',
         'coupon_amount' => 'string',
         'create_time' => 'string',
+        'currency_settlement' => 'string',
         'discount_amount' => 'string',
+        'exchange_rate' => 'string',
         'order_fail_refund_info' => '\Volcengine\Billing\Model\OrderFailRefundInfoForListOrdersOutput',
         'order_id' => 'string',
         'order_type' => 'string',
@@ -41,10 +43,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'payable_amount' => 'string',
         'payer_customer_name' => 'string',
         'payer_id' => 'int',
+        'point_deduct_amount' => 'string',
+        'points' => 'string',
+        'pre_tax_payable_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'int',
+        'settle_payable_amount' => 'string',
+        'settle_tax' => 'string',
         'status' => 'string',
-        'subject_no' => 'string'
+        'subject_no' => 'string',
+        'tax' => 'string',
+        'tax_rate' => 'string'
     ];
 
     /**
@@ -57,7 +66,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'buyer_id' => 'int32',
         'coupon_amount' => null,
         'create_time' => null,
+        'currency_settlement' => null,
         'discount_amount' => null,
+        'exchange_rate' => null,
         'order_fail_refund_info' => null,
         'order_id' => null,
         'order_type' => null,
@@ -66,10 +77,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'payable_amount' => null,
         'payer_customer_name' => null,
         'payer_id' => 'int32',
+        'point_deduct_amount' => null,
+        'points' => null,
+        'pre_tax_payable_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => 'int32',
+        'settle_payable_amount' => null,
+        'settle_tax' => null,
         'status' => null,
-        'subject_no' => null
+        'subject_no' => null,
+        'tax' => null,
+        'tax_rate' => null
     ];
 
     /**
@@ -103,7 +121,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'buyer_id' => 'BuyerID',
         'coupon_amount' => 'CouponAmount',
         'create_time' => 'CreateTime',
+        'currency_settlement' => 'CurrencySettlement',
         'discount_amount' => 'DiscountAmount',
+        'exchange_rate' => 'ExchangeRate',
         'order_fail_refund_info' => 'OrderFailRefundInfo',
         'order_id' => 'OrderID',
         'order_type' => 'OrderType',
@@ -112,10 +132,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'payable_amount' => 'PayableAmount',
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
+        'point_deduct_amount' => 'PointDeductAmount',
+        'points' => 'Points',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_tax' => 'SettleTax',
         'status' => 'Status',
-        'subject_no' => 'SubjectNo'
+        'subject_no' => 'SubjectNo',
+        'tax' => 'Tax',
+        'tax_rate' => 'TaxRate'
     ];
 
     /**
@@ -128,7 +155,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'buyer_id' => 'setBuyerId',
         'coupon_amount' => 'setCouponAmount',
         'create_time' => 'setCreateTime',
+        'currency_settlement' => 'setCurrencySettlement',
         'discount_amount' => 'setDiscountAmount',
+        'exchange_rate' => 'setExchangeRate',
         'order_fail_refund_info' => 'setOrderFailRefundInfo',
         'order_id' => 'setOrderId',
         'order_type' => 'setOrderType',
@@ -137,10 +166,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'payable_amount' => 'setPayableAmount',
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
+        'point_deduct_amount' => 'setPointDeductAmount',
+        'points' => 'setPoints',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_tax' => 'setSettleTax',
         'status' => 'setStatus',
-        'subject_no' => 'setSubjectNo'
+        'subject_no' => 'setSubjectNo',
+        'tax' => 'setTax',
+        'tax_rate' => 'setTaxRate'
     ];
 
     /**
@@ -153,7 +189,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'buyer_id' => 'getBuyerId',
         'coupon_amount' => 'getCouponAmount',
         'create_time' => 'getCreateTime',
+        'currency_settlement' => 'getCurrencySettlement',
         'discount_amount' => 'getDiscountAmount',
+        'exchange_rate' => 'getExchangeRate',
         'order_fail_refund_info' => 'getOrderFailRefundInfo',
         'order_id' => 'getOrderId',
         'order_type' => 'getOrderType',
@@ -162,10 +200,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'payable_amount' => 'getPayableAmount',
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
+        'point_deduct_amount' => 'getPointDeductAmount',
+        'points' => 'getPoints',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_tax' => 'getSettleTax',
         'status' => 'getStatus',
-        'subject_no' => 'getSubjectNo'
+        'subject_no' => 'getSubjectNo',
+        'tax' => 'getTax',
+        'tax_rate' => 'getTaxRate'
     ];
 
     /**
@@ -232,7 +277,9 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         $this->container['buyer_id'] = isset($data['buyer_id']) ? $data['buyer_id'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['order_fail_refund_info'] = isset($data['order_fail_refund_info']) ? $data['order_fail_refund_info'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['order_type'] = isset($data['order_type']) ? $data['order_type'] : null;
@@ -241,10 +288,17 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
+        $this->container['point_deduct_amount'] = isset($data['point_deduct_amount']) ? $data['point_deduct_amount'] : null;
+        $this->container['points'] = isset($data['points']) ? $data['points'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_tax'] = isset($data['settle_tax']) ? $data['settle_tax'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subject_no'] = isset($data['subject_no']) ? $data['subject_no'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
     }
 
     /**
@@ -368,6 +422,30 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
+
+        return $this;
+    }
+
+    /**
      * Gets discount_amount
      *
      * @return string
@@ -387,6 +465,30 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     public function setDiscountAmount($discount_amount)
     {
         $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets exchange_rate
+     *
+     * @return string
+     */
+    public function getExchangeRate()
+    {
+        return $this->container['exchange_rate'];
+    }
+
+    /**
+     * Sets exchange_rate
+     *
+     * @param string $exchange_rate exchange_rate
+     *
+     * @return $this
+     */
+    public function setExchangeRate($exchange_rate)
+    {
+        $this->container['exchange_rate'] = $exchange_rate;
 
         return $this;
     }
@@ -584,6 +686,78 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets point_deduct_amount
+     *
+     * @return string
+     */
+    public function getPointDeductAmount()
+    {
+        return $this->container['point_deduct_amount'];
+    }
+
+    /**
+     * Sets point_deduct_amount
+     *
+     * @param string $point_deduct_amount point_deduct_amount
+     *
+     * @return $this
+     */
+    public function setPointDeductAmount($point_deduct_amount)
+    {
+        $this->container['point_deduct_amount'] = $point_deduct_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets points
+     *
+     * @return string
+     */
+    public function getPoints()
+    {
+        return $this->container['points'];
+    }
+
+    /**
+     * Sets points
+     *
+     * @param string $points points
+     *
+     * @return $this
+     */
+    public function setPoints($points)
+    {
+        $this->container['points'] = $points;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets seller_customer_name
      *
      * @return string
@@ -632,6 +806,54 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax
+     *
+     * @return string
+     */
+    public function getSettleTax()
+    {
+        return $this->container['settle_tax'];
+    }
+
+    /**
+     * Sets settle_tax
+     *
+     * @param string $settle_tax settle_tax
+     *
+     * @return $this
+     */
+    public function setSettleTax($settle_tax)
+    {
+        $this->container['settle_tax'] = $settle_tax;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -675,6 +897,54 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     public function setSubjectNo($subject_no)
     {
         $this->container['subject_no'] = $subject_no;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate
+     *
+     * @return string
+     */
+    public function getTaxRate()
+    {
+        return $this->container['tax_rate'];
+    }
+
+    /**
+     * Sets tax_rate
+     *
+     * @param string $tax_rate tax_rate
+     *
+     * @return $this
+     */
+    public function setTaxRate($tax_rate)
+    {
+        $this->container['tax_rate'] = $tax_rate;
 
         return $this;
     }

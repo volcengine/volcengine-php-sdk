@@ -28,7 +28,7 @@ class ExtensionsForCreateSubInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionsForCreateSubInstanceInput',
+        'custom_extensions' => '\Volcengine\Pca20251001\Model\CustomExtensionForCreateSubInstanceInput[]',
         'extended_key_usages' => '\Volcengine\Pca20251001\Model\ExtendedKeyUsagesForCreateSubInstanceInput',
         'key_usages' => '\Volcengine\Pca20251001\Model\KeyUsagesForCreateSubInstanceInput'
     ];
@@ -190,7 +190,7 @@ class ExtensionsForCreateSubInstanceInput implements ModelInterface, ArrayAccess
     /**
      * Gets custom_extensions
      *
-     * @return \Volcengine\Pca20251001\Model\CustomExtensionsForCreateSubInstanceInput
+     * @return \Volcengine\Pca20251001\Model\CustomExtensionForCreateSubInstanceInput[]
      */
     public function getCustomExtensions()
     {
@@ -200,7 +200,7 @@ class ExtensionsForCreateSubInstanceInput implements ModelInterface, ArrayAccess
     /**
      * Sets custom_extensions
      *
-     * @param \Volcengine\Pca20251001\Model\CustomExtensionsForCreateSubInstanceInput $custom_extensions custom_extensions
+     * @param \Volcengine\Pca20251001\Model\CustomExtensionForCreateSubInstanceInput[] $custom_extensions custom_extensions
      *
      * @return $this
      */

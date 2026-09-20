@@ -53,6 +53,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'public_access_config' => '\Volcengine\Vke\Model\PublicAccessConfigForCreateNodePoolInput',
         'public_access_enabled' => 'bool',
         'security' => '\Volcengine\Vke\Model\SecurityForCreateNodePoolInput',
+        'spot_price_limits' => '\Volcengine\Vke\Model\SpotPriceLimitForCreateNodePoolInput[]',
         'spot_strategy' => 'string',
         'subnet_ids' => 'string[]',
         'system_volume' => '\Volcengine\Vke\Model\SystemVolumeForCreateNodePoolInput',
@@ -90,6 +91,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'public_access_config' => null,
         'public_access_enabled' => null,
         'security' => null,
+        'spot_price_limits' => null,
         'spot_strategy' => null,
         'subnet_ids' => null,
         'system_volume' => null,
@@ -148,6 +150,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'public_access_config' => 'PublicAccessConfig',
         'public_access_enabled' => 'PublicAccessEnabled',
         'security' => 'Security',
+        'spot_price_limits' => 'SpotPriceLimits',
         'spot_strategy' => 'SpotStrategy',
         'subnet_ids' => 'SubnetIds',
         'system_volume' => 'SystemVolume',
@@ -185,6 +188,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'public_access_config' => 'setPublicAccessConfig',
         'public_access_enabled' => 'setPublicAccessEnabled',
         'security' => 'setSecurity',
+        'spot_price_limits' => 'setSpotPriceLimits',
         'spot_strategy' => 'setSpotStrategy',
         'subnet_ids' => 'setSubnetIds',
         'system_volume' => 'setSystemVolume',
@@ -222,6 +226,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         'public_access_config' => 'getPublicAccessConfig',
         'public_access_enabled' => 'getPublicAccessEnabled',
         'security' => 'getSecurity',
+        'spot_price_limits' => 'getSpotPriceLimits',
         'spot_strategy' => 'getSpotStrategy',
         'subnet_ids' => 'getSubnetIds',
         'system_volume' => 'getSystemVolume',
@@ -273,6 +278,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     const INSTANCE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
     const SPOT_STRATEGY_NO_SPOT = 'NoSpot';
     const SPOT_STRATEGY_SPOT_AS_PRICE_GO = 'SpotAsPriceGo';
+    const SPOT_STRATEGY_SPOT_WITH_PRICE_LIMIT = 'SpotWithPriceLimit';
     
 
     
@@ -299,6 +305,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return [
             self::SPOT_STRATEGY_NO_SPOT,
             self::SPOT_STRATEGY_SPOT_AS_PRICE_GO,
+            self::SPOT_STRATEGY_SPOT_WITH_PRICE_LIMIT,
         ];
     }
     
@@ -343,6 +350,7 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         $this->container['public_access_config'] = isset($data['public_access_config']) ? $data['public_access_config'] : null;
         $this->container['public_access_enabled'] = isset($data['public_access_enabled']) ? $data['public_access_enabled'] : null;
         $this->container['security'] = isset($data['security']) ? $data['security'] : null;
+        $this->container['spot_price_limits'] = isset($data['spot_price_limits']) ? $data['spot_price_limits'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['system_volume'] = isset($data['system_volume']) ? $data['system_volume'] : null;
@@ -994,6 +1002,30 @@ class NodeConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     public function setSecurity($security)
     {
         $this->container['security'] = $security;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_price_limits
+     *
+     * @return \Volcengine\Vke\Model\SpotPriceLimitForCreateNodePoolInput[]
+     */
+    public function getSpotPriceLimits()
+    {
+        return $this->container['spot_price_limits'];
+    }
+
+    /**
+     * Sets spot_price_limits
+     *
+     * @param \Volcengine\Vke\Model\SpotPriceLimitForCreateNodePoolInput[] $spot_price_limits spot_price_limits
+     *
+     * @return $this
+     */
+    public function setSpotPriceLimits($spot_price_limits)
+    {
+        $this->container['spot_price_limits'] = $spot_price_limits;
 
         return $this;
     }

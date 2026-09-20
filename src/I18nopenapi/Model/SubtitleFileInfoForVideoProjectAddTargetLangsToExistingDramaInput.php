@@ -28,9 +28,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'arrangement' => 'int',
+        'effect_type' => 'int',
         'file_name' => 'string',
         'file_type' => 'int',
         'file_url' => 'string',
+        'subtitle_id' => 'string',
         'subtitle_lang' => 'int'
     ];
 
@@ -40,9 +43,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'arrangement' => 'int32',
+        'effect_type' => 'int32',
         'file_name' => null,
         'file_type' => 'int32',
         'file_url' => null,
+        'subtitle_id' => null,
         'subtitle_lang' => 'int32'
     ];
 
@@ -73,9 +79,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $attributeMap = [
+        'arrangement' => 'arrangement',
+        'effect_type' => 'effectType',
         'file_name' => 'fileName',
         'file_type' => 'fileType',
         'file_url' => 'fileUrl',
+        'subtitle_id' => 'subtitleId',
         'subtitle_lang' => 'subtitleLang'
     ];
 
@@ -85,9 +94,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $setters = [
+        'arrangement' => 'setArrangement',
+        'effect_type' => 'setEffectType',
         'file_name' => 'setFileName',
         'file_type' => 'setFileType',
         'file_url' => 'setFileUrl',
+        'subtitle_id' => 'setSubtitleId',
         'subtitle_lang' => 'setSubtitleLang'
     ];
 
@@ -97,9 +109,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      * @var string[]
      */
     protected static $getters = [
+        'arrangement' => 'getArrangement',
+        'effect_type' => 'getEffectType',
         'file_name' => 'getFileName',
         'file_type' => 'getFileType',
         'file_url' => 'getFileUrl',
+        'subtitle_id' => 'getSubtitleId',
         'subtitle_lang' => 'getSubtitleLang'
     ];
 
@@ -163,9 +178,12 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
      */
     public function __construct($data = null)
     {
+        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
+        $this->container['effect_type'] = isset($data['effect_type']) ? $data['effect_type'] : null;
         $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
         $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
+        $this->container['subtitle_id'] = isset($data['subtitle_id']) ? $data['subtitle_id'] : null;
         $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
     }
 
@@ -192,6 +210,54 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets arrangement
+     *
+     * @return int
+     */
+    public function getArrangement()
+    {
+        return $this->container['arrangement'];
+    }
+
+    /**
+     * Sets arrangement
+     *
+     * @param int $arrangement arrangement
+     *
+     * @return $this
+     */
+    public function setArrangement($arrangement)
+    {
+        $this->container['arrangement'] = $arrangement;
+
+        return $this;
+    }
+
+    /**
+     * Gets effect_type
+     *
+     * @return int
+     */
+    public function getEffectType()
+    {
+        return $this->container['effect_type'];
+    }
+
+    /**
+     * Sets effect_type
+     *
+     * @param int $effect_type effect_type
+     *
+     * @return $this
+     */
+    public function setEffectType($effect_type)
+    {
+        $this->container['effect_type'] = $effect_type;
+
+        return $this;
+    }
 
     /**
      * Gets file_name
@@ -261,6 +327,30 @@ class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput implemen
     public function setFileUrl($file_url)
     {
         $this->container['file_url'] = $file_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_id
+     *
+     * @return string
+     */
+    public function getSubtitleId()
+    {
+        return $this->container['subtitle_id'];
+    }
+
+    /**
+     * Sets subtitle_id
+     *
+     * @param string $subtitle_id subtitle_id
+     *
+     * @return $this
+     */
+    public function setSubtitleId($subtitle_id)
+    {
+        $this->container['subtitle_id'] = $subtitle_id;
 
         return $this;
     }

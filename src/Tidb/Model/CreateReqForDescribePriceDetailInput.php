@@ -35,6 +35,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         'project_name' => 'string',
         'region_id' => 'string',
         'service_plan' => 'string',
+        'tags' => '\Volcengine\Tidb\Model\TagForDescribePriceDetailInput[]',
         'vpc_id' => 'string',
         'zones' => '\Volcengine\Tidb\Model\ZoneForDescribePriceDetailInput[]'
     ];
@@ -52,6 +53,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         'project_name' => null,
         'region_id' => null,
         'service_plan' => null,
+        'tags' => null,
         'vpc_id' => null,
         'zones' => null
     ];
@@ -90,6 +92,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
         'service_plan' => 'ServicePlan',
+        'tags' => 'Tags',
         'vpc_id' => 'VpcId',
         'zones' => 'Zones'
     ];
@@ -107,6 +110,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
         'service_plan' => 'setServicePlan',
+        'tags' => 'setTags',
         'vpc_id' => 'setVpcId',
         'zones' => 'setZones'
     ];
@@ -124,6 +128,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
         'service_plan' => 'getServicePlan',
+        'tags' => 'getTags',
         'vpc_id' => 'getVpcId',
         'zones' => 'getZones'
     ];
@@ -231,6 +236,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zones'] = isset($data['zones']) ? $data['zones'] : null;
     }
@@ -457,6 +463,30 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
             );
         }
         $this->container['service_plan'] = $service_plan;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Tidb\Model\TagForDescribePriceDetailInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Tidb\Model\TagForDescribePriceDetailInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

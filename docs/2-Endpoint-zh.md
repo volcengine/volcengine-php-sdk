@@ -12,6 +12,9 @@
 
 用户可以通过在初始化客户端时指定 Endpoint：
 
+`setHost()` 支持域名（可带端口）或 HTTP(S) 源站 URL。URL 显式协议优先于配置中的协议，允许尾部 `/`。
+源站 URL 中的用户信息、非根路径、查询参数和片段会抛出 `InvalidArgumentException`，资源路径和 API 参数应单独传入。
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -84,6 +87,56 @@ $config = Configuration::getDefaultConfiguration()
     ->setEndpointProvider(new StandardEndpointProvider()) // 配置标准寻址
     ->setRegion("cn-beijing")                             // 配置 RegionId
     ->setUseDualStack(true);                              // 配置是否双栈
+```
+
+##### 模板与自定义服务
+
+构造方法：`new StandardEndpointProvider($format = null, $siteStack = null, $extension = [], $customServices = [])`。
+
+| 参数 | 行为 |
+|---|---|
+| `$format` | 默认 `{Service}{Region}.{SiteStack}.com` |
+| `$siteStack` | 默认 `volcengineapi`；DualStack 关闭时保留自定义值，启用时覆盖为 `volcengine-api` |
+| `$extension` | 额外模板变量，非数组会被忽略；使用字符串值，以及不含 `{`、`}` 的非空字符串键 |
+| `$customServices` | 服务名到全局/区域级分类的映射数组，非数组会被忽略 |
+
+支持混用 `{Key}`、`${Key}`、`{{.Key}}` 三种占位符，后者只是 Go 风格的占位符语法，不提供完整的 Go 模板引擎。内置变量为：
+
+- `Service`：服务代码转小写，`_` 替换为 `-`。
+- `Region`：区域级服务为 `.<region>`，全局服务为空；包含前导点。
+- `SiteStack`：按上表规则选定的 stack。
+
+每个扩展键都是一级变量，例如 `{Tenant}`、`${Tenant}` 或 `{{.Tenant}}`。同名时内置变量优先；替换值按字面输出，不再递归替换。
+与 BytePlus 不同，本 Provider 没有内置 `CNSuffix`、`Extension` 变量。
+
+内置服务条目优先于 `$customServices`。自定义条目支持 `false`（区域级）、`true`（全局）、带 `isGlobal` 或 `IsGlobal` 的数组，以及带公开 `isGlobal` 或 `IsGlobal` 属性的对象。
+例如 `['mysvc' => false]`、`['mysvc' => ['isGlobal' => false]]`、`['mysvc' => (object) ['IsGlobal' => true]]`。
+
+非法参数抛出 `InvalidArgumentException`：service 或 region 非字符串/纯空白、区域格式不支持（消息包含 `InvalidRegion`）、服务未注册（`ServiceNotFound`）或自定义条目形态不支持。
+引用不存在的模板变量现在会立即报错，消息包含 `TemplateExecuteError`。
+本 Provider 不提供 `StandProviderError` 或符号错误码方法 `getStandCode()`。模板字面量和替换值不做完整域名合法性校验。
+
+DualStack 显式 `true`/`false` 优先，`null` 时读取 `VOLC_ENABLE_DUALSTACK`。`customBootstrapRegion` 不参与 Standard 寻址。
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use Volcengine\Common\Configuration;
+use Volcengine\Common\Endpoint\Providers\StandardEndpointProvider;
+
+$provider = new StandardEndpointProvider(
+    '${Service}{{.Region}}.{Tenant}.{SiteStack}.com',
+    null,
+    ['Tenant' => 'tenant-a'],
+    ['mysvc' => ['isGlobal' => false]]
+);
+$host = $provider->endpointFor('mysvc', 'cn-beijing', null, false)->host;
+// mysvc.cn-beijing.tenant-a.volcengineapi.com
+$config = (new Configuration())
+    ->setEndpointProvider($provider)
+    ->setRegion('cn-beijing')
+    ->setUseDualStack(false);
 ```
 
 ---

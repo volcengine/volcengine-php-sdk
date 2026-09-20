@@ -29,8 +29,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
       */
     protected static $swaggerTypes = [
         'display_name' => 'string',
-        'end_ip_address' => 'string',
-        'start_ip_address' => 'string'
+        'security_group_count' => 'int',
+        'vpc_endpoint_id' => 'string',
+        'vpc_endpoint_name' => 'string'
     ];
 
     /**
@@ -40,8 +41,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
       */
     protected static $swaggerFormats = [
         'display_name' => null,
-        'end_ip_address' => null,
-        'start_ip_address' => null
+        'security_group_count' => 'int32',
+        'vpc_endpoint_id' => null,
+        'vpc_endpoint_name' => null
     ];
 
     /**
@@ -72,8 +74,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
      */
     protected static $attributeMap = [
         'display_name' => 'DisplayName',
-        'end_ip_address' => 'EndIpAddress',
-        'start_ip_address' => 'StartIpAddress'
+        'security_group_count' => 'SecurityGroupCount',
+        'vpc_endpoint_id' => 'VpcEndpointId',
+        'vpc_endpoint_name' => 'VpcEndpointName'
     ];
 
     /**
@@ -83,8 +86,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
      */
     protected static $setters = [
         'display_name' => 'setDisplayName',
-        'end_ip_address' => 'setEndIpAddress',
-        'start_ip_address' => 'setStartIpAddress'
+        'security_group_count' => 'setSecurityGroupCount',
+        'vpc_endpoint_id' => 'setVpcEndpointId',
+        'vpc_endpoint_name' => 'setVpcEndpointName'
     ];
 
     /**
@@ -94,8 +98,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
      */
     protected static $getters = [
         'display_name' => 'getDisplayName',
-        'end_ip_address' => 'getEndIpAddress',
-        'start_ip_address' => 'getStartIpAddress'
+        'security_group_count' => 'getSecurityGroupCount',
+        'vpc_endpoint_id' => 'getVpcEndpointId',
+        'vpc_endpoint_name' => 'getVpcEndpointName'
     ];
 
     /**
@@ -159,8 +164,9 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
     public function __construct($data = null)
     {
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['end_ip_address'] = isset($data['end_ip_address']) ? $data['end_ip_address'] : null;
-        $this->container['start_ip_address'] = isset($data['start_ip_address']) ? $data['start_ip_address'] : null;
+        $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
+        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
+        $this->container['vpc_endpoint_name'] = isset($data['vpc_endpoint_name']) ? $data['vpc_endpoint_name'] : null;
     }
 
     /**
@@ -212,49 +218,73 @@ class AuthorizedNetworkForDeleteClusterOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets end_ip_address
+     * Gets security_group_count
      *
-     * @return string
+     * @return int
      */
-    public function getEndIpAddress()
+    public function getSecurityGroupCount()
     {
-        return $this->container['end_ip_address'];
+        return $this->container['security_group_count'];
     }
 
     /**
-     * Sets end_ip_address
+     * Sets security_group_count
      *
-     * @param string $end_ip_address end_ip_address
+     * @param int $security_group_count security_group_count
      *
      * @return $this
      */
-    public function setEndIpAddress($end_ip_address)
+    public function setSecurityGroupCount($security_group_count)
     {
-        $this->container['end_ip_address'] = $end_ip_address;
+        $this->container['security_group_count'] = $security_group_count;
 
         return $this;
     }
 
     /**
-     * Gets start_ip_address
+     * Gets vpc_endpoint_id
      *
      * @return string
      */
-    public function getStartIpAddress()
+    public function getVpcEndpointId()
     {
-        return $this->container['start_ip_address'];
+        return $this->container['vpc_endpoint_id'];
     }
 
     /**
-     * Sets start_ip_address
+     * Sets vpc_endpoint_id
      *
-     * @param string $start_ip_address start_ip_address
+     * @param string $vpc_endpoint_id vpc_endpoint_id
      *
      * @return $this
      */
-    public function setStartIpAddress($start_ip_address)
+    public function setVpcEndpointId($vpc_endpoint_id)
     {
-        $this->container['start_ip_address'] = $start_ip_address;
+        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_endpoint_name
+     *
+     * @return string
+     */
+    public function getVpcEndpointName()
+    {
+        return $this->container['vpc_endpoint_name'];
+    }
+
+    /**
+     * Sets vpc_endpoint_name
+     *
+     * @param string $vpc_endpoint_name vpc_endpoint_name
+     *
+     * @return $this
+     */
+    public function setVpcEndpointName($vpc_endpoint_name)
+    {
+        $this->container['vpc_endpoint_name'] = $vpc_endpoint_name;
 
         return $this;
     }

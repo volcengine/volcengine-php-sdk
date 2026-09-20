@@ -28,7 +28,7 @@ class PublicEndpointForDeleteClusterOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForDeleteClusterOutput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForDeleteClusterOutput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForDeleteClusterOutput implements ModelInterface, ArrayAcces
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForDeleteClusterOutput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForDeleteClusterOutput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForDeleteClusterOutput implements ModelInterface, ArrayAcces
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForDeleteClusterOutput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForDeleteClusterOutput[] $authorized_networks authorized_networks
      *
      * @return $this
      */

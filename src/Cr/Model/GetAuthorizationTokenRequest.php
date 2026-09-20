@@ -28,6 +28,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'expires_at' => 'int',
         'registry' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'expires_at' => 'int64',
         'registry' => null
     ];
 
@@ -67,6 +69,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'expires_at' => 'ExpiresAt',
         'registry' => 'Registry'
     ];
 
@@ -76,6 +79,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'expires_at' => 'setExpiresAt',
         'registry' => 'setRegistry'
     ];
 
@@ -85,6 +89,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'expires_at' => 'getExpiresAt',
         'registry' => 'getRegistry'
     ];
 
@@ -148,6 +153,7 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['expires_at'] = isset($data['expires_at']) ? $data['expires_at'] : null;
         $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
     }
 
@@ -177,6 +183,30 @@ class GetAuthorizationTokenRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets expires_at
+     *
+     * @return int
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int $expires_at expires_at
+     *
+     * @return $this
+     */
+    public function setExpiresAt($expires_at)
+    {
+        $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
 
     /**
      * Gets registry

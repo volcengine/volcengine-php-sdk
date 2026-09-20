@@ -30,6 +30,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     protected static $swaggerTypes = [
         'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput',
         'dub_task_ids' => 'string[]',
+        'effect_subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
         'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
         'task_ids' => 'string[]'
     ];
@@ -42,6 +43,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'base_resp' => null,
         'dub_task_ids' => null,
+        'effect_subtitle_file_check_reports' => null,
         'subtitle_file_check_reports' => null,
         'task_ids' => null
     ];
@@ -75,6 +77,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     protected static $attributeMap = [
         'base_resp' => 'BaseResp',
         'dub_task_ids' => 'DubTaskIDs',
+        'effect_subtitle_file_check_reports' => 'EffectSubtitleFileCheckReports',
         'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
         'task_ids' => 'TaskIDs'
     ];
@@ -87,6 +90,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     protected static $setters = [
         'base_resp' => 'setBaseResp',
         'dub_task_ids' => 'setDubTaskIds',
+        'effect_subtitle_file_check_reports' => 'setEffectSubtitleFileCheckReports',
         'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
         'task_ids' => 'setTaskIds'
     ];
@@ -99,6 +103,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     protected static $getters = [
         'base_resp' => 'getBaseResp',
         'dub_task_ids' => 'getDubTaskIds',
+        'effect_subtitle_file_check_reports' => 'getEffectSubtitleFileCheckReports',
         'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
         'task_ids' => 'getTaskIds'
     ];
@@ -165,6 +170,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     {
         $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
         $this->container['dub_task_ids'] = isset($data['dub_task_ids']) ? $data['dub_task_ids'] : null;
+        $this->container['effect_subtitle_file_check_reports'] = isset($data['effect_subtitle_file_check_reports']) ? $data['effect_subtitle_file_check_reports'] : null;
         $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
         $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
@@ -237,6 +243,30 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
     public function setDubTaskIds($dub_task_ids)
     {
         $this->container['dub_task_ids'] = $dub_task_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets effect_subtitle_file_check_reports
+     *
+     * @return \Volcengine\I18nopenapi\Model\EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]
+     */
+    public function getEffectSubtitleFileCheckReports()
+    {
+        return $this->container['effect_subtitle_file_check_reports'];
+    }
+
+    /**
+     * Sets effect_subtitle_file_check_reports
+     *
+     * @param \Volcengine\I18nopenapi\Model\EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[] $effect_subtitle_file_check_reports effect_subtitle_file_check_reports
+     *
+     * @return $this
+     */
+    public function setEffectSubtitleFileCheckReports($effect_subtitle_file_check_reports)
+    {
+        $this->container['effect_subtitle_file_check_reports'] = $effect_subtitle_file_check_reports;
 
         return $this;
     }

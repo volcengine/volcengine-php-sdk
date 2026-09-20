@@ -28,7 +28,7 @@ class PublicEndpointForUpdateBranchInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authorized_networks' => '\Volcengine\Tidb\Model\AuthorizedNetworkForUpdateBranchInput[]',
+        'authorized_networks' => '\Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateBranchInput[]',
         'disabled' => 'bool',
         'host' => 'string',
         'port' => 'int'
@@ -196,7 +196,7 @@ class PublicEndpointForUpdateBranchInput implements ModelInterface, ArrayAccess
     /**
      * Gets authorized_networks
      *
-     * @return \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateBranchInput[]
+     * @return \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateBranchInput[]
      */
     public function getAuthorizedNetworks()
     {
@@ -206,7 +206,7 @@ class PublicEndpointForUpdateBranchInput implements ModelInterface, ArrayAccess
     /**
      * Sets authorized_networks
      *
-     * @param \Volcengine\Tidb\Model\AuthorizedNetworkForUpdateBranchInput[] $authorized_networks authorized_networks
+     * @param \Volcengine\Tidb\Model\ConvertAuthorizedNetworkForUpdateBranchInput[] $authorized_networks authorized_networks
      *
      * @return $this
      */
