@@ -292,7 +292,9 @@ Provider 的 `setProxyUrl()` > `Configuration::setProxy()` > HTTP/HTTPS 分项�
 代理空值语义与业务 API 请求一致。Provider 的 `setProxyUrl()` 留空时不覆盖
 Configuration。Configuration 的有效代理为 `null` 时不设置 Guzzle `proxy` 选项，
 可继续使用环境变量；`''` 表示显式关闭代理。代理映射会原样传递：空映射或未包含当前
-请求协议的映射可回退到对应环境变量，而为该协议显式配置空值会关闭该协议的代理。
+请求协议的映射可回退到对应环境变量。协议值为空字符串 `''`（如 `['https' => '']`）
+时关闭该协议的代理；协议值为 `null`（如 `['https' => null]`）按未设置处理，
+可回退到该协议的环境代理。
 
 | 方法 | 用途 | 默认值 |
 | --- | --- | --- |

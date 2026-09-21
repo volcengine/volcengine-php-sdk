@@ -285,8 +285,10 @@ Proxy empty-value behavior matches business API requests. An empty provider
 proxy of `null` leaves Guzzle's `proxy` option unset, so environment variables may
 apply; `''` explicitly disables proxying. Proxy maps are passed through unchanged:
 an empty map or a map that omits the request scheme may fall back to the
-corresponding environment variable, while an explicit empty value for that scheme
-disables its proxy.
+corresponding environment variable. An empty string `''` for a scheme (for example,
+`['https' => '']`) disables its proxy. A `null` scheme value (for example,
+`['https' => null]`) is treated as unset and may fall back to that scheme's
+environment proxy.
 
 | Setter | Purpose | Default |
 | --- | --- | --- |

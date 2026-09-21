@@ -50,8 +50,10 @@ Empty values use the same semantics for credential and business API requests:
   allowing the standard proxy environment variables to apply.
 - `Configuration::setProxy('')` explicitly disables proxying.
 - Proxy maps are passed through unchanged. An empty map or a map without the
-  request scheme may use that scheme's environment proxy; an explicit empty
-  value for a scheme disables proxying for that scheme.
+  request scheme may use that scheme's environment proxy. An empty string `''`
+  for a scheme (for example, `['https' => '']`) disables proxying for that scheme.
+  A `null` scheme value (for example, `['https' => null]`) is treated as unset
+  and may fall back to that scheme's environment proxy.
 
 This inheritance applies only to the proxy. Configure a custom STS CA or disable
 STS certificate verification explicitly on the provider with `setCaFile()` or

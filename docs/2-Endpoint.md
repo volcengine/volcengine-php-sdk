@@ -12,6 +12,10 @@
 
 `setHost()` accepts a bare hostname (with an optional port) or an HTTP(S)
 origin URL. An explicit URL scheme takes priority over the configured scheme.
+Default ports are removed for the effective scheme (`443` for HTTPS, `80` for
+HTTP); non-default ports are preserved. This applies to both bare hostnames and
+origin URLs. Requests, signing `Host` headers and presigned URLs use the same
+normalized authority.
 A trailing `/` is accepted. User information, non-root paths, query strings and
 fragments in an origin URL are rejected with `InvalidArgumentException`;
 resource paths and API parameters are supplied separately.
