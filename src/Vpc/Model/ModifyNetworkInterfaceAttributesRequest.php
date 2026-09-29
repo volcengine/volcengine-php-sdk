@@ -33,7 +33,10 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         'network_interface_id' => 'string',
         'network_interface_name' => 'string',
         'port_security_enabled' => 'bool',
-        'security_group_ids' => 'string[]'
+        'security_group_ids' => 'string[]',
+        'tcp_closed_and_time_wait_timeout' => 'int',
+        'tcp_established_timeout' => 'int',
+        'udp_timeout' => 'int'
     ];
 
     /**
@@ -47,7 +50,10 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         'network_interface_id' => null,
         'network_interface_name' => null,
         'port_security_enabled' => null,
-        'security_group_ids' => null
+        'security_group_ids' => null,
+        'tcp_closed_and_time_wait_timeout' => null,
+        'tcp_established_timeout' => null,
+        'udp_timeout' => null
     ];
 
     /**
@@ -82,7 +88,10 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         'network_interface_id' => 'NetworkInterfaceId',
         'network_interface_name' => 'NetworkInterfaceName',
         'port_security_enabled' => 'PortSecurityEnabled',
-        'security_group_ids' => 'SecurityGroupIds'
+        'security_group_ids' => 'SecurityGroupIds',
+        'tcp_closed_and_time_wait_timeout' => 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'TcpEstablishedTimeout',
+        'udp_timeout' => 'UdpTimeout'
     ];
 
     /**
@@ -96,7 +105,10 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         'network_interface_id' => 'setNetworkInterfaceId',
         'network_interface_name' => 'setNetworkInterfaceName',
         'port_security_enabled' => 'setPortSecurityEnabled',
-        'security_group_ids' => 'setSecurityGroupIds'
+        'security_group_ids' => 'setSecurityGroupIds',
+        'tcp_closed_and_time_wait_timeout' => 'setTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'setTcpEstablishedTimeout',
+        'udp_timeout' => 'setUdpTimeout'
     ];
 
     /**
@@ -110,7 +122,10 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         'network_interface_id' => 'getNetworkInterfaceId',
         'network_interface_name' => 'getNetworkInterfaceName',
         'port_security_enabled' => 'getPortSecurityEnabled',
-        'security_group_ids' => 'getSecurityGroupIds'
+        'security_group_ids' => 'getSecurityGroupIds',
+        'tcp_closed_and_time_wait_timeout' => 'getTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'getTcpEstablishedTimeout',
+        'udp_timeout' => 'getUdpTimeout'
     ];
 
     /**
@@ -179,6 +194,9 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
         $this->container['port_security_enabled'] = isset($data['port_security_enabled']) ? $data['port_security_enabled'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
+        $this->container['tcp_closed_and_time_wait_timeout'] = isset($data['tcp_closed_and_time_wait_timeout']) ? $data['tcp_closed_and_time_wait_timeout'] : null;
+        $this->container['tcp_established_timeout'] = isset($data['tcp_established_timeout']) ? $data['tcp_established_timeout'] : null;
+        $this->container['udp_timeout'] = isset($data['udp_timeout']) ? $data['udp_timeout'] : null;
     }
 
     /**
@@ -348,6 +366,78 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
     public function setSecurityGroupIds($security_group_ids)
     {
         $this->container['security_group_ids'] = $security_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_closed_and_time_wait_timeout
+     *
+     * @return int
+     */
+    public function getTcpClosedAndTimeWaitTimeout()
+    {
+        return $this->container['tcp_closed_and_time_wait_timeout'];
+    }
+
+    /**
+     * Sets tcp_closed_and_time_wait_timeout
+     *
+     * @param int $tcp_closed_and_time_wait_timeout tcp_closed_and_time_wait_timeout
+     *
+     * @return $this
+     */
+    public function setTcpClosedAndTimeWaitTimeout($tcp_closed_and_time_wait_timeout)
+    {
+        $this->container['tcp_closed_and_time_wait_timeout'] = $tcp_closed_and_time_wait_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_established_timeout
+     *
+     * @return int
+     */
+    public function getTcpEstablishedTimeout()
+    {
+        return $this->container['tcp_established_timeout'];
+    }
+
+    /**
+     * Sets tcp_established_timeout
+     *
+     * @param int $tcp_established_timeout tcp_established_timeout
+     *
+     * @return $this
+     */
+    public function setTcpEstablishedTimeout($tcp_established_timeout)
+    {
+        $this->container['tcp_established_timeout'] = $tcp_established_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets udp_timeout
+     *
+     * @return int
+     */
+    public function getUdpTimeout()
+    {
+        return $this->container['udp_timeout'];
+    }
+
+    /**
+     * Sets udp_timeout
+     *
+     * @param int $udp_timeout udp_timeout
+     *
+     * @return $this
+     */
+    public function setUdpTimeout($udp_timeout)
+    {
+        $this->container['udp_timeout'] = $udp_timeout;
 
         return $this;
     }

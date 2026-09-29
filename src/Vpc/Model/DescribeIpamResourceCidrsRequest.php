@@ -34,6 +34,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         'next_token' => 'string',
         'resource_id' => 'string',
         'resource_name' => 'string',
+        'resource_region_id' => 'string',
         'resource_type' => 'string',
         'vpc_id' => 'string'
     ];
@@ -50,6 +51,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         'next_token' => null,
         'resource_id' => null,
         'resource_name' => null,
+        'resource_region_id' => null,
         'resource_type' => null,
         'vpc_id' => null
     ];
@@ -87,6 +89,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         'next_token' => 'NextToken',
         'resource_id' => 'ResourceId',
         'resource_name' => 'ResourceName',
+        'resource_region_id' => 'ResourceRegionId',
         'resource_type' => 'ResourceType',
         'vpc_id' => 'VpcId'
     ];
@@ -103,6 +106,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         'next_token' => 'setNextToken',
         'resource_id' => 'setResourceId',
         'resource_name' => 'setResourceName',
+        'resource_region_id' => 'setResourceRegionId',
         'resource_type' => 'setResourceType',
         'vpc_id' => 'setVpcId'
     ];
@@ -119,6 +123,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         'next_token' => 'getNextToken',
         'resource_id' => 'getResourceId',
         'resource_name' => 'getResourceName',
+        'resource_region_id' => 'getResourceRegionId',
         'resource_type' => 'getResourceType',
         'vpc_id' => 'getVpcId'
     ];
@@ -189,6 +194,7 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -363,6 +369,30 @@ class DescribeIpamResourceCidrsRequest implements ModelInterface, ArrayAccess
     public function setResourceName($resource_name)
     {
         $this->container['resource_name'] = $resource_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
 
         return $this;
     }

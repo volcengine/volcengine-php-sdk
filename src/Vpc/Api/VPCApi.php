@@ -1122,6 +1122,68 @@ class VPCApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function authorizeSecurityGroupEgressBatch($body = null)
+    {
+        list($response) = $this->authorizeSecurityGroupEgressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function authorizeSecurityGroupEgressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\AuthorizeSecurityGroupEgressBatchResponse';
+        $request = $this->authorizeSecurityGroupEgressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function authorizeSecurityGroupEgressBatchAsync($body = null)
+    {
+        return $this->authorizeSecurityGroupEgressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function authorizeSecurityGroupEgressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\AuthorizeSecurityGroupEgressBatchResponse';
+        $request = $this->authorizeSecurityGroupEgressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function authorizeSecurityGroupEgressBatchRequest($body)
+    {
+        $resourcePath = '/AuthorizeSecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function authorizeSecurityGroupIngress($body = null)
     {
         list($response) = $this->authorizeSecurityGroupIngressWithHttpInfo($body);
@@ -1156,6 +1218,68 @@ class VPCApi
     protected function authorizeSecurityGroupIngressRequest($body)
     {
         $resourcePath = '/AuthorizeSecurityGroupIngress/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function authorizeSecurityGroupIngressBatch($body = null)
+    {
+        list($response) = $this->authorizeSecurityGroupIngressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function authorizeSecurityGroupIngressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\AuthorizeSecurityGroupIngressBatchResponse';
+        $request = $this->authorizeSecurityGroupIngressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function authorizeSecurityGroupIngressBatchAsync($body = null)
+    {
+        return $this->authorizeSecurityGroupIngressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function authorizeSecurityGroupIngressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\AuthorizeSecurityGroupIngressBatchResponse';
+        $request = $this->authorizeSecurityGroupIngressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function authorizeSecurityGroupIngressBatchRequest($body)
+    {
+        $resourcePath = '/AuthorizeSecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -10112,6 +10236,130 @@ class VPCApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function modifySecurityGroupEgressBatch($body = null)
+    {
+        list($response) = $this->modifySecurityGroupEgressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifySecurityGroupEgressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifySecurityGroupEgressBatchResponse';
+        $request = $this->modifySecurityGroupEgressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifySecurityGroupEgressBatchAsync($body = null)
+    {
+        return $this->modifySecurityGroupEgressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifySecurityGroupEgressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifySecurityGroupEgressBatchResponse';
+        $request = $this->modifySecurityGroupEgressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifySecurityGroupEgressBatchRequest($body)
+    {
+        $resourcePath = '/ModifySecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifySecurityGroupIngressBatch($body = null)
+    {
+        list($response) = $this->modifySecurityGroupIngressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifySecurityGroupIngressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifySecurityGroupIngressBatchResponse';
+        $request = $this->modifySecurityGroupIngressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifySecurityGroupIngressBatchAsync($body = null)
+    {
+        return $this->modifySecurityGroupIngressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifySecurityGroupIngressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifySecurityGroupIngressBatchResponse';
+        $request = $this->modifySecurityGroupIngressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifySecurityGroupIngressBatchRequest($body)
+    {
+        $resourcePath = '/ModifySecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function modifySecurityGroupRuleDescriptionsEgress($body = null)
     {
         list($response) = $this->modifySecurityGroupRuleDescriptionsEgressWithHttpInfo($body);
@@ -10980,6 +11228,68 @@ class VPCApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function revokeSecurityGroupEgressBatch($body = null)
+    {
+        list($response) = $this->revokeSecurityGroupEgressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function revokeSecurityGroupEgressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\RevokeSecurityGroupEgressBatchResponse';
+        $request = $this->revokeSecurityGroupEgressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function revokeSecurityGroupEgressBatchAsync($body = null)
+    {
+        return $this->revokeSecurityGroupEgressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function revokeSecurityGroupEgressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\RevokeSecurityGroupEgressBatchResponse';
+        $request = $this->revokeSecurityGroupEgressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function revokeSecurityGroupEgressBatchRequest($body)
+    {
+        $resourcePath = '/RevokeSecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function revokeSecurityGroupIngress($body = null)
     {
         list($response) = $this->revokeSecurityGroupIngressWithHttpInfo($body);
@@ -11014,6 +11324,68 @@ class VPCApi
     protected function revokeSecurityGroupIngressRequest($body)
     {
         $resourcePath = '/RevokeSecurityGroupIngress/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function revokeSecurityGroupIngressBatch($body = null)
+    {
+        list($response) = $this->revokeSecurityGroupIngressBatchWithHttpInfo($body);
+        return $response;
+    }
+
+    public function revokeSecurityGroupIngressBatchWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\RevokeSecurityGroupIngressBatchResponse';
+        $request = $this->revokeSecurityGroupIngressBatchRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function revokeSecurityGroupIngressBatchAsync($body = null)
+    {
+        return $this->revokeSecurityGroupIngressBatchAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function revokeSecurityGroupIngressBatchAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\RevokeSecurityGroupIngressBatchResponse';
+        $request = $this->revokeSecurityGroupIngressBatchRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function revokeSecurityGroupIngressBatchRequest($body)
+    {
+        $resourcePath = '/RevokeSecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
