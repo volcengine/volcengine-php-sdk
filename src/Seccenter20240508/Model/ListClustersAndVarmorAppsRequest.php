@@ -29,7 +29,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'cluster_id' => 'string',
-        'cluster_ids' => 'string',
         'cluster_name' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
@@ -37,8 +36,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         'sort_by' => 'string',
         'sort_order' => 'string',
         'varmor_install_status' => 'string[]',
-        'varmor_installed' => 'string[]',
-        'varmor_status' => 'string[]',
         'varmor_version' => 'string',
         'varmor_version_status' => 'string[]'
     ];
@@ -50,7 +47,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'cluster_id' => null,
-        'cluster_ids' => null,
         'cluster_name' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
@@ -58,8 +54,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         'sort_by' => null,
         'sort_order' => null,
         'varmor_install_status' => null,
-        'varmor_installed' => null,
-        'varmor_status' => null,
         'varmor_version' => null,
         'varmor_version_status' => null
     ];
@@ -92,7 +86,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cluster_id' => 'ClusterID',
-        'cluster_ids' => 'ClusterIDs',
         'cluster_name' => 'ClusterName',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
@@ -100,8 +93,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
         'varmor_install_status' => 'VarmorInstallStatus',
-        'varmor_installed' => 'VarmorInstalled',
-        'varmor_status' => 'VarmorStatus',
         'varmor_version' => 'VarmorVersion',
         'varmor_version_status' => 'VarmorVersionStatus'
     ];
@@ -113,7 +104,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cluster_id' => 'setClusterId',
-        'cluster_ids' => 'setClusterIds',
         'cluster_name' => 'setClusterName',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
@@ -121,8 +111,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
         'varmor_install_status' => 'setVarmorInstallStatus',
-        'varmor_installed' => 'setVarmorInstalled',
-        'varmor_status' => 'setVarmorStatus',
         'varmor_version' => 'setVarmorVersion',
         'varmor_version_status' => 'setVarmorVersionStatus'
     ];
@@ -134,7 +122,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cluster_id' => 'getClusterId',
-        'cluster_ids' => 'getClusterIds',
         'cluster_name' => 'getClusterName',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
@@ -142,8 +129,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
         'varmor_install_status' => 'getVarmorInstallStatus',
-        'varmor_installed' => 'getVarmorInstalled',
-        'varmor_status' => 'getVarmorStatus',
         'varmor_version' => 'getVarmorVersion',
         'varmor_version_status' => 'getVarmorVersionStatus'
     ];
@@ -209,7 +194,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
         $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -217,8 +201,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['varmor_install_status'] = isset($data['varmor_install_status']) ? $data['varmor_install_status'] : null;
-        $this->container['varmor_installed'] = isset($data['varmor_installed']) ? $data['varmor_installed'] : null;
-        $this->container['varmor_status'] = isset($data['varmor_status']) ? $data['varmor_status'] : null;
         $this->container['varmor_version'] = isset($data['varmor_version']) ? $data['varmor_version'] : null;
         $this->container['varmor_version_status'] = isset($data['varmor_version_status']) ? $data['varmor_version_status'] : null;
     }
@@ -273,30 +255,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_ids
-     *
-     * @return string
-     */
-    public function getClusterIds()
-    {
-        return $this->container['cluster_ids'];
-    }
-
-    /**
-     * Sets cluster_ids
-     *
-     * @param string $cluster_ids cluster_ids
-     *
-     * @return $this
-     */
-    public function setClusterIds($cluster_ids)
-    {
-        $this->container['cluster_ids'] = $cluster_ids;
 
         return $this;
     }
@@ -465,54 +423,6 @@ class ListClustersAndVarmorAppsRequest implements ModelInterface, ArrayAccess
     public function setVarmorInstallStatus($varmor_install_status)
     {
         $this->container['varmor_install_status'] = $varmor_install_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets varmor_installed
-     *
-     * @return string[]
-     */
-    public function getVarmorInstalled()
-    {
-        return $this->container['varmor_installed'];
-    }
-
-    /**
-     * Sets varmor_installed
-     *
-     * @param string[] $varmor_installed varmor_installed
-     *
-     * @return $this
-     */
-    public function setVarmorInstalled($varmor_installed)
-    {
-        $this->container['varmor_installed'] = $varmor_installed;
-
-        return $this;
-    }
-
-    /**
-     * Gets varmor_status
-     *
-     * @return string[]
-     */
-    public function getVarmorStatus()
-    {
-        return $this->container['varmor_status'];
-    }
-
-    /**
-     * Sets varmor_status
-     *
-     * @param string[] $varmor_status varmor_status
-     *
-     * @return $this
-     */
-    public function setVarmorStatus($varmor_status)
-    {
-        $this->container['varmor_status'] = $varmor_status;
 
         return $this;
     }
