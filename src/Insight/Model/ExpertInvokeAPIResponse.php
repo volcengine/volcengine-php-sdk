@@ -29,6 +29,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'asr' => 'string',
+        'concerned_departments' => 'string[]',
         'content' => 'string',
         'domain_level' => 'int',
         'fans_cnt' => 'int',
@@ -52,6 +53,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'asr' => null,
+        'concerned_departments' => null,
         'content' => null,
         'domain_level' => 'int32',
         'fans_cnt' => 'int64',
@@ -96,6 +98,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'asr' => 'Asr',
+        'concerned_departments' => 'ConcernedDepartments',
         'content' => 'Content',
         'domain_level' => 'DomainLevel',
         'fans_cnt' => 'FansCnt',
@@ -119,6 +122,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'asr' => 'setAsr',
+        'concerned_departments' => 'setConcernedDepartments',
         'content' => 'setContent',
         'domain_level' => 'setDomainLevel',
         'fans_cnt' => 'setFansCnt',
@@ -142,6 +146,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'asr' => 'getAsr',
+        'concerned_departments' => 'getConcernedDepartments',
         'content' => 'getContent',
         'domain_level' => 'getDomainLevel',
         'fans_cnt' => 'getFansCnt',
@@ -219,6 +224,7 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
+        $this->container['concerned_departments'] = isset($data['concerned_departments']) ? $data['concerned_departments'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['domain_level'] = isset($data['domain_level']) ? $data['domain_level'] : null;
         $this->container['fans_cnt'] = isset($data['fans_cnt']) ? $data['fans_cnt'] : null;
@@ -279,6 +285,30 @@ class ExpertInvokeAPIResponse implements ModelInterface, ArrayAccess
     public function setAsr($asr)
     {
         $this->container['asr'] = $asr;
+
+        return $this;
+    }
+
+    /**
+     * Gets concerned_departments
+     *
+     * @return string[]
+     */
+    public function getConcernedDepartments()
+    {
+        return $this->container['concerned_departments'];
+    }
+
+    /**
+     * Sets concerned_departments
+     *
+     * @param string[] $concerned_departments concerned_departments
+     *
+     * @return $this
+     */
+    public function setConcernedDepartments($concerned_departments)
+    {
+        $this->container['concerned_departments'] = $concerned_departments;
 
         return $this;
     }
