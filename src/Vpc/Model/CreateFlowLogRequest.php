@@ -33,6 +33,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'enable_index' => 'bool',
         'flow_log_name' => 'string',
+        'flow_log_version' => 'int',
         'log_project_name' => 'string',
         'log_topic_name' => 'string',
         'project_name' => 'string',
@@ -54,6 +55,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'enable_index' => null,
         'flow_log_name' => null,
+        'flow_log_version' => null,
         'log_project_name' => null,
         'log_topic_name' => null,
         'project_name' => null,
@@ -96,6 +98,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'enable_index' => 'EnableIndex',
         'flow_log_name' => 'FlowLogName',
+        'flow_log_version' => 'FlowLogVersion',
         'log_project_name' => 'LogProjectName',
         'log_topic_name' => 'LogTopicName',
         'project_name' => 'ProjectName',
@@ -117,6 +120,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'enable_index' => 'setEnableIndex',
         'flow_log_name' => 'setFlowLogName',
+        'flow_log_version' => 'setFlowLogVersion',
         'log_project_name' => 'setLogProjectName',
         'log_topic_name' => 'setLogTopicName',
         'project_name' => 'setProjectName',
@@ -138,6 +142,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'enable_index' => 'getEnableIndex',
         'flow_log_name' => 'getFlowLogName',
+        'flow_log_version' => 'getFlowLogVersion',
         'log_project_name' => 'getLogProjectName',
         'log_topic_name' => 'getLogTopicName',
         'project_name' => 'getProjectName',
@@ -213,6 +218,7 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_index'] = isset($data['enable_index']) ? $data['enable_index'] : null;
         $this->container['flow_log_name'] = isset($data['flow_log_name']) ? $data['flow_log_name'] : null;
+        $this->container['flow_log_version'] = isset($data['flow_log_version']) ? $data['flow_log_version'] : null;
         $this->container['log_project_name'] = isset($data['log_project_name']) ? $data['log_project_name'] : null;
         $this->container['log_topic_name'] = isset($data['log_topic_name']) ? $data['log_topic_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -384,6 +390,30 @@ class CreateFlowLogRequest implements ModelInterface, ArrayAccess
     public function setFlowLogName($flow_log_name)
     {
         $this->container['flow_log_name'] = $flow_log_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets flow_log_version
+     *
+     * @return int
+     */
+    public function getFlowLogVersion()
+    {
+        return $this->container['flow_log_version'];
+    }
+
+    /**
+     * Sets flow_log_version
+     *
+     * @param int $flow_log_version flow_log_version
+     *
+     * @return $this
+     */
+    public function setFlowLogVersion($flow_log_version)
+    {
+        $this->container['flow_log_version'] = $flow_log_version;
 
         return $this;
     }

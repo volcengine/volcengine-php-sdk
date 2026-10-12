@@ -39,6 +39,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'prefix_list_id' => 'string',
         'priority' => 'int',
         'protocol' => 'string',
+        'security_group_rule_id' => 'string',
         'source_group_id' => 'string',
         'update_time' => 'string'
     ];
@@ -60,6 +61,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'prefix_list_id' => null,
         'priority' => null,
         'protocol' => null,
+        'security_group_rule_id' => null,
         'source_group_id' => null,
         'update_time' => null
     ];
@@ -102,6 +104,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'prefix_list_id' => 'PrefixListId',
         'priority' => 'Priority',
         'protocol' => 'Protocol',
+        'security_group_rule_id' => 'SecurityGroupRuleId',
         'source_group_id' => 'SourceGroupId',
         'update_time' => 'UpdateTime'
     ];
@@ -123,6 +126,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'prefix_list_id' => 'setPrefixListId',
         'priority' => 'setPriority',
         'protocol' => 'setProtocol',
+        'security_group_rule_id' => 'setSecurityGroupRuleId',
         'source_group_id' => 'setSourceGroupId',
         'update_time' => 'setUpdateTime'
     ];
@@ -144,6 +148,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'prefix_list_id' => 'getPrefixListId',
         'priority' => 'getPriority',
         'protocol' => 'getProtocol',
+        'security_group_rule_id' => 'getSecurityGroupRuleId',
         'source_group_id' => 'getSourceGroupId',
         'update_time' => 'getUpdateTime'
     ];
@@ -219,6 +224,7 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['security_group_rule_id'] = isset($data['security_group_rule_id']) ? $data['security_group_rule_id'] : null;
         $this->container['source_group_id'] = isset($data['source_group_id']) ? $data['source_group_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -507,6 +513,30 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
     public function setProtocol($protocol)
     {
         $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_rule_id
+     *
+     * @return string
+     */
+    public function getSecurityGroupRuleId()
+    {
+        return $this->container['security_group_rule_id'];
+    }
+
+    /**
+     * Sets security_group_rule_id
+     *
+     * @param string $security_group_rule_id security_group_rule_id
+     *
+     * @return $this
+     */
+    public function setSecurityGroupRuleId($security_group_rule_id)
+    {
+        $this->container['security_group_rule_id'] = $security_group_rule_id;
 
         return $this;
     }

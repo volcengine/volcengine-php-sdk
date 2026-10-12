@@ -40,7 +40,10 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         'secondary_private_ip_address_count' => 'int',
         'security_group_ids' => 'string[]',
         'subnet_id' => 'string',
-        'tags' => '\Volcengine\Vpc\Model\TagForCreateNetworkInterfaceInput[]'
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateNetworkInterfaceInput[]',
+        'tcp_closed_and_time_wait_timeout' => 'int',
+        'tcp_established_timeout' => 'int',
+        'udp_timeout' => 'int'
     ];
 
     /**
@@ -61,7 +64,10 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         'secondary_private_ip_address_count' => null,
         'security_group_ids' => null,
         'subnet_id' => null,
-        'tags' => null
+        'tags' => null,
+        'tcp_closed_and_time_wait_timeout' => null,
+        'tcp_established_timeout' => null,
+        'udp_timeout' => null
     ];
 
     /**
@@ -103,7 +109,10 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         'secondary_private_ip_address_count' => 'SecondaryPrivateIpAddressCount',
         'security_group_ids' => 'SecurityGroupIds',
         'subnet_id' => 'SubnetId',
-        'tags' => 'Tags'
+        'tags' => 'Tags',
+        'tcp_closed_and_time_wait_timeout' => 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'TcpEstablishedTimeout',
+        'udp_timeout' => 'UdpTimeout'
     ];
 
     /**
@@ -124,7 +133,10 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         'secondary_private_ip_address_count' => 'setSecondaryPrivateIpAddressCount',
         'security_group_ids' => 'setSecurityGroupIds',
         'subnet_id' => 'setSubnetId',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'tcp_closed_and_time_wait_timeout' => 'setTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'setTcpEstablishedTimeout',
+        'udp_timeout' => 'setUdpTimeout'
     ];
 
     /**
@@ -145,7 +157,10 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         'secondary_private_ip_address_count' => 'getSecondaryPrivateIpAddressCount',
         'security_group_ids' => 'getSecurityGroupIds',
         'subnet_id' => 'getSubnetId',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'tcp_closed_and_time_wait_timeout' => 'getTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'getTcpEstablishedTimeout',
+        'udp_timeout' => 'getUdpTimeout'
     ];
 
     /**
@@ -221,6 +236,9 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['tcp_closed_and_time_wait_timeout'] = isset($data['tcp_closed_and_time_wait_timeout']) ? $data['tcp_closed_and_time_wait_timeout'] : null;
+        $this->container['tcp_established_timeout'] = isset($data['tcp_established_timeout']) ? $data['tcp_established_timeout'] : null;
+        $this->container['udp_timeout'] = isset($data['udp_timeout']) ? $data['udp_timeout'] : null;
     }
 
     /**
@@ -558,6 +576,78 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_closed_and_time_wait_timeout
+     *
+     * @return int
+     */
+    public function getTcpClosedAndTimeWaitTimeout()
+    {
+        return $this->container['tcp_closed_and_time_wait_timeout'];
+    }
+
+    /**
+     * Sets tcp_closed_and_time_wait_timeout
+     *
+     * @param int $tcp_closed_and_time_wait_timeout tcp_closed_and_time_wait_timeout
+     *
+     * @return $this
+     */
+    public function setTcpClosedAndTimeWaitTimeout($tcp_closed_and_time_wait_timeout)
+    {
+        $this->container['tcp_closed_and_time_wait_timeout'] = $tcp_closed_and_time_wait_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_established_timeout
+     *
+     * @return int
+     */
+    public function getTcpEstablishedTimeout()
+    {
+        return $this->container['tcp_established_timeout'];
+    }
+
+    /**
+     * Sets tcp_established_timeout
+     *
+     * @param int $tcp_established_timeout tcp_established_timeout
+     *
+     * @return $this
+     */
+    public function setTcpEstablishedTimeout($tcp_established_timeout)
+    {
+        $this->container['tcp_established_timeout'] = $tcp_established_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets udp_timeout
+     *
+     * @return int
+     */
+    public function getUdpTimeout()
+    {
+        return $this->container['udp_timeout'];
+    }
+
+    /**
+     * Sets udp_timeout
+     *
+     * @param int $udp_timeout udp_timeout
+     *
+     * @return $this
+     */
+    public function setUdpTimeout($udp_timeout)
+    {
+        $this->container['udp_timeout'] = $udp_timeout;
 
         return $this;
     }

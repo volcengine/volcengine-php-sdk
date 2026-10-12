@@ -29,7 +29,8 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'async_task_id' => 'string',
-        'request_id' => 'string'
+        'request_id' => 'string',
+        'version' => 'int'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'async_task_id' => null,
-        'request_id' => null
+        'request_id' => null,
+        'version' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'async_task_id' => 'AsyncTaskId',
-        'request_id' => 'RequestId'
+        'request_id' => 'RequestId',
+        'version' => 'Version'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'async_task_id' => 'setAsyncTaskId',
-        'request_id' => 'setRequestId'
+        'request_id' => 'setRequestId',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'async_task_id' => 'getAsyncTaskId',
-        'request_id' => 'getRequestId'
+        'request_id' => 'getRequestId',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
     {
         $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ModifyFlowLogAttributeResponse implements ModelInterface, ArrayAccess
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }
