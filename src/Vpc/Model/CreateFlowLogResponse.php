@@ -30,7 +30,8 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'async_task_id' => 'string',
         'flow_log_id' => 'string',
-        'request_id' => 'string'
+        'request_id' => 'string',
+        'version' => 'int'
     ];
 
     /**
@@ -41,7 +42,8 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'async_task_id' => null,
         'flow_log_id' => null,
-        'request_id' => null
+        'request_id' => null,
+        'version' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'async_task_id' => 'AsyncTaskId',
         'flow_log_id' => 'FlowLogId',
-        'request_id' => 'RequestId'
+        'request_id' => 'RequestId',
+        'version' => 'Version'
     ];
 
     /**
@@ -84,7 +87,8 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'async_task_id' => 'setAsyncTaskId',
         'flow_log_id' => 'setFlowLogId',
-        'request_id' => 'setRequestId'
+        'request_id' => 'setRequestId',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -95,7 +99,8 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'async_task_id' => 'getAsyncTaskId',
         'flow_log_id' => 'getFlowLogId',
-        'request_id' => 'getRequestId'
+        'request_id' => 'getRequestId',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -161,6 +166,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
         $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['flow_log_id'] = isset($data['flow_log_id']) ? $data['flow_log_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

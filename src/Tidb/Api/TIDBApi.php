@@ -254,6 +254,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createAuditLogFilterRule($body = null)
+    {
+        list($response) = $this->createAuditLogFilterRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAuditLogFilterRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateAuditLogFilterRuleResponse';
+        $request = $this->createAuditLogFilterRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createAuditLogFilterRuleAsync($body = null)
+    {
+        return $this->createAuditLogFilterRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAuditLogFilterRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateAuditLogFilterRuleResponse';
+        $request = $this->createAuditLogFilterRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createAuditLogFilterRuleRequest($body)
+    {
+        $resourcePath = '/CreateAuditLogFilterRule/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createBranch($body = null)
     {
         list($response) = $this->createBranchWithHttpInfo($body);
@@ -626,6 +688,68 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteAuditLogFilterRule($body = null)
+    {
+        list($response) = $this->deleteAuditLogFilterRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAuditLogFilterRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteAuditLogFilterRuleResponse';
+        $request = $this->deleteAuditLogFilterRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteAuditLogFilterRuleAsync($body = null)
+    {
+        return $this->deleteAuditLogFilterRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAuditLogFilterRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteAuditLogFilterRuleResponse';
+        $request = $this->deleteAuditLogFilterRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteAuditLogFilterRuleRequest($body)
+    {
+        $resourcePath = '/DeleteAuditLogFilterRule/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteBranch($body = null)
     {
         list($response) = $this->deleteBranchWithHttpInfo($body);
@@ -970,6 +1094,192 @@ class TIDBApi
     protected function describePriceDetailRequest($body)
     {
         $resourcePath = '/DescribePriceDetail/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function downloadAuditLogFiles($body = null)
+    {
+        list($response) = $this->downloadAuditLogFilesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function downloadAuditLogFilesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DownloadAuditLogFilesResponse';
+        $request = $this->downloadAuditLogFilesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function downloadAuditLogFilesAsync($body = null)
+    {
+        return $this->downloadAuditLogFilesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function downloadAuditLogFilesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DownloadAuditLogFilesResponse';
+        $request = $this->downloadAuditLogFilesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function downloadAuditLogFilesRequest($body)
+    {
+        $resourcePath = '/DownloadAuditLogFiles/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAuditLogConfig($body = null)
+    {
+        list($response) = $this->getAuditLogConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAuditLogConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetAuditLogConfigResponse';
+        $request = $this->getAuditLogConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAuditLogConfigAsync($body = null)
+    {
+        return $this->getAuditLogConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAuditLogConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetAuditLogConfigResponse';
+        $request = $this->getAuditLogConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAuditLogConfigRequest($body)
+    {
+        $resourcePath = '/GetAuditLogConfig/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAuditLogFilterRule($body = null)
+    {
+        list($response) = $this->getAuditLogFilterRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAuditLogFilterRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetAuditLogFilterRuleResponse';
+        $request = $this->getAuditLogFilterRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAuditLogFilterRuleAsync($body = null)
+    {
+        return $this->getAuditLogFilterRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAuditLogFilterRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetAuditLogFilterRuleResponse';
+        $request = $this->getAuditLogFilterRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAuditLogFilterRuleRequest($body)
+    {
+        $resourcePath = '/GetAuditLogFilterRule/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1776,6 +2086,130 @@ class TIDBApi
     protected function getStatementPlanDetailsRequest($body)
     {
         $resourcePath = '/GetStatementPlanDetails/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAuditLogFiles($body = null)
+    {
+        list($response) = $this->listAuditLogFilesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAuditLogFilesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListAuditLogFilesResponse';
+        $request = $this->listAuditLogFilesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAuditLogFilesAsync($body = null)
+    {
+        return $this->listAuditLogFilesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAuditLogFilesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListAuditLogFilesResponse';
+        $request = $this->listAuditLogFilesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAuditLogFilesRequest($body)
+    {
+        $resourcePath = '/ListAuditLogFiles/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listAuditLogFilterRules($body = null)
+    {
+        list($response) = $this->listAuditLogFilterRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAuditLogFilterRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListAuditLogFilterRulesResponse';
+        $request = $this->listAuditLogFilterRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listAuditLogFilterRulesAsync($body = null)
+    {
+        return $this->listAuditLogFilterRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAuditLogFilterRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListAuditLogFilterRulesResponse';
+        $request = $this->listAuditLogFilterRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listAuditLogFilterRulesRequest($body)
+    {
+        $resourcePath = '/ListAuditLogFilterRules/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3512,6 +3946,130 @@ class TIDBApi
     protected function untagResourcesRequest($body)
     {
         $resourcePath = '/UntagResources/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAuditLogConfig($body = null)
+    {
+        list($response) = $this->updateAuditLogConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAuditLogConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateAuditLogConfigResponse';
+        $request = $this->updateAuditLogConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAuditLogConfigAsync($body = null)
+    {
+        return $this->updateAuditLogConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAuditLogConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateAuditLogConfigResponse';
+        $request = $this->updateAuditLogConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAuditLogConfigRequest($body)
+    {
+        $resourcePath = '/UpdateAuditLogConfig/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateAuditLogFilterRule($body = null)
+    {
+        list($response) = $this->updateAuditLogFilterRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAuditLogFilterRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateAuditLogFilterRuleResponse';
+        $request = $this->updateAuditLogFilterRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateAuditLogFilterRuleAsync($body = null)
+    {
+        return $this->updateAuditLogFilterRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAuditLogFilterRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\UpdateAuditLogFilterRuleResponse';
+        $request = $this->updateAuditLogFilterRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateAuditLogFilterRuleRequest($body)
+    {
+        $resourcePath = '/UpdateAuditLogFilterRule/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -28,9 +28,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'add_operating_regions' => 'string[]',
         'description' => 'string',
         'ipam_resource_discovery_id' => 'string',
-        'ipam_resource_discovery_name' => 'string'
+        'ipam_resource_discovery_name' => 'string',
+        'remove_operating_regions' => 'string[]'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'add_operating_regions' => null,
         'description' => null,
         'ipam_resource_discovery_id' => null,
-        'ipam_resource_discovery_name' => null
+        'ipam_resource_discovery_name' => null,
+        'remove_operating_regions' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'add_operating_regions' => 'AddOperatingRegions',
         'description' => 'Description',
         'ipam_resource_discovery_id' => 'IpamResourceDiscoveryId',
-        'ipam_resource_discovery_name' => 'IpamResourceDiscoveryName'
+        'ipam_resource_discovery_name' => 'IpamResourceDiscoveryName',
+        'remove_operating_regions' => 'RemoveOperatingRegions'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'add_operating_regions' => 'setAddOperatingRegions',
         'description' => 'setDescription',
         'ipam_resource_discovery_id' => 'setIpamResourceDiscoveryId',
-        'ipam_resource_discovery_name' => 'setIpamResourceDiscoveryName'
+        'ipam_resource_discovery_name' => 'setIpamResourceDiscoveryName',
+        'remove_operating_regions' => 'setRemoveOperatingRegions'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'add_operating_regions' => 'getAddOperatingRegions',
         'description' => 'getDescription',
         'ipam_resource_discovery_id' => 'getIpamResourceDiscoveryId',
-        'ipam_resource_discovery_name' => 'getIpamResourceDiscoveryName'
+        'ipam_resource_discovery_name' => 'getIpamResourceDiscoveryName',
+        'remove_operating_regions' => 'getRemoveOperatingRegions'
     ];
 
     /**
@@ -158,9 +168,11 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['add_operating_regions'] = isset($data['add_operating_regions']) ? $data['add_operating_regions'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipam_resource_discovery_id'] = isset($data['ipam_resource_discovery_id']) ? $data['ipam_resource_discovery_id'] : null;
         $this->container['ipam_resource_discovery_name'] = isset($data['ipam_resource_discovery_name']) ? $data['ipam_resource_discovery_name'] : null;
+        $this->container['remove_operating_regions'] = isset($data['remove_operating_regions']) ? $data['remove_operating_regions'] : null;
     }
 
     /**
@@ -189,6 +201,30 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets add_operating_regions
+     *
+     * @return string[]
+     */
+    public function getAddOperatingRegions()
+    {
+        return $this->container['add_operating_regions'];
+    }
+
+    /**
+     * Sets add_operating_regions
+     *
+     * @param string[] $add_operating_regions add_operating_regions
+     *
+     * @return $this
+     */
+    public function setAddOperatingRegions($add_operating_regions)
+    {
+        $this->container['add_operating_regions'] = $add_operating_regions;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -258,6 +294,30 @@ class ModifyIpamResourceDiscoveryRequest implements ModelInterface, ArrayAccess
     public function setIpamResourceDiscoveryName($ipam_resource_discovery_name)
     {
         $this->container['ipam_resource_discovery_name'] = $ipam_resource_discovery_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets remove_operating_regions
+     *
+     * @return string[]
+     */
+    public function getRemoveOperatingRegions()
+    {
+        return $this->container['remove_operating_regions'];
+    }
+
+    /**
+     * Sets remove_operating_regions
+     *
+     * @param string[] $remove_operating_regions remove_operating_regions
+     *
+     * @return $this
+     */
+    public function setRemoveOperatingRegions($remove_operating_regions)
+    {
+        $this->container['remove_operating_regions'] = $remove_operating_regions;
 
         return $this;
     }

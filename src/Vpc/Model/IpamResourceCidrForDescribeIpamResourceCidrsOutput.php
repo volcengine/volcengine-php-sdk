@@ -35,10 +35,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         'ipam_pool_id' => 'string',
         'ipam_scope_id' => 'string',
         'management_status' => 'string',
+        'overlap_details' => '\Volcengine\Vpc\Model\OverlapDetailForDescribeIpamResourceCidrsOutput[]',
         'overlap_status' => 'string',
         'resource_cidr' => 'string',
         'resource_id' => 'string',
         'resource_name' => 'string',
+        'resource_region_id' => 'string',
         'resource_type' => 'string',
         'vpc_id' => 'string'
     ];
@@ -56,10 +58,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         'ipam_pool_id' => null,
         'ipam_scope_id' => null,
         'management_status' => null,
+        'overlap_details' => null,
         'overlap_status' => null,
         'resource_cidr' => null,
         'resource_id' => null,
         'resource_name' => null,
+        'resource_region_id' => null,
         'resource_type' => null,
         'vpc_id' => null
     ];
@@ -98,10 +102,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         'ipam_pool_id' => 'IpamPoolId',
         'ipam_scope_id' => 'IpamScopeId',
         'management_status' => 'ManagementStatus',
+        'overlap_details' => 'OverlapDetails',
         'overlap_status' => 'OverlapStatus',
         'resource_cidr' => 'ResourceCidr',
         'resource_id' => 'ResourceId',
         'resource_name' => 'ResourceName',
+        'resource_region_id' => 'ResourceRegionId',
         'resource_type' => 'ResourceType',
         'vpc_id' => 'VpcId'
     ];
@@ -119,10 +125,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         'ipam_pool_id' => 'setIpamPoolId',
         'ipam_scope_id' => 'setIpamScopeId',
         'management_status' => 'setManagementStatus',
+        'overlap_details' => 'setOverlapDetails',
         'overlap_status' => 'setOverlapStatus',
         'resource_cidr' => 'setResourceCidr',
         'resource_id' => 'setResourceId',
         'resource_name' => 'setResourceName',
+        'resource_region_id' => 'setResourceRegionId',
         'resource_type' => 'setResourceType',
         'vpc_id' => 'setVpcId'
     ];
@@ -140,10 +148,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         'ipam_pool_id' => 'getIpamPoolId',
         'ipam_scope_id' => 'getIpamScopeId',
         'management_status' => 'getManagementStatus',
+        'overlap_details' => 'getOverlapDetails',
         'overlap_status' => 'getOverlapStatus',
         'resource_cidr' => 'getResourceCidr',
         'resource_id' => 'getResourceId',
         'resource_name' => 'getResourceName',
+        'resource_region_id' => 'getResourceRegionId',
         'resource_type' => 'getResourceType',
         'vpc_id' => 'getVpcId'
     ];
@@ -215,10 +225,12 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
         $this->container['ipam_pool_id'] = isset($data['ipam_pool_id']) ? $data['ipam_pool_id'] : null;
         $this->container['ipam_scope_id'] = isset($data['ipam_scope_id']) ? $data['ipam_scope_id'] : null;
         $this->container['management_status'] = isset($data['management_status']) ? $data['management_status'] : null;
+        $this->container['overlap_details'] = isset($data['overlap_details']) ? $data['overlap_details'] : null;
         $this->container['overlap_status'] = isset($data['overlap_status']) ? $data['overlap_status'] : null;
         $this->container['resource_cidr'] = isset($data['resource_cidr']) ? $data['resource_cidr'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
+        $this->container['resource_region_id'] = isset($data['resource_region_id']) ? $data['resource_region_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -416,6 +428,30 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
     }
 
     /**
+     * Gets overlap_details
+     *
+     * @return \Volcengine\Vpc\Model\OverlapDetailForDescribeIpamResourceCidrsOutput[]
+     */
+    public function getOverlapDetails()
+    {
+        return $this->container['overlap_details'];
+    }
+
+    /**
+     * Sets overlap_details
+     *
+     * @param \Volcengine\Vpc\Model\OverlapDetailForDescribeIpamResourceCidrsOutput[] $overlap_details overlap_details
+     *
+     * @return $this
+     */
+    public function setOverlapDetails($overlap_details)
+    {
+        $this->container['overlap_details'] = $overlap_details;
+
+        return $this;
+    }
+
+    /**
      * Gets overlap_status
      *
      * @return string
@@ -507,6 +543,30 @@ class IpamResourceCidrForDescribeIpamResourceCidrsOutput implements ModelInterfa
     public function setResourceName($resource_name)
     {
         $this->container['resource_name'] = $resource_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_region_id
+     *
+     * @return string
+     */
+    public function getResourceRegionId()
+    {
+        return $this->container['resource_region_id'];
+    }
+
+    /**
+     * Sets resource_region_id
+     *
+     * @param string $resource_region_id resource_region_id
+     *
+     * @return $this
+     */
+    public function setResourceRegionId($resource_region_id)
+    {
+        $this->container['resource_region_id'] = $resource_region_id;
 
         return $this;
     }

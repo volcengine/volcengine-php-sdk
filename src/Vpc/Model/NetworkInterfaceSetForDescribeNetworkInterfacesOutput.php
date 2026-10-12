@@ -47,7 +47,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'status' => 'string',
         'subnet_id' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeNetworkInterfacesOutput[]',
+        'tcp_closed_and_time_wait_timeout' => 'int',
+        'tcp_established_timeout' => 'int',
         'type' => 'string',
+        'udp_timeout' => 'int',
         'updated_at' => 'string',
         'vpc_id' => 'string',
         'vpc_name' => 'string',
@@ -79,7 +82,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'status' => null,
         'subnet_id' => null,
         'tags' => null,
+        'tcp_closed_and_time_wait_timeout' => null,
+        'tcp_established_timeout' => null,
         'type' => null,
+        'udp_timeout' => null,
         'updated_at' => null,
         'vpc_id' => null,
         'vpc_name' => null,
@@ -132,7 +138,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
         'tags' => 'Tags',
+        'tcp_closed_and_time_wait_timeout' => 'TcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'TcpEstablishedTimeout',
         'type' => 'Type',
+        'udp_timeout' => 'UdpTimeout',
         'updated_at' => 'UpdatedAt',
         'vpc_id' => 'VpcId',
         'vpc_name' => 'VpcName',
@@ -164,7 +173,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
         'tags' => 'setTags',
+        'tcp_closed_and_time_wait_timeout' => 'setTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'setTcpEstablishedTimeout',
         'type' => 'setType',
+        'udp_timeout' => 'setUdpTimeout',
         'updated_at' => 'setUpdatedAt',
         'vpc_id' => 'setVpcId',
         'vpc_name' => 'setVpcName',
@@ -196,7 +208,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
         'tags' => 'getTags',
+        'tcp_closed_and_time_wait_timeout' => 'getTcpClosedAndTimeWaitTimeout',
+        'tcp_established_timeout' => 'getTcpEstablishedTimeout',
         'type' => 'getType',
+        'udp_timeout' => 'getUdpTimeout',
         'updated_at' => 'getUpdatedAt',
         'vpc_id' => 'getVpcId',
         'vpc_name' => 'getVpcName',
@@ -282,7 +297,10 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['tcp_closed_and_time_wait_timeout'] = isset($data['tcp_closed_and_time_wait_timeout']) ? $data['tcp_closed_and_time_wait_timeout'] : null;
+        $this->container['tcp_established_timeout'] = isset($data['tcp_established_timeout']) ? $data['tcp_established_timeout'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['udp_timeout'] = isset($data['udp_timeout']) ? $data['udp_timeout'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
@@ -770,6 +788,54 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     }
 
     /**
+     * Gets tcp_closed_and_time_wait_timeout
+     *
+     * @return int
+     */
+    public function getTcpClosedAndTimeWaitTimeout()
+    {
+        return $this->container['tcp_closed_and_time_wait_timeout'];
+    }
+
+    /**
+     * Sets tcp_closed_and_time_wait_timeout
+     *
+     * @param int $tcp_closed_and_time_wait_timeout tcp_closed_and_time_wait_timeout
+     *
+     * @return $this
+     */
+    public function setTcpClosedAndTimeWaitTimeout($tcp_closed_and_time_wait_timeout)
+    {
+        $this->container['tcp_closed_and_time_wait_timeout'] = $tcp_closed_and_time_wait_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_established_timeout
+     *
+     * @return int
+     */
+    public function getTcpEstablishedTimeout()
+    {
+        return $this->container['tcp_established_timeout'];
+    }
+
+    /**
+     * Sets tcp_established_timeout
+     *
+     * @param int $tcp_established_timeout tcp_established_timeout
+     *
+     * @return $this
+     */
+    public function setTcpEstablishedTimeout($tcp_established_timeout)
+    {
+        $this->container['tcp_established_timeout'] = $tcp_established_timeout;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -789,6 +855,30 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets udp_timeout
+     *
+     * @return int
+     */
+    public function getUdpTimeout()
+    {
+        return $this->container['udp_timeout'];
+    }
+
+    /**
+     * Sets udp_timeout
+     *
+     * @param int $udp_timeout udp_timeout
+     *
+     * @return $this
+     */
+    public function setUdpTimeout($udp_timeout)
+    {
+        $this->container['udp_timeout'] = $udp_timeout;
 
         return $this;
     }

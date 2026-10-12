@@ -35,6 +35,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         'error_message' => 'string',
         'latest_version' => 'string',
         'node_count' => 'int',
+        'phase' => 'string',
         'region' => 'string',
         'upgradable_version_list' => 'string[]',
         'varmor_config' => '\Volcengine\Seccenter20240508\Model\VarmorConfigForListClustersAndVarmorAppsOutput',
@@ -57,6 +58,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         'error_message' => null,
         'latest_version' => null,
         'node_count' => 'int64',
+        'phase' => null,
         'region' => null,
         'upgradable_version_list' => null,
         'varmor_config' => null,
@@ -100,6 +102,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         'error_message' => 'ErrorMessage',
         'latest_version' => 'LatestVersion',
         'node_count' => 'NodeCount',
+        'phase' => 'Phase',
         'region' => 'Region',
         'upgradable_version_list' => 'UpgradableVersionList',
         'varmor_config' => 'VarmorConfig',
@@ -122,6 +125,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         'error_message' => 'setErrorMessage',
         'latest_version' => 'setLatestVersion',
         'node_count' => 'setNodeCount',
+        'phase' => 'setPhase',
         'region' => 'setRegion',
         'upgradable_version_list' => 'setUpgradableVersionList',
         'varmor_config' => 'setVarmorConfig',
@@ -144,6 +148,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         'error_message' => 'getErrorMessage',
         'latest_version' => 'getLatestVersion',
         'node_count' => 'getNodeCount',
+        'phase' => 'getPhase',
         'region' => 'getRegion',
         'upgradable_version_list' => 'getUpgradableVersionList',
         'varmor_config' => 'getVarmorConfig',
@@ -194,8 +199,48 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
+    const VARMOR_INSTALL_STATUS_NOT_INSTALLED = 'NotInstalled';
+    const VARMOR_INSTALL_STATUS_INSTALLED = 'Installed';
+    const VARMOR_INSTALL_STATUS_CHANGING = 'Changing';
+    const VARMOR_INSTALL_STATUS_INSTALL_FAILED = 'InstallFailed';
+    const VARMOR_INSTALL_STATUS_UNINSTALL_FAILED = 'UninstallFailed';
+    const VARMOR_VERSION_STATUS_NOT_INSTALLED = 'NotInstalled';
+    const VARMOR_VERSION_STATUS_UPGRADABLE = 'Upgradable';
+    const VARMOR_VERSION_STATUS_UPGRADE_FAILED = 'UpgradeFailed';
+    const VARMOR_VERSION_STATUS_LATEST = 'Latest';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVarmorInstallStatusAllowableValues()
+    {
+        return [
+            self::VARMOR_INSTALL_STATUS_NOT_INSTALLED,
+            self::VARMOR_INSTALL_STATUS_INSTALLED,
+            self::VARMOR_INSTALL_STATUS_CHANGING,
+            self::VARMOR_INSTALL_STATUS_INSTALL_FAILED,
+            self::VARMOR_INSTALL_STATUS_UNINSTALL_FAILED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVarmorVersionStatusAllowableValues()
+    {
+        return [
+            self::VARMOR_VERSION_STATUS_NOT_INSTALLED,
+            self::VARMOR_VERSION_STATUS_UPGRADABLE,
+            self::VARMOR_VERSION_STATUS_UPGRADE_FAILED,
+            self::VARMOR_VERSION_STATUS_LATEST,
+        ];
+    }
     
 
     /**
@@ -220,6 +265,7 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['latest_version'] = isset($data['latest_version']) ? $data['latest_version'] : null;
         $this->container['node_count'] = isset($data['node_count']) ? $data['node_count'] : null;
+        $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['upgradable_version_list'] = isset($data['upgradable_version_list']) ? $data['upgradable_version_list'] : null;
         $this->container['varmor_config'] = isset($data['varmor_config']) ? $data['varmor_config'] : null;
@@ -237,6 +283,22 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVarmorInstallStatusAllowableValues();
+        if (!is_null($this->container['varmor_install_status']) && !in_array($this->container['varmor_install_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'varmor_install_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getVarmorVersionStatusAllowableValues();
+        if (!is_null($this->container['varmor_version_status']) && !in_array($this->container['varmor_version_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'varmor_version_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -422,6 +484,30 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets phase
+     *
+     * @return string
+     */
+    public function getPhase()
+    {
+        return $this->container['phase'];
+    }
+
+    /**
+     * Sets phase
+     *
+     * @param string $phase phase
+     *
+     * @return $this
+     */
+    public function setPhase($phase)
+    {
+        $this->container['phase'] = $phase;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -512,6 +598,15 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
      */
     public function setVarmorInstallStatus($varmor_install_status)
     {
+        $allowedValues = $this->getVarmorInstallStatusAllowableValues();
+        if (!is_null($varmor_install_status) && !in_array($varmor_install_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'varmor_install_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['varmor_install_status'] = $varmor_install_status;
 
         return $this;
@@ -584,6 +679,15 @@ class DataForListClustersAndVarmorAppsOutput implements ModelInterface, ArrayAcc
      */
     public function setVarmorVersionStatus($varmor_version_status)
     {
+        $allowedValues = $this->getVarmorVersionStatusAllowableValues();
+        if (!is_null($varmor_version_status) && !in_array($varmor_version_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'varmor_version_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['varmor_version_status'] = $varmor_version_status;
 
         return $this;

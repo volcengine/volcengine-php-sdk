@@ -8128,6 +8128,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getCntrQuota($body = null)
+    {
+        list($response) = $this->getCntrQuotaWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getCntrQuotaWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetCntrQuotaResponse';
+        $request = $this->getCntrQuotaRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getCntrQuotaAsync($body = null)
+    {
+        return $this->getCntrQuotaAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getCntrQuotaAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetCntrQuotaResponse';
+        $request = $this->getCntrQuotaRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getCntrQuotaRequest($body)
+    {
+        $resourcePath = '/GetCntrQuota/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getCustomWeakPasswords($body = null)
     {
         list($response) = $this->getCustomWeakPasswordsWithHttpInfo($body);
@@ -13184,6 +13246,68 @@ class SECCENTER20240508Api
     protected function getTenantQuotaRequest($body)
     {
         $resourcePath = '/GetTenantQuota/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getTenantStatus($body = null)
+    {
+        list($response) = $this->getTenantStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getTenantStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetTenantStatusResponse';
+        $request = $this->getTenantStatusRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getTenantStatusAsync($body = null)
+    {
+        return $this->getTenantStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getTenantStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetTenantStatusResponse';
+        $request = $this->getTenantStatusRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getTenantStatusRequest($body)
+    {
+        $resourcePath = '/GetTenantStatus/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -18516,6 +18640,68 @@ class SECCENTER20240508Api
     protected function listMLPAssetTasksRequest($body)
     {
         $resourcePath = '/ListMLPAssetTasks/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listManagedAccounts($body = null)
+    {
+        list($response) = $this->listManagedAccountsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listManagedAccountsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListManagedAccountsResponse';
+        $request = $this->listManagedAccountsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listManagedAccountsAsync($body = null)
+    {
+        return $this->listManagedAccountsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listManagedAccountsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\ListManagedAccountsResponse';
+        $request = $this->listManagedAccountsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listManagedAccountsRequest($body)
+    {
+        $resourcePath = '/ListManagedAccounts/2024-05-08/seccenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
