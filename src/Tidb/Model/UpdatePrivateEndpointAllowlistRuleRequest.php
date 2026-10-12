@@ -29,9 +29,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'cluster_id' => 'string',
+        'current_vpc_endpoint_id' => 'string',
         'display_name' => 'string',
-        'project_name' => 'string',
-        'vpc_endpoint_id' => 'string'
+        'new_vpc_endpoint_id' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -41,9 +42,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'cluster_id' => null,
+        'current_vpc_endpoint_id' => null,
         'display_name' => null,
-        'project_name' => null,
-        'vpc_endpoint_id' => null
+        'new_vpc_endpoint_id' => null,
+        'project_name' => null
     ];
 
     /**
@@ -74,9 +76,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'cluster_id' => 'ClusterId',
+        'current_vpc_endpoint_id' => 'CurrentVpcEndpointId',
         'display_name' => 'DisplayName',
-        'project_name' => 'ProjectName',
-        'vpc_endpoint_id' => 'VpcEndpointId'
+        'new_vpc_endpoint_id' => 'NewVpcEndpointId',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -86,9 +89,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'cluster_id' => 'setClusterId',
+        'current_vpc_endpoint_id' => 'setCurrentVpcEndpointId',
         'display_name' => 'setDisplayName',
-        'project_name' => 'setProjectName',
-        'vpc_endpoint_id' => 'setVpcEndpointId'
+        'new_vpc_endpoint_id' => 'setNewVpcEndpointId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -98,9 +102,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'cluster_id' => 'getClusterId',
+        'current_vpc_endpoint_id' => 'getCurrentVpcEndpointId',
         'display_name' => 'getDisplayName',
-        'project_name' => 'getProjectName',
-        'vpc_endpoint_id' => 'getVpcEndpointId'
+        'new_vpc_endpoint_id' => 'getNewVpcEndpointId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -164,9 +169,10 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['current_vpc_endpoint_id'] = isset($data['current_vpc_endpoint_id']) ? $data['current_vpc_endpoint_id'] : null;
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['new_vpc_endpoint_id'] = isset($data['new_vpc_endpoint_id']) ? $data['new_vpc_endpoint_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
 
     /**
@@ -181,11 +187,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
-        if ($this->container['display_name'] === null) {
-            $invalidProperties[] = "'display_name' can't be null";
-        }
-        if ($this->container['vpc_endpoint_id'] === null) {
-            $invalidProperties[] = "'vpc_endpoint_id' can't be null";
+        if ($this->container['current_vpc_endpoint_id'] === null) {
+            $invalidProperties[] = "'current_vpc_endpoint_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -227,6 +230,30 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     }
 
     /**
+     * Gets current_vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getCurrentVpcEndpointId()
+    {
+        return $this->container['current_vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets current_vpc_endpoint_id
+     *
+     * @param string $current_vpc_endpoint_id current_vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setCurrentVpcEndpointId($current_vpc_endpoint_id)
+    {
+        $this->container['current_vpc_endpoint_id'] = $current_vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
      * Gets display_name
      *
      * @return string
@@ -251,6 +278,30 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     }
 
     /**
+     * Gets new_vpc_endpoint_id
+     *
+     * @return string
+     */
+    public function getNewVpcEndpointId()
+    {
+        return $this->container['new_vpc_endpoint_id'];
+    }
+
+    /**
+     * Sets new_vpc_endpoint_id
+     *
+     * @param string $new_vpc_endpoint_id new_vpc_endpoint_id
+     *
+     * @return $this
+     */
+    public function setNewVpcEndpointId($new_vpc_endpoint_id)
+    {
+        $this->container['new_vpc_endpoint_id'] = $new_vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -270,30 +321,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_endpoint_id
-     *
-     * @return string
-     */
-    public function getVpcEndpointId()
-    {
-        return $this->container['vpc_endpoint_id'];
-    }
-
-    /**
-     * Sets vpc_endpoint_id
-     *
-     * @param string $vpc_endpoint_id vpc_endpoint_id
-     *
-     * @return $this
-     */
-    public function setVpcEndpointId($vpc_endpoint_id)
-    {
-        $this->container['vpc_endpoint_id'] = $vpc_endpoint_id;
 
         return $this;
     }
