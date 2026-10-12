@@ -6,6 +6,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use Volcengine\Common\Auth\Providers\DefaultCredentialProvider;
+use Volcengine\Common\Auth\Providers\OidcCredentialProvider;
+use Volcengine\Common\Auth\Providers\SamlCredentialProvider;
+use Volcengine\Common\Auth\Providers\StsProvider;
+use Volcengine\Common\Auth\Providers\StsProxyConfigurableProvider;
 use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
@@ -27,6 +31,9 @@ class ApiClient
     private $client;
     private $usesCustomClient = false;
     private $clientConfig = [];
+    private $credentialProviderSource;
+    private $credentialProxyFallback;
+    private $credentialProviderBinding;
 
     public function __construct($config = null, $client = null)
     {
@@ -50,6 +57,11 @@ class ApiClient
         $this->interceptorChain->appendRequestInterceptor(new SignRequestInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new HttpLoggingInterceptor());
         $this->interceptorChain->appendResponseInterceptor(new DeserializedResponseInterceptor());
+    }
+
+    public function __clone()
+    {
+        $this->credentialProviderBinding = null;
     }
 
     public function getConfig()
@@ -124,7 +136,8 @@ class ApiClient
         $request->ak = $this->configuration->getAk();
         $request->sk = $this->configuration->getSk();
         $request->sessionToken = $this->configuration->getSessionToken();
-        $request->credentialProvider = $this->configuration->getCredentialProvider();
+        // Keep the binding on the Request so pending retries retain its route.
+        $request->credentialProvider = $this->getRequestCredentialProvider();
         $request->region = $this->configuration->getRegion();
         $request->schema = $this->configuration->getSchema();
         if (empty($request->ak) && empty($request->sk)) {
@@ -161,6 +174,60 @@ class ApiClient
         $request->getDebugFile = $this->configuration->getDebugFile();
 
         return $context;
+    }
+
+    private function getRequestCredentialProvider()
+    {
+        $provider = $this->configuration->getCredentialProvider();
+        $proxy = $this->getCredentialProxyFallback();
+        $providerClass = is_object($provider) ? get_class($provider) : null;
+        // Custom providers and subclasses retain their existing calling contract.
+        if (!in_array($providerClass, [
+            StsProvider::class,
+            OidcCredentialProvider::class,
+            SamlCredentialProvider::class,
+        ], true)) {
+            $this->credentialProviderBinding = null;
+            $this->credentialProviderSource = null;
+            if ($provider instanceof StsProxyConfigurableProvider) {
+                $provider->setProxyFallback($proxy);
+            }
+            return $provider;
+        }
+
+        if ($this->credentialProviderBinding === null
+            || $this->credentialProviderSource !== $provider
+            || $this->credentialProxyFallback !== $proxy) {
+            $binding = $provider->bindToProxy($proxy);
+            $this->credentialProviderSource = $provider;
+            $this->credentialProxyFallback = $proxy;
+            $this->credentialProviderBinding = $binding;
+        }
+        return $this->credentialProviderBinding;
+    }
+
+    /**
+     * Resolve the existing business proxy settings as a Guzzle proxy option.
+     * The provider-specific proxy URL remains higher priority.
+     *
+     * @return string|array|null
+     */
+    private function getCredentialProxyFallback()
+    {
+        $proxy = $this->configuration->getProxy();
+        if ($proxy !== null) {
+            return $proxy;
+        }
+
+        $proxy = [];
+        if ($this->configuration->getHttpProxy() !== null) {
+            $proxy['http'] = $this->configuration->getHttpProxy();
+        }
+        if ($this->configuration->getHttpsProxy() !== null) {
+            $proxy['https'] = $this->configuration->getHttpsProxy();
+        }
+
+        return empty($proxy) ? null : $proxy;
     }
 
     private function sendSync(Context $context)
@@ -342,6 +409,8 @@ class ApiClient
         $handler = isset($clientConfig['handler']) ? $clientConfig['handler'] : \GuzzleHttp\HandlerStack::create();
         $this->client = new Client(array_merge($clientConfig, $config, ['handler' => $handler]));
         $this->clientConfig = $this->client->getConfig();
+        // New requests pick up provider changes; existing Requests keep their binding.
+        $this->credentialProviderBinding = null;
     }
 
     private function sendAsyncAttempt(Context $context, $retryCount, $previousError = null)
