@@ -28,8 +28,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'insecure_registries' => 'string[]',
-        'registry_proxy_configs' => '\Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[]'
+        'concurrent_layer_fetch_buffer' => 'int',
+        'max_concurrent_downloads' => 'int',
+        'max_concurrent_unpacks' => 'int',
+        'use_local_image_pull' => 'bool'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'insecure_registries' => null,
-        'registry_proxy_configs' => null
+        'concurrent_layer_fetch_buffer' => 'int32',
+        'max_concurrent_downloads' => 'int32',
+        'max_concurrent_unpacks' => 'int32',
+        'use_local_image_pull' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'insecure_registries' => 'InsecureRegistries',
-        'registry_proxy_configs' => 'RegistryProxyConfigs'
+        'concurrent_layer_fetch_buffer' => 'ConcurrentLayerFetchBuffer',
+        'max_concurrent_downloads' => 'MaxConcurrentDownloads',
+        'max_concurrent_unpacks' => 'MaxConcurrentUnpacks',
+        'use_local_image_pull' => 'UseLocalImagePull'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'insecure_registries' => 'setInsecureRegistries',
-        'registry_proxy_configs' => 'setRegistryProxyConfigs'
+        'concurrent_layer_fetch_buffer' => 'setConcurrentLayerFetchBuffer',
+        'max_concurrent_downloads' => 'setMaxConcurrentDownloads',
+        'max_concurrent_unpacks' => 'setMaxConcurrentUnpacks',
+        'use_local_image_pull' => 'setUseLocalImagePull'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'insecure_registries' => 'getInsecureRegistries',
-        'registry_proxy_configs' => 'getRegistryProxyConfigs'
+        'concurrent_layer_fetch_buffer' => 'getConcurrentLayerFetchBuffer',
+        'max_concurrent_downloads' => 'getMaxConcurrentDownloads',
+        'max_concurrent_unpacks' => 'getMaxConcurrentUnpacks',
+        'use_local_image_pull' => 'getUseLocalImagePull'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['insecure_registries'] = isset($data['insecure_registries']) ? $data['insecure_registries'] : null;
-        $this->container['registry_proxy_configs'] = isset($data['registry_proxy_configs']) ? $data['registry_proxy_configs'] : null;
+        $this->container['concurrent_layer_fetch_buffer'] = isset($data['concurrent_layer_fetch_buffer']) ? $data['concurrent_layer_fetch_buffer'] : null;
+        $this->container['max_concurrent_downloads'] = isset($data['max_concurrent_downloads']) ? $data['max_concurrent_downloads'] : null;
+        $this->container['max_concurrent_unpacks'] = isset($data['max_concurrent_unpacks']) ? $data['max_concurrent_unpacks'] : null;
+        $this->container['use_local_image_pull'] = isset($data['use_local_image_pull']) ? $data['use_local_image_pull'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, A
 
 
     /**
-     * Gets insecure_registries
+     * Gets concurrent_layer_fetch_buffer
      *
-     * @return string[]
+     * @return int
      */
-    public function getInsecureRegistries()
+    public function getConcurrentLayerFetchBuffer()
     {
-        return $this->container['insecure_registries'];
+        return $this->container['concurrent_layer_fetch_buffer'];
     }
 
     /**
-     * Sets insecure_registries
+     * Sets concurrent_layer_fetch_buffer
      *
-     * @param string[] $insecure_registries insecure_registries
+     * @param int $concurrent_layer_fetch_buffer concurrent_layer_fetch_buffer
      *
      * @return $this
      */
-    public function setInsecureRegistries($insecure_registries)
+    public function setConcurrentLayerFetchBuffer($concurrent_layer_fetch_buffer)
     {
-        $this->container['insecure_registries'] = $insecure_registries;
+        $this->container['concurrent_layer_fetch_buffer'] = $concurrent_layer_fetch_buffer;
 
         return $this;
     }
 
     /**
-     * Gets registry_proxy_configs
+     * Gets max_concurrent_downloads
      *
-     * @return \Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[]
+     * @return int
      */
-    public function getRegistryProxyConfigs()
+    public function getMaxConcurrentDownloads()
     {
-        return $this->container['registry_proxy_configs'];
+        return $this->container['max_concurrent_downloads'];
     }
 
     /**
-     * Sets registry_proxy_configs
+     * Sets max_concurrent_downloads
      *
-     * @param \Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[] $registry_proxy_configs registry_proxy_configs
+     * @param int $max_concurrent_downloads max_concurrent_downloads
      *
      * @return $this
      */
-    public function setRegistryProxyConfigs($registry_proxy_configs)
+    public function setMaxConcurrentDownloads($max_concurrent_downloads)
     {
-        $this->container['registry_proxy_configs'] = $registry_proxy_configs;
+        $this->container['max_concurrent_downloads'] = $max_concurrent_downloads;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_concurrent_unpacks
+     *
+     * @return int
+     */
+    public function getMaxConcurrentUnpacks()
+    {
+        return $this->container['max_concurrent_unpacks'];
+    }
+
+    /**
+     * Sets max_concurrent_unpacks
+     *
+     * @param int $max_concurrent_unpacks max_concurrent_unpacks
+     *
+     * @return $this
+     */
+    public function setMaxConcurrentUnpacks($max_concurrent_unpacks)
+    {
+        $this->container['max_concurrent_unpacks'] = $max_concurrent_unpacks;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_local_image_pull
+     *
+     * @return bool
+     */
+    public function getUseLocalImagePull()
+    {
+        return $this->container['use_local_image_pull'];
+    }
+
+    /**
+     * Sets use_local_image_pull
+     *
+     * @param bool $use_local_image_pull use_local_image_pull
+     *
+     * @return $this
+     */
+    public function setUseLocalImagePull($use_local_image_pull)
+    {
+        $this->container['use_local_image_pull'] = $use_local_image_pull;
 
         return $this;
     }

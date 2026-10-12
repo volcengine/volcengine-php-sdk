@@ -502,6 +502,68 @@ class VKEApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createKubernetesObservability($body = null)
+    {
+        list($response) = $this->createKubernetesObservabilityWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createKubernetesObservabilityWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateKubernetesObservabilityResponse';
+        $request = $this->createKubernetesObservabilityRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createKubernetesObservabilityAsync($body = null)
+    {
+        return $this->createKubernetesObservabilityAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createKubernetesObservabilityAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\CreateKubernetesObservabilityResponse';
+        $request = $this->createKubernetesObservabilityRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createKubernetesObservabilityRequest($body)
+    {
+        $resourcePath = '/CreateKubernetesObservability/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createNodePool($body = null)
     {
         list($response) = $this->createNodePoolWithHttpInfo($body);
@@ -2148,6 +2210,68 @@ class VKEApi
     protected function listKubeconfigsRequest($body)
     {
         $resourcePath = '/ListKubeconfigs/2022-05-12/vke/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listKubernetesObservability($body = null)
+    {
+        list($response) = $this->listKubernetesObservabilityWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listKubernetesObservabilityWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListKubernetesObservabilityResponse';
+        $request = $this->listKubernetesObservabilityRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listKubernetesObservabilityAsync($body = null)
+    {
+        return $this->listKubernetesObservabilityAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listKubernetesObservabilityAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vke\Model\ListKubernetesObservabilityResponse';
+        $request = $this->listKubernetesObservabilityRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listKubernetesObservabilityRequest($body)
+    {
+        $resourcePath = '/ListKubernetesObservability/2022-05-12/vke/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

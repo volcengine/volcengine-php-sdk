@@ -161,7 +161,6 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
 
     const GRANTEE_TYPE_USER = 'User';
     const GRANTEE_TYPE_ROLE = 'Role';
-    const GRANTEE_TYPE_ACCOUNT = 'Account';
     
 
     
@@ -175,7 +174,6 @@ class GrantPermissionRequest implements ModelInterface, ArrayAccess
         return [
             self::GRANTEE_TYPE_USER,
             self::GRANTEE_TYPE_ROLE,
-            self::GRANTEE_TYPE_ACCOUNT,
         ];
     }
     

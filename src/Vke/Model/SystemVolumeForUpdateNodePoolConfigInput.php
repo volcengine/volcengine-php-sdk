@@ -29,6 +29,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'burst_enabled' => 'bool',
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
         'placement_group_id' => 'string',
         'size' => 'int',
         'subgroup_number' => 'int',
@@ -42,6 +45,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'burst_enabled' => null,
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
         'placement_group_id' => null,
         'size' => 'int32',
         'subgroup_number' => 'int32',
@@ -76,6 +82,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'burst_enabled' => 'BurstEnabled',
+        'extra_performance_iops' => 'ExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'placement_group_id' => 'PlacementGroupId',
         'size' => 'Size',
         'subgroup_number' => 'SubgroupNumber',
@@ -89,6 +98,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'burst_enabled' => 'setBurstEnabled',
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'placement_group_id' => 'setPlacementGroupId',
         'size' => 'setSize',
         'subgroup_number' => 'setSubgroupNumber',
@@ -102,6 +114,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'burst_enabled' => 'getBurstEnabled',
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'placement_group_id' => 'getPlacementGroupId',
         'size' => 'getSize',
         'subgroup_number' => 'getSubgroupNumber',
@@ -149,6 +164,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
+    const EXTRA_PERFORMANCE_TYPE_ID_BALANCE = 'Balance';
+    const EXTRA_PERFORMANCE_TYPE_ID_IOPS = 'IOPS';
+    const EXTRA_PERFORMANCE_TYPE_ID_THROUGHPUT = 'Throughput';
     const TYPE_ESSD = 'ESSD';
     const TYPE_ESSD_PL0 = 'ESSD_PL0';
     const TYPE_ESSD_FLEX_PL = 'ESSD_FlexPL';
@@ -161,6 +179,20 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
     const TYPE_LOCAL_LVM_SSD = 'LOCAL_LVM_SSD';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExtraPerformanceTypeIdAllowableValues()
+    {
+        return [
+            self::EXTRA_PERFORMANCE_TYPE_ID_BALANCE,
+            self::EXTRA_PERFORMANCE_TYPE_ID_IOPS,
+            self::EXTRA_PERFORMANCE_TYPE_ID_THROUGHPUT,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -200,6 +232,9 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['burst_enabled'] = isset($data['burst_enabled']) ? $data['burst_enabled'] : null;
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
@@ -214,6 +249,14 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getExtraPerformanceTypeIdAllowableValues();
+        if (!is_null($this->container['extra_performance_type_id']) && !in_array($this->container['extra_performance_type_id'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'extra_performance_type_id', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -258,6 +301,87 @@ class SystemVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
     public function setBurstEnabled($burst_enabled)
     {
         $this->container['burst_enabled'] = $burst_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
+     *
+     * @return string
+     */
+    public function getExtraPerformanceTypeId()
+    {
+        return $this->container['extra_performance_type_id'];
+    }
+
+    /**
+     * Sets extra_performance_type_id
+     *
+     * @param string $extra_performance_type_id extra_performance_type_id
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    {
+        $allowedValues = $this->getExtraPerformanceTypeIdAllowableValues();
+        if (!is_null($extra_performance_type_id) && !in_array($extra_performance_type_id, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'extra_performance_type_id', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
 
         return $this;
     }

@@ -161,7 +161,7 @@ class FilterForListPermissionsInput implements ModelInterface, ArrayAccess
 
     const GRANTEE_TYPE_USER = 'User';
     const GRANTEE_TYPE_ROLE = 'Role';
-    const GRANTEE_TYPE_ACCOUNT = 'Account';
+    const GRANTEE_TYPE_ALL = 'All';
     const STATUS_PENDING = 'Pending';
     const STATUS_PARTIAL_SUCCESS = 'PartialSuccess';
     const STATUS_SUCCESS = 'Success';
@@ -179,7 +179,7 @@ class FilterForListPermissionsInput implements ModelInterface, ArrayAccess
         return [
             self::GRANTEE_TYPE_USER,
             self::GRANTEE_TYPE_ROLE,
-            self::GRANTEE_TYPE_ACCOUNT,
+            self::GRANTEE_TYPE_ALL,
         ];
     }
     
