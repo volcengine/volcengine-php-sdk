@@ -30,6 +30,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'account_id' => 'int',
         'biz_no' => 'string',
+        'biz_order_begin_time' => 'string',
         'config_items' => '\Volcengine\Billing\Model\ConfigItemForCreateDropShippingOrderInput[]',
         'security_tel' => 'string',
         'source' => 'string'
@@ -43,6 +44,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'account_id' => 'int64',
         'biz_no' => null,
+        'biz_order_begin_time' => null,
         'config_items' => null,
         'security_tel' => null,
         'source' => null
@@ -77,6 +79,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'account_id' => 'AccountID',
         'biz_no' => 'BizNo',
+        'biz_order_begin_time' => 'BizOrderBeginTime',
         'config_items' => 'ConfigItems',
         'security_tel' => 'SecurityTel',
         'source' => 'Source'
@@ -90,6 +93,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'account_id' => 'setAccountId',
         'biz_no' => 'setBizNo',
+        'biz_order_begin_time' => 'setBizOrderBeginTime',
         'config_items' => 'setConfigItems',
         'security_tel' => 'setSecurityTel',
         'source' => 'setSource'
@@ -103,6 +107,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'account_id' => 'getAccountId',
         'biz_no' => 'getBizNo',
+        'biz_order_begin_time' => 'getBizOrderBeginTime',
         'config_items' => 'getConfigItems',
         'security_tel' => 'getSecurityTel',
         'source' => 'getSource'
@@ -170,6 +175,7 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['biz_no'] = isset($data['biz_no']) ? $data['biz_no'] : null;
+        $this->container['biz_order_begin_time'] = isset($data['biz_order_begin_time']) ? $data['biz_order_begin_time'] : null;
         $this->container['config_items'] = isset($data['config_items']) ? $data['config_items'] : null;
         $this->container['security_tel'] = isset($data['security_tel']) ? $data['security_tel'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
@@ -243,6 +249,30 @@ class CreateDropShippingOrderRequest implements ModelInterface, ArrayAccess
     public function setBizNo($biz_no)
     {
         $this->container['biz_no'] = $biz_no;
+
+        return $this;
+    }
+
+    /**
+     * Gets biz_order_begin_time
+     *
+     * @return string
+     */
+    public function getBizOrderBeginTime()
+    {
+        return $this->container['biz_order_begin_time'];
+    }
+
+    /**
+     * Sets biz_order_begin_time
+     *
+     * @param string $biz_order_begin_time biz_order_begin_time
+     *
+     * @return $this
+     */
+    public function setBizOrderBeginTime($biz_order_begin_time)
+    {
+        $this->container['biz_order_begin_time'] = $biz_order_begin_time;
 
         return $this;
     }
