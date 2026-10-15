@@ -28,9 +28,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'display_name' => 'string',
-        'name' => 'string',
         'region_id' => 'string',
+        'region_name' => 'string',
         'service_plans' => 'string[]',
         'zone_id' => 'string[]'
     ];
@@ -41,9 +40,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'display_name' => null,
-        'name' => null,
         'region_id' => null,
+        'region_name' => null,
         'service_plans' => null,
         'zone_id' => null
     ];
@@ -75,9 +73,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'DisplayName',
-        'name' => 'Name',
         'region_id' => 'RegionId',
+        'region_name' => 'RegionName',
         'service_plans' => 'ServicePlans',
         'zone_id' => 'ZoneId'
     ];
@@ -88,9 +85,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
         'region_id' => 'setRegionId',
+        'region_name' => 'setRegionName',
         'service_plans' => 'setServicePlans',
         'zone_id' => 'setZoneId'
     ];
@@ -101,9 +97,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
         'region_id' => 'getRegionId',
+        'region_name' => 'getRegionName',
         'service_plans' => 'getServicePlans',
         'zone_id' => 'getZoneId'
     ];
@@ -189,9 +184,8 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
+        $this->container['region_name'] = isset($data['region_name']) ? $data['region_name'] : null;
         $this->container['service_plans'] = isset($data['service_plans']) ? $data['service_plans'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -221,54 +215,6 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets region_id
      *
      * @return string
@@ -288,6 +234,30 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     public function setRegionId($region_id)
     {
         $this->container['region_id'] = $region_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets region_name
+     *
+     * @return string
+     */
+    public function getRegionName()
+    {
+        return $this->container['region_name'];
+    }
+
+    /**
+     * Sets region_name
+     *
+     * @param string $region_name region_name
+     *
+     * @return $this
+     */
+    public function setRegionName($region_name)
+    {
+        $this->container['region_name'] = $region_name;
 
         return $this;
     }

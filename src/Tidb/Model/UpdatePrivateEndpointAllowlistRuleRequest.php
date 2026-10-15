@@ -28,9 +28,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'authorized_network_name' => 'string',
         'cluster_id' => 'string',
         'current_vpc_endpoint_id' => 'string',
-        'display_name' => 'string',
         'new_vpc_endpoint_id' => 'string',
         'project_name' => 'string'
     ];
@@ -41,9 +41,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'authorized_network_name' => null,
         'cluster_id' => null,
         'current_vpc_endpoint_id' => null,
-        'display_name' => null,
         'new_vpc_endpoint_id' => null,
         'project_name' => null
     ];
@@ -75,9 +75,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
+        'authorized_network_name' => 'AuthorizedNetworkName',
         'cluster_id' => 'ClusterId',
         'current_vpc_endpoint_id' => 'CurrentVpcEndpointId',
-        'display_name' => 'DisplayName',
         'new_vpc_endpoint_id' => 'NewVpcEndpointId',
         'project_name' => 'ProjectName'
     ];
@@ -88,9 +88,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
+        'authorized_network_name' => 'setAuthorizedNetworkName',
         'cluster_id' => 'setClusterId',
         'current_vpc_endpoint_id' => 'setCurrentVpcEndpointId',
-        'display_name' => 'setDisplayName',
         'new_vpc_endpoint_id' => 'setNewVpcEndpointId',
         'project_name' => 'setProjectName'
     ];
@@ -101,9 +101,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
+        'authorized_network_name' => 'getAuthorizedNetworkName',
         'cluster_id' => 'getClusterId',
         'current_vpc_endpoint_id' => 'getCurrentVpcEndpointId',
-        'display_name' => 'getDisplayName',
         'new_vpc_endpoint_id' => 'getNewVpcEndpointId',
         'project_name' => 'getProjectName'
     ];
@@ -168,9 +168,9 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
+        $this->container['authorized_network_name'] = isset($data['authorized_network_name']) ? $data['authorized_network_name'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['current_vpc_endpoint_id'] = isset($data['current_vpc_endpoint_id']) ? $data['current_vpc_endpoint_id'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['new_vpc_endpoint_id'] = isset($data['new_vpc_endpoint_id']) ? $data['new_vpc_endpoint_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
@@ -204,6 +204,30 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets authorized_network_name
+     *
+     * @return string
+     */
+    public function getAuthorizedNetworkName()
+    {
+        return $this->container['authorized_network_name'];
+    }
+
+    /**
+     * Sets authorized_network_name
+     *
+     * @param string $authorized_network_name authorized_network_name
+     *
+     * @return $this
+     */
+    public function setAuthorizedNetworkName($authorized_network_name)
+    {
+        $this->container['authorized_network_name'] = $authorized_network_name;
+
+        return $this;
+    }
 
     /**
      * Gets cluster_id
@@ -249,30 +273,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function setCurrentVpcEndpointId($current_vpc_endpoint_id)
     {
         $this->container['current_vpc_endpoint_id'] = $current_vpc_endpoint_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
 
         return $this;
     }

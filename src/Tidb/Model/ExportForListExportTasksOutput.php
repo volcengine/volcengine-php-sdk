@@ -31,11 +31,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         'cluster_id' => 'string',
         'complete_time' => 'string',
         'create_time' => 'string',
-        'display_name' => 'string',
         'expire_time' => 'string',
         'export_id' => 'string',
         'export_options' => '\Volcengine\Tidb\Model\ExportOptionsForListExportTasksOutput',
-        'name' => 'string',
+        'export_task_name' => 'string',
         'reason' => 'string',
         'snapshot_time' => 'string',
         'state' => 'string',
@@ -52,11 +51,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         'cluster_id' => null,
         'complete_time' => null,
         'create_time' => null,
-        'display_name' => null,
         'expire_time' => null,
         'export_id' => null,
         'export_options' => null,
-        'name' => null,
+        'export_task_name' => null,
         'reason' => null,
         'snapshot_time' => null,
         'state' => null,
@@ -94,11 +92,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         'cluster_id' => 'ClusterId',
         'complete_time' => 'CompleteTime',
         'create_time' => 'CreateTime',
-        'display_name' => 'DisplayName',
         'expire_time' => 'ExpireTime',
         'export_id' => 'ExportId',
         'export_options' => 'ExportOptions',
-        'name' => 'Name',
+        'export_task_name' => 'ExportTaskName',
         'reason' => 'Reason',
         'snapshot_time' => 'SnapshotTime',
         'state' => 'State',
@@ -115,11 +112,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         'cluster_id' => 'setClusterId',
         'complete_time' => 'setCompleteTime',
         'create_time' => 'setCreateTime',
-        'display_name' => 'setDisplayName',
         'expire_time' => 'setExpireTime',
         'export_id' => 'setExportId',
         'export_options' => 'setExportOptions',
-        'name' => 'setName',
+        'export_task_name' => 'setExportTaskName',
         'reason' => 'setReason',
         'snapshot_time' => 'setSnapshotTime',
         'state' => 'setState',
@@ -136,11 +132,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         'cluster_id' => 'getClusterId',
         'complete_time' => 'getCompleteTime',
         'create_time' => 'getCreateTime',
-        'display_name' => 'getDisplayName',
         'expire_time' => 'getExpireTime',
         'export_id' => 'getExportId',
         'export_options' => 'getExportOptions',
-        'name' => 'getName',
+        'export_task_name' => 'getExportTaskName',
         'reason' => 'getReason',
         'snapshot_time' => 'getSnapshotTime',
         'state' => 'getState',
@@ -234,11 +229,10 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['complete_time'] = isset($data['complete_time']) ? $data['complete_time'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['export_id'] = isset($data['export_id']) ? $data['export_id'] : null;
         $this->container['export_options'] = isset($data['export_options']) ? $data['export_options'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['export_task_name'] = isset($data['export_task_name']) ? $data['export_task_name'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['snapshot_time'] = isset($data['snapshot_time']) ? $data['snapshot_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -351,30 +345,6 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets expire_time
      *
      * @return string
@@ -447,25 +417,25 @@ class ExportForListExportTasksOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets export_task_name
      *
      * @return string
      */
-    public function getName()
+    public function getExportTaskName()
     {
-        return $this->container['name'];
+        return $this->container['export_task_name'];
     }
 
     /**
-     * Sets name
+     * Sets export_task_name
      *
-     * @param string $name name
+     * @param string $export_task_name export_task_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setExportTaskName($export_task_name)
     {
-        $this->container['name'] = $name;
+        $this->container['export_task_name'] = $export_task_name;
 
         return $this;
     }

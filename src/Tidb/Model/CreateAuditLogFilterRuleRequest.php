@@ -29,7 +29,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'cluster_id' => 'string',
-        'display_name' => 'string',
+        'filter_rule_name' => 'string',
         'filters' => '\Volcengine\Tidb\Model\FilterForCreateAuditLogFilterRuleInput[]',
         'project_name' => 'string',
         'users' => 'string[]'
@@ -42,7 +42,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'cluster_id' => null,
-        'display_name' => null,
+        'filter_rule_name' => null,
         'filters' => null,
         'project_name' => null,
         'users' => null
@@ -76,7 +76,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cluster_id' => 'ClusterId',
-        'display_name' => 'DisplayName',
+        'filter_rule_name' => 'FilterRuleName',
         'filters' => 'Filters',
         'project_name' => 'ProjectName',
         'users' => 'Users'
@@ -89,7 +89,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cluster_id' => 'setClusterId',
-        'display_name' => 'setDisplayName',
+        'filter_rule_name' => 'setFilterRuleName',
         'filters' => 'setFilters',
         'project_name' => 'setProjectName',
         'users' => 'setUsers'
@@ -102,7 +102,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cluster_id' => 'getClusterId',
-        'display_name' => 'getDisplayName',
+        'filter_rule_name' => 'getFilterRuleName',
         'filters' => 'getFilters',
         'project_name' => 'getProjectName',
         'users' => 'getUsers'
@@ -169,7 +169,7 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['filter_rule_name'] = isset($data['filter_rule_name']) ? $data['filter_rule_name'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
@@ -187,8 +187,8 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
-        if ($this->container['display_name'] === null) {
-            $invalidProperties[] = "'display_name' can't be null";
+        if ($this->container['filter_rule_name'] === null) {
+            $invalidProperties[] = "'filter_rule_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -230,25 +230,25 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
+     * Gets filter_rule_name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getFilterRuleName()
     {
-        return $this->container['display_name'];
+        return $this->container['filter_rule_name'];
     }
 
     /**
-     * Sets display_name
+     * Sets filter_rule_name
      *
-     * @param string $display_name display_name
+     * @param string $filter_rule_name filter_rule_name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setFilterRuleName($filter_rule_name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['filter_rule_name'] = $filter_rule_name;
 
         return $this;
     }

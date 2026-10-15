@@ -29,8 +29,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'cluster_id' => 'string',
-        'display_name' => 'string',
         'export_options' => '\Volcengine\Tidb\Model\ExportOptionsForCreateExportTaskInput',
+        'export_task_name' => 'string',
         'project_name' => 'string',
         'target' => '\Volcengine\Tidb\Model\TargetForCreateExportTaskInput'
     ];
@@ -42,8 +42,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'cluster_id' => null,
-        'display_name' => null,
         'export_options' => null,
+        'export_task_name' => null,
         'project_name' => null,
         'target' => null
     ];
@@ -76,8 +76,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cluster_id' => 'ClusterId',
-        'display_name' => 'DisplayName',
         'export_options' => 'ExportOptions',
+        'export_task_name' => 'ExportTaskName',
         'project_name' => 'ProjectName',
         'target' => 'Target'
     ];
@@ -89,8 +89,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cluster_id' => 'setClusterId',
-        'display_name' => 'setDisplayName',
         'export_options' => 'setExportOptions',
+        'export_task_name' => 'setExportTaskName',
         'project_name' => 'setProjectName',
         'target' => 'setTarget'
     ];
@@ -102,8 +102,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cluster_id' => 'getClusterId',
-        'display_name' => 'getDisplayName',
         'export_options' => 'getExportOptions',
+        'export_task_name' => 'getExportTaskName',
         'project_name' => 'getProjectName',
         'target' => 'getTarget'
     ];
@@ -169,8 +169,8 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['export_options'] = isset($data['export_options']) ? $data['export_options'] : null;
+        $this->container['export_task_name'] = isset($data['export_task_name']) ? $data['export_task_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
@@ -227,30 +227,6 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets export_options
      *
      * @return \Volcengine\Tidb\Model\ExportOptionsForCreateExportTaskInput
@@ -270,6 +246,30 @@ class CreateExportTaskRequest implements ModelInterface, ArrayAccess
     public function setExportOptions($export_options)
     {
         $this->container['export_options'] = $export_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_task_name
+     *
+     * @return string
+     */
+    public function getExportTaskName()
+    {
+        return $this->container['export_task_name'];
+    }
+
+    /**
+     * Sets export_task_name
+     *
+     * @param string $export_task_name export_task_name
+     *
+     * @return $this
+     */
+    public function setExportTaskName($export_task_name)
+    {
+        $this->container['export_task_name'] = $export_task_name;
 
         return $this;
     }

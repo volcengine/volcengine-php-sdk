@@ -28,8 +28,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch' => '\Volcengine\Tidb\Model\BranchForCreateBranchInput',
+        'branch_name' => 'string',
         'cluster_id' => 'string',
+        'parent_id' => 'string',
+        'parent_timestamp' => 'string',
         'project_name' => 'string'
     ];
 
@@ -39,8 +41,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch' => null,
+        'branch_name' => null,
         'cluster_id' => null,
+        'parent_id' => null,
+        'parent_timestamp' => null,
         'project_name' => null
     ];
 
@@ -71,8 +75,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch' => 'Branch',
+        'branch_name' => 'BranchName',
         'cluster_id' => 'ClusterId',
+        'parent_id' => 'ParentId',
+        'parent_timestamp' => 'ParentTimestamp',
         'project_name' => 'ProjectName'
     ];
 
@@ -82,8 +88,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch' => 'setBranch',
+        'branch_name' => 'setBranchName',
         'cluster_id' => 'setClusterId',
+        'parent_id' => 'setParentId',
+        'parent_timestamp' => 'setParentTimestamp',
         'project_name' => 'setProjectName'
     ];
 
@@ -93,8 +101,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch' => 'getBranch',
+        'branch_name' => 'getBranchName',
         'cluster_id' => 'getClusterId',
+        'parent_id' => 'getParentId',
+        'parent_timestamp' => 'getParentTimestamp',
         'project_name' => 'getProjectName'
     ];
 
@@ -158,8 +168,10 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['branch_name'] = isset($data['branch_name']) ? $data['branch_name'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
+        $this->container['parent_timestamp'] = isset($data['parent_timestamp']) ? $data['parent_timestamp'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
@@ -172,6 +184,9 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['branch_name'] === null) {
+            $invalidProperties[] = "'branch_name' can't be null";
+        }
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
@@ -191,25 +206,25 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets branch
+     * Gets branch_name
      *
-     * @return \Volcengine\Tidb\Model\BranchForCreateBranchInput
+     * @return string
      */
-    public function getBranch()
+    public function getBranchName()
     {
-        return $this->container['branch'];
+        return $this->container['branch_name'];
     }
 
     /**
-     * Sets branch
+     * Sets branch_name
      *
-     * @param \Volcengine\Tidb\Model\BranchForCreateBranchInput $branch branch
+     * @param string $branch_name branch_name
      *
      * @return $this
      */
-    public function setBranch($branch)
+    public function setBranchName($branch_name)
     {
-        $this->container['branch'] = $branch;
+        $this->container['branch_name'] = $branch_name;
 
         return $this;
     }
@@ -234,6 +249,54 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_id
+     *
+     * @return string
+     */
+    public function getParentId()
+    {
+        return $this->container['parent_id'];
+    }
+
+    /**
+     * Sets parent_id
+     *
+     * @param string $parent_id parent_id
+     *
+     * @return $this
+     */
+    public function setParentId($parent_id)
+    {
+        $this->container['parent_id'] = $parent_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_timestamp
+     *
+     * @return string
+     */
+    public function getParentTimestamp()
+    {
+        return $this->container['parent_timestamp'];
+    }
+
+    /**
+     * Sets parent_timestamp
+     *
+     * @param string $parent_timestamp parent_timestamp
+     *
+     * @return $this
+     */
+    public function setParentTimestamp($parent_timestamp)
+    {
+        $this->container['parent_timestamp'] = $parent_timestamp;
 
         return $this;
     }

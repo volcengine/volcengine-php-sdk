@@ -29,7 +29,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForRestoreClusterInput',
-        'display_name' => 'string',
+        'cluster_name' => 'string',
         'high_availability_type' => 'string',
         'spending_limit' => '\Volcengine\Tidb\Model\SpendingLimitForRestoreClusterInput'
     ];
@@ -41,7 +41,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_scaling' => null,
-        'display_name' => null,
+        'cluster_name' => null,
         'high_availability_type' => null,
         'spending_limit' => null
     ];
@@ -74,7 +74,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_scaling' => 'AutoScaling',
-        'display_name' => 'DisplayName',
+        'cluster_name' => 'ClusterName',
         'high_availability_type' => 'HighAvailabilityType',
         'spending_limit' => 'SpendingLimit'
     ];
@@ -86,7 +86,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_scaling' => 'setAutoScaling',
-        'display_name' => 'setDisplayName',
+        'cluster_name' => 'setClusterName',
         'high_availability_type' => 'setHighAvailabilityType',
         'spending_limit' => 'setSpendingLimit'
     ];
@@ -98,7 +98,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_scaling' => 'getAutoScaling',
-        'display_name' => 'getDisplayName',
+        'cluster_name' => 'getClusterName',
         'high_availability_type' => 'getHighAvailabilityType',
         'spending_limit' => 'getSpendingLimit'
     ];
@@ -179,7 +179,7 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['auto_scaling'] = isset($data['auto_scaling']) ? $data['auto_scaling'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['high_availability_type'] = isset($data['high_availability_type']) ? $data['high_availability_type'] : null;
         $this->container['spending_limit'] = isset($data['spending_limit']) ? $data['spending_limit'] : null;
     }
@@ -241,25 +241,25 @@ class ClusterForRestoreClusterInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
+     * Gets cluster_name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getClusterName()
     {
-        return $this->container['display_name'];
+        return $this->container['cluster_name'];
     }
 
     /**
-     * Sets display_name
+     * Sets cluster_name
      *
-     * @param string $display_name display_name
+     * @param string $cluster_name cluster_name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setClusterName($cluster_name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['cluster_name'] = $cluster_name;
 
         return $this;
     }

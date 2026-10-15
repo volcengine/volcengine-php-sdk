@@ -29,7 +29,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForDescribePriceDetailInput',
-        'display_name' => 'string',
+        'cluster_name' => 'string',
         'encryption_config' => '\Volcengine\Tidb\Model\EncryptionConfigForDescribePriceDetailInput',
         'high_availability_type' => 'string',
         'project_name' => 'string',
@@ -47,7 +47,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'auto_scaling' => null,
-        'display_name' => null,
+        'cluster_name' => null,
         'encryption_config' => null,
         'high_availability_type' => null,
         'project_name' => null,
@@ -86,7 +86,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'auto_scaling' => 'AutoScaling',
-        'display_name' => 'DisplayName',
+        'cluster_name' => 'ClusterName',
         'encryption_config' => 'EncryptionConfig',
         'high_availability_type' => 'HighAvailabilityType',
         'project_name' => 'ProjectName',
@@ -104,7 +104,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'auto_scaling' => 'setAutoScaling',
-        'display_name' => 'setDisplayName',
+        'cluster_name' => 'setClusterName',
         'encryption_config' => 'setEncryptionConfig',
         'high_availability_type' => 'setHighAvailabilityType',
         'project_name' => 'setProjectName',
@@ -122,7 +122,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'auto_scaling' => 'getAutoScaling',
-        'display_name' => 'getDisplayName',
+        'cluster_name' => 'getClusterName',
         'encryption_config' => 'getEncryptionConfig',
         'high_availability_type' => 'getHighAvailabilityType',
         'project_name' => 'getProjectName',
@@ -230,7 +230,7 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
     public function __construct($data = null)
     {
         $this->container['auto_scaling'] = isset($data['auto_scaling']) ? $data['auto_scaling'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
         $this->container['high_availability_type'] = isset($data['high_availability_type']) ? $data['high_availability_type'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -306,25 +306,25 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets display_name
+     * Gets cluster_name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getClusterName()
     {
-        return $this->container['display_name'];
+        return $this->container['cluster_name'];
     }
 
     /**
-     * Sets display_name
+     * Sets cluster_name
      *
-     * @param string $display_name display_name
+     * @param string $cluster_name cluster_name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setClusterName($cluster_name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['cluster_name'] = $cluster_name;
 
         return $this;
     }

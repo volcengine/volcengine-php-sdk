@@ -28,18 +28,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'account_id' => 'string',
         'annotations' => '\Volcengine\Tidb\Model\AnnotationForGetClusterDetailsOutput[]',
         'audit_log_config' => '\Volcengine\Tidb\Model\AuditLogConfigForGetClusterDetailsOutput',
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForGetClusterDetailsOutput',
         'automated_backup_policy' => '\Volcengine\Tidb\Model\AutomatedBackupPolicyForGetClusterDetailsOutput',
         'cluster_id' => 'string',
+        'cluster_name' => 'string',
         'create_time' => 'string',
-        'display_name' => 'string',
         'encryption_config' => '\Volcengine\Tidb\Model\EncryptionConfigForGetClusterDetailsOutput',
         'endpoints' => '\Volcengine\Tidb\Model\EndpointsForGetClusterDetailsOutput',
         'high_availability_type' => 'string',
         'labels' => '\Volcengine\Tidb\Model\LabelForGetClusterDetailsOutput[]',
-        'name' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
         'service_plan' => 'string',
@@ -59,18 +59,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'account_id' => null,
         'annotations' => null,
         'audit_log_config' => null,
         'auto_scaling' => null,
         'automated_backup_policy' => null,
         'cluster_id' => null,
+        'cluster_name' => null,
         'create_time' => null,
-        'display_name' => null,
         'encryption_config' => null,
         'endpoints' => null,
         'high_availability_type' => null,
         'labels' => null,
-        'name' => null,
         'project_name' => null,
         'region_id' => null,
         'service_plan' => null,
@@ -111,18 +111,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'AccountId',
         'annotations' => 'Annotations',
         'audit_log_config' => 'AuditLogConfig',
         'auto_scaling' => 'AutoScaling',
         'automated_backup_policy' => 'AutomatedBackupPolicy',
         'cluster_id' => 'ClusterId',
+        'cluster_name' => 'ClusterName',
         'create_time' => 'CreateTime',
-        'display_name' => 'DisplayName',
         'encryption_config' => 'EncryptionConfig',
         'endpoints' => 'Endpoints',
         'high_availability_type' => 'HighAvailabilityType',
         'labels' => 'Labels',
-        'name' => 'Name',
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
         'service_plan' => 'ServicePlan',
@@ -142,18 +142,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
         'annotations' => 'setAnnotations',
         'audit_log_config' => 'setAuditLogConfig',
         'auto_scaling' => 'setAutoScaling',
         'automated_backup_policy' => 'setAutomatedBackupPolicy',
         'cluster_id' => 'setClusterId',
+        'cluster_name' => 'setClusterName',
         'create_time' => 'setCreateTime',
-        'display_name' => 'setDisplayName',
         'encryption_config' => 'setEncryptionConfig',
         'endpoints' => 'setEndpoints',
         'high_availability_type' => 'setHighAvailabilityType',
         'labels' => 'setLabels',
-        'name' => 'setName',
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
         'service_plan' => 'setServicePlan',
@@ -173,18 +173,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
         'annotations' => 'getAnnotations',
         'audit_log_config' => 'getAuditLogConfig',
         'auto_scaling' => 'getAutoScaling',
         'automated_backup_policy' => 'getAutomatedBackupPolicy',
         'cluster_id' => 'getClusterId',
+        'cluster_name' => 'getClusterName',
         'create_time' => 'getCreateTime',
-        'display_name' => 'getDisplayName',
         'encryption_config' => 'getEncryptionConfig',
         'endpoints' => 'getEndpoints',
         'high_availability_type' => 'getHighAvailabilityType',
         'labels' => 'getLabels',
-        'name' => 'getName',
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
         'service_plan' => 'getServicePlan',
@@ -331,18 +331,18 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['audit_log_config'] = isset($data['audit_log_config']) ? $data['audit_log_config'] : null;
         $this->container['auto_scaling'] = isset($data['auto_scaling']) ? $data['auto_scaling'] : null;
         $this->container['automated_backup_policy'] = isset($data['automated_backup_policy']) ? $data['automated_backup_policy'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
         $this->container['high_availability_type'] = isset($data['high_availability_type']) ? $data['high_availability_type'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
@@ -403,6 +403,30 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
 
     /**
      * Gets annotations
@@ -525,6 +549,30 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cluster_name
+     *
+     * @return string
+     */
+    public function getClusterName()
+    {
+        return $this->container['cluster_name'];
+    }
+
+    /**
+     * Sets cluster_name
+     *
+     * @param string $cluster_name cluster_name
+     *
+     * @return $this
+     */
+    public function setClusterName($cluster_name)
+    {
+        $this->container['cluster_name'] = $cluster_name;
+
+        return $this;
+    }
+
+    /**
      * Gets create_time
      *
      * @return string
@@ -544,30 +592,6 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
 
         return $this;
     }
@@ -673,30 +697,6 @@ class ClusterForGetClusterDetailsOutput implements ModelInterface, ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
 
         return $this;
     }
