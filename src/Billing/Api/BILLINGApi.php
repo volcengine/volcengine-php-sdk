@@ -1556,6 +1556,68 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listBudgetFilterConfigurationInfo($body = null)
+    {
+        list($response) = $this->listBudgetFilterConfigurationInfoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listBudgetFilterConfigurationInfoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListBudgetFilterConfigurationInfoResponse';
+        $request = $this->listBudgetFilterConfigurationInfoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listBudgetFilterConfigurationInfoAsync($body = null)
+    {
+        return $this->listBudgetFilterConfigurationInfoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listBudgetFilterConfigurationInfoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListBudgetFilterConfigurationInfoResponse';
+        $request = $this->listBudgetFilterConfigurationInfoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listBudgetFilterConfigurationInfoRequest($body)
+    {
+        $resourcePath = '/ListBudgetFilterConfigurationInfo/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listBudgetFilterOwnerID($body = null)
     {
         list($response) = $this->listBudgetFilterOwnerIDWithHttpInfo($body);
@@ -3016,6 +3078,130 @@ class BILLINGApi
     protected function queryBudgetDetailRequest($body)
     {
         $resourcePath = '/QueryBudgetDetail/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function queryBudgetSplitItemID($body = null)
+    {
+        list($response) = $this->queryBudgetSplitItemIDWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryBudgetSplitItemIDWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryBudgetSplitItemIDResponse';
+        $request = $this->queryBudgetSplitItemIDRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function queryBudgetSplitItemIDAsync($body = null)
+    {
+        return $this->queryBudgetSplitItemIDAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryBudgetSplitItemIDAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryBudgetSplitItemIDResponse';
+        $request = $this->queryBudgetSplitItemIDRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function queryBudgetSplitItemIDRequest($body)
+    {
+        $resourcePath = '/QueryBudgetSplitItemID/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function queryBudgetSplitItemName($body = null)
+    {
+        list($response) = $this->queryBudgetSplitItemNameWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryBudgetSplitItemNameWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryBudgetSplitItemNameResponse';
+        $request = $this->queryBudgetSplitItemNameRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function queryBudgetSplitItemNameAsync($body = null)
+    {
+        return $this->queryBudgetSplitItemNameAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryBudgetSplitItemNameAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryBudgetSplitItemNameResponse';
+        $request = $this->queryBudgetSplitItemNameRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function queryBudgetSplitItemNameRequest($body)
+    {
+        $resourcePath = '/QueryBudgetSplitItemName/2022-01-01/billing/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

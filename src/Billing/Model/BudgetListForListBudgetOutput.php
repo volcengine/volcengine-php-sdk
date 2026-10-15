@@ -29,12 +29,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'actual_amount' => 'string',
+        'amount_type' => 'string',
         'budget_amount' => 'string',
         'budget_end_time' => 'string',
         'budget_id' => 'string',
         'budget_name' => 'string',
         'budget_start_time' => 'string',
         'budget_type' => 'string',
+        'currency_settlement' => 'string',
         'period' => 'string',
         'ratio' => 'string',
         'status' => 'int'
@@ -47,12 +49,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'actual_amount' => null,
+        'amount_type' => null,
         'budget_amount' => null,
         'budget_end_time' => null,
         'budget_id' => null,
         'budget_name' => null,
         'budget_start_time' => null,
         'budget_type' => null,
+        'currency_settlement' => null,
         'period' => null,
         'ratio' => null,
         'status' => 'int32'
@@ -86,12 +90,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'actual_amount' => 'ActualAmount',
+        'amount_type' => 'AmountType',
         'budget_amount' => 'BudgetAmount',
         'budget_end_time' => 'BudgetEndTime',
         'budget_id' => 'BudgetID',
         'budget_name' => 'BudgetName',
         'budget_start_time' => 'BudgetStartTime',
         'budget_type' => 'BudgetType',
+        'currency_settlement' => 'CurrencySettlement',
         'period' => 'Period',
         'ratio' => 'Ratio',
         'status' => 'Status'
@@ -104,12 +110,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'actual_amount' => 'setActualAmount',
+        'amount_type' => 'setAmountType',
         'budget_amount' => 'setBudgetAmount',
         'budget_end_time' => 'setBudgetEndTime',
         'budget_id' => 'setBudgetId',
         'budget_name' => 'setBudgetName',
         'budget_start_time' => 'setBudgetStartTime',
         'budget_type' => 'setBudgetType',
+        'currency_settlement' => 'setCurrencySettlement',
         'period' => 'setPeriod',
         'ratio' => 'setRatio',
         'status' => 'setStatus'
@@ -122,12 +130,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'actual_amount' => 'getActualAmount',
+        'amount_type' => 'getAmountType',
         'budget_amount' => 'getBudgetAmount',
         'budget_end_time' => 'getBudgetEndTime',
         'budget_id' => 'getBudgetId',
         'budget_name' => 'getBudgetName',
         'budget_start_time' => 'getBudgetStartTime',
         'budget_type' => 'getBudgetType',
+        'currency_settlement' => 'getCurrencySettlement',
         'period' => 'getPeriod',
         'ratio' => 'getRatio',
         'status' => 'getStatus'
@@ -194,12 +204,14 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['actual_amount'] = isset($data['actual_amount']) ? $data['actual_amount'] : null;
+        $this->container['amount_type'] = isset($data['amount_type']) ? $data['amount_type'] : null;
         $this->container['budget_amount'] = isset($data['budget_amount']) ? $data['budget_amount'] : null;
         $this->container['budget_end_time'] = isset($data['budget_end_time']) ? $data['budget_end_time'] : null;
         $this->container['budget_id'] = isset($data['budget_id']) ? $data['budget_id'] : null;
         $this->container['budget_name'] = isset($data['budget_name']) ? $data['budget_name'] : null;
         $this->container['budget_start_time'] = isset($data['budget_start_time']) ? $data['budget_start_time'] : null;
         $this->container['budget_type'] = isset($data['budget_type']) ? $data['budget_type'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['ratio'] = isset($data['ratio']) ? $data['ratio'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -249,6 +261,30 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
     public function setActualAmount($actual_amount)
     {
         $this->container['actual_amount'] = $actual_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_type
+     *
+     * @return string
+     */
+    public function getAmountType()
+    {
+        return $this->container['amount_type'];
+    }
+
+    /**
+     * Sets amount_type
+     *
+     * @param string $amount_type amount_type
+     *
+     * @return $this
+     */
+    public function setAmountType($amount_type)
+    {
+        $this->container['amount_type'] = $amount_type;
 
         return $this;
     }
@@ -393,6 +429,30 @@ class BudgetListForListBudgetOutput implements ModelInterface, ArrayAccess
     public function setBudgetType($budget_type)
     {
         $this->container['budget_type'] = $budget_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
 
         return $this;
     }

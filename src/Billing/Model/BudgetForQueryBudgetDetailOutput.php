@@ -28,11 +28,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'amount_type' => 'string',
         'budget_end_time' => 'string',
         'budget_name' => 'string',
         'budget_plan_type' => 'string',
         'budget_start_time' => 'string',
         'budget_type' => 'string',
+        'currency_settlement' => 'string',
         'period' => 'string'
     ];
 
@@ -42,11 +44,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'amount_type' => null,
         'budget_end_time' => null,
         'budget_name' => null,
         'budget_plan_type' => null,
         'budget_start_time' => null,
         'budget_type' => null,
+        'currency_settlement' => null,
         'period' => null
     ];
 
@@ -77,11 +81,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'amount_type' => 'AmountType',
         'budget_end_time' => 'BudgetEndTime',
         'budget_name' => 'BudgetName',
         'budget_plan_type' => 'BudgetPlanType',
         'budget_start_time' => 'BudgetStartTime',
         'budget_type' => 'BudgetType',
+        'currency_settlement' => 'CurrencySettlement',
         'period' => 'Period'
     ];
 
@@ -91,11 +97,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'amount_type' => 'setAmountType',
         'budget_end_time' => 'setBudgetEndTime',
         'budget_name' => 'setBudgetName',
         'budget_plan_type' => 'setBudgetPlanType',
         'budget_start_time' => 'setBudgetStartTime',
         'budget_type' => 'setBudgetType',
+        'currency_settlement' => 'setCurrencySettlement',
         'period' => 'setPeriod'
     ];
 
@@ -105,11 +113,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'amount_type' => 'getAmountType',
         'budget_end_time' => 'getBudgetEndTime',
         'budget_name' => 'getBudgetName',
         'budget_plan_type' => 'getBudgetPlanType',
         'budget_start_time' => 'getBudgetStartTime',
         'budget_type' => 'getBudgetType',
+        'currency_settlement' => 'getCurrencySettlement',
         'period' => 'getPeriod'
     ];
 
@@ -173,11 +183,13 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['amount_type'] = isset($data['amount_type']) ? $data['amount_type'] : null;
         $this->container['budget_end_time'] = isset($data['budget_end_time']) ? $data['budget_end_time'] : null;
         $this->container['budget_name'] = isset($data['budget_name']) ? $data['budget_name'] : null;
         $this->container['budget_plan_type'] = isset($data['budget_plan_type']) ? $data['budget_plan_type'] : null;
         $this->container['budget_start_time'] = isset($data['budget_start_time']) ? $data['budget_start_time'] : null;
         $this->container['budget_type'] = isset($data['budget_type']) ? $data['budget_type'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
@@ -204,6 +216,30 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets amount_type
+     *
+     * @return string
+     */
+    public function getAmountType()
+    {
+        return $this->container['amount_type'];
+    }
+
+    /**
+     * Sets amount_type
+     *
+     * @param string $amount_type amount_type
+     *
+     * @return $this
+     */
+    public function setAmountType($amount_type)
+    {
+        $this->container['amount_type'] = $amount_type;
+
+        return $this;
+    }
 
     /**
      * Gets budget_end_time
@@ -321,6 +357,30 @@ class BudgetForQueryBudgetDetailOutput implements ModelInterface, ArrayAccess
     public function setBudgetType($budget_type)
     {
         $this->container['budget_type'] = $budget_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
 
         return $this;
     }
