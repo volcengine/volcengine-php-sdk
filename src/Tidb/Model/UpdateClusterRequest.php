@@ -146,7 +146,7 @@ class UpdateClusterRequest implements ModelInterface, ArrayAccess
 
     const UPDATE_MASK_AUTO_SCALING = 'autoScaling';
     const UPDATE_MASK_AUTOMATED_BACKUP_POLICY = 'automatedBackupPolicy';
-    const UPDATE_MASK_DISPLAY_NAME = 'displayName';
+    const UPDATE_MASK_CLUSTER_NAME = 'clusterName';
     
 
     
@@ -160,7 +160,7 @@ class UpdateClusterRequest implements ModelInterface, ArrayAccess
         return [
             self::UPDATE_MASK_AUTO_SCALING,
             self::UPDATE_MASK_AUTOMATED_BACKUP_POLICY,
-            self::UPDATE_MASK_DISPLAY_NAME,
+            self::UPDATE_MASK_CLUSTER_NAME,
         ];
     }
     

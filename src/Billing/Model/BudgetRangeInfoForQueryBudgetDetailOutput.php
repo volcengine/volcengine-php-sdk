@@ -29,11 +29,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'budget_range_billing_mode' => '\Volcengine\Billing\Model\BudgetRangeBillingModeForQueryBudgetDetailOutput[]',
+        'budget_range_configuration_code' => '\Volcengine\Billing\Model\BudgetRangeConfigurationCodeForQueryBudgetDetailOutput[]',
         'budget_range_owner' => '\Volcengine\Billing\Model\BudgetRangeOwnerForQueryBudgetDetailOutput[]',
         'budget_range_payer' => '\Volcengine\Billing\Model\BudgetRangePayerForQueryBudgetDetailOutput[]',
         'budget_range_product' => '\Volcengine\Billing\Model\BudgetRangeProductForQueryBudgetDetailOutput[]',
         'budget_range_project' => 'string[]',
         'budget_range_region' => '\Volcengine\Billing\Model\BudgetRangeRegionForQueryBudgetDetailOutput[]',
+        'budget_range_split_item_id' => 'string[]',
+        'budget_range_split_item_name' => 'string[]',
         'budget_range_subject' => '\Volcengine\Billing\Model\BudgetRangeSubjectForQueryBudgetDetailOutput[]',
         'budget_range_tag' => 'string[]',
         'budget_range_zone' => '\Volcengine\Billing\Model\BudgetRangeZoneForQueryBudgetDetailOutput[]'
@@ -46,11 +49,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'budget_range_billing_mode' => null,
+        'budget_range_configuration_code' => null,
         'budget_range_owner' => null,
         'budget_range_payer' => null,
         'budget_range_product' => null,
         'budget_range_project' => null,
         'budget_range_region' => null,
+        'budget_range_split_item_id' => null,
+        'budget_range_split_item_name' => null,
         'budget_range_subject' => null,
         'budget_range_tag' => null,
         'budget_range_zone' => null
@@ -84,11 +90,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'budget_range_billing_mode' => 'BudgetRangeBillingMode',
+        'budget_range_configuration_code' => 'BudgetRangeConfigurationCode',
         'budget_range_owner' => 'BudgetRangeOwner',
         'budget_range_payer' => 'BudgetRangePayer',
         'budget_range_product' => 'BudgetRangeProduct',
         'budget_range_project' => 'BudgetRangeProject',
         'budget_range_region' => 'BudgetRangeRegion',
+        'budget_range_split_item_id' => 'BudgetRangeSplitItemID',
+        'budget_range_split_item_name' => 'BudgetRangeSplitItemName',
         'budget_range_subject' => 'BudgetRangeSubject',
         'budget_range_tag' => 'BudgetRangeTag',
         'budget_range_zone' => 'BudgetRangeZone'
@@ -101,11 +110,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
      */
     protected static $setters = [
         'budget_range_billing_mode' => 'setBudgetRangeBillingMode',
+        'budget_range_configuration_code' => 'setBudgetRangeConfigurationCode',
         'budget_range_owner' => 'setBudgetRangeOwner',
         'budget_range_payer' => 'setBudgetRangePayer',
         'budget_range_product' => 'setBudgetRangeProduct',
         'budget_range_project' => 'setBudgetRangeProject',
         'budget_range_region' => 'setBudgetRangeRegion',
+        'budget_range_split_item_id' => 'setBudgetRangeSplitItemId',
+        'budget_range_split_item_name' => 'setBudgetRangeSplitItemName',
         'budget_range_subject' => 'setBudgetRangeSubject',
         'budget_range_tag' => 'setBudgetRangeTag',
         'budget_range_zone' => 'setBudgetRangeZone'
@@ -118,11 +130,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
      */
     protected static $getters = [
         'budget_range_billing_mode' => 'getBudgetRangeBillingMode',
+        'budget_range_configuration_code' => 'getBudgetRangeConfigurationCode',
         'budget_range_owner' => 'getBudgetRangeOwner',
         'budget_range_payer' => 'getBudgetRangePayer',
         'budget_range_product' => 'getBudgetRangeProduct',
         'budget_range_project' => 'getBudgetRangeProject',
         'budget_range_region' => 'getBudgetRangeRegion',
+        'budget_range_split_item_id' => 'getBudgetRangeSplitItemId',
+        'budget_range_split_item_name' => 'getBudgetRangeSplitItemName',
         'budget_range_subject' => 'getBudgetRangeSubject',
         'budget_range_tag' => 'getBudgetRangeTag',
         'budget_range_zone' => 'getBudgetRangeZone'
@@ -189,11 +204,14 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['budget_range_billing_mode'] = isset($data['budget_range_billing_mode']) ? $data['budget_range_billing_mode'] : null;
+        $this->container['budget_range_configuration_code'] = isset($data['budget_range_configuration_code']) ? $data['budget_range_configuration_code'] : null;
         $this->container['budget_range_owner'] = isset($data['budget_range_owner']) ? $data['budget_range_owner'] : null;
         $this->container['budget_range_payer'] = isset($data['budget_range_payer']) ? $data['budget_range_payer'] : null;
         $this->container['budget_range_product'] = isset($data['budget_range_product']) ? $data['budget_range_product'] : null;
         $this->container['budget_range_project'] = isset($data['budget_range_project']) ? $data['budget_range_project'] : null;
         $this->container['budget_range_region'] = isset($data['budget_range_region']) ? $data['budget_range_region'] : null;
+        $this->container['budget_range_split_item_id'] = isset($data['budget_range_split_item_id']) ? $data['budget_range_split_item_id'] : null;
+        $this->container['budget_range_split_item_name'] = isset($data['budget_range_split_item_name']) ? $data['budget_range_split_item_name'] : null;
         $this->container['budget_range_subject'] = isset($data['budget_range_subject']) ? $data['budget_range_subject'] : null;
         $this->container['budget_range_tag'] = isset($data['budget_range_tag']) ? $data['budget_range_tag'] : null;
         $this->container['budget_range_zone'] = isset($data['budget_range_zone']) ? $data['budget_range_zone'] : null;
@@ -243,6 +261,30 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
     public function setBudgetRangeBillingMode($budget_range_billing_mode)
     {
         $this->container['budget_range_billing_mode'] = $budget_range_billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_range_configuration_code
+     *
+     * @return \Volcengine\Billing\Model\BudgetRangeConfigurationCodeForQueryBudgetDetailOutput[]
+     */
+    public function getBudgetRangeConfigurationCode()
+    {
+        return $this->container['budget_range_configuration_code'];
+    }
+
+    /**
+     * Sets budget_range_configuration_code
+     *
+     * @param \Volcengine\Billing\Model\BudgetRangeConfigurationCodeForQueryBudgetDetailOutput[] $budget_range_configuration_code budget_range_configuration_code
+     *
+     * @return $this
+     */
+    public function setBudgetRangeConfigurationCode($budget_range_configuration_code)
+    {
+        $this->container['budget_range_configuration_code'] = $budget_range_configuration_code;
 
         return $this;
     }
@@ -363,6 +405,54 @@ class BudgetRangeInfoForQueryBudgetDetailOutput implements ModelInterface, Array
     public function setBudgetRangeRegion($budget_range_region)
     {
         $this->container['budget_range_region'] = $budget_range_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_range_split_item_id
+     *
+     * @return string[]
+     */
+    public function getBudgetRangeSplitItemId()
+    {
+        return $this->container['budget_range_split_item_id'];
+    }
+
+    /**
+     * Sets budget_range_split_item_id
+     *
+     * @param string[] $budget_range_split_item_id budget_range_split_item_id
+     *
+     * @return $this
+     */
+    public function setBudgetRangeSplitItemId($budget_range_split_item_id)
+    {
+        $this->container['budget_range_split_item_id'] = $budget_range_split_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_range_split_item_name
+     *
+     * @return string[]
+     */
+    public function getBudgetRangeSplitItemName()
+    {
+        return $this->container['budget_range_split_item_name'];
+    }
+
+    /**
+     * Sets budget_range_split_item_name
+     *
+     * @param string[] $budget_range_split_item_name budget_range_split_item_name
+     *
+     * @return $this
+     */
+    public function setBudgetRangeSplitItemName($budget_range_split_item_name)
+    {
+        $this->container['budget_range_split_item_name'] = $budget_range_split_item_name;
 
         return $this;
     }

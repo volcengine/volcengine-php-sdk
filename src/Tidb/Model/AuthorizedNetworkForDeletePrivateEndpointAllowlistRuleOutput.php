@@ -28,7 +28,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'display_name' => 'string',
+        'authorized_network_name' => 'string',
         'security_group_count' => 'int',
         'vpc_endpoint_id' => 'string',
         'vpc_endpoint_name' => 'string'
@@ -40,7 +40,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'display_name' => null,
+        'authorized_network_name' => null,
         'security_group_count' => 'int32',
         'vpc_endpoint_id' => null,
         'vpc_endpoint_name' => null
@@ -73,7 +73,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'DisplayName',
+        'authorized_network_name' => 'AuthorizedNetworkName',
         'security_group_count' => 'SecurityGroupCount',
         'vpc_endpoint_id' => 'VpcEndpointId',
         'vpc_endpoint_name' => 'VpcEndpointName'
@@ -85,7 +85,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
+        'authorized_network_name' => 'setAuthorizedNetworkName',
         'security_group_count' => 'setSecurityGroupCount',
         'vpc_endpoint_id' => 'setVpcEndpointId',
         'vpc_endpoint_name' => 'setVpcEndpointName'
@@ -97,7 +97,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
+        'authorized_network_name' => 'getAuthorizedNetworkName',
         'security_group_count' => 'getSecurityGroupCount',
         'vpc_endpoint_id' => 'getVpcEndpointId',
         'vpc_endpoint_name' => 'getVpcEndpointName'
@@ -163,7 +163,7 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
      */
     public function __construct($data = null)
     {
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['authorized_network_name'] = isset($data['authorized_network_name']) ? $data['authorized_network_name'] : null;
         $this->container['security_group_count'] = isset($data['security_group_count']) ? $data['security_group_count'] : null;
         $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
         $this->container['vpc_endpoint_name'] = isset($data['vpc_endpoint_name']) ? $data['vpc_endpoint_name'] : null;
@@ -194,25 +194,25 @@ class AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput implements Mo
 
 
     /**
-     * Gets display_name
+     * Gets authorized_network_name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getAuthorizedNetworkName()
     {
-        return $this->container['display_name'];
+        return $this->container['authorized_network_name'];
     }
 
     /**
-     * Sets display_name
+     * Sets authorized_network_name
      *
-     * @param string $display_name display_name
+     * @param string $authorized_network_name authorized_network_name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setAuthorizedNetworkName($authorized_network_name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['authorized_network_name'] = $authorized_network_name;
 
         return $this;
     }

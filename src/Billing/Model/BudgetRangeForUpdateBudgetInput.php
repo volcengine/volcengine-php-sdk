@@ -29,11 +29,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'billing_mode' => 'string[]',
+        'configuration_code' => '\Volcengine\Billing\Model\ConfigurationCodeForUpdateBudgetInput[]',
         'owner_id' => 'int[]',
         'payer_id' => 'int[]',
         'product' => 'string[]',
         'project' => 'string[]',
         'region' => 'string[]',
+        'split_item_id' => 'string[]',
+        'split_item_name' => 'string[]',
         'subject_no' => 'string[]',
         'tag' => 'string[]',
         'zone' => 'string[]'
@@ -46,11 +49,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'billing_mode' => null,
+        'configuration_code' => null,
         'owner_id' => 'int64',
         'payer_id' => 'int64',
         'product' => null,
         'project' => null,
         'region' => null,
+        'split_item_id' => null,
+        'split_item_name' => null,
         'subject_no' => null,
         'tag' => null,
         'zone' => null
@@ -84,11 +90,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'billing_mode' => 'BillingMode',
+        'configuration_code' => 'ConfigurationCode',
         'owner_id' => 'OwnerID',
         'payer_id' => 'PayerID',
         'product' => 'Product',
         'project' => 'Project',
         'region' => 'Region',
+        'split_item_id' => 'SplitItemID',
+        'split_item_name' => 'SplitItemName',
         'subject_no' => 'SubjectNo',
         'tag' => 'Tag',
         'zone' => 'Zone'
@@ -101,11 +110,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'billing_mode' => 'setBillingMode',
+        'configuration_code' => 'setConfigurationCode',
         'owner_id' => 'setOwnerId',
         'payer_id' => 'setPayerId',
         'product' => 'setProduct',
         'project' => 'setProject',
         'region' => 'setRegion',
+        'split_item_id' => 'setSplitItemId',
+        'split_item_name' => 'setSplitItemName',
         'subject_no' => 'setSubjectNo',
         'tag' => 'setTag',
         'zone' => 'setZone'
@@ -118,11 +130,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'billing_mode' => 'getBillingMode',
+        'configuration_code' => 'getConfigurationCode',
         'owner_id' => 'getOwnerId',
         'payer_id' => 'getPayerId',
         'product' => 'getProduct',
         'project' => 'getProject',
         'region' => 'getRegion',
+        'split_item_id' => 'getSplitItemId',
+        'split_item_name' => 'getSplitItemName',
         'subject_no' => 'getSubjectNo',
         'tag' => 'getTag',
         'zone' => 'getZone'
@@ -189,11 +204,14 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
+        $this->container['split_item_name'] = isset($data['split_item_name']) ? $data['split_item_name'] : null;
         $this->container['subject_no'] = isset($data['subject_no']) ? $data['subject_no'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
@@ -243,6 +261,30 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
     public function setBillingMode($billing_mode)
     {
         $this->container['billing_mode'] = $billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_code
+     *
+     * @return \Volcengine\Billing\Model\ConfigurationCodeForUpdateBudgetInput[]
+     */
+    public function getConfigurationCode()
+    {
+        return $this->container['configuration_code'];
+    }
+
+    /**
+     * Sets configuration_code
+     *
+     * @param \Volcengine\Billing\Model\ConfigurationCodeForUpdateBudgetInput[] $configuration_code configuration_code
+     *
+     * @return $this
+     */
+    public function setConfigurationCode($configuration_code)
+    {
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }
@@ -363,6 +405,54 @@ class BudgetRangeForUpdateBudgetInput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets split_item_id
+     *
+     * @return string[]
+     */
+    public function getSplitItemId()
+    {
+        return $this->container['split_item_id'];
+    }
+
+    /**
+     * Sets split_item_id
+     *
+     * @param string[] $split_item_id split_item_id
+     *
+     * @return $this
+     */
+    public function setSplitItemId($split_item_id)
+    {
+        $this->container['split_item_id'] = $split_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets split_item_name
+     *
+     * @return string[]
+     */
+    public function getSplitItemName()
+    {
+        return $this->container['split_item_name'];
+    }
+
+    /**
+     * Sets split_item_name
+     *
+     * @param string[] $split_item_name split_item_name
+     *
+     * @return $this
+     */
+    public function setSplitItemName($split_item_name)
+    {
+        $this->container['split_item_name'] = $split_item_name;
 
         return $this;
     }
