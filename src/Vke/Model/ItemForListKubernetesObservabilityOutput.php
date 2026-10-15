@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
+class ItemForListKubernetesObservabilityOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RegistryProxyConfigForListNodePoolsOutput';
+    protected static $swaggerModelName = 'ItemForListKubernetesObservabilityOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'proxy_endpoints' => 'string[]',
-        'registry' => 'string'
+        'cluster_id' => 'string',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -38,8 +38,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'proxy_endpoints' => null,
-        'registry' => null
+        'cluster_id' => null,
+        'enabled' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'proxy_endpoints' => 'ProxyEndpoints',
-        'registry' => 'Registry'
+        'cluster_id' => 'ClusterId',
+        'enabled' => 'Enabled'
     ];
 
     /**
@@ -79,8 +79,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'proxy_endpoints' => 'setProxyEndpoints',
-        'registry' => 'setRegistry'
+        'cluster_id' => 'setClusterId',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -89,8 +89,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'proxy_endpoints' => 'getProxyEndpoints',
-        'registry' => 'getRegistry'
+        'cluster_id' => 'getClusterId',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -153,8 +153,8 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
-        $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, Array
 
 
     /**
-     * Gets proxy_endpoints
+     * Gets cluster_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getProxyEndpoints()
+    public function getClusterId()
     {
-        return $this->container['proxy_endpoints'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets proxy_endpoints
+     * Sets cluster_id
      *
-     * @param string[] $proxy_endpoints proxy_endpoints
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setProxyEndpoints($proxy_endpoints)
+    public function setClusterId($cluster_id)
     {
-        $this->container['proxy_endpoints'] = $proxy_endpoints;
+        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
 
     /**
-     * Gets registry
+     * Gets enabled
      *
-     * @return string
+     * @return bool
      */
-    public function getRegistry()
+    public function getEnabled()
     {
-        return $this->container['registry'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets registry
+     * Sets enabled
      *
-     * @param string $registry registry
+     * @param bool $enabled enabled
      *
      * @return $this
      */
-    public function setRegistry($registry)
+    public function setEnabled($enabled)
     {
-        $this->container['registry'] = $registry;
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

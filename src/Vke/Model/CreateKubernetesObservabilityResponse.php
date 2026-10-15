@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
+class CreateKubernetesObservabilityResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RegistryProxyConfigForCreateNodePoolInput';
+    protected static $swaggerModelName = 'CreateKubernetesObservabilityResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'proxy_endpoints' => 'string[]',
-        'registry' => 'string'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'proxy_endpoints' => null,
-        'registry' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'proxy_endpoints' => 'ProxyEndpoints',
-        'registry' => 'Registry'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'proxy_endpoints' => 'setProxyEndpoints',
-        'registry' => 'setRegistry'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'proxy_endpoints' => 'getProxyEndpoints',
-        'registry' => 'getRegistry'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
-        $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
-        $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets proxy_endpoints
-     *
-     * @return string[]
-     */
-    public function getProxyEndpoints()
-    {
-        return $this->container['proxy_endpoints'];
-    }
-
-    /**
-     * Sets proxy_endpoints
-     *
-     * @param string[] $proxy_endpoints proxy_endpoints
-     *
-     * @return $this
-     */
-    public function setProxyEndpoints($proxy_endpoints)
-    {
-        $this->container['proxy_endpoints'] = $proxy_endpoints;
-
-        return $this;
-    }
-
-    /**
-     * Gets registry
-     *
-     * @return string
-     */
-    public function getRegistry()
-    {
-        return $this->container['registry'];
-    }
-
-    /**
-     * Sets registry
-     *
-     * @param string $registry registry
-     *
-     * @return $this
-     */
-    public function setRegistry($registry)
-    {
-        $this->container['registry'] = $registry;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

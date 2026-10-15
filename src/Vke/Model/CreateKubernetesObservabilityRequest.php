@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAccess
+class CreateKubernetesObservabilityRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RegistryProxyConfigForCreateDefaultNodePoolInput';
+    protected static $swaggerModelName = 'CreateKubernetesObservabilityRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'proxy_endpoints' => 'string[]',
-        'registry' => 'string'
+        'cluster_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'proxy_endpoints' => null,
-        'registry' => null
+        'cluster_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'proxy_endpoints' => 'ProxyEndpoints',
-        'registry' => 'Registry'
+        'cluster_id' => 'ClusterId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'proxy_endpoints' => 'setProxyEndpoints',
-        'registry' => 'setRegistry'
+        'cluster_id' => 'setClusterId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'proxy_endpoints' => 'getProxyEndpoints',
-        'registry' => 'getRegistry'
+        'cluster_id' => 'getClusterId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
      */
     public function __construct($data = null)
     {
-        $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
-        $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class RegistryProxyConfigForCreateDefaultNodePoolInput implements ModelInterface
 
 
     /**
-     * Gets proxy_endpoints
-     *
-     * @return string[]
-     */
-    public function getProxyEndpoints()
-    {
-        return $this->container['proxy_endpoints'];
-    }
-
-    /**
-     * Sets proxy_endpoints
-     *
-     * @param string[] $proxy_endpoints proxy_endpoints
-     *
-     * @return $this
-     */
-    public function setProxyEndpoints($proxy_endpoints)
-    {
-        $this->container['proxy_endpoints'] = $proxy_endpoints;
-
-        return $this;
-    }
-
-    /**
-     * Gets registry
+     * Gets cluster_id
      *
      * @return string
      */
-    public function getRegistry()
+    public function getClusterId()
     {
-        return $this->container['registry'];
+        return $this->container['cluster_id'];
     }
 
     /**
-     * Sets registry
+     * Sets cluster_id
      *
-     * @param string $registry registry
+     * @param string $cluster_id cluster_id
      *
      * @return $this
      */
-    public function setRegistry($registry)
+    public function setClusterId($cluster_id)
     {
-        $this->container['registry'] = $registry;
+        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }

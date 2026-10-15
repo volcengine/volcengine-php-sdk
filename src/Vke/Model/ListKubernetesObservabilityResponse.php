@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAccess
+class ListKubernetesObservabilityResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RegistryProxyConfigForUpdateNodePoolConfigInput';
+    protected static $swaggerModelName = 'ListKubernetesObservabilityResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'proxy_endpoints' => 'string[]',
-        'registry' => 'string'
+        'items' => '\Volcengine\Vke\Model\ItemForListKubernetesObservabilityOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'proxy_endpoints' => null,
-        'registry' => null
+        'items' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -69,8 +73,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'proxy_endpoints' => 'ProxyEndpoints',
-        'registry' => 'Registry'
+        'items' => 'Items',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -79,8 +85,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'proxy_endpoints' => 'setProxyEndpoints',
-        'registry' => 'setRegistry'
+        'items' => 'setItems',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -89,8 +97,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'proxy_endpoints' => 'getProxyEndpoints',
-        'registry' => 'getRegistry'
+        'items' => 'getItems',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -153,8 +163,10 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
      */
     public function __construct($data = null)
     {
-        $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
-        $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class RegistryProxyConfigForUpdateNodePoolConfigInput implements ModelInterface,
 
 
     /**
-     * Gets proxy_endpoints
+     * Gets items
      *
-     * @return string[]
+     * @return \Volcengine\Vke\Model\ItemForListKubernetesObservabilityOutput[]
      */
-    public function getProxyEndpoints()
+    public function getItems()
     {
-        return $this->container['proxy_endpoints'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets proxy_endpoints
+     * Sets items
      *
-     * @param string[] $proxy_endpoints proxy_endpoints
+     * @param \Volcengine\Vke\Model\ItemForListKubernetesObservabilityOutput[] $items items
      *
      * @return $this
      */
-    public function setProxyEndpoints($proxy_endpoints)
+    public function setItems($items)
     {
-        $this->container['proxy_endpoints'] = $proxy_endpoints;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets registry
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getRegistry()
+    public function getPageNumber()
     {
-        return $this->container['registry'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets registry
+     * Sets page_number
      *
-     * @param string $registry registry
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setRegistry($registry)
+    public function setPageNumber($page_number)
     {
-        $this->container['registry'] = $registry;
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
