@@ -36,7 +36,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'display_name' => 'string',
         'endpoints' => '\Volcengine\Tidb\Model\EndpointsForGetBranchDetailsOutput',
         'has_set_pwd' => 'bool',
-        'name' => 'string',
         'parent_display_name' => 'string',
         'parent_id' => 'string',
         'parent_timestamp' => 'string',
@@ -61,7 +60,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'display_name' => null,
         'endpoints' => null,
         'has_set_pwd' => null,
-        'name' => null,
         'parent_display_name' => null,
         'parent_id' => null,
         'parent_timestamp' => null,
@@ -107,7 +105,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'display_name' => 'DisplayName',
         'endpoints' => 'Endpoints',
         'has_set_pwd' => 'HasSetPwd',
-        'name' => 'Name',
         'parent_display_name' => 'ParentDisplayName',
         'parent_id' => 'ParentId',
         'parent_timestamp' => 'ParentTimestamp',
@@ -132,7 +129,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'display_name' => 'setDisplayName',
         'endpoints' => 'setEndpoints',
         'has_set_pwd' => 'setHasSetPwd',
-        'name' => 'setName',
         'parent_display_name' => 'setParentDisplayName',
         'parent_id' => 'setParentId',
         'parent_timestamp' => 'setParentTimestamp',
@@ -157,7 +153,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         'display_name' => 'getDisplayName',
         'endpoints' => 'getEndpoints',
         'has_set_pwd' => 'getHasSetPwd',
-        'name' => 'getName',
         'parent_display_name' => 'getParentDisplayName',
         'parent_id' => 'getParentId',
         'parent_timestamp' => 'getParentTimestamp',
@@ -236,7 +231,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
         $this->container['has_set_pwd'] = isset($data['has_set_pwd']) ? $data['has_set_pwd'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['parent_display_name'] = isset($data['parent_display_name']) ? $data['parent_display_name'] : null;
         $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
         $this->container['parent_timestamp'] = isset($data['parent_timestamp']) ? $data['parent_timestamp'] : null;
@@ -459,30 +453,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     public function setHasSetPwd($has_set_pwd)
     {
         $this->container['has_set_pwd'] = $has_set_pwd;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
 
         return $this;
     }

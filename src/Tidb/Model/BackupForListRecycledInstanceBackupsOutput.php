@@ -33,7 +33,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         'cluster_id' => 'string',
         'create_time' => 'string',
         'expire_time' => 'string',
-        'name' => 'string',
         'state' => 'string',
         'type' => 'string'
     ];
@@ -49,7 +48,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         'cluster_id' => null,
         'create_time' => null,
         'expire_time' => null,
-        'name' => null,
         'state' => null,
         'type' => null
     ];
@@ -86,7 +84,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'expire_time' => 'ExpireTime',
-        'name' => 'Name',
         'state' => 'State',
         'type' => 'Type'
     ];
@@ -102,7 +99,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'expire_time' => 'setExpireTime',
-        'name' => 'setName',
         'state' => 'setState',
         'type' => 'setType'
     ];
@@ -118,7 +114,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'expire_time' => 'getExpireTime',
-        'name' => 'getName',
         'state' => 'getState',
         'type' => 'getType'
     ];
@@ -203,7 +198,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -356,30 +350,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
     public function setExpireTime($expire_time)
     {
         $this->container['expire_time'] = $expire_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
 
         return $this;
     }

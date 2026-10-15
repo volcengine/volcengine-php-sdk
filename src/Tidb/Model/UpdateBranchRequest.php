@@ -28,8 +28,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'branch' => '\Volcengine\Tidb\Model\BranchForUpdateBranchInput',
         'branch_id' => 'string',
+        'branch_name' => 'string',
         'cluster_id' => 'string',
         'project_name' => 'string'
     ];
@@ -40,8 +40,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'branch' => null,
         'branch_id' => null,
+        'branch_name' => null,
         'cluster_id' => null,
         'project_name' => null
     ];
@@ -73,8 +73,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch' => 'Branch',
         'branch_id' => 'BranchId',
+        'branch_name' => 'BranchName',
         'cluster_id' => 'ClusterId',
         'project_name' => 'ProjectName'
     ];
@@ -85,8 +85,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch' => 'setBranch',
         'branch_id' => 'setBranchId',
+        'branch_name' => 'setBranchName',
         'cluster_id' => 'setClusterId',
         'project_name' => 'setProjectName'
     ];
@@ -97,8 +97,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch' => 'getBranch',
         'branch_id' => 'getBranchId',
+        'branch_name' => 'getBranchName',
         'cluster_id' => 'getClusterId',
         'project_name' => 'getProjectName'
     ];
@@ -163,8 +163,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
+        $this->container['branch_name'] = isset($data['branch_name']) ? $data['branch_name'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
@@ -180,6 +180,9 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['branch_id'] === null) {
             $invalidProperties[] = "'branch_id' can't be null";
+        }
+        if ($this->container['branch_name'] === null) {
+            $invalidProperties[] = "'branch_name' can't be null";
         }
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
@@ -198,30 +201,6 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets branch
-     *
-     * @return \Volcengine\Tidb\Model\BranchForUpdateBranchInput
-     */
-    public function getBranch()
-    {
-        return $this->container['branch'];
-    }
-
-    /**
-     * Sets branch
-     *
-     * @param \Volcengine\Tidb\Model\BranchForUpdateBranchInput $branch branch
-     *
-     * @return $this
-     */
-    public function setBranch($branch)
-    {
-        $this->container['branch'] = $branch;
-
-        return $this;
-    }
 
     /**
      * Gets branch_id
@@ -243,6 +222,30 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     public function setBranchId($branch_id)
     {
         $this->container['branch_id'] = $branch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch_name
+     *
+     * @return string
+     */
+    public function getBranchName()
+    {
+        return $this->container['branch_name'];
+    }
+
+    /**
+     * Sets branch_name
+     *
+     * @param string $branch_name branch_name
+     *
+     * @return $this
+     */
+    public function setBranchName($branch_name)
+    {
+        $this->container['branch_name'] = $branch_name;
 
         return $this;
     }

@@ -28,8 +28,7 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'private_endpoint' => '\Volcengine\Tidb\Model\PrivateEndpointForListBranchesOutput',
-        'public_endpoint' => '\Volcengine\Tidb\Model\PublicEndpointForListBranchesOutput'
+        'private_endpoint' => '\Volcengine\Tidb\Model\PrivateEndpointForListBranchesOutput'
     ];
 
     /**
@@ -38,8 +37,7 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'private_endpoint' => null,
-        'public_endpoint' => null
+        'private_endpoint' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'private_endpoint' => 'PrivateEndpoint',
-        'public_endpoint' => 'PublicEndpoint'
+        'private_endpoint' => 'PrivateEndpoint'
     ];
 
     /**
@@ -79,8 +76,7 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'private_endpoint' => 'setPrivateEndpoint',
-        'public_endpoint' => 'setPublicEndpoint'
+        'private_endpoint' => 'setPrivateEndpoint'
     ];
 
     /**
@@ -89,8 +85,7 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'private_endpoint' => 'getPrivateEndpoint',
-        'public_endpoint' => 'getPublicEndpoint'
+        'private_endpoint' => 'getPrivateEndpoint'
     ];
 
     /**
@@ -154,7 +149,6 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['private_endpoint'] = isset($data['private_endpoint']) ? $data['private_endpoint'] : null;
-        $this->container['public_endpoint'] = isset($data['public_endpoint']) ? $data['public_endpoint'] : null;
     }
 
     /**
@@ -201,30 +195,6 @@ class EndpointsForListBranchesOutput implements ModelInterface, ArrayAccess
     public function setPrivateEndpoint($private_endpoint)
     {
         $this->container['private_endpoint'] = $private_endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets public_endpoint
-     *
-     * @return \Volcengine\Tidb\Model\PublicEndpointForListBranchesOutput
-     */
-    public function getPublicEndpoint()
-    {
-        return $this->container['public_endpoint'];
-    }
-
-    /**
-     * Sets public_endpoint
-     *
-     * @param \Volcengine\Tidb\Model\PublicEndpointForListBranchesOutput $public_endpoint public_endpoint
-     *
-     * @return $this
-     */
-    public function setPublicEndpoint($public_endpoint)
-    {
-        $this->container['public_endpoint'] = $public_endpoint;
 
         return $this;
     }

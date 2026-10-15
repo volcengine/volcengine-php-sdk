@@ -28,7 +28,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'display_name' => 'string',
+        'authorized_network_name' => 'string',
         'end_ip_address' => 'string',
         'start_ip_address' => 'string'
     ];
@@ -39,7 +39,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'display_name' => null,
+        'authorized_network_name' => null,
         'end_ip_address' => null,
         'start_ip_address' => null
     ];
@@ -71,7 +71,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'DisplayName',
+        'authorized_network_name' => 'AuthorizedNetworkName',
         'end_ip_address' => 'EndIpAddress',
         'start_ip_address' => 'StartIpAddress'
     ];
@@ -82,7 +82,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
+        'authorized_network_name' => 'setAuthorizedNetworkName',
         'end_ip_address' => 'setEndIpAddress',
         'start_ip_address' => 'setStartIpAddress'
     ];
@@ -93,7 +93,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
+        'authorized_network_name' => 'getAuthorizedNetworkName',
         'end_ip_address' => 'getEndIpAddress',
         'start_ip_address' => 'getStartIpAddress'
     ];
@@ -158,7 +158,7 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['authorized_network_name'] = isset($data['authorized_network_name']) ? $data['authorized_network_name'] : null;
         $this->container['end_ip_address'] = isset($data['end_ip_address']) ? $data['end_ip_address'] : null;
         $this->container['start_ip_address'] = isset($data['start_ip_address']) ? $data['start_ip_address'] : null;
     }
@@ -188,25 +188,25 @@ class ConvertAuthorizedNetworkForUpdateClusterInput implements ModelInterface, A
 
 
     /**
-     * Gets display_name
+     * Gets authorized_network_name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getAuthorizedNetworkName()
     {
-        return $this->container['display_name'];
+        return $this->container['authorized_network_name'];
     }
 
     /**
-     * Sets display_name
+     * Sets authorized_network_name
      *
-     * @param string $display_name display_name
+     * @param string $authorized_network_name authorized_network_name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setAuthorizedNetworkName($authorized_network_name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['authorized_network_name'] = $authorized_network_name;
 
         return $this;
     }

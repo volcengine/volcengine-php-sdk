@@ -30,8 +30,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cluster_id' => 'string',
         'disabled' => 'bool',
-        'display_name' => 'string',
         'filter_rule_id' => 'string',
+        'filter_rule_name' => 'string',
         'filters' => '\Volcengine\Tidb\Model\FilterForUpdateAuditLogFilterRuleInput[]',
         'project_name' => 'string',
         'users' => 'string[]'
@@ -45,8 +45,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cluster_id' => null,
         'disabled' => null,
-        'display_name' => null,
         'filter_rule_id' => null,
+        'filter_rule_name' => null,
         'filters' => null,
         'project_name' => null,
         'users' => null
@@ -81,8 +81,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cluster_id' => 'ClusterId',
         'disabled' => 'Disabled',
-        'display_name' => 'DisplayName',
         'filter_rule_id' => 'FilterRuleId',
+        'filter_rule_name' => 'FilterRuleName',
         'filters' => 'Filters',
         'project_name' => 'ProjectName',
         'users' => 'Users'
@@ -96,8 +96,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cluster_id' => 'setClusterId',
         'disabled' => 'setDisabled',
-        'display_name' => 'setDisplayName',
         'filter_rule_id' => 'setFilterRuleId',
+        'filter_rule_name' => 'setFilterRuleName',
         'filters' => 'setFilters',
         'project_name' => 'setProjectName',
         'users' => 'setUsers'
@@ -111,8 +111,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cluster_id' => 'getClusterId',
         'disabled' => 'getDisabled',
-        'display_name' => 'getDisplayName',
         'filter_rule_id' => 'getFilterRuleId',
+        'filter_rule_name' => 'getFilterRuleName',
         'filters' => 'getFilters',
         'project_name' => 'getProjectName',
         'users' => 'getUsers'
@@ -180,8 +180,8 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     {
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['filter_rule_id'] = isset($data['filter_rule_id']) ? $data['filter_rule_id'] : null;
+        $this->container['filter_rule_name'] = isset($data['filter_rule_name']) ? $data['filter_rule_name'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
@@ -266,30 +266,6 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets filter_rule_id
      *
      * @return string
@@ -309,6 +285,30 @@ class UpdateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     public function setFilterRuleId($filter_rule_id)
     {
         $this->container['filter_rule_id'] = $filter_rule_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_rule_name
+     *
+     * @return string
+     */
+    public function getFilterRuleName()
+    {
+        return $this->container['filter_rule_name'];
+    }
+
+    /**
+     * Sets filter_rule_name
+     *
+     * @param string $filter_rule_name filter_rule_name
+     *
+     * @return $this
+     */
+    public function setFilterRuleName($filter_rule_name)
+    {
+        $this->container['filter_rule_name'] = $filter_rule_name;
 
         return $this;
     }

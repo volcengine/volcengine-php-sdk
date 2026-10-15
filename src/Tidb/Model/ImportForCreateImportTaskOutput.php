@@ -38,7 +38,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'import_id' => 'string',
         'message' => 'string',
-        'name' => 'string',
         'post_import_completed_percent' => 'int',
         'start_time' => 'string',
         'state' => 'string',
@@ -62,7 +61,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'import_id' => null,
         'message' => null,
-        'name' => null,
         'post_import_completed_percent' => 'int32',
         'start_time' => null,
         'state' => null,
@@ -107,7 +105,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'import_id' => 'ImportId',
         'message' => 'Message',
-        'name' => 'Name',
         'post_import_completed_percent' => 'PostImportCompletedPercent',
         'start_time' => 'StartTime',
         'state' => 'State',
@@ -131,7 +128,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'import_id' => 'setImportId',
         'message' => 'setMessage',
-        'name' => 'setName',
         'post_import_completed_percent' => 'setPostImportCompletedPercent',
         'start_time' => 'setStartTime',
         'state' => 'setState',
@@ -155,7 +151,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'import_id' => 'getImportId',
         'message' => 'getMessage',
-        'name' => 'getName',
         'post_import_completed_percent' => 'getPostImportCompletedPercent',
         'start_time' => 'getStartTime',
         'state' => 'getState',
@@ -256,7 +251,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['import_id'] = isset($data['import_id']) ? $data['import_id'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['post_import_completed_percent'] = isset($data['post_import_completed_percent']) ? $data['post_import_completed_percent'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -532,30 +526,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
 
         return $this;
     }

@@ -28,8 +28,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'authorized_network_name' => 'string',
         'cluster_id' => 'string',
-        'display_name' => 'string',
         'project_name' => 'string',
         'vpc_endpoint_id' => 'string'
     ];
@@ -40,8 +40,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'authorized_network_name' => null,
         'cluster_id' => null,
-        'display_name' => null,
         'project_name' => null,
         'vpc_endpoint_id' => null
     ];
@@ -73,8 +73,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
+        'authorized_network_name' => 'AuthorizedNetworkName',
         'cluster_id' => 'ClusterId',
-        'display_name' => 'DisplayName',
         'project_name' => 'ProjectName',
         'vpc_endpoint_id' => 'VpcEndpointId'
     ];
@@ -85,8 +85,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
+        'authorized_network_name' => 'setAuthorizedNetworkName',
         'cluster_id' => 'setClusterId',
-        'display_name' => 'setDisplayName',
         'project_name' => 'setProjectName',
         'vpc_endpoint_id' => 'setVpcEndpointId'
     ];
@@ -97,8 +97,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
+        'authorized_network_name' => 'getAuthorizedNetworkName',
         'cluster_id' => 'getClusterId',
-        'display_name' => 'getDisplayName',
         'project_name' => 'getProjectName',
         'vpc_endpoint_id' => 'getVpcEndpointId'
     ];
@@ -163,8 +163,8 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     public function __construct($data = null)
     {
+        $this->container['authorized_network_name'] = isset($data['authorized_network_name']) ? $data['authorized_network_name'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['vpc_endpoint_id'] = isset($data['vpc_endpoint_id']) ? $data['vpc_endpoint_id'] : null;
     }
@@ -200,6 +200,30 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
 
 
     /**
+     * Gets authorized_network_name
+     *
+     * @return string
+     */
+    public function getAuthorizedNetworkName()
+    {
+        return $this->container['authorized_network_name'];
+    }
+
+    /**
+     * Sets authorized_network_name
+     *
+     * @param string $authorized_network_name authorized_network_name
+     *
+     * @return $this
+     */
+    public function setAuthorizedNetworkName($authorized_network_name)
+    {
+        $this->container['authorized_network_name'] = $authorized_network_name;
+
+        return $this;
+    }
+
+    /**
      * Gets cluster_id
      *
      * @return string
@@ -219,30 +243,6 @@ class CreatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function setClusterId($cluster_id)
     {
         $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
 
         return $this;
     }
