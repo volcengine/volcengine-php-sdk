@@ -114,7 +114,8 @@ $config = Configuration::getDefaultConfiguration()
 内置服务条目优先于 `$customServices`。自定义条目支持 `false`（区域级）、`true`（全局）、带 `isGlobal` 或 `IsGlobal` 的数组，以及带公开 `isGlobal` 或 `IsGlobal` 属性的对象。
 例如 `['mysvc' => false]`、`['mysvc' => ['isGlobal' => false]]`、`['mysvc' => (object) ['IsGlobal' => true]]`。
 
-非法参数抛出 `InvalidArgumentException`：service 或 region 非字符串/纯空白、区域格式不支持（消息包含 `InvalidRegion`）、服务未注册（`ServiceNotFound`）或自定义条目形态不支持。
+非空的 service 或 region 若不是合法的 endpoint 标签（只能包含 ASCII 字母、数字、`-` 和 `_`，以字母开头，且不以 `-` 或 `_` 结尾），会在拼接 host 之前抛出 `Volcengine\Common\ApiException`，通过 `getErrorCode()` 获取错误码 `InvalidService`/`InvalidRegion`，状态码 400；默认和标准 Provider 都会执行这项校验；未显式设置 host 时，客户端请求路径也会在调用任何 endpoint Provider 之前执行这项校验。
+其他非法参数抛出 `InvalidArgumentException`：service 或 region 非字符串/纯空白（客户端请求路径上，`' '`、`1` 这类非空值会先抛出上述 `ApiException`）、区域格式不支持（消息包含 `InvalidRegion`）、服务未注册（`ServiceNotFound`）或自定义条目形态不支持。
 引用不存在的模板变量现在会立即报错，消息包含 `TemplateExecuteError`。
 本 Provider 不提供 `StandProviderError` 或符号错误码方法 `getStandCode()`。模板字面量和替换值不做完整域名合法性校验。
 

@@ -2,6 +2,8 @@
 
 namespace Volcengine\Common;
 
+use Volcengine\Common\Endpoint\EndpointProvider;
+
 class UniversalApi
 {
     private $apiClient;
@@ -22,6 +24,11 @@ class UniversalApi
 
     public function doCallWithHttpInfo(UniversalInfo $info, array $body = [])
     {
+        // Validate before encoding service into resourcePath, where '/' would split it.
+        if (!$this->apiClient->getConfig()->getHost()) {
+            EndpointProvider::validateServiceAndRegion($info->service, $this->apiClient->getConfig()->getRegion());
+        }
+
         $method = strtoupper($info->method ? $info->method : 'GET');
         $headers = [
             'Accept' => 'application/json',

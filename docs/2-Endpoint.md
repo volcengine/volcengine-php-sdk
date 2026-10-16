@@ -124,8 +124,15 @@ and objects with a public `isGlobal` or `IsGlobal` property. For example:
 `['mysvc' => false]`, `['mysvc' => ['isGlobal' => false]]`, or
 `['mysvc' => (object) ['IsGlobal' => true]]`.
 
-Invalid inputs throw `InvalidArgumentException`: non-string/blank service or
-region, invalid region syntax (`InvalidRegion` in the message), unregistered
+A non-empty service or region that is not a valid endpoint label (ASCII letters,
+digits, `-` and `_`, starting with a letter and not ending with `-` or `_`) is
+rejected before any host is built with `Volcengine\Common\ApiException`, error
+code `InvalidService`/`InvalidRegion` (`getErrorCode()`) and status 400; the default and standard
+providers apply this check, and so does the client request path before calling any
+endpoint provider when no explicit host is set.
+Other invalid inputs throw `InvalidArgumentException`: non-string/blank service or
+region (on the client request path, a non-empty one such as `' '` or `1` gets the
+`ApiException` above instead), invalid region syntax (`InvalidRegion` in the message), unregistered
 service (`ServiceNotFound`), or an unsupported custom entry. Missing template
 variables now fail immediately with `TemplateExecuteError` in the message.
 There is no `StandProviderError` or symbolic `getStandCode()` in this provider.

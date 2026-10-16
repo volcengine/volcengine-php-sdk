@@ -212,6 +212,8 @@ class StandardEndpointProvider extends EndpointProvider
         $this->checkNonEmpty('service', $service);
         $this->checkNonEmpty('region', $region);
 
+        self::validateServiceAndRegion($service, $region);
+
         if (!self::isValidRegion($region)) {
             throw new \InvalidArgumentException(
                 'InvalidRegion: invalid region ' . $region . ' for standard endpoint resolver, please upgrade the sdk endpoint resolver to the latest version'
