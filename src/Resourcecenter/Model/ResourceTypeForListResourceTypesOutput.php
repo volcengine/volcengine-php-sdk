@@ -28,10 +28,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'related_type_names' => '\Volcengine\Resourcecenter\Model\RelatedTypeNameForListResourceTypesOutput[]',
         'resource_type' => 'string',
         'resource_type_name' => 'string',
         'service' => 'string',
-        'service_name' => 'string'
+        'service_name' => 'string',
+        'type_name' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'related_type_names' => null,
         'resource_type' => null,
         'resource_type_name' => null,
         'service' => null,
-        'service_name' => null
+        'service_name' => null,
+        'type_name' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'related_type_names' => 'RelatedTypeNames',
         'resource_type' => 'ResourceType',
         'resource_type_name' => 'ResourceTypeName',
         'service' => 'Service',
-        'service_name' => 'ServiceName'
+        'service_name' => 'ServiceName',
+        'type_name' => 'TypeName'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'related_type_names' => 'setRelatedTypeNames',
         'resource_type' => 'setResourceType',
         'resource_type_name' => 'setResourceTypeName',
         'service' => 'setService',
-        'service_name' => 'setServiceName'
+        'service_name' => 'setServiceName',
+        'type_name' => 'setTypeName'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'related_type_names' => 'getRelatedTypeNames',
         'resource_type' => 'getResourceType',
         'resource_type_name' => 'getResourceTypeName',
         'service' => 'getService',
-        'service_name' => 'getServiceName'
+        'service_name' => 'getServiceName',
+        'type_name' => 'getTypeName'
     ];
 
     /**
@@ -163,10 +173,12 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
      */
     public function __construct($data = null)
     {
+        $this->container['related_type_names'] = isset($data['related_type_names']) ? $data['related_type_names'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['resource_type_name'] = isset($data['resource_type_name']) ? $data['resource_type_name'] : null;
         $this->container['service'] = isset($data['service']) ? $data['service'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['type_name'] = isset($data['type_name']) ? $data['type_name'] : null;
     }
 
     /**
@@ -192,6 +204,30 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets related_type_names
+     *
+     * @return \Volcengine\Resourcecenter\Model\RelatedTypeNameForListResourceTypesOutput[]
+     */
+    public function getRelatedTypeNames()
+    {
+        return $this->container['related_type_names'];
+    }
+
+    /**
+     * Sets related_type_names
+     *
+     * @param \Volcengine\Resourcecenter\Model\RelatedTypeNameForListResourceTypesOutput[] $related_type_names related_type_names
+     *
+     * @return $this
+     */
+    public function setRelatedTypeNames($related_type_names)
+    {
+        $this->container['related_type_names'] = $related_type_names;
+
+        return $this;
+    }
 
     /**
      * Gets resource_type
@@ -285,6 +321,30 @@ class ResourceTypeForListResourceTypesOutput implements ModelInterface, ArrayAcc
     public function setServiceName($service_name)
     {
         $this->container['service_name'] = $service_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type_name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->container['type_name'];
+    }
+
+    /**
+     * Sets type_name
+     *
+     * @param string $type_name type_name
+     *
+     * @return $this
+     */
+    public function setTypeName($type_name)
+    {
+        $this->container['type_name'] = $type_name;
 
         return $this;
     }
