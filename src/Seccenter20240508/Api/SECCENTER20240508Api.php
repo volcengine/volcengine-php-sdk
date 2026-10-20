@@ -7632,6 +7632,68 @@ class SECCENTER20240508Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getBaselineCheckConfig($body = null)
+    {
+        list($response) = $this->getBaselineCheckConfigWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getBaselineCheckConfigWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetBaselineCheckConfigResponse';
+        $request = $this->getBaselineCheckConfigRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getBaselineCheckConfigAsync($body = null)
+    {
+        return $this->getBaselineCheckConfigAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getBaselineCheckConfigAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Seccenter20240508\Model\GetBaselineCheckConfigResponse';
+        $request = $this->getBaselineCheckConfigRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getBaselineCheckConfigRequest($body)
+    {
+        $resourcePath = '/GetBaselineCheckConfig/2024-05-08/seccenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getBaselineDetectProgressDetail($body = null)
     {
         list($response) = $this->getBaselineDetectProgressDetailWithHttpInfo($body);

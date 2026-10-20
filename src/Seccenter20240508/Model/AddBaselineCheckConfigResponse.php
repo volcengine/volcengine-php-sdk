@@ -28,6 +28,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'config_id' => 'string',
         'status' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'config_id' => null,
         'status' => null
     ];
 
@@ -67,6 +69,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'config_id' => 'ConfigID',
         'status' => 'Status'
     ];
 
@@ -76,6 +79,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'config_id' => 'setConfigId',
         'status' => 'setStatus'
     ];
 
@@ -85,6 +89,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'config_id' => 'getConfigId',
         'status' => 'getStatus'
     ];
 
@@ -148,6 +153,7 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['config_id'] = isset($data['config_id']) ? $data['config_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -174,6 +180,30 @@ class AddBaselineCheckConfigResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config_id
+     *
+     * @return string
+     */
+    public function getConfigId()
+    {
+        return $this->container['config_id'];
+    }
+
+    /**
+     * Sets config_id
+     *
+     * @param string $config_id config_id
+     *
+     * @return $this
+     */
+    public function setConfigId($config_id)
+    {
+        $this->container['config_id'] = $config_id;
+
+        return $this;
+    }
 
     /**
      * Gets status
