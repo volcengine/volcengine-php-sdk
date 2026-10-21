@@ -68,6 +68,130 @@ class PARTNERApi
         return $this->config;
     }
 
+    public function listChannelBillDetailByCursor($body = null)
+    {
+        list($response) = $this->listChannelBillDetailByCursorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listChannelBillDetailByCursorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Partner\Model\ListChannelBillDetailByCursorResponse';
+        $request = $this->listChannelBillDetailByCursorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listChannelBillDetailByCursorAsync($body = null)
+    {
+        return $this->listChannelBillDetailByCursorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listChannelBillDetailByCursorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Partner\Model\ListChannelBillDetailByCursorResponse';
+        $request = $this->listChannelBillDetailByCursorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listChannelBillDetailByCursorRequest($body)
+    {
+        $resourcePath = '/ListChannelBillDetailByCursor/2020-01-01/partner/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listChildChannelBillDetailByCursor($body = null)
+    {
+        list($response) = $this->listChildChannelBillDetailByCursorWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listChildChannelBillDetailByCursorWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Partner\Model\ListChildChannelBillDetailByCursorResponse';
+        $request = $this->listChildChannelBillDetailByCursorRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listChildChannelBillDetailByCursorAsync($body = null)
+    {
+        return $this->listChildChannelBillDetailByCursorAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listChildChannelBillDetailByCursorAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Partner\Model\ListChildChannelBillDetailByCursorResponse';
+        $request = $this->listChildChannelBillDetailByCursorRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listChildChannelBillDetailByCursorRequest($body)
+    {
+        $resourcePath = '/ListChildChannelBillDetailByCursor/2020-01-01/partner/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listChildPartnerCustomer($body = null)
     {
         list($response) = $this->listChildPartnerCustomerWithHttpInfo($body);
