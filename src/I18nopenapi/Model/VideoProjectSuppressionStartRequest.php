@@ -35,6 +35,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'lang' => 'int',
         'manual_style' => 'string',
         'project_id' => 'string',
+        'source_manual_style' => 'string',
         'start_time' => 'int',
         'subtask_ids' => 'string[]'
     ];
@@ -52,6 +53,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'lang' => 'int32',
         'manual_style' => null,
         'project_id' => null,
+        'source_manual_style' => null,
         'start_time' => 'int32',
         'subtask_ids' => null
     ];
@@ -90,6 +92,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'lang' => 'lang',
         'manual_style' => 'manualStyle',
         'project_id' => 'projectId',
+        'source_manual_style' => 'sourceManualStyle',
         'start_time' => 'startTime',
         'subtask_ids' => 'subtaskIds'
     ];
@@ -107,6 +110,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'lang' => 'setLang',
         'manual_style' => 'setManualStyle',
         'project_id' => 'setProjectId',
+        'source_manual_style' => 'setSourceManualStyle',
         'start_time' => 'setStartTime',
         'subtask_ids' => 'setSubtaskIds'
     ];
@@ -124,6 +128,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         'lang' => 'getLang',
         'manual_style' => 'getManualStyle',
         'project_id' => 'getProjectId',
+        'source_manual_style' => 'getSourceManualStyle',
         'start_time' => 'getStartTime',
         'subtask_ids' => 'getSubtaskIds'
     ];
@@ -195,6 +200,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         $this->container['lang'] = isset($data['lang']) ? $data['lang'] : null;
         $this->container['manual_style'] = isset($data['manual_style']) ? $data['manual_style'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_manual_style'] = isset($data['source_manual_style']) ? $data['source_manual_style'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['subtask_ids'] = isset($data['subtask_ids']) ? $data['subtask_ids'] : null;
     }
@@ -402,6 +408,30 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_manual_style
+     *
+     * @return string
+     */
+    public function getSourceManualStyle()
+    {
+        return $this->container['source_manual_style'];
+    }
+
+    /**
+     * Sets source_manual_style
+     *
+     * @param string $source_manual_style source_manual_style
+     *
+     * @return $this
+     */
+    public function setSourceManualStyle($source_manual_style)
+    {
+        $this->container['source_manual_style'] = $source_manual_style;
 
         return $this;
     }
