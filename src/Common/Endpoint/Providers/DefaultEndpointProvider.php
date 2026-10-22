@@ -585,6 +585,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'speech_saas_prod' => new ServiceEndpointInfo(
+                    'speech_saas_prod',
+                    true,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
