@@ -38,6 +38,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'string',
         'expire_at' => 'int',
         'host_id' => 'string',
+        'init_auto_create_pod' => 'bool',
         'last_reboot_time' => 'string',
         'pod_id_list' => 'string[]',
         'pod_num_available' => 'int',
@@ -68,6 +69,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => null,
         'expire_at' => 'int64',
         'host_id' => null,
+        'init_auto_create_pod' => null,
         'last_reboot_time' => null,
         'pod_id_list' => null,
         'pod_num_available' => 'int32',
@@ -119,6 +121,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'Dc',
         'expire_at' => 'ExpireAt',
         'host_id' => 'HostId',
+        'init_auto_create_pod' => 'InitAutoCreatePod',
         'last_reboot_time' => 'LastRebootTime',
         'pod_id_list' => 'PodIdList',
         'pod_num_available' => 'PodNumAvailable',
@@ -149,6 +152,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'setDc',
         'expire_at' => 'setExpireAt',
         'host_id' => 'setHostId',
+        'init_auto_create_pod' => 'setInitAutoCreatePod',
         'last_reboot_time' => 'setLastRebootTime',
         'pod_id_list' => 'setPodIdList',
         'pod_num_available' => 'setPodNumAvailable',
@@ -179,6 +183,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         'dc' => 'getDc',
         'expire_at' => 'getExpireAt',
         'host_id' => 'getHostId',
+        'init_auto_create_pod' => 'getInitAutoCreatePod',
         'last_reboot_time' => 'getLastRebootTime',
         'pod_id_list' => 'getPodIdList',
         'pod_num_available' => 'getPodNumAvailable',
@@ -263,6 +268,7 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
         $this->container['dc'] = isset($data['dc']) ? $data['dc'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
+        $this->container['init_auto_create_pod'] = isset($data['init_auto_create_pod']) ? $data['init_auto_create_pod'] : null;
         $this->container['last_reboot_time'] = isset($data['last_reboot_time']) ? $data['last_reboot_time'] : null;
         $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
         $this->container['pod_num_available'] = isset($data['pod_num_available']) ? $data['pod_num_available'] : null;
@@ -537,6 +543,30 @@ class RowForListHostOutput implements ModelInterface, ArrayAccess
     public function setHostId($host_id)
     {
         $this->container['host_id'] = $host_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets init_auto_create_pod
+     *
+     * @return bool
+     */
+    public function getInitAutoCreatePod()
+    {
+        return $this->container['init_auto_create_pod'];
+    }
+
+    /**
+     * Sets init_auto_create_pod
+     *
+     * @param bool $init_auto_create_pod init_auto_create_pod
+     *
+     * @return $this
+     */
+    public function setInitAutoCreatePod($init_auto_create_pod)
+    {
+        $this->container['init_auto_create_pod'] = $init_auto_create_pod;
 
         return $this;
     }

@@ -33,7 +33,8 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         'next_token' => 'string',
         'product_id' => 'string',
         'source_pod_id' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'volc_region' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         'next_token' => null,
         'product_id' => null,
         'source_pod_id' => null,
-        'status' => null
+        'status' => null,
+        'volc_region' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         'next_token' => 'NextToken',
         'product_id' => 'ProductId',
         'source_pod_id' => 'SourcePodId',
-        'status' => 'Status'
+        'status' => 'Status',
+        'volc_region' => 'VolcRegion'
     ];
 
     /**
@@ -96,7 +99,8 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         'next_token' => 'setNextToken',
         'product_id' => 'setProductId',
         'source_pod_id' => 'setSourcePodId',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'volc_region' => 'setVolcRegion'
     ];
 
     /**
@@ -110,7 +114,8 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         'next_token' => 'getNextToken',
         'product_id' => 'getProductId',
         'source_pod_id' => 'getSourcePodId',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'volc_region' => 'getVolcRegion'
     ];
 
     /**
@@ -179,6 +184,7 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['source_pod_id'] = isset($data['source_pod_id']) ? $data['source_pod_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
     }
 
     /**
@@ -348,6 +354,30 @@ class ListBackupDataRequest implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
 
         return $this;
     }

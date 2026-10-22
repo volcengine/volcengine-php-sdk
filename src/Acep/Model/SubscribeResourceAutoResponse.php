@@ -28,7 +28,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'host_id_list' => 'string[]',
+        'order_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'host_id_list' => null,
+        'order_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'host_id_list' => 'HostIdList',
+        'order_id' => 'OrderId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'host_id_list' => 'setHostIdList',
+        'order_id' => 'setOrderId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'host_id_list' => 'getHostIdList',
+        'order_id' => 'getOrderId'
     ];
 
     /**
@@ -148,6 +153,8 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['host_id_list'] = isset($data['host_id_list']) ? $data['host_id_list'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class SubscribeResourceAutoResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets host_id_list
+     *
+     * @return string[]
+     */
+    public function getHostIdList()
+    {
+        return $this->container['host_id_list'];
+    }
+
+    /**
+     * Sets host_id_list
+     *
+     * @param string[] $host_id_list host_id_list
+     *
+     * @return $this
+     */
+    public function setHostIdList($host_id_list)
+    {
+        $this->container['host_id_list'] = $host_id_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string $order_id order_id
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
