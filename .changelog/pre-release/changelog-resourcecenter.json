@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "GetMultiAccountResourceDescription",
+    "GetResourceDescription",
+    "ListMultiAccountResourceRelationships",
+    "ListResourceTypes",
+    "GetMultiAccountResourceCenterStatus",
+    "SearchResources",
+    "ListResourceRelationships",
+    "ExecuteMultiAccountSQLQuery",
+    "SearchMultiAccountResources",
+    "CreateQuery",
+    "ExecuteSQLQuery",
+    "UpdateQuery"
+  ],
+  "description": "RESOURCECENTER: 新增 GetMultiAccountResourceDescription, GetResourceDescription, ListMultiAccountResourceRelationships, ListResourceRelationships, ExecuteMultiAccountSQLQuery；修改 ListResourceTypes, SearchMultiAccountResources, CreateQuery, ExecuteSQLQuery, GetMultiAccountResourceCenterStatus, SearchResources, UpdateQuery",
+  "modules": "service/resourcecenter",
+  "type": "breaking-change"
+}

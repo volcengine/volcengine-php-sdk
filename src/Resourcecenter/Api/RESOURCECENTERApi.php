@@ -440,6 +440,68 @@ class RESOURCECENTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function executeMultiAccountSQLQuery($body = null)
+    {
+        list($response) = $this->executeMultiAccountSQLQueryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function executeMultiAccountSQLQueryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ExecuteMultiAccountSQLQueryResponse';
+        $request = $this->executeMultiAccountSQLQueryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function executeMultiAccountSQLQueryAsync($body = null)
+    {
+        return $this->executeMultiAccountSQLQueryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function executeMultiAccountSQLQueryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ExecuteMultiAccountSQLQueryResponse';
+        $request = $this->executeMultiAccountSQLQueryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function executeMultiAccountSQLQueryRequest($body)
+    {
+        $resourcePath = '/ExecuteMultiAccountSQLQuery/2023-06-01/resourcecenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function executeSQLQuery($body = null)
     {
         list($response) = $this->executeSQLQueryWithHttpInfo($body);
@@ -688,6 +750,68 @@ class RESOURCECENTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getMultiAccountResourceDescription($body = null)
+    {
+        list($response) = $this->getMultiAccountResourceDescriptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getMultiAccountResourceDescriptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\GetMultiAccountResourceDescriptionResponse';
+        $request = $this->getMultiAccountResourceDescriptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getMultiAccountResourceDescriptionAsync($body = null)
+    {
+        return $this->getMultiAccountResourceDescriptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getMultiAccountResourceDescriptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\GetMultiAccountResourceDescriptionResponse';
+        $request = $this->getMultiAccountResourceDescriptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getMultiAccountResourceDescriptionRequest($body)
+    {
+        $resourcePath = '/GetMultiAccountResourceDescription/2023-06-01/resourcecenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getQuery($body = null)
     {
         list($response) = $this->getQueryWithHttpInfo($body);
@@ -874,6 +998,68 @@ class RESOURCECENTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getResourceDescription($body = null)
+    {
+        list($response) = $this->getResourceDescriptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getResourceDescriptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\GetResourceDescriptionResponse';
+        $request = $this->getResourceDescriptionRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getResourceDescriptionAsync($body = null)
+    {
+        return $this->getResourceDescriptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getResourceDescriptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\GetResourceDescriptionResponse';
+        $request = $this->getResourceDescriptionRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getResourceDescriptionRequest($body)
+    {
+        $resourcePath = '/GetResourceDescription/2023-06-01/resourcecenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listExampleQueries($body = null)
     {
         list($response) = $this->listExampleQueriesWithHttpInfo($body);
@@ -936,6 +1122,68 @@ class RESOURCECENTERApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listMultiAccountResourceRelationships($body = null)
+    {
+        list($response) = $this->listMultiAccountResourceRelationshipsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listMultiAccountResourceRelationshipsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ListMultiAccountResourceRelationshipsResponse';
+        $request = $this->listMultiAccountResourceRelationshipsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listMultiAccountResourceRelationshipsAsync($body = null)
+    {
+        return $this->listMultiAccountResourceRelationshipsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listMultiAccountResourceRelationshipsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ListMultiAccountResourceRelationshipsResponse';
+        $request = $this->listMultiAccountResourceRelationshipsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listMultiAccountResourceRelationshipsRequest($body)
+    {
+        $resourcePath = '/ListMultiAccountResourceRelationships/2023-06-01/resourcecenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listQueries($body = null)
     {
         list($response) = $this->listQueriesWithHttpInfo($body);
@@ -970,6 +1218,68 @@ class RESOURCECENTERApi
     protected function listQueriesRequest($body)
     {
         $resourcePath = '/ListQueries/2023-06-01/resourcecenter/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listResourceRelationships($body = null)
+    {
+        list($response) = $this->listResourceRelationshipsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listResourceRelationshipsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ListResourceRelationshipsResponse';
+        $request = $this->listResourceRelationshipsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listResourceRelationshipsAsync($body = null)
+    {
+        return $this->listResourceRelationshipsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listResourceRelationshipsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Resourcecenter\Model\ListResourceRelationshipsResponse';
+        $request = $this->listResourceRelationshipsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listResourceRelationshipsRequest($body)
+    {
+        $resourcePath = '/ListResourceRelationships/2023-06-01/resourcecenter/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

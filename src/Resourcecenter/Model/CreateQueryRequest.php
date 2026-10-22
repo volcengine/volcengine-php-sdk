@@ -172,9 +172,6 @@ class CreateQueryRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
         if ($this->container['expression'] === null) {
             $invalidProperties[] = "'expression' can't be null";
         }

@@ -154,8 +154,36 @@ class SearchMultiAccountResourcesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SORT_BY_CREATE_TIME = 'CreateTime';
+    const SORT_ORDER_ASC = 'Asc';
+    const SORT_ORDER_DESC = 'Desc';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSortByAllowableValues()
+    {
+        return [
+            self::SORT_BY_CREATE_TIME,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSortOrderAllowableValues()
+    {
+        return [
+            self::SORT_ORDER_ASC,
+            self::SORT_ORDER_DESC,
+        ];
+    }
     
 
     /**
@@ -189,6 +217,22 @@ class SearchMultiAccountResourcesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSortByAllowableValues();
+        if (!is_null($this->container['sort_by']) && !in_array($this->container['sort_by'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sort_by', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSortOrderAllowableValues();
+        if (!is_null($this->container['sort_order']) && !in_array($this->container['sort_order'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sort_order', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -320,6 +364,15 @@ class SearchMultiAccountResourcesRequest implements ModelInterface, ArrayAccess
      */
     public function setSortBy($sort_by)
     {
+        $allowedValues = $this->getSortByAllowableValues();
+        if (!is_null($sort_by) && !in_array($sort_by, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'sort_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['sort_by'] = $sort_by;
 
         return $this;
@@ -344,6 +397,15 @@ class SearchMultiAccountResourcesRequest implements ModelInterface, ArrayAccess
      */
     public function setSortOrder($sort_order)
     {
+        $allowedValues = $this->getSortOrderAllowableValues();
+        if (!is_null($sort_order) && !in_array($sort_order, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'sort_order', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['sort_order'] = $sort_order;
 
         return $this;
