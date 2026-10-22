@@ -36,6 +36,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'is_dub' => 'bool',
         'need_term_validation' => 'bool',
         'project_id' => 'string',
+        'source_style_map' => '\Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
         'target_languages' => 'string[]',
         'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput',
         'video_identifiers' => '\Volcengine\I18nopenapi\Model\VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput[]',
@@ -56,6 +57,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'is_dub' => null,
         'need_term_validation' => null,
         'project_id' => null,
+        'source_style_map' => null,
         'target_languages' => null,
         'target_style_map' => null,
         'video_identifiers' => null,
@@ -97,6 +99,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'is_dub' => 'isDub',
         'need_term_validation' => 'needTermValidation',
         'project_id' => 'projectId',
+        'source_style_map' => 'sourceStyleMap',
         'target_languages' => 'targetLanguages',
         'target_style_map' => 'targetStyleMap',
         'video_identifiers' => 'videoIdentifiers',
@@ -117,6 +120,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'is_dub' => 'setIsDub',
         'need_term_validation' => 'setNeedTermValidation',
         'project_id' => 'setProjectId',
+        'source_style_map' => 'setSourceStyleMap',
         'target_languages' => 'setTargetLanguages',
         'target_style_map' => 'setTargetStyleMap',
         'video_identifiers' => 'setVideoIdentifiers',
@@ -137,6 +141,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'is_dub' => 'getIsDub',
         'need_term_validation' => 'getNeedTermValidation',
         'project_id' => 'getProjectId',
+        'source_style_map' => 'getSourceStyleMap',
         'target_languages' => 'getTargetLanguages',
         'target_style_map' => 'getTargetStyleMap',
         'video_identifiers' => 'getVideoIdentifiers',
@@ -211,6 +216,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
         $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_style_map'] = isset($data['source_style_map']) ? $data['source_style_map'] : null;
         $this->container['target_languages'] = isset($data['target_languages']) ? $data['target_languages'] : null;
         $this->container['target_style_map'] = isset($data['target_style_map']) ? $data['target_style_map'] : null;
         $this->container['video_identifiers'] = isset($data['video_identifiers']) ? $data['video_identifiers'] : null;
@@ -438,6 +444,30 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_style_map
+     *
+     * @return \Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput
+     */
+    public function getSourceStyleMap()
+    {
+        return $this->container['source_style_map'];
+    }
+
+    /**
+     * Sets source_style_map
+     *
+     * @param \Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput $source_style_map source_style_map
+     *
+     * @return $this
+     */
+    public function setSourceStyleMap($source_style_map)
+    {
+        $this->container['source_style_map'] = $source_style_map;
 
         return $this;
     }
