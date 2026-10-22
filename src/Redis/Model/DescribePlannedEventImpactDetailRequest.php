@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
+class DescribePlannedEventImpactDetailRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateEnterpriseDBInstanceResponse';
+    protected static $swaggerModelName = 'DescribePlannedEventImpactDetailRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'instance_id' => 'string',
-        'order_no' => 'string'
+        'event_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'instance_id' => null,
-        'order_no' => null
+        'event_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'instance_id' => 'InstanceId',
-        'order_no' => 'OrderNO'
+        'event_id' => 'EventId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'instance_id' => 'setInstanceId',
-        'order_no' => 'setOrderNo'
+        'event_id' => 'setEventId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'instance_id' => 'getInstanceId',
-        'order_no' => 'getOrderNo'
+        'event_id' => 'getEventId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['order_no'] = isset($data['order_no']) ? $data['order_no'] : null;
+        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['event_id'] === null) {
+            $invalidProperties[] = "'event_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class CreateEnterpriseDBInstanceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets instance_id
+     * Gets event_id
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getEventId()
     {
-        return $this->container['instance_id'];
+        return $this->container['event_id'];
     }
 
     /**
-     * Sets instance_id
+     * Sets event_id
      *
-     * @param string $instance_id instance_id
+     * @param string $event_id event_id
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setEventId($event_id)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_no
-     *
-     * @return string
-     */
-    public function getOrderNo()
-    {
-        return $this->container['order_no'];
-    }
-
-    /**
-     * Sets order_no
-     *
-     * @param string $order_no order_no
-     *
-     * @return $this
-     */
-    public function setOrderNo($order_no)
-    {
-        $this->container['order_no'] = $order_no;
+        $this->container['event_id'] = $event_id;
 
         return $this;
     }

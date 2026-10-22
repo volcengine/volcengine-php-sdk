@@ -144,23 +144,8 @@ class SecurityGroupBindInfoForDescribeAllowListDetailOutput implements ModelInte
         return self::$swaggerModelName;
     }
 
-    const BIND_MODE_ASSOCIATE_ECS_IP = 'AssociateEcsIp';
-    const BIND_MODE_INGRESS_DIRECTION_IP = 'IngressDirectionIp';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBindModeAllowableValues()
-    {
-        return [
-            self::BIND_MODE_ASSOCIATE_ECS_IP,
-            self::BIND_MODE_INGRESS_DIRECTION_IP,
-        ];
-    }
     
 
     /**
@@ -192,14 +177,6 @@ class SecurityGroupBindInfoForDescribeAllowListDetailOutput implements ModelInte
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBindModeAllowableValues();
-        if (!is_null($this->container['bind_mode']) && !in_array($this->container['bind_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'bind_mode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -235,15 +212,6 @@ class SecurityGroupBindInfoForDescribeAllowListDetailOutput implements ModelInte
      */
     public function setBindMode($bind_mode)
     {
-        $allowedValues = $this->getBindModeAllowableValues();
-        if (!is_null($bind_mode) && !in_array($bind_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'bind_mode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['bind_mode'] = $bind_mode;
 
         return $this;

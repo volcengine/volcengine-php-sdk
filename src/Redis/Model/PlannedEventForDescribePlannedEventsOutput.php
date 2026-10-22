@@ -33,6 +33,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         'can_cancel' => 'bool',
         'can_modify_time' => 'bool',
         'event_id' => 'string',
+        'exe_end_time' => 'string',
+        'exe_start_time' => 'string',
+        'impact_summary' => '\Volcengine\Redis\Model\ImpactSummaryForDescribePlannedEventsOutput',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'max_end_time' => 'string',
@@ -53,6 +56,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         'can_cancel' => null,
         'can_modify_time' => null,
         'event_id' => null,
+        'exe_end_time' => null,
+        'exe_start_time' => null,
+        'impact_summary' => null,
         'instance_id' => null,
         'instance_name' => null,
         'max_end_time' => null,
@@ -94,6 +100,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         'can_cancel' => 'CanCancel',
         'can_modify_time' => 'CanModifyTime',
         'event_id' => 'EventId',
+        'exe_end_time' => 'ExeEndTime',
+        'exe_start_time' => 'ExeStartTime',
+        'impact_summary' => 'ImpactSummary',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'max_end_time' => 'MaxEndTime',
@@ -114,6 +123,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         'can_cancel' => 'setCanCancel',
         'can_modify_time' => 'setCanModifyTime',
         'event_id' => 'setEventId',
+        'exe_end_time' => 'setExeEndTime',
+        'exe_start_time' => 'setExeStartTime',
+        'impact_summary' => 'setImpactSummary',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'max_end_time' => 'setMaxEndTime',
@@ -134,6 +146,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         'can_cancel' => 'getCanCancel',
         'can_modify_time' => 'getCanModifyTime',
         'event_id' => 'getEventId',
+        'exe_end_time' => 'getExeEndTime',
+        'exe_start_time' => 'getExeStartTime',
+        'impact_summary' => 'getImpactSummary',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'max_end_time' => 'getMaxEndTime',
@@ -184,33 +199,8 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         return self::$swaggerModelName;
     }
 
-    const STATUS_INITIATED = 'Initiated';
-    const STATUS_WAITING = 'Waiting';
-    const STATUS_RUNNING = 'Running';
-    const STATUS_SUCCESS = 'Success';
-    const STATUS_FAILED = 'Failed';
-    const STATUS_CANCELED = 'Canceled';
-    const STATUS_ABANDONED = 'Abandoned';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_INITIATED,
-            self::STATUS_WAITING,
-            self::STATUS_RUNNING,
-            self::STATUS_SUCCESS,
-            self::STATUS_FAILED,
-            self::STATUS_CANCELED,
-            self::STATUS_ABANDONED,
-        ];
-    }
     
 
     /**
@@ -233,6 +223,9 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
         $this->container['can_cancel'] = isset($data['can_cancel']) ? $data['can_cancel'] : null;
         $this->container['can_modify_time'] = isset($data['can_modify_time']) ? $data['can_modify_time'] : null;
         $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['exe_end_time'] = isset($data['exe_end_time']) ? $data['exe_end_time'] : null;
+        $this->container['exe_start_time'] = isset($data['exe_start_time']) ? $data['exe_start_time'] : null;
+        $this->container['impact_summary'] = isset($data['impact_summary']) ? $data['impact_summary'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['max_end_time'] = isset($data['max_end_time']) ? $data['max_end_time'] : null;
@@ -250,14 +243,6 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -390,6 +375,78 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
     public function setEventId($event_id)
     {
         $this->container['event_id'] = $event_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets exe_end_time
+     *
+     * @return string
+     */
+    public function getExeEndTime()
+    {
+        return $this->container['exe_end_time'];
+    }
+
+    /**
+     * Sets exe_end_time
+     *
+     * @param string $exe_end_time exe_end_time
+     *
+     * @return $this
+     */
+    public function setExeEndTime($exe_end_time)
+    {
+        $this->container['exe_end_time'] = $exe_end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets exe_start_time
+     *
+     * @return string
+     */
+    public function getExeStartTime()
+    {
+        return $this->container['exe_start_time'];
+    }
+
+    /**
+     * Sets exe_start_time
+     *
+     * @param string $exe_start_time exe_start_time
+     *
+     * @return $this
+     */
+    public function setExeStartTime($exe_start_time)
+    {
+        $this->container['exe_start_time'] = $exe_start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets impact_summary
+     *
+     * @return \Volcengine\Redis\Model\ImpactSummaryForDescribePlannedEventsOutput
+     */
+    public function getImpactSummary()
+    {
+        return $this->container['impact_summary'];
+    }
+
+    /**
+     * Sets impact_summary
+     *
+     * @param \Volcengine\Redis\Model\ImpactSummaryForDescribePlannedEventsOutput $impact_summary impact_summary
+     *
+     * @return $this
+     */
+    public function setImpactSummary($impact_summary)
+    {
+        $this->container['impact_summary'] = $impact_summary;
 
         return $this;
     }
@@ -533,15 +590,6 @@ class PlannedEventForDescribePlannedEventsOutput implements ModelInterface, Arra
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

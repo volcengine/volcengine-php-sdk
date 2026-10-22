@@ -169,23 +169,8 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const ALLOW_LIST_CATEGORY_ORDINARY = 'Ordinary';
-    const ALLOW_LIST_CATEGORY__DEFAULT = 'Default';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAllowListCategoryAllowableValues()
-    {
-        return [
-            self::ALLOW_LIST_CATEGORY_ORDINARY,
-            self::ALLOW_LIST_CATEGORY__DEFAULT,
-        ];
-    }
     
 
     /**
@@ -223,14 +208,6 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAllowListCategoryAllowableValues();
-        if (!is_null($this->container['allow_list_category']) && !in_array($this->container['allow_list_category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'allow_list_category', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -265,15 +242,6 @@ class AllowListForDescribeAllowListsOutput implements ModelInterface, ArrayAcces
      */
     public function setAllowListCategory($allow_list_category)
     {
-        $allowedValues = $this->getAllowListCategoryAllowableValues();
-        if (!is_null($allow_list_category) && !in_array($allow_list_category, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'allow_list_category', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['allow_list_category'] = $allow_list_category;
 
         return $this;

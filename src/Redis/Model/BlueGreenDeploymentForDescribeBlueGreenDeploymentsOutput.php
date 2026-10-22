@@ -179,41 +179,8 @@ class BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput implements ModelI
         return self::$swaggerModelName;
     }
 
-    const STATUS_INIT = 'INIT';
-    const STATUS_PROVISIONING = 'PROVISIONING';
-    const STATUS_AVAILABLE = 'AVAILABLE';
-    const STATUS_DATA_SYNCHRONIZING = 'DATA_SYNCHRONIZING';
-    const STATUS_SWITCHOVER_AVAILABLE = 'SWITCHOVER_AVAILABLE';
-    const STATUS_SWITCHOVER_IN_PROGRESS = 'SWITCHOVER_IN_PROGRESS';
-    const STATUS_SWITCHOVER_PENDING = 'SWITCHOVER_PENDING';
-    const STATUS_SWITCHOVER_COMPLETED = 'SWITCHOVER_COMPLETED';
-    const STATUS_SWITCHOVER_FAILED = 'SWITCHOVER_FAILED';
-    const STATUS_DELETING = 'DELETING';
-    const STATUS_DELETE_COMPLETED = 'DELETE_COMPLETED';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_INIT,
-            self::STATUS_PROVISIONING,
-            self::STATUS_AVAILABLE,
-            self::STATUS_DATA_SYNCHRONIZING,
-            self::STATUS_SWITCHOVER_AVAILABLE,
-            self::STATUS_SWITCHOVER_IN_PROGRESS,
-            self::STATUS_SWITCHOVER_PENDING,
-            self::STATUS_SWITCHOVER_COMPLETED,
-            self::STATUS_SWITCHOVER_FAILED,
-            self::STATUS_DELETING,
-            self::STATUS_DELETE_COMPLETED,
-        ];
-    }
     
 
     /**
@@ -252,14 +219,6 @@ class BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput implements ModelI
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -463,15 +422,6 @@ class BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput implements ModelI
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

@@ -688,68 +688,6 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function createEnterpriseDBInstance($body = null)
-    {
-        list($response) = $this->createEnterpriseDBInstanceWithHttpInfo($body);
-        return $response;
-    }
-
-    public function createEnterpriseDBInstanceWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Redis\Model\CreateEnterpriseDBInstanceResponse';
-        $request = $this->createEnterpriseDBInstanceRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function createEnterpriseDBInstanceAsync($body = null)
-    {
-        return $this->createEnterpriseDBInstanceAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createEnterpriseDBInstanceAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Redis\Model\CreateEnterpriseDBInstanceResponse';
-        $request = $this->createEnterpriseDBInstanceRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function createEnterpriseDBInstanceRequest($body)
-    {
-        $resourcePath = '/CreateEnterpriseDBInstance/2020-12-07/redis/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function createKeyScanJob($body = null)
     {
         list($response) = $this->createKeyScanJobWithHttpInfo($body);
@@ -3450,6 +3388,68 @@ class REDISApi
     protected function describePitrTimeWindowRequest($body)
     {
         $resourcePath = '/DescribePitrTimeWindow/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describePlannedEventImpactDetail($body = null)
+    {
+        list($response) = $this->describePlannedEventImpactDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describePlannedEventImpactDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribePlannedEventImpactDetailResponse';
+        $request = $this->describePlannedEventImpactDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describePlannedEventImpactDetailAsync($body = null)
+    {
+        return $this->describePlannedEventImpactDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describePlannedEventImpactDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\DescribePlannedEventImpactDetailResponse';
+        $request = $this->describePlannedEventImpactDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describePlannedEventImpactDetailRequest($body)
+    {
+        $resourcePath = '/DescribePlannedEventImpactDetail/2020-12-07/redis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

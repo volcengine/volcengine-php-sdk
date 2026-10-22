@@ -259,23 +259,8 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const BLUE_GREEN_ROLE_BLUE = 'Blue';
-    const BLUE_GREEN_ROLE_GREEN = 'Green';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBlueGreenRoleAllowableValues()
-    {
-        return [
-            self::BLUE_GREEN_ROLE_BLUE,
-            self::BLUE_GREEN_ROLE_GREEN,
-        ];
-    }
     
 
     /**
@@ -331,14 +316,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBlueGreenRoleAllowableValues();
-        if (!is_null($this->container['blue_green_role']) && !in_array($this->container['blue_green_role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'blue_green_role', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -373,15 +350,6 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function setBlueGreenRole($blue_green_role)
     {
-        $allowedValues = $this->getBlueGreenRoleAllowableValues();
-        if (!is_null($blue_green_role) && !in_array($blue_green_role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'blue_green_role', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['blue_green_role'] = $blue_green_role;
 
         return $this;
