@@ -50,6 +50,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_video_speed' => 'bool',
         'serial_number' => 'int',
         'source_lang' => 'string',
+        'source_style_map' => '\Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectSerialTaskCreateInput',
         'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialTaskCreateInput',
         'target_langs' => 'string[]',
         'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialTaskCreateInput',
@@ -85,6 +86,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_video_speed' => null,
         'serial_number' => 'int32',
         'source_lang' => null,
+        'source_style_map' => null,
         'suppression_params' => null,
         'target_langs' => null,
         'target_style_map' => null,
@@ -141,6 +143,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_video_speed' => 'needVideoSpeed',
         'serial_number' => 'serialNumber',
         'source_lang' => 'sourceLang',
+        'source_style_map' => 'sourceStyleMap',
         'suppression_params' => 'suppressionParams',
         'target_langs' => 'targetLangs',
         'target_style_map' => 'targetStyleMap',
@@ -176,6 +179,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_video_speed' => 'setNeedVideoSpeed',
         'serial_number' => 'setSerialNumber',
         'source_lang' => 'setSourceLang',
+        'source_style_map' => 'setSourceStyleMap',
         'suppression_params' => 'setSuppressionParams',
         'target_langs' => 'setTargetLangs',
         'target_style_map' => 'setTargetStyleMap',
@@ -211,6 +215,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_video_speed' => 'getNeedVideoSpeed',
         'serial_number' => 'getSerialNumber',
         'source_lang' => 'getSourceLang',
+        'source_style_map' => 'getSourceStyleMap',
         'suppression_params' => 'getSuppressionParams',
         'target_langs' => 'getTargetLangs',
         'target_style_map' => 'getTargetStyleMap',
@@ -300,6 +305,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         $this->container['need_video_speed'] = isset($data['need_video_speed']) ? $data['need_video_speed'] : null;
         $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
+        $this->container['source_style_map'] = isset($data['source_style_map']) ? $data['source_style_map'] : null;
         $this->container['suppression_params'] = isset($data['suppression_params']) ? $data['suppression_params'] : null;
         $this->container['target_langs'] = isset($data['target_langs']) ? $data['target_langs'] : null;
         $this->container['target_style_map'] = isset($data['target_style_map']) ? $data['target_style_map'] : null;
@@ -855,6 +861,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setSourceLang($source_lang)
     {
         $this->container['source_lang'] = $source_lang;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_style_map
+     *
+     * @return \Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectSerialTaskCreateInput
+     */
+    public function getSourceStyleMap()
+    {
+        return $this->container['source_style_map'];
+    }
+
+    /**
+     * Sets source_style_map
+     *
+     * @param \Volcengine\I18nopenapi\Model\SourceStyleMapForVideoProjectSerialTaskCreateInput $source_style_map source_style_map
+     *
+     * @return $this
+     */
+    public function setSourceStyleMap($source_style_map)
+    {
+        $this->container['source_style_map'] = $source_style_map;
 
         return $this;
     }

@@ -585,6 +585,20 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'efs' => new ServiceEndpointInfo(
+                    'efs',
+                    false,
+                    '',
+                    []
+                ),
+
+                'inframanager' => new ServiceEndpointInfo(
+                    'inframanager',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;

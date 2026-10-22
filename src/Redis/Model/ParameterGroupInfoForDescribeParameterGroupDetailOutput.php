@@ -169,23 +169,8 @@ class ParameterGroupInfoForDescribeParameterGroupDetailOutput implements ModelIn
         return self::$swaggerModelName;
     }
 
-    const SOURCE_SYSTEM = 'System';
-    const SOURCE_USER = 'User';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSourceAllowableValues()
-    {
-        return [
-            self::SOURCE_SYSTEM,
-            self::SOURCE_USER,
-        ];
-    }
     
 
     /**
@@ -222,14 +207,6 @@ class ParameterGroupInfoForDescribeParameterGroupDetailOutput implements ModelIn
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSourceAllowableValues();
-        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'source', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -433,15 +410,6 @@ class ParameterGroupInfoForDescribeParameterGroupDetailOutput implements ModelIn
      */
     public function setSource($source)
     {
-        $allowedValues = $this->getSourceAllowableValues();
-        if (!is_null($source) && !in_array($source, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'source', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['source'] = $source;
 
         return $this;

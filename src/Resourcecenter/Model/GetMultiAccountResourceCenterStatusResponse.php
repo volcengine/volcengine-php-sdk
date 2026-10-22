@@ -28,7 +28,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'initial_status' => 'string',
+        'init_status' => 'string',
         'service_status' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'initial_status' => null,
+        'init_status' => null,
         'service_status' => null
     ];
 
@@ -69,7 +69,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'initial_status' => 'InitialStatus',
+        'init_status' => 'InitStatus',
         'service_status' => 'ServiceStatus'
     ];
 
@@ -79,7 +79,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'initial_status' => 'setInitialStatus',
+        'init_status' => 'setInitStatus',
         'service_status' => 'setServiceStatus'
     ];
 
@@ -89,7 +89,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'initial_status' => 'getInitialStatus',
+        'init_status' => 'getInitStatus',
         'service_status' => 'getServiceStatus'
     ];
 
@@ -153,7 +153,7 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['initial_status'] = isset($data['initial_status']) ? $data['initial_status'] : null;
+        $this->container['init_status'] = isset($data['init_status']) ? $data['init_status'] : null;
         $this->container['service_status'] = isset($data['service_status']) ? $data['service_status'] : null;
     }
 
@@ -182,25 +182,25 @@ class GetMultiAccountResourceCenterStatusResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets initial_status
+     * Gets init_status
      *
      * @return string
      */
-    public function getInitialStatus()
+    public function getInitStatus()
     {
-        return $this->container['initial_status'];
+        return $this->container['init_status'];
     }
 
     /**
-     * Sets initial_status
+     * Sets init_status
      *
-     * @param string $initial_status initial_status
+     * @param string $init_status init_status
      *
      * @return $this
      */
-    public function setInitialStatus($initial_status)
+    public function setInitStatus($init_status)
     {
-        $this->container['initial_status'] = $initial_status;
+        $this->container['init_status'] = $init_status;
 
         return $this;
     }

@@ -31,7 +31,8 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         'download_url' => 'string',
         'error_code' => 'int',
         'error_msg' => 'string',
-        'pod_id' => 'string'
+        'pod_id' => 'string',
+        'tos_info' => '\Volcengine\Acep\Model\TosInfoForBatchScreenShotOutput'
     ];
 
     /**
@@ -43,7 +44,8 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         'download_url' => null,
         'error_code' => 'int32',
         'error_msg' => null,
-        'pod_id' => null
+        'pod_id' => null,
+        'tos_info' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         'download_url' => 'DownloadUrl',
         'error_code' => 'ErrorCode',
         'error_msg' => 'ErrorMsg',
-        'pod_id' => 'PodId'
+        'pod_id' => 'PodId',
+        'tos_info' => 'TosInfo'
     ];
 
     /**
@@ -88,7 +91,8 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         'download_url' => 'setDownloadUrl',
         'error_code' => 'setErrorCode',
         'error_msg' => 'setErrorMsg',
-        'pod_id' => 'setPodId'
+        'pod_id' => 'setPodId',
+        'tos_info' => 'setTosInfo'
     ];
 
     /**
@@ -100,7 +104,8 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         'download_url' => 'getDownloadUrl',
         'error_code' => 'getErrorCode',
         'error_msg' => 'getErrorMsg',
-        'pod_id' => 'getPodId'
+        'pod_id' => 'getPodId',
+        'tos_info' => 'getTosInfo'
     ];
 
     /**
@@ -167,6 +172,7 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_msg'] = isset($data['error_msg']) ? $data['error_msg'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['tos_info'] = isset($data['tos_info']) ? $data['tos_info'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class DetailForBatchScreenShotOutput implements ModelInterface, ArrayAccess
     public function setPodId($pod_id)
     {
         $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tos_info
+     *
+     * @return \Volcengine\Acep\Model\TosInfoForBatchScreenShotOutput
+     */
+    public function getTosInfo()
+    {
+        return $this->container['tos_info'];
+    }
+
+    /**
+     * Sets tos_info
+     *
+     * @param \Volcengine\Acep\Model\TosInfoForBatchScreenShotOutput $tos_info tos_info
+     *
+     * @return $this
+     */
+    public function setTosInfo($tos_info)
+    {
+        $this->container['tos_info'] = $tos_info;
 
         return $this;
     }

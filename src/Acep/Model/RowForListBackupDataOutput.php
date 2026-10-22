@@ -56,7 +56,9 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'status' => 'string',
         'storage_resource' => 'string',
         'storage_type' => 'string',
-        'updated_time' => 'int'
+        'updated_time' => 'int',
+        'volc_region' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -93,7 +95,9 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'status' => null,
         'storage_resource' => null,
         'storage_type' => null,
-        'updated_time' => 'int64'
+        'updated_time' => 'int64',
+        'volc_region' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -151,7 +155,9 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'storage_resource' => 'StorageResource',
         'storage_type' => 'StorageType',
-        'updated_time' => 'UpdatedTime'
+        'updated_time' => 'UpdatedTime',
+        'volc_region' => 'VolcRegion',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -188,7 +194,9 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'storage_resource' => 'setStorageResource',
         'storage_type' => 'setStorageType',
-        'updated_time' => 'setUpdatedTime'
+        'updated_time' => 'setUpdatedTime',
+        'volc_region' => 'setVolcRegion',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -225,7 +233,9 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'storage_resource' => 'getStorageResource',
         'storage_type' => 'getStorageType',
-        'updated_time' => 'getUpdatedTime'
+        'updated_time' => 'getUpdatedTime',
+        'volc_region' => 'getVolcRegion',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -317,6 +327,8 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         $this->container['storage_resource'] = isset($data['storage_resource']) ? $data['storage_resource'] : null;
         $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -1035,6 +1047,54 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
     public function setUpdatedTime($updated_time)
     {
         $this->container['updated_time'] = $updated_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

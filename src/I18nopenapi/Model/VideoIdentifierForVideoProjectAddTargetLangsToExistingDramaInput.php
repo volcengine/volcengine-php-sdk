@@ -29,9 +29,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
       */
     protected static $swaggerTypes = [
         'episode_num' => 'int',
-        'target_lang2_subtitle' => '\Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]',
-        'video_id' => 'string',
-        'video_name' => 'string'
+        'target_lang2_subtitle' => '\Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]'
     ];
 
     /**
@@ -41,9 +39,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
       */
     protected static $swaggerFormats = [
         'episode_num' => 'int32',
-        'target_lang2_subtitle' => null,
-        'video_id' => null,
-        'video_name' => null
+        'target_lang2_subtitle' => null
     ];
 
     /**
@@ -74,9 +70,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $attributeMap = [
         'episode_num' => 'episodeNum',
-        'target_lang2_subtitle' => 'targetLang2Subtitle',
-        'video_id' => 'videoId',
-        'video_name' => 'videoName'
+        'target_lang2_subtitle' => 'targetLang2Subtitle'
     ];
 
     /**
@@ -86,9 +80,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $setters = [
         'episode_num' => 'setEpisodeNum',
-        'target_lang2_subtitle' => 'setTargetLang2Subtitle',
-        'video_id' => 'setVideoId',
-        'video_name' => 'setVideoName'
+        'target_lang2_subtitle' => 'setTargetLang2Subtitle'
     ];
 
     /**
@@ -98,9 +90,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $getters = [
         'episode_num' => 'getEpisodeNum',
-        'target_lang2_subtitle' => 'getTargetLang2Subtitle',
-        'video_id' => 'getVideoId',
-        'video_name' => 'getVideoName'
+        'target_lang2_subtitle' => 'getTargetLang2Subtitle'
     ];
 
     /**
@@ -165,8 +155,6 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
     {
         $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
         $this->container['target_lang2_subtitle'] = isset($data['target_lang2_subtitle']) ? $data['target_lang2_subtitle'] : null;
-        $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
-        $this->container['video_name'] = isset($data['video_name']) ? $data['video_name'] : null;
     }
 
     /**
@@ -237,54 +225,6 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
     public function setTargetLang2Subtitle($target_lang2_subtitle)
     {
         $this->container['target_lang2_subtitle'] = $target_lang2_subtitle;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_id
-     *
-     * @return string
-     */
-    public function getVideoId()
-    {
-        return $this->container['video_id'];
-    }
-
-    /**
-     * Sets video_id
-     *
-     * @param string $video_id video_id
-     *
-     * @return $this
-     */
-    public function setVideoId($video_id)
-    {
-        $this->container['video_id'] = $video_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_name
-     *
-     * @return string
-     */
-    public function getVideoName()
-    {
-        return $this->container['video_name'];
-    }
-
-    /**
-     * Sets video_name
-     *
-     * @param string $video_name video_name
-     *
-     * @return $this
-     */
-    public function setVideoName($video_name)
-    {
-        $this->container['video_name'] = $video_name;
 
         return $this;
     }

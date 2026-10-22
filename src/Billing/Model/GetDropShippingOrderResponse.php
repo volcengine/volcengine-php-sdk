@@ -36,6 +36,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         'drop_shipping_order_status' => 'int',
         'error_code' => 'string',
         'error_message' => 'string',
+        'order_id_list' => 'string[]',
         'result' => 'bool'
     ];
 
@@ -53,6 +54,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         'drop_shipping_order_status' => 'int32',
         'error_code' => null,
         'error_message' => null,
+        'order_id_list' => null,
         'result' => null
     ];
 
@@ -91,6 +93,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         'drop_shipping_order_status' => 'DropShippingOrderStatus',
         'error_code' => 'ErrorCode',
         'error_message' => 'ErrorMessage',
+        'order_id_list' => 'OrderIDList',
         'result' => 'Result'
     ];
 
@@ -108,6 +111,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         'drop_shipping_order_status' => 'setDropShippingOrderStatus',
         'error_code' => 'setErrorCode',
         'error_message' => 'setErrorMessage',
+        'order_id_list' => 'setOrderIdList',
         'result' => 'setResult'
     ];
 
@@ -125,6 +129,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         'drop_shipping_order_status' => 'getDropShippingOrderStatus',
         'error_code' => 'getErrorCode',
         'error_message' => 'getErrorMessage',
+        'order_id_list' => 'getOrderIdList',
         'result' => 'getResult'
     ];
 
@@ -196,6 +201,7 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
         $this->container['drop_shipping_order_status'] = isset($data['drop_shipping_order_status']) ? $data['drop_shipping_order_status'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
+        $this->container['order_id_list'] = isset($data['order_id_list']) ? $data['order_id_list'] : null;
         $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
@@ -411,6 +417,30 @@ class GetDropShippingOrderResponse implements ModelInterface, ArrayAccess
     public function setErrorMessage($error_message)
     {
         $this->container['error_message'] = $error_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id_list
+     *
+     * @return string[]
+     */
+    public function getOrderIdList()
+    {
+        return $this->container['order_id_list'];
+    }
+
+    /**
+     * Sets order_id_list
+     *
+     * @param string[] $order_id_list order_id_list
+     *
+     * @return $this
+     */
+    public function setOrderIdList($order_id_list)
+    {
+        $this->container['order_id_list'] = $order_id_list;
 
         return $this;
     }

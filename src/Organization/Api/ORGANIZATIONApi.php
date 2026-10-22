@@ -2424,6 +2424,68 @@ class ORGANIZATIONApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listTrustedServiceAdministrators($body = null)
+    {
+        list($response) = $this->listTrustedServiceAdministratorsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listTrustedServiceAdministratorsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Organization\Model\ListTrustedServiceAdministratorsResponse';
+        $request = $this->listTrustedServiceAdministratorsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listTrustedServiceAdministratorsAsync($body = null)
+    {
+        return $this->listTrustedServiceAdministratorsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listTrustedServiceAdministratorsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Organization\Model\ListTrustedServiceAdministratorsResponse';
+        $request = $this->listTrustedServiceAdministratorsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listTrustedServiceAdministratorsRequest($body)
+    {
+        $resourcePath = '/ListTrustedServiceAdministrators/2022-01-01/organization/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listTrustedServiceStatus($body = null)
     {
         list($response) = $this->listTrustedServiceStatusWithHttpInfo($body);

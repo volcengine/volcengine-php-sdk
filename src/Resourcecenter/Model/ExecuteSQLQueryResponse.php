@@ -28,7 +28,8 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'next_token' => 'string'
+        'next_token' => 'string',
+        'rows' => 'object[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'next_token' => null
+        'next_token' => null,
+        'rows' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'next_token' => 'NextToken'
+        'next_token' => 'NextToken',
+        'rows' => 'Rows'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'next_token' => 'setNextToken'
+        'next_token' => 'setNextToken',
+        'rows' => 'setRows'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'next_token' => 'getNextToken'
+        'next_token' => 'getNextToken',
+        'rows' => 'getRows'
     ];
 
     /**
@@ -149,6 +154,7 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['rows'] = isset($data['rows']) ? $data['rows'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class ExecuteSQLQueryResponse implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets rows
+     *
+     * @return object[]
+     */
+    public function getRows()
+    {
+        return $this->container['rows'];
+    }
+
+    /**
+     * Sets rows
+     *
+     * @param object[] $rows rows
+     *
+     * @return $this
+     */
+    public function setRows($rows)
+    {
+        $this->container['rows'] = $rows;
 
         return $this;
     }
