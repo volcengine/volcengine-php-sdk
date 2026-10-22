@@ -199,29 +199,8 @@ class TaskForDescribeTasksOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TASK_STATUS_RUNNING = 'Running';
-    const TASK_STATUS_SUCCESS = 'Success';
-    const TASK_STATUS_FAILED = 'Failed';
-    const TASK_STATUS_WAITING = 'Waiting';
-    const TASK_STATUS_CANCELED = 'Canceled';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTaskStatusAllowableValues()
-    {
-        return [
-            self::TASK_STATUS_RUNNING,
-            self::TASK_STATUS_SUCCESS,
-            self::TASK_STATUS_FAILED,
-            self::TASK_STATUS_WAITING,
-            self::TASK_STATUS_CANCELED,
-        ];
-    }
     
 
     /**
@@ -264,14 +243,6 @@ class TaskForDescribeTasksOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTaskStatusAllowableValues();
-        if (!is_null($this->container['task_status']) && !in_array($this->container['task_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'task_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -619,15 +590,6 @@ class TaskForDescribeTasksOutput implements ModelInterface, ArrayAccess
      */
     public function setTaskStatus($task_status)
     {
-        $allowedValues = $this->getTaskStatusAllowableValues();
-        if (!is_null($task_status) && !in_array($task_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'task_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['task_status'] = $task_status;
 
         return $this;

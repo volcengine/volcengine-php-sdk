@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAccess
+class InvolvedNodeForDescribePlannedEventImpactDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigureNodeForCreateEnterpriseDBInstanceInput';
+    protected static $swaggerModelName = 'InvolvedNodeForDescribePlannedEventImpactDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'az' => 'string'
+        'count' => 'int',
+        'node_ids' => 'string[]',
+        'role_name' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'az' => null
+        'count' => 'int32',
+        'node_ids' => null,
+        'role_name' => null,
+        'type' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'az' => 'AZ'
+        'count' => 'Count',
+        'node_ids' => 'NodeIds',
+        'role_name' => 'RoleName',
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +85,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'az' => 'setAz'
+        'count' => 'setCount',
+        'node_ids' => 'setNodeIds',
+        'role_name' => 'setRoleName',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +97,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'az' => 'getAz'
+        'count' => 'getCount',
+        'node_ids' => 'getNodeIds',
+        'role_name' => 'getRoleName',
+        'type' => 'getType'
     ];
 
     /**
@@ -148,7 +163,10 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
      */
     public function __construct($data = null)
     {
-        $this->container['az'] = isset($data['az']) ? $data['az'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['node_ids'] = isset($data['node_ids']) ? $data['node_ids'] : null;
+        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class ConfigureNodeForCreateEnterpriseDBInstanceInput implements ModelInterface,
 
 
     /**
-     * Gets az
+     * Gets count
      *
-     * @return string
+     * @return int
      */
-    public function getAz()
+    public function getCount()
     {
-        return $this->container['az'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets az
+     * Sets count
      *
-     * @param string $az az
+     * @param int $count count
      *
      * @return $this
      */
-    public function setAz($az)
+    public function setCount($count)
     {
-        $this->container['az'] = $az;
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets node_ids
+     *
+     * @return string[]
+     */
+    public function getNodeIds()
+    {
+        return $this->container['node_ids'];
+    }
+
+    /**
+     * Sets node_ids
+     *
+     * @param string[] $node_ids node_ids
+     *
+     * @return $this
+     */
+    public function setNodeIds($node_ids)
+    {
+        $this->container['node_ids'] = $node_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_name
+     *
+     * @return string
+     */
+    public function getRoleName()
+    {
+        return $this->container['role_name'];
+    }
+
+    /**
+     * Sets role_name
+     *
+     * @param string $role_name role_name
+     *
+     * @return $this
+     */
+    public function setRoleName($role_name)
+    {
+        $this->container['role_name'] = $role_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

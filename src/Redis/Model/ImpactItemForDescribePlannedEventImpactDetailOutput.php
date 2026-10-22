@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAccess
+class ImpactItemForDescribePlannedEventImpactDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForCreateEnterpriseDBInstanceInput';
+    protected static $swaggerModelName = 'ImpactItemForDescribePlannedEventImpactDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'affected_text' => 'string',
+        'involved_nodes' => '\Volcengine\Redis\Model\InvolvedNodeForDescribePlannedEventImpactDetailOutput[]',
+        'suggested_actions' => 'string[]',
+        'unaffected_text' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'affected_text' => null,
+        'involved_nodes' => null,
+        'suggested_actions' => null,
+        'unaffected_text' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'affected_text' => 'AffectedText',
+        'involved_nodes' => 'InvolvedNodes',
+        'suggested_actions' => 'SuggestedActions',
+        'unaffected_text' => 'UnaffectedText'
     ];
 
     /**
@@ -79,8 +85,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'affected_text' => 'setAffectedText',
+        'involved_nodes' => 'setInvolvedNodes',
+        'suggested_actions' => 'setSuggestedActions',
+        'unaffected_text' => 'setUnaffectedText'
     ];
 
     /**
@@ -89,8 +97,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'affected_text' => 'getAffectedText',
+        'involved_nodes' => 'getInvolvedNodes',
+        'suggested_actions' => 'getSuggestedActions',
+        'unaffected_text' => 'getUnaffectedText'
     ];
 
     /**
@@ -153,8 +163,10 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['affected_text'] = isset($data['affected_text']) ? $data['affected_text'] : null;
+        $this->container['involved_nodes'] = isset($data['involved_nodes']) ? $data['involved_nodes'] : null;
+        $this->container['suggested_actions'] = isset($data['suggested_actions']) ? $data['suggested_actions'] : null;
+        $this->container['unaffected_text'] = isset($data['unaffected_text']) ? $data['unaffected_text'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class TagForCreateEnterpriseDBInstanceInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets key
+     * Gets affected_text
      *
      * @return string
      */
-    public function getKey()
+    public function getAffectedText()
     {
-        return $this->container['key'];
+        return $this->container['affected_text'];
     }
 
     /**
-     * Sets key
+     * Sets affected_text
      *
-     * @param string $key key
+     * @param string $affected_text affected_text
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setAffectedText($affected_text)
     {
-        $this->container['key'] = $key;
+        $this->container['affected_text'] = $affected_text;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets involved_nodes
      *
-     * @return string
+     * @return \Volcengine\Redis\Model\InvolvedNodeForDescribePlannedEventImpactDetailOutput[]
      */
-    public function getValue()
+    public function getInvolvedNodes()
     {
-        return $this->container['value'];
+        return $this->container['involved_nodes'];
     }
 
     /**
-     * Sets value
+     * Sets involved_nodes
      *
-     * @param string $value value
+     * @param \Volcengine\Redis\Model\InvolvedNodeForDescribePlannedEventImpactDetailOutput[] $involved_nodes involved_nodes
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setInvolvedNodes($involved_nodes)
     {
-        $this->container['value'] = $value;
+        $this->container['involved_nodes'] = $involved_nodes;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggested_actions
+     *
+     * @return string[]
+     */
+    public function getSuggestedActions()
+    {
+        return $this->container['suggested_actions'];
+    }
+
+    /**
+     * Sets suggested_actions
+     *
+     * @param string[] $suggested_actions suggested_actions
+     *
+     * @return $this
+     */
+    public function setSuggestedActions($suggested_actions)
+    {
+        $this->container['suggested_actions'] = $suggested_actions;
+
+        return $this;
+    }
+
+    /**
+     * Gets unaffected_text
+     *
+     * @return string
+     */
+    public function getUnaffectedText()
+    {
+        return $this->container['unaffected_text'];
+    }
+
+    /**
+     * Sets unaffected_text
+     *
+     * @param string $unaffected_text unaffected_text
+     *
+     * @return $this
+     */
+    public function setUnaffectedText($unaffected_text)
+    {
+        $this->container['unaffected_text'] = $unaffected_text;
 
         return $this;
     }

@@ -199,65 +199,8 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
         return self::$swaggerModelName;
     }
 
-    const BACKUP_STRATEGY_MANUAL_BACKUP = 'ManualBackup';
-    const BACKUP_STRATEGY_AUTOMATED_BACKUP = 'AutomatedBackup';
-    const BACKUP_STRATEGY_DATA_FLASH_BACK = 'DataFlashBack';
-    const BACKUP_STRATEGY_ALL_STRATEGY = 'AllStrategy';
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
-    const STATUS_CREATING = 'Creating';
-    const STATUS_AVAILABLE = 'Available';
-    const STATUS_UNAVAILABLE = 'Unavailable';
-    const STATUS_DELETING = 'Deleting';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupStrategyAllowableValues()
-    {
-        return [
-            self::BACKUP_STRATEGY_MANUAL_BACKUP,
-            self::BACKUP_STRATEGY_AUTOMATED_BACKUP,
-            self::BACKUP_STRATEGY_DATA_FLASH_BACK,
-            self::BACKUP_STRATEGY_ALL_STRATEGY,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_CREATING,
-            self::STATUS_AVAILABLE,
-            self::STATUS_UNAVAILABLE,
-            self::STATUS_DELETING,
-        ];
-    }
     
 
     /**
@@ -300,30 +243,6 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBackupStrategyAllowableValues();
-        if (!is_null($this->container['backup_strategy']) && !in_array($this->container['backup_strategy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_strategy', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -431,15 +350,6 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
      */
     public function setBackupStrategy($backup_strategy)
     {
-        $allowedValues = $this->getBackupStrategyAllowableValues();
-        if (!is_null($backup_strategy) && !in_array($backup_strategy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_strategy', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['backup_strategy'] = $backup_strategy;
 
         return $this;
@@ -464,15 +374,6 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
      */
     public function setBackupType($backup_type)
     {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['backup_type'] = $backup_type;
 
         return $this;
@@ -665,15 +566,6 @@ class BackupForDescribeCrossRegionBackupsOutput implements ModelInterface, Array
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

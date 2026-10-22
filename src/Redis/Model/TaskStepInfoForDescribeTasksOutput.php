@@ -144,27 +144,8 @@ class TaskStepInfoForDescribeTasksOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const STEP_STATUS_RUNNING = 'Running';
-    const STEP_STATUS_SUCCESS = 'Success';
-    const STEP_STATUS_FAILED = 'Failed';
-    const STEP_STATUS_WAITING = 'Waiting';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStepStatusAllowableValues()
-    {
-        return [
-            self::STEP_STATUS_RUNNING,
-            self::STEP_STATUS_SUCCESS,
-            self::STEP_STATUS_FAILED,
-            self::STEP_STATUS_WAITING,
-        ];
-    }
     
 
     /**
@@ -196,14 +177,6 @@ class TaskStepInfoForDescribeTasksOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStepStatusAllowableValues();
-        if (!is_null($this->container['step_status']) && !in_array($this->container['step_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'step_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -311,15 +284,6 @@ class TaskStepInfoForDescribeTasksOutput implements ModelInterface, ArrayAccess
      */
     public function setStepStatus($step_status)
     {
-        $allowedValues = $this->getStepStatusAllowableValues();
-        if (!is_null($step_status) && !in_array($step_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'step_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['step_status'] = $step_status;
 
         return $this;
