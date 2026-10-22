@@ -592,6 +592,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+
+                'inframanager' => new ServiceEndpointInfo(
+                    'inframanager',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
