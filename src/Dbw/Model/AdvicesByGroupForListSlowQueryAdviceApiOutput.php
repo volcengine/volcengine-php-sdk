@@ -29,7 +29,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput implements ModelInterface, A
       */
     protected static $swaggerTypes = [
         'advice' => 'string',
-        'advices' => '\Volcengine\Dbw\Model\ConvertadviceForListSlowQueryAdviceApiOutput[]'
+        'advices' => '\Volcengine\Dbw\Model\AdviceForListSlowQueryAdviceApiOutput[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput implements ModelInterface, A
      */
     protected static $attributeMap = [
         'advice' => 'Advice',
-        'advices' => 'advices'
+        'advices' => 'Advices'
     ];
 
     /**
@@ -208,7 +208,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput implements ModelInterface, A
     /**
      * Gets advices
      *
-     * @return \Volcengine\Dbw\Model\ConvertadviceForListSlowQueryAdviceApiOutput[]
+     * @return \Volcengine\Dbw\Model\AdviceForListSlowQueryAdviceApiOutput[]
      */
     public function getAdvices()
     {
@@ -218,7 +218,7 @@ class AdvicesByGroupForListSlowQueryAdviceApiOutput implements ModelInterface, A
     /**
      * Sets advices
      *
-     * @param \Volcengine\Dbw\Model\ConvertadviceForListSlowQueryAdviceApiOutput[] $advices advices
+     * @param \Volcengine\Dbw\Model\AdviceForListSlowQueryAdviceApiOutput[] $advices advices
      *
      * @return $this
      */
