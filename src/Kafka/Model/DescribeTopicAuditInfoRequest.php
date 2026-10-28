@@ -28,6 +28,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'aggregate_by_source_ip' => 'bool',
         'instance_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
@@ -44,6 +45,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'aggregate_by_source_ip' => null,
         'instance_id' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
@@ -81,6 +83,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'aggregate_by_source_ip' => 'AggregateBySourceIp',
         'instance_id' => 'InstanceId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
@@ -97,6 +100,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'aggregate_by_source_ip' => 'setAggregateBySourceIp',
         'instance_id' => 'setInstanceId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
@@ -113,6 +117,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'aggregate_by_source_ip' => 'getAggregateBySourceIp',
         'instance_id' => 'getInstanceId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
@@ -183,6 +188,7 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['aggregate_by_source_ip'] = isset($data['aggregate_by_source_ip']) ? $data['aggregate_by_source_ip'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -231,6 +237,30 @@ class DescribeTopicAuditInfoRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets aggregate_by_source_ip
+     *
+     * @return bool
+     */
+    public function getAggregateBySourceIp()
+    {
+        return $this->container['aggregate_by_source_ip'];
+    }
+
+    /**
+     * Sets aggregate_by_source_ip
+     *
+     * @param bool $aggregate_by_source_ip aggregate_by_source_ip
+     *
+     * @return $this
+     */
+    public function setAggregateBySourceIp($aggregate_by_source_ip)
+    {
+        $this->container['aggregate_by_source_ip'] = $aggregate_by_source_ip;
+
+        return $this;
+    }
 
     /**
      * Gets instance_id

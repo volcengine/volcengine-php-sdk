@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, ArrayAccess
+class RecordForDescribeOffsetCommitAuditInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubTaskResultForVerifyMigrateSubTasksOutput';
+    protected static $swaggerModelName = 'RecordForDescribeOffsetCommitAuditInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string'
+        'close_time' => 'string',
+        'consumer_group' => 'string',
+        'create_time' => 'string',
+        'last_update_time' => 'string',
+        'source_ip' => 'string',
+        'source_port' => 'int',
+        'topics' => 'string[]'
     ];
 
     /**
@@ -38,8 +43,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null
+        'close_time' => null,
+        'consumer_group' => null,
+        'create_time' => null,
+        'last_update_time' => null,
+        'source_ip' => null,
+        'source_port' => 'int32',
+        'topics' => null
     ];
 
     /**
@@ -69,8 +79,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'Code',
-        'message' => 'Message'
+        'close_time' => 'CloseTime',
+        'consumer_group' => 'ConsumerGroup',
+        'create_time' => 'CreateTime',
+        'last_update_time' => 'LastUpdateTime',
+        'source_ip' => 'SourceIp',
+        'source_port' => 'SourcePort',
+        'topics' => 'Topics'
     ];
 
     /**
@@ -79,8 +94,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage'
+        'close_time' => 'setCloseTime',
+        'consumer_group' => 'setConsumerGroup',
+        'create_time' => 'setCreateTime',
+        'last_update_time' => 'setLastUpdateTime',
+        'source_ip' => 'setSourceIp',
+        'source_port' => 'setSourcePort',
+        'topics' => 'setTopics'
     ];
 
     /**
@@ -89,8 +109,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage'
+        'close_time' => 'getCloseTime',
+        'consumer_group' => 'getConsumerGroup',
+        'create_time' => 'getCreateTime',
+        'last_update_time' => 'getLastUpdateTime',
+        'source_ip' => 'getSourceIp',
+        'source_port' => 'getSourcePort',
+        'topics' => 'getTopics'
     ];
 
     /**
@@ -153,8 +178,13 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['close_time'] = isset($data['close_time']) ? $data['close_time'] : null;
+        $this->container['consumer_group'] = isset($data['consumer_group']) ? $data['consumer_group'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['source_ip'] = isset($data['source_ip']) ? $data['source_ip'] : null;
+        $this->container['source_port'] = isset($data['source_port']) ? $data['source_port'] : null;
+        $this->container['topics'] = isset($data['topics']) ? $data['topics'] : null;
     }
 
     /**
@@ -182,49 +212,169 @@ class SubTaskResultForVerifyMigrateSubTasksOutput implements ModelInterface, Arr
 
 
     /**
-     * Gets code
+     * Gets close_time
      *
      * @return string
      */
-    public function getCode()
+    public function getCloseTime()
     {
-        return $this->container['code'];
+        return $this->container['close_time'];
     }
 
     /**
-     * Sets code
+     * Sets close_time
      *
-     * @param string $code code
+     * @param string $close_time close_time
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setCloseTime($close_time)
     {
-        $this->container['code'] = $code;
+        $this->container['close_time'] = $close_time;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets consumer_group
      *
      * @return string
      */
-    public function getMessage()
+    public function getConsumerGroup()
     {
-        return $this->container['message'];
+        return $this->container['consumer_group'];
     }
 
     /**
-     * Sets message
+     * Sets consumer_group
      *
-     * @param string $message message
+     * @param string $consumer_group consumer_group
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setConsumerGroup($consumer_group)
     {
-        $this->container['message'] = $message;
+        $this->container['consumer_group'] = $consumer_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return string
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param string $create_time create_time
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_update_time
+     *
+     * @return string
+     */
+    public function getLastUpdateTime()
+    {
+        return $this->container['last_update_time'];
+    }
+
+    /**
+     * Sets last_update_time
+     *
+     * @param string $last_update_time last_update_time
+     *
+     * @return $this
+     */
+    public function setLastUpdateTime($last_update_time)
+    {
+        $this->container['last_update_time'] = $last_update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_ip
+     *
+     * @return string
+     */
+    public function getSourceIp()
+    {
+        return $this->container['source_ip'];
+    }
+
+    /**
+     * Sets source_ip
+     *
+     * @param string $source_ip source_ip
+     *
+     * @return $this
+     */
+    public function setSourceIp($source_ip)
+    {
+        $this->container['source_ip'] = $source_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_port
+     *
+     * @return int
+     */
+    public function getSourcePort()
+    {
+        return $this->container['source_port'];
+    }
+
+    /**
+     * Sets source_port
+     *
+     * @param int $source_port source_port
+     *
+     * @return $this
+     */
+    public function setSourcePort($source_port)
+    {
+        $this->container['source_port'] = $source_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets topics
+     *
+     * @return string[]
+     */
+    public function getTopics()
+    {
+        return $this->container['topics'];
+    }
+
+    /**
+     * Sets topics
+     *
+     * @param string[] $topics topics
+     *
+     * @return $this
+     */
+    public function setTopics($topics)
+    {
+        $this->container['topics'] = $topics;
 
         return $this;
     }
