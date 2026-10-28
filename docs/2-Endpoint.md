@@ -66,6 +66,28 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);    // enable dual-stack, default false
 ```
 
+#### Region Whitespace and Compatibility
+
+Default endpoint resolution validates the raw region without calling `trim()` first.
+Values such as `" cn-beijing"`, `"cn-beijing "`, `"\tcn-beijing"`, `"cn-beijing\n"`,
+and whitespace-only strings raise `Volcengine\Common\ApiException` with
+`getErrorCode()` equal to `InvalidRegion` and status 400.
+
+- Direct calls to `DefaultEndpointProvider::endpointFor(...)` also reject leading or trailing whitespace.
+- When no explicit `host` is set, the client validates the region before calling any Endpoint Provider, signing or sending the request. `Configuration::setRegion(...)` only stores the raw value; it neither trims it nor performs this validation immediately.
+- `null` and the empty string keep the existing missing-value handling of each entry point; a whitespace-only string is not an empty string.
+
+**Behavior change:** a region with surrounding whitespace now fails locally with
+`InvalidRegion`. Previous versions only ignored surrounding whitespace when
+matching the bootstrap region list; signing still used the raw region. Getting
+an endpoint back did not mean that a client request with that region would succeed.
+
+If your application accepts surrounding whitespace in text input, call `trim()`
+before `setRegion(...)` or a direct resolver call, and use the same cleaned region
+for client configuration and endpoint resolution. Do not trim only the value
+passed to the Endpoint Provider while leaving the signing region unchanged.
+The trimmed value must still pass validation.
+
 #### Standard Endpoint Resolution
 
 Standard endpoint resolution constructs endpoints according to whether the service is global:

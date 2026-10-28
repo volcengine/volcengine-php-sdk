@@ -63,6 +63,18 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);  # 启用双栈，默认 false
 ```
 
+#### region 首尾空白与兼容性
+
+默认自动寻址按原始 region 校验，不会先 `trim()`。`" cn-beijing"`、`"cn-beijing "`、`"\tcn-beijing"`、`"cn-beijing\n"` 和纯空白字符串都会抛出 `Volcengine\Common\ApiException`，`getErrorCode()` 为 `InvalidRegion`，状态码为 400。
+
+- 直接调用 `DefaultEndpointProvider::endpointFor(...)` 时同样拒绝首尾空白。
+- 未显式设置 `host` 时，客户端在调用任何 Endpoint Provider、签名和发送请求之前校验 region。`Configuration::setRegion(...)` 只保存原值，不会自动 trim，也不会在设置时立即执行这项校验。
+- `null` 和空字符串仍沿用各入口原有的空值处理；纯空白字符串不属于空字符串。
+
+**与旧版本不同：** 现在带首尾空白的 region 会在本地以 `InvalidRegion` 失败。旧版本只在判断是否属于自动寻址 Region 列表时忽略首尾空白，签名使用的仍是原始 region；寻址能够返回结果并不代表带空白的 region 可以正常完成客户端请求。
+
+如果业务需要容忍文本输入的首尾空白，应在调用 `setRegion(...)` 或直接解析接口之前自行 `trim()`，并将处理后的同一个 region 用于客户端配置和寻址。不要只清理传给 Endpoint Provider 的值而保留签名使用的原值；trim 后的值仍须通过合法性校验。
+
 #### Endpoint 标准寻址
 
 标准寻址会根据服务是否为 Global 服务，按以下规则拼接 Endpoint：
