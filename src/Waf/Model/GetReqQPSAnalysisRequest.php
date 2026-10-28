@@ -30,7 +30,8 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'domain' => 'string',
         'end_time' => 'string',
-        'start_time' => 'string'
+        'start_time' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'domain' => null,
         'end_time' => null,
-        'start_time' => null
+        'start_time' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'domain' => 'Domain',
         'end_time' => 'EndTime',
-        'start_time' => 'StartTime'
+        'start_time' => 'StartTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -84,7 +87,8 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'domain' => 'setDomain',
         'end_time' => 'setEndTime',
-        'start_time' => 'setStartTime'
+        'start_time' => 'setStartTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'domain' => 'getDomain',
         'end_time' => 'getEndTime',
-        'start_time' => 'getStartTime'
+        'start_time' => 'getStartTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -161,6 +166,7 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class GetReqQPSAnalysisRequest implements ModelInterface, ArrayAccess
     public function setStartTime($start_time)
     {
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

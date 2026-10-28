@@ -34,7 +34,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'page' => 'int',
         'page_size' => 'int',
         'path' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -49,7 +50,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'page' => 'int32',
         'page_size' => 'int32',
         'path' => null,
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'page' => 'Page',
         'page_size' => 'PageSize',
         'path' => 'Path',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -100,7 +103,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'page' => 'setPage',
         'page_size' => 'setPageSize',
         'path' => 'setPath',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -115,7 +119,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'page' => 'getPage',
         'page_size' => 'getPageSize',
         'path' => 'getPath',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -200,6 +205,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -416,6 +422,30 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

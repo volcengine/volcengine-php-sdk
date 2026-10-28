@@ -30,7 +30,8 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'access_mode' => 'int',
         'host' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'access_mode' => 'int32',
         'host' => null,
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'access_mode' => 'AccessMode',
         'host' => 'Host',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'access_mode' => 'setAccessMode',
         'host' => 'setHost',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'access_mode' => 'getAccessMode',
         'host' => 'getHost',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -161,6 +166,7 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
         $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class DeleteVolcWafServiceRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

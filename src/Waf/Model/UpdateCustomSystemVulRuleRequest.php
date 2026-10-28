@@ -32,7 +32,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         'host_add_type' => 'int',
         'host_list' => 'string[]',
         'project_name' => 'string',
-        'system_rule_switch' => '\Volcengine\Waf\Model\SystemRuleSwitchForUpdateCustomSystemVulRuleInput[]'
+        'system_rule_switch' => '\Volcengine\Waf\Model\SystemRuleSwitchForUpdateCustomSystemVulRuleInput[]',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         'host_add_type' => 'int32',
         'host_list' => null,
         'project_name' => null,
-        'system_rule_switch' => null
+        'system_rule_switch' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         'host_add_type' => 'HostAddType',
         'host_list' => 'HostList',
         'project_name' => 'ProjectName',
-        'system_rule_switch' => 'SystemRuleSwitch'
+        'system_rule_switch' => 'SystemRuleSwitch',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -92,7 +95,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         'host_add_type' => 'setHostAddType',
         'host_list' => 'setHostList',
         'project_name' => 'setProjectName',
-        'system_rule_switch' => 'setSystemRuleSwitch'
+        'system_rule_switch' => 'setSystemRuleSwitch',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         'host_add_type' => 'getHostAddType',
         'host_list' => 'getHostList',
         'project_name' => 'getProjectName',
-        'system_rule_switch' => 'getSystemRuleSwitch'
+        'system_rule_switch' => 'getSystemRuleSwitch',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
         $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['system_rule_switch'] = isset($data['system_rule_switch']) ? $data['system_rule_switch'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     public function setSystemRuleSwitch($system_rule_switch)
     {
         $this->container['system_rule_switch'] = $system_rule_switch;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

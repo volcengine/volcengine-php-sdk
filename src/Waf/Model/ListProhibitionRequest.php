@@ -39,7 +39,8 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         'reason' => 'string[]',
         'start_time' => 'int',
         'status' => 'int[]',
-        'time_order_by' => 'string'
+        'time_order_by' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -59,7 +60,8 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         'reason' => null,
         'start_time' => 'int32',
         'status' => 'int32',
-        'time_order_by' => null
+        'time_order_by' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         'reason' => 'Reason',
         'start_time' => 'StartTime',
         'status' => 'Status',
-        'time_order_by' => 'TimeOrderBy'
+        'time_order_by' => 'TimeOrderBy',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         'reason' => 'setReason',
         'start_time' => 'setStartTime',
         'status' => 'setStatus',
-        'time_order_by' => 'setTimeOrderBy'
+        'time_order_by' => 'setTimeOrderBy',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -140,7 +144,8 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         'reason' => 'getReason',
         'start_time' => 'getStartTime',
         'status' => 'getStatus',
-        'time_order_by' => 'getTimeOrderBy'
+        'time_order_by' => 'getTimeOrderBy',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -215,6 +220,7 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -534,6 +540,30 @@ class ListProhibitionRequest implements ModelInterface, ArrayAccess
     public function setTimeOrderBy($time_order_by)
     {
         $this->container['time_order_by'] = $time_order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

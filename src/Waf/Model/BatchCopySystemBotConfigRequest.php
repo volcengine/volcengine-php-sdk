@@ -31,7 +31,8 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         'dst_host' => '\Volcengine\Waf\Model\DstHostForBatchCopySystemBotConfigInput',
         'project_name' => 'string',
         'rule_tag_list' => 'string[]',
-        'src_host' => 'string'
+        'src_host' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         'dst_host' => null,
         'project_name' => null,
         'rule_tag_list' => null,
-        'src_host' => null
+        'src_host' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         'dst_host' => 'DstHost',
         'project_name' => 'ProjectName',
         'rule_tag_list' => 'RuleTagList',
-        'src_host' => 'SrcHost'
+        'src_host' => 'SrcHost',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -88,7 +91,8 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         'dst_host' => 'setDstHost',
         'project_name' => 'setProjectName',
         'rule_tag_list' => 'setRuleTagList',
-        'src_host' => 'setSrcHost'
+        'src_host' => 'setSrcHost',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         'dst_host' => 'getDstHost',
         'project_name' => 'getProjectName',
         'rule_tag_list' => 'getRuleTagList',
-        'src_host' => 'getSrcHost'
+        'src_host' => 'getSrcHost',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag_list'] = isset($data['rule_tag_list']) ? $data['rule_tag_list'] : null;
         $this->container['src_host'] = isset($data['src_host']) ? $data['src_host'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -288,6 +294,30 @@ class BatchCopySystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setSrcHost($src_host)
     {
         $this->container['src_host'] = $src_host;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

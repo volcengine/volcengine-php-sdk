@@ -47,6 +47,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_tag' => 'string',
         'single_threshold' => 'int',
         'url' => 'string',
+        'waf_instance_id' => 'string',
         'ws_cdn_byte_threshold' => 'int',
         'ws_cdn_enable' => 'int',
         'ws_cdn_frame_threshold' => 'int',
@@ -78,6 +79,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_tag' => null,
         'single_threshold' => 'int32',
         'url' => null,
+        'waf_instance_id' => null,
         'ws_cdn_byte_threshold' => 'int32',
         'ws_cdn_enable' => 'int32',
         'ws_cdn_frame_threshold' => 'int32',
@@ -130,6 +132,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_tag' => 'RuleTag',
         'single_threshold' => 'SingleThreshold',
         'url' => 'Url',
+        'waf_instance_id' => 'WAFInstanceID',
         'ws_cdn_byte_threshold' => 'WSCdnByteThreshold',
         'ws_cdn_enable' => 'WSCdnEnable',
         'ws_cdn_frame_threshold' => 'WSCdnFrameThreshold',
@@ -161,6 +164,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_tag' => 'setRuleTag',
         'single_threshold' => 'setSingleThreshold',
         'url' => 'setUrl',
+        'waf_instance_id' => 'setWafInstanceId',
         'ws_cdn_byte_threshold' => 'setWsCdnByteThreshold',
         'ws_cdn_enable' => 'setWsCdnEnable',
         'ws_cdn_frame_threshold' => 'setWsCdnFrameThreshold',
@@ -192,6 +196,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_tag' => 'getRuleTag',
         'single_threshold' => 'getSingleThreshold',
         'url' => 'getUrl',
+        'waf_instance_id' => 'getWafInstanceId',
         'ws_cdn_byte_threshold' => 'getWsCdnByteThreshold',
         'ws_cdn_enable' => 'getWsCdnEnable',
         'ws_cdn_frame_threshold' => 'getWsCdnFrameThreshold',
@@ -294,6 +299,7 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
         $this->container['ws_cdn_byte_threshold'] = isset($data['ws_cdn_byte_threshold']) ? $data['ws_cdn_byte_threshold'] : null;
         $this->container['ws_cdn_enable'] = isset($data['ws_cdn_enable']) ? $data['ws_cdn_enable'] : null;
         $this->container['ws_cdn_frame_threshold'] = isset($data['ws_cdn_frame_threshold']) ? $data['ws_cdn_frame_threshold'] : null;
@@ -805,6 +811,30 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

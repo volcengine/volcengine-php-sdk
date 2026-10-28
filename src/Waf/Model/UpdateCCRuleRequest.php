@@ -49,6 +49,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'int',
         'update_time' => 'string',
         'url' => 'string',
+        'waf_instance_id' => 'string',
         'ws_cdn_byte_threshold' => 'int',
         'ws_cdn_enable' => 'int',
         'ws_cdn_frame_threshold' => 'int',
@@ -82,6 +83,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'int32',
         'update_time' => null,
         'url' => null,
+        'waf_instance_id' => null,
         'ws_cdn_byte_threshold' => 'int32',
         'ws_cdn_enable' => 'int32',
         'ws_cdn_frame_threshold' => 'int32',
@@ -136,6 +138,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'SingleThreshold',
         'update_time' => 'UpdateTime',
         'url' => 'Url',
+        'waf_instance_id' => 'WAFInstanceID',
         'ws_cdn_byte_threshold' => 'WSCdnByteThreshold',
         'ws_cdn_enable' => 'WSCdnEnable',
         'ws_cdn_frame_threshold' => 'WSCdnFrameThreshold',
@@ -169,6 +172,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'setSingleThreshold',
         'update_time' => 'setUpdateTime',
         'url' => 'setUrl',
+        'waf_instance_id' => 'setWafInstanceId',
         'ws_cdn_byte_threshold' => 'setWsCdnByteThreshold',
         'ws_cdn_enable' => 'setWsCdnEnable',
         'ws_cdn_frame_threshold' => 'setWsCdnFrameThreshold',
@@ -202,6 +206,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'getSingleThreshold',
         'update_time' => 'getUpdateTime',
         'url' => 'getUrl',
+        'waf_instance_id' => 'getWafInstanceId',
         'ws_cdn_byte_threshold' => 'getWsCdnByteThreshold',
         'ws_cdn_enable' => 'getWsCdnEnable',
         'ws_cdn_frame_threshold' => 'getWsCdnFrameThreshold',
@@ -306,6 +311,7 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
         $this->container['ws_cdn_byte_threshold'] = isset($data['ws_cdn_byte_threshold']) ? $data['ws_cdn_byte_threshold'] : null;
         $this->container['ws_cdn_enable'] = isset($data['ws_cdn_enable']) ? $data['ws_cdn_enable'] : null;
         $this->container['ws_cdn_frame_threshold'] = isset($data['ws_cdn_frame_threshold']) ? $data['ws_cdn_frame_threshold'] : null;
@@ -868,6 +874,30 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

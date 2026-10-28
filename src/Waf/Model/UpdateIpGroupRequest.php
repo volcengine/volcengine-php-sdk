@@ -32,7 +32,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'int',
         'ip_list' => 'string[]',
         'name' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'int32',
         'ip_list' => null,
         'name' => null,
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'IpGroupId',
         'ip_list' => 'IpList',
         'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -92,7 +95,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'setIpGroupId',
         'ip_list' => 'setIpList',
         'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'getIpGroupId',
         'ip_list' => 'getIpList',
         'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -324,6 +330,30 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

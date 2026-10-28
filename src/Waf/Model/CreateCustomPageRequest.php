@@ -43,7 +43,8 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         'prefix_switch' => 'int',
         'project_name' => 'string',
         'redirect_url' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         'prefix_switch' => 'int32',
         'project_name' => null,
         'redirect_url' => null,
-        'url' => null
+        'url' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         'prefix_switch' => 'PrefixSwitch',
         'project_name' => 'ProjectName',
         'redirect_url' => 'RedirectUrl',
-        'url' => 'Url'
+        'url' => 'Url',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -136,7 +139,8 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         'prefix_switch' => 'setPrefixSwitch',
         'project_name' => 'setProjectName',
         'redirect_url' => 'setRedirectUrl',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -160,7 +164,8 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         'prefix_switch' => 'getPrefixSwitch',
         'project_name' => 'getProjectName',
         'redirect_url' => 'getRedirectUrl',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -239,6 +244,7 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -666,6 +672,30 @@ class CreateCustomPageRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

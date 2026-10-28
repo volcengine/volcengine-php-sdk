@@ -37,7 +37,8 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path' => 'string',
         'project_name' => 'string',
         'region' => 'string',
-        'rule_tag' => 'string'
+        'rule_tag' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path' => null,
         'project_name' => null,
         'region' => null,
-        'rule_tag' => null
+        'rule_tag' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path' => 'Path',
         'project_name' => 'ProjectName',
         'region' => 'Region',
-        'rule_tag' => 'RuleTag'
+        'rule_tag' => 'RuleTag',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -112,7 +115,8 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path' => 'setPath',
         'project_name' => 'setProjectName',
         'region' => 'setRegion',
-        'rule_tag' => 'setRuleTag'
+        'rule_tag' => 'setRuleTag',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -130,7 +134,8 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path' => 'getPath',
         'project_name' => 'getProjectName',
         'region' => 'getRegion',
-        'rule_tag' => 'getRuleTag'
+        'rule_tag' => 'getRuleTag',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -218,6 +223,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -503,6 +509,30 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setRuleTag($rule_tag)
     {
         $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

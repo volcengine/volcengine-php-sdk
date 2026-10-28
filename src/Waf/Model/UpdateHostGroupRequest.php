@@ -33,7 +33,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         'host_group_id' => 'int',
         'host_list' => 'string[]',
         'name' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         'host_group_id' => 'int32',
         'host_list' => null,
         'name' => null,
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         'host_group_id' => 'HostGroupID',
         'host_list' => 'HostList',
         'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -96,7 +99,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         'host_group_id' => 'setHostGroupId',
         'host_list' => 'setHostList',
         'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         'host_group_id' => 'getHostGroupId',
         'host_list' => 'getHostList',
         'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -179,6 +184,7 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
         $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -348,6 +354,30 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

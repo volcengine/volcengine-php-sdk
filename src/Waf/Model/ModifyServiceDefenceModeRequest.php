@@ -31,7 +31,8 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         'defence_mode' => 'int',
         'extra_defence_mode_lb_instance' => '\Volcengine\Waf\Model\ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput[]',
         'host' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         'defence_mode' => 'int32',
         'extra_defence_mode_lb_instance' => null,
         'host' => null,
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         'defence_mode' => 'DefenceMode',
         'extra_defence_mode_lb_instance' => 'ExtraDefenceModeLBInstance',
         'host' => 'Host',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         'defence_mode' => 'setDefenceMode',
         'extra_defence_mode_lb_instance' => 'setExtraDefenceModeLbInstance',
         'host' => 'setHost',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         'defence_mode' => 'getDefenceMode',
         'extra_defence_mode_lb_instance' => 'getExtraDefenceModeLbInstance',
         'host' => 'getHost',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
         $this->container['extra_defence_mode_lb_instance'] = isset($data['extra_defence_mode_lb_instance']) ? $data['extra_defence_mode_lb_instance'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -291,6 +297,30 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }
