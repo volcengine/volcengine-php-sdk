@@ -5,13 +5,6 @@ namespace Volcengine\Common;
 interface ModelInterface
 {
     /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName();
-
-    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
