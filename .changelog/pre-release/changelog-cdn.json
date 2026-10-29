@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "UpdateCdnConfig",
+    "BatchUpdateCdnConfig",
+    "DescribeCdnConfig"
+  ],
+  "description": "CDN: 修改 UpdateCdnConfig, BatchUpdateCdnConfig, DescribeCdnConfig",
+  "modules": "service/CDN",
+  "type": "feature"
+}
