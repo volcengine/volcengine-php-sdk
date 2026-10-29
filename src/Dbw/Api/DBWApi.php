@@ -254,6 +254,68 @@ class DBWApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeAggregateSlowLogs($body = null)
+    {
+        list($response) = $this->describeAggregateSlowLogsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeAggregateSlowLogsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dbw\Model\DescribeAggregateSlowLogsResponse';
+        $request = $this->describeAggregateSlowLogsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeAggregateSlowLogsAsync($body = null)
+    {
+        return $this->describeAggregateSlowLogsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeAggregateSlowLogsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Dbw\Model\DescribeAggregateSlowLogsResponse';
+        $request = $this->describeAggregateSlowLogsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeAggregateSlowLogsRequest($body)
+    {
+        $resourcePath = '/DescribeAggregateSlowLogs/2018-01-01/dbw/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeAuditLogConfig($body = null)
     {
         list($response) = $this->describeAuditLogConfigWithHttpInfo($body);
