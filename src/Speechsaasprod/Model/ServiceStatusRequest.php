@@ -28,7 +28,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'blueprint_id' => 'int',
         'project_name' => 'string',
         'resource_id' => 'string'
     ];
@@ -39,7 +38,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'blueprint_id' => 'int32',
         'project_name' => null,
         'resource_id' => null
     ];
@@ -71,7 +69,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'blueprint_id' => 'BlueprintID',
         'project_name' => 'ProjectName',
         'resource_id' => 'ResourceID'
     ];
@@ -82,7 +79,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'blueprint_id' => 'setBlueprintId',
         'project_name' => 'setProjectName',
         'resource_id' => 'setResourceId'
     ];
@@ -93,7 +89,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'blueprint_id' => 'getBlueprintId',
         'project_name' => 'getProjectName',
         'resource_id' => 'getResourceId'
     ];
@@ -158,7 +153,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['blueprint_id'] = isset($data['blueprint_id']) ? $data['blueprint_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
     }
@@ -172,9 +166,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['blueprint_id'] === null) {
-            $invalidProperties[] = "'blueprint_id' can't be null";
-        }
         if ($this->container['project_name'] === null) {
             $invalidProperties[] = "'project_name' can't be null";
         }
@@ -195,30 +186,6 @@ class ServiceStatusRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets blueprint_id
-     *
-     * @return int
-     */
-    public function getBlueprintId()
-    {
-        return $this->container['blueprint_id'];
-    }
-
-    /**
-     * Sets blueprint_id
-     *
-     * @param int $blueprint_id blueprint_id
-     *
-     * @return $this
-     */
-    public function setBlueprintId($blueprint_id)
-    {
-        $this->container['blueprint_id'] = $blueprint_id;
-
-        return $this;
-    }
 
     /**
      * Gets project_name

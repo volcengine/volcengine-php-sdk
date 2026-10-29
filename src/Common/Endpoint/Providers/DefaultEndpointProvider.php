@@ -599,10 +599,17 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
-            
+
                 'dbw' => new ServiceEndpointInfo(
                     'dbw',
                     false,
+                    '',
+                    []
+                ),
+
+                'speech_saas_prod' => new ServiceEndpointInfo(
+                    'speech_saas_prod',
+                    true,
                     '',
                     []
                 ),
