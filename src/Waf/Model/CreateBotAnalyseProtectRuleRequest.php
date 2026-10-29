@@ -46,7 +46,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'float',
         'single_threshold' => 'int',
         'statistical_duration' => 'int',
-        'statistical_type' => 'int'
+        'statistical_type' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'float',
         'single_threshold' => 'int32',
         'statistical_duration' => 'int32',
-        'statistical_type' => 'int32'
+        'statistical_type' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'SingleProportion',
         'single_threshold' => 'SingleThreshold',
         'statistical_duration' => 'StatisticalDuration',
-        'statistical_type' => 'StatisticalType'
+        'statistical_type' => 'StatisticalType',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -148,7 +151,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'setSingleProportion',
         'single_threshold' => 'setSingleThreshold',
         'statistical_duration' => 'setStatisticalDuration',
-        'statistical_type' => 'setStatisticalType'
+        'statistical_type' => 'setStatisticalType',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -175,7 +179,8 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_proportion' => 'getSingleProportion',
         'single_threshold' => 'getSingleThreshold',
         'statistical_duration' => 'getStatisticalDuration',
-        'statistical_type' => 'getStatisticalType'
+        'statistical_type' => 'getStatisticalType',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -257,6 +262,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['statistical_duration'] = isset($data['statistical_duration']) ? $data['statistical_duration'] : null;
         $this->container['statistical_type'] = isset($data['statistical_type']) ? $data['statistical_type'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -762,6 +768,30 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setStatisticalType($statistical_type)
     {
         $this->container['statistical_type'] = $statistical_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

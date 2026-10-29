@@ -32,7 +32,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         'project_follow' => 'int',
         'project_name' => 'string',
         'tls_enable' => 'int',
-        'tls_field_config' => '\Volcengine\Waf\Model\TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput'
+        'tls_field_config' => '\Volcengine\Waf\Model\TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         'project_follow' => 'int32',
         'project_name' => null,
         'tls_enable' => 'int32',
-        'tls_field_config' => null
+        'tls_field_config' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         'project_follow' => 'ProjectFollow',
         'project_name' => 'ProjectName',
         'tls_enable' => 'TLSEnable',
-        'tls_field_config' => 'TLSFieldConfig'
+        'tls_field_config' => 'TLSFieldConfig',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -92,7 +95,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         'project_follow' => 'setProjectFollow',
         'project_name' => 'setProjectName',
         'tls_enable' => 'setTlsEnable',
-        'tls_field_config' => 'setTlsFieldConfig'
+        'tls_field_config' => 'setTlsFieldConfig',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         'project_follow' => 'getProjectFollow',
         'project_name' => 'getProjectName',
         'tls_enable' => 'getTlsEnable',
-        'tls_field_config' => 'getTlsFieldConfig'
+        'tls_field_config' => 'getTlsFieldConfig',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
         $this->container['tls_field_config'] = isset($data['tls_field_config']) ? $data['tls_field_config'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class CreateVolcWafServicesByBytePlusCDNRequest implements ModelInterface, Array
     public function setTlsFieldConfig($tls_field_config)
     {
         $this->container['tls_field_config'] = $tls_field_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

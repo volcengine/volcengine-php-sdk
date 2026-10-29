@@ -32,6 +32,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         'create_user' => '\Volcengine\Dbw\Model\CreateUserForDescribeTicketDetailOutput',
         'current_user' => '\Volcengine\Dbw\Model\CurrentUserForDescribeTicketDetailOutput',
         'db_name' => 'string',
+        'description' => 'string',
         'exec_end_time' => 'int',
         'exec_start_time' => 'int',
         'instance_id' => 'string',
@@ -56,6 +57,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         'create_user' => null,
         'current_user' => null,
         'db_name' => null,
+        'description' => null,
         'exec_end_time' => 'int64',
         'exec_start_time' => 'int64',
         'instance_id' => null,
@@ -101,6 +103,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         'create_user' => 'CreateUser',
         'current_user' => 'CurrentUser',
         'db_name' => 'DbName',
+        'description' => 'Description',
         'exec_end_time' => 'ExecEndTime',
         'exec_start_time' => 'ExecStartTime',
         'instance_id' => 'InstanceId',
@@ -125,6 +128,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         'create_user' => 'setCreateUser',
         'current_user' => 'setCurrentUser',
         'db_name' => 'setDbName',
+        'description' => 'setDescription',
         'exec_end_time' => 'setExecEndTime',
         'exec_start_time' => 'setExecStartTime',
         'instance_id' => 'setInstanceId',
@@ -149,6 +153,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         'create_user' => 'getCreateUser',
         'current_user' => 'getCurrentUser',
         'db_name' => 'getDbName',
+        'description' => 'getDescription',
         'exec_end_time' => 'getExecEndTime',
         'exec_start_time' => 'getExecStartTime',
         'instance_id' => 'getInstanceId',
@@ -227,6 +232,7 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
         $this->container['create_user'] = isset($data['create_user']) ? $data['create_user'] : null;
         $this->container['current_user'] = isset($data['current_user']) ? $data['current_user'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['exec_end_time'] = isset($data['exec_end_time']) ? $data['exec_end_time'] : null;
         $this->container['exec_start_time'] = isset($data['exec_start_time']) ? $data['exec_start_time'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -357,6 +363,30 @@ class DescribeTicketDetailResponse implements ModelInterface, ArrayAccess
     public function setDbName($db_name)
     {
         $this->container['db_name'] = $db_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

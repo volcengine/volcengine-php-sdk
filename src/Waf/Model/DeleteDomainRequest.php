@@ -30,7 +30,8 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'domain' => 'string',
         'project_name' => 'string',
-        'region' => 'string'
+        'region' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'domain' => null,
         'project_name' => null,
-        'region' => null
+        'region' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'domain' => 'Domain',
         'project_name' => 'ProjectName',
-        'region' => 'Region'
+        'region' => 'Region',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'domain' => 'setDomain',
         'project_name' => 'setProjectName',
-        'region' => 'setRegion'
+        'region' => 'setRegion',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'domain' => 'getDomain',
         'project_name' => 'getProjectName',
-        'region' => 'getRegion'
+        'region' => 'getRegion',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -161,6 +166,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

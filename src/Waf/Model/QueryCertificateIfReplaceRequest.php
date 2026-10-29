@@ -31,7 +31,8 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         'certificate_id' => 'int',
         'domain' => 'string',
         'project_name' => 'string',
-        'public_real_server' => 'int'
+        'public_real_server' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         'certificate_id' => 'int32',
         'domain' => null,
         'project_name' => null,
-        'public_real_server' => 'int32'
+        'public_real_server' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         'certificate_id' => 'CertificateID',
         'domain' => 'Domain',
         'project_name' => 'ProjectName',
-        'public_real_server' => 'PublicRealServer'
+        'public_real_server' => 'PublicRealServer',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -88,7 +91,8 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         'certificate_id' => 'setCertificateId',
         'domain' => 'setDomain',
         'project_name' => 'setProjectName',
-        'public_real_server' => 'setPublicRealServer'
+        'public_real_server' => 'setPublicRealServer',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         'certificate_id' => 'getCertificateId',
         'domain' => 'getDomain',
         'project_name' => 'getProjectName',
-        'public_real_server' => 'getPublicRealServer'
+        'public_real_server' => 'getPublicRealServer',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_real_server'] = isset($data['public_real_server']) ? $data['public_real_server'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -291,6 +297,30 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     public function setPublicRealServer($public_real_server)
     {
         $this->container['public_real_server'] = $public_real_server;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

@@ -41,7 +41,8 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'security_level' => 'string',
         'sort_flag' => 'string',
-        'start_time' => 'int'
+        'start_time' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -63,7 +64,8 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'security_level' => null,
         'sort_flag' => null,
-        'start_time' => 'int32'
+        'start_time' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'security_level' => 'SecurityLevel',
         'sort_flag' => 'SortFlag',
-        'start_time' => 'StartTime'
+        'start_time' => 'StartTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -128,7 +131,8 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'security_level' => 'setSecurityLevel',
         'sort_flag' => 'setSortFlag',
-        'start_time' => 'setStartTime'
+        'start_time' => 'setStartTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -150,7 +154,8 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'security_level' => 'getSecurityLevel',
         'sort_flag' => 'getSortFlag',
-        'start_time' => 'getStartTime'
+        'start_time' => 'getStartTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -227,6 +232,7 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
         $this->container['security_level'] = isset($data['security_level']) ? $data['security_level'] : null;
         $this->container['sort_flag'] = isset($data['sort_flag']) ? $data['sort_flag'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -597,6 +603,30 @@ class QueryAttackSecurityEventRequest implements ModelInterface, ArrayAccess
     public function setStartTime($start_time)
     {
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

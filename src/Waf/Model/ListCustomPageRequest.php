@@ -32,7 +32,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
-        'rule_tag' => 'string'
+        'rule_tag' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'page' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
-        'rule_tag' => null
+        'rule_tag' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'page' => 'Page',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
-        'rule_tag' => 'RuleTag'
+        'rule_tag' => 'RuleTag',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'page' => 'setPage',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
-        'rule_tag' => 'setRuleTag'
+        'rule_tag' => 'setRuleTag',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'page' => 'getPage',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
-        'rule_tag' => 'getRuleTag'
+        'rule_tag' => 'getRuleTag',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
     public function setRuleTag($rule_tag)
     {
         $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

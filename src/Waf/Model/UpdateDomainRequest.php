@@ -64,7 +64,8 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'tls_enable' => 'int',
         'tls_fields_config' => '\Volcengine\Waf\Model\TLSFieldsConfigForUpdateDomainInput',
         'volc_certificate_id' => 'string',
-        'vpc_id' => 'string'
+        'vpc_id' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -109,7 +110,8 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'tls_enable' => 'int32',
         'tls_fields_config' => null,
         'volc_certificate_id' => null,
-        'vpc_id' => null
+        'vpc_id' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -175,7 +177,8 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'tls_enable' => 'TLSEnable',
         'tls_fields_config' => 'TLSFieldsConfig',
         'volc_certificate_id' => 'VolcCertificateID',
-        'vpc_id' => 'VpcID'
+        'vpc_id' => 'VpcID',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -220,7 +223,8 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'tls_enable' => 'setTlsEnable',
         'tls_fields_config' => 'setTlsFieldsConfig',
         'volc_certificate_id' => 'setVolcCertificateId',
-        'vpc_id' => 'setVpcId'
+        'vpc_id' => 'setVpcId',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -265,7 +269,8 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'tls_enable' => 'getTlsEnable',
         'tls_fields_config' => 'getTlsFieldsConfig',
         'volc_certificate_id' => 'getVolcCertificateId',
-        'vpc_id' => 'getVpcId'
+        'vpc_id' => 'getVpcId',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -365,6 +370,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['tls_fields_config'] = isset($data['tls_fields_config']) ? $data['tls_fields_config'] : null;
         $this->container['volc_certificate_id'] = isset($data['volc_certificate_id']) ? $data['volc_certificate_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -1284,6 +1290,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setVpcId($vpc_id)
     {
         $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

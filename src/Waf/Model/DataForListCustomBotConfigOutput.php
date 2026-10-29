@@ -28,7 +28,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate' => '\Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput[]',
+        'accurate' => '\Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput',
         'action' => 'string',
         'advanced' => 'int',
         'bot_type' => 'string',
@@ -36,7 +36,8 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'enable' => 'int',
         'id' => 'int',
         'rule_tag' => 'string',
-        'update_time' => 'string'
+        'update_time' => 'string',
+        'verification_exemption_time' => 'int'
     ];
 
     /**
@@ -53,7 +54,8 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'enable' => 'int32',
         'id' => 'int32',
         'rule_tag' => null,
-        'update_time' => null
+        'update_time' => null,
+        'verification_exemption_time' => 'int32'
     ];
 
     /**
@@ -91,7 +93,8 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'enable' => 'Enable',
         'id' => 'Id',
         'rule_tag' => 'RuleTag',
-        'update_time' => 'UpdateTime'
+        'update_time' => 'UpdateTime',
+        'verification_exemption_time' => 'VerificationExemptionTime'
     ];
 
     /**
@@ -108,7 +111,8 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'enable' => 'setEnable',
         'id' => 'setId',
         'rule_tag' => 'setRuleTag',
-        'update_time' => 'setUpdateTime'
+        'update_time' => 'setUpdateTime',
+        'verification_exemption_time' => 'setVerificationExemptionTime'
     ];
 
     /**
@@ -125,7 +129,8 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'enable' => 'getEnable',
         'id' => 'getId',
         'rule_tag' => 'getRuleTag',
-        'update_time' => 'getUpdateTime'
+        'update_time' => 'getUpdateTime',
+        'verification_exemption_time' => 'getVerificationExemptionTime'
     ];
 
     /**
@@ -197,6 +202,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
     }
 
     /**
@@ -226,7 +232,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
     /**
      * Gets accurate
      *
-     * @return \Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput[]
+     * @return \Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput
      */
     public function getAccurate()
     {
@@ -236,7 +242,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
     /**
      * Sets accurate
      *
-     * @param \Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput[] $accurate accurate
+     * @param \Volcengine\Waf\Model\AccurateForListCustomBotConfigOutput $accurate accurate
      *
      * @return $this
      */
@@ -435,6 +441,30 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_exemption_time
+     *
+     * @return int
+     */
+    public function getVerificationExemptionTime()
+    {
+        return $this->container['verification_exemption_time'];
+    }
+
+    /**
+     * Sets verification_exemption_time
+     *
+     * @param int $verification_exemption_time verification_exemption_time
+     *
+     * @return $this
+     */
+    public function setVerificationExemptionTime($verification_exemption_time)
+    {
+        $this->container['verification_exemption_time'] = $verification_exemption_time;
 
         return $this;
     }

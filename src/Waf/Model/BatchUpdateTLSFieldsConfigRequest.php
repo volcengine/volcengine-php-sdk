@@ -31,7 +31,8 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         'domain_list' => 'string[]',
         'project_name' => 'string',
         'region' => 'string',
-        'tls_fields_config' => '\Volcengine\Waf\Model\TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput'
+        'tls_fields_config' => '\Volcengine\Waf\Model\TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         'domain_list' => null,
         'project_name' => null,
         'region' => null,
-        'tls_fields_config' => null
+        'tls_fields_config' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         'domain_list' => 'DomainList',
         'project_name' => 'ProjectName',
         'region' => 'Region',
-        'tls_fields_config' => 'TLSFieldsConfig'
+        'tls_fields_config' => 'TLSFieldsConfig',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -88,7 +91,8 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         'domain_list' => 'setDomainList',
         'project_name' => 'setProjectName',
         'region' => 'setRegion',
-        'tls_fields_config' => 'setTlsFieldsConfig'
+        'tls_fields_config' => 'setTlsFieldsConfig',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         'domain_list' => 'getDomainList',
         'project_name' => 'getProjectName',
         'region' => 'getRegion',
-        'tls_fields_config' => 'getTlsFieldsConfig'
+        'tls_fields_config' => 'getTlsFieldsConfig',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['tls_fields_config'] = isset($data['tls_fields_config']) ? $data['tls_fields_config'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -288,6 +294,30 @@ class BatchUpdateTLSFieldsConfigRequest implements ModelInterface, ArrayAccess
     public function setTlsFieldsConfig($tls_fields_config)
     {
         $this->container['tls_fields_config'] = $tls_fields_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

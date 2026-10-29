@@ -36,6 +36,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         'field_select_all' => 'bool',
         'project_name' => 'string',
         'tls_storage_time' => 'int',
+        'waf_instance_id' => 'string',
         'waf_action_list' => '\Volcengine\Waf\Model\WafActionListForModifyTLSConfigInput',
         'waf_action_select_all' => 'bool'
     ];
@@ -54,6 +55,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         'field_select_all' => null,
         'project_name' => null,
         'tls_storage_time' => 'int32',
+        'waf_instance_id' => null,
         'waf_action_list' => null,
         'waf_action_select_all' => null
     ];
@@ -93,6 +95,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         'field_select_all' => 'FieldSelectAll',
         'project_name' => 'ProjectName',
         'tls_storage_time' => 'TLSStorageTime',
+        'waf_instance_id' => 'WAFInstanceID',
         'waf_action_list' => 'WafActionList',
         'waf_action_select_all' => 'WafActionSelectAll'
     ];
@@ -111,6 +114,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         'field_select_all' => 'setFieldSelectAll',
         'project_name' => 'setProjectName',
         'tls_storage_time' => 'setTlsStorageTime',
+        'waf_instance_id' => 'setWafInstanceId',
         'waf_action_list' => 'setWafActionList',
         'waf_action_select_all' => 'setWafActionSelectAll'
     ];
@@ -129,6 +133,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         'field_select_all' => 'getFieldSelectAll',
         'project_name' => 'getProjectName',
         'tls_storage_time' => 'getTlsStorageTime',
+        'waf_instance_id' => 'getWafInstanceId',
         'waf_action_list' => 'getWafActionList',
         'waf_action_select_all' => 'getWafActionSelectAll'
     ];
@@ -201,6 +206,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         $this->container['field_select_all'] = isset($data['field_select_all']) ? $data['field_select_all'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tls_storage_time'] = isset($data['tls_storage_time']) ? $data['tls_storage_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
         $this->container['waf_action_list'] = isset($data['waf_action_list']) ? $data['waf_action_list'] : null;
         $this->container['waf_action_select_all'] = isset($data['waf_action_select_all']) ? $data['waf_action_select_all'] : null;
     }
@@ -417,6 +423,30 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
     public function setTlsStorageTime($tls_storage_time)
     {
         $this->container['tls_storage_time'] = $tls_storage_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

@@ -33,7 +33,8 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         'list_all' => 'bool',
         'page' => 'int',
         'page_size' => 'int',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         'list_all' => null,
         'page' => 'int32',
         'page_size' => 'int32',
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         'list_all' => 'ListAll',
         'page' => 'Page',
         'page_size' => 'PageSize',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -96,7 +99,8 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         'list_all' => 'setListAll',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         'list_all' => 'getListAll',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -179,6 +184,7 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -354,6 +360,30 @@ class ListIpGroupRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

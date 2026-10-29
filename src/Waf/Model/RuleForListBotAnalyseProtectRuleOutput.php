@@ -32,6 +32,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'accurate_group_priority' => 'int',
         'action_after_verification' => 'int',
         'action_type' => 'int',
+        'cron_confs' => '\Volcengine\Waf\Model\CronConfForListBotAnalyseProtectRuleOutput[]',
+        'cron_enable' => 'int',
         'effect_time' => 'int',
         'enable' => 'int',
         'exemption_time' => 'int',
@@ -61,6 +63,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'accurate_group_priority' => 'int32',
         'action_after_verification' => 'int32',
         'action_type' => 'int32',
+        'cron_confs' => null,
+        'cron_enable' => 'int32',
         'effect_time' => 'int32',
         'enable' => 'int32',
         'exemption_time' => 'int32',
@@ -111,6 +115,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'accurate_group_priority' => 'AccurateGroupPriority',
         'action_after_verification' => 'ActionAfterVerification',
         'action_type' => 'ActionType',
+        'cron_confs' => 'CronConfs',
+        'cron_enable' => 'CronEnable',
         'effect_time' => 'EffectTime',
         'enable' => 'Enable',
         'exemption_time' => 'ExemptionTime',
@@ -140,6 +146,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'accurate_group_priority' => 'setAccurateGroupPriority',
         'action_after_verification' => 'setActionAfterVerification',
         'action_type' => 'setActionType',
+        'cron_confs' => 'setCronConfs',
+        'cron_enable' => 'setCronEnable',
         'effect_time' => 'setEffectTime',
         'enable' => 'setEnable',
         'exemption_time' => 'setExemptionTime',
@@ -169,6 +177,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'accurate_group_priority' => 'getAccurateGroupPriority',
         'action_after_verification' => 'getActionAfterVerification',
         'action_type' => 'getActionType',
+        'cron_confs' => 'getCronConfs',
+        'cron_enable' => 'getCronEnable',
         'effect_time' => 'getEffectTime',
         'enable' => 'getEnable',
         'exemption_time' => 'getExemptionTime',
@@ -252,6 +262,8 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
         $this->container['action_after_verification'] = isset($data['action_after_verification']) ? $data['action_after_verification'] : null;
         $this->container['action_type'] = isset($data['action_type']) ? $data['action_type'] : null;
+        $this->container['cron_confs'] = isset($data['cron_confs']) ? $data['cron_confs'] : null;
+        $this->container['cron_enable'] = isset($data['cron_enable']) ? $data['cron_enable'] : null;
         $this->container['effect_time'] = isset($data['effect_time']) ? $data['effect_time'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['exemption_time'] = isset($data['exemption_time']) ? $data['exemption_time'] : null;
@@ -387,6 +399,54 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
     public function setActionType($action_type)
     {
         $this->container['action_type'] = $action_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets cron_confs
+     *
+     * @return \Volcengine\Waf\Model\CronConfForListBotAnalyseProtectRuleOutput[]
+     */
+    public function getCronConfs()
+    {
+        return $this->container['cron_confs'];
+    }
+
+    /**
+     * Sets cron_confs
+     *
+     * @param \Volcengine\Waf\Model\CronConfForListBotAnalyseProtectRuleOutput[] $cron_confs cron_confs
+     *
+     * @return $this
+     */
+    public function setCronConfs($cron_confs)
+    {
+        $this->container['cron_confs'] = $cron_confs;
+
+        return $this;
+    }
+
+    /**
+     * Gets cron_enable
+     *
+     * @return int
+     */
+    public function getCronEnable()
+    {
+        return $this->container['cron_enable'];
+    }
+
+    /**
+     * Sets cron_enable
+     *
+     * @param int $cron_enable cron_enable
+     *
+     * @return $this
+     */
+    public function setCronEnable($cron_enable)
+    {
+        $this->container['cron_enable'] = $cron_enable;
 
         return $this;
     }

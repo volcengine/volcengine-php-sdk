@@ -34,6 +34,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'cache' => '\Volcengine\Cdn\Model\CacheForUpdateCdnConfigInput[]',
         'cache_host' => '\Volcengine\Cdn\Model\CacheHostForUpdateCdnConfigInput',
         'cache_key' => '\Volcengine\Cdn\Model\CacheKeyForUpdateCdnConfigInput[]',
+        'cdn_image_studio' => '\Volcengine\Cdn\Model\CdnImageStudioForUpdateCdnConfigInput',
         'compression' => '\Volcengine\Cdn\Model\CompressionForUpdateCdnConfigInput',
         'conditional_origin' => '\Volcengine\Cdn\Model\ConditionalOriginForUpdateCdnConfigInput',
         'custom_error_page' => '\Volcengine\Cdn\Model\CustomErrorPageForUpdateCdnConfigInput',
@@ -41,6 +42,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'domain' => 'string',
         'download_speed_limit' => '\Volcengine\Cdn\Model\DownloadSpeedLimitForUpdateCdnConfigInput',
         'follow_redirect' => 'bool',
+        'htmlto_markdown' => '\Volcengine\Cdn\Model\HTMLToMarkdownForUpdateCdnConfigInput',
         'https' => '\Volcengine\Cdn\Model\HTTPSForUpdateCdnConfigInput',
         'http_forced_redirect' => '\Volcengine\Cdn\Model\HttpForcedRedirectForUpdateCdnConfigInput',
         'ipv6' => '\Volcengine\Cdn\Model\IPv6ForUpdateCdnConfigInput',
@@ -58,11 +60,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'origin_ipv6' => 'string',
         'origin_protocol' => 'string',
         'origin_range' => 'bool',
+        'origin_response_header' => '\Volcengine\Cdn\Model\OriginResponseHeaderForUpdateCdnConfigInput[]',
         'origin_retry' => '\Volcengine\Cdn\Model\OriginRetryForUpdateCdnConfigInput',
         'origin_rewrite' => '\Volcengine\Cdn\Model\OriginRewriteForUpdateCdnConfigInput',
         'origin_sni' => '\Volcengine\Cdn\Model\OriginSniForUpdateCdnConfigInput',
         'page_optimization' => '\Volcengine\Cdn\Model\PageOptimizationForUpdateCdnConfigInput',
         'quic' => '\Volcengine\Cdn\Model\QuicForUpdateCdnConfigInput',
+        'range' => '\Volcengine\Cdn\Model\RangeForUpdateCdnConfigInput',
         'redirection_rewrite' => '\Volcengine\Cdn\Model\RedirectionRewriteForUpdateCdnConfigInput',
         'referer_access_rule' => '\Volcengine\Cdn\Model\RefererAccessRuleForUpdateCdnConfigInput',
         'remote_auth' => '\Volcengine\Cdn\Model\RemoteAuthForUpdateCdnConfigInput',
@@ -91,6 +95,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'cache' => null,
         'cache_host' => null,
         'cache_key' => null,
+        'cdn_image_studio' => null,
         'compression' => null,
         'conditional_origin' => null,
         'custom_error_page' => null,
@@ -98,6 +103,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'domain' => null,
         'download_speed_limit' => null,
         'follow_redirect' => null,
+        'htmlto_markdown' => null,
         'https' => null,
         'http_forced_redirect' => null,
         'ipv6' => null,
@@ -115,11 +121,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'origin_ipv6' => null,
         'origin_protocol' => null,
         'origin_range' => null,
+        'origin_response_header' => null,
         'origin_retry' => null,
         'origin_rewrite' => null,
         'origin_sni' => null,
         'page_optimization' => null,
         'quic' => null,
+        'range' => null,
         'redirection_rewrite' => null,
         'referer_access_rule' => null,
         'remote_auth' => null,
@@ -169,6 +177,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'cache' => 'Cache',
         'cache_host' => 'CacheHost',
         'cache_key' => 'CacheKey',
+        'cdn_image_studio' => 'CdnImageStudio',
         'compression' => 'Compression',
         'conditional_origin' => 'ConditionalOrigin',
         'custom_error_page' => 'CustomErrorPage',
@@ -176,6 +185,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'domain' => 'Domain',
         'download_speed_limit' => 'DownloadSpeedLimit',
         'follow_redirect' => 'FollowRedirect',
+        'htmlto_markdown' => 'HTMLToMarkdown',
         'https' => 'HTTPS',
         'http_forced_redirect' => 'HttpForcedRedirect',
         'ipv6' => 'IPv6',
@@ -193,11 +203,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'origin_ipv6' => 'OriginIPv6',
         'origin_protocol' => 'OriginProtocol',
         'origin_range' => 'OriginRange',
+        'origin_response_header' => 'OriginResponseHeader',
         'origin_retry' => 'OriginRetry',
         'origin_rewrite' => 'OriginRewrite',
         'origin_sni' => 'OriginSni',
         'page_optimization' => 'PageOptimization',
         'quic' => 'Quic',
+        'range' => 'Range',
         'redirection_rewrite' => 'RedirectionRewrite',
         'referer_access_rule' => 'RefererAccessRule',
         'remote_auth' => 'RemoteAuth',
@@ -226,6 +238,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'cache' => 'setCache',
         'cache_host' => 'setCacheHost',
         'cache_key' => 'setCacheKey',
+        'cdn_image_studio' => 'setCdnImageStudio',
         'compression' => 'setCompression',
         'conditional_origin' => 'setConditionalOrigin',
         'custom_error_page' => 'setCustomErrorPage',
@@ -233,6 +246,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'domain' => 'setDomain',
         'download_speed_limit' => 'setDownloadSpeedLimit',
         'follow_redirect' => 'setFollowRedirect',
+        'htmlto_markdown' => 'setHtmltoMarkdown',
         'https' => 'setHttps',
         'http_forced_redirect' => 'setHttpForcedRedirect',
         'ipv6' => 'setIpv6',
@@ -250,11 +264,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'origin_ipv6' => 'setOriginIpv6',
         'origin_protocol' => 'setOriginProtocol',
         'origin_range' => 'setOriginRange',
+        'origin_response_header' => 'setOriginResponseHeader',
         'origin_retry' => 'setOriginRetry',
         'origin_rewrite' => 'setOriginRewrite',
         'origin_sni' => 'setOriginSni',
         'page_optimization' => 'setPageOptimization',
         'quic' => 'setQuic',
+        'range' => 'setRange',
         'redirection_rewrite' => 'setRedirectionRewrite',
         'referer_access_rule' => 'setRefererAccessRule',
         'remote_auth' => 'setRemoteAuth',
@@ -283,6 +299,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'cache' => 'getCache',
         'cache_host' => 'getCacheHost',
         'cache_key' => 'getCacheKey',
+        'cdn_image_studio' => 'getCdnImageStudio',
         'compression' => 'getCompression',
         'conditional_origin' => 'getConditionalOrigin',
         'custom_error_page' => 'getCustomErrorPage',
@@ -290,6 +307,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'domain' => 'getDomain',
         'download_speed_limit' => 'getDownloadSpeedLimit',
         'follow_redirect' => 'getFollowRedirect',
+        'htmlto_markdown' => 'getHtmltoMarkdown',
         'https' => 'getHttps',
         'http_forced_redirect' => 'getHttpForcedRedirect',
         'ipv6' => 'getIpv6',
@@ -307,11 +325,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'origin_ipv6' => 'getOriginIpv6',
         'origin_protocol' => 'getOriginProtocol',
         'origin_range' => 'getOriginRange',
+        'origin_response_header' => 'getOriginResponseHeader',
         'origin_retry' => 'getOriginRetry',
         'origin_rewrite' => 'getOriginRewrite',
         'origin_sni' => 'getOriginSni',
         'page_optimization' => 'getPageOptimization',
         'quic' => 'getQuic',
+        'range' => 'getRange',
         'redirection_rewrite' => 'getRedirectionRewrite',
         'referer_access_rule' => 'getRefererAccessRule',
         'remote_auth' => 'getRemoteAuth',
@@ -394,6 +414,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['cache'] = isset($data['cache']) ? $data['cache'] : null;
         $this->container['cache_host'] = isset($data['cache_host']) ? $data['cache_host'] : null;
         $this->container['cache_key'] = isset($data['cache_key']) ? $data['cache_key'] : null;
+        $this->container['cdn_image_studio'] = isset($data['cdn_image_studio']) ? $data['cdn_image_studio'] : null;
         $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
         $this->container['conditional_origin'] = isset($data['conditional_origin']) ? $data['conditional_origin'] : null;
         $this->container['custom_error_page'] = isset($data['custom_error_page']) ? $data['custom_error_page'] : null;
@@ -401,6 +422,7 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['download_speed_limit'] = isset($data['download_speed_limit']) ? $data['download_speed_limit'] : null;
         $this->container['follow_redirect'] = isset($data['follow_redirect']) ? $data['follow_redirect'] : null;
+        $this->container['htmlto_markdown'] = isset($data['htmlto_markdown']) ? $data['htmlto_markdown'] : null;
         $this->container['https'] = isset($data['https']) ? $data['https'] : null;
         $this->container['http_forced_redirect'] = isset($data['http_forced_redirect']) ? $data['http_forced_redirect'] : null;
         $this->container['ipv6'] = isset($data['ipv6']) ? $data['ipv6'] : null;
@@ -418,11 +440,13 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['origin_ipv6'] = isset($data['origin_ipv6']) ? $data['origin_ipv6'] : null;
         $this->container['origin_protocol'] = isset($data['origin_protocol']) ? $data['origin_protocol'] : null;
         $this->container['origin_range'] = isset($data['origin_range']) ? $data['origin_range'] : null;
+        $this->container['origin_response_header'] = isset($data['origin_response_header']) ? $data['origin_response_header'] : null;
         $this->container['origin_retry'] = isset($data['origin_retry']) ? $data['origin_retry'] : null;
         $this->container['origin_rewrite'] = isset($data['origin_rewrite']) ? $data['origin_rewrite'] : null;
         $this->container['origin_sni'] = isset($data['origin_sni']) ? $data['origin_sni'] : null;
         $this->container['page_optimization'] = isset($data['page_optimization']) ? $data['page_optimization'] : null;
         $this->container['quic'] = isset($data['quic']) ? $data['quic'] : null;
+        $this->container['range'] = isset($data['range']) ? $data['range'] : null;
         $this->container['redirection_rewrite'] = isset($data['redirection_rewrite']) ? $data['redirection_rewrite'] : null;
         $this->container['referer_access_rule'] = isset($data['referer_access_rule']) ? $data['referer_access_rule'] : null;
         $this->container['remote_auth'] = isset($data['remote_auth']) ? $data['remote_auth'] : null;
@@ -611,6 +635,30 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cdn_image_studio
+     *
+     * @return \Volcengine\Cdn\Model\CdnImageStudioForUpdateCdnConfigInput
+     */
+    public function getCdnImageStudio()
+    {
+        return $this->container['cdn_image_studio'];
+    }
+
+    /**
+     * Sets cdn_image_studio
+     *
+     * @param \Volcengine\Cdn\Model\CdnImageStudioForUpdateCdnConfigInput $cdn_image_studio cdn_image_studio
+     *
+     * @return $this
+     */
+    public function setCdnImageStudio($cdn_image_studio)
+    {
+        $this->container['cdn_image_studio'] = $cdn_image_studio;
+
+        return $this;
+    }
+
+    /**
      * Gets compression
      *
      * @return \Volcengine\Cdn\Model\CompressionForUpdateCdnConfigInput
@@ -774,6 +822,30 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     public function setFollowRedirect($follow_redirect)
     {
         $this->container['follow_redirect'] = $follow_redirect;
+
+        return $this;
+    }
+
+    /**
+     * Gets htmlto_markdown
+     *
+     * @return \Volcengine\Cdn\Model\HTMLToMarkdownForUpdateCdnConfigInput
+     */
+    public function getHtmltoMarkdown()
+    {
+        return $this->container['htmlto_markdown'];
+    }
+
+    /**
+     * Sets htmlto_markdown
+     *
+     * @param \Volcengine\Cdn\Model\HTMLToMarkdownForUpdateCdnConfigInput $htmlto_markdown htmlto_markdown
+     *
+     * @return $this
+     */
+    public function setHtmltoMarkdown($htmlto_markdown)
+    {
+        $this->container['htmlto_markdown'] = $htmlto_markdown;
 
         return $this;
     }
@@ -1187,6 +1259,30 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets origin_response_header
+     *
+     * @return \Volcengine\Cdn\Model\OriginResponseHeaderForUpdateCdnConfigInput[]
+     */
+    public function getOriginResponseHeader()
+    {
+        return $this->container['origin_response_header'];
+    }
+
+    /**
+     * Sets origin_response_header
+     *
+     * @param \Volcengine\Cdn\Model\OriginResponseHeaderForUpdateCdnConfigInput[] $origin_response_header origin_response_header
+     *
+     * @return $this
+     */
+    public function setOriginResponseHeader($origin_response_header)
+    {
+        $this->container['origin_response_header'] = $origin_response_header;
+
+        return $this;
+    }
+
+    /**
      * Gets origin_retry
      *
      * @return \Volcengine\Cdn\Model\OriginRetryForUpdateCdnConfigInput
@@ -1302,6 +1398,30 @@ class UpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     public function setQuic($quic)
     {
         $this->container['quic'] = $quic;
+
+        return $this;
+    }
+
+    /**
+     * Gets range
+     *
+     * @return \Volcengine\Cdn\Model\RangeForUpdateCdnConfigInput
+     */
+    public function getRange()
+    {
+        return $this->container['range'];
+    }
+
+    /**
+     * Sets range
+     *
+     * @param \Volcengine\Cdn\Model\RangeForUpdateCdnConfigInput $range range
+     *
+     * @return $this
+     */
+    public function setRange($range)
+    {
+        $this->container['range'] = $range;
 
         return $this;
     }

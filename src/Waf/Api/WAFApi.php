@@ -3912,6 +3912,68 @@ class WAFApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listWafInstances($body = null)
+    {
+        list($response) = $this->listWafInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listWafInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListWafInstancesResponse';
+        $request = $this->listWafInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listWafInstancesAsync($body = null)
+    {
+        return $this->listWafInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listWafInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListWafInstancesResponse';
+        $request = $this->listWafInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listWafInstancesRequest($body)
+    {
+        $resourcePath = '/ListWafInstances/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listWafServiceCertificate($body = null)
     {
         list($response) = $this->listWafServiceCertificateWithHttpInfo($body);
@@ -4256,6 +4318,68 @@ class WAFApi
     protected function queryAttackSecurityEventRequest($body)
     {
         $resourcePath = '/QueryAttackSecurityEvent/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function queryBytePlusCDNDomains($body = null)
+    {
+        list($response) = $this->queryBytePlusCDNDomainsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryBytePlusCDNDomainsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\QueryBytePlusCDNDomainsResponse';
+        $request = $this->queryBytePlusCDNDomainsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function queryBytePlusCDNDomainsAsync($body = null)
+    {
+        return $this->queryBytePlusCDNDomainsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryBytePlusCDNDomainsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\QueryBytePlusCDNDomainsResponse';
+        $request = $this->queryBytePlusCDNDomainsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function queryBytePlusCDNDomainsRequest($body)
+    {
+        $resourcePath = '/QueryBytePlusCDNDomains/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

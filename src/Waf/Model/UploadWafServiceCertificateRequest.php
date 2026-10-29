@@ -32,7 +32,8 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'private_key' => 'string',
         'project_name' => 'string',
-        'public_key' => 'string'
+        'public_key' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'private_key' => null,
         'project_name' => null,
-        'public_key' => null
+        'public_key' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'private_key' => 'PrivateKey',
         'project_name' => 'ProjectName',
-        'public_key' => 'PublicKey'
+        'public_key' => 'PublicKey',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -92,7 +95,8 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'private_key' => 'setPrivateKey',
         'project_name' => 'setProjectName',
-        'public_key' => 'setPublicKey'
+        'public_key' => 'setPublicKey',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'private_key' => 'getPrivateKey',
         'project_name' => 'getProjectName',
-        'public_key' => 'getPublicKey'
+        'public_key' => 'getPublicKey',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -173,6 +178,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         $this->container['private_key'] = isset($data['private_key']) ? $data['private_key'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_key'] = isset($data['public_key']) ? $data['public_key'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -327,6 +333,30 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
     public function setPublicKey($public_key)
     {
         $this->container['public_key'] = $public_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

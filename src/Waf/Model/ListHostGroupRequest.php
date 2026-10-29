@@ -36,7 +36,8 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'project_name' => 'string',
         'rule_tag' => 'string',
-        'time_order_by' => 'string'
+        'time_order_by' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int32',
         'project_name' => null,
         'rule_tag' => null,
-        'time_order_by' => null
+        'time_order_by' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'rule_tag' => 'RuleTag',
-        'time_order_by' => 'TimeOrderBy'
+        'time_order_by' => 'TimeOrderBy',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -108,7 +111,8 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
         'rule_tag' => 'setRuleTag',
-        'time_order_by' => 'setTimeOrderBy'
+        'time_order_by' => 'setTimeOrderBy',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -125,7 +129,8 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
         'rule_tag' => 'getRuleTag',
-        'time_order_by' => 'getTimeOrderBy'
+        'time_order_by' => 'getTimeOrderBy',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -197,6 +202,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -438,6 +444,30 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
     public function setTimeOrderBy($time_order_by)
     {
         $this->container['time_order_by'] = $time_order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

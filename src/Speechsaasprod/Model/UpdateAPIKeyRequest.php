@@ -28,7 +28,7 @@ class UpdateAPIKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'disable' => 'string',
+        'disable' => 'bool',
         'id' => 'int',
         'name' => 'string',
         'project_name' => 'string'
@@ -202,7 +202,7 @@ class UpdateAPIKeyRequest implements ModelInterface, ArrayAccess
     /**
      * Gets disable
      *
-     * @return string
+     * @return bool
      */
     public function getDisable()
     {
@@ -212,7 +212,7 @@ class UpdateAPIKeyRequest implements ModelInterface, ArrayAccess
     /**
      * Sets disable
      *
-     * @param string $disable disable
+     * @param bool $disable disable
      *
      * @return $this
      */

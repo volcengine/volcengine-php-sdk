@@ -37,7 +37,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'rule_name' => 'string',
         'rule_tag' => 'string',
-        'time_order_by' => 'string'
+        'time_order_by' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'rule_name' => null,
         'rule_tag' => null,
-        'time_order_by' => null
+        'time_order_by' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'rule_name' => 'RuleName',
         'rule_tag' => 'RuleTag',
-        'time_order_by' => 'TimeOrderBy'
+        'time_order_by' => 'TimeOrderBy',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -112,7 +115,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'rule_name' => 'setRuleName',
         'rule_tag' => 'setRuleTag',
-        'time_order_by' => 'setTimeOrderBy'
+        'time_order_by' => 'setTimeOrderBy',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -130,7 +134,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'rule_name' => 'getRuleName',
         'rule_tag' => 'getRuleTag',
-        'time_order_by' => 'getTimeOrderBy'
+        'time_order_by' => 'getTimeOrderBy',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -248,6 +253,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -556,6 +562,30 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['time_order_by'] = $time_order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

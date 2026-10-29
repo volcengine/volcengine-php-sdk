@@ -169,25 +169,8 @@ class ResListForSlowQueryAdviceTaskHistoryApiOutput implements ModelInterface, A
         return self::$swaggerModelName;
     }
 
-    const STATUS_INIT = 'INIT';
-    const STATUS_SUCCESS = 'SUCCESS';
-    const STATUS_EXCEPTION = 'EXCEPTION';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_INIT,
-            self::STATUS_SUCCESS,
-            self::STATUS_EXCEPTION,
-        ];
-    }
     
 
     /**
@@ -224,14 +207,6 @@ class ResListForSlowQueryAdviceTaskHistoryApiOutput implements ModelInterface, A
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -435,15 +410,6 @@ class ResListForSlowQueryAdviceTaskHistoryApiOutput implements ModelInterface, A
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

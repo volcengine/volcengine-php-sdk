@@ -189,27 +189,8 @@ class AdviceForListSlowQueryAdviceApiOutput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const ADVICE_LEVEL_LOW = 'Low';
-    const ADVICE_LEVEL_MIDDLE = 'Middle';
-    const ADVICE_LEVEL_HIGH = 'High';
-    const ADVICE_LEVEL_VERY_HIGH = 'VeryHigh';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAdviceLevelAllowableValues()
-    {
-        return [
-            self::ADVICE_LEVEL_LOW,
-            self::ADVICE_LEVEL_MIDDLE,
-            self::ADVICE_LEVEL_HIGH,
-            self::ADVICE_LEVEL_VERY_HIGH,
-        ];
-    }
     
 
     /**
@@ -250,14 +231,6 @@ class AdviceForListSlowQueryAdviceApiOutput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAdviceLevelAllowableValues();
-        if (!is_null($this->container['advice_level']) && !in_array($this->container['advice_level'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'advice_level', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -341,15 +314,6 @@ class AdviceForListSlowQueryAdviceApiOutput implements ModelInterface, ArrayAcce
      */
     public function setAdviceLevel($advice_level)
     {
-        $allowedValues = $this->getAdviceLevelAllowableValues();
-        if (!is_null($advice_level) && !in_array($advice_level, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'advice_level', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['advice_level'] = $advice_level;
 
         return $this;

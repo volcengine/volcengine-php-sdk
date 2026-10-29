@@ -30,7 +30,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'host' => 'string',
         'project_name' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'host' => null,
         'project_name' => null,
-        'type' => null
+        'type' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'host' => 'Host',
         'project_name' => 'ProjectName',
-        'type' => 'Type'
+        'type' => 'Type',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'host' => 'setHost',
         'project_name' => 'setProjectName',
-        'type' => 'setType'
+        'type' => 'setType',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'host' => 'getHost',
         'project_name' => 'getProjectName',
-        'type' => 'getType'
+        'type' => 'getType',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

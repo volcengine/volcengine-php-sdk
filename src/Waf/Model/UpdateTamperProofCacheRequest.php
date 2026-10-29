@@ -30,7 +30,8 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'host' => 'string',
         'id' => 'int',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'host' => null,
         'id' => 'int32',
-        'project_name' => null
+        'project_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'host' => 'Host',
         'id' => 'ID',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -84,7 +87,8 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'host' => 'setHost',
         'id' => 'setId',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'host' => 'getHost',
         'id' => 'getId',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -161,6 +166,7 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class UpdateTamperProofCacheRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

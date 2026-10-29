@@ -37,7 +37,8 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         'source_module' => 'string[]',
         'source_value_like' => 'string',
         'start_time_ms' => 'int',
-        'status' => 'string'
+        'status' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         'source_module' => null,
         'source_value_like' => null,
         'start_time_ms' => 'int32',
-        'status' => null
+        'status' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         'source_module' => 'SourceModule',
         'source_value_like' => 'SourceValueLike',
         'start_time_ms' => 'StartTimeMs',
-        'status' => 'Status'
+        'status' => 'Status',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -112,7 +115,8 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         'source_module' => 'setSourceModule',
         'source_value_like' => 'setSourceValueLike',
         'start_time_ms' => 'setStartTimeMs',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -130,7 +134,8 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         'source_module' => 'getSourceModule',
         'source_value_like' => 'getSourceValueLike',
         'start_time_ms' => 'getStartTimeMs',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -203,6 +208,7 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
         $this->container['source_value_like'] = isset($data['source_value_like']) ? $data['source_value_like'] : null;
         $this->container['start_time_ms'] = isset($data['start_time_ms']) ? $data['start_time_ms'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -465,6 +471,30 @@ class ListGlobalBanItemsRequest implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

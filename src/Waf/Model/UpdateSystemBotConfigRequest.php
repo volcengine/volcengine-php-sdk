@@ -33,7 +33,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'host' => 'string',
         'project_name' => 'string',
         'rule_tag_list' => 'string[]',
-        'verification_exemption_time' => 'int'
+        'verification_exemption_time' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'host' => null,
         'project_name' => null,
         'rule_tag_list' => null,
-        'verification_exemption_time' => 'int32'
+        'verification_exemption_time' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'host' => 'Host',
         'project_name' => 'ProjectName',
         'rule_tag_list' => 'RuleTagList',
-        'verification_exemption_time' => 'VerificationExemptionTime'
+        'verification_exemption_time' => 'VerificationExemptionTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -96,7 +99,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'host' => 'setHost',
         'project_name' => 'setProjectName',
         'rule_tag_list' => 'setRuleTagList',
-        'verification_exemption_time' => 'setVerificationExemptionTime'
+        'verification_exemption_time' => 'setVerificationExemptionTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'host' => 'getHost',
         'project_name' => 'getProjectName',
         'rule_tag_list' => 'getRuleTagList',
-        'verification_exemption_time' => 'getVerificationExemptionTime'
+        'verification_exemption_time' => 'getVerificationExemptionTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -202,6 +207,7 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag_list'] = isset($data['rule_tag_list']) ? $data['rule_tag_list'] : null;
         $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -388,6 +394,30 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setVerificationExemptionTime($verification_exemption_time)
     {
         $this->container['verification_exemption_time'] = $verification_exemption_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

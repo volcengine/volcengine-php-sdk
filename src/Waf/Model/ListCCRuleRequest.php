@@ -36,7 +36,8 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'rule_name' => 'string',
         'rule_tag' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'rule_name' => null,
         'rule_tag' => null,
-        'url' => null
+        'url' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'rule_name' => 'RuleName',
         'rule_tag' => 'RuleTag',
-        'url' => 'Url'
+        'url' => 'Url',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -108,7 +111,8 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'rule_name' => 'setRuleName',
         'rule_tag' => 'setRuleTag',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -125,7 +129,8 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'rule_name' => 'getRuleName',
         'rule_tag' => 'getRuleTag',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -212,6 +217,7 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -470,6 +476,30 @@ class ListCCRuleRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

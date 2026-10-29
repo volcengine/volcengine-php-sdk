@@ -49,7 +49,8 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'vpc_id' => 'string',
         'vpc_name' => 'string',
         'vpc_owner_id' => 'string',
-        'vpc_owner_name' => 'string'
+        'vpc_owner_name' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'vpc_id' => null,
         'vpc_name' => null,
         'vpc_owner_id' => null,
-        'vpc_owner_name' => null
+        'vpc_owner_name' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'vpc_id' => 'VpcId',
         'vpc_name' => 'VpcName',
         'vpc_owner_id' => 'VpcOwnerId',
-        'vpc_owner_name' => 'VpcOwnerName'
+        'vpc_owner_name' => 'VpcOwnerName',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -160,7 +163,8 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'vpc_id' => 'setVpcId',
         'vpc_name' => 'setVpcName',
         'vpc_owner_id' => 'setVpcOwnerId',
-        'vpc_owner_name' => 'setVpcOwnerName'
+        'vpc_owner_name' => 'setVpcOwnerName',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -190,7 +194,8 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'vpc_id' => 'getVpcId',
         'vpc_name' => 'getVpcName',
         'vpc_owner_id' => 'getVpcOwnerId',
-        'vpc_owner_name' => 'getVpcOwnerName'
+        'vpc_owner_name' => 'getVpcOwnerName',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -275,6 +280,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
         $this->container['vpc_owner_id'] = isset($data['vpc_owner_id']) ? $data['vpc_owner_id'] : null;
         $this->container['vpc_owner_name'] = isset($data['vpc_owner_name']) ? $data['vpc_owner_name'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -834,6 +840,30 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     public function setVpcOwnerName($vpc_owner_name)
     {
         $this->container['vpc_owner_name'] = $vpc_owner_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

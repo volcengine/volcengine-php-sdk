@@ -33,7 +33,8 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'host' => 'string',
         'plugins' => 'string[]',
         'project_name' => 'string',
-        'start_time' => 'int'
+        'start_time' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'host' => null,
         'plugins' => null,
         'project_name' => null,
-        'start_time' => 'int32'
+        'start_time' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'host' => 'Host',
         'plugins' => 'Plugins',
         'project_name' => 'ProjectName',
-        'start_time' => 'StartTime'
+        'start_time' => 'StartTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -96,7 +99,8 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'host' => 'setHost',
         'plugins' => 'setPlugins',
         'project_name' => 'setProjectName',
-        'start_time' => 'setStartTime'
+        'start_time' => 'setStartTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'host' => 'getHost',
         'plugins' => 'getPlugins',
         'project_name' => 'getProjectName',
-        'start_time' => 'getStartTime'
+        'start_time' => 'getStartTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -179,6 +184,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -354,6 +360,30 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     public function setStartTime($start_time)
     {
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

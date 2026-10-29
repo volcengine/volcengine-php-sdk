@@ -28,7 +28,7 @@ class ListSpeakersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'string',
+        'limit' => 'int',
         'page' => 'int',
         'resource_ids' => 'string[]',
         'voice_types' => 'string[]'
@@ -40,7 +40,7 @@ class ListSpeakersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => null,
+        'limit' => 'int32',
         'page' => 'int32',
         'resource_ids' => null,
         'voice_types' => null
@@ -196,7 +196,7 @@ class ListSpeakersRequest implements ModelInterface, ArrayAccess
     /**
      * Gets limit
      *
-     * @return string
+     * @return int
      */
     public function getLimit()
     {
@@ -206,7 +206,7 @@ class ListSpeakersRequest implements ModelInterface, ArrayAccess
     /**
      * Sets limit
      *
-     * @param string $limit limit
+     * @param int $limit limit
      *
      * @return $this
      */
