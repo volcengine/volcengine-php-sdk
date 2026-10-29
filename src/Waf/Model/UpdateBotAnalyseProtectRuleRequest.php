@@ -48,7 +48,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'int',
         'statistical_duration' => 'int',
         'statistical_type' => 'int',
-        'update_time' => 'string'
+        'update_time' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'int32',
         'statistical_duration' => 'int32',
         'statistical_type' => 'int32',
-        'update_time' => null
+        'update_time' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'SingleThreshold',
         'statistical_duration' => 'StatisticalDuration',
         'statistical_type' => 'StatisticalType',
-        'update_time' => 'UpdateTime'
+        'update_time' => 'UpdateTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -156,7 +159,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'setSingleThreshold',
         'statistical_duration' => 'setStatisticalDuration',
         'statistical_type' => 'setStatisticalType',
-        'update_time' => 'setUpdateTime'
+        'update_time' => 'setUpdateTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -185,7 +189,8 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'single_threshold' => 'getSingleThreshold',
         'statistical_duration' => 'getStatisticalDuration',
         'statistical_type' => 'getStatisticalType',
-        'update_time' => 'getUpdateTime'
+        'update_time' => 'getUpdateTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -269,6 +274,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['statistical_duration'] = isset($data['statistical_duration']) ? $data['statistical_duration'] : null;
         $this->container['statistical_type'] = isset($data['statistical_type']) ? $data['statistical_type'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -825,6 +831,30 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

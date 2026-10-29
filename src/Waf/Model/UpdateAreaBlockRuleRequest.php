@@ -33,7 +33,8 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'host' => 'string',
         'location' => 'string[]',
         'project_name' => 'string',
-        'sub_region' => 'string[]'
+        'sub_region' => 'string[]',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'host' => null,
         'location' => null,
         'project_name' => null,
-        'sub_region' => null
+        'sub_region' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'host' => 'Host',
         'location' => 'Location',
         'project_name' => 'ProjectName',
-        'sub_region' => 'SubRegion'
+        'sub_region' => 'SubRegion',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -96,7 +99,8 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'host' => 'setHost',
         'location' => 'setLocation',
         'project_name' => 'setProjectName',
-        'sub_region' => 'setSubRegion'
+        'sub_region' => 'setSubRegion',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -110,7 +114,8 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'host' => 'getHost',
         'location' => 'getLocation',
         'project_name' => 'getProjectName',
-        'sub_region' => 'getSubRegion'
+        'sub_region' => 'getSubRegion',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -194,6 +199,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['sub_region'] = isset($data['sub_region']) ? $data['sub_region'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -383,6 +389,30 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
     public function setSubRegion($sub_region)
     {
         $this->container['sub_region'] = $sub_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

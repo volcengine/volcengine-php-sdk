@@ -38,7 +38,8 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'int[]',
         'name' => 'string',
         'project_name' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -57,7 +58,8 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'int32',
         'name' => null,
         'project_name' => null,
-        'url' => null
+        'url' => null,
+        'waf_instance_id' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'IpGroupId',
         'name' => 'Name',
         'project_name' => 'ProjectName',
-        'url' => 'Url'
+        'url' => 'Url',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -116,7 +119,8 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'setIpGroupId',
         'name' => 'setName',
         'project_name' => 'setProjectName',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -135,7 +139,8 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_group_id' => 'getIpGroupId',
         'name' => 'getName',
         'project_name' => 'getProjectName',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -209,6 +214,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -504,6 +510,30 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

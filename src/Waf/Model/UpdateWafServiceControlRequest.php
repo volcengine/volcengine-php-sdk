@@ -46,6 +46,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'int',
         'tls_enable' => 'int',
         'tamper_proof_enable' => 'int',
+        'waf_instance_id' => 'string',
         'waf_enable' => 'int',
         'waf_white_req_enable' => 'int',
         'white_enable' => 'int',
@@ -76,6 +77,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'int32',
         'tls_enable' => 'int32',
         'tamper_proof_enable' => 'int32',
+        'waf_instance_id' => null,
         'waf_enable' => 'int32',
         'waf_white_req_enable' => 'int32',
         'white_enable' => 'int32',
@@ -127,6 +129,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'SystemBotEnable',
         'tls_enable' => 'TLSEnable',
         'tamper_proof_enable' => 'TamperProofEnable',
+        'waf_instance_id' => 'WAFInstanceID',
         'waf_enable' => 'WafEnable',
         'waf_white_req_enable' => 'WafWhiteReqEnable',
         'white_enable' => 'WhiteEnable',
@@ -157,6 +160,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'setSystemBotEnable',
         'tls_enable' => 'setTlsEnable',
         'tamper_proof_enable' => 'setTamperProofEnable',
+        'waf_instance_id' => 'setWafInstanceId',
         'waf_enable' => 'setWafEnable',
         'waf_white_req_enable' => 'setWafWhiteReqEnable',
         'white_enable' => 'setWhiteEnable',
@@ -187,6 +191,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'getSystemBotEnable',
         'tls_enable' => 'getTlsEnable',
         'tamper_proof_enable' => 'getTamperProofEnable',
+        'waf_instance_id' => 'getWafInstanceId',
         'waf_enable' => 'getWafEnable',
         'waf_white_req_enable' => 'getWafWhiteReqEnable',
         'white_enable' => 'getWhiteEnable',
@@ -271,6 +276,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         $this->container['system_bot_enable'] = isset($data['system_bot_enable']) ? $data['system_bot_enable'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
         $this->container['tamper_proof_enable'] = isset($data['tamper_proof_enable']) ? $data['tamper_proof_enable'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
         $this->container['waf_enable'] = isset($data['waf_enable']) ? $data['waf_enable'] : null;
         $this->container['waf_white_req_enable'] = isset($data['waf_white_req_enable']) ? $data['waf_white_req_enable'] : null;
         $this->container['white_enable'] = isset($data['white_enable']) ? $data['white_enable'] : null;
@@ -732,6 +738,30 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     public function setTamperProofEnable($tamper_proof_enable)
     {
         $this->container['tamper_proof_enable'] = $tamper_proof_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }

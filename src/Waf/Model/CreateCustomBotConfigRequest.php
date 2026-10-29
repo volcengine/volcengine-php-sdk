@@ -34,7 +34,9 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'enable' => 'int',
         'host' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'verification_exemption_time' => 'int',
+        'waf_instance_id' => 'string'
     ];
 
     /**
@@ -49,7 +51,9 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'enable' => 'int32',
         'host' => null,
-        'project_name' => null
+        'project_name' => null,
+        'verification_exemption_time' => 'int32',
+        'waf_instance_id' => null
     ];
 
     /**
@@ -85,7 +89,9 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'enable' => 'Enable',
         'host' => 'Host',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'verification_exemption_time' => 'VerificationExemptionTime',
+        'waf_instance_id' => 'WAFInstanceID'
     ];
 
     /**
@@ -100,7 +106,9 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'enable' => 'setEnable',
         'host' => 'setHost',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'verification_exemption_time' => 'setVerificationExemptionTime',
+        'waf_instance_id' => 'setWafInstanceId'
     ];
 
     /**
@@ -115,7 +123,9 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'enable' => 'getEnable',
         'host' => 'getHost',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'verification_exemption_time' => 'getVerificationExemptionTime',
+        'waf_instance_id' => 'getWafInstanceId'
     ];
 
     /**
@@ -185,6 +195,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['verification_exemption_time'] = isset($data['verification_exemption_time']) ? $data['verification_exemption_time'] : null;
+        $this->container['waf_instance_id'] = isset($data['waf_instance_id']) ? $data['waf_instance_id'] : null;
     }
 
     /**
@@ -387,6 +399,54 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_exemption_time
+     *
+     * @return int
+     */
+    public function getVerificationExemptionTime()
+    {
+        return $this->container['verification_exemption_time'];
+    }
+
+    /**
+     * Sets verification_exemption_time
+     *
+     * @param int $verification_exemption_time verification_exemption_time
+     *
+     * @return $this
+     */
+    public function setVerificationExemptionTime($verification_exemption_time)
+    {
+        $this->container['verification_exemption_time'] = $verification_exemption_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets waf_instance_id
+     *
+     * @return string
+     */
+    public function getWafInstanceId()
+    {
+        return $this->container['waf_instance_id'];
+    }
+
+    /**
+     * Sets waf_instance_id
+     *
+     * @param string $waf_instance_id waf_instance_id
+     *
+     * @return $this
+     */
+    public function setWafInstanceId($waf_instance_id)
+    {
+        $this->container['waf_instance_id'] = $waf_instance_id;
 
         return $this;
     }
