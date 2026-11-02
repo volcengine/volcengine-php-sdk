@@ -131,6 +131,8 @@ $config = Configuration::getDefaultConfiguration()
 引用不存在的模板变量现在会立即报错，消息包含 `TemplateExecuteError`。
 本 Provider 不提供 `StandProviderError` 或符号错误码方法 `getStandCode()`。模板字面量和替换值不做完整域名合法性校验。
 
+**与旧版本不同：** 使用 Standard Provider 时（直接调用 `endpointFor()`，或通过配置了它的客户端发请求），service 或 region 含非法字符（如 `cn-beijing.evil.com`、`x@127.0.0.1#`、带首尾空白的 `" cn-beijing"`、`ecs.evil.com`）抛出的异常由 `InvalidArgumentException` 改为 `Volcengine\Common\ApiException`，状态码 400，`getErrorCode()` 为 `InvalidRegion` / `InvalidService`；旧版本对这类 service 报的是 `ServiceNotFound`。`ApiException` 不继承 `InvalidArgumentException`，只捕获 `InvalidArgumentException` 的代码需要同时捕获 `ApiException`，或改为捕获二者共同的父类 `\Exception`。空值或纯空白、服务未注册、格式合法但不受支持的 region（如 `CN-BEIJING`）仍抛出 `InvalidArgumentException`，与旧版本相同。
+
 DualStack 显式 `true`/`false` 优先，`null` 时读取 `VOLC_ENABLE_DUALSTACK`。`customBootstrapRegion` 不参与 Standard 寻址。
 
 ```php

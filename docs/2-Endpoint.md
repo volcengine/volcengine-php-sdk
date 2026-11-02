@@ -160,6 +160,19 @@ variables now fail immediately with `TemplateExecuteError` in the message.
 There is no `StandProviderError` or symbolic `getStandCode()` in this provider.
 Literal template text and replacement values are not fully validated as hostnames.
 
+**Behavior change:** with the Standard provider (calling `endpointFor()` directly,
+or sending requests through a client configured with it), a service or region
+containing illegal characters (such as `cn-beijing.evil.com`, `x@127.0.0.1#`,
+`" cn-beijing"` with surrounding whitespace, or `ecs.evil.com`) now throws
+`Volcengine\Common\ApiException` with status 400 and `getErrorCode()`
+`InvalidRegion`/`InvalidService`, instead of `InvalidArgumentException`; previous
+versions reported such a service as `ServiceNotFound`. `ApiException` does not
+extend `InvalidArgumentException`, so code that only catches
+`InvalidArgumentException` must also catch `ApiException`, or catch their common
+parent `\Exception`. Blank values, unregistered services and well-formed but
+unsupported regions (such as `CN-BEIJING`) still throw `InvalidArgumentException`,
+as before.
+
 Explicit DualStack `true`/`false` takes priority; `null` reads
 `VOLC_ENABLE_DUALSTACK`. `customBootstrapRegion` has no effect on Standard resolution.
 
