@@ -199,16 +199,6 @@ class SignedUrlAuthActionForAddVodDomainInput implements ModelInterface, ArrayAc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     

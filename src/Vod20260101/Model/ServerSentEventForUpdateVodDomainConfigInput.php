@@ -119,16 +119,6 @@ class ServerSentEventForUpdateVodDomainConfigInput implements ModelInterface, Ar
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
