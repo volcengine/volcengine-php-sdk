@@ -28,8 +28,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'connection_limit' => 'int',
+        'cps_limit' => 'int',
         'inbound_mbps_limit' => 'string',
         'internal_ip' => 'string',
+        'is_default' => 'bool',
         'limit_rule_id' => 'string',
         'nat_gateway_id' => 'string',
         'outbound_mbps_limit' => 'string'
@@ -41,8 +44,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'connection_limit' => null,
+        'cps_limit' => null,
         'inbound_mbps_limit' => null,
         'internal_ip' => null,
+        'is_default' => null,
         'limit_rule_id' => null,
         'nat_gateway_id' => null,
         'outbound_mbps_limit' => null
@@ -75,8 +81,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'connection_limit' => 'ConnectionLimit',
+        'cps_limit' => 'CpsLimit',
         'inbound_mbps_limit' => 'InboundMbpsLimit',
         'internal_ip' => 'InternalIp',
+        'is_default' => 'IsDefault',
         'limit_rule_id' => 'LimitRuleId',
         'nat_gateway_id' => 'NatGatewayId',
         'outbound_mbps_limit' => 'OutboundMbpsLimit'
@@ -88,8 +97,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
+        'connection_limit' => 'setConnectionLimit',
+        'cps_limit' => 'setCpsLimit',
         'inbound_mbps_limit' => 'setInboundMbpsLimit',
         'internal_ip' => 'setInternalIp',
+        'is_default' => 'setIsDefault',
         'limit_rule_id' => 'setLimitRuleId',
         'nat_gateway_id' => 'setNatGatewayId',
         'outbound_mbps_limit' => 'setOutboundMbpsLimit'
@@ -101,8 +113,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
+        'connection_limit' => 'getConnectionLimit',
+        'cps_limit' => 'getCpsLimit',
         'inbound_mbps_limit' => 'getInboundMbpsLimit',
         'internal_ip' => 'getInternalIp',
+        'is_default' => 'getIsDefault',
         'limit_rule_id' => 'getLimitRuleId',
         'nat_gateway_id' => 'getNatGatewayId',
         'outbound_mbps_limit' => 'getOutboundMbpsLimit'
@@ -139,16 +154,6 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -168,8 +173,11 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
      */
     public function __construct($data = null)
     {
+        $this->container['connection_limit'] = isset($data['connection_limit']) ? $data['connection_limit'] : null;
+        $this->container['cps_limit'] = isset($data['cps_limit']) ? $data['cps_limit'] : null;
         $this->container['inbound_mbps_limit'] = isset($data['inbound_mbps_limit']) ? $data['inbound_mbps_limit'] : null;
         $this->container['internal_ip'] = isset($data['internal_ip']) ? $data['internal_ip'] : null;
+        $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['limit_rule_id'] = isset($data['limit_rule_id']) ? $data['limit_rule_id'] : null;
         $this->container['nat_gateway_id'] = isset($data['nat_gateway_id']) ? $data['nat_gateway_id'] : null;
         $this->container['outbound_mbps_limit'] = isset($data['outbound_mbps_limit']) ? $data['outbound_mbps_limit'] : null;
@@ -198,6 +206,54 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets connection_limit
+     *
+     * @return int
+     */
+    public function getConnectionLimit()
+    {
+        return $this->container['connection_limit'];
+    }
+
+    /**
+     * Sets connection_limit
+     *
+     * @param int $connection_limit connection_limit
+     *
+     * @return $this
+     */
+    public function setConnectionLimit($connection_limit)
+    {
+        $this->container['connection_limit'] = $connection_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets cps_limit
+     *
+     * @return int
+     */
+    public function getCpsLimit()
+    {
+        return $this->container['cps_limit'];
+    }
+
+    /**
+     * Sets cps_limit
+     *
+     * @param int $cps_limit cps_limit
+     *
+     * @return $this
+     */
+    public function setCpsLimit($cps_limit)
+    {
+        $this->container['cps_limit'] = $cps_limit;
+
+        return $this;
+    }
 
     /**
      * Gets inbound_mbps_limit
@@ -243,6 +299,30 @@ class NatIpLimitRuleForDescribeNatIpLimitRulesOutput implements ModelInterface, 
     public function setInternalIp($internal_ip)
     {
         $this->container['internal_ip'] = $internal_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_default
+     *
+     * @return bool
+     */
+    public function getIsDefault()
+    {
+        return $this->container['is_default'];
+    }
+
+    /**
+     * Sets is_default
+     *
+     * @param bool $is_default is_default
+     *
+     * @return $this
+     */
+    public function setIsDefault($is_default)
+    {
+        $this->container['is_default'] = $is_default;
 
         return $this;
     }
