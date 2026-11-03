@@ -30,6 +30,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'duration_limit' => 'int',
         'is_saved_on_pod' => 'bool',
+        'object_key_prefix' => 'string',
         'pod_id' => 'string',
         'product_id' => 'string',
         'round_id' => 'string'
@@ -43,6 +44,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'duration_limit' => 'int32',
         'is_saved_on_pod' => null,
+        'object_key_prefix' => null,
         'pod_id' => null,
         'product_id' => null,
         'round_id' => null
@@ -77,6 +79,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'duration_limit' => 'DurationLimit',
         'is_saved_on_pod' => 'IsSavedOnPod',
+        'object_key_prefix' => 'ObjectKeyPrefix',
         'pod_id' => 'PodId',
         'product_id' => 'ProductId',
         'round_id' => 'RoundId'
@@ -90,6 +93,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'duration_limit' => 'setDurationLimit',
         'is_saved_on_pod' => 'setIsSavedOnPod',
+        'object_key_prefix' => 'setObjectKeyPrefix',
         'pod_id' => 'setPodId',
         'product_id' => 'setProductId',
         'round_id' => 'setRoundId'
@@ -103,6 +107,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'duration_limit' => 'getDurationLimit',
         'is_saved_on_pod' => 'getIsSavedOnPod',
+        'object_key_prefix' => 'getObjectKeyPrefix',
         'pod_id' => 'getPodId',
         'product_id' => 'getProductId',
         'round_id' => 'getRoundId'
@@ -139,16 +144,6 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -170,6 +165,7 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     {
         $this->container['duration_limit'] = isset($data['duration_limit']) ? $data['duration_limit'] : null;
         $this->container['is_saved_on_pod'] = isset($data['is_saved_on_pod']) ? $data['is_saved_on_pod'] : null;
+        $this->container['object_key_prefix'] = isset($data['object_key_prefix']) ? $data['object_key_prefix'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['round_id'] = isset($data['round_id']) ? $data['round_id'] : null;
@@ -255,6 +251,30 @@ class StartRecordingRequest implements ModelInterface, ArrayAccess
     public function setIsSavedOnPod($is_saved_on_pod)
     {
         $this->container['is_saved_on_pod'] = $is_saved_on_pod;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_key_prefix
+     *
+     * @return string
+     */
+    public function getObjectKeyPrefix()
+    {
+        return $this->container['object_key_prefix'];
+    }
+
+    /**
+     * Sets object_key_prefix
+     *
+     * @param string $object_key_prefix object_key_prefix
+     *
+     * @return $this
+     */
+    public function setObjectKeyPrefix($object_key_prefix)
+    {
+        $this->container['object_key_prefix'] = $object_key_prefix;
 
         return $this;
     }
