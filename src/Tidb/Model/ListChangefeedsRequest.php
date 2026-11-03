@@ -29,7 +29,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'changefeed_type' => 'string',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'page_size' => 'int',
         'page_token' => 'string',
         'project_name' => 'string'
@@ -42,7 +42,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'changefeed_type' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'page_size' => 'int32',
         'page_token' => null,
         'project_name' => null
@@ -76,7 +76,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'changefeed_type' => 'ChangefeedType',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'page_size' => 'PageSize',
         'page_token' => 'PageToken',
         'project_name' => 'ProjectName'
@@ -89,7 +89,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'changefeed_type' => 'setChangefeedType',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'page_size' => 'setPageSize',
         'page_token' => 'setPageToken',
         'project_name' => 'setProjectName'
@@ -102,7 +102,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'changefeed_type' => 'getChangefeedType',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'page_size' => 'getPageSize',
         'page_token' => 'getPageToken',
         'project_name' => 'getProjectName'
@@ -137,16 +137,6 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const CHANGEFEED_TYPE_KAFKA = 'KAFKA';
@@ -186,7 +176,7 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['changefeed_type'] = isset($data['changefeed_type']) ? $data['changefeed_type'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['page_token'] = isset($data['page_token']) ? $data['page_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -209,8 +199,8 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -261,25 +251,25 @@ class ListChangefeedsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

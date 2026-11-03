@@ -29,11 +29,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'begin_time' => 'string',
-        'cluster_id' => 'string',
         'desc' => 'bool',
         'digest' => 'string',
         'end_time' => 'string',
         'fields' => 'string[]',
+        'instance_id' => 'string',
         'limit' => 'int',
         'order_by' => 'string',
         'plans' => 'string[]',
@@ -47,11 +47,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'begin_time' => null,
-        'cluster_id' => null,
         'desc' => null,
         'digest' => null,
         'end_time' => null,
         'fields' => null,
+        'instance_id' => null,
         'limit' => 'int32',
         'order_by' => null,
         'plans' => null,
@@ -86,11 +86,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'begin_time' => 'BeginTime',
-        'cluster_id' => 'ClusterId',
         'desc' => 'Desc',
         'digest' => 'Digest',
         'end_time' => 'EndTime',
         'fields' => 'Fields',
+        'instance_id' => 'InstanceId',
         'limit' => 'Limit',
         'order_by' => 'OrderBy',
         'plans' => 'Plans',
@@ -104,11 +104,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'begin_time' => 'setBeginTime',
-        'cluster_id' => 'setClusterId',
         'desc' => 'setDesc',
         'digest' => 'setDigest',
         'end_time' => 'setEndTime',
         'fields' => 'setFields',
+        'instance_id' => 'setInstanceId',
         'limit' => 'setLimit',
         'order_by' => 'setOrderBy',
         'plans' => 'setPlans',
@@ -122,11 +122,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'begin_time' => 'getBeginTime',
-        'cluster_id' => 'getClusterId',
         'desc' => 'getDesc',
         'digest' => 'getDigest',
         'end_time' => 'getEndTime',
         'fields' => 'getFields',
+        'instance_id' => 'getInstanceId',
         'limit' => 'getLimit',
         'order_by' => 'getOrderBy',
         'plans' => 'getPlans',
@@ -164,16 +164,6 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -194,11 +184,11 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
         $this->container['digest'] = isset($data['digest']) ? $data['digest'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
         $this->container['plans'] = isset($data['plans']) ? $data['plans'] : null;
@@ -214,8 +204,8 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -252,30 +242,6 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
     public function setBeginTime($begin_time)
     {
         $this->container['begin_time'] = $begin_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -372,6 +338,30 @@ class ListStatementSlowQueriesRequest implements ModelInterface, ArrayAccess
     public function setFields($fields)
     {
         $this->container['fields'] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

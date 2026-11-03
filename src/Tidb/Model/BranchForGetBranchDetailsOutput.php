@@ -30,13 +30,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'annotations' => '\Volcengine\Tidb\Model\AnnotationForGetBranchDetailsOutput[]',
         'branch_id' => 'string',
-        'cluster_id' => 'string',
+        'branch_name' => 'string',
         'create_time' => 'string',
         'created_by' => 'string',
-        'display_name' => 'string',
         'endpoints' => '\Volcengine\Tidb\Model\EndpointsForGetBranchDetailsOutput',
         'has_set_pwd' => 'bool',
-        'parent_display_name' => 'string',
+        'instance_id' => 'string',
+        'parent_branch_name' => 'string',
         'parent_id' => 'string',
         'parent_timestamp' => 'string',
         'project_name' => 'string',
@@ -54,13 +54,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'annotations' => null,
         'branch_id' => null,
-        'cluster_id' => null,
+        'branch_name' => null,
         'create_time' => null,
         'created_by' => null,
-        'display_name' => null,
         'endpoints' => null,
         'has_set_pwd' => null,
-        'parent_display_name' => null,
+        'instance_id' => null,
+        'parent_branch_name' => null,
         'parent_id' => null,
         'parent_timestamp' => null,
         'project_name' => null,
@@ -99,13 +99,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'annotations' => 'Annotations',
         'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId',
+        'branch_name' => 'BranchName',
         'create_time' => 'CreateTime',
         'created_by' => 'CreatedBy',
-        'display_name' => 'DisplayName',
         'endpoints' => 'Endpoints',
         'has_set_pwd' => 'HasSetPwd',
-        'parent_display_name' => 'ParentDisplayName',
+        'instance_id' => 'InstanceId',
+        'parent_branch_name' => 'ParentBranchName',
         'parent_id' => 'ParentId',
         'parent_timestamp' => 'ParentTimestamp',
         'project_name' => 'ProjectName',
@@ -123,13 +123,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'annotations' => 'setAnnotations',
         'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId',
+        'branch_name' => 'setBranchName',
         'create_time' => 'setCreateTime',
         'created_by' => 'setCreatedBy',
-        'display_name' => 'setDisplayName',
         'endpoints' => 'setEndpoints',
         'has_set_pwd' => 'setHasSetPwd',
-        'parent_display_name' => 'setParentDisplayName',
+        'instance_id' => 'setInstanceId',
+        'parent_branch_name' => 'setParentBranchName',
         'parent_id' => 'setParentId',
         'parent_timestamp' => 'setParentTimestamp',
         'project_name' => 'setProjectName',
@@ -147,13 +147,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'annotations' => 'getAnnotations',
         'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId',
+        'branch_name' => 'getBranchName',
         'create_time' => 'getCreateTime',
         'created_by' => 'getCreatedBy',
-        'display_name' => 'getDisplayName',
         'endpoints' => 'getEndpoints',
         'has_set_pwd' => 'getHasSetPwd',
-        'parent_display_name' => 'getParentDisplayName',
+        'instance_id' => 'getInstanceId',
+        'parent_branch_name' => 'getParentBranchName',
         'parent_id' => 'getParentId',
         'parent_timestamp' => 'getParentTimestamp',
         'project_name' => 'getProjectName',
@@ -194,16 +194,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -225,13 +215,13 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['branch_name'] = isset($data['branch_name']) ? $data['branch_name'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
         $this->container['has_set_pwd'] = isset($data['has_set_pwd']) ? $data['has_set_pwd'] : null;
-        $this->container['parent_display_name'] = isset($data['parent_display_name']) ? $data['parent_display_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['parent_branch_name'] = isset($data['parent_branch_name']) ? $data['parent_branch_name'] : null;
         $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
         $this->container['parent_timestamp'] = isset($data['parent_timestamp']) ? $data['parent_timestamp'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -314,25 +304,25 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets branch_name
      *
      * @return string
      */
-    public function getClusterId()
+    public function getBranchName()
     {
-        return $this->container['cluster_id'];
+        return $this->container['branch_name'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets branch_name
      *
-     * @param string $cluster_id cluster_id
+     * @param string $branch_name branch_name
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setBranchName($branch_name)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['branch_name'] = $branch_name;
 
         return $this;
     }
@@ -386,30 +376,6 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets endpoints
      *
      * @return \Volcengine\Tidb\Model\EndpointsForGetBranchDetailsOutput
@@ -458,25 +424,49 @@ class BranchForGetBranchDetailsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets parent_display_name
+     * Gets instance_id
      *
      * @return string
      */
-    public function getParentDisplayName()
+    public function getInstanceId()
     {
-        return $this->container['parent_display_name'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets parent_display_name
+     * Sets instance_id
      *
-     * @param string $parent_display_name parent_display_name
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setParentDisplayName($parent_display_name)
+    public function setInstanceId($instance_id)
     {
-        $this->container['parent_display_name'] = $parent_display_name;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_branch_name
+     *
+     * @return string
+     */
+    public function getParentBranchName()
+    {
+        return $this->container['parent_branch_name'];
+    }
+
+    /**
+     * Sets parent_branch_name
+     *
+     * @param string $parent_branch_name parent_branch_name
+     *
+     * @return $this
+     */
+    public function setParentBranchName($parent_branch_name)
+    {
+        $this->container['parent_branch_name'] = $parent_branch_name;
 
         return $this;
     }

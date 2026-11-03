@@ -30,8 +30,7 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'region_id' => 'string',
         'region_name' => 'string',
-        'service_plans' => 'string[]',
-        'zone_id' => 'string[]'
+        'service_plans' => 'string[]'
     ];
 
     /**
@@ -42,8 +41,7 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'region_id' => null,
         'region_name' => null,
-        'service_plans' => null,
-        'zone_id' => null
+        'service_plans' => null
     ];
 
     /**
@@ -75,8 +73,7 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'region_id' => 'RegionId',
         'region_name' => 'RegionName',
-        'service_plans' => 'ServicePlans',
-        'zone_id' => 'ZoneId'
+        'service_plans' => 'ServicePlans'
     ];
 
     /**
@@ -87,8 +84,7 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'region_id' => 'setRegionId',
         'region_name' => 'setRegionName',
-        'service_plans' => 'setServicePlans',
-        'zone_id' => 'setZoneId'
+        'service_plans' => 'setServicePlans'
     ];
 
     /**
@@ -99,8 +95,7 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'region_id' => 'getRegionId',
         'region_name' => 'getRegionName',
-        'service_plans' => 'getServicePlans',
-        'zone_id' => 'getZoneId'
+        'service_plans' => 'getServicePlans'
     ];
 
     /**
@@ -132,16 +127,6 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const SERVICE_PLANS_STARTER = 'Starter';
@@ -187,7 +172,6 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['region_name'] = isset($data['region_name']) ? $data['region_name'] : null;
         $this->container['service_plans'] = isset($data['service_plans']) ? $data['service_plans'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -291,30 +275,6 @@ class RegionForListRegionsOutput implements ModelInterface, ArrayAccess
             );
         }
         $this->container['service_plans'] = $service_plans;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string[]
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string[] $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

@@ -139,16 +139,6 @@ class AuthenticationForStartChangefeedOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const AUTH_TYPE_DISABLE = 'DISABLE';
     const AUTH_TYPE_SASL_PLAIN = 'SASL_PLAIN';
     const AUTH_TYPE_SASL_SCRAM_SHA_256 = 'SASL_SCRAM_SHA_256';

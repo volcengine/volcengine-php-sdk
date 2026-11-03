@@ -29,7 +29,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'attach_domain_id' => 'string',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'private_link_connection_id' => 'string',
         'project_name' => 'string'
     ];
@@ -41,7 +41,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'attach_domain_id' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'private_link_connection_id' => null,
         'project_name' => null
     ];
@@ -74,7 +74,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'attach_domain_id' => 'AttachDomainId',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'private_link_connection_id' => 'PrivateLinkConnectionId',
         'project_name' => 'ProjectName'
     ];
@@ -86,7 +86,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'attach_domain_id' => 'setAttachDomainId',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'private_link_connection_id' => 'setPrivateLinkConnectionId',
         'project_name' => 'setProjectName'
     ];
@@ -98,7 +98,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'attach_domain_id' => 'getAttachDomainId',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'private_link_connection_id' => 'getPrivateLinkConnectionId',
         'project_name' => 'getProjectName'
     ];
@@ -134,16 +134,6 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -164,7 +154,7 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['attach_domain_id'] = isset($data['attach_domain_id']) ? $data['attach_domain_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['private_link_connection_id'] = isset($data['private_link_connection_id']) ? $data['private_link_connection_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
@@ -181,8 +171,8 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
         if ($this->container['attach_domain_id'] === null) {
             $invalidProperties[] = "'attach_domain_id' can't be null";
         }
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         if ($this->container['private_link_connection_id'] === null) {
             $invalidProperties[] = "'private_link_connection_id' can't be null";
@@ -227,25 +217,25 @@ class DetachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

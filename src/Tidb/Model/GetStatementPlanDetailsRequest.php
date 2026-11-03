@@ -29,9 +29,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'begin_time' => 'string',
-        'cluster_id' => 'string',
         'digest' => 'string',
         'end_time' => 'string',
+        'instance_id' => 'string',
         'plans' => 'string[]',
         'project_name' => 'string',
         'schema_name' => 'string'
@@ -44,9 +44,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'begin_time' => null,
-        'cluster_id' => null,
         'digest' => null,
         'end_time' => null,
+        'instance_id' => null,
         'plans' => null,
         'project_name' => null,
         'schema_name' => null
@@ -80,9 +80,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'begin_time' => 'BeginTime',
-        'cluster_id' => 'ClusterId',
         'digest' => 'Digest',
         'end_time' => 'EndTime',
+        'instance_id' => 'InstanceId',
         'plans' => 'Plans',
         'project_name' => 'ProjectName',
         'schema_name' => 'SchemaName'
@@ -95,9 +95,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'begin_time' => 'setBeginTime',
-        'cluster_id' => 'setClusterId',
         'digest' => 'setDigest',
         'end_time' => 'setEndTime',
+        'instance_id' => 'setInstanceId',
         'plans' => 'setPlans',
         'project_name' => 'setProjectName',
         'schema_name' => 'setSchemaName'
@@ -110,9 +110,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'begin_time' => 'getBeginTime',
-        'cluster_id' => 'getClusterId',
         'digest' => 'getDigest',
         'end_time' => 'getEndTime',
+        'instance_id' => 'getInstanceId',
         'plans' => 'getPlans',
         'project_name' => 'getProjectName',
         'schema_name' => 'getSchemaName'
@@ -149,16 +149,6 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -179,9 +169,9 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['digest'] = isset($data['digest']) ? $data['digest'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['plans'] = isset($data['plans']) ? $data['plans'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['schema_name'] = isset($data['schema_name']) ? $data['schema_name'] : null;
@@ -196,8 +186,8 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -234,30 +224,6 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
     public function setBeginTime($begin_time)
     {
         $this->container['begin_time'] = $begin_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -306,6 +272,30 @@ class GetStatementPlanDetailsRequest implements ModelInterface, ArrayAccess
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

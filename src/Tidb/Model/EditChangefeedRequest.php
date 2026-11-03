@@ -30,8 +30,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'changefeed_id' => 'string',
         'changefeed_name' => 'string',
-        'cluster_id' => 'string',
         'filter' => '\Volcengine\Tidb\Model\FilterForEditChangefeedInput',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'sink' => '\Volcengine\Tidb\Model\SinkForEditChangefeedInput'
     ];
@@ -44,8 +44,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'changefeed_id' => null,
         'changefeed_name' => null,
-        'cluster_id' => null,
         'filter' => null,
+        'instance_id' => null,
         'project_name' => null,
         'sink' => null
     ];
@@ -79,8 +79,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'changefeed_id' => 'ChangefeedId',
         'changefeed_name' => 'ChangefeedName',
-        'cluster_id' => 'ClusterId',
         'filter' => 'Filter',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'sink' => 'Sink'
     ];
@@ -93,8 +93,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'changefeed_id' => 'setChangefeedId',
         'changefeed_name' => 'setChangefeedName',
-        'cluster_id' => 'setClusterId',
         'filter' => 'setFilter',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'sink' => 'setSink'
     ];
@@ -107,8 +107,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'changefeed_id' => 'getChangefeedId',
         'changefeed_name' => 'getChangefeedName',
-        'cluster_id' => 'getClusterId',
         'filter' => 'getFilter',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'sink' => 'getSink'
     ];
@@ -144,16 +144,6 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -175,8 +165,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     {
         $this->container['changefeed_id'] = isset($data['changefeed_id']) ? $data['changefeed_id'] : null;
         $this->container['changefeed_name'] = isset($data['changefeed_name']) ? $data['changefeed_name'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['sink'] = isset($data['sink']) ? $data['sink'] : null;
     }
@@ -193,8 +183,8 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
         if ($this->container['changefeed_id'] === null) {
             $invalidProperties[] = "'changefeed_id' can't be null";
         }
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -260,30 +250,6 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets filter
      *
      * @return \Volcengine\Tidb\Model\FilterForEditChangefeedInput
@@ -303,6 +269,30 @@ class EditChangefeedRequest implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

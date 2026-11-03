@@ -28,7 +28,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'page_size' => 'int',
         'page_token' => 'string',
         'project_name' => 'string',
@@ -41,7 +41,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
+        'instance_id' => null,
         'page_size' => 'int32',
         'page_token' => null,
         'project_name' => null,
@@ -75,7 +75,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'page_size' => 'PageSize',
         'page_token' => 'PageToken',
         'project_name' => 'ProjectName',
@@ -88,7 +88,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'page_size' => 'setPageSize',
         'page_token' => 'setPageToken',
         'project_name' => 'setProjectName',
@@ -101,7 +101,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'page_size' => 'getPageSize',
         'page_token' => 'getPageToken',
         'project_name' => 'getProjectName',
@@ -137,16 +137,6 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const STATE_CREATING = 'CREATING';
@@ -189,7 +179,7 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['page_token'] = isset($data['page_token']) ? $data['page_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -205,8 +195,8 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         $allowedValues = $this->getStateAllowableValues();
         if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
@@ -232,25 +222,25 @@ class ListPrivateLinkConnectionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

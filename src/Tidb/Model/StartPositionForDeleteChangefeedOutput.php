@@ -129,16 +129,6 @@ class StartPositionForDeleteChangefeedOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const MODE_FROM_NOW = 'FROM_NOW';
     const MODE_FROM_TSO = 'FROM_TSO';
     const MODE_FROM_TIME = 'FROM_TIME';

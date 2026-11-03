@@ -154,16 +154,6 @@ class TopicPartitionConfigForGetChangefeedOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DISPATCH_TYPE_ONE_TOPIC = 'ONE_TOPIC';
     const DISPATCH_TYPE_BY_TABLE = 'BY_TABLE';
     const DISPATCH_TYPE_BY_DATABASE = 'BY_DATABASE';

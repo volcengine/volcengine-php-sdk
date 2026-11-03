@@ -134,16 +134,6 @@ class AllCompletedTableForListImportTasksOutput implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const RESULT_SUCCESS = 'SUCCESS';
     const RESULT_WARNING = 'WARNING';
     const RESULT_ERROR = 'ERROR';

@@ -129,16 +129,6 @@ class ConvertNetworkForStartChangefeedOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const NETWORK_TYPE__PUBLIC = 'PUBLIC';
     const NETWORK_TYPE_PRIVATE_LINK = 'PRIVATE_LINK';
     

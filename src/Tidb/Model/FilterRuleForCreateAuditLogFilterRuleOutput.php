@@ -28,12 +28,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'create_time' => 'string',
         'disabled' => 'bool',
-        'display_name' => 'string',
         'filter_rule_id' => 'string',
+        'filter_rule_name' => 'string',
         'filters' => '\Volcengine\Tidb\Model\FilterForCreateAuditLogFilterRuleOutput[]',
+        'instance_id' => 'string',
         'update_time' => 'string',
         'users' => 'string[]'
     ];
@@ -44,12 +44,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'create_time' => null,
         'disabled' => null,
-        'display_name' => null,
         'filter_rule_id' => null,
+        'filter_rule_name' => null,
         'filters' => null,
+        'instance_id' => null,
         'update_time' => null,
         'users' => null
     ];
@@ -81,12 +81,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'disabled' => 'Disabled',
-        'display_name' => 'DisplayName',
         'filter_rule_id' => 'FilterRuleId',
+        'filter_rule_name' => 'FilterRuleName',
         'filters' => 'Filters',
+        'instance_id' => 'InstanceId',
         'update_time' => 'UpdateTime',
         'users' => 'Users'
     ];
@@ -97,12 +97,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'disabled' => 'setDisabled',
-        'display_name' => 'setDisplayName',
         'filter_rule_id' => 'setFilterRuleId',
+        'filter_rule_name' => 'setFilterRuleName',
         'filters' => 'setFilters',
+        'instance_id' => 'setInstanceId',
         'update_time' => 'setUpdateTime',
         'users' => 'setUsers'
     ];
@@ -113,12 +113,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'disabled' => 'getDisabled',
-        'display_name' => 'getDisplayName',
         'filter_rule_id' => 'getFilterRuleId',
+        'filter_rule_name' => 'getFilterRuleName',
         'filters' => 'getFilters',
+        'instance_id' => 'getInstanceId',
         'update_time' => 'getUpdateTime',
         'users' => 'getUsers'
     ];
@@ -154,16 +154,6 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -183,12 +173,12 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['filter_rule_id'] = isset($data['filter_rule_id']) ? $data['filter_rule_id'] : null;
+        $this->container['filter_rule_name'] = isset($data['filter_rule_name']) ? $data['filter_rule_name'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
     }
@@ -216,30 +206,6 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets create_time
@@ -290,30 +256,6 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets filter_rule_id
      *
      * @return string
@@ -338,6 +280,30 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
     }
 
     /**
+     * Gets filter_rule_name
+     *
+     * @return string
+     */
+    public function getFilterRuleName()
+    {
+        return $this->container['filter_rule_name'];
+    }
+
+    /**
+     * Sets filter_rule_name
+     *
+     * @param string $filter_rule_name filter_rule_name
+     *
+     * @return $this
+     */
+    public function setFilterRuleName($filter_rule_name)
+    {
+        $this->container['filter_rule_name'] = $filter_rule_name;
+
+        return $this;
+    }
+
+    /**
      * Gets filters
      *
      * @return \Volcengine\Tidb\Model\FilterForCreateAuditLogFilterRuleOutput[]
@@ -357,6 +323,30 @@ class FilterRuleForCreateAuditLogFilterRuleOutput implements ModelInterface, Arr
     public function setFilters($filters)
     {
         $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

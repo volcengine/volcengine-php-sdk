@@ -29,9 +29,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'begin_time' => 'string',
-        'cluster_id' => 'string',
         'end_time' => 'string',
         'fields' => 'string[]',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'search' => 'string',
         'stmt_types' => 'string[]'
@@ -44,9 +44,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'begin_time' => null,
-        'cluster_id' => null,
         'end_time' => null,
         'fields' => null,
+        'instance_id' => null,
         'project_name' => null,
         'search' => null,
         'stmt_types' => null
@@ -80,9 +80,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'begin_time' => 'BeginTime',
-        'cluster_id' => 'ClusterId',
         'end_time' => 'EndTime',
         'fields' => 'Fields',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'search' => 'Search',
         'stmt_types' => 'StmtTypes'
@@ -95,9 +95,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'begin_time' => 'setBeginTime',
-        'cluster_id' => 'setClusterId',
         'end_time' => 'setEndTime',
         'fields' => 'setFields',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'search' => 'setSearch',
         'stmt_types' => 'setStmtTypes'
@@ -110,9 +110,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'begin_time' => 'getBeginTime',
-        'cluster_id' => 'getClusterId',
         'end_time' => 'getEndTime',
         'fields' => 'getFields',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'search' => 'getSearch',
         'stmt_types' => 'getStmtTypes'
@@ -149,16 +149,6 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -179,9 +169,9 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['search'] = isset($data['search']) ? $data['search'] : null;
         $this->container['stmt_types'] = isset($data['stmt_types']) ? $data['stmt_types'] : null;
@@ -196,8 +186,8 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -234,30 +224,6 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
     public function setBeginTime($begin_time)
     {
         $this->container['begin_time'] = $begin_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -306,6 +272,30 @@ class ListStatementsRequest implements ModelInterface, ArrayAccess
     public function setFields($fields)
     {
         $this->container['fields'] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

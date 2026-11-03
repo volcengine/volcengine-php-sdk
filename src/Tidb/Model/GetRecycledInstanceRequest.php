@@ -28,7 +28,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
+        'instance_id' => null,
         'project_name' => null
     ];
 
@@ -69,7 +69,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName'
     ];
 
@@ -79,7 +79,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName'
     ];
 
@@ -89,7 +89,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName'
     ];
 
@@ -124,16 +124,6 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -153,7 +143,7 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
@@ -166,8 +156,8 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -185,25 +175,25 @@ class GetRecycledInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

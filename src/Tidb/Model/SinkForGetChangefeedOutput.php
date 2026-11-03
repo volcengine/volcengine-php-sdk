@@ -129,16 +129,6 @@ class SinkForGetChangefeedOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE_KAFKA = 'KAFKA';
     const TYPE_MYSQL = 'MYSQL';
     const TYPE_CLOUD_STORAGE = 'CLOUD_STORAGE';

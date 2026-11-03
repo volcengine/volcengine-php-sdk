@@ -30,8 +30,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'error_message' => 'string',
         'status' => 'string',
+        'success' => 'bool',
+        'table_metas' => '\Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskOutput[]',
         'target_tables' => '\Volcengine\Tidb\Model\ConvertTargetTableForPrecheckImportTaskOutput[]',
         'total_data_files_count' => 'string',
+        'total_scanned_objects' => 'int',
         'total_tables_count' => 'string'
     ];
 
@@ -43,8 +46,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'error_message' => null,
         'status' => null,
+        'success' => null,
+        'table_metas' => null,
         'target_tables' => null,
         'total_data_files_count' => null,
+        'total_scanned_objects' => 'int64',
         'total_tables_count' => null
     ];
 
@@ -77,8 +83,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'error_message' => 'ErrorMessage',
         'status' => 'Status',
+        'success' => 'Success',
+        'table_metas' => 'TableMetas',
         'target_tables' => 'TargetTables',
         'total_data_files_count' => 'TotalDataFilesCount',
+        'total_scanned_objects' => 'TotalScannedObjects',
         'total_tables_count' => 'TotalTablesCount'
     ];
 
@@ -90,8 +99,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'error_message' => 'setErrorMessage',
         'status' => 'setStatus',
+        'success' => 'setSuccess',
+        'table_metas' => 'setTableMetas',
         'target_tables' => 'setTargetTables',
         'total_data_files_count' => 'setTotalDataFilesCount',
+        'total_scanned_objects' => 'setTotalScannedObjects',
         'total_tables_count' => 'setTotalTablesCount'
     ];
 
@@ -103,8 +115,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'error_message' => 'getErrorMessage',
         'status' => 'getStatus',
+        'success' => 'getSuccess',
+        'table_metas' => 'getTableMetas',
         'target_tables' => 'getTargetTables',
         'total_data_files_count' => 'getTotalDataFilesCount',
+        'total_scanned_objects' => 'getTotalScannedObjects',
         'total_tables_count' => 'getTotalTablesCount'
     ];
 
@@ -139,16 +154,6 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -170,8 +175,11 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     {
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['table_metas'] = isset($data['table_metas']) ? $data['table_metas'] : null;
         $this->container['target_tables'] = isset($data['target_tables']) ? $data['target_tables'] : null;
         $this->container['total_data_files_count'] = isset($data['total_data_files_count']) ? $data['total_data_files_count'] : null;
+        $this->container['total_scanned_objects'] = isset($data['total_scanned_objects']) ? $data['total_scanned_objects'] : null;
         $this->container['total_tables_count'] = isset($data['total_tables_count']) ? $data['total_tables_count'] : null;
     }
 
@@ -248,6 +256,54 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success success
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_metas
+     *
+     * @return \Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskOutput[]
+     */
+    public function getTableMetas()
+    {
+        return $this->container['table_metas'];
+    }
+
+    /**
+     * Sets table_metas
+     *
+     * @param \Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskOutput[] $table_metas table_metas
+     *
+     * @return $this
+     */
+    public function setTableMetas($table_metas)
+    {
+        $this->container['table_metas'] = $table_metas;
+
+        return $this;
+    }
+
+    /**
      * Gets target_tables
      *
      * @return \Volcengine\Tidb\Model\ConvertTargetTableForPrecheckImportTaskOutput[]
@@ -291,6 +347,30 @@ class PrecheckImportTaskResponse implements ModelInterface, ArrayAccess
     public function setTotalDataFilesCount($total_data_files_count)
     {
         $this->container['total_data_files_count'] = $total_data_files_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_scanned_objects
+     *
+     * @return int
+     */
+    public function getTotalScannedObjects()
+    {
+        return $this->container['total_scanned_objects'];
+    }
+
+    /**
+     * Sets total_scanned_objects
+     *
+     * @param int $total_scanned_objects total_scanned_objects
+     *
+     * @return $this
+     */
+    public function setTotalScannedObjects($total_scanned_objects)
+    {
+        $this->container['total_scanned_objects'] = $total_scanned_objects;
 
         return $this;
     }

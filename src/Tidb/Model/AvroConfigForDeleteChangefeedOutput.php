@@ -134,16 +134,6 @@ class AvroConfigForDeleteChangefeedOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BIGINT_UNSIGNED_HANDLING_MODE_LONG = 'LONG';
     const BIGINT_UNSIGNED_HANDLING_MODE_STRING = 'STRING';
     const DECIMAL_HANDLING_MODE_PRECISE = 'PRECISE';

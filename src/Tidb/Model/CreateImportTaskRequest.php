@@ -28,10 +28,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
+        'database_credential' => '\Volcengine\Tidb\Model\DatabaseCredentialForCreateImportTaskInput',
         'import_options' => '\Volcengine\Tidb\Model\ImportOptionsForCreateImportTaskInput',
+        'instance_id' => 'string',
         'project_name' => 'string',
-        'source' => '\Volcengine\Tidb\Model\SourceForCreateImportTaskInput'
+        'source' => '\Volcengine\Tidb\Model\SourceForCreateImportTaskInput',
+        'table_metas' => '\Volcengine\Tidb\Model\TableMetaForCreateImportTaskInput[]'
     ];
 
     /**
@@ -40,10 +42,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
+        'database_credential' => null,
         'import_options' => null,
+        'instance_id' => null,
         'project_name' => null,
-        'source' => null
+        'source' => null,
+        'table_metas' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
+        'database_credential' => 'DatabaseCredential',
         'import_options' => 'ImportOptions',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
-        'source' => 'Source'
+        'source' => 'Source',
+        'table_metas' => 'TableMetas'
     ];
 
     /**
@@ -85,10 +91,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
+        'database_credential' => 'setDatabaseCredential',
         'import_options' => 'setImportOptions',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
-        'source' => 'setSource'
+        'source' => 'setSource',
+        'table_metas' => 'setTableMetas'
     ];
 
     /**
@@ -97,10 +105,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
+        'database_credential' => 'getDatabaseCredential',
         'import_options' => 'getImportOptions',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
-        'source' => 'getSource'
+        'source' => 'getSource',
+        'table_metas' => 'getTableMetas'
     ];
 
     /**
@@ -134,16 +144,6 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -163,10 +163,12 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['database_credential'] = isset($data['database_credential']) ? $data['database_credential'] : null;
         $this->container['import_options'] = isset($data['import_options']) ? $data['import_options'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['table_metas'] = isset($data['table_metas']) ? $data['table_metas'] : null;
     }
 
     /**
@@ -178,8 +180,8 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -197,25 +199,25 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cluster_id
+     * Gets database_credential
      *
-     * @return string
+     * @return \Volcengine\Tidb\Model\DatabaseCredentialForCreateImportTaskInput
      */
-    public function getClusterId()
+    public function getDatabaseCredential()
     {
-        return $this->container['cluster_id'];
+        return $this->container['database_credential'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets database_credential
      *
-     * @param string $cluster_id cluster_id
+     * @param \Volcengine\Tidb\Model\DatabaseCredentialForCreateImportTaskInput $database_credential database_credential
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setDatabaseCredential($database_credential)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['database_credential'] = $database_credential;
 
         return $this;
     }
@@ -240,6 +242,30 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
     public function setImportOptions($import_options)
     {
         $this->container['import_options'] = $import_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
@@ -288,6 +314,30 @@ class CreateImportTaskRequest implements ModelInterface, ArrayAccess
     public function setSource($source)
     {
         $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_metas
+     *
+     * @return \Volcengine\Tidb\Model\TableMetaForCreateImportTaskInput[]
+     */
+    public function getTableMetas()
+    {
+        return $this->container['table_metas'];
+    }
+
+    /**
+     * Sets table_metas
+     *
+     * @param \Volcengine\Tidb\Model\TableMetaForCreateImportTaskInput[] $table_metas table_metas
+     *
+     * @return $this
+     */
+    public function setTableMetas($table_metas)
+    {
+        $this->container['table_metas'] = $table_metas;
 
         return $this;
     }
