@@ -6268,6 +6268,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectBatchMaterialQualityCheck($body = null)
+    {
+        list($response) = $this->videoProjectBatchMaterialQualityCheckWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectBatchMaterialQualityCheckWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchMaterialQualityCheckResponse';
+        $request = $this->videoProjectBatchMaterialQualityCheckRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectBatchMaterialQualityCheckAsync($body = null)
+    {
+        return $this->videoProjectBatchMaterialQualityCheckAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectBatchMaterialQualityCheckAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchMaterialQualityCheckResponse';
+        $request = $this->videoProjectBatchMaterialQualityCheckRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectBatchMaterialQualityCheckRequest($body)
+    {
+        $resourcePath = '/VideoProjectBatchMaterialQualityCheck/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectBatchReuploadForSubtasks($body = null)
     {
         list($response) = $this->videoProjectBatchReuploadForSubtasksWithHttpInfo($body);
@@ -6302,6 +6364,68 @@ class I18NOPENAPIApi
     protected function videoProjectBatchReuploadForSubtasksRequest($body)
     {
         $resourcePath = '/VideoProjectBatchReuploadForSubtasks/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function videoProjectBatchUploadForSubtasksV2($body = null)
+    {
+        list($response) = $this->videoProjectBatchUploadForSubtasksV2WithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectBatchUploadForSubtasksV2WithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchUploadForSubtasksV2Response';
+        $request = $this->videoProjectBatchUploadForSubtasksV2Request($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectBatchUploadForSubtasksV2Async($body = null)
+    {
+        return $this->videoProjectBatchUploadForSubtasksV2AsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectBatchUploadForSubtasksV2AsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectBatchUploadForSubtasksV2Response';
+        $request = $this->videoProjectBatchUploadForSubtasksV2Request($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectBatchUploadForSubtasksV2Request($body)
+    {
+        $resourcePath = '/VideoProjectBatchUploadForSubtasksV2/2021-05-21/i18n_openapi/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6984,6 +7108,68 @@ class I18NOPENAPIApi
     protected function videoProjectListVideoDramaRequest($body)
     {
         $resourcePath = '/VideoProjectListVideoDrama/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function videoProjectMaterialQualityIssues($body = null)
+    {
+        list($response) = $this->videoProjectMaterialQualityIssuesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectMaterialQualityIssuesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectMaterialQualityIssuesResponse';
+        $request = $this->videoProjectMaterialQualityIssuesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectMaterialQualityIssuesAsync($body = null)
+    {
+        return $this->videoProjectMaterialQualityIssuesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectMaterialQualityIssuesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectMaterialQualityIssuesResponse';
+        $request = $this->videoProjectMaterialQualityIssuesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectMaterialQualityIssuesRequest($body)
+    {
+        $resourcePath = '/VideoProjectMaterialQualityIssues/2021-05-21/i18n_openapi/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

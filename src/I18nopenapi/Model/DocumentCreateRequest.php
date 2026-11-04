@@ -134,16 +134,6 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const ROLE_USER = 'user';
     const ROLE_MANAGER = 'manager';
     

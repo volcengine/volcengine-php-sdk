@@ -28,7 +28,9 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'batch_id' => 'string'
+        'batch_id' => 'string',
+        'has_material_issues' => 'bool',
+        'material_issues' => '\Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectSubtitleUploadOutput[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'batch_id' => null
+        'batch_id' => null,
+        'has_material_issues' => null,
+        'material_issues' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_id' => 'batchId'
+        'batch_id' => 'batchId',
+        'has_material_issues' => 'hasMaterialIssues',
+        'material_issues' => 'materialIssues'
     ];
 
     /**
@@ -76,7 +82,9 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'batch_id' => 'setBatchId'
+        'batch_id' => 'setBatchId',
+        'has_material_issues' => 'setHasMaterialIssues',
+        'material_issues' => 'setMaterialIssues'
     ];
 
     /**
@@ -85,7 +93,9 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'batch_id' => 'getBatchId'
+        'batch_id' => 'getBatchId',
+        'has_material_issues' => 'getHasMaterialIssues',
+        'material_issues' => 'getMaterialIssues'
     ];
 
     /**
@@ -119,16 +129,6 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -149,6 +149,8 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
     public function __construct($data = null)
     {
         $this->container['batch_id'] = isset($data['batch_id']) ? $data['batch_id'] : null;
+        $this->container['has_material_issues'] = isset($data['has_material_issues']) ? $data['has_material_issues'] : null;
+        $this->container['material_issues'] = isset($data['material_issues']) ? $data['material_issues'] : null;
     }
 
     /**
@@ -195,6 +197,54 @@ class DataForVideoProjectSubtitleUploadOutput implements ModelInterface, ArrayAc
     public function setBatchId($batch_id)
     {
         $this->container['batch_id'] = $batch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_material_issues
+     *
+     * @return bool
+     */
+    public function getHasMaterialIssues()
+    {
+        return $this->container['has_material_issues'];
+    }
+
+    /**
+     * Sets has_material_issues
+     *
+     * @param bool $has_material_issues has_material_issues
+     *
+     * @return $this
+     */
+    public function setHasMaterialIssues($has_material_issues)
+    {
+        $this->container['has_material_issues'] = $has_material_issues;
+
+        return $this;
+    }
+
+    /**
+     * Gets material_issues
+     *
+     * @return \Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectSubtitleUploadOutput[]
+     */
+    public function getMaterialIssues()
+    {
+        return $this->container['material_issues'];
+    }
+
+    /**
+     * Sets material_issues
+     *
+     * @param \Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectSubtitleUploadOutput[] $material_issues material_issues
+     *
+     * @return $this
+     */
+    public function setMaterialIssues($material_issues)
+    {
+        $this->container['material_issues'] = $material_issues;
 
         return $this;
     }

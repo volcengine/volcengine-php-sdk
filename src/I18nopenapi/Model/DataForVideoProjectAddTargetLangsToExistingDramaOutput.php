@@ -29,6 +29,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
       */
     protected static $swaggerTypes = [
         'dub_task_ids' => 'string[]',
+        'failed_target_languages' => 'string[]',
+        'has_material_issues' => 'bool',
+        'material_issues' => '\Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput[]',
+        'successful_target_languages' => 'string[]',
         'task_ids' => 'string[]'
     ];
 
@@ -39,6 +43,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
       */
     protected static $swaggerFormats = [
         'dub_task_ids' => null,
+        'failed_target_languages' => null,
+        'has_material_issues' => null,
+        'material_issues' => null,
+        'successful_target_languages' => null,
         'task_ids' => null
     ];
 
@@ -70,6 +78,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
      */
     protected static $attributeMap = [
         'dub_task_ids' => 'dubTaskIDs',
+        'failed_target_languages' => 'failedTargetLanguages',
+        'has_material_issues' => 'hasMaterialIssues',
+        'material_issues' => 'materialIssues',
+        'successful_target_languages' => 'successfulTargetLanguages',
         'task_ids' => 'taskIDs'
     ];
 
@@ -80,6 +92,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
      */
     protected static $setters = [
         'dub_task_ids' => 'setDubTaskIds',
+        'failed_target_languages' => 'setFailedTargetLanguages',
+        'has_material_issues' => 'setHasMaterialIssues',
+        'material_issues' => 'setMaterialIssues',
+        'successful_target_languages' => 'setSuccessfulTargetLanguages',
         'task_ids' => 'setTaskIds'
     ];
 
@@ -90,6 +106,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
      */
     protected static $getters = [
         'dub_task_ids' => 'getDubTaskIds',
+        'failed_target_languages' => 'getFailedTargetLanguages',
+        'has_material_issues' => 'getHasMaterialIssues',
+        'material_issues' => 'getMaterialIssues',
+        'successful_target_languages' => 'getSuccessfulTargetLanguages',
         'task_ids' => 'getTaskIds'
     ];
 
@@ -124,16 +144,6 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -154,6 +164,10 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
     public function __construct($data = null)
     {
         $this->container['dub_task_ids'] = isset($data['dub_task_ids']) ? $data['dub_task_ids'] : null;
+        $this->container['failed_target_languages'] = isset($data['failed_target_languages']) ? $data['failed_target_languages'] : null;
+        $this->container['has_material_issues'] = isset($data['has_material_issues']) ? $data['has_material_issues'] : null;
+        $this->container['material_issues'] = isset($data['material_issues']) ? $data['material_issues'] : null;
+        $this->container['successful_target_languages'] = isset($data['successful_target_languages']) ? $data['successful_target_languages'] : null;
         $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
 
@@ -201,6 +215,102 @@ class DataForVideoProjectAddTargetLangsToExistingDramaOutput implements ModelInt
     public function setDubTaskIds($dub_task_ids)
     {
         $this->container['dub_task_ids'] = $dub_task_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_target_languages
+     *
+     * @return string[]
+     */
+    public function getFailedTargetLanguages()
+    {
+        return $this->container['failed_target_languages'];
+    }
+
+    /**
+     * Sets failed_target_languages
+     *
+     * @param string[] $failed_target_languages failed_target_languages
+     *
+     * @return $this
+     */
+    public function setFailedTargetLanguages($failed_target_languages)
+    {
+        $this->container['failed_target_languages'] = $failed_target_languages;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_material_issues
+     *
+     * @return bool
+     */
+    public function getHasMaterialIssues()
+    {
+        return $this->container['has_material_issues'];
+    }
+
+    /**
+     * Sets has_material_issues
+     *
+     * @param bool $has_material_issues has_material_issues
+     *
+     * @return $this
+     */
+    public function setHasMaterialIssues($has_material_issues)
+    {
+        $this->container['has_material_issues'] = $has_material_issues;
+
+        return $this;
+    }
+
+    /**
+     * Gets material_issues
+     *
+     * @return \Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput[]
+     */
+    public function getMaterialIssues()
+    {
+        return $this->container['material_issues'];
+    }
+
+    /**
+     * Sets material_issues
+     *
+     * @param \Volcengine\I18nopenapi\Model\MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput[] $material_issues material_issues
+     *
+     * @return $this
+     */
+    public function setMaterialIssues($material_issues)
+    {
+        $this->container['material_issues'] = $material_issues;
+
+        return $this;
+    }
+
+    /**
+     * Gets successful_target_languages
+     *
+     * @return string[]
+     */
+    public function getSuccessfulTargetLanguages()
+    {
+        return $this->container['successful_target_languages'];
+    }
+
+    /**
+     * Sets successful_target_languages
+     *
+     * @param string[] $successful_target_languages successful_target_languages
+     *
+     * @return $this
+     */
+    public function setSuccessfulTargetLanguages($successful_target_languages)
+    {
+        $this->container['successful_target_languages'] = $successful_target_languages;
 
         return $this;
     }
