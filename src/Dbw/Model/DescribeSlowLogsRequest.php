@@ -169,16 +169,6 @@ class DescribeSlowLogsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const INSTANCE_TYPE_MY_SQL = 'MySQL';
     const INSTANCE_TYPE_POSTGRES = 'Postgres';
     const INSTANCE_TYPE_MONGO = 'Mongo';
