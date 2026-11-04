@@ -154,16 +154,6 @@ class BudgetForUpdateBudgetInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const AMOUNT_TYPE_PRE_TAX_PAYABLE = 'pre_tax_payable';
     const AMOUNT_TYPE_POST_TAX_PAYABLE = 'post_tax_payable';
     const BUDGET_PLAN_TYPE_FIXED_AMOUNT = 'fixed_amount';

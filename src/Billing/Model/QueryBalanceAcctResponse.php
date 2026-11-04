@@ -43,7 +43,7 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'arrears_balance' => null,
         'available_balance' => null,
         'cash_balance' => null,
@@ -147,16 +147,6 @@ class QueryBalanceAcctResponse implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     

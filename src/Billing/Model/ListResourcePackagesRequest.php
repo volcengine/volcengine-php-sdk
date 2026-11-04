@@ -149,16 +149,6 @@ class ListResourcePackagesRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const RESOURCE_TYPE_PACKAGE = 'Package';
     const RESOURCE_TYPE_RI = 'RI';
     const RESOURCE_TYPE_RSC = 'RSC';

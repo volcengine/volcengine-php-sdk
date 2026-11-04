@@ -30,6 +30,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'instance_id' => 'string',
+        'instance_ids' => 'string[]',
         'product' => 'string',
         'renew_type' => 'string',
         'renewal_duration' => 'int',
@@ -46,6 +47,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'client_token' => null,
         'instance_id' => null,
+        'instance_ids' => null,
         'product' => null,
         'renew_type' => null,
         'renewal_duration' => 'int64',
@@ -83,6 +85,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'instance_id' => 'InstanceID',
+        'instance_ids' => 'InstanceIDs',
         'product' => 'Product',
         'renew_type' => 'RenewType',
         'renewal_duration' => 'RenewalDuration',
@@ -99,6 +102,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_token' => 'setClientToken',
         'instance_id' => 'setInstanceId',
+        'instance_ids' => 'setInstanceIds',
         'product' => 'setProduct',
         'renew_type' => 'setRenewType',
         'renewal_duration' => 'setRenewalDuration',
@@ -115,6 +119,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_token' => 'getClientToken',
         'instance_id' => 'getInstanceId',
+        'instance_ids' => 'getInstanceIds',
         'product' => 'getProduct',
         'renew_type' => 'getRenewType',
         'renewal_duration' => 'getRenewalDuration',
@@ -154,16 +159,6 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -185,6 +180,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['renewal_duration'] = isset($data['renewal_duration']) ? $data['renewal_duration'] : null;
@@ -202,9 +198,6 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         if ($this->container['product'] === null) {
             $invalidProperties[] = "'product' can't be null";
         }
@@ -270,6 +263,30 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_ids
+     *
+     * @return string[]
+     */
+    public function getInstanceIds()
+    {
+        return $this->container['instance_ids'];
+    }
+
+    /**
+     * Sets instance_ids
+     *
+     * @param string[] $instance_ids instance_ids
+     *
+     * @return $this
+     */
+    public function setInstanceIds($instance_ids)
+    {
+        $this->container['instance_ids'] = $instance_ids;
 
         return $this;
     }
