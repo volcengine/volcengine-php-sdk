@@ -192,6 +192,130 @@ class VOD20260101Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeVodContentQuota($body = null)
+    {
+        list($response) = $this->describeVodContentQuotaWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeVodContentQuotaWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\DescribeVodContentQuotaResponse';
+        $request = $this->describeVodContentQuotaRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeVodContentQuotaAsync($body = null)
+    {
+        return $this->describeVodContentQuotaAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeVodContentQuotaAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\DescribeVodContentQuotaResponse';
+        $request = $this->describeVodContentQuotaRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeVodContentQuotaRequest($body)
+    {
+        $resourcePath = '/DescribeVodContentQuota/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeVodContentTasks($body = null)
+    {
+        list($response) = $this->describeVodContentTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeVodContentTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\DescribeVodContentTasksResponse';
+        $request = $this->describeVodContentTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeVodContentTasksAsync($body = null)
+    {
+        return $this->describeVodContentTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeVodContentTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\DescribeVodContentTasksResponse';
+        $request = $this->describeVodContentTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeVodContentTasksRequest($body)
+    {
+        $resourcePath = '/DescribeVodContentTasks/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeVodDomainConfig($body = null)
     {
         list($response) = $this->describeVodDomainConfigWithHttpInfo($body);
@@ -226,6 +350,68 @@ class VOD20260101Api
     protected function describeVodDomainConfigRequest($body)
     {
         $resourcePath = '/DescribeVodDomainConfig/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getContentBlockTasks($body = null)
+    {
+        list($response) = $this->getContentBlockTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getContentBlockTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\GetContentBlockTasksResponse';
+        $request = $this->getContentBlockTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getContentBlockTasksAsync($body = null)
+    {
+        return $this->getContentBlockTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getContentBlockTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\GetContentBlockTasksResponse';
+        $request = $this->getContentBlockTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getContentBlockTasksRequest($body)
+    {
+        $resourcePath = '/GetContentBlockTasks/2026-01-01/vod/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -412,6 +598,254 @@ class VOD20260101Api
     protected function stopVodDomainRequest($body)
     {
         $resourcePath = '/StopVodDomain/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function submitVodPreloadTask($body = null)
+    {
+        list($response) = $this->submitVodPreloadTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function submitVodPreloadTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodPreloadTaskResponse';
+        $request = $this->submitVodPreloadTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function submitVodPreloadTaskAsync($body = null)
+    {
+        return $this->submitVodPreloadTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function submitVodPreloadTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodPreloadTaskResponse';
+        $request = $this->submitVodPreloadTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function submitVodPreloadTaskRequest($body)
+    {
+        $resourcePath = '/SubmitVodPreloadTask/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function submitVodRefreshTask($body = null)
+    {
+        list($response) = $this->submitVodRefreshTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function submitVodRefreshTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodRefreshTaskResponse';
+        $request = $this->submitVodRefreshTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function submitVodRefreshTaskAsync($body = null)
+    {
+        return $this->submitVodRefreshTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function submitVodRefreshTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodRefreshTaskResponse';
+        $request = $this->submitVodRefreshTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function submitVodRefreshTaskRequest($body)
+    {
+        $resourcePath = '/SubmitVodRefreshTask/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function submitVodUrlBlockTask($body = null)
+    {
+        list($response) = $this->submitVodUrlBlockTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function submitVodUrlBlockTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodUrlBlockTaskResponse';
+        $request = $this->submitVodUrlBlockTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function submitVodUrlBlockTaskAsync($body = null)
+    {
+        return $this->submitVodUrlBlockTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function submitVodUrlBlockTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodUrlBlockTaskResponse';
+        $request = $this->submitVodUrlBlockTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function submitVodUrlBlockTaskRequest($body)
+    {
+        $resourcePath = '/SubmitVodUrlBlockTask/2026-01-01/vod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function submitVodUrlUnblockTask($body = null)
+    {
+        list($response) = $this->submitVodUrlUnblockTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function submitVodUrlUnblockTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodUrlUnblockTaskResponse';
+        $request = $this->submitVodUrlUnblockTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function submitVodUrlUnblockTaskAsync($body = null)
+    {
+        return $this->submitVodUrlUnblockTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function submitVodUrlUnblockTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vod20260101\Model\SubmitVodUrlUnblockTaskResponse';
+        $request = $this->submitVodUrlUnblockTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function submitVodUrlUnblockTaskRequest($body)
+    {
+        $resourcePath = '/SubmitVodUrlUnblockTask/2026-01-01/vod/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
