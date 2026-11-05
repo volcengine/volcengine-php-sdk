@@ -28,7 +28,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'service_plan' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'service_plan' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'service_plan' => 'ServicePlan'
     ];
 
     /**
@@ -76,7 +76,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'service_plan' => 'setServicePlan'
     ];
 
     /**
@@ -85,7 +85,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'service_plan' => 'getServicePlan'
     ];
 
     /**
@@ -119,18 +119,23 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
+    const SERVICE_PLAN_ESSENTIAL = 'Essential';
+    const SERVICE_PLAN_PREMIUM = 'Premium';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getServicePlanAllowableValues()
+    {
+        return [
+            self::SERVICE_PLAN_ESSENTIAL,
+            self::SERVICE_PLAN_PREMIUM,
+        ];
+    }
     
 
     /**
@@ -148,6 +153,7 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
     }
 
     /**
@@ -158,6 +164,14 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getServicePlanAllowableValues();
+        if (!is_null($this->container['service_plan']) && !in_array($this->container['service_plan'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'service_plan', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -173,6 +187,39 @@ class ListRegionsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets service_plan
+     *
+     * @return string
+     */
+    public function getServicePlan()
+    {
+        return $this->container['service_plan'];
+    }
+
+    /**
+     * Sets service_plan
+     *
+     * @param string $service_plan service_plan
+     *
+     * @return $this
+     */
+    public function setServicePlan($service_plan)
+    {
+        $allowedValues = $this->getServicePlanAllowableValues();
+        if (!is_null($service_plan) && !in_array($service_plan, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'service_plan', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['service_plan'] = $service_plan;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

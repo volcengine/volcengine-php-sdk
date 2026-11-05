@@ -29,7 +29,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'branch_id' => 'string',
-        'cluster_id' => 'string'
+        'instance_id' => 'string'
     ];
 
     /**
@@ -39,7 +39,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'branch_id' => null,
-        'cluster_id' => null
+        'instance_id' => null
     ];
 
     /**
@@ -70,7 +70,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId'
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -80,7 +80,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId'
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -90,7 +90,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId'
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -124,16 +124,6 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -154,7 +144,7 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -206,25 +196,25 @@ class CreateBranchResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

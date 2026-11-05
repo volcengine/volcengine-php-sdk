@@ -29,8 +29,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'csv_format' => '\Volcengine\Tidb\Model\CsvFormatForCreateImportTaskInput',
-        'display_name' => 'string',
         'file_type' => 'string',
+        'import_task_name' => 'string',
         'need_drop_table' => 'bool'
     ];
 
@@ -41,8 +41,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'csv_format' => null,
-        'display_name' => null,
         'file_type' => null,
+        'import_task_name' => null,
         'need_drop_table' => null
     ];
 
@@ -74,8 +74,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'csv_format' => 'CsvFormat',
-        'display_name' => 'DisplayName',
         'file_type' => 'FileType',
+        'import_task_name' => 'ImportTaskName',
         'need_drop_table' => 'NeedDropTable'
     ];
 
@@ -86,8 +86,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'csv_format' => 'setCsvFormat',
-        'display_name' => 'setDisplayName',
         'file_type' => 'setFileType',
+        'import_task_name' => 'setImportTaskName',
         'need_drop_table' => 'setNeedDropTable'
     ];
 
@@ -98,8 +98,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'csv_format' => 'getCsvFormat',
-        'display_name' => 'getDisplayName',
         'file_type' => 'getFileType',
+        'import_task_name' => 'getImportTaskName',
         'need_drop_table' => 'getNeedDropTable'
     ];
 
@@ -132,16 +132,6 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const FILE_TYPE_CSV = 'CSV';
@@ -183,8 +173,8 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
     public function __construct($data = null)
     {
         $this->container['csv_format'] = isset($data['csv_format']) ? $data['csv_format'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['import_task_name'] = isset($data['import_task_name']) ? $data['import_task_name'] : null;
         $this->container['need_drop_table'] = isset($data['need_drop_table']) ? $data['need_drop_table'] : null;
     }
 
@@ -245,30 +235,6 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
      * Gets file_type
      *
      * @return string
@@ -297,6 +263,30 @@ class ImportOptionsForCreateImportTaskInput implements ModelInterface, ArrayAcce
             );
         }
         $this->container['file_type'] = $file_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets import_task_name
+     *
+     * @return string
+     */
+    public function getImportTaskName()
+    {
+        return $this->container['import_task_name'];
+    }
+
+    /**
+     * Sets import_task_name
+     *
+     * @param string $import_task_name import_task_name
+     *
+     * @return $this
+     */
+    public function setImportTaskName($import_task_name)
+    {
+        $this->container['import_task_name'] = $import_task_name;
 
         return $this;
     }

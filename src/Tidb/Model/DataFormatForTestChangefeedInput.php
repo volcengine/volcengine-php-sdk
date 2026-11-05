@@ -134,16 +134,6 @@ class DataFormatForTestChangefeedInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const PROTOCOL_CANAL_JSON = 'CANAL_JSON';
     const PROTOCOL_OPEN_PROTOCOL = 'OPEN_PROTOCOL';
     const PROTOCOL_AVRO = 'AVRO';

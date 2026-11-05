@@ -30,8 +30,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'arch' => 'string',
         'changefeed_name' => 'string',
-        'cluster_id' => 'string',
         'filter' => '\Volcengine\Tidb\Model\FilterForCreateChangefeedInput',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'rcu' => 'int',
         'sink' => '\Volcengine\Tidb\Model\SinkForCreateChangefeedInput',
@@ -46,8 +46,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'arch' => null,
         'changefeed_name' => null,
-        'cluster_id' => null,
         'filter' => null,
+        'instance_id' => null,
         'project_name' => null,
         'rcu' => 'int64',
         'sink' => null,
@@ -83,8 +83,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'arch' => 'Arch',
         'changefeed_name' => 'ChangefeedName',
-        'cluster_id' => 'ClusterId',
         'filter' => 'Filter',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'rcu' => 'Rcu',
         'sink' => 'Sink',
@@ -99,8 +99,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'arch' => 'setArch',
         'changefeed_name' => 'setChangefeedName',
-        'cluster_id' => 'setClusterId',
         'filter' => 'setFilter',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'rcu' => 'setRcu',
         'sink' => 'setSink',
@@ -115,8 +115,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'arch' => 'getArch',
         'changefeed_name' => 'getChangefeedName',
-        'cluster_id' => 'getClusterId',
         'filter' => 'getFilter',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'rcu' => 'getRcu',
         'sink' => 'getSink',
@@ -152,16 +152,6 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const ARCH_REPLICATION_WORKER = 'REPLICATION_WORKER';
@@ -200,8 +190,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     {
         $this->container['arch'] = isset($data['arch']) ? $data['arch'] : null;
         $this->container['changefeed_name'] = isset($data['changefeed_name']) ? $data['changefeed_name'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rcu'] = isset($data['rcu']) ? $data['rcu'] : null;
         $this->container['sink'] = isset($data['sink']) ? $data['sink'] : null;
@@ -225,8 +215,8 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,30 +291,6 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets filter
      *
      * @return \Volcengine\Tidb\Model\FilterForCreateChangefeedInput
@@ -344,6 +310,30 @@ class CreateChangefeedRequest implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

@@ -502,68 +502,6 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function createCluster($body = null)
-    {
-        list($response) = $this->createClusterWithHttpInfo($body);
-        return $response;
-    }
-
-    public function createClusterWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\CreateClusterResponse';
-        $request = $this->createClusterRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function createClusterAsync($body = null)
-    {
-        return $this->createClusterAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createClusterAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\CreateClusterResponse';
-        $request = $this->createClusterRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function createClusterRequest($body)
-    {
-        $resourcePath = '/CreateCluster/2026-06-30/tidb/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function createExportTask($body = null)
     {
         list($response) = $this->createExportTaskWithHttpInfo($body);
@@ -722,6 +660,68 @@ class TIDBApi
     protected function createImportUploadUrlRequest($body)
     {
         $resourcePath = '/CreateImportUploadUrl/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createInstance($body = null)
+    {
+        list($response) = $this->createInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateInstanceResponse';
+        $request = $this->createInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createInstanceAsync($body = null)
+    {
+        return $this->createInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\CreateInstanceResponse';
+        $request = $this->createInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createInstanceRequest($body)
+    {
+        $resourcePath = '/CreateInstance/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1060,68 +1060,6 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function deleteCluster($body = null)
-    {
-        list($response) = $this->deleteClusterWithHttpInfo($body);
-        return $response;
-    }
-
-    public function deleteClusterWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\DeleteClusterResponse';
-        $request = $this->deleteClusterRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function deleteClusterAsync($body = null)
-    {
-        return $this->deleteClusterAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function deleteClusterAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\DeleteClusterResponse';
-        $request = $this->deleteClusterRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function deleteClusterRequest($body)
-    {
-        $resourcePath = '/DeleteCluster/2026-06-30/tidb/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function deleteExportTask($body = null)
     {
         list($response) = $this->deleteExportTaskWithHttpInfo($body);
@@ -1156,6 +1094,68 @@ class TIDBApi
     protected function deleteExportTaskRequest($body)
     {
         $resourcePath = '/DeleteExportTask/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteInstance($body = null)
+    {
+        list($response) = $this->deleteInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteInstanceResponse';
+        $request = $this->deleteInstanceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteInstanceAsync($body = null)
+    {
+        return $this->deleteInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\DeleteInstanceResponse';
+        $request = $this->deleteInstanceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteInstanceRequest($body)
+    {
+        $resourcePath = '/DeleteInstance/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2052,68 +2052,6 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function getClusterDetails($body = null)
-    {
-        list($response) = $this->getClusterDetailsWithHttpInfo($body);
-        return $response;
-    }
-
-    public function getClusterDetailsWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\GetClusterDetailsResponse';
-        $request = $this->getClusterDetailsRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function getClusterDetailsAsync($body = null)
-    {
-        return $this->getClusterDetailsAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function getClusterDetailsAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\GetClusterDetailsResponse';
-        $request = $this->getClusterDetailsRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function getClusterDetailsRequest($body)
-    {
-        $resourcePath = '/GetClusterDetails/2026-06-30/tidb/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function getExportTaskDetails($body = null)
     {
         list($response) = $this->getExportTaskDetailsWithHttpInfo($body);
@@ -2272,6 +2210,68 @@ class TIDBApi
     protected function getImportTaskDetailsRequest($body)
     {
         $resourcePath = '/GetImportTaskDetails/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getInstanceDetails($body = null)
+    {
+        list($response) = $this->getInstanceDetailsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getInstanceDetailsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetInstanceDetailsResponse';
+        $request = $this->getInstanceDetailsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getInstanceDetailsAsync($body = null)
+    {
+        return $this->getInstanceDetailsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getInstanceDetailsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\GetInstanceDetailsResponse';
+        $request = $this->getInstanceDetailsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getInstanceDetailsRequest($body)
+    {
+        $resourcePath = '/GetInstanceDetails/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3230,130 +3230,6 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function listClusterDatabases($body = null)
-    {
-        list($response) = $this->listClusterDatabasesWithHttpInfo($body);
-        return $response;
-    }
-
-    public function listClusterDatabasesWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\ListClusterDatabasesResponse';
-        $request = $this->listClusterDatabasesRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function listClusterDatabasesAsync($body = null)
-    {
-        return $this->listClusterDatabasesAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function listClusterDatabasesAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\ListClusterDatabasesResponse';
-        $request = $this->listClusterDatabasesRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function listClusterDatabasesRequest($body)
-    {
-        $resourcePath = '/ListClusterDatabases/2026-06-30/tidb/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function listClusters($body = null)
-    {
-        list($response) = $this->listClustersWithHttpInfo($body);
-        return $response;
-    }
-
-    public function listClustersWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\ListClustersResponse';
-        $request = $this->listClustersRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function listClustersAsync($body = null)
-    {
-        return $this->listClustersAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function listClustersAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Tidb\Model\ListClustersResponse';
-        $request = $this->listClustersRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function listClustersRequest($body)
-    {
-        $resourcePath = '/ListClusters/2026-06-30/tidb/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function listEvents($body = null)
     {
         list($response) = $this->listEventsWithHttpInfo($body);
@@ -3636,6 +3512,130 @@ class TIDBApi
     protected function listImportTasksRequest($body)
     {
         $resourcePath = '/ListImportTasks/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listInstanceDatabases($body = null)
+    {
+        list($response) = $this->listInstanceDatabasesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listInstanceDatabasesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListInstanceDatabasesResponse';
+        $request = $this->listInstanceDatabasesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listInstanceDatabasesAsync($body = null)
+    {
+        return $this->listInstanceDatabasesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listInstanceDatabasesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListInstanceDatabasesResponse';
+        $request = $this->listInstanceDatabasesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listInstanceDatabasesRequest($body)
+    {
+        $resourcePath = '/ListInstanceDatabases/2026-06-30/tidb/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listInstances($body = null)
+    {
+        list($response) = $this->listInstancesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listInstancesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListInstancesResponse';
+        $request = $this->listInstancesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listInstancesAsync($body = null)
+    {
+        return $this->listInstancesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listInstancesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tidb\Model\ListInstancesResponse';
+        $request = $this->listInstancesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listInstancesRequest($body)
+    {
+        $resourcePath = '/ListInstances/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4408,23 +4408,23 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function opsListClusters($body = null)
+    public function opsListInstances($body = null)
     {
-        list($response) = $this->opsListClustersWithHttpInfo($body);
+        list($response) = $this->opsListInstancesWithHttpInfo($body);
         return $response;
     }
 
-    public function opsListClustersWithHttpInfo($body)
+    public function opsListInstancesWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\OpsListClustersResponse';
-        $request = $this->opsListClustersRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\OpsListInstancesResponse';
+        $request = $this->opsListInstancesRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function opsListClustersAsync($body = null)
+    public function opsListInstancesAsync($body = null)
     {
-        return $this->opsListClustersAsyncWithHttpInfo($body)
+        return $this->opsListInstancesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4432,16 +4432,16 @@ class TIDBApi
             );
     }
 
-    public function opsListClustersAsyncWithHttpInfo($body)
+    public function opsListInstancesAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\OpsListClustersResponse';
-        $request = $this->opsListClustersRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\OpsListInstancesResponse';
+        $request = $this->opsListInstancesRequest($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function opsListClustersRequest($body)
+    protected function opsListInstancesRequest($body)
     {
-        $resourcePath = '/OpsListClusters/2026-06-30/tidb/post/application_json/';
+        $resourcePath = '/OpsListInstances/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4656,23 +4656,23 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function resetClusterPassword($body = null)
+    public function resetInstancePassword($body = null)
     {
-        list($response) = $this->resetClusterPasswordWithHttpInfo($body);
+        list($response) = $this->resetInstancePasswordWithHttpInfo($body);
         return $response;
     }
 
-    public function resetClusterPasswordWithHttpInfo($body)
+    public function resetInstancePasswordWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\ResetClusterPasswordResponse';
-        $request = $this->resetClusterPasswordRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\ResetInstancePasswordResponse';
+        $request = $this->resetInstancePasswordRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function resetClusterPasswordAsync($body = null)
+    public function resetInstancePasswordAsync($body = null)
     {
-        return $this->resetClusterPasswordAsyncWithHttpInfo($body)
+        return $this->resetInstancePasswordAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4680,16 +4680,16 @@ class TIDBApi
             );
     }
 
-    public function resetClusterPasswordAsyncWithHttpInfo($body)
+    public function resetInstancePasswordAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\ResetClusterPasswordResponse';
-        $request = $this->resetClusterPasswordRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\ResetInstancePasswordResponse';
+        $request = $this->resetInstancePasswordRequest($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function resetClusterPasswordRequest($body)
+    protected function resetInstancePasswordRequest($body)
     {
-        $resourcePath = '/ResetClusterPassword/2026-06-30/tidb/post/application_json/';
+        $resourcePath = '/ResetInstancePassword/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4718,23 +4718,23 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function restoreCluster($body = null)
+    public function restoreInstance($body = null)
     {
-        list($response) = $this->restoreClusterWithHttpInfo($body);
+        list($response) = $this->restoreInstanceWithHttpInfo($body);
         return $response;
     }
 
-    public function restoreClusterWithHttpInfo($body)
+    public function restoreInstanceWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\RestoreClusterResponse';
-        $request = $this->restoreClusterRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\RestoreInstanceResponse';
+        $request = $this->restoreInstanceRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function restoreClusterAsync($body = null)
+    public function restoreInstanceAsync($body = null)
     {
-        return $this->restoreClusterAsyncWithHttpInfo($body)
+        return $this->restoreInstanceAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4742,16 +4742,16 @@ class TIDBApi
             );
     }
 
-    public function restoreClusterAsyncWithHttpInfo($body)
+    public function restoreInstanceAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\RestoreClusterResponse';
-        $request = $this->restoreClusterRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\RestoreInstanceResponse';
+        $request = $this->restoreInstanceRequest($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function restoreClusterRequest($body)
+    protected function restoreInstanceRequest($body)
     {
-        $resourcePath = '/RestoreCluster/2026-06-30/tidb/post/application_json/';
+        $resourcePath = '/RestoreInstance/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5338,23 +5338,23 @@ class TIDBApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function updateCluster($body = null)
+    public function updateInstance($body = null)
     {
-        list($response) = $this->updateClusterWithHttpInfo($body);
+        list($response) = $this->updateInstanceWithHttpInfo($body);
         return $response;
     }
 
-    public function updateClusterWithHttpInfo($body)
+    public function updateInstanceWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\UpdateClusterResponse';
-        $request = $this->updateClusterRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\UpdateInstanceResponse';
+        $request = $this->updateInstanceRequest($body);
 
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function updateClusterAsync($body = null)
+    public function updateInstanceAsync($body = null)
     {
-        return $this->updateClusterAsyncWithHttpInfo($body)
+        return $this->updateInstanceAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5362,16 +5362,16 @@ class TIDBApi
             );
     }
 
-    public function updateClusterAsyncWithHttpInfo($body)
+    public function updateInstanceAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Tidb\Model\UpdateClusterResponse';
-        $request = $this->updateClusterRequest($body);
+        $returnType = '\Volcengine\Tidb\Model\UpdateInstanceResponse';
+        $request = $this->updateInstanceRequest($body);
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function updateClusterRequest($body)
+    protected function updateInstanceRequest($body)
     {
-        $resourcePath = '/UpdateCluster/2026-06-30/tidb/post/application_json/';
+        $resourcePath = '/UpdateInstance/2026-06-30/tidb/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

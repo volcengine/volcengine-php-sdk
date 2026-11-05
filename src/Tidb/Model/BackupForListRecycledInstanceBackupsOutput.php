@@ -29,11 +29,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
       */
     protected static $swaggerTypes = [
         'backup_id' => 'string',
+        'backup_name' => 'string',
         'backup_time' => 'string',
-        'cluster_id' => 'string',
         'create_time' => 'string',
         'expire_time' => 'string',
+        'instance_id' => 'string',
+        'size_bytes' => 'int',
         'state' => 'string',
+        'trigger_type' => 'string',
         'type' => 'string'
     ];
 
@@ -44,11 +47,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
       */
     protected static $swaggerFormats = [
         'backup_id' => null,
+        'backup_name' => null,
         'backup_time' => null,
-        'cluster_id' => null,
         'create_time' => null,
         'expire_time' => null,
+        'instance_id' => null,
+        'size_bytes' => 'int64',
         'state' => null,
+        'trigger_type' => null,
         'type' => null
     ];
 
@@ -80,11 +86,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
      */
     protected static $attributeMap = [
         'backup_id' => 'BackupId',
+        'backup_name' => 'BackupName',
         'backup_time' => 'BackupTime',
-        'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'expire_time' => 'ExpireTime',
+        'instance_id' => 'InstanceId',
+        'size_bytes' => 'SizeBytes',
         'state' => 'State',
+        'trigger_type' => 'TriggerType',
         'type' => 'Type'
     ];
 
@@ -95,11 +104,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
      */
     protected static $setters = [
         'backup_id' => 'setBackupId',
+        'backup_name' => 'setBackupName',
         'backup_time' => 'setBackupTime',
-        'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'expire_time' => 'setExpireTime',
+        'instance_id' => 'setInstanceId',
+        'size_bytes' => 'setSizeBytes',
         'state' => 'setState',
+        'trigger_type' => 'setTriggerType',
         'type' => 'setType'
     ];
 
@@ -110,11 +122,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
      */
     protected static $getters = [
         'backup_id' => 'getBackupId',
+        'backup_name' => 'getBackupName',
         'backup_time' => 'getBackupTime',
-        'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'expire_time' => 'getExpireTime',
+        'instance_id' => 'getInstanceId',
+        'size_bytes' => 'getSizeBytes',
         'state' => 'getState',
+        'trigger_type' => 'getTriggerType',
         'type' => 'getType'
     ];
 
@@ -149,18 +164,11 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const STATE_SUCCEEDED = 'SUCCEEDED';
     const STATE_FAILED = 'FAILED';
+    const STATE_PENDING = 'PENDING';
+    const STATE_RUNNING = 'RUNNING';
+    const STATE_CANCELLED = 'CANCELLED';
     
 
     
@@ -174,6 +182,9 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
         return [
             self::STATE_SUCCEEDED,
             self::STATE_FAILED,
+            self::STATE_PENDING,
+            self::STATE_RUNNING,
+            self::STATE_CANCELLED,
         ];
     }
     
@@ -194,11 +205,14 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
     public function __construct($data = null)
     {
         $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
+        $this->container['backup_name'] = isset($data['backup_name']) ? $data['backup_name'] : null;
         $this->container['backup_time'] = isset($data['backup_time']) ? $data['backup_time'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['size_bytes'] = isset($data['size_bytes']) ? $data['size_bytes'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['trigger_type'] = isset($data['trigger_type']) ? $data['trigger_type'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -259,6 +273,30 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
     }
 
     /**
+     * Gets backup_name
+     *
+     * @return string
+     */
+    public function getBackupName()
+    {
+        return $this->container['backup_name'];
+    }
+
+    /**
+     * Sets backup_name
+     *
+     * @param string $backup_name backup_name
+     *
+     * @return $this
+     */
+    public function setBackupName($backup_name)
+    {
+        $this->container['backup_name'] = $backup_name;
+
+        return $this;
+    }
+
+    /**
      * Gets backup_time
      *
      * @return string
@@ -278,30 +316,6 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
     public function setBackupTime($backup_time)
     {
         $this->container['backup_time'] = $backup_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -355,6 +369,54 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
     }
 
     /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets size_bytes
+     *
+     * @return int
+     */
+    public function getSizeBytes()
+    {
+        return $this->container['size_bytes'];
+    }
+
+    /**
+     * Sets size_bytes
+     *
+     * @param int $size_bytes size_bytes
+     *
+     * @return $this
+     */
+    public function setSizeBytes($size_bytes)
+    {
+        $this->container['size_bytes'] = $size_bytes;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
      * @return string
@@ -383,6 +445,30 @@ class BackupForListRecycledInstanceBackupsOutput implements ModelInterface, Arra
             );
         }
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_type
+     *
+     * @return string
+     */
+    public function getTriggerType()
+    {
+        return $this->container['trigger_type'];
+    }
+
+    /**
+     * Sets trigger_type
+     *
+     * @param string $trigger_type trigger_type
+     *
+     * @return $this
+     */
+    public function setTriggerType($trigger_type)
+    {
+        $this->container['trigger_type'] = $trigger_type;
 
         return $this;
     }

@@ -29,7 +29,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'branch_id' => 'string',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'view' => 'string'
     ];
@@ -41,7 +41,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'branch_id' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'project_name' => null,
         'view' => null
     ];
@@ -74,7 +74,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'branch_id' => 'BranchId',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'view' => 'View'
     ];
@@ -86,7 +86,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'branch_id' => 'setBranchId',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'view' => 'setView'
     ];
@@ -98,7 +98,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'branch_id' => 'getBranchId',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'view' => 'getView'
     ];
@@ -132,16 +132,6 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const VIEW_BASIC = 'BASIC';
@@ -179,7 +169,7 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['view'] = isset($data['view']) ? $data['view'] : null;
     }
@@ -196,8 +186,8 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
         if ($this->container['branch_id'] === null) {
             $invalidProperties[] = "'branch_id' can't be null";
         }
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         $allowedValues = $this->getViewAllowableValues();
         if (!is_null($this->container['view']) && !in_array($this->container['view'], $allowedValues, true)) {
@@ -247,25 +237,25 @@ class GetBranchDetailsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

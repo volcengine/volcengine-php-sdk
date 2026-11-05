@@ -29,10 +29,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'begin_time' => 'string',
-        'cluster_id' => 'string',
         'connection_id' => 'string',
         'digest' => 'string',
         'end_time' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'query' => 'string',
         'timestamp' => 'string'
@@ -45,10 +45,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'begin_time' => null,
-        'cluster_id' => null,
         'connection_id' => null,
         'digest' => null,
         'end_time' => null,
+        'instance_id' => null,
         'project_name' => null,
         'query' => null,
         'timestamp' => null
@@ -82,10 +82,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'begin_time' => 'BeginTime',
-        'cluster_id' => 'ClusterId',
         'connection_id' => 'ConnectionId',
         'digest' => 'Digest',
         'end_time' => 'EndTime',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'query' => 'Query',
         'timestamp' => 'Timestamp'
@@ -98,10 +98,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'begin_time' => 'setBeginTime',
-        'cluster_id' => 'setClusterId',
         'connection_id' => 'setConnectionId',
         'digest' => 'setDigest',
         'end_time' => 'setEndTime',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'query' => 'setQuery',
         'timestamp' => 'setTimestamp'
@@ -114,10 +114,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'begin_time' => 'getBeginTime',
-        'cluster_id' => 'getClusterId',
         'connection_id' => 'getConnectionId',
         'digest' => 'getDigest',
         'end_time' => 'getEndTime',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'query' => 'getQuery',
         'timestamp' => 'getTimestamp'
@@ -154,16 +154,6 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -184,10 +174,10 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['begin_time'] = isset($data['begin_time']) ? $data['begin_time'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['connection_id'] = isset($data['connection_id']) ? $data['connection_id'] : null;
         $this->container['digest'] = isset($data['digest']) ? $data['digest'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
@@ -202,8 +192,8 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -240,30 +230,6 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
     public function setBeginTime($begin_time)
     {
         $this->container['begin_time'] = $begin_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -336,6 +302,30 @@ class GetSlowQueryDetailsRequest implements ModelInterface, ArrayAccess
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

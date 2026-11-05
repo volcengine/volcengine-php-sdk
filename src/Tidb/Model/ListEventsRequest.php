@@ -30,8 +30,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'action_name' => 'string',
         'action_status' => 'string',
-        'cluster_id' => 'string',
         'end_time' => 'string',
+        'instance_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -46,8 +46,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'action_name' => null,
         'action_status' => null,
-        'cluster_id' => null,
         'end_time' => null,
+        'instance_id' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
@@ -83,8 +83,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'action_name' => 'ActionName',
         'action_status' => 'ActionStatus',
-        'cluster_id' => 'ClusterId',
         'end_time' => 'EndTime',
+        'instance_id' => 'InstanceId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -99,8 +99,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'action_name' => 'setActionName',
         'action_status' => 'setActionStatus',
-        'cluster_id' => 'setClusterId',
         'end_time' => 'setEndTime',
+        'instance_id' => 'setInstanceId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -115,8 +115,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'action_name' => 'getActionName',
         'action_status' => 'getActionStatus',
-        'cluster_id' => 'getClusterId',
         'end_time' => 'getEndTime',
+        'instance_id' => 'getInstanceId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -152,16 +152,6 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const ACTION_STATUS_PENDING = 'Pending';
@@ -202,8 +192,8 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     {
         $this->container['action_name'] = isset($data['action_name']) ? $data['action_name'] : null;
         $this->container['action_status'] = isset($data['action_status']) ? $data['action_status'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -300,30 +290,6 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets end_time
      *
      * @return string
@@ -343,6 +309,30 @@ class ListEventsRequest implements ModelInterface, ArrayAccess
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

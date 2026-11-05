@@ -29,8 +29,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'cloud_storage' => '\Volcengine\Tidb\Model\CloudStorageForGetAuditLogConfigOutput',
-        'cluster_id' => 'string',
         'enabled' => 'bool',
+        'instance_id' => 'string',
         'rotation_interval_minutes' => 'int',
         'rotation_size_mi_b' => 'int',
         'unredacted' => 'bool'
@@ -43,8 +43,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'cloud_storage' => null,
-        'cluster_id' => null,
         'enabled' => null,
+        'instance_id' => null,
         'rotation_interval_minutes' => 'int32',
         'rotation_size_mi_b' => 'int32',
         'unredacted' => null
@@ -78,8 +78,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'cloud_storage' => 'CloudStorage',
-        'cluster_id' => 'ClusterId',
         'enabled' => 'Enabled',
+        'instance_id' => 'InstanceId',
         'rotation_interval_minutes' => 'RotationIntervalMinutes',
         'rotation_size_mi_b' => 'RotationSizeMiB',
         'unredacted' => 'Unredacted'
@@ -92,8 +92,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'cloud_storage' => 'setCloudStorage',
-        'cluster_id' => 'setClusterId',
         'enabled' => 'setEnabled',
+        'instance_id' => 'setInstanceId',
         'rotation_interval_minutes' => 'setRotationIntervalMinutes',
         'rotation_size_mi_b' => 'setRotationSizeMiB',
         'unredacted' => 'setUnredacted'
@@ -106,8 +106,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'cloud_storage' => 'getCloudStorage',
-        'cluster_id' => 'getClusterId',
         'enabled' => 'getEnabled',
+        'instance_id' => 'getInstanceId',
         'rotation_interval_minutes' => 'getRotationIntervalMinutes',
         'rotation_size_mi_b' => 'getRotationSizeMiB',
         'unredacted' => 'getUnredacted'
@@ -144,16 +144,6 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -174,8 +164,8 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
     public function __construct($data = null)
     {
         $this->container['cloud_storage'] = isset($data['cloud_storage']) ? $data['cloud_storage'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['rotation_interval_minutes'] = isset($data['rotation_interval_minutes']) ? $data['rotation_interval_minutes'] : null;
         $this->container['rotation_size_mi_b'] = isset($data['rotation_size_mi_b']) ? $data['rotation_size_mi_b'] : null;
         $this->container['unredacted'] = isset($data['unredacted']) ? $data['unredacted'] : null;
@@ -230,30 +220,6 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets enabled
      *
      * @return bool
@@ -273,6 +239,30 @@ class AuditLogConfigForGetAuditLogConfigOutput implements ModelInterface, ArrayA
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

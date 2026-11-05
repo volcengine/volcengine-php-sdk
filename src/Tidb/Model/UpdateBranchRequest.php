@@ -30,7 +30,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'branch_id' => 'string',
         'branch_name' => 'string',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string'
     ];
 
@@ -42,7 +42,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'branch_id' => null,
         'branch_name' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'project_name' => null
     ];
 
@@ -75,7 +75,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'branch_id' => 'BranchId',
         'branch_name' => 'BranchName',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName'
     ];
 
@@ -87,7 +87,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'branch_id' => 'setBranchId',
         'branch_name' => 'setBranchName',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName'
     ];
 
@@ -99,7 +99,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'branch_id' => 'getBranchId',
         'branch_name' => 'getBranchName',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName'
     ];
 
@@ -134,16 +134,6 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -165,7 +155,7 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     {
         $this->container['branch_id'] = isset($data['branch_id']) ? $data['branch_id'] : null;
         $this->container['branch_name'] = isset($data['branch_name']) ? $data['branch_name'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
@@ -184,8 +174,8 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
         if ($this->container['branch_name'] === null) {
             $invalidProperties[] = "'branch_name' can't be null";
         }
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -251,25 +241,25 @@ class UpdateBranchRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

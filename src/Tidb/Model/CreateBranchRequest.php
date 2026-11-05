@@ -29,7 +29,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'branch_name' => 'string',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'parent_id' => 'string',
         'parent_timestamp' => 'string',
         'project_name' => 'string'
@@ -42,7 +42,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'branch_name' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'parent_id' => null,
         'parent_timestamp' => null,
         'project_name' => null
@@ -76,7 +76,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'branch_name' => 'BranchName',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'parent_id' => 'ParentId',
         'parent_timestamp' => 'ParentTimestamp',
         'project_name' => 'ProjectName'
@@ -89,7 +89,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'branch_name' => 'setBranchName',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'parent_id' => 'setParentId',
         'parent_timestamp' => 'setParentTimestamp',
         'project_name' => 'setProjectName'
@@ -102,7 +102,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'branch_name' => 'getBranchName',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'parent_id' => 'getParentId',
         'parent_timestamp' => 'getParentTimestamp',
         'project_name' => 'getProjectName'
@@ -139,16 +139,6 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -169,7 +159,7 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['branch_name'] = isset($data['branch_name']) ? $data['branch_name'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
         $this->container['parent_timestamp'] = isset($data['parent_timestamp']) ? $data['parent_timestamp'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -187,8 +177,8 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
         if ($this->container['branch_name'] === null) {
             $invalidProperties[] = "'branch_name' can't be null";
         }
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -230,25 +220,25 @@ class CreateBranchRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
