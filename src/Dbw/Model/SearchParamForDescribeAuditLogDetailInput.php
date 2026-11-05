@@ -179,16 +179,6 @@ class SearchParamForDescribeAuditLogDetailInput implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const LOG_LEVELS_NORMAL = 'Normal';
     const LOG_LEVELS_INCIDENT = 'Incident';
     const LOG_LEVELS_WARNING = 'Warning';

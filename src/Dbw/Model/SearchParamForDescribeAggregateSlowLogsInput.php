@@ -174,16 +174,6 @@ class SearchParamForDescribeAggregateSlowLogsInput implements ModelInterface, Ar
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const GROUP_IGNORED_USER = 'User';
     const GROUP_IGNORED_SOURCE_IP = 'SourceIP';
     const GROUP_IGNORED_PSM = 'PSM';
