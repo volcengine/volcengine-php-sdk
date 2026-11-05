@@ -378,6 +378,68 @@ class CRApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createTag($body = null)
+    {
+        list($response) = $this->createTagWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createTagWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cr\Model\CreateTagResponse';
+        $request = $this->createTagRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createTagAsync($body = null)
+    {
+        return $this->createTagAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createTagAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cr\Model\CreateTagResponse';
+        $request = $this->createTagRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createTagRequest($body)
+    {
+        $resourcePath = '/CreateTag/2022-05-12/cr/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteEndpointAclPolicies($body = null)
     {
         list($response) = $this->deleteEndpointAclPoliciesWithHttpInfo($body);
