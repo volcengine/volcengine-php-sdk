@@ -29,9 +29,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForDescribePriceDetailInput',
-        'cluster_name' => 'string',
         'encryption_config' => '\Volcengine\Tidb\Model\EncryptionConfigForDescribePriceDetailInput',
         'high_availability_type' => 'string',
+        'instance_name' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
         'service_plan' => 'string',
@@ -47,9 +47,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'auto_scaling' => null,
-        'cluster_name' => null,
         'encryption_config' => null,
         'high_availability_type' => null,
+        'instance_name' => null,
         'project_name' => null,
         'region_id' => null,
         'service_plan' => null,
@@ -86,9 +86,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'auto_scaling' => 'AutoScaling',
-        'cluster_name' => 'ClusterName',
         'encryption_config' => 'EncryptionConfig',
         'high_availability_type' => 'HighAvailabilityType',
+        'instance_name' => 'InstanceName',
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
         'service_plan' => 'ServicePlan',
@@ -104,9 +104,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'auto_scaling' => 'setAutoScaling',
-        'cluster_name' => 'setClusterName',
         'encryption_config' => 'setEncryptionConfig',
         'high_availability_type' => 'setHighAvailabilityType',
+        'instance_name' => 'setInstanceName',
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
         'service_plan' => 'setServicePlan',
@@ -122,9 +122,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'auto_scaling' => 'getAutoScaling',
-        'cluster_name' => 'getClusterName',
         'encryption_config' => 'getEncryptionConfig',
         'high_availability_type' => 'getHighAvailabilityType',
+        'instance_name' => 'getInstanceName',
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
         'service_plan' => 'getServicePlan',
@@ -162,16 +162,6 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const HIGH_AVAILABILITY_TYPE_ZONAL = 'ZONAL';
@@ -230,9 +220,9 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
     public function __construct($data = null)
     {
         $this->container['auto_scaling'] = isset($data['auto_scaling']) ? $data['auto_scaling'] : null;
-        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['encryption_config'] = isset($data['encryption_config']) ? $data['encryption_config'] : null;
         $this->container['high_availability_type'] = isset($data['high_availability_type']) ? $data['high_availability_type'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['service_plan'] = isset($data['service_plan']) ? $data['service_plan'] : null;
@@ -306,30 +296,6 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets cluster_name
-     *
-     * @return string
-     */
-    public function getClusterName()
-    {
-        return $this->container['cluster_name'];
-    }
-
-    /**
-     * Sets cluster_name
-     *
-     * @param string $cluster_name cluster_name
-     *
-     * @return $this
-     */
-    public function setClusterName($cluster_name)
-    {
-        $this->container['cluster_name'] = $cluster_name;
-
-        return $this;
-    }
-
-    /**
      * Gets encryption_config
      *
      * @return \Volcengine\Tidb\Model\EncryptionConfigForDescribePriceDetailInput
@@ -382,6 +348,30 @@ class CreateReqForDescribePriceDetailInput implements ModelInterface, ArrayAcces
             );
         }
         $this->container['high_availability_type'] = $high_availability_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
 
         return $this;
     }

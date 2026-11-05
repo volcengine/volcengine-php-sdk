@@ -29,18 +29,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'all_completed_tables' => '\Volcengine\Tidb\Model\AllCompletedTableForCreateImportTaskOutput[]',
-        'cluster_id' => 'string',
         'compatible_id' => 'string',
         'complete_percent' => 'int',
         'complete_time' => 'string',
         'create_time' => 'string',
         'creation_details' => '\Volcengine\Tidb\Model\CreationDetailsForCreateImportTaskOutput',
-        'id' => 'string',
         'import_id' => 'string',
+        'import_task_name' => 'string',
+        'instance_id' => 'string',
         'message' => 'string',
         'post_import_completed_percent' => 'int',
         'start_time' => 'string',
         'state' => 'string',
+        'subtasks' => '\Volcengine\Tidb\Model\SubtaskForCreateImportTaskOutput[]',
         'total_size' => 'string',
         'total_tables_count' => 'int'
     ];
@@ -52,18 +53,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'all_completed_tables' => null,
-        'cluster_id' => null,
         'compatible_id' => null,
         'complete_percent' => 'int32',
         'complete_time' => null,
         'create_time' => null,
         'creation_details' => null,
-        'id' => null,
         'import_id' => null,
+        'import_task_name' => null,
+        'instance_id' => null,
         'message' => null,
         'post_import_completed_percent' => 'int32',
         'start_time' => null,
         'state' => null,
+        'subtasks' => null,
         'total_size' => null,
         'total_tables_count' => 'int32'
     ];
@@ -96,18 +98,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'all_completed_tables' => 'AllCompletedTables',
-        'cluster_id' => 'ClusterId',
         'compatible_id' => 'CompatibleId',
         'complete_percent' => 'CompletePercent',
         'complete_time' => 'CompleteTime',
         'create_time' => 'CreateTime',
         'creation_details' => 'CreationDetails',
-        'id' => 'Id',
         'import_id' => 'ImportId',
+        'import_task_name' => 'ImportTaskName',
+        'instance_id' => 'InstanceId',
         'message' => 'Message',
         'post_import_completed_percent' => 'PostImportCompletedPercent',
         'start_time' => 'StartTime',
         'state' => 'State',
+        'subtasks' => 'Subtasks',
         'total_size' => 'TotalSize',
         'total_tables_count' => 'TotalTablesCount'
     ];
@@ -119,18 +122,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'all_completed_tables' => 'setAllCompletedTables',
-        'cluster_id' => 'setClusterId',
         'compatible_id' => 'setCompatibleId',
         'complete_percent' => 'setCompletePercent',
         'complete_time' => 'setCompleteTime',
         'create_time' => 'setCreateTime',
         'creation_details' => 'setCreationDetails',
-        'id' => 'setId',
         'import_id' => 'setImportId',
+        'import_task_name' => 'setImportTaskName',
+        'instance_id' => 'setInstanceId',
         'message' => 'setMessage',
         'post_import_completed_percent' => 'setPostImportCompletedPercent',
         'start_time' => 'setStartTime',
         'state' => 'setState',
+        'subtasks' => 'setSubtasks',
         'total_size' => 'setTotalSize',
         'total_tables_count' => 'setTotalTablesCount'
     ];
@@ -142,18 +146,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'all_completed_tables' => 'getAllCompletedTables',
-        'cluster_id' => 'getClusterId',
         'compatible_id' => 'getCompatibleId',
         'complete_percent' => 'getCompletePercent',
         'complete_time' => 'getCompleteTime',
         'create_time' => 'getCreateTime',
         'creation_details' => 'getCreationDetails',
-        'id' => 'getId',
         'import_id' => 'getImportId',
+        'import_task_name' => 'getImportTaskName',
+        'instance_id' => 'getInstanceId',
         'message' => 'getMessage',
         'post_import_completed_percent' => 'getPostImportCompletedPercent',
         'start_time' => 'getStartTime',
         'state' => 'getState',
+        'subtasks' => 'getSubtasks',
         'total_size' => 'getTotalSize',
         'total_tables_count' => 'getTotalTablesCount'
     ];
@@ -187,16 +192,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const STATE_PREPARING = 'PREPARING';
@@ -242,18 +237,19 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['all_completed_tables'] = isset($data['all_completed_tables']) ? $data['all_completed_tables'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['compatible_id'] = isset($data['compatible_id']) ? $data['compatible_id'] : null;
         $this->container['complete_percent'] = isset($data['complete_percent']) ? $data['complete_percent'] : null;
         $this->container['complete_time'] = isset($data['complete_time']) ? $data['complete_time'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['creation_details'] = isset($data['creation_details']) ? $data['creation_details'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['import_id'] = isset($data['import_id']) ? $data['import_id'] : null;
+        $this->container['import_task_name'] = isset($data['import_task_name']) ? $data['import_task_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['post_import_completed_percent'] = isset($data['post_import_completed_percent']) ? $data['post_import_completed_percent'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['subtasks'] = isset($data['subtasks']) ? $data['subtasks'] : null;
         $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
         $this->container['total_tables_count'] = isset($data['total_tables_count']) ? $data['total_tables_count'] : null;
     }
@@ -310,30 +306,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public function setAllCompletedTables($all_completed_tables)
     {
         $this->container['all_completed_tables'] = $all_completed_tables;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -459,30 +431,6 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets import_id
      *
      * @return string
@@ -502,6 +450,54 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
     public function setImportId($import_id)
     {
         $this->container['import_id'] = $import_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets import_task_name
+     *
+     * @return string
+     */
+    public function getImportTaskName()
+    {
+        return $this->container['import_task_name'];
+    }
+
+    /**
+     * Sets import_task_name
+     *
+     * @param string $import_task_name import_task_name
+     *
+     * @return $this
+     */
+    public function setImportTaskName($import_task_name)
+    {
+        $this->container['import_task_name'] = $import_task_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
@@ -607,6 +603,30 @@ class ImportForCreateImportTaskOutput implements ModelInterface, ArrayAccess
             );
         }
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtasks
+     *
+     * @return \Volcengine\Tidb\Model\SubtaskForCreateImportTaskOutput[]
+     */
+    public function getSubtasks()
+    {
+        return $this->container['subtasks'];
+    }
+
+    /**
+     * Sets subtasks
+     *
+     * @param \Volcengine\Tidb\Model\SubtaskForCreateImportTaskOutput[] $subtasks subtasks
+     *
+     * @return $this
+     */
+    public function setSubtasks($subtasks)
+    {
+        $this->container['subtasks'] = $subtasks;
 
         return $this;
     }

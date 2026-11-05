@@ -29,8 +29,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'authorized_network_name' => 'string',
-        'cluster_id' => 'string',
         'current_vpc_endpoint_id' => 'string',
+        'instance_id' => 'string',
         'new_vpc_endpoint_id' => 'string',
         'project_name' => 'string'
     ];
@@ -42,8 +42,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'authorized_network_name' => null,
-        'cluster_id' => null,
         'current_vpc_endpoint_id' => null,
+        'instance_id' => null,
         'new_vpc_endpoint_id' => null,
         'project_name' => null
     ];
@@ -76,8 +76,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'authorized_network_name' => 'AuthorizedNetworkName',
-        'cluster_id' => 'ClusterId',
         'current_vpc_endpoint_id' => 'CurrentVpcEndpointId',
+        'instance_id' => 'InstanceId',
         'new_vpc_endpoint_id' => 'NewVpcEndpointId',
         'project_name' => 'ProjectName'
     ];
@@ -89,8 +89,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'authorized_network_name' => 'setAuthorizedNetworkName',
-        'cluster_id' => 'setClusterId',
         'current_vpc_endpoint_id' => 'setCurrentVpcEndpointId',
+        'instance_id' => 'setInstanceId',
         'new_vpc_endpoint_id' => 'setNewVpcEndpointId',
         'project_name' => 'setProjectName'
     ];
@@ -102,8 +102,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'authorized_network_name' => 'getAuthorizedNetworkName',
-        'cluster_id' => 'getClusterId',
         'current_vpc_endpoint_id' => 'getCurrentVpcEndpointId',
+        'instance_id' => 'getInstanceId',
         'new_vpc_endpoint_id' => 'getNewVpcEndpointId',
         'project_name' => 'getProjectName'
     ];
@@ -139,16 +139,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -169,8 +159,8 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['authorized_network_name'] = isset($data['authorized_network_name']) ? $data['authorized_network_name'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['current_vpc_endpoint_id'] = isset($data['current_vpc_endpoint_id']) ? $data['current_vpc_endpoint_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['new_vpc_endpoint_id'] = isset($data['new_vpc_endpoint_id']) ? $data['new_vpc_endpoint_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
@@ -184,11 +174,11 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         if ($this->container['current_vpc_endpoint_id'] === null) {
             $invalidProperties[] = "'current_vpc_endpoint_id' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -230,30 +220,6 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets current_vpc_endpoint_id
      *
      * @return string
@@ -273,6 +239,30 @@ class UpdatePrivateEndpointAllowlistRuleRequest implements ModelInterface, Array
     public function setCurrentVpcEndpointId($current_vpc_endpoint_id)
     {
         $this->container['current_vpc_endpoint_id'] = $current_vpc_endpoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

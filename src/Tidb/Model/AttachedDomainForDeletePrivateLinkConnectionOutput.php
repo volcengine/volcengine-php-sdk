@@ -29,10 +29,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
       */
     protected static $swaggerTypes = [
         'attach_domain_id' => 'string',
-        'cluster_id' => 'string',
         'create_time' => 'string',
         'created_by' => 'string',
         'domains' => '\Volcengine\Tidb\Model\DomainForDeletePrivateLinkConnectionOutput[]',
+        'instance_id' => 'string',
         'private_link_connection_id' => 'string',
         'type' => 'string',
         'unique_name' => 'string'
@@ -45,10 +45,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
       */
     protected static $swaggerFormats = [
         'attach_domain_id' => null,
-        'cluster_id' => null,
         'create_time' => null,
         'created_by' => null,
         'domains' => null,
+        'instance_id' => null,
         'private_link_connection_id' => null,
         'type' => null,
         'unique_name' => null
@@ -82,10 +82,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
      */
     protected static $attributeMap = [
         'attach_domain_id' => 'AttachDomainId',
-        'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'created_by' => 'CreatedBy',
         'domains' => 'Domains',
+        'instance_id' => 'InstanceId',
         'private_link_connection_id' => 'PrivateLinkConnectionId',
         'type' => 'Type',
         'unique_name' => 'UniqueName'
@@ -98,10 +98,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
      */
     protected static $setters = [
         'attach_domain_id' => 'setAttachDomainId',
-        'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'created_by' => 'setCreatedBy',
         'domains' => 'setDomains',
+        'instance_id' => 'setInstanceId',
         'private_link_connection_id' => 'setPrivateLinkConnectionId',
         'type' => 'setType',
         'unique_name' => 'setUniqueName'
@@ -114,10 +114,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
      */
     protected static $getters = [
         'attach_domain_id' => 'getAttachDomainId',
-        'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'created_by' => 'getCreatedBy',
         'domains' => 'getDomains',
+        'instance_id' => 'getInstanceId',
         'private_link_connection_id' => 'getPrivateLinkConnectionId',
         'type' => 'getType',
         'unique_name' => 'getUniqueName'
@@ -152,16 +152,6 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const TYPE_TIDBCLOUD_MANAGED = 'TIDBCLOUD_MANAGED';
@@ -199,10 +189,10 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
     public function __construct($data = null)
     {
         $this->container['attach_domain_id'] = isset($data['attach_domain_id']) ? $data['attach_domain_id'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
         $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['private_link_connection_id'] = isset($data['private_link_connection_id']) ? $data['private_link_connection_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['unique_name'] = isset($data['unique_name']) ? $data['unique_name'] : null;
@@ -260,30 +250,6 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
     public function setAttachDomainId($attach_domain_id)
     {
         $this->container['attach_domain_id'] = $attach_domain_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -356,6 +322,30 @@ class AttachedDomainForDeletePrivateLinkConnectionOutput implements ModelInterfa
     public function setDomains($domains)
     {
         $this->container['domains'] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

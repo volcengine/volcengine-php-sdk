@@ -30,7 +30,8 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'classify_dimension' => 'int',
         'classify_item' => 'string',
-        'costs' => '\Volcengine\Billing\Model\CostForListCostAnalysisOpenApiOutput[]'
+        'costs' => '\Volcengine\Billing\Model\CostForListCostAnalysisOpenApiOutput[]',
+        'dimensions' => '\Volcengine\Billing\Model\DimensionForListCostAnalysisOpenApiOutput[]'
     ];
 
     /**
@@ -41,7 +42,8 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'classify_dimension' => 'int32',
         'classify_item' => null,
-        'costs' => null
+        'costs' => null,
+        'dimensions' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'classify_dimension' => 'ClassifyDimension',
         'classify_item' => 'ClassifyItem',
-        'costs' => 'Costs'
+        'costs' => 'Costs',
+        'dimensions' => 'Dimensions'
     ];
 
     /**
@@ -84,7 +87,8 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     protected static $setters = [
         'classify_dimension' => 'setClassifyDimension',
         'classify_item' => 'setClassifyItem',
-        'costs' => 'setCosts'
+        'costs' => 'setCosts',
+        'dimensions' => 'setDimensions'
     ];
 
     /**
@@ -95,7 +99,8 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     protected static $getters = [
         'classify_dimension' => 'getClassifyDimension',
         'classify_item' => 'getClassifyItem',
-        'costs' => 'getCosts'
+        'costs' => 'getCosts',
+        'dimensions' => 'getDimensions'
     ];
 
     /**
@@ -129,16 +134,6 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -161,6 +156,7 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
         $this->container['classify_dimension'] = isset($data['classify_dimension']) ? $data['classify_dimension'] : null;
         $this->container['classify_item'] = isset($data['classify_item']) ? $data['classify_item'] : null;
         $this->container['costs'] = isset($data['costs']) ? $data['costs'] : null;
+        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
     }
 
     /**
@@ -255,6 +251,30 @@ class CostDataForListCostAnalysisOpenApiOutput implements ModelInterface, ArrayA
     public function setCosts($costs)
     {
         $this->container['costs'] = $costs;
+
+        return $this;
+    }
+
+    /**
+     * Gets dimensions
+     *
+     * @return \Volcengine\Billing\Model\DimensionForListCostAnalysisOpenApiOutput[]
+     */
+    public function getDimensions()
+    {
+        return $this->container['dimensions'];
+    }
+
+    /**
+     * Sets dimensions
+     *
+     * @param \Volcengine\Billing\Model\DimensionForListCostAnalysisOpenApiOutput[] $dimensions dimensions
+     *
+     * @return $this
+     */
+    public function setDimensions($dimensions)
+    {
+        $this->container['dimensions'] = $dimensions;
 
         return $this;
     }

@@ -29,10 +29,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_scaling' => '\Volcengine\Tidb\Model\AutoScalingForListRecycledInstancesOutput',
-        'cluster_id' => 'string',
         'delete_time' => 'string',
         'display_name' => 'string',
         'enhanced_encryption_enabled' => 'bool',
+        'instance_id' => 'string',
+        'instance_name' => 'string',
         'region_id' => 'string',
         'tags' => '\Volcengine\Tidb\Model\TagForListRecycledInstancesOutput[]',
         'vpc_id' => 'string',
@@ -47,10 +48,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_scaling' => null,
-        'cluster_id' => null,
         'delete_time' => null,
         'display_name' => null,
         'enhanced_encryption_enabled' => null,
+        'instance_id' => null,
+        'instance_name' => null,
         'region_id' => null,
         'tags' => null,
         'vpc_id' => null,
@@ -86,10 +88,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_scaling' => 'AutoScaling',
-        'cluster_id' => 'ClusterId',
         'delete_time' => 'DeleteTime',
         'display_name' => 'DisplayName',
         'enhanced_encryption_enabled' => 'EnhancedEncryptionEnabled',
+        'instance_id' => 'InstanceId',
+        'instance_name' => 'InstanceName',
         'region_id' => 'RegionId',
         'tags' => 'Tags',
         'vpc_id' => 'VpcId',
@@ -104,10 +107,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_scaling' => 'setAutoScaling',
-        'cluster_id' => 'setClusterId',
         'delete_time' => 'setDeleteTime',
         'display_name' => 'setDisplayName',
         'enhanced_encryption_enabled' => 'setEnhancedEncryptionEnabled',
+        'instance_id' => 'setInstanceId',
+        'instance_name' => 'setInstanceName',
         'region_id' => 'setRegionId',
         'tags' => 'setTags',
         'vpc_id' => 'setVpcId',
@@ -122,10 +126,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_scaling' => 'getAutoScaling',
-        'cluster_id' => 'getClusterId',
         'delete_time' => 'getDeleteTime',
         'display_name' => 'getDisplayName',
         'enhanced_encryption_enabled' => 'getEnhancedEncryptionEnabled',
+        'instance_id' => 'getInstanceId',
+        'instance_name' => 'getInstanceName',
         'region_id' => 'getRegionId',
         'tags' => 'getTags',
         'vpc_id' => 'getVpcId',
@@ -164,16 +169,6 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -194,10 +189,11 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['auto_scaling'] = isset($data['auto_scaling']) ? $data['auto_scaling'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['delete_time'] = isset($data['delete_time']) ? $data['delete_time'] : null;
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['enhanced_encryption_enabled'] = isset($data['enhanced_encryption_enabled']) ? $data['enhanced_encryption_enabled'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -249,30 +245,6 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
     public function setAutoScaling($auto_scaling)
     {
         $this->container['auto_scaling'] = $auto_scaling;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
 
         return $this;
     }
@@ -345,6 +317,54 @@ class ItemForListRecycledInstancesOutput implements ModelInterface, ArrayAccess
     public function setEnhancedEncryptionEnabled($enhanced_encryption_enabled)
     {
         $this->container['enhanced_encryption_enabled'] = $enhanced_encryption_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
 
         return $this;
     }

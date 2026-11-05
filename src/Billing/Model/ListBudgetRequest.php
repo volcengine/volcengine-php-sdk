@@ -149,16 +149,6 @@ class ListBudgetRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUDGET_TYPE_COST_BUDGET = 'cost_budget';
     const ORDER_BY_RATIO = 'ratio';
     const ORDER_TYPE_ASC = 'asc';

@@ -31,6 +31,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         'begin_time_str' => 'string',
         'classify_dimension' => 'int',
         'classify_dimension_value' => 'string',
+        'classify_dimensions' => '\Volcengine\Billing\Model\ClassifyDimensionForListCostAnalysisOpenApiInput[]',
         'cost_type' => 'int',
         'end_time_str' => 'string',
         'filters' => '\Volcengine\Billing\Model\FilterForListCostAnalysisOpenApiInput[]',
@@ -48,6 +49,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         'begin_time_str' => null,
         'classify_dimension' => 'int32',
         'classify_dimension_value' => null,
+        'classify_dimensions' => null,
         'cost_type' => 'int32',
         'end_time_str' => null,
         'filters' => null,
@@ -86,6 +88,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         'begin_time_str' => 'BeginTimeStr',
         'classify_dimension' => 'ClassifyDimension',
         'classify_dimension_value' => 'ClassifyDimensionValue',
+        'classify_dimensions' => 'ClassifyDimensions',
         'cost_type' => 'CostType',
         'end_time_str' => 'EndTimeStr',
         'filters' => 'Filters',
@@ -103,6 +106,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         'begin_time_str' => 'setBeginTimeStr',
         'classify_dimension' => 'setClassifyDimension',
         'classify_dimension_value' => 'setClassifyDimensionValue',
+        'classify_dimensions' => 'setClassifyDimensions',
         'cost_type' => 'setCostType',
         'end_time_str' => 'setEndTimeStr',
         'filters' => 'setFilters',
@@ -120,6 +124,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         'begin_time_str' => 'getBeginTimeStr',
         'classify_dimension' => 'getClassifyDimension',
         'classify_dimension_value' => 'getClassifyDimensionValue',
+        'classify_dimensions' => 'getClassifyDimensions',
         'cost_type' => 'getCostType',
         'end_time_str' => 'getEndTimeStr',
         'filters' => 'getFilters',
@@ -159,16 +164,6 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -191,6 +186,7 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
         $this->container['begin_time_str'] = isset($data['begin_time_str']) ? $data['begin_time_str'] : null;
         $this->container['classify_dimension'] = isset($data['classify_dimension']) ? $data['classify_dimension'] : null;
         $this->container['classify_dimension_value'] = isset($data['classify_dimension_value']) ? $data['classify_dimension_value'] : null;
+        $this->container['classify_dimensions'] = isset($data['classify_dimensions']) ? $data['classify_dimensions'] : null;
         $this->container['cost_type'] = isset($data['cost_type']) ? $data['cost_type'] : null;
         $this->container['end_time_str'] = isset($data['end_time_str']) ? $data['end_time_str'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
@@ -210,9 +206,6 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['begin_time_str'] === null) {
             $invalidProperties[] = "'begin_time_str' can't be null";
-        }
-        if ($this->container['classify_dimension'] === null) {
-            $invalidProperties[] = "'classify_dimension' can't be null";
         }
         if ($this->container['cost_type'] === null) {
             $invalidProperties[] = "'cost_type' can't be null";
@@ -312,6 +305,30 @@ class ListCostAnalysisOpenApiRequest implements ModelInterface, ArrayAccess
     public function setClassifyDimensionValue($classify_dimension_value)
     {
         $this->container['classify_dimension_value'] = $classify_dimension_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets classify_dimensions
+     *
+     * @return \Volcengine\Billing\Model\ClassifyDimensionForListCostAnalysisOpenApiInput[]
+     */
+    public function getClassifyDimensions()
+    {
+        return $this->container['classify_dimensions'];
+    }
+
+    /**
+     * Sets classify_dimensions
+     *
+     * @param \Volcengine\Billing\Model\ClassifyDimensionForListCostAnalysisOpenApiInput[] $classify_dimensions classify_dimensions
+     *
+     * @return $this
+     */
+    public function setClassifyDimensions($classify_dimensions)
+    {
+        $this->container['classify_dimensions'] = $classify_dimensions;
 
         return $this;
     }

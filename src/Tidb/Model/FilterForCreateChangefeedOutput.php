@@ -134,16 +134,6 @@ class FilterForCreateChangefeedOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const MODE_IGNORE_NOT_SUPPORT_TABLE = 'IGNORE_NOT_SUPPORT_TABLE';
     const MODE_FORCE_SYNC = 'FORCE_SYNC';
     

@@ -32,7 +32,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         'claw_type' => 'string',
         'external_claw_id' => 'string',
         'name' => 'string',
-        'source' => 'string'
+        'personal_claw' => '\Volcengine\Clawsentry\Model\PersonalClawForCreateClawInput',
+        'source' => 'string',
+        'tags' => 'string[]'
     ];
 
     /**
@@ -45,7 +47,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         'claw_type' => null,
         'external_claw_id' => null,
         'name' => null,
-        'source' => null
+        'personal_claw' => null,
+        'source' => null,
+        'tags' => null
     ];
 
     /**
@@ -79,7 +83,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         'claw_type' => 'ClawType',
         'external_claw_id' => 'ExternalClawID',
         'name' => 'Name',
-        'source' => 'Source'
+        'personal_claw' => 'PersonalClaw',
+        'source' => 'Source',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -92,7 +98,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         'claw_type' => 'setClawType',
         'external_claw_id' => 'setExternalClawId',
         'name' => 'setName',
-        'source' => 'setSource'
+        'personal_claw' => 'setPersonalClaw',
+        'source' => 'setSource',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,7 +113,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         'claw_type' => 'getClawType',
         'external_claw_id' => 'getExternalClawId',
         'name' => 'getName',
-        'source' => 'getSource'
+        'personal_claw' => 'getPersonalClaw',
+        'source' => 'getSource',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -139,16 +149,6 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CLAW_TYPE_ARKCLAW = 'arkclaw';
     const CLAW_TYPE_OPENCLAW = 'openclaw';
     const CLAW_TYPE_HERMES = 'hermes';
@@ -158,9 +158,29 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
     const CLAW_TYPE_CODEX = 'codex';
     const CLAW_TYPE_COCO = 'coco';
     const CLAW_TYPE_TRAE = 'trae';
+    const CLAW_TYPE_WORK_BUDDY = 'work_buddy';
+    const CLAW_TYPE_DIFY = 'dify';
+    const CLAW_TYPE_HIAGENT = 'hiagent';
+    const CLAW_TYPE_ARKCLAW_DESKTOP = 'arkclaw_desktop';
+    const CLAW_TYPE_EXTERNAL = 'external';
+    const CLAW_TYPE_TRAE_WORK = 'trae_work';
+    const CLAW_TYPE_CLAUDE_CODE = 'claude_code';
+    const CLAW_TYPE_CURSOR = 'cursor';
+    const CLAW_TYPE_ZCODE = 'zcode';
+    const CLAW_TYPE_QWENPAW = 'qwenpaw';
+    const CLAW_TYPE_MODEL_ROUTE = 'model_route';
+    const CLAW_TYPE_COPILOT = 'copilot';
+    const CLAW_TYPE_QODER = 'qoder';
+    const CLAW_TYPE_ENDPOINT = 'endpoint';
+    const CLAW_TYPE_OTHER = 'other';
     const SOURCE_ARKCLAW = 'arkclaw';
     const SOURCE_THIRD_PARTY = 'third_party';
     const SOURCE_HIBOT = 'hibot';
+    const SOURCE_DIFY = 'dify';
+    const SOURCE_COZE = 'coze';
+    const SOURCE_HIAGENT = 'hiagent';
+    const SOURCE_PINGAN = 'pingan';
+    const SOURCE_SYSTEM = 'system';
     
 
     
@@ -181,6 +201,21 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
             self::CLAW_TYPE_CODEX,
             self::CLAW_TYPE_COCO,
             self::CLAW_TYPE_TRAE,
+            self::CLAW_TYPE_WORK_BUDDY,
+            self::CLAW_TYPE_DIFY,
+            self::CLAW_TYPE_HIAGENT,
+            self::CLAW_TYPE_ARKCLAW_DESKTOP,
+            self::CLAW_TYPE_EXTERNAL,
+            self::CLAW_TYPE_TRAE_WORK,
+            self::CLAW_TYPE_CLAUDE_CODE,
+            self::CLAW_TYPE_CURSOR,
+            self::CLAW_TYPE_ZCODE,
+            self::CLAW_TYPE_QWENPAW,
+            self::CLAW_TYPE_MODEL_ROUTE,
+            self::CLAW_TYPE_COPILOT,
+            self::CLAW_TYPE_QODER,
+            self::CLAW_TYPE_ENDPOINT,
+            self::CLAW_TYPE_OTHER,
         ];
     }
     
@@ -195,6 +230,11 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
             self::SOURCE_ARKCLAW,
             self::SOURCE_THIRD_PARTY,
             self::SOURCE_HIBOT,
+            self::SOURCE_DIFY,
+            self::SOURCE_COZE,
+            self::SOURCE_HIAGENT,
+            self::SOURCE_PINGAN,
+            self::SOURCE_SYSTEM,
         ];
     }
     
@@ -218,7 +258,9 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
         $this->container['claw_type'] = isset($data['claw_type']) ? $data['claw_type'] : null;
         $this->container['external_claw_id'] = isset($data['external_claw_id']) ? $data['external_claw_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['personal_claw'] = isset($data['personal_claw']) ? $data['personal_claw'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -370,6 +412,30 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets personal_claw
+     *
+     * @return \Volcengine\Clawsentry\Model\PersonalClawForCreateClawInput
+     */
+    public function getPersonalClaw()
+    {
+        return $this->container['personal_claw'];
+    }
+
+    /**
+     * Sets personal_claw
+     *
+     * @param \Volcengine\Clawsentry\Model\PersonalClawForCreateClawInput $personal_claw personal_claw
+     *
+     * @return $this
+     */
+    public function setPersonalClaw($personal_claw)
+    {
+        $this->container['personal_claw'] = $personal_claw;
+
+        return $this;
+    }
+
+    /**
      * Gets source
      *
      * @return string
@@ -398,6 +464,30 @@ class CreateClawRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

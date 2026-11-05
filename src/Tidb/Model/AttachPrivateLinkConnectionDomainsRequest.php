@@ -29,7 +29,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'attach_domain' => '\Volcengine\Tidb\Model\AttachDomainForAttachPrivateLinkConnectionDomainsInput',
-        'cluster_id' => 'string',
+        'instance_id' => 'string',
         'private_link_connection_id' => 'string',
         'project_name' => 'string',
         'validate_only' => 'bool'
@@ -42,7 +42,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'attach_domain' => null,
-        'cluster_id' => null,
+        'instance_id' => null,
         'private_link_connection_id' => null,
         'project_name' => null,
         'validate_only' => null
@@ -76,7 +76,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'attach_domain' => 'AttachDomain',
-        'cluster_id' => 'ClusterId',
+        'instance_id' => 'InstanceId',
         'private_link_connection_id' => 'PrivateLinkConnectionId',
         'project_name' => 'ProjectName',
         'validate_only' => 'ValidateOnly'
@@ -89,7 +89,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'attach_domain' => 'setAttachDomain',
-        'cluster_id' => 'setClusterId',
+        'instance_id' => 'setInstanceId',
         'private_link_connection_id' => 'setPrivateLinkConnectionId',
         'project_name' => 'setProjectName',
         'validate_only' => 'setValidateOnly'
@@ -102,7 +102,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'attach_domain' => 'getAttachDomain',
-        'cluster_id' => 'getClusterId',
+        'instance_id' => 'getInstanceId',
         'private_link_connection_id' => 'getPrivateLinkConnectionId',
         'project_name' => 'getProjectName',
         'validate_only' => 'getValidateOnly'
@@ -139,16 +139,6 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -169,7 +159,7 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
     public function __construct($data = null)
     {
         $this->container['attach_domain'] = isset($data['attach_domain']) ? $data['attach_domain'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['private_link_connection_id'] = isset($data['private_link_connection_id']) ? $data['private_link_connection_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['validate_only'] = isset($data['validate_only']) ? $data['validate_only'] : null;
@@ -184,8 +174,8 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         if ($this->container['private_link_connection_id'] === null) {
             $invalidProperties[] = "'private_link_connection_id' can't be null";
@@ -230,25 +220,25 @@ class AttachPrivateLinkConnectionDomainsRequest implements ModelInterface, Array
     }
 
     /**
-     * Gets cluster_id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getInstanceId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets instance_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

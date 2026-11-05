@@ -139,16 +139,6 @@ class ProjectTaskSourceDownloadRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DIR_TYPE_LOCALE = 'locale';
     const DIR_TYPE_PRIMARY = 'primary';
     const FORMAT_XML = 'xml';

@@ -812,6 +812,68 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getPaymentQualification($body = null)
+    {
+        list($response) = $this->getPaymentQualificationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPaymentQualificationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\GetPaymentQualificationResponse';
+        $request = $this->getPaymentQualificationRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPaymentQualificationAsync($body = null)
+    {
+        return $this->getPaymentQualificationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPaymentQualificationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\GetPaymentQualificationResponse';
+        $request = $this->getPaymentQualificationRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPaymentQualificationRequest($body)
+    {
+        $resourcePath = '/GetPaymentQualification/2022-01-01/billing/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function handleInvitation($body = null)
     {
         list($response) = $this->handleInvitationWithHttpInfo($body);
@@ -2362,6 +2424,68 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listElement($body = null)
+    {
+        list($response) = $this->listElementWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listElementWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListElementResponse';
+        $request = $this->listElementRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listElementAsync($body = null)
+    {
+        return $this->listElementAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listElementAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListElementResponse';
+        $request = $this->listElementRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listElementRequest($body)
+    {
+        $resourcePath = '/ListElement/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listFinancialRelation($body = null)
     {
         list($response) = $this->listFinancialRelationWithHttpInfo($body);
@@ -2644,6 +2768,130 @@ class BILLINGApi
     protected function listPackageUsageDetailsRequest($body)
     {
         $resourcePath = '/ListPackageUsageDetails/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listProduct($body = null)
+    {
+        list($response) = $this->listProductWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listProductWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListProductResponse';
+        $request = $this->listProductRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listProductAsync($body = null)
+    {
+        return $this->listProductAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listProductAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListProductResponse';
+        $request = $this->listProductRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listProductRequest($body)
+    {
+        $resourcePath = '/ListProduct/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listProductStructure($body = null)
+    {
+        list($response) = $this->listProductStructureWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listProductStructureWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListProductStructureResponse';
+        $request = $this->listProductStructureRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listProductStructureAsync($body = null)
+    {
+        return $this->listProductStructureAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listProductStructureAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListProductStructureResponse';
+        $request = $this->listProductStructureRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listProductStructureRequest($body)
+    {
+        $resourcePath = '/ListProductStructure/2022-01-01/billing/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

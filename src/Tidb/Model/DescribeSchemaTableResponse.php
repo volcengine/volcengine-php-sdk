@@ -28,9 +28,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'gc_safe_point' => 'string',
         'handle_key_tables' => 'string[]',
+        'instance_id' => 'string',
         'non_handle_key_tables' => 'string[]'
     ];
 
@@ -40,9 +40,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'gc_safe_point' => null,
         'handle_key_tables' => null,
+        'instance_id' => null,
         'non_handle_key_tables' => null
     ];
 
@@ -73,9 +73,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'gc_safe_point' => 'GcSafePoint',
         'handle_key_tables' => 'HandleKeyTables',
+        'instance_id' => 'InstanceId',
         'non_handle_key_tables' => 'NonHandleKeyTables'
     ];
 
@@ -85,9 +85,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'gc_safe_point' => 'setGcSafePoint',
         'handle_key_tables' => 'setHandleKeyTables',
+        'instance_id' => 'setInstanceId',
         'non_handle_key_tables' => 'setNonHandleKeyTables'
     ];
 
@@ -97,9 +97,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'gc_safe_point' => 'getGcSafePoint',
         'handle_key_tables' => 'getHandleKeyTables',
+        'instance_id' => 'getInstanceId',
         'non_handle_key_tables' => 'getNonHandleKeyTables'
     ];
 
@@ -134,16 +134,6 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -163,9 +153,9 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['gc_safe_point'] = isset($data['gc_safe_point']) ? $data['gc_safe_point'] : null;
         $this->container['handle_key_tables'] = isset($data['handle_key_tables']) ? $data['handle_key_tables'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['non_handle_key_tables'] = isset($data['non_handle_key_tables']) ? $data['non_handle_key_tables'] : null;
     }
 
@@ -192,30 +182,6 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets gc_safe_point
@@ -261,6 +227,30 @@ class DescribeSchemaTableResponse implements ModelInterface, ArrayAccess
     public function setHandleKeyTables($handle_key_tables)
     {
         $this->container['handle_key_tables'] = $handle_key_tables;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

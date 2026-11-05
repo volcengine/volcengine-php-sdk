@@ -134,16 +134,6 @@ class BudgetAlertRuleForUpdateBudgetInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUDGET_ALERT_ITEM_ACTUAL_AMOUNT = 'actual_amount';
     const BUDGET_ALERT_THRESHOLD_TYPE_AMOUNT = 'amount';
     const BUDGET_ALERT_THRESHOLD_TYPE_RATIO = 'ratio';

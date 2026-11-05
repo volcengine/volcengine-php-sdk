@@ -154,16 +154,6 @@ class ListSlowQueryAdviceApiRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const ADVICE_TYPE_NO_ADVICE = 'no_advice';
     const ADVICE_TYPE_INDEX_ADVICE = 'index_advice';
     const ADVICE_TYPE_REWRITE_SQL_ADVICE = 'rewrite_sql_advice';

@@ -134,16 +134,6 @@ class PartitionDispatcherForEditChangefeedOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const PARTITION_TYPE_TABLE = 'TABLE';
     const PARTITION_TYPE_INDEX_VALUE = 'INDEX_VALUE';
     const PARTITION_TYPE_TS = 'TS';

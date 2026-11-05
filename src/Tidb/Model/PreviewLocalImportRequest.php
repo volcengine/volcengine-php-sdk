@@ -28,9 +28,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'csv_format' => '\Volcengine\Tidb\Model\CsvFormatForPreviewLocalImportInput',
         'file_type' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'upload_id' => 'string'
     ];
@@ -41,9 +41,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'csv_format' => null,
         'file_type' => null,
+        'instance_id' => null,
         'project_name' => null,
         'upload_id' => null
     ];
@@ -75,9 +75,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'csv_format' => 'CsvFormat',
         'file_type' => 'FileType',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'upload_id' => 'UploadId'
     ];
@@ -88,9 +88,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'csv_format' => 'setCsvFormat',
         'file_type' => 'setFileType',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'upload_id' => 'setUploadId'
     ];
@@ -101,9 +101,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'csv_format' => 'getCsvFormat',
         'file_type' => 'getFileType',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'upload_id' => 'getUploadId'
     ];
@@ -137,16 +137,6 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const FILE_TYPE_CSV = 'CSV';
@@ -187,9 +177,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['csv_format'] = isset($data['csv_format']) ? $data['csv_format'] : null;
         $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['upload_id'] = isset($data['upload_id']) ? $data['upload_id'] : null;
     }
@@ -203,9 +193,6 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         if ($this->container['file_type'] === null) {
             $invalidProperties[] = "'file_type' can't be null";
         }
@@ -217,6 +204,9 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         if ($this->container['upload_id'] === null) {
             $invalidProperties[] = "'upload_id' can't be null";
         }
@@ -234,30 +224,6 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets csv_format
@@ -312,6 +278,30 @@ class PreviewLocalImportRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['file_type'] = $file_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

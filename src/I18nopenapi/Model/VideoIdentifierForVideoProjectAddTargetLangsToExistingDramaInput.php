@@ -29,6 +29,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
       */
     protected static $swaggerTypes = [
         'episode_num' => 'int',
+        'target_lang2_effect_subtitle' => '\Volcengine\I18nopenapi\Model\TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]',
         'target_lang2_subtitle' => '\Volcengine\I18nopenapi\Model\TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]'
     ];
 
@@ -39,6 +40,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
       */
     protected static $swaggerFormats = [
         'episode_num' => 'int32',
+        'target_lang2_effect_subtitle' => null,
         'target_lang2_subtitle' => null
     ];
 
@@ -70,6 +72,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $attributeMap = [
         'episode_num' => 'episodeNum',
+        'target_lang2_effect_subtitle' => 'targetLang2EffectSubtitle',
         'target_lang2_subtitle' => 'targetLang2Subtitle'
     ];
 
@@ -80,6 +83,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $setters = [
         'episode_num' => 'setEpisodeNum',
+        'target_lang2_effect_subtitle' => 'setTargetLang2EffectSubtitle',
         'target_lang2_subtitle' => 'setTargetLang2Subtitle'
     ];
 
@@ -90,6 +94,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
      */
     protected static $getters = [
         'episode_num' => 'getEpisodeNum',
+        'target_lang2_effect_subtitle' => 'getTargetLang2EffectSubtitle',
         'target_lang2_subtitle' => 'getTargetLang2Subtitle'
     ];
 
@@ -124,16 +129,6 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -154,6 +149,7 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
     public function __construct($data = null)
     {
         $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
+        $this->container['target_lang2_effect_subtitle'] = isset($data['target_lang2_effect_subtitle']) ? $data['target_lang2_effect_subtitle'] : null;
         $this->container['target_lang2_subtitle'] = isset($data['target_lang2_subtitle']) ? $data['target_lang2_subtitle'] : null;
     }
 
@@ -201,6 +197,30 @@ class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput implement
     public function setEpisodeNum($episode_num)
     {
         $this->container['episode_num'] = $episode_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_lang2_effect_subtitle
+     *
+     * @return \Volcengine\I18nopenapi\Model\TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput[]
+     */
+    public function getTargetLang2EffectSubtitle()
+    {
+        return $this->container['target_lang2_effect_subtitle'];
+    }
+
+    /**
+     * Sets target_lang2_effect_subtitle
+     *
+     * @param \Volcengine\I18nopenapi\Model\TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput[] $target_lang2_effect_subtitle target_lang2_effect_subtitle
+     *
+     * @return $this
+     */
+    public function setTargetLang2EffectSubtitle($target_lang2_effect_subtitle)
+    {
+        $this->container['target_lang2_effect_subtitle'] = $target_lang2_effect_subtitle;
 
         return $this;
     }

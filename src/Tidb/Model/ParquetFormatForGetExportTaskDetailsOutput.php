@@ -119,16 +119,6 @@ class ParquetFormatForGetExportTaskDetailsOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const COMPRESSION_GZIP = 'GZIP';
     const COMPRESSION_SNAPPY = 'SNAPPY';
     const COMPRESSION_ZSTD = 'ZSTD';

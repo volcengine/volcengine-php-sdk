@@ -28,10 +28,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'import_options' => '\Volcengine\Tidb\Model\ImportOptionsForPrecheckImportTaskInput',
+        'instance_id' => 'string',
         'project_name' => 'string',
-        'source' => '\Volcengine\Tidb\Model\SourceForPrecheckImportTaskInput'
+        'source' => '\Volcengine\Tidb\Model\SourceForPrecheckImportTaskInput',
+        'table_metas' => '\Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskInput[]'
     ];
 
     /**
@@ -40,10 +41,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'import_options' => null,
+        'instance_id' => null,
         'project_name' => null,
-        'source' => null
+        'source' => null,
+        'table_metas' => null
     ];
 
     /**
@@ -73,10 +75,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'import_options' => 'ImportOptions',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
-        'source' => 'Source'
+        'source' => 'Source',
+        'table_metas' => 'TableMetas'
     ];
 
     /**
@@ -85,10 +88,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'import_options' => 'setImportOptions',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
-        'source' => 'setSource'
+        'source' => 'setSource',
+        'table_metas' => 'setTableMetas'
     ];
 
     /**
@@ -97,10 +101,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'import_options' => 'getImportOptions',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
-        'source' => 'getSource'
+        'source' => 'getSource',
+        'table_metas' => 'getTableMetas'
     ];
 
     /**
@@ -134,16 +139,6 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -163,10 +158,11 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['import_options'] = isset($data['import_options']) ? $data['import_options'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['table_metas'] = isset($data['table_metas']) ? $data['table_metas'] : null;
     }
 
     /**
@@ -178,8 +174,8 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -195,30 +191,6 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets import_options
@@ -240,6 +212,30 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
     public function setImportOptions($import_options)
     {
         $this->container['import_options'] = $import_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
@@ -288,6 +284,30 @@ class PrecheckImportTaskRequest implements ModelInterface, ArrayAccess
     public function setSource($source)
     {
         $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_metas
+     *
+     * @return \Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskInput[]
+     */
+    public function getTableMetas()
+    {
+        return $this->container['table_metas'];
+    }
+
+    /**
+     * Sets table_metas
+     *
+     * @param \Volcengine\Tidb\Model\TableMetaForPrecheckImportTaskInput[] $table_metas table_metas
+     *
+     * @return $this
+     */
+    public function setTableMetas($table_metas)
+    {
+        $this->container['table_metas'] = $table_metas;
 
         return $this;
     }

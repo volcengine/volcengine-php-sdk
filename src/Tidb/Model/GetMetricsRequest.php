@@ -28,8 +28,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'end' => 'int',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'query' => 'string',
         'start' => 'int',
@@ -42,8 +42,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'end' => 'int64',
+        'instance_id' => null,
         'project_name' => null,
         'query' => null,
         'start' => 'int64',
@@ -77,8 +77,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'end' => 'End',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'query' => 'Query',
         'start' => 'Start',
@@ -91,8 +91,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'end' => 'setEnd',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'query' => 'setQuery',
         'start' => 'setStart',
@@ -105,8 +105,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'end' => 'getEnd',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'query' => 'getQuery',
         'start' => 'getStart',
@@ -144,16 +144,6 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -173,8 +163,8 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
@@ -190,11 +180,11 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         if ($this->container['end'] === null) {
             $invalidProperties[] = "'end' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         if ($this->container['query'] === null) {
             $invalidProperties[] = "'query' can't be null";
@@ -218,30 +208,6 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets end
      *
      * @return int
@@ -261,6 +227,30 @@ class GetMetricsRequest implements ModelInterface, ArrayAccess
     public function setEnd($end)
     {
         $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

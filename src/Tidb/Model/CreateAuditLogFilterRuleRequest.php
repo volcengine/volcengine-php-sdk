@@ -28,9 +28,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'filter_rule_name' => 'string',
         'filters' => '\Volcengine\Tidb\Model\FilterForCreateAuditLogFilterRuleInput[]',
+        'instance_id' => 'string',
         'project_name' => 'string',
         'users' => 'string[]'
     ];
@@ -41,9 +41,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'filter_rule_name' => null,
         'filters' => null,
+        'instance_id' => null,
         'project_name' => null,
         'users' => null
     ];
@@ -75,9 +75,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'filter_rule_name' => 'FilterRuleName',
         'filters' => 'Filters',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName',
         'users' => 'Users'
     ];
@@ -88,9 +88,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'filter_rule_name' => 'setFilterRuleName',
         'filters' => 'setFilters',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName',
         'users' => 'setUsers'
     ];
@@ -101,9 +101,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'filter_rule_name' => 'getFilterRuleName',
         'filters' => 'getFilters',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName',
         'users' => 'getUsers'
     ];
@@ -139,16 +139,6 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -168,9 +158,9 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['filter_rule_name'] = isset($data['filter_rule_name']) ? $data['filter_rule_name'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
     }
@@ -184,11 +174,11 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
-        }
         if ($this->container['filter_rule_name'] === null) {
             $invalidProperties[] = "'filter_rule_name' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -204,30 +194,6 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets filter_rule_name
@@ -273,6 +239,30 @@ class CreateAuditLogFilterRuleRequest implements ModelInterface, ArrayAccess
     public function setFilters($filters)
     {
         $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

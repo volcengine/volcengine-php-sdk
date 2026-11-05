@@ -29,9 +29,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
       */
     protected static $swaggerTypes = [
         'attached_domains' => '\Volcengine\Tidb\Model\AttachedDomainForCreatePrivateLinkConnectionInput[]',
-        'cluster_id' => 'string',
         'create_time' => 'string',
         'created_by' => 'string',
+        'instance_id' => 'string',
         'message' => 'string',
         'private_link_connection_id' => 'string',
         'private_link_connection_name' => 'string',
@@ -48,9 +48,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
       */
     protected static $swaggerFormats = [
         'attached_domains' => null,
-        'cluster_id' => null,
         'create_time' => null,
         'created_by' => null,
+        'instance_id' => null,
         'message' => null,
         'private_link_connection_id' => null,
         'private_link_connection_name' => null,
@@ -88,9 +88,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
      */
     protected static $attributeMap = [
         'attached_domains' => 'AttachedDomains',
-        'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'created_by' => 'CreatedBy',
+        'instance_id' => 'InstanceId',
         'message' => 'Message',
         'private_link_connection_id' => 'PrivateLinkConnectionId',
         'private_link_connection_name' => 'PrivateLinkConnectionName',
@@ -107,9 +107,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
      */
     protected static $setters = [
         'attached_domains' => 'setAttachedDomains',
-        'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'created_by' => 'setCreatedBy',
+        'instance_id' => 'setInstanceId',
         'message' => 'setMessage',
         'private_link_connection_id' => 'setPrivateLinkConnectionId',
         'private_link_connection_name' => 'setPrivateLinkConnectionName',
@@ -126,9 +126,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
      */
     protected static $getters = [
         'attached_domains' => 'getAttachedDomains',
-        'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'created_by' => 'getCreatedBy',
+        'instance_id' => 'getInstanceId',
         'message' => 'getMessage',
         'private_link_connection_id' => 'getPrivateLinkConnectionId',
         'private_link_connection_name' => 'getPrivateLinkConnectionName',
@@ -167,16 +167,6 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const STATE_CREATING = 'CREATING';
@@ -233,9 +223,9 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
     public function __construct($data = null)
     {
         $this->container['attached_domains'] = isset($data['attached_domains']) ? $data['attached_domains'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['private_link_connection_id'] = isset($data['private_link_connection_id']) ? $data['private_link_connection_id'] : null;
         $this->container['private_link_connection_name'] = isset($data['private_link_connection_name']) ? $data['private_link_connection_name'] : null;
@@ -310,30 +300,6 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets create_time
      *
      * @return string
@@ -377,6 +343,30 @@ class PrivateLinkConnectionForCreatePrivateLinkConnectionInput implements ModelI
     public function setCreatedBy($created_by)
     {
         $this->container['created_by'] = $created_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

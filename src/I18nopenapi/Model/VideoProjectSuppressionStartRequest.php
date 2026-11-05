@@ -164,16 +164,6 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -214,9 +204,6 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['arrange_ment'] === null) {
-            $invalidProperties[] = "'arrange_ment' can't be null";
-        }
         if ($this->container['encode'] === null) {
             $invalidProperties[] = "'encode' can't be null";
         }

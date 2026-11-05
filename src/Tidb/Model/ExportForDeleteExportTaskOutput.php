@@ -28,13 +28,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
         'complete_time' => 'string',
         'create_time' => 'string',
         'expire_time' => 'string',
         'export_id' => 'string',
         'export_options' => '\Volcengine\Tidb\Model\ExportOptionsForDeleteExportTaskOutput',
         'export_task_name' => 'string',
+        'instance_id' => 'string',
         'reason' => 'string',
         'snapshot_time' => 'string',
         'state' => 'string',
@@ -48,13 +48,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
         'complete_time' => null,
         'create_time' => null,
         'expire_time' => null,
         'export_id' => null,
         'export_options' => null,
         'export_task_name' => null,
+        'instance_id' => null,
         'reason' => null,
         'snapshot_time' => null,
         'state' => null,
@@ -89,13 +89,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
         'complete_time' => 'CompleteTime',
         'create_time' => 'CreateTime',
         'expire_time' => 'ExpireTime',
         'export_id' => 'ExportId',
         'export_options' => 'ExportOptions',
         'export_task_name' => 'ExportTaskName',
+        'instance_id' => 'InstanceId',
         'reason' => 'Reason',
         'snapshot_time' => 'SnapshotTime',
         'state' => 'State',
@@ -109,13 +109,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
         'complete_time' => 'setCompleteTime',
         'create_time' => 'setCreateTime',
         'expire_time' => 'setExpireTime',
         'export_id' => 'setExportId',
         'export_options' => 'setExportOptions',
         'export_task_name' => 'setExportTaskName',
+        'instance_id' => 'setInstanceId',
         'reason' => 'setReason',
         'snapshot_time' => 'setSnapshotTime',
         'state' => 'setState',
@@ -129,13 +129,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
         'complete_time' => 'getCompleteTime',
         'create_time' => 'getCreateTime',
         'expire_time' => 'getExpireTime',
         'export_id' => 'getExportId',
         'export_options' => 'getExportOptions',
         'export_task_name' => 'getExportTaskName',
+        'instance_id' => 'getInstanceId',
         'reason' => 'getReason',
         'snapshot_time' => 'getSnapshotTime',
         'state' => 'getState',
@@ -172,16 +172,6 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const STATE_RUNNING = 'RUNNING';
@@ -226,13 +216,13 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['complete_time'] = isset($data['complete_time']) ? $data['complete_time'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['export_id'] = isset($data['export_id']) ? $data['export_id'] : null;
         $this->container['export_options'] = isset($data['export_options']) ? $data['export_options'] : null;
         $this->container['export_task_name'] = isset($data['export_task_name']) ? $data['export_task_name'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['snapshot_time'] = isset($data['snapshot_time']) ? $data['snapshot_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -271,30 +261,6 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
 
     /**
      * Gets complete_time
@@ -436,6 +402,30 @@ class ExportForDeleteExportTaskOutput implements ModelInterface, ArrayAccess
     public function setExportTaskName($export_task_name)
     {
         $this->container['export_task_name'] = $export_task_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

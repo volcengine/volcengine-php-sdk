@@ -28,8 +28,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'close_time' => 'string',
         'create_time' => 'string',
-        'delete_time' => 'string',
         'last_update_time' => 'string',
         'source_ip' => 'string',
         'source_port' => 'int',
@@ -42,8 +42,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'close_time' => null,
         'create_time' => null,
-        'delete_time' => null,
         'last_update_time' => null,
         'source_ip' => null,
         'source_port' => 'int32',
@@ -77,8 +77,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'close_time' => 'CloseTime',
         'create_time' => 'CreateTime',
-        'delete_time' => 'DeleteTime',
         'last_update_time' => 'LastUpdateTime',
         'source_ip' => 'SourceIp',
         'source_port' => 'SourcePort',
@@ -91,8 +91,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'close_time' => 'setCloseTime',
         'create_time' => 'setCreateTime',
-        'delete_time' => 'setDeleteTime',
         'last_update_time' => 'setLastUpdateTime',
         'source_ip' => 'setSourceIp',
         'source_port' => 'setSourcePort',
@@ -105,8 +105,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'close_time' => 'getCloseTime',
         'create_time' => 'getCreateTime',
-        'delete_time' => 'getDeleteTime',
         'last_update_time' => 'getLastUpdateTime',
         'source_ip' => 'getSourceIp',
         'source_port' => 'getSourcePort',
@@ -173,8 +173,8 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
+        $this->container['close_time'] = isset($data['close_time']) ? $data['close_time'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['delete_time'] = isset($data['delete_time']) ? $data['delete_time'] : null;
         $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
         $this->container['source_ip'] = isset($data['source_ip']) ? $data['source_ip'] : null;
         $this->container['source_port'] = isset($data['source_port']) ? $data['source_port'] : null;
@@ -206,6 +206,30 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
 
 
     /**
+     * Gets close_time
+     *
+     * @return string
+     */
+    public function getCloseTime()
+    {
+        return $this->container['close_time'];
+    }
+
+    /**
+     * Sets close_time
+     *
+     * @param string $close_time close_time
+     *
+     * @return $this
+     */
+    public function setCloseTime($close_time)
+    {
+        $this->container['close_time'] = $close_time;
+
+        return $this;
+    }
+
+    /**
      * Gets create_time
      *
      * @return string
@@ -225,30 +249,6 @@ class RecordForDescribeTopicAuditInfoOutput implements ModelInterface, ArrayAcce
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets delete_time
-     *
-     * @return string
-     */
-    public function getDeleteTime()
-    {
-        return $this->container['delete_time'];
-    }
-
-    /**
-     * Sets delete_time
-     *
-     * @param string $delete_time delete_time
-     *
-     * @return $this
-     */
-    public function setDeleteTime($delete_time)
-    {
-        $this->container['delete_time'] = $delete_time;
 
         return $this;
     }

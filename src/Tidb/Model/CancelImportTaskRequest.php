@@ -28,8 +28,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cluster_id' => 'string',
-        'id' => 'string',
+        'import_id' => 'string',
+        'instance_id' => 'string',
         'project_name' => 'string'
     ];
 
@@ -39,8 +39,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cluster_id' => null,
-        'id' => null,
+        'import_id' => null,
+        'instance_id' => null,
         'project_name' => null
     ];
 
@@ -71,8 +71,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cluster_id' => 'ClusterId',
-        'id' => 'Id',
+        'import_id' => 'ImportId',
+        'instance_id' => 'InstanceId',
         'project_name' => 'ProjectName'
     ];
 
@@ -82,8 +82,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cluster_id' => 'setClusterId',
-        'id' => 'setId',
+        'import_id' => 'setImportId',
+        'instance_id' => 'setInstanceId',
         'project_name' => 'setProjectName'
     ];
 
@@ -93,8 +93,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cluster_id' => 'getClusterId',
-        'id' => 'getId',
+        'import_id' => 'getImportId',
+        'instance_id' => 'getInstanceId',
         'project_name' => 'getProjectName'
     ];
 
@@ -129,16 +129,6 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -158,8 +148,8 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['import_id'] = isset($data['import_id']) ? $data['import_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
@@ -172,11 +162,11 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cluster_id'] === null) {
-            $invalidProperties[] = "'cluster_id' can't be null";
+        if ($this->container['import_id'] === null) {
+            $invalidProperties[] = "'import_id' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,49 +184,49 @@ class CancelImportTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cluster_id
+     * Gets import_id
      *
      * @return string
      */
-    public function getClusterId()
+    public function getImportId()
     {
-        return $this->container['cluster_id'];
+        return $this->container['import_id'];
     }
 
     /**
-     * Sets cluster_id
+     * Sets import_id
      *
-     * @param string $cluster_id cluster_id
+     * @param string $import_id import_id
      *
      * @return $this
      */
-    public function setClusterId($cluster_id)
+    public function setImportId($import_id)
     {
-        $this->container['cluster_id'] = $cluster_id;
+        $this->container['import_id'] = $import_id;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets instance_id
      *
      * @return string
      */
-    public function getId()
+    public function getInstanceId()
     {
-        return $this->container['id'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets id
+     * Sets instance_id
      *
-     * @param string $id id
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setInstanceId($instance_id)
     {
-        $this->container['id'] = $id;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

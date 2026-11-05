@@ -32,10 +32,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         'changefeed_id' => 'string',
         'changefeed_name' => 'string',
         'checkpoint' => '\Volcengine\Tidb\Model\CheckpointForScaleChangefeedOutput',
-        'cluster_id' => 'string',
         'create_time' => 'string',
         'error' => 'string',
         'filter' => '\Volcengine\Tidb\Model\FilterForScaleChangefeedOutput',
+        'instance_id' => 'string',
         'rcu' => 'int',
         'sink' => '\Volcengine\Tidb\Model\SinkForScaleChangefeedOutput',
         'start_position' => '\Volcengine\Tidb\Model\StartPositionForScaleChangefeedOutput',
@@ -53,10 +53,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         'changefeed_id' => null,
         'changefeed_name' => null,
         'checkpoint' => null,
-        'cluster_id' => null,
         'create_time' => null,
         'error' => null,
         'filter' => null,
+        'instance_id' => null,
         'rcu' => 'int64',
         'sink' => null,
         'start_position' => null,
@@ -95,10 +95,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         'changefeed_id' => 'ChangefeedId',
         'changefeed_name' => 'ChangefeedName',
         'checkpoint' => 'Checkpoint',
-        'cluster_id' => 'ClusterId',
         'create_time' => 'CreateTime',
         'error' => 'Error',
         'filter' => 'Filter',
+        'instance_id' => 'InstanceId',
         'rcu' => 'Rcu',
         'sink' => 'Sink',
         'start_position' => 'StartPosition',
@@ -116,10 +116,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         'changefeed_id' => 'setChangefeedId',
         'changefeed_name' => 'setChangefeedName',
         'checkpoint' => 'setCheckpoint',
-        'cluster_id' => 'setClusterId',
         'create_time' => 'setCreateTime',
         'error' => 'setError',
         'filter' => 'setFilter',
+        'instance_id' => 'setInstanceId',
         'rcu' => 'setRcu',
         'sink' => 'setSink',
         'start_position' => 'setStartPosition',
@@ -137,10 +137,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         'changefeed_id' => 'getChangefeedId',
         'changefeed_name' => 'getChangefeedName',
         'checkpoint' => 'getCheckpoint',
-        'cluster_id' => 'getClusterId',
         'create_time' => 'getCreateTime',
         'error' => 'getError',
         'filter' => 'getFilter',
+        'instance_id' => 'getInstanceId',
         'rcu' => 'getRcu',
         'sink' => 'getSink',
         'start_position' => 'getStartPosition',
@@ -177,16 +177,6 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const ARCH_REPLICATION_WORKER = 'REPLICATION_WORKER';
@@ -256,10 +246,10 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
         $this->container['changefeed_id'] = isset($data['changefeed_id']) ? $data['changefeed_id'] : null;
         $this->container['changefeed_name'] = isset($data['changefeed_name']) ? $data['changefeed_name'] : null;
         $this->container['checkpoint'] = isset($data['checkpoint']) ? $data['checkpoint'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['rcu'] = isset($data['rcu']) ? $data['rcu'] : null;
         $this->container['sink'] = isset($data['sink']) ? $data['sink'] : null;
         $this->container['start_position'] = isset($data['start_position']) ? $data['start_position'] : null;
@@ -413,30 +403,6 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
      * Gets create_time
      *
      * @return string
@@ -504,6 +470,30 @@ class ChangefeedForScaleChangefeedOutput implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
