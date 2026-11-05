@@ -63,6 +63,18 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);  # 启用双栈，默认 false
 ```
 
+#### region 首尾空白与兼容性
+
+默认自动寻址按原始 region 校验，不会先 `trim()`。`" cn-beijing"`、`"cn-beijing "`、`"\tcn-beijing"`、`"cn-beijing\n"` 和纯空白字符串都会抛出 `Volcengine\Common\ApiException`，`getErrorCode()` 为 `InvalidRegion`，状态码为 400。
+
+- 直接调用 `DefaultEndpointProvider::endpointFor(...)` 时同样拒绝首尾空白。
+- 未显式设置 `host` 时，客户端在调用任何 Endpoint Provider、签名和发送请求之前校验 region。`Configuration::setRegion(...)` 只保存原值，不会自动 trim，也不会在设置时立即执行这项校验。
+- `null` 和空字符串仍沿用各入口原有的空值处理；纯空白字符串不属于空字符串。
+
+**与旧版本不同：** 现在带首尾空白的 region 会在本地以 `InvalidRegion` 失败。旧版本只在判断是否属于自动寻址 Region 列表时忽略首尾空白，签名使用的仍是原始 region；寻址能够返回结果并不代表带空白的 region 可以正常完成客户端请求。
+
+如果业务需要容忍文本输入的首尾空白，应在调用 `setRegion(...)` 或直接解析接口之前自行 `trim()`，并将处理后的同一个 region 用于客户端配置和寻址。不要只清理传给 Endpoint Provider 的值而保留签名使用的原值；trim 后的值仍须通过合法性校验。
+
 #### Endpoint 标准寻址
 
 标准寻址会根据服务是否为 Global 服务，按以下规则拼接 Endpoint：
@@ -114,9 +126,12 @@ $config = Configuration::getDefaultConfiguration()
 内置服务条目优先于 `$customServices`。自定义条目支持 `false`（区域级）、`true`（全局）、带 `isGlobal` 或 `IsGlobal` 的数组，以及带公开 `isGlobal` 或 `IsGlobal` 属性的对象。
 例如 `['mysvc' => false]`、`['mysvc' => ['isGlobal' => false]]`、`['mysvc' => (object) ['IsGlobal' => true]]`。
 
-非法参数抛出 `InvalidArgumentException`：service 或 region 非字符串/纯空白、区域格式不支持（消息包含 `InvalidRegion`）、服务未注册（`ServiceNotFound`）或自定义条目形态不支持。
+非空的 service 或 region 若不是合法的 endpoint 标签（只能包含 ASCII 字母、数字、`-` 和 `_`，以字母开头，且不以 `-` 或 `_` 结尾），会在拼接 host 之前抛出 `Volcengine\Common\ApiException`，通过 `getErrorCode()` 获取错误码 `InvalidService`/`InvalidRegion`，状态码 400；默认和标准 Provider 都会执行这项校验；未显式设置 host 时，客户端请求路径也会在调用任何 endpoint Provider 之前执行这项校验。
+其他非法参数抛出 `InvalidArgumentException`：service 或 region 非字符串/纯空白（客户端请求路径上，`' '`、`1` 这类非空值会先抛出上述 `ApiException`）、区域格式不支持（消息包含 `InvalidRegion`）、服务未注册（`ServiceNotFound`）或自定义条目形态不支持。
 引用不存在的模板变量现在会立即报错，消息包含 `TemplateExecuteError`。
 本 Provider 不提供 `StandProviderError` 或符号错误码方法 `getStandCode()`。模板字面量和替换值不做完整域名合法性校验。
+
+**与旧版本不同：** 使用 Standard Provider 时（直接调用 `endpointFor()`，或通过配置了它的客户端发请求），service 或 region 含非法字符（如 `cn-beijing.evil.com`、`x@127.0.0.1#`、带首尾空白的 `" cn-beijing"`、`ecs.evil.com`）抛出的异常由 `InvalidArgumentException` 改为 `Volcengine\Common\ApiException`，状态码 400，`getErrorCode()` 为 `InvalidRegion` / `InvalidService`；旧版本对这类 service 报的是 `ServiceNotFound`。`ApiException` 不继承 `InvalidArgumentException`，只捕获 `InvalidArgumentException` 的代码需要同时捕获 `ApiException`，或改为捕获二者共同的父类 `\Exception`。空值或纯空白、服务未注册、格式合法但不受支持的 region（如 `CN-BEIJING`）仍抛出 `InvalidArgumentException`，与旧版本相同。
 
 DualStack 显式 `true`/`false` 优先，`null` 时读取 `VOLC_ENABLE_DUALSTACK`。`customBootstrapRegion` 不参与 Standard 寻址。
 

@@ -66,6 +66,28 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setUseDualStack(true);    // enable dual-stack, default false
 ```
 
+#### Region Whitespace and Compatibility
+
+Default endpoint resolution validates the raw region without calling `trim()` first.
+Values such as `" cn-beijing"`, `"cn-beijing "`, `"\tcn-beijing"`, `"cn-beijing\n"`,
+and whitespace-only strings raise `Volcengine\Common\ApiException` with
+`getErrorCode()` equal to `InvalidRegion` and status 400.
+
+- Direct calls to `DefaultEndpointProvider::endpointFor(...)` also reject leading or trailing whitespace.
+- When no explicit `host` is set, the client validates the region before calling any Endpoint Provider, signing or sending the request. `Configuration::setRegion(...)` only stores the raw value; it neither trims it nor performs this validation immediately.
+- `null` and the empty string keep the existing missing-value handling of each entry point; a whitespace-only string is not an empty string.
+
+**Behavior change:** a region with surrounding whitespace now fails locally with
+`InvalidRegion`. Previous versions only ignored surrounding whitespace when
+matching the bootstrap region list; signing still used the raw region. Getting
+an endpoint back did not mean that a client request with that region would succeed.
+
+If your application accepts surrounding whitespace in text input, call `trim()`
+before `setRegion(...)` or a direct resolver call, and use the same cleaned region
+for client configuration and endpoint resolution. Do not trim only the value
+passed to the Endpoint Provider while leaving the signing region unchanged.
+The trimmed value must still pass validation.
+
 #### Standard Endpoint Resolution
 
 Standard endpoint resolution constructs endpoints according to whether the service is global:
@@ -124,12 +146,32 @@ and objects with a public `isGlobal` or `IsGlobal` property. For example:
 `['mysvc' => false]`, `['mysvc' => ['isGlobal' => false]]`, or
 `['mysvc' => (object) ['IsGlobal' => true]]`.
 
-Invalid inputs throw `InvalidArgumentException`: non-string/blank service or
-region, invalid region syntax (`InvalidRegion` in the message), unregistered
+A non-empty service or region that is not a valid endpoint label (ASCII letters,
+digits, `-` and `_`, starting with a letter and not ending with `-` or `_`) is
+rejected before any host is built with `Volcengine\Common\ApiException`, error
+code `InvalidService`/`InvalidRegion` (`getErrorCode()`) and status 400; the default and standard
+providers apply this check, and so does the client request path before calling any
+endpoint provider when no explicit host is set.
+Other invalid inputs throw `InvalidArgumentException`: non-string/blank service or
+region (on the client request path, a non-empty one such as `' '` or `1` gets the
+`ApiException` above instead), invalid region syntax (`InvalidRegion` in the message), unregistered
 service (`ServiceNotFound`), or an unsupported custom entry. Missing template
 variables now fail immediately with `TemplateExecuteError` in the message.
 There is no `StandProviderError` or symbolic `getStandCode()` in this provider.
 Literal template text and replacement values are not fully validated as hostnames.
+
+**Behavior change:** with the Standard provider (calling `endpointFor()` directly,
+or sending requests through a client configured with it), a service or region
+containing illegal characters (such as `cn-beijing.evil.com`, `x@127.0.0.1#`,
+`" cn-beijing"` with surrounding whitespace, or `ecs.evil.com`) now throws
+`Volcengine\Common\ApiException` with status 400 and `getErrorCode()`
+`InvalidRegion`/`InvalidService`, instead of `InvalidArgumentException`; previous
+versions reported such a service as `ServiceNotFound`. `ApiException` does not
+extend `InvalidArgumentException`, so code that only catches
+`InvalidArgumentException` must also catch `ApiException`, or catch their common
+parent `\Exception`. Blank values, unregistered services and well-formed but
+unsupported regions (such as `CN-BEIJING`) still throw `InvalidArgumentException`,
+as before.
 
 Explicit DualStack `true`/`false` takes priority; `null` reads
 `VOLC_ENABLE_DUALSTACK`. `customBootstrapRegion` has no effect on Standard resolution.

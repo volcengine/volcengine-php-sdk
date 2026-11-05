@@ -678,6 +678,8 @@ class DefaultEndpointProvider extends EndpointProvider
 
     public function endpointFor($service, $region, $customBootstrapRegion = null, $useDualStack = null)
     {
+        self::validateServiceAndRegion($service, $region);
+
         if (isset($this->customEndpoints[$service])) {
             $conf = $this->customEndpoints[$service];
             $host = $conf->getEndpointFor($region);
@@ -718,11 +720,15 @@ class ServiceEndpointInfo
 
     private function getStandardizeDomainServiceCode()
     {
+        // Explicit global or regional endpoints never include the service in the host.
+        EndpointProvider::validateService($this->service);
         return strtolower(str_replace('_', '-', $this->service));
     }
 
     public function getEndpointFor($region, $suffix = '.volcengineapi.com')
     {
+        EndpointProvider::validateRegion($region);
+
         if ($this->isGlobal) {
             if ($this->globalEndpoint) {
                 return $this->globalEndpoint;
