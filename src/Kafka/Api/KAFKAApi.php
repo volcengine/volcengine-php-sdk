@@ -1804,6 +1804,68 @@ class KAFKAApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeOffsetCommitAuditInfo($body = null)
+    {
+        list($response) = $this->describeOffsetCommitAuditInfoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeOffsetCommitAuditInfoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kafka\Model\DescribeOffsetCommitAuditInfoResponse';
+        $request = $this->describeOffsetCommitAuditInfoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeOffsetCommitAuditInfoAsync($body = null)
+    {
+        return $this->describeOffsetCommitAuditInfoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeOffsetCommitAuditInfoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Kafka\Model\DescribeOffsetCommitAuditInfoResponse';
+        $request = $this->describeOffsetCommitAuditInfoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeOffsetCommitAuditInfoRequest($body)
+    {
+        $resourcePath = '/DescribeOffsetCommitAuditInfo/2022-05-01/kafka/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeRegions($body = null)
     {
         list($response) = $this->describeRegionsWithHttpInfo($body);
@@ -3512,68 +3574,6 @@ class KAFKAApi
     protected function verifyImportGroupsRequest($body)
     {
         $resourcePath = '/VerifyImportGroups/2022-05-01/kafka/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function verifyMigrateSubTasks($body = null)
-    {
-        list($response) = $this->verifyMigrateSubTasksWithHttpInfo($body);
-        return $response;
-    }
-
-    public function verifyMigrateSubTasksWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Kafka\Model\VerifyMigrateSubTasksResponse';
-        $request = $this->verifyMigrateSubTasksRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function verifyMigrateSubTasksAsync($body = null)
-    {
-        return $this->verifyMigrateSubTasksAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function verifyMigrateSubTasksAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Kafka\Model\VerifyMigrateSubTasksResponse';
-        $request = $this->verifyMigrateSubTasksRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function verifyMigrateSubTasksRequest($body)
-    {
-        $resourcePath = '/VerifyMigrateSubTasks/2022-05-01/kafka/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
+class DescribeOffsetCommitAuditInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemForVerifyMigrateSubTasksInput';
+    protected static $swaggerModelName = 'DescribeOffsetCommitAuditInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => 'string',
-        'name' => 'string',
-        'type' => 'string'
+        'records' => '\Volcengine\Kafka\Model\RecordForDescribeOffsetCommitAuditInfoOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'name' => null,
-        'type' => null
+        'records' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -71,9 +69,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'Config',
-        'name' => 'Name',
-        'type' => 'Type'
+        'records' => 'Records',
+        'total' => 'Total'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'name' => 'setName',
-        'type' => 'setType'
+        'records' => 'setRecords',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'name' => 'getName',
-        'type' => 'getType'
+        'records' => 'getRecords',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['records'] = isset($data['records']) ? $data['records'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ItemForVerifyMigrateSubTasksInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets config
+     * Gets records
      *
-     * @return string
+     * @return \Volcengine\Kafka\Model\RecordForDescribeOffsetCommitAuditInfoOutput[]
      */
-    public function getConfig()
+    public function getRecords()
     {
-        return $this->container['config'];
+        return $this->container['records'];
     }
 
     /**
-     * Sets config
+     * Sets records
      *
-     * @param string $config config
+     * @param \Volcengine\Kafka\Model\RecordForDescribeOffsetCommitAuditInfoOutput[] $records records
      *
      * @return $this
      */
-    public function setConfig($config)
+    public function setRecords($records)
     {
-        $this->container['config'] = $config;
+        $this->container['records'] = $records;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets total
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getTotal()
     {
-        return $this->container['name'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets name
+     * Sets total
      *
-     * @param string $name name
+     * @param int $total total
      *
      * @return $this
      */
-    public function setName($name)
+    public function setTotal($total)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['total'] = $total;
 
         return $this;
     }
