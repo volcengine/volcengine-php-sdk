@@ -144,16 +144,6 @@ class MaintenanceWindowConfigForUpdateClusterConfigInput implements ModelInterfa
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const WEEKLY_CYCLE_MONDAY = 'Monday';
     const WEEKLY_CYCLE_TUESDAY = 'Tuesday';
     const WEEKLY_CYCLE_WEDNESDAY = 'Wednesday';

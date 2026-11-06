@@ -134,16 +134,6 @@ class ScheduledPolicyForUpdateScalingPolicyInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const RECURRENCE_TYPE_DAILY = 'Daily';
     const RECURRENCE_TYPE_WEEKLY = 'Weekly';
     const RECURRENCE_TYPE_MONTHLY = 'Monthly';

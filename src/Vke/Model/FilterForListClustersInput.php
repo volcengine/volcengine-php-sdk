@@ -154,16 +154,6 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const PODS_CONFIG_POD_NETWORK_MODE_FLANNEL = 'Flannel';
     const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
     const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';

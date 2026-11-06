@@ -119,16 +119,6 @@ class ConditionForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE_OK = 'Ok';
     const TYPE_CREATE_ERROR = 'CreateError';
     const TYPE_PROGRESSING = 'Progressing';

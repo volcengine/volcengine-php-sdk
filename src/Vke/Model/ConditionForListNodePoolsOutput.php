@@ -119,16 +119,6 @@ class ConditionForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE_OK = 'Ok';
     const TYPE_STOCK_OUT = 'StockOut';
     const TYPE_LIMITED_BY_QUOTA = 'LimitedByQuota';

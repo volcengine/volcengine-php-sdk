@@ -134,16 +134,6 @@ class PublicAccessConfigForUpdateNodePoolConfigInput implements ModelInterface, 
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const ISP_BGP = 'BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';

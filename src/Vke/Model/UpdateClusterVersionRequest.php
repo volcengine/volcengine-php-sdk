@@ -139,16 +139,6 @@ class UpdateClusterVersionRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const OPERATION_PRECHECK = 'Precheck';
     const OPERATION_UPGRADE = 'Upgrade';
     const OPERATION_PAUSE = 'Pause';

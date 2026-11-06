@@ -134,16 +134,6 @@ class DeleteAddonRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CASCADING_DELETE_RESOURCES_CRD = 'Crd';
     const RETAIN_RESOURCES_CRD = 'Crd';
     

@@ -259,16 +259,6 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const INSTANCE_CHARGE_TYPE_POST_PAID = 'PostPaid';
     const INSTANCE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
     const SPOT_STRATEGY_NO_SPOT = 'NoSpot';
