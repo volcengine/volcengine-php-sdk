@@ -32,6 +32,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'deadline' => 'string',
         'drama_id' => 'string',
         'dub_voice_mode' => 'int',
+        'enable_lip_sync' => 'bool',
         'from_task_type' => 'int',
         'is_dub' => 'bool',
         'need_term_validation' => 'bool',
@@ -53,6 +54,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'deadline' => null,
         'drama_id' => null,
         'dub_voice_mode' => 'int32',
+        'enable_lip_sync' => null,
         'from_task_type' => 'int32',
         'is_dub' => null,
         'need_term_validation' => null,
@@ -95,6 +97,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'deadline' => 'deadline',
         'drama_id' => 'dramaId',
         'dub_voice_mode' => 'dubVoiceMode',
+        'enable_lip_sync' => 'enableLipSync',
         'from_task_type' => 'fromTaskType',
         'is_dub' => 'isDub',
         'need_term_validation' => 'needTermValidation',
@@ -116,6 +119,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'deadline' => 'setDeadline',
         'drama_id' => 'setDramaId',
         'dub_voice_mode' => 'setDubVoiceMode',
+        'enable_lip_sync' => 'setEnableLipSync',
         'from_task_type' => 'setFromTaskType',
         'is_dub' => 'setIsDub',
         'need_term_validation' => 'setNeedTermValidation',
@@ -137,6 +141,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         'deadline' => 'getDeadline',
         'drama_id' => 'getDramaId',
         'dub_voice_mode' => 'getDubVoiceMode',
+        'enable_lip_sync' => 'getEnableLipSync',
         'from_task_type' => 'getFromTaskType',
         'is_dub' => 'getIsDub',
         'need_term_validation' => 'getNeedTermValidation',
@@ -202,6 +207,7 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
         $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
         $this->container['drama_id'] = isset($data['drama_id']) ? $data['drama_id'] : null;
         $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
+        $this->container['enable_lip_sync'] = isset($data['enable_lip_sync']) ? $data['enable_lip_sync'] : null;
         $this->container['from_task_type'] = isset($data['from_task_type']) ? $data['from_task_type'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
         $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
@@ -338,6 +344,30 @@ class VideoProjectAddTargetLangsToExistingDramaRequest implements ModelInterface
     public function setDubVoiceMode($dub_voice_mode)
     {
         $this->container['dub_voice_mode'] = $dub_voice_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_lip_sync
+     *
+     * @return bool
+     */
+    public function getEnableLipSync()
+    {
+        return $this->container['enable_lip_sync'];
+    }
+
+    /**
+     * Sets enable_lip_sync
+     *
+     * @param bool $enable_lip_sync enable_lip_sync
+     *
+     * @return $this
+     */
+    public function setEnableLipSync($enable_lip_sync)
+    {
+        $this->container['enable_lip_sync'] = $enable_lip_sync;
 
         return $this;
     }

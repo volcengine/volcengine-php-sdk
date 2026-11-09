@@ -32,6 +32,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         'episode_num' => 'string',
         'finished_audio' => '\Volcengine\I18nopenapi\Model\FinishedAudioForVideoProjectGetTaskProductOutput',
         'finished_video' => '\Volcengine\I18nopenapi\Model\FinishedVideoForVideoProjectGetTaskProductOutput',
+        'lip_sync_finished_video' => '\Volcengine\I18nopenapi\Model\LipSyncFinishedVideoForVideoProjectGetTaskProductOutput',
         'origin_video' => '\Volcengine\I18nopenapi\Model\OriginVideoForVideoProjectGetTaskProductOutput',
         'source_subtitle' => '\Volcengine\I18nopenapi\Model\SourceSubtitleForVideoProjectGetTaskProductOutput',
         'subtask_id' => 'string',
@@ -49,6 +50,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         'episode_num' => null,
         'finished_audio' => null,
         'finished_video' => null,
+        'lip_sync_finished_video' => null,
         'origin_video' => null,
         'source_subtitle' => null,
         'subtask_id' => null,
@@ -87,6 +89,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         'episode_num' => 'episodeNum',
         'finished_audio' => 'finishedAudio',
         'finished_video' => 'finishedVideo',
+        'lip_sync_finished_video' => 'lipSyncFinishedVideo',
         'origin_video' => 'originVideo',
         'source_subtitle' => 'sourceSubtitle',
         'subtask_id' => 'subtaskId',
@@ -104,6 +107,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         'episode_num' => 'setEpisodeNum',
         'finished_audio' => 'setFinishedAudio',
         'finished_video' => 'setFinishedVideo',
+        'lip_sync_finished_video' => 'setLipSyncFinishedVideo',
         'origin_video' => 'setOriginVideo',
         'source_subtitle' => 'setSourceSubtitle',
         'subtask_id' => 'setSubtaskId',
@@ -121,6 +125,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         'episode_num' => 'getEpisodeNum',
         'finished_audio' => 'getFinishedAudio',
         'finished_video' => 'getFinishedVideo',
+        'lip_sync_finished_video' => 'getLipSyncFinishedVideo',
         'origin_video' => 'getOriginVideo',
         'source_subtitle' => 'getSourceSubtitle',
         'subtask_id' => 'getSubtaskId',
@@ -182,6 +187,7 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
         $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
         $this->container['finished_audio'] = isset($data['finished_audio']) ? $data['finished_audio'] : null;
         $this->container['finished_video'] = isset($data['finished_video']) ? $data['finished_video'] : null;
+        $this->container['lip_sync_finished_video'] = isset($data['lip_sync_finished_video']) ? $data['lip_sync_finished_video'] : null;
         $this->container['origin_video'] = isset($data['origin_video']) ? $data['origin_video'] : null;
         $this->container['source_subtitle'] = isset($data['source_subtitle']) ? $data['source_subtitle'] : null;
         $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
@@ -305,6 +311,30 @@ class SubtaskProductForVideoProjectGetTaskProductOutput implements ModelInterfac
     public function setFinishedVideo($finished_video)
     {
         $this->container['finished_video'] = $finished_video;
+
+        return $this;
+    }
+
+    /**
+     * Gets lip_sync_finished_video
+     *
+     * @return \Volcengine\I18nopenapi\Model\LipSyncFinishedVideoForVideoProjectGetTaskProductOutput
+     */
+    public function getLipSyncFinishedVideo()
+    {
+        return $this->container['lip_sync_finished_video'];
+    }
+
+    /**
+     * Sets lip_sync_finished_video
+     *
+     * @param \Volcengine\I18nopenapi\Model\LipSyncFinishedVideoForVideoProjectGetTaskProductOutput $lip_sync_finished_video lip_sync_finished_video
+     *
+     * @return $this
+     */
+    public function setLipSyncFinishedVideo($lip_sync_finished_video)
+    {
+        $this->container['lip_sync_finished_video'] = $lip_sync_finished_video;
 
         return $this;
     }

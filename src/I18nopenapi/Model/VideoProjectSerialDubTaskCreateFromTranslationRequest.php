@@ -32,6 +32,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         'audit_fail_policy' => 'int',
         'bgm_policy' => 'int',
         'dub_voice_mode' => 'int',
+        'enable_lip_sync' => 'bool',
         'max_target_subtitle_lines' => 'int',
         'need_video_speed' => 'bool',
         'project_id' => 'string',
@@ -52,6 +53,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         'audit_fail_policy' => 'int32',
         'bgm_policy' => 'int32',
         'dub_voice_mode' => 'int32',
+        'enable_lip_sync' => null,
         'max_target_subtitle_lines' => 'int32',
         'need_video_speed' => null,
         'project_id' => null,
@@ -93,6 +95,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         'audit_fail_policy' => 'auditFailPolicy',
         'bgm_policy' => 'bgmPolicy',
         'dub_voice_mode' => 'dubVoiceMode',
+        'enable_lip_sync' => 'enableLipSync',
         'max_target_subtitle_lines' => 'maxTargetSubtitleLines',
         'need_video_speed' => 'needVideoSpeed',
         'project_id' => 'projectId',
@@ -113,6 +116,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         'audit_fail_policy' => 'setAuditFailPolicy',
         'bgm_policy' => 'setBgmPolicy',
         'dub_voice_mode' => 'setDubVoiceMode',
+        'enable_lip_sync' => 'setEnableLipSync',
         'max_target_subtitle_lines' => 'setMaxTargetSubtitleLines',
         'need_video_speed' => 'setNeedVideoSpeed',
         'project_id' => 'setProjectId',
@@ -133,6 +137,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         'audit_fail_policy' => 'getAuditFailPolicy',
         'bgm_policy' => 'getBgmPolicy',
         'dub_voice_mode' => 'getDubVoiceMode',
+        'enable_lip_sync' => 'getEnableLipSync',
         'max_target_subtitle_lines' => 'getMaxTargetSubtitleLines',
         'need_video_speed' => 'getNeedVideoSpeed',
         'project_id' => 'getProjectId',
@@ -197,6 +202,7 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
         $this->container['audit_fail_policy'] = isset($data['audit_fail_policy']) ? $data['audit_fail_policy'] : null;
         $this->container['bgm_policy'] = isset($data['bgm_policy']) ? $data['bgm_policy'] : null;
         $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
+        $this->container['enable_lip_sync'] = isset($data['enable_lip_sync']) ? $data['enable_lip_sync'] : null;
         $this->container['max_target_subtitle_lines'] = isset($data['max_target_subtitle_lines']) ? $data['max_target_subtitle_lines'] : null;
         $this->container['need_video_speed'] = isset($data['need_video_speed']) ? $data['need_video_speed'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -326,6 +332,30 @@ class VideoProjectSerialDubTaskCreateFromTranslationRequest implements ModelInte
     public function setDubVoiceMode($dub_voice_mode)
     {
         $this->container['dub_voice_mode'] = $dub_voice_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_lip_sync
+     *
+     * @return bool
+     */
+    public function getEnableLipSync()
+    {
+        return $this->container['enable_lip_sync'];
+    }
+
+    /**
+     * Sets enable_lip_sync
+     *
+     * @param bool $enable_lip_sync enable_lip_sync
+     *
+     * @return $this
+     */
+    public function setEnableLipSync($enable_lip_sync)
+    {
+        $this->container['enable_lip_sync'] = $enable_lip_sync;
 
         return $this;
     }
