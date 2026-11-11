@@ -29,6 +29,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'function_id' => 'string',
+        'idle_instance' => 'int',
         'max_instance' => 'int',
         'min_instance' => 'int',
         'reserved_frozen_instance' => 'int'
@@ -41,6 +42,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'function_id' => null,
+        'idle_instance' => 'int32',
         'max_instance' => 'int32',
         'min_instance' => 'int32',
         'reserved_frozen_instance' => 'int32'
@@ -74,6 +76,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'function_id' => 'FunctionId',
+        'idle_instance' => 'IdleInstance',
         'max_instance' => 'MaxInstance',
         'min_instance' => 'MinInstance',
         'reserved_frozen_instance' => 'ReservedFrozenInstance'
@@ -86,6 +89,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'function_id' => 'setFunctionId',
+        'idle_instance' => 'setIdleInstance',
         'max_instance' => 'setMaxInstance',
         'min_instance' => 'setMinInstance',
         'reserved_frozen_instance' => 'setReservedFrozenInstance'
@@ -98,6 +102,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'function_id' => 'getFunctionId',
+        'idle_instance' => 'getIdleInstance',
         'max_instance' => 'getMaxInstance',
         'min_instance' => 'getMinInstance',
         'reserved_frozen_instance' => 'getReservedFrozenInstance'
@@ -134,16 +139,6 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -164,6 +159,7 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['idle_instance'] = isset($data['idle_instance']) ? $data['idle_instance'] : null;
         $this->container['max_instance'] = isset($data['max_instance']) ? $data['max_instance'] : null;
         $this->container['min_instance'] = isset($data['min_instance']) ? $data['min_instance'] : null;
         $this->container['reserved_frozen_instance'] = isset($data['reserved_frozen_instance']) ? $data['reserved_frozen_instance'] : null;
@@ -216,6 +212,30 @@ class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets idle_instance
+     *
+     * @return int
+     */
+    public function getIdleInstance()
+    {
+        return $this->container['idle_instance'];
+    }
+
+    /**
+     * Sets idle_instance
+     *
+     * @param int $idle_instance idle_instance
+     *
+     * @return $this
+     */
+    public function setIdleInstance($idle_instance)
+    {
+        $this->container['idle_instance'] = $idle_instance;
 
         return $this;
     }

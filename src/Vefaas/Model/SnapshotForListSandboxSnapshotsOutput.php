@@ -29,7 +29,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'created_at' => 'string',
+        'created_by_job_id' => 'string',
+        'metadata' => '\Volcengine\Vefaas\Model\MetadataForListSandboxSnapshotsOutput',
+        'retention_days' => 'int',
+        'retention_expires_at' => 'string',
         'sandbox_id' => 'string',
+        'sandbox_info' => '\Volcengine\Vefaas\Model\SandboxInfoForListSandboxSnapshotsOutput',
         'snapshot_id' => 'string',
         'snapshot_type' => 'string',
         'source' => 'string',
@@ -43,7 +48,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'created_at' => null,
+        'created_by_job_id' => null,
+        'metadata' => null,
+        'retention_days' => 'int32',
+        'retention_expires_at' => null,
         'sandbox_id' => null,
+        'sandbox_info' => null,
         'snapshot_id' => null,
         'snapshot_type' => null,
         'source' => null,
@@ -78,7 +88,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
+        'created_by_job_id' => 'CreatedByJobId',
+        'metadata' => 'Metadata',
+        'retention_days' => 'RetentionDays',
+        'retention_expires_at' => 'RetentionExpiresAt',
         'sandbox_id' => 'SandboxId',
+        'sandbox_info' => 'SandboxInfo',
         'snapshot_id' => 'SnapshotId',
         'snapshot_type' => 'SnapshotType',
         'source' => 'Source',
@@ -92,7 +107,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'created_at' => 'setCreatedAt',
+        'created_by_job_id' => 'setCreatedByJobId',
+        'metadata' => 'setMetadata',
+        'retention_days' => 'setRetentionDays',
+        'retention_expires_at' => 'setRetentionExpiresAt',
         'sandbox_id' => 'setSandboxId',
+        'sandbox_info' => 'setSandboxInfo',
         'snapshot_id' => 'setSnapshotId',
         'snapshot_type' => 'setSnapshotType',
         'source' => 'setSource',
@@ -106,7 +126,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'created_at' => 'getCreatedAt',
+        'created_by_job_id' => 'getCreatedByJobId',
+        'metadata' => 'getMetadata',
+        'retention_days' => 'getRetentionDays',
+        'retention_expires_at' => 'getRetentionExpiresAt',
         'sandbox_id' => 'getSandboxId',
+        'sandbox_info' => 'getSandboxInfo',
         'snapshot_id' => 'getSnapshotId',
         'snapshot_type' => 'getSnapshotType',
         'source' => 'getSource',
@@ -144,16 +169,6 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -174,7 +189,12 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
     public function __construct($data = null)
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['created_by_job_id'] = isset($data['created_by_job_id']) ? $data['created_by_job_id'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['retention_days'] = isset($data['retention_days']) ? $data['retention_days'] : null;
+        $this->container['retention_expires_at'] = isset($data['retention_expires_at']) ? $data['retention_expires_at'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['sandbox_info'] = isset($data['sandbox_info']) ? $data['sandbox_info'] : null;
         $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
         $this->container['snapshot_type'] = isset($data['snapshot_type']) ? $data['snapshot_type'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
@@ -230,6 +250,102 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets created_by_job_id
+     *
+     * @return string
+     */
+    public function getCreatedByJobId()
+    {
+        return $this->container['created_by_job_id'];
+    }
+
+    /**
+     * Sets created_by_job_id
+     *
+     * @param string $created_by_job_id created_by_job_id
+     *
+     * @return $this
+     */
+    public function setCreatedByJobId($created_by_job_id)
+    {
+        $this->container['created_by_job_id'] = $created_by_job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \Volcengine\Vefaas\Model\MetadataForListSandboxSnapshotsOutput
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \Volcengine\Vefaas\Model\MetadataForListSandboxSnapshotsOutput $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets retention_days
+     *
+     * @return int
+     */
+    public function getRetentionDays()
+    {
+        return $this->container['retention_days'];
+    }
+
+    /**
+     * Sets retention_days
+     *
+     * @param int $retention_days retention_days
+     *
+     * @return $this
+     */
+    public function setRetentionDays($retention_days)
+    {
+        $this->container['retention_days'] = $retention_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets retention_expires_at
+     *
+     * @return string
+     */
+    public function getRetentionExpiresAt()
+    {
+        return $this->container['retention_expires_at'];
+    }
+
+    /**
+     * Sets retention_expires_at
+     *
+     * @param string $retention_expires_at retention_expires_at
+     *
+     * @return $this
+     */
+    public function setRetentionExpiresAt($retention_expires_at)
+    {
+        $this->container['retention_expires_at'] = $retention_expires_at;
+
+        return $this;
+    }
+
+    /**
      * Gets sandbox_id
      *
      * @return string
@@ -249,6 +365,30 @@ class SnapshotForListSandboxSnapshotsOutput implements ModelInterface, ArrayAcce
     public function setSandboxId($sandbox_id)
     {
         $this->container['sandbox_id'] = $sandbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox_info
+     *
+     * @return \Volcengine\Vefaas\Model\SandboxInfoForListSandboxSnapshotsOutput
+     */
+    public function getSandboxInfo()
+    {
+        return $this->container['sandbox_info'];
+    }
+
+    /**
+     * Sets sandbox_info
+     *
+     * @param \Volcengine\Vefaas\Model\SandboxInfoForListSandboxSnapshotsOutput $sandbox_info sandbox_info
+     *
+     * @return $this
+     */
+    public function setSandboxInfo($sandbox_info)
+    {
+        $this->container['sandbox_info'] = $sandbox_info;
 
         return $this;
     }

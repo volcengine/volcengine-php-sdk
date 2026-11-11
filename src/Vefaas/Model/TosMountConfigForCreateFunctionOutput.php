@@ -28,9 +28,10 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auth_mode' => 'string',
         'credentials' => '\Volcengine\Vefaas\Model\CredentialsForCreateFunctionOutput',
         'enable_tos' => 'bool',
-        'mount_points' => '\Volcengine\Vefaas\Model\MountPointForCreateFunctionOutput[]'
+        'mount_points' => '\Volcengine\Vefaas\Model\ConvertMountPointForCreateFunctionOutput[]'
     ];
 
     /**
@@ -39,6 +40,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auth_mode' => null,
         'credentials' => null,
         'enable_tos' => null,
         'mount_points' => null
@@ -71,6 +73,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'auth_mode' => 'AuthMode',
         'credentials' => 'Credentials',
         'enable_tos' => 'EnableTos',
         'mount_points' => 'MountPoints'
@@ -82,6 +85,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'auth_mode' => 'setAuthMode',
         'credentials' => 'setCredentials',
         'enable_tos' => 'setEnableTos',
         'mount_points' => 'setMountPoints'
@@ -93,6 +97,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'auth_mode' => 'getAuthMode',
         'credentials' => 'getCredentials',
         'enable_tos' => 'getEnableTos',
         'mount_points' => 'getMountPoints'
@@ -129,16 +134,6 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -158,6 +153,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
+        $this->container['auth_mode'] = isset($data['auth_mode']) ? $data['auth_mode'] : null;
         $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
         $this->container['enable_tos'] = isset($data['enable_tos']) ? $data['enable_tos'] : null;
         $this->container['mount_points'] = isset($data['mount_points']) ? $data['mount_points'] : null;
@@ -186,6 +182,30 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auth_mode
+     *
+     * @return string
+     */
+    public function getAuthMode()
+    {
+        return $this->container['auth_mode'];
+    }
+
+    /**
+     * Sets auth_mode
+     *
+     * @param string $auth_mode auth_mode
+     *
+     * @return $this
+     */
+    public function setAuthMode($auth_mode)
+    {
+        $this->container['auth_mode'] = $auth_mode;
+
+        return $this;
+    }
 
     /**
      * Gets credentials
@@ -238,7 +258,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
     /**
      * Gets mount_points
      *
-     * @return \Volcengine\Vefaas\Model\MountPointForCreateFunctionOutput[]
+     * @return \Volcengine\Vefaas\Model\ConvertMountPointForCreateFunctionOutput[]
      */
     public function getMountPoints()
     {
@@ -248,7 +268,7 @@ class TosMountConfigForCreateFunctionOutput implements ModelInterface, ArrayAcce
     /**
      * Sets mount_points
      *
-     * @param \Volcengine\Vefaas\Model\MountPointForCreateFunctionOutput[] $mount_points mount_points
+     * @param \Volcengine\Vefaas\Model\ConvertMountPointForCreateFunctionOutput[] $mount_points mount_points
      *
      * @return $this
      */

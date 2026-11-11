@@ -28,7 +28,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'filters' => '\Volcengine\Vefaas\Model\FilterForListSandboxSnapshotsInput[]',
         'function_id' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'sandbox_id' => 'string'
     ];
 
@@ -38,7 +41,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'filters' => null,
         'function_id' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
         'sandbox_id' => null
     ];
 
@@ -69,7 +75,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'filters' => 'Filters',
         'function_id' => 'FunctionId',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'sandbox_id' => 'SandboxId'
     ];
 
@@ -79,7 +88,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'filters' => 'setFilters',
         'function_id' => 'setFunctionId',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'sandbox_id' => 'setSandboxId'
     ];
 
@@ -89,7 +101,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'filters' => 'getFilters',
         'function_id' => 'getFunctionId',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'sandbox_id' => 'getSandboxId'
     ];
 
@@ -124,16 +139,6 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -153,7 +158,10 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
     }
 
@@ -185,6 +193,30 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets filters
+     *
+     * @return \Volcengine\Vefaas\Model\FilterForListSandboxSnapshotsInput[]
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param \Volcengine\Vefaas\Model\FilterForListSandboxSnapshotsInput[] $filters filters
+     *
+     * @return $this
+     */
+    public function setFilters($filters)
+    {
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
      * Gets function_id
      *
      * @return string
@@ -204,6 +236,54 @@ class ListSandboxSnapshotsRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

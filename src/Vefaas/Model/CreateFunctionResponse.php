@@ -37,6 +37,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
+        'efs_mount_config' => '\Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionOutput',
         'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionOutput[]',
         'exclusive_mode' => 'bool',
@@ -80,6 +81,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'cpu_strategy' => null,
         'creation_time' => null,
         'description' => null,
+        'efs_mount_config' => null,
         'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
@@ -144,6 +146,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'CpuStrategy',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'efs_mount_config' => 'EfsMountConfig',
         'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
@@ -187,6 +190,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'setCpuStrategy',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'efs_mount_config' => 'setEfsMountConfig',
         'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
@@ -230,6 +234,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'getCpuStrategy',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'efs_mount_config' => 'getEfsMountConfig',
         'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
@@ -289,16 +294,6 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -327,6 +322,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['efs_mount_config'] = isset($data['efs_mount_config']) ? $data['efs_mount_config'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
@@ -591,6 +587,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionOutput
+     */
+    public function getEfsMountConfig()
+    {
+        return $this->container['efs_mount_config'];
+    }
+
+    /**
+     * Sets efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionOutput $efs_mount_config efs_mount_config
+     *
+     * @return $this
+     */
+    public function setEfsMountConfig($efs_mount_config)
+    {
+        $this->container['efs_mount_config'] = $efs_mount_config;
 
         return $this;
     }

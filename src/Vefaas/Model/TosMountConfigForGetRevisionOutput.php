@@ -30,7 +30,7 @@ class TosMountConfigForGetRevisionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'credentials' => '\Volcengine\Vefaas\Model\CredentialsForGetRevisionOutput',
         'enable_tos' => 'bool',
-        'mount_points' => '\Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[]'
+        'mount_points' => '\Volcengine\Vefaas\Model\ConvertMountPointForGetRevisionOutput[]'
     ];
 
     /**
@@ -127,16 +127,6 @@ class TosMountConfigForGetRevisionOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     
@@ -238,7 +228,7 @@ class TosMountConfigForGetRevisionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets mount_points
      *
-     * @return \Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[]
+     * @return \Volcengine\Vefaas\Model\ConvertMountPointForGetRevisionOutput[]
      */
     public function getMountPoints()
     {
@@ -248,7 +238,7 @@ class TosMountConfigForGetRevisionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets mount_points
      *
-     * @param \Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[] $mount_points mount_points
+     * @param \Volcengine\Vefaas\Model\ConvertMountPointForGetRevisionOutput[] $mount_points mount_points
      *
      * @return $this
      */

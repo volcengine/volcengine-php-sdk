@@ -34,6 +34,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int',
         'cpu_strategy' => 'string',
         'description' => 'string',
+        'efs_mount_config' => '\Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionInput',
         'enable_apmplus' => 'bool',
         'enable_zti_token' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionInput[]',
@@ -70,6 +71,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int32',
         'cpu_strategy' => null,
         'description' => null,
+        'efs_mount_config' => null,
         'enable_apmplus' => null,
         'enable_zti_token' => null,
         'envs' => null,
@@ -127,6 +129,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'CpuMilli',
         'cpu_strategy' => 'CpuStrategy',
         'description' => 'Description',
+        'efs_mount_config' => 'EfsMountConfig',
         'enable_apmplus' => 'EnableApmplus',
         'enable_zti_token' => 'EnableZTIToken',
         'envs' => 'Envs',
@@ -163,6 +166,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'setCpuMilli',
         'cpu_strategy' => 'setCpuStrategy',
         'description' => 'setDescription',
+        'efs_mount_config' => 'setEfsMountConfig',
         'enable_apmplus' => 'setEnableApmplus',
         'enable_zti_token' => 'setEnableZtiToken',
         'envs' => 'setEnvs',
@@ -199,6 +203,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'getCpuMilli',
         'cpu_strategy' => 'getCpuStrategy',
         'description' => 'getDescription',
+        'efs_mount_config' => 'getEfsMountConfig',
         'enable_apmplus' => 'getEnableApmplus',
         'enable_zti_token' => 'getEnableZtiToken',
         'envs' => 'getEnvs',
@@ -254,16 +259,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -289,6 +284,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['efs_mount_config'] = isset($data['efs_mount_config']) ? $data['efs_mount_config'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['enable_zti_token'] = isset($data['enable_zti_token']) ? $data['enable_zti_token'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -483,6 +479,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionInput
+     */
+    public function getEfsMountConfig()
+    {
+        return $this->container['efs_mount_config'];
+    }
+
+    /**
+     * Sets efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\EfsMountConfigForCreateFunctionInput $efs_mount_config efs_mount_config
+     *
+     * @return $this
+     */
+    public function setEfsMountConfig($efs_mount_config)
+    {
+        $this->container['efs_mount_config'] = $efs_mount_config;
 
         return $this;
     }
