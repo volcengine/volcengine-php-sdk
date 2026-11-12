@@ -30,6 +30,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'limit' => 'int',
         'list' => '\Volcengine\Billing\Model\ListForListBillDetailOutput[]',
+        'next_token' => 'string',
         'offset' => 'int',
         'total' => 'int',
         'warning' => 'string'
@@ -43,6 +44,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'limit' => 'int32',
         'list' => null,
+        'next_token' => null,
         'offset' => 'int32',
         'total' => 'int32',
         'warning' => null
@@ -77,6 +79,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'limit' => 'Limit',
         'list' => 'List',
+        'next_token' => 'NextToken',
         'offset' => 'Offset',
         'total' => 'Total',
         'warning' => 'Warning'
@@ -90,6 +93,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'limit' => 'setLimit',
         'list' => 'setList',
+        'next_token' => 'setNextToken',
         'offset' => 'setOffset',
         'total' => 'setTotal',
         'warning' => 'setWarning'
@@ -103,6 +107,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'limit' => 'getLimit',
         'list' => 'getList',
+        'next_token' => 'getNextToken',
         'offset' => 'getOffset',
         'total' => 'getTotal',
         'warning' => 'getWarning'
@@ -160,6 +165,7 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     {
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['list'] = isset($data['list']) ? $data['list'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
@@ -233,6 +239,30 @@ class ListBillDetailResponse implements ModelInterface, ArrayAccess
     public function setList($list)
     {
         $this->container['list'] = $list;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

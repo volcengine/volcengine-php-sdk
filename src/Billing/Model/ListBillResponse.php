@@ -30,6 +30,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'limit' => 'int',
         'list' => '\Volcengine\Billing\Model\ListForListBillOutput[]',
+        'next_token' => 'string',
         'offset' => 'int',
         'total' => 'int'
     ];
@@ -42,6 +43,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'limit' => 'int32',
         'list' => null,
+        'next_token' => null,
         'offset' => 'int32',
         'total' => 'int32'
     ];
@@ -75,6 +77,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'limit' => 'Limit',
         'list' => 'List',
+        'next_token' => 'NextToken',
         'offset' => 'Offset',
         'total' => 'Total'
     ];
@@ -87,6 +90,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'limit' => 'setLimit',
         'list' => 'setList',
+        'next_token' => 'setNextToken',
         'offset' => 'setOffset',
         'total' => 'setTotal'
     ];
@@ -99,6 +103,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'limit' => 'getLimit',
         'list' => 'getList',
+        'next_token' => 'getNextToken',
         'offset' => 'getOffset',
         'total' => 'getTotal'
     ];
@@ -155,6 +160,7 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     {
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['list'] = isset($data['list']) ? $data['list'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
@@ -227,6 +233,30 @@ class ListBillResponse implements ModelInterface, ArrayAccess
     public function setList($list)
     {
         $this->container['list'] = $list;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
