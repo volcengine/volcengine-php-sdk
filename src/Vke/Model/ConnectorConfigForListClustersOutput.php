@@ -129,16 +129,6 @@ class ConnectorConfigForListClustersOutput implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const PROVIDER_VE_STACK = 'VeStack';
     const PROVIDER_VKE = 'Vke';
     const PROVIDER_ACK = 'Ack';

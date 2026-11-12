@@ -224,16 +224,6 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const ROLES_MASTER = 'Master';
     const ROLES_ETCD = 'Etcd';
     const ROLES_WORKER = 'Worker';

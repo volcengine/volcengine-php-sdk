@@ -169,16 +169,6 @@ class ItemForListAddonsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DEPLOY_MODE_MANAGED = 'Managed';
     const DEPLOY_MODE_UNMANAGED = 'Unmanaged';
     const DEPLOY_NODE_TYPE_NODE = 'Node';

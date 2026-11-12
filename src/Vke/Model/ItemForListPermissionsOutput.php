@@ -199,16 +199,6 @@ class ItemForListPermissionsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const AUTHORIZER_TYPE_USER = 'User';
     const AUTHORIZER_TYPE_ROLE = 'Role';
     const AUTHORIZER_TYPE_ACCOUNT = 'Account';

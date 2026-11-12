@@ -154,16 +154,6 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EXTRA_PERFORMANCE_TYPE_ID_BALANCE = 'Balance';
     const EXTRA_PERFORMANCE_TYPE_ID_IOPS = 'IOPS';
     const EXTRA_PERFORMANCE_TYPE_ID_THROUGHPUT = 'Throughput';

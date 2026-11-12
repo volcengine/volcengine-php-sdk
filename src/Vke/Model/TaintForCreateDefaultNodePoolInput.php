@@ -129,16 +129,6 @@ class TaintForCreateDefaultNodePoolInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EFFECT_NO_SCHEDULE = 'NoSchedule';
     const EFFECT_PREFER_NO_SCHEDULE = 'PreferNoSchedule';
     const EFFECT_NO_EXECUTE = 'NoExecute';

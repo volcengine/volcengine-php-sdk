@@ -124,16 +124,6 @@ class ComponentConfigForUpdateClusterConfigInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const NAME_KUBELET = 'Kubelet';
     const NAME_KUBE_API_SERVER = 'KubeApiServer';
     const NAME_KUBE_CONTROLLER_MANAGER = 'KubeControllerManager';

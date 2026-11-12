@@ -124,16 +124,6 @@ class StatusForListAddonsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
     const CONDITIONS_TYPE_CLUSTER_NOT_RUNNING = 'ClusterNotRunning';
     const CONDITIONS_TYPE_CRASH_LOOP_BACK_OFF = 'CrashLoopBackOff';

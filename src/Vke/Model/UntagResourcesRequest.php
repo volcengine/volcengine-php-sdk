@@ -129,16 +129,6 @@ class UntagResourcesRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const RESOURCE_TYPE_CLUSTER = 'Cluster';
     const RESOURCE_TYPE_NODE_POOL = 'NodePool';
     const RESOURCE_TYPE_BARE_MACHINE = 'BareMachine';

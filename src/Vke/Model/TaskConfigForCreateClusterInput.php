@@ -129,16 +129,6 @@ class TaskConfigForCreateClusterInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const ACTION_AUTO_UPGRADE_ADDON_VERSION = 'AutoUpgradeAddonVersion';
     const ACTION_DRY_RUN_TEST = 'DryRunTest';
     const ACTION_FIX_CLUSTER_API_SERVER_TLS4_SWEET32 = 'FixClusterAPIServerTLS4Sweet32';

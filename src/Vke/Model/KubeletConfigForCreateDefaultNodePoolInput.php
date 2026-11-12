@@ -199,16 +199,6 @@ class KubeletConfigForCreateDefaultNodePoolInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CPU_MANAGER_POLICY_NONE = 'none';
     const CPU_MANAGER_POLICY__STATIC = 'static';
     const TOPOLOGY_MANAGER_POLICY_RESTRICTED = 'restricted';

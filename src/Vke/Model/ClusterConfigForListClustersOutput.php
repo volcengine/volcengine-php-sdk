@@ -154,16 +154,6 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const IP_FAMILY_IPV4 = 'Ipv4';
     const IP_FAMILY_IPV6 = 'Ipv6';
     const IP_FAMILY_DUAL_STACK = 'DualStack';

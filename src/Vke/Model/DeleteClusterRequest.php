@@ -134,16 +134,6 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CASCADING_DELETE_RESOURCES_NAT = 'Nat';
     const CASCADING_DELETE_RESOURCES_CLB = 'Clb';
     const CASCADING_DELETE_RESOURCES_NODE_POOL_RESOURCE = 'NodePoolResource';
