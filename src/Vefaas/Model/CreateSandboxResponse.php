@@ -28,7 +28,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'assign_missed_reason' => 'string',
         'assign_status' => 'string',
+        'latency_ms' => 'int',
         'sandbox_id' => 'string'
     ];
 
@@ -38,7 +40,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'assign_missed_reason' => null,
         'assign_status' => null,
+        'latency_ms' => 'int64',
         'sandbox_id' => null
     ];
 
@@ -69,7 +73,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assign_missed_reason' => 'AssignMissedReason',
         'assign_status' => 'AssignStatus',
+        'latency_ms' => 'LatencyMs',
         'sandbox_id' => 'SandboxId'
     ];
 
@@ -79,7 +85,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assign_missed_reason' => 'setAssignMissedReason',
         'assign_status' => 'setAssignStatus',
+        'latency_ms' => 'setLatencyMs',
         'sandbox_id' => 'setSandboxId'
     ];
 
@@ -89,7 +97,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assign_missed_reason' => 'getAssignMissedReason',
         'assign_status' => 'getAssignStatus',
+        'latency_ms' => 'getLatencyMs',
         'sandbox_id' => 'getSandboxId'
     ];
 
@@ -124,16 +134,6 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -153,7 +153,9 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['assign_missed_reason'] = isset($data['assign_missed_reason']) ? $data['assign_missed_reason'] : null;
         $this->container['assign_status'] = isset($data['assign_status']) ? $data['assign_status'] : null;
+        $this->container['latency_ms'] = isset($data['latency_ms']) ? $data['latency_ms'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
     }
 
@@ -182,6 +184,30 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets assign_missed_reason
+     *
+     * @return string
+     */
+    public function getAssignMissedReason()
+    {
+        return $this->container['assign_missed_reason'];
+    }
+
+    /**
+     * Sets assign_missed_reason
+     *
+     * @param string $assign_missed_reason assign_missed_reason
+     *
+     * @return $this
+     */
+    public function setAssignMissedReason($assign_missed_reason)
+    {
+        $this->container['assign_missed_reason'] = $assign_missed_reason;
+
+        return $this;
+    }
+
+    /**
      * Gets assign_status
      *
      * @return string
@@ -201,6 +227,30 @@ class CreateSandboxResponse implements ModelInterface, ArrayAccess
     public function setAssignStatus($assign_status)
     {
         $this->container['assign_status'] = $assign_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets latency_ms
+     *
+     * @return int
+     */
+    public function getLatencyMs()
+    {
+        return $this->container['latency_ms'];
+    }
+
+    /**
+     * Sets latency_ms
+     *
+     * @param int $latency_ms latency_ms
+     *
+     * @return $this
+     */
+    public function setLatencyMs($latency_ms)
+    {
+        $this->container['latency_ms'] = $latency_ms;
 
         return $this;
     }
