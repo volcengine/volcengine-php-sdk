@@ -626,6 +626,68 @@ class VEFAASApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteE2BAPIKey($body = null)
+    {
+        list($response) = $this->deleteE2BAPIKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteE2BAPIKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DeleteE2BAPIKeyResponse';
+        $request = $this->deleteE2BAPIKeyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteE2BAPIKeyAsync($body = null)
+    {
+        return $this->deleteE2BAPIKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteE2BAPIKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\DeleteE2BAPIKeyResponse';
+        $request = $this->deleteE2BAPIKeyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteE2BAPIKeyRequest($body)
+    {
+        $resourcePath = '/DeleteE2BAPIKey/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteFunction($body = null)
     {
         list($response) = $this->deleteFunctionWithHttpInfo($body);
@@ -3636,6 +3698,68 @@ class VEFAASApi
     protected function updateKafkaTriggerRequest($body)
     {
         $resourcePath = '/UpdateKafkaTrigger/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateNetworkRules($body = null)
+    {
+        list($response) = $this->updateNetworkRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateNetworkRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\UpdateNetworkRulesResponse';
+        $request = $this->updateNetworkRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateNetworkRulesAsync($body = null)
+    {
+        return $this->updateNetworkRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateNetworkRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\UpdateNetworkRulesResponse';
+        $request = $this->updateNetworkRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateNetworkRulesRequest($body)
+    {
+        $resourcePath = '/UpdateNetworkRules/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

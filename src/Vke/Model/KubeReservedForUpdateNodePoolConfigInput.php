@@ -124,16 +124,6 @@ class KubeReservedForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const NAME_CPU = 'cpu';
     const NAME_MEMORY = 'memory';
     

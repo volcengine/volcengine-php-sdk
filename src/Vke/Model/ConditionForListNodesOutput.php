@@ -119,16 +119,6 @@ class ConditionForListNodesOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE_OK = 'Ok';
     const TYPE_UNSCHEDULABLE = 'Unschedulable';
     const TYPE_NOT_READY = 'NotReady';

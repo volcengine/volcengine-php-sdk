@@ -124,16 +124,6 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const KEY_MEMORYAVAILABLE = 'memory.available';
     const KEY_NODEFSAVAILABLE = 'nodefs.available';
     const KEY_NODEFSINODES_FREE = 'nodefs.inodesFree';

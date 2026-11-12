@@ -31,6 +31,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         'async' => 'bool',
         'function_id' => 'string',
         'sandbox_id' => 'string',
+        'snapshot_id' => 'string',
         'timeout' => 'int',
         'timeout_unit' => 'string'
     ];
@@ -44,6 +45,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         'async' => null,
         'function_id' => null,
         'sandbox_id' => null,
+        'snapshot_id' => null,
         'timeout' => 'int32',
         'timeout_unit' => null
     ];
@@ -78,6 +80,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         'async' => 'Async',
         'function_id' => 'FunctionId',
         'sandbox_id' => 'SandboxId',
+        'snapshot_id' => 'SnapshotId',
         'timeout' => 'Timeout',
         'timeout_unit' => 'TimeoutUnit'
     ];
@@ -91,6 +94,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         'async' => 'setAsync',
         'function_id' => 'setFunctionId',
         'sandbox_id' => 'setSandboxId',
+        'snapshot_id' => 'setSnapshotId',
         'timeout' => 'setTimeout',
         'timeout_unit' => 'setTimeoutUnit'
     ];
@@ -104,6 +108,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         'async' => 'getAsync',
         'function_id' => 'getFunctionId',
         'sandbox_id' => 'getSandboxId',
+        'snapshot_id' => 'getSnapshotId',
         'timeout' => 'getTimeout',
         'timeout_unit' => 'getTimeoutUnit'
     ];
@@ -139,16 +144,6 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -171,6 +166,7 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
         $this->container['async'] = isset($data['async']) ? $data['async'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['timeout_unit'] = isset($data['timeout_unit']) ? $data['timeout_unit'] : null;
     }
@@ -273,6 +269,30 @@ class ResumeSandboxRequest implements ModelInterface, ArrayAccess
     public function setSandboxId($sandbox_id)
     {
         $this->container['sandbox_id'] = $sandbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
 
         return $this;
     }

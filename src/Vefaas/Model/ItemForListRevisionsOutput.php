@@ -33,6 +33,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'code_size_limit' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
+        'efs_mount_config' => '\Volcengine\Vefaas\Model\EfsMountConfigForListRevisionsOutput',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListRevisionsOutput[]',
         'exclusive_mode' => 'bool',
         'function_type' => 'string',
@@ -70,6 +71,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'code_size_limit' => 'int32',
         'creation_time' => null,
         'description' => null,
+        'efs_mount_config' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'function_type' => null,
@@ -128,6 +130,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'code_size_limit' => 'CodeSizeLimit',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'efs_mount_config' => 'EfsMountConfig',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'function_type' => 'FunctionType',
@@ -165,6 +168,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'code_size_limit' => 'setCodeSizeLimit',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'efs_mount_config' => 'setEfsMountConfig',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'function_type' => 'setFunctionType',
@@ -202,6 +206,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'code_size_limit' => 'getCodeSizeLimit',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'efs_mount_config' => 'getEfsMountConfig',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'function_type' => 'getFunctionType',
@@ -259,16 +264,6 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -293,6 +288,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['efs_mount_config'] = isset($data['efs_mount_config']) ? $data['efs_mount_config'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
@@ -459,6 +455,30 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\EfsMountConfigForListRevisionsOutput
+     */
+    public function getEfsMountConfig()
+    {
+        return $this->container['efs_mount_config'];
+    }
+
+    /**
+     * Sets efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\EfsMountConfigForListRevisionsOutput $efs_mount_config efs_mount_config
+     *
+     * @return $this
+     */
+    public function setEfsMountConfig($efs_mount_config)
+    {
+        $this->container['efs_mount_config'] = $efs_mount_config;
 
         return $this;
     }

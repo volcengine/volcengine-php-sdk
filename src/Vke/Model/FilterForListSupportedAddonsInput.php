@@ -149,16 +149,6 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CATEGORIES_MONITOR = 'Monitor';
     const CATEGORIES_DNS = 'Dns';
     const CATEGORIES_STORAGE = 'Storage';

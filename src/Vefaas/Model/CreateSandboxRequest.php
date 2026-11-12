@@ -29,17 +29,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'async' => 'bool',
+        'auto_pause_config' => '\Volcengine\Vefaas\Model\AutoPauseConfigForCreateSandboxInput',
+        'auto_snapshot_config' => '\Volcengine\Vefaas\Model\AutoSnapshotConfigForCreateSandboxInput',
         'cpu_milli' => 'int',
         'ebs_volumes' => '\Volcengine\Vefaas\Model\EBSVolumeForCreateSandboxInput[]',
         'empty_dir_volume' => '\Volcengine\Vefaas\Model\EmptyDirVolumeForCreateSandboxInput[]',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]',
         'function_id' => 'string',
+        'instance_efs_mount_config' => '\Volcengine\Vefaas\Model\InstanceEfsMountConfigForCreateSandboxInput',
         'instance_image_info' => '\Volcengine\Vefaas\Model\InstanceImageInfoForCreateSandboxInput',
         'instance_nas_mount_config' => '\Volcengine\Vefaas\Model\InstanceNasMountConfigForCreateSandboxInput',
         'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
+        'network_rules' => '\Volcengine\Vefaas\Model\NetworkRulesForCreateSandboxInput',
         'request_timeout' => 'int',
         'role_chain_trn' => 'string[]',
         'role_trn' => 'string',
@@ -57,17 +61,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'async' => null,
+        'auto_pause_config' => null,
+        'auto_snapshot_config' => null,
         'cpu_milli' => 'int32',
         'ebs_volumes' => null,
         'empty_dir_volume' => null,
         'envs' => null,
         'function_id' => null,
+        'instance_efs_mount_config' => null,
         'instance_image_info' => null,
         'instance_nas_mount_config' => null,
         'instance_tos_mount_config' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
         'metadata' => null,
+        'network_rules' => null,
         'request_timeout' => 'int32',
         'role_chain_trn' => null,
         'role_trn' => null,
@@ -106,17 +114,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'async' => 'Async',
+        'auto_pause_config' => 'AutoPauseConfig',
+        'auto_snapshot_config' => 'AutoSnapshotConfig',
         'cpu_milli' => 'CpuMilli',
         'ebs_volumes' => 'EBSVolumes',
         'empty_dir_volume' => 'EmptyDirVolume',
         'envs' => 'Envs',
         'function_id' => 'FunctionId',
+        'instance_efs_mount_config' => 'InstanceEfsMountConfig',
         'instance_image_info' => 'InstanceImageInfo',
         'instance_nas_mount_config' => 'InstanceNasMountConfig',
         'instance_tos_mount_config' => 'InstanceTosMountConfig',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
+        'network_rules' => 'NetworkRules',
         'request_timeout' => 'RequestTimeout',
         'role_chain_trn' => 'RoleChainTrn',
         'role_trn' => 'RoleTrn',
@@ -134,17 +146,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'async' => 'setAsync',
+        'auto_pause_config' => 'setAutoPauseConfig',
+        'auto_snapshot_config' => 'setAutoSnapshotConfig',
         'cpu_milli' => 'setCpuMilli',
         'ebs_volumes' => 'setEbsVolumes',
         'empty_dir_volume' => 'setEmptyDirVolume',
         'envs' => 'setEnvs',
         'function_id' => 'setFunctionId',
+        'instance_efs_mount_config' => 'setInstanceEfsMountConfig',
         'instance_image_info' => 'setInstanceImageInfo',
         'instance_nas_mount_config' => 'setInstanceNasMountConfig',
         'instance_tos_mount_config' => 'setInstanceTosMountConfig',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
+        'network_rules' => 'setNetworkRules',
         'request_timeout' => 'setRequestTimeout',
         'role_chain_trn' => 'setRoleChainTrn',
         'role_trn' => 'setRoleTrn',
@@ -162,17 +178,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'async' => 'getAsync',
+        'auto_pause_config' => 'getAutoPauseConfig',
+        'auto_snapshot_config' => 'getAutoSnapshotConfig',
         'cpu_milli' => 'getCpuMilli',
         'ebs_volumes' => 'getEbsVolumes',
         'empty_dir_volume' => 'getEmptyDirVolume',
         'envs' => 'getEnvs',
         'function_id' => 'getFunctionId',
+        'instance_efs_mount_config' => 'getInstanceEfsMountConfig',
         'instance_image_info' => 'getInstanceImageInfo',
         'instance_nas_mount_config' => 'getInstanceNasMountConfig',
         'instance_tos_mount_config' => 'getInstanceTosMountConfig',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
+        'network_rules' => 'getNetworkRules',
         'request_timeout' => 'getRequestTimeout',
         'role_chain_trn' => 'getRoleChainTrn',
         'role_trn' => 'getRoleTrn',
@@ -214,16 +234,6 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -244,17 +254,21 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['async'] = isset($data['async']) ? $data['async'] : null;
+        $this->container['auto_pause_config'] = isset($data['auto_pause_config']) ? $data['auto_pause_config'] : null;
+        $this->container['auto_snapshot_config'] = isset($data['auto_snapshot_config']) ? $data['auto_snapshot_config'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['ebs_volumes'] = isset($data['ebs_volumes']) ? $data['ebs_volumes'] : null;
         $this->container['empty_dir_volume'] = isset($data['empty_dir_volume']) ? $data['empty_dir_volume'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['instance_efs_mount_config'] = isset($data['instance_efs_mount_config']) ? $data['instance_efs_mount_config'] : null;
         $this->container['instance_image_info'] = isset($data['instance_image_info']) ? $data['instance_image_info'] : null;
         $this->container['instance_nas_mount_config'] = isset($data['instance_nas_mount_config']) ? $data['instance_nas_mount_config'] : null;
         $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['network_rules'] = isset($data['network_rules']) ? $data['network_rules'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['role_chain_trn'] = isset($data['role_chain_trn']) ? $data['role_chain_trn'] : null;
         $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
@@ -312,6 +326,54 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setAsync($async)
     {
         $this->container['async'] = $async;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_pause_config
+     *
+     * @return \Volcengine\Vefaas\Model\AutoPauseConfigForCreateSandboxInput
+     */
+    public function getAutoPauseConfig()
+    {
+        return $this->container['auto_pause_config'];
+    }
+
+    /**
+     * Sets auto_pause_config
+     *
+     * @param \Volcengine\Vefaas\Model\AutoPauseConfigForCreateSandboxInput $auto_pause_config auto_pause_config
+     *
+     * @return $this
+     */
+    public function setAutoPauseConfig($auto_pause_config)
+    {
+        $this->container['auto_pause_config'] = $auto_pause_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_snapshot_config
+     *
+     * @return \Volcengine\Vefaas\Model\AutoSnapshotConfigForCreateSandboxInput
+     */
+    public function getAutoSnapshotConfig()
+    {
+        return $this->container['auto_snapshot_config'];
+    }
+
+    /**
+     * Sets auto_snapshot_config
+     *
+     * @param \Volcengine\Vefaas\Model\AutoSnapshotConfigForCreateSandboxInput $auto_snapshot_config auto_snapshot_config
+     *
+     * @return $this
+     */
+    public function setAutoSnapshotConfig($auto_snapshot_config)
+    {
+        $this->container['auto_snapshot_config'] = $auto_snapshot_config;
 
         return $this;
     }
@@ -432,6 +494,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceEfsMountConfigForCreateSandboxInput
+     */
+    public function getInstanceEfsMountConfig()
+    {
+        return $this->container['instance_efs_mount_config'];
+    }
+
+    /**
+     * Sets instance_efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceEfsMountConfigForCreateSandboxInput $instance_efs_mount_config instance_efs_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceEfsMountConfig($instance_efs_mount_config)
+    {
+        $this->container['instance_efs_mount_config'] = $instance_efs_mount_config;
 
         return $this;
     }
@@ -576,6 +662,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_rules
+     *
+     * @return \Volcengine\Vefaas\Model\NetworkRulesForCreateSandboxInput
+     */
+    public function getNetworkRules()
+    {
+        return $this->container['network_rules'];
+    }
+
+    /**
+     * Sets network_rules
+     *
+     * @param \Volcengine\Vefaas\Model\NetworkRulesForCreateSandboxInput $network_rules network_rules
+     *
+     * @return $this
+     */
+    public function setNetworkRules($network_rules)
+    {
+        $this->container['network_rules'] = $network_rules;
 
         return $this;
     }

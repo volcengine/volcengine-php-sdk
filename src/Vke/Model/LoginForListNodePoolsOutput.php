@@ -124,16 +124,6 @@ class LoginForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE_PASSWORD = 'Password';
     const TYPE_SSH_KEY_PAIR = 'SshKeyPair';
     

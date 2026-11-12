@@ -39,12 +39,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => 'string',
         'id' => 'string',
         'image' => 'string',
+        'instance_efs_mount_config' => '\Volcengine\Vefaas\Model\InstanceEfsMountConfigForListSandboxesOutput',
         'instance_type' => 'string',
         'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
         'paused_at' => 'string',
         'pending' => 'bool',
         'revision_number' => 'int',
+        'role_chain_trn' => 'string[]',
+        'role_trn' => 'string',
         'session_id' => 'string',
         'sidecars' => '\Volcengine\Vefaas\Model\SidecarForListSandboxesOutput[]',
         'status' => 'string'
@@ -67,12 +70,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => null,
         'id' => null,
         'image' => null,
+        'instance_efs_mount_config' => null,
         'instance_type' => null,
         'memory_mb' => 'int32',
         'metadata' => null,
         'paused_at' => null,
         'pending' => null,
         'revision_number' => 'int32',
+        'role_chain_trn' => null,
+        'role_trn' => null,
         'session_id' => null,
         'sidecars' => null,
         'status' => null
@@ -116,12 +122,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => 'FunctionId',
         'id' => 'Id',
         'image' => 'Image',
+        'instance_efs_mount_config' => 'InstanceEfsMountConfig',
         'instance_type' => 'InstanceType',
         'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
         'paused_at' => 'PausedAt',
         'pending' => 'Pending',
         'revision_number' => 'RevisionNumber',
+        'role_chain_trn' => 'RoleChainTrn',
+        'role_trn' => 'RoleTrn',
         'session_id' => 'SessionId',
         'sidecars' => 'Sidecars',
         'status' => 'Status'
@@ -144,12 +153,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => 'setFunctionId',
         'id' => 'setId',
         'image' => 'setImage',
+        'instance_efs_mount_config' => 'setInstanceEfsMountConfig',
         'instance_type' => 'setInstanceType',
         'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
         'paused_at' => 'setPausedAt',
         'pending' => 'setPending',
         'revision_number' => 'setRevisionNumber',
+        'role_chain_trn' => 'setRoleChainTrn',
+        'role_trn' => 'setRoleTrn',
         'session_id' => 'setSessionId',
         'sidecars' => 'setSidecars',
         'status' => 'setStatus'
@@ -172,12 +184,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => 'getFunctionId',
         'id' => 'getId',
         'image' => 'getImage',
+        'instance_efs_mount_config' => 'getInstanceEfsMountConfig',
         'instance_type' => 'getInstanceType',
         'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
         'paused_at' => 'getPausedAt',
         'pending' => 'getPending',
         'revision_number' => 'getRevisionNumber',
+        'role_chain_trn' => 'getRoleChainTrn',
+        'role_trn' => 'getRoleTrn',
         'session_id' => 'getSessionId',
         'sidecars' => 'getSidecars',
         'status' => 'getStatus'
@@ -214,16 +229,6 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -254,12 +259,15 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['instance_efs_mount_config'] = isset($data['instance_efs_mount_config']) ? $data['instance_efs_mount_config'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['paused_at'] = isset($data['paused_at']) ? $data['paused_at'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['role_chain_trn'] = isset($data['role_chain_trn']) ? $data['role_chain_trn'] : null;
+        $this->container['role_trn'] = isset($data['role_trn']) ? $data['role_trn'] : null;
         $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['sidecars'] = isset($data['sidecars']) ? $data['sidecars'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -554,6 +562,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceEfsMountConfigForListSandboxesOutput
+     */
+    public function getInstanceEfsMountConfig()
+    {
+        return $this->container['instance_efs_mount_config'];
+    }
+
+    /**
+     * Sets instance_efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceEfsMountConfigForListSandboxesOutput $instance_efs_mount_config instance_efs_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceEfsMountConfig($instance_efs_mount_config)
+    {
+        $this->container['instance_efs_mount_config'] = $instance_efs_mount_config;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_type
      *
      * @return string
@@ -693,6 +725,54 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setRevisionNumber($revision_number)
     {
         $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_chain_trn
+     *
+     * @return string[]
+     */
+    public function getRoleChainTrn()
+    {
+        return $this->container['role_chain_trn'];
+    }
+
+    /**
+     * Sets role_chain_trn
+     *
+     * @param string[] $role_chain_trn role_chain_trn
+     *
+     * @return $this
+     */
+    public function setRoleChainTrn($role_chain_trn)
+    {
+        $this->container['role_chain_trn'] = $role_chain_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_trn
+     *
+     * @return string
+     */
+    public function getRoleTrn()
+    {
+        return $this->container['role_trn'];
+    }
+
+    /**
+     * Sets role_trn
+     *
+     * @param string $role_trn role_trn
+     *
+     * @return $this
+     */
+    public function setRoleTrn($role_trn)
+    {
+        $this->container['role_trn'] = $role_trn;
 
         return $this;
     }

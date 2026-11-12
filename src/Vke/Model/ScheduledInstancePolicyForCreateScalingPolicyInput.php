@@ -144,16 +144,6 @@ class ScheduledInstancePolicyForCreateScalingPolicyInput implements ModelInterfa
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DELIVERY_TYPE_RESERVE = 'Reserve';
     const DELIVERY_TYPE_IMMEDIATE = 'Immediate';
     const ELASTIC_SCHEDULED_INSTANCE_TYPE_ESI = 'Esi';

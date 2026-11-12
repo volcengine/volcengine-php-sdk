@@ -28,9 +28,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bucket_name' => 'string',
-        'bucket_path' => 'string',
-        'endpoint' => 'string',
+        'backend' => '\Volcengine\Vefaas\Model\BackendForListFunctionsOutput',
         'local_mount_path' => 'string',
         'read_only' => 'bool'
     ];
@@ -41,9 +39,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bucket_name' => null,
-        'bucket_path' => null,
-        'endpoint' => null,
+        'backend' => null,
         'local_mount_path' => null,
         'read_only' => null
     ];
@@ -75,9 +71,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bucket_name' => 'BucketName',
-        'bucket_path' => 'BucketPath',
-        'endpoint' => 'Endpoint',
+        'backend' => 'Backend',
         'local_mount_path' => 'LocalMountPath',
         'read_only' => 'ReadOnly'
     ];
@@ -88,9 +82,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bucket_name' => 'setBucketName',
-        'bucket_path' => 'setBucketPath',
-        'endpoint' => 'setEndpoint',
+        'backend' => 'setBackend',
         'local_mount_path' => 'setLocalMountPath',
         'read_only' => 'setReadOnly'
     ];
@@ -101,9 +93,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bucket_name' => 'getBucketName',
-        'bucket_path' => 'getBucketPath',
-        'endpoint' => 'getEndpoint',
+        'backend' => 'getBackend',
         'local_mount_path' => 'getLocalMountPath',
         'read_only' => 'getReadOnly'
     ];
@@ -139,16 +129,6 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -168,9 +148,7 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
-        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
+        $this->container['backend'] = isset($data['backend']) ? $data['backend'] : null;
         $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
         $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
     }
@@ -200,73 +178,25 @@ class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bucket_name
+     * Gets backend
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\BackendForListFunctionsOutput
      */
-    public function getBucketName()
+    public function getBackend()
     {
-        return $this->container['bucket_name'];
+        return $this->container['backend'];
     }
 
     /**
-     * Sets bucket_name
+     * Sets backend
      *
-     * @param string $bucket_name bucket_name
+     * @param \Volcengine\Vefaas\Model\BackendForListFunctionsOutput $backend backend
      *
      * @return $this
      */
-    public function setBucketName($bucket_name)
+    public function setBackend($backend)
     {
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_path
-     *
-     * @return string
-     */
-    public function getBucketPath()
-    {
-        return $this->container['bucket_path'];
-    }
-
-    /**
-     * Sets bucket_path
-     *
-     * @param string $bucket_path bucket_path
-     *
-     * @return $this
-     */
-    public function setBucketPath($bucket_path)
-    {
-        $this->container['bucket_path'] = $bucket_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
+        $this->container['backend'] = $backend;
 
         return $this;
     }

@@ -129,16 +129,6 @@ class LogSetupForCreateClusterInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const LOG_TYPE_AUDIT = 'Audit';
     const LOG_TYPE_KUBE_API_SERVER = 'KubeApiServer';
     const LOG_TYPE_KUBE_SCHEDULER = 'KubeScheduler';

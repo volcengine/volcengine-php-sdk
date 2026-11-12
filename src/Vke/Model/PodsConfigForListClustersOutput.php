@@ -129,16 +129,6 @@ class PodsConfigForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const POD_NETWORK_MODE_FLANNEL = 'Flannel';
     const POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
     const POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';

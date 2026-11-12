@@ -29,6 +29,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'assign_status' => 'string',
+        'auto_pause_config' => '\Volcengine\Vefaas\Model\AutoPauseConfigForDescribeSandboxOutput',
+        'auto_snapshot_config' => '\Volcengine\Vefaas\Model\AutoSnapshotConfigForDescribeSandboxOutput',
         'availability_zone' => 'string',
         'cpu_milli' => 'int',
         'created_at' => 'string',
@@ -39,12 +41,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'string',
         'id' => 'string',
         'image_info' => '\Volcengine\Vefaas\Model\ImageInfoForDescribeSandboxOutput',
+        'instance_efs_mount_config' => '\Volcengine\Vefaas\Model\InstanceEfsMountConfigForDescribeSandboxOutput',
         'instance_nas_mount_config' => '\Volcengine\Vefaas\Model\InstanceNasMountConfigForDescribeSandboxOutput',
         'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput',
         'instance_type' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
         'metadata_list' => '\Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]',
+        'paused_at' => 'string',
         'pending' => 'bool',
         'request_timeout' => 'int',
         'revision_number' => 'int',
@@ -62,6 +66,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'assign_status' => null,
+        'auto_pause_config' => null,
+        'auto_snapshot_config' => null,
         'availability_zone' => null,
         'cpu_milli' => 'int32',
         'created_at' => null,
@@ -72,12 +78,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => null,
         'id' => null,
         'image_info' => null,
+        'instance_efs_mount_config' => null,
         'instance_nas_mount_config' => null,
         'instance_tos_mount_config' => null,
         'instance_type' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
         'metadata_list' => null,
+        'paused_at' => null,
         'pending' => null,
         'request_timeout' => 'int32',
         'revision_number' => 'int32',
@@ -116,6 +124,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'assign_status' => 'AssignStatus',
+        'auto_pause_config' => 'AutoPauseConfig',
+        'auto_snapshot_config' => 'AutoSnapshotConfig',
         'availability_zone' => 'AvailabilityZone',
         'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
@@ -126,12 +136,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'FunctionId',
         'id' => 'Id',
         'image_info' => 'ImageInfo',
+        'instance_efs_mount_config' => 'InstanceEfsMountConfig',
         'instance_nas_mount_config' => 'InstanceNasMountConfig',
         'instance_tos_mount_config' => 'InstanceTosMountConfig',
         'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
         'metadata_list' => 'MetadataList',
+        'paused_at' => 'PausedAt',
         'pending' => 'Pending',
         'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
@@ -149,6 +161,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'assign_status' => 'setAssignStatus',
+        'auto_pause_config' => 'setAutoPauseConfig',
+        'auto_snapshot_config' => 'setAutoSnapshotConfig',
         'availability_zone' => 'setAvailabilityZone',
         'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
@@ -159,12 +173,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'setFunctionId',
         'id' => 'setId',
         'image_info' => 'setImageInfo',
+        'instance_efs_mount_config' => 'setInstanceEfsMountConfig',
         'instance_nas_mount_config' => 'setInstanceNasMountConfig',
         'instance_tos_mount_config' => 'setInstanceTosMountConfig',
         'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
         'metadata_list' => 'setMetadataList',
+        'paused_at' => 'setPausedAt',
         'pending' => 'setPending',
         'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
@@ -182,6 +198,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'assign_status' => 'getAssignStatus',
+        'auto_pause_config' => 'getAutoPauseConfig',
+        'auto_snapshot_config' => 'getAutoSnapshotConfig',
         'availability_zone' => 'getAvailabilityZone',
         'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
@@ -192,12 +210,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'getFunctionId',
         'id' => 'getId',
         'image_info' => 'getImageInfo',
+        'instance_efs_mount_config' => 'getInstanceEfsMountConfig',
         'instance_nas_mount_config' => 'getInstanceNasMountConfig',
         'instance_tos_mount_config' => 'getInstanceTosMountConfig',
         'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
         'metadata_list' => 'getMetadataList',
+        'paused_at' => 'getPausedAt',
         'pending' => 'getPending',
         'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
@@ -239,16 +259,6 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -269,6 +279,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['assign_status'] = isset($data['assign_status']) ? $data['assign_status'] : null;
+        $this->container['auto_pause_config'] = isset($data['auto_pause_config']) ? $data['auto_pause_config'] : null;
+        $this->container['auto_snapshot_config'] = isset($data['auto_snapshot_config']) ? $data['auto_snapshot_config'] : null;
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -279,12 +291,14 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image_info'] = isset($data['image_info']) ? $data['image_info'] : null;
+        $this->container['instance_efs_mount_config'] = isset($data['instance_efs_mount_config']) ? $data['instance_efs_mount_config'] : null;
         $this->container['instance_nas_mount_config'] = isset($data['instance_nas_mount_config']) ? $data['instance_nas_mount_config'] : null;
         $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata_list'] = isset($data['metadata_list']) ? $data['metadata_list'] : null;
+        $this->container['paused_at'] = isset($data['paused_at']) ? $data['paused_at'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
@@ -339,6 +353,54 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setAssignStatus($assign_status)
     {
         $this->container['assign_status'] = $assign_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_pause_config
+     *
+     * @return \Volcengine\Vefaas\Model\AutoPauseConfigForDescribeSandboxOutput
+     */
+    public function getAutoPauseConfig()
+    {
+        return $this->container['auto_pause_config'];
+    }
+
+    /**
+     * Sets auto_pause_config
+     *
+     * @param \Volcengine\Vefaas\Model\AutoPauseConfigForDescribeSandboxOutput $auto_pause_config auto_pause_config
+     *
+     * @return $this
+     */
+    public function setAutoPauseConfig($auto_pause_config)
+    {
+        $this->container['auto_pause_config'] = $auto_pause_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_snapshot_config
+     *
+     * @return \Volcengine\Vefaas\Model\AutoSnapshotConfigForDescribeSandboxOutput
+     */
+    public function getAutoSnapshotConfig()
+    {
+        return $this->container['auto_snapshot_config'];
+    }
+
+    /**
+     * Sets auto_snapshot_config
+     *
+     * @param \Volcengine\Vefaas\Model\AutoSnapshotConfigForDescribeSandboxOutput $auto_snapshot_config auto_snapshot_config
+     *
+     * @return $this
+     */
+    public function setAutoSnapshotConfig($auto_snapshot_config)
+    {
+        $this->container['auto_snapshot_config'] = $auto_snapshot_config;
 
         return $this;
     }
@@ -584,6 +646,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceEfsMountConfigForDescribeSandboxOutput
+     */
+    public function getInstanceEfsMountConfig()
+    {
+        return $this->container['instance_efs_mount_config'];
+    }
+
+    /**
+     * Sets instance_efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceEfsMountConfigForDescribeSandboxOutput $instance_efs_mount_config instance_efs_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceEfsMountConfig($instance_efs_mount_config)
+    {
+        $this->container['instance_efs_mount_config'] = $instance_efs_mount_config;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_nas_mount_config
      *
      * @return \Volcengine\Vefaas\Model\InstanceNasMountConfigForDescribeSandboxOutput
@@ -723,6 +809,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setMetadataList($metadata_list)
     {
         $this->container['metadata_list'] = $metadata_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets paused_at
+     *
+     * @return string
+     */
+    public function getPausedAt()
+    {
+        return $this->container['paused_at'];
+    }
+
+    /**
+     * Sets paused_at
+     *
+     * @param string $paused_at paused_at
+     *
+     * @return $this
+     */
+    public function setPausedAt($paused_at)
+    {
+        $this->container['paused_at'] = $paused_at;
 
         return $this;
     }

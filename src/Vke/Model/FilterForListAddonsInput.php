@@ -149,16 +149,6 @@ class FilterForListAddonsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DEPLOY_MODES_MANAGED = 'Managed';
     const DEPLOY_MODES_UNMANAGED = 'Unmanaged';
     const DEPLOY_NODE_TYPES_NODE = 'Node';

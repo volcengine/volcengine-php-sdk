@@ -30,7 +30,7 @@ class TosMountConfigForListFunctionsOutput implements ModelInterface, ArrayAcces
     protected static $swaggerTypes = [
         'credentials' => '\Volcengine\Vefaas\Model\CredentialsForListFunctionsOutput',
         'enable_tos' => 'bool',
-        'mount_points' => '\Volcengine\Vefaas\Model\MountPointForListFunctionsOutput[]'
+        'mount_points' => '\Volcengine\Vefaas\Model\ConvertMountPointForListFunctionsOutput[]'
     ];
 
     /**
@@ -127,16 +127,6 @@ class TosMountConfigForListFunctionsOutput implements ModelInterface, ArrayAcces
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     
@@ -238,7 +228,7 @@ class TosMountConfigForListFunctionsOutput implements ModelInterface, ArrayAcces
     /**
      * Gets mount_points
      *
-     * @return \Volcengine\Vefaas\Model\MountPointForListFunctionsOutput[]
+     * @return \Volcengine\Vefaas\Model\ConvertMountPointForListFunctionsOutput[]
      */
     public function getMountPoints()
     {
@@ -248,7 +238,7 @@ class TosMountConfigForListFunctionsOutput implements ModelInterface, ArrayAcces
     /**
      * Sets mount_points
      *
-     * @param \Volcengine\Vefaas\Model\MountPointForListFunctionsOutput[] $mount_points mount_points
+     * @param \Volcengine\Vefaas\Model\ConvertMountPointForListFunctionsOutput[] $mount_points mount_points
      *
      * @return $this
      */

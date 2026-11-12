@@ -124,16 +124,6 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CONDITIONS_TYPE_OK = 'Ok';
     const CONDITIONS_TYPE_STOCK_OUT = 'StockOut';
     const CONDITIONS_TYPE_LIMITED_BY_QUOTA = 'LimitedByQuota';

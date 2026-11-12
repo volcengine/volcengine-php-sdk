@@ -37,7 +37,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         'ignore_zero' => 'int',
         'instance_no' => 'string',
         'limit' => 'int',
+        'max_results' => 'int',
         'need_record_num' => 'int',
+        'next_token' => 'string',
         'offset' => 'int',
         'owner_id' => 'int[]',
         'payer_id' => 'int[]',
@@ -62,7 +64,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         'ignore_zero' => 'int32',
         'instance_no' => null,
         'limit' => 'int32',
+        'max_results' => 'int32',
         'need_record_num' => 'int32',
+        'next_token' => null,
         'offset' => 'int32',
         'owner_id' => 'int64',
         'payer_id' => 'int64',
@@ -108,7 +112,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         'ignore_zero' => 'IgnoreZero',
         'instance_no' => 'InstanceNo',
         'limit' => 'Limit',
+        'max_results' => 'MaxResults',
         'need_record_num' => 'NeedRecordNum',
+        'next_token' => 'NextToken',
         'offset' => 'Offset',
         'owner_id' => 'OwnerID',
         'payer_id' => 'PayerID',
@@ -133,7 +139,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         'ignore_zero' => 'setIgnoreZero',
         'instance_no' => 'setInstanceNo',
         'limit' => 'setLimit',
+        'max_results' => 'setMaxResults',
         'need_record_num' => 'setNeedRecordNum',
+        'next_token' => 'setNextToken',
         'offset' => 'setOffset',
         'owner_id' => 'setOwnerId',
         'payer_id' => 'setPayerId',
@@ -158,7 +166,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         'ignore_zero' => 'getIgnoreZero',
         'instance_no' => 'getInstanceNo',
         'limit' => 'getLimit',
+        'max_results' => 'getMaxResults',
         'need_record_num' => 'getNeedRecordNum',
+        'next_token' => 'getNextToken',
         'offset' => 'getOffset',
         'owner_id' => 'getOwnerId',
         'payer_id' => 'getPayerId',
@@ -227,7 +237,9 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['ignore_zero'] = isset($data['ignore_zero']) ? $data['ignore_zero'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['need_record_num'] = isset($data['need_record_num']) ? $data['need_record_num'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
@@ -484,6 +496,30 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
      * Gets need_record_num
      *
      * @return int
@@ -503,6 +539,30 @@ class ListAmortizedCostBillDetailRequest implements ModelInterface, ArrayAccess
     public function setNeedRecordNum($need_record_num)
     {
         $this->container['need_record_num'] = $need_record_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

@@ -29,6 +29,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'function_id' => 'string',
+        'metadata' => '\Volcengine\Vefaas\Model\MetadataForCreateSandboxSnapshotInput',
+        'retention_days' => 'int',
         'sandbox_id' => 'string',
         'type' => 'string'
     ];
@@ -40,6 +42,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'function_id' => null,
+        'metadata' => null,
+        'retention_days' => 'int32',
         'sandbox_id' => null,
         'type' => null
     ];
@@ -72,6 +76,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'function_id' => 'FunctionId',
+        'metadata' => 'Metadata',
+        'retention_days' => 'RetentionDays',
         'sandbox_id' => 'SandboxId',
         'type' => 'Type'
     ];
@@ -83,6 +89,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'function_id' => 'setFunctionId',
+        'metadata' => 'setMetadata',
+        'retention_days' => 'setRetentionDays',
         'sandbox_id' => 'setSandboxId',
         'type' => 'setType'
     ];
@@ -94,6 +102,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'function_id' => 'getFunctionId',
+        'metadata' => 'getMetadata',
+        'retention_days' => 'getRetentionDays',
         'sandbox_id' => 'getSandboxId',
         'type' => 'getType'
     ];
@@ -129,16 +139,6 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -159,6 +159,8 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['retention_days'] = isset($data['retention_days']) ? $data['retention_days'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -213,6 +215,54 @@ class CreateSandboxSnapshotRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \Volcengine\Vefaas\Model\MetadataForCreateSandboxSnapshotInput
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \Volcengine\Vefaas\Model\MetadataForCreateSandboxSnapshotInput $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets retention_days
+     *
+     * @return int
+     */
+    public function getRetentionDays()
+    {
+        return $this->container['retention_days'];
+    }
+
+    /**
+     * Sets retention_days
+     *
+     * @param int $retention_days retention_days
+     *
+     * @return $this
+     */
+    public function setRetentionDays($retention_days)
+    {
+        $this->container['retention_days'] = $retention_days;
 
         return $this;
     }

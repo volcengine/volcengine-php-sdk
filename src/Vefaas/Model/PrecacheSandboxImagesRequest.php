@@ -28,8 +28,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'image_urls' => 'string[]',
-        'registry_id' => 'string'
+        'network_config' => '\Volcengine\Vefaas\Model\NetworkConfigForPrecacheSandboxImagesInput',
+        'registry_auth_config' => '\Volcengine\Vefaas\Model\RegistryAuthConfigForPrecacheSandboxImagesInput',
+        'registry_type' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'image_urls' => null,
-        'registry_id' => null
+        'network_config' => null,
+        'registry_auth_config' => null,
+        'registry_type' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'image_urls' => 'ImageUrls',
-        'registry_id' => 'RegistryId'
+        'network_config' => 'NetworkConfig',
+        'registry_auth_config' => 'RegistryAuthConfig',
+        'registry_type' => 'RegistryType'
     ];
 
     /**
@@ -79,8 +88,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'image_urls' => 'setImageUrls',
-        'registry_id' => 'setRegistryId'
+        'network_config' => 'setNetworkConfig',
+        'registry_auth_config' => 'setRegistryAuthConfig',
+        'registry_type' => 'setRegistryType'
     ];
 
     /**
@@ -89,8 +101,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'image_urls' => 'getImageUrls',
-        'registry_id' => 'getRegistryId'
+        'network_config' => 'getNetworkConfig',
+        'registry_auth_config' => 'getRegistryAuthConfig',
+        'registry_type' => 'getRegistryType'
     ];
 
     /**
@@ -124,16 +139,6 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -153,8 +158,11 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['image_urls'] = isset($data['image_urls']) ? $data['image_urls'] : null;
-        $this->container['registry_id'] = isset($data['registry_id']) ? $data['registry_id'] : null;
+        $this->container['network_config'] = isset($data['network_config']) ? $data['network_config'] : null;
+        $this->container['registry_auth_config'] = isset($data['registry_auth_config']) ? $data['registry_auth_config'] : null;
+        $this->container['registry_type'] = isset($data['registry_type']) ? $data['registry_type'] : null;
     }
 
     /**
@@ -182,6 +190,30 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
      * Gets image_urls
      *
      * @return string[]
@@ -206,25 +238,73 @@ class PrecacheSandboxImagesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets registry_id
+     * Gets network_config
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\NetworkConfigForPrecacheSandboxImagesInput
      */
-    public function getRegistryId()
+    public function getNetworkConfig()
     {
-        return $this->container['registry_id'];
+        return $this->container['network_config'];
     }
 
     /**
-     * Sets registry_id
+     * Sets network_config
      *
-     * @param string $registry_id registry_id
+     * @param \Volcengine\Vefaas\Model\NetworkConfigForPrecacheSandboxImagesInput $network_config network_config
      *
      * @return $this
      */
-    public function setRegistryId($registry_id)
+    public function setNetworkConfig($network_config)
     {
-        $this->container['registry_id'] = $registry_id;
+        $this->container['network_config'] = $network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets registry_auth_config
+     *
+     * @return \Volcengine\Vefaas\Model\RegistryAuthConfigForPrecacheSandboxImagesInput
+     */
+    public function getRegistryAuthConfig()
+    {
+        return $this->container['registry_auth_config'];
+    }
+
+    /**
+     * Sets registry_auth_config
+     *
+     * @param \Volcengine\Vefaas\Model\RegistryAuthConfigForPrecacheSandboxImagesInput $registry_auth_config registry_auth_config
+     *
+     * @return $this
+     */
+    public function setRegistryAuthConfig($registry_auth_config)
+    {
+        $this->container['registry_auth_config'] = $registry_auth_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets registry_type
+     *
+     * @return string
+     */
+    public function getRegistryType()
+    {
+        return $this->container['registry_type'];
+    }
+
+    /**
+     * Sets registry_type
+     *
+     * @param string $registry_type registry_type
+     *
+     * @return $this
+     */
+    public function setRegistryType($registry_type)
+    {
+        $this->container['registry_type'] = $registry_type;
 
         return $this;
     }

@@ -129,16 +129,6 @@ class CreateKubeconfigRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const TYPE__PUBLIC = 'Public';
     const TYPE__PRIVATE = 'Private';
     const TYPE_TARGET_CLUSTER = 'TargetCluster';

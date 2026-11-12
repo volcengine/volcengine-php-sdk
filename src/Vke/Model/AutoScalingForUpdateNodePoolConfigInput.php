@@ -144,16 +144,6 @@ class AutoScalingForUpdateNodePoolConfigInput implements ModelInterface, ArrayAc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const SUBNET_POLICY_ZONE_BALANCE = 'ZoneBalance';
     const SUBNET_POLICY_PRIORITY = 'Priority';
     

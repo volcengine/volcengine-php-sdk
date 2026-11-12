@@ -32,6 +32,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'command' => 'string',
         'cpu_milli' => 'int',
         'description' => 'string',
+        'efs_mount_config' => '\Volcengine\Vefaas\Model\EfsMountConfigForUpdateFunctionInput',
         'enable_apmplus' => 'bool',
         'enable_zti_token' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]',
@@ -64,6 +65,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'command' => null,
         'cpu_milli' => 'int32',
         'description' => null,
+        'efs_mount_config' => null,
         'enable_apmplus' => null,
         'enable_zti_token' => null,
         'envs' => null,
@@ -117,6 +119,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'command' => 'Command',
         'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
+        'efs_mount_config' => 'EfsMountConfig',
         'enable_apmplus' => 'EnableApmplus',
         'enable_zti_token' => 'EnableZTIToken',
         'envs' => 'Envs',
@@ -149,6 +152,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'command' => 'setCommand',
         'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
+        'efs_mount_config' => 'setEfsMountConfig',
         'enable_apmplus' => 'setEnableApmplus',
         'enable_zti_token' => 'setEnableZtiToken',
         'envs' => 'setEnvs',
@@ -181,6 +185,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'command' => 'getCommand',
         'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
+        'efs_mount_config' => 'getEfsMountConfig',
         'enable_apmplus' => 'getEnableApmplus',
         'enable_zti_token' => 'getEnableZtiToken',
         'envs' => 'getEnvs',
@@ -234,16 +239,6 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -267,6 +262,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['efs_mount_config'] = isset($data['efs_mount_config']) ? $data['efs_mount_config'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['enable_zti_token'] = isset($data['enable_zti_token']) ? $data['enable_zti_token'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -408,6 +404,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets efs_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\EfsMountConfigForUpdateFunctionInput
+     */
+    public function getEfsMountConfig()
+    {
+        return $this->container['efs_mount_config'];
+    }
+
+    /**
+     * Sets efs_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\EfsMountConfigForUpdateFunctionInput $efs_mount_config efs_mount_config
+     *
+     * @return $this
+     */
+    public function setEfsMountConfig($efs_mount_config)
+    {
+        $this->container['efs_mount_config'] = $efs_mount_config;
 
         return $this;
     }

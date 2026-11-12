@@ -149,16 +149,6 @@ class FilterForListPermissionsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const GRANTEE_TYPE_USER = 'User';
     const GRANTEE_TYPE_ROLE = 'Role';
     const GRANTEE_TYPE_ALL = 'All';

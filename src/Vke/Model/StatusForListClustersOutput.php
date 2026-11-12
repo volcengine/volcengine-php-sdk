@@ -124,16 +124,6 @@ class StatusForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const PHASE_RUNNING = 'Running';
     const PHASE_STARTING = 'Starting';
     const PHASE_STOPPED = 'Stopped';
