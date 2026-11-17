@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\Request;
 use Volcengine\Common\ApiException;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\Utils;
+use Volcengine\Common\Retry\Retryer;
 
 class StsProvider extends Provider implements StsProxyConfigurableProvider
 {
@@ -104,37 +105,11 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
         }
         $query = substr($query, 0, -1);
 
-        $headers = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
-            '', $query, 'GET', '/', $headers);
-
         $request = new Request('GET',
             $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
             $headers, '');
 
-        $response = $this->sendWithRetry($request);
-        $statusCode = $response->getStatusCode();
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw $this->apiExceptionFromResponse($request, $response);
-        }
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)(%s)',
-                    $statusCode,
-                    $request->getUri(),
-                    $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-
-        $content = $content->{'Result'};
-
-        return (array)$content->Credentials;
+        return StsResponse::credentials($this->sendWithRetry($request));
     }
 
     public function setConnectTimeout($connectTimeout)
@@ -232,6 +207,7 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
         ]);
         $client = new Client($clientOptions);
         $lastException = null;
+        $retryer = new Retryer($this->maxRetries, 0, 0);
 
         $sendOptions = [
             'timeout' => $this->readTimeout,
@@ -241,23 +217,20 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
 
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             try {
-                $response = $client->send($request, $sendOptions);
-
-                if (!$this->isRetryableStatusCode($response->getStatusCode()) || $attempt >= $this->maxRetries) {
-                    return $response;
-                }
-
-                $lastException = $this->apiExceptionFromResponse($request, $response);
+                $headers = Utils::signv4($this->ak, $this->sk, $this->region, 'sts',
+                    '', $request->getUri()->getQuery(), 'GET', '/', $request->getHeaders());
+                $signedRequest = new Request('GET', $request->getUri(), $headers, '');
+                $response = $client->send($signedRequest, $sendOptions);
+                return StsResponse::read($response, $request->getUri());
             } catch (RequestException $e) {
-                $lastException = $this->apiExceptionFromRequestException($e);
-                if (!$this->isRetryableRequestException($e) || $attempt >= $this->maxRetries) {
-                    throw $lastException;
-                }
+                $lastException = ApiException::fromRequestException($e);
             } catch (TransferException $e) {
-                $lastException = new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), null, null);
-                if ($attempt >= $this->maxRetries) {
-                    throw $lastException;
-                }
+                $lastException = ApiException::fromTransferError("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), null, null, $e);
+            } catch (ApiException $e) {
+                $lastException = $e;
+            }
+            if (!$retryer->shouldRetry(null, $attempt, $lastException)) {
+                throw $lastException;
             }
 
             if ($attempt < $this->maxRetries && $this->retryInterval > 0) {
@@ -268,43 +241,4 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
         throw $lastException;
     }
 
-    private function isRetryableStatusCode($statusCode)
-    {
-        return in_array((int) $statusCode, [429, 500, 502, 503, 504], true);
-    }
-
-    private function isRetryableRequestException(RequestException $e)
-    {
-        $response = $e->getResponse();
-        if ($response === null) {
-            return true;
-        }
-        return $this->isRetryableStatusCode($response->getStatusCode());
-    }
-
-    private function apiExceptionFromRequestException(RequestException $e)
-    {
-        return new ApiException(
-            "[{$e->getCode()}] {$e->getMessage()}",
-            $e->getCode(),
-            $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-            $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-        );
-    }
-
-    private function apiExceptionFromResponse(Request $request, $response)
-    {
-        $body = (string) $response->getBody();
-        return new ApiException(
-            sprintf(
-                '[%d] Error connecting to the API (%s)(%s)',
-                $response->getStatusCode(),
-                $request->getUri(),
-                $body
-            ),
-            $response->getStatusCode(),
-            $response->getHeaders(),
-            $body
-        );
-    }
 }

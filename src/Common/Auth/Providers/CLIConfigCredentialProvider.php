@@ -39,6 +39,14 @@ class CLIConfigCredentialProvider extends Provider
         return $this->cachedCredentials;
     }
 
+    public function invalidateCredentials()
+    {
+        $this->cachedCredentials = null;
+        if ($this->delegate !== null && is_callable([$this->delegate, 'invalidateCredentials'])) {
+            $this->delegate->invalidateCredentials();
+        }
+    }
+
     private function loadFromConfig()
     {
         $configPath = $this->resolveConfigPath();

@@ -4,6 +4,10 @@
 
 ## 访问凭据
 
+AssumeRole、OIDC、SAML 使用统一的响应诊断与校验：HTTP 非成功状态及 HTTP200 TOP／根级业务错误均保留真实状态、业务码、消息、RequestId 和独立正文快照。`Result.Credentials` 必须是对象，AK、SK、SessionToken 为非空字符串；已提供的 `CurrentTime`、`Expiration`、`ExpiredTime` 必须是有效 RFC3339 时间，全部校验通过后才能缓存。OIDC／SAML 未提供过期时间时仍使用原有本地 duration 估计。业务 Endpoint 不作为 STS Endpoint 兜底，代理与 TLS 配置优先级保持原有契约。
+
+内置缓存 Provider 提供可选 `invalidateCredentials()`。Default／Lazy／CLI 向实际来源委托，业务请求冻结 Default 链的成功来源，避免交错异步请求失效另一来源；OIDC／SAML／ECS 清理内存凭证。SSO 跳过被拒绝的 profile STS 凭证并重读 OAuth 磁盘缓存，保留磁盘文件；console-login 连续失效仍拒绝同一磁盘 access token，保留 token 轮换恢复流程。自定义 Provider 无须新增方法。
+
 火山引擎 PHP SDK 同时支持显式凭证配置，以及基于 `CredentialProvider` 的自动凭证解析。
 
 ### 凭证提供者概览
@@ -130,7 +134,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### AssumeRole
 
-动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole` 并返回响应中的 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。该 provider 只处理 HTTP 状态和 STS 返回的 `ResponseMetadata.Error`，不会额外校验响应 JSON 中的 `Credentials` 字段完整性。默认会重试临时 STS 失败：网络/传输错误及 HTTP `429/500/502/503/504`。其他状态码（包括 `501/505/599`）不触发状态码重试。`setMaxRetries()` 指首次请求之后的额外重试次数，`0` 表示不重试。
+动态访问凭证信息。`StsProvider::getCredentials()` 每次调用都会请求 STS `AssumeRole`，校验后返回 `Result.Credentials`，自身不维护本地缓存或过期前刷新窗口。AK、SK、SessionToken 必须为非空字符串，已提供的时间字段必须有效；畸形 `ResponseMetadata.Error` 也会拒绝。默认重试瞬时网络错误及 HTTP `429/500/502/503/504`，取消与 TLS 错误终止；`501/505/599` 不仅凭状态重试，但可按业务码判断。`setMaxRetries()` 指首次请求之后的额外重试次数，`0` 表示不重试。OIDC／SAML 表单 STS 保留 HTTP 429 和全部 5xx 的原有重试范围。
 
 > ⚠️ **注意事项**
 >

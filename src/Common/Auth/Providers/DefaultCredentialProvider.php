@@ -56,9 +56,8 @@ class DefaultCredentialProvider extends Provider
             try {
                 $creds = $provider->getCredentials();
                 if ($creds !== null) {
-                    if ($this->reuseLastProviderEnabled) {
-                        $this->lastProvider = $provider;
-                    }
+                    // Remember the credential source even when fast reuse is off.
+                    $this->lastProvider = $provider;
                     return $creds;
                 }
             } catch (\Exception $e) {
@@ -71,6 +70,32 @@ class DefaultCredentialProvider extends Provider
             self::PROVIDER_NAME . ": unable to resolve credentials from any provider in the chain.\n"
             . "Attempted providers:\n  " . $errorDetails
         );
+    }
+
+    /**
+     * @internal Freeze the successful source for one request; leaf caches stay shared.
+     */
+    public function bindCredentialSource()
+    {
+        $binding = clone $this;
+        if ($this->lastProvider !== null
+            && in_array(get_class($this->lastProvider), [self::class, LazyProvider::class], true)) {
+            $binding->lastProvider = $this->lastProvider->bindCredentialSource();
+            foreach ($binding->providers as $key => $provider) {
+                if ($provider === $this->lastProvider) {
+                    $binding->providers[$key] = $binding->lastProvider;
+                }
+            }
+        }
+        return $binding;
+    }
+
+    public function invalidateCredentials()
+    {
+        if ($this->lastProvider !== null && is_callable([$this->lastProvider, 'invalidateCredentials'])) {
+            $this->lastProvider->invalidateCredentials();
+        }
+        $this->lastProvider = null;
     }
 
     private function buildProviderChain($roleName)
@@ -130,5 +155,27 @@ class LazyProvider extends Provider
         }
 
         return $this->delegate->getCredentials();
+    }
+
+    /** @internal Preserve a nested chain's successful source for one request. */
+    public function bindCredentialSource()
+    {
+        $binding = clone $this;
+        if ($this->delegate !== null
+            && in_array(get_class($this->delegate), [DefaultCredentialProvider::class, self::class], true)) {
+            $binding->delegate = $this->delegate->bindCredentialSource();
+        }
+        return $binding;
+    }
+
+    public function invalidateCredentials()
+    {
+        if ($this->delegate !== null && is_callable([$this->delegate, 'invalidateCredentials'])) {
+            $this->delegate->invalidateCredentials();
+        }
+        if ($this->delegate === null) {
+            $this->initialized = false;
+            $this->initError = null;
+        }
     }
 }

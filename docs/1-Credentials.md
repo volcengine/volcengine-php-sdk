@@ -4,6 +4,10 @@
 
 ## Credentials
 
+AssumeRole, OIDC and SAML share response diagnostics and validation. HTTP errors and HTTP200 TOP/root business errors retain the real status, business code, message, RequestId and an independent body snapshot. `Result.Credentials` must be an object with nonempty string AK, SK and SessionToken. Supplied `CurrentTime`, `Expiration` and `ExpiredTime` must be valid RFC3339 timestamps; validation completes before cache updates. OIDC/SAML retain their local duration estimate when no expiry is supplied. Business Endpoint is not a fallback for STS Endpoint, and existing proxy/TLS precedence is preserved.
+
+Built-in cached providers expose optional `invalidateCredentials()`. Default/Lazy/CLI delegate to the actual source; business requests freeze the successful Default chain source so interleaved asynchronous requests invalidate the correct provider. OIDC/SAML/ECS clear memory credentials. SSO skips rejected profile STS credentials and reloads the OAuth disk snapshot without deleting the file. Console-login retains its rejected-token marker across repeated invalidation and preserves disk token rotation recovery. Custom providers need no additional methods.
+
 The Volcengine PHP SDK supports explicit credentials and `CredentialProvider`-based automatic resolution.
 
 ### Credential Providers Overview
@@ -128,7 +132,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 
 ### AssumeRole
 
-AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and returns `Result.Credentials`; it does not maintain a local cache or refresh window. This provider handles HTTP status and STS `ResponseMetadata.Error`, but it does not perform additional client-side validation for the completeness of the `Credentials` fields in the JSON response. Transient STS failures are retried by default: network/transport errors and HTTP `429/500/502/503/504`. Other HTTP statuses, including `501/505/599`, do not trigger status-based retries. `setMaxRetries()` specifies extra attempts after the first request; `0` disables retries.
+AssumeRole provides dynamic credentials. `StsProvider::getCredentials()` calls STS `AssumeRole` on every invocation and validates `Result.Credentials` before returning it; it has no local cache or refresh window. AK, SK and SessionToken must be nonempty strings, supplied timestamps must be valid, and malformed `ResponseMetadata.Error` is rejected. Transient network failures and HTTP `429/500/502/503/504` are retried; cancellation and TLS failures stop. `501/505/599` do not trigger retries solely by status, but business codes can qualify. `setMaxRetries()` specifies extra attempts after the first request; `0` disables retries. OIDC/SAML form STS retains its original HTTP 429 and all 5xx retry range.
 
 > ⚠️ **Notes**
 >

@@ -38,6 +38,14 @@ class SsoCredentialProvider extends Provider
         $this->cacheDir = $cacheDir;
     }
 
+    public function invalidateCredentials()
+    {
+        $this->cachedCredentials = null;
+        $this->expirationTime = 0;
+        // Ignore rejected profile STS credentials, retaining the OAuth cache.
+        $this->profileData['sts-expiration'] = 0;
+    }
+
     public function getCredentials()
     {
         if ($this->cachedCredentials !== null && time() < $this->expirationTime) {

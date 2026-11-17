@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use Volcengine\Common\Auth\Providers\DefaultCredentialProvider;
+use Volcengine\Common\Auth\Providers\LazyProvider;
 use Volcengine\Common\Auth\Providers\OidcCredentialProvider;
 use Volcengine\Common\Auth\Providers\SamlCredentialProvider;
 use Volcengine\Common\Auth\Providers\StsProvider;
@@ -148,6 +149,9 @@ class ApiClient
                 $request->credentialProvider = $credentialProvider;
             }
             $creds = $credentialProvider->getCredentials();
+            if (in_array(get_class($credentialProvider), [DefaultCredentialProvider::class, LazyProvider::class], true)) {
+                $request->credentialProvider = $credentialProvider->bindCredentialSource();
+            }
             $request->ak = $creds['AccessKeyId'];
             $request->sk = $creds['SecretAccessKey'];
             $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
@@ -236,7 +240,6 @@ class ApiClient
         $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
         $retryCount = 0;
         $lastError = null;
-        $retryError = null;
         $lastResponse = null;
 
         while (true) {
@@ -246,6 +249,9 @@ class ApiClient
                 $retryer = $request->retryer instanceof Retryer ? $request->retryer : null;
             }
 
+            // A new attempt must not reuse a previous response or retry input.
+            $lastResponse = null;
+            $lastError = null;
             try {
                 $start = microtime(true);
                 HttpLoggingInterceptor::logRequest($request);
@@ -261,32 +267,24 @@ class ApiClient
                     $responseContext->getResponse()->headers,
                 ];
             } catch (RequestException $e) {
-                $retryError = $e;
                 $lastResponse = $e->getResponse();
                 $lastError = ApiException::fromRequestException($e);
             } catch (TransferException $e) {
-                $retryError = $e;
                 $lastError = ApiException::fromTransferException($e);
             } catch (ApiException $e) {
-                $retryError = $e;
+                $lastError = $e;
+            } catch (\Exception $e) {
+                $lastError = $e;
+            } catch (\Throwable $e) {
                 $lastError = $e;
             }
 
-            $retryCandidate = $retryError ?: $lastError;
-            if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($lastResponse, $retryCount, $retryCandidate)) {
+            $retryCandidate = $lastError;
+            if (!$this->shouldRetryAttempt($request, $retryer, $lastResponse, $retryCount, $retryCandidate, $lastError)) {
                 throw $lastError;
             }
 
-            $delayMs = $retryer->getRetryDelay($retryCount, $lastResponse);
-            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
-                'Retry attempt={attempt} delay_ms={delay_ms}', [
-                    'attempt' => $retryCount + 1,
-                    'delay_ms' => $delayMs,
-                ]
-            );
-            if ($delayMs > 0) {
-                usleep((int) ($delayMs * 1000));
-            }
+            $this->waitForRetry($request, $retryer, $lastResponse, $retryCount, $lastError);
             $retryCount++;
         }
     }
@@ -440,22 +438,19 @@ class ApiClient
                         $responseContext->getResponse()->statusCode,
                         $responseContext->getResponse()->headers,
                     ];
-                } catch (ApiException $e) {
-                    if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($httpResponse, $retryCount, $e)) {
+                } catch (\Exception $e) {
+                    if (!$this->shouldRetryAttempt($request, $retryer, $httpResponse, $retryCount, $e, $e)) {
                         throw $e;
                     }
 
-                    $delayMs = $retryer->getRetryDelay($retryCount, $httpResponse);
-                    LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
-                        'Retry attempt={attempt} delay_ms={delay_ms}', [
-                            'attempt' => $retryCount + 1,
-                            'delay_ms' => $delayMs,
-                        ]
-                    );
-                    if ($delayMs > 0) {
-                        usleep((int) ($delayMs * 1000));
-                    }
+                    $this->waitForRetry($request, $retryer, $httpResponse, $retryCount, $e);
 
+                    return $this->sendAsyncAttempt($context, $retryCount + 1, $e);
+                } catch (\Throwable $e) {
+                    if (!$this->shouldRetryAttempt($request, $retryer, $httpResponse, $retryCount, $e, $e)) {
+                        throw $e;
+                    }
+                    $this->waitForRetry($request, $retryer, $httpResponse, $retryCount, $e);
                     return $this->sendAsyncAttempt($context, $retryCount + 1, $e);
                 }
             }, function ($exception) use ($context, $request, $retryer, $retryCount) {
@@ -468,24 +463,15 @@ class ApiClient
                 } elseif ($exception instanceof ApiException) {
                     $apiException = $exception;
                 } else {
-                    throw $exception;
+                    $apiException = $exception;
                 }
 
-                $retryCandidate = $exception instanceof TransferException ? $exception : $apiException;
-                if (!$request->autoRetry || $retryer === null || !$retryer->shouldRetry($response, $retryCount, $retryCandidate)) {
+                $retryCandidate = $apiException;
+                if (!$this->shouldRetryAttempt($request, $retryer, $response, $retryCount, $retryCandidate, $apiException)) {
                     throw $apiException;
                 }
 
-                $delayMs = $retryer->getRetryDelay($retryCount, $response);
-                LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
-                    'Retry attempt={attempt} delay_ms={delay_ms}', [
-                        'attempt' => $retryCount + 1,
-                        'delay_ms' => $delayMs,
-                    ]
-                );
-                if ($delayMs > 0) {
-                    usleep((int) ($delayMs * 1000));
-                }
+                $this->waitForRetry($request, $retryer, $response, $retryCount, $apiException);
 
                 return $this->sendAsyncAttempt($context, $retryCount + 1, $apiException);
             });
@@ -493,14 +479,51 @@ class ApiClient
 
     private function prepareRetryAttempt(Context $context, $error, $retryCount)
     {
-        $request = $context->getRequest();
-        $request->retryCount = $retryCount;
+        try {
+            $request = $context->getRequest();
+            $request->retryCount = $retryCount;
 
-        if ($this->shouldRefreshCredentials($error)) {
-            $this->refreshRequestCredentials($request);
+            if ($this->shouldRefreshCredentials($error)) {
+                $this->refreshRequestCredentials($request);
+            }
+
+            return $this->rebuildRequest($context);
+        } catch (\Exception $e) {
+            throw ApiException::fromRetryError($e, $error);
+        } catch (\Throwable $e) {
+            throw ApiException::fromRetryError($e, $error);
         }
+    }
 
-        return $this->rebuildRequest($context);
+    private function shouldRetryAttempt($request, $retryer, $response, $retryCount, $candidate, $lastError)
+    {
+        try {
+            return $request->autoRetry && $retryer !== null && $retryer->shouldRetry($response, $retryCount, $candidate);
+        } catch (\Exception $e) {
+            throw ApiException::fromRetryError($e, $lastError);
+        } catch (\Throwable $e) {
+            throw ApiException::fromRetryError($e, $lastError);
+        }
+    }
+
+    private function waitForRetry($request, $retryer, $response, $retryCount, $lastError)
+    {
+        try {
+            $delayMs = $retryer->getRetryDelay($retryCount, $response);
+            LogHelper::debug($request->logger, $request->logLevel, SdkLogger::LOG_RETRY,
+                'Retry attempt={attempt} delay_ms={delay_ms}', [
+                    'attempt' => $retryCount + 1,
+                    'delay_ms' => $delayMs,
+                ]
+            );
+            if ($delayMs > 0) {
+                usleep((int) ($delayMs * 1000));
+            }
+        } catch (\Exception $e) {
+            throw ApiException::fromRetryError($e, $lastError);
+        } catch (\Throwable $e) {
+            throw ApiException::fromRetryError($e, $lastError);
+        }
     }
 
     private function refreshRequestCredentials(Request $request)
@@ -509,7 +532,13 @@ class ApiClient
             return;
         }
 
+        if (is_callable([$request->credentialProvider, 'invalidateCredentials'])) {
+            $request->credentialProvider->invalidateCredentials();
+        }
         $creds = $request->credentialProvider->getCredentials();
+        if (in_array(get_class($request->credentialProvider), [DefaultCredentialProvider::class, LazyProvider::class], true)) {
+            $request->credentialProvider = $request->credentialProvider->bindCredentialSource();
+        }
         if (!is_array($creds)) {
             return;
         }
@@ -526,12 +555,11 @@ class ApiClient
     private function rebuildRequest(Context $context)
     {
         $request = $context->getRequest();
-        unset(
-            $request->headers['Authorization'],
-            $request->headers['X-Date'],
-            $request->headers['X-Content-Sha256'],
-            $request->headers['X-Security-Token']
-        );
+        foreach (array_keys($request->headers) as $name) {
+            if (in_array(strtolower($name), ['authorization', 'x-date', 'x-content-sha256', 'x-security-token'], true)) {
+                unset($request->headers[$name]);
+            }
+        }
         $request->realRequest = null;
         $request->options = [];
         return $this->interceptorChain->executeRequest($context);
@@ -539,16 +567,7 @@ class ApiClient
 
     private function shouldRefreshCredentials($error)
     {
-        if (!$error instanceof ApiException) {
-            return false;
-        }
-
-        $code = Retryer::extractErrorCode($error->getResponseBody());
-        if ($code === null) {
-            return false;
-        }
-
-        return Retryer::isCredentialExpiryError($code);
+        return Retryer::hasCredentialExpiryError($error);
     }
 
 }
