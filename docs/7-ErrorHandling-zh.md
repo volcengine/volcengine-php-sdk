@@ -62,7 +62,7 @@ RequestId 响应头兜底顺序为 `X-Top-Requestid`、`X-Top-Request-Id`、`X-T
 
 重试判断、退避、日志、等待、凭证刷新或请求重建报错时终止重试，抛出 ApiException。`getMessage()` 解释当前重试失败，`getOriginalError()`／`getPrevious()` 指向当前原因；状态、headers、正文、RequestId、业务字段和 `getErrorMessage()` 保留前次信息，`getPreviousAttemptError()` 单独保存前次异常。这些字段不表示又收到新响应。每次尝试只把当次 response 交给重试策略，无响应时为 null。
 
-直接打印异常显示 `httpStatus`、`requestId`、`errorCode`、`errorMessage`、`message`、`responseBody`；堆栈通过 `getTraceAsString()` 和原因对象读取。
+`ApiException` 继承 PHP 原生 `Exception::__toString()`；`(string) $e`、`echo $e`、`error_log($e)` 和默认未捕获异常输出保留类名、message、文件及行号、完整调用栈和 `previous` 异常链。HTTP 状态、RequestId、业务码及响应正文通过上述 getter 或 `Utils::printError($stream, $e)` 获取；`getTraceAsString()` 可单独读取当前异常的调用栈。
 
 ```php
 <?php
@@ -90,7 +90,7 @@ function printSdkDiagnostics(ApiException $e)
         'previousAttemptMessage' => $previousAttempt ? $previousAttempt->getMessage() : null
     ));
     echo (string) $e, PHP_EOL;
-    // $e->getTraceAsString() 和 $cause->getTraceAsString() 可分别读取堆栈。
+    // 原生字符串化包含当前调用栈及 previous 异常链。
 }
 
 $config = new Configuration();

@@ -346,20 +346,6 @@ class ApiException extends Exception
         return $service !== null && $service['message'] !== null ? $service['message'] : $this->getErrorMessage();
     }
 
-    public function __toString()
-    {
-        return sprintf(
-            '%s: httpStatus=%d, requestId=%s, errorCode=%s, errorMessage=%s, message=%s, responseBody=%s',
-            get_class($this),
-            $this->getStatusCode(),
-            $this->getRequestId() === null ? 'null' : $this->getRequestId(),
-            $this->getErrorCode() === null ? 'null' : $this->getErrorCode(),
-            $this->getErrorMessage(),
-            $this->getMessage(),
-            $this->responseBody === null ? 'null' : self::normalizeBody($this->responseBody)
-        );
-    }
-
     public function setOriginalError($originalError)
     {
         $this->originalError = $originalError;

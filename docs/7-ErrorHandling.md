@@ -62,7 +62,7 @@ A body-read failure produces `ReadError` with only the bytes actually acquired. 
 
 Retry-condition, backoff, logging, waiting, credential-refresh, or request-rebuild failures terminate retries with ApiException. `getMessage()` describes the current retry failure, and `getOriginalError()` / `getPrevious()` identify its current cause. Status, headers, body, RequestId, service fields, and `getErrorMessage()` retain the previous attempt's diagnostics; `getPreviousAttemptError()` retains that exception separately. These fields do not represent a newly received response. Only the current attempt's response is passed to retry policies; it is null when no response was received.
 
-Printing the exception includes `httpStatus`, `requestId`, `errorCode`, `errorMessage`, `message`, and `responseBody`. Read stack traces through `getTraceAsString()` and the cause object.
+`ApiException` inherits PHP's native `Exception::__toString()`. Casting with `(string) $e`, `echo $e`, `error_log($e)`, and default uncaught exception output preserve the class, message, file and line, full stack trace, and `previous` exception chain. Access HTTP status, RequestId, service code, and response body through the getters above or `Utils::printError($stream, $e)`. Use `getTraceAsString()` to read only the current exception's stack trace.
 
 ```php
 <?php
@@ -90,7 +90,7 @@ function printSdkDiagnostics(ApiException $e)
         'previousAttemptMessage' => $previousAttempt ? $previousAttempt->getMessage() : null
     ));
     echo (string) $e, PHP_EOL;
-    // Read the exception and cause stack traces separately.
+    // Native stringification includes the current stack and previous exception chain.
 }
 
 $config = new Configuration();
