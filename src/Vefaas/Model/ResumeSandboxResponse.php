@@ -28,7 +28,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'status' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'status' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'status' => 'Status'
     ];
 
     /**
@@ -76,7 +76,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'status' => 'setStatus'
     ];
 
     /**
@@ -85,7 +85,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'status' => 'getStatus'
     ];
 
     /**
@@ -138,6 +138,7 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
      */
     public function __construct($data = null)
     {
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -163,6 +164,30 @@ class ResumeSandboxResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
