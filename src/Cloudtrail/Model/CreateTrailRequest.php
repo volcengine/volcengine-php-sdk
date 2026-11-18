@@ -209,16 +209,6 @@ class CreateTrailRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EVENT_RW_ALL = 'All';
     const EVENT_RW_READ = 'Read';
     const EVENT_RW_WRITE = 'Write';
@@ -308,9 +298,6 @@ class CreateTrailRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['include_all_event_sources'] === null) {
-            $invalidProperties[] = "'include_all_event_sources' can't be null";
-        }
         $allowedValues = $this->getTosSseAlgorithmAllowableValues();
         if (!is_null($this->container['tos_sse_algorithm']) && !in_array($this->container['tos_sse_algorithm'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(

@@ -124,16 +124,6 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const LOOKUP_CONDITION_KEY_EVENT_ID = 'EventID';
     const LOOKUP_CONDITION_KEY_REQUEST_ID = 'RequestID';
     const LOOKUP_CONDITION_KEY_EVENT_SOURCE = 'EventSource';
@@ -147,6 +137,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
     const LOOKUP_CONDITION_KEY_RESOURCE_TYPE = 'ResourceType';
     const LOOKUP_CONDITION_KEY_RESOURCE_ID = 'ResourceID';
     const LOOKUP_CONDITION_KEY_ERROR_CODE = 'ErrorCode';
+    const LOOKUP_CONDITION_KEY_SOURCE_IP_ADDRESS = 'SourceIPAddress';
     
 
     
@@ -171,6 +162,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
             self::LOOKUP_CONDITION_KEY_RESOURCE_TYPE,
             self::LOOKUP_CONDITION_KEY_RESOURCE_ID,
             self::LOOKUP_CONDITION_KEY_ERROR_CODE,
+            self::LOOKUP_CONDITION_KEY_SOURCE_IP_ADDRESS,
         ];
     }
     

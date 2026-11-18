@@ -28,6 +28,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'account_id' => 'string',
         'integrated_trn' => 'string',
         'resource_id' => 'string',
         'resource_type' => 'string',
@@ -42,6 +43,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'account_id' => null,
         'integrated_trn' => null,
         'resource_id' => null,
         'resource_type' => null,
@@ -77,6 +79,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'AccountID',
         'integrated_trn' => 'IntegratedTrn',
         'resource_id' => 'ResourceID',
         'resource_type' => 'ResourceType',
@@ -91,6 +94,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
         'integrated_trn' => 'setIntegratedTrn',
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
@@ -105,6 +109,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
         'integrated_trn' => 'getIntegratedTrn',
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
@@ -144,16 +149,6 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -173,6 +168,7 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
      */
     public function __construct($data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['integrated_trn'] = isset($data['integrated_trn']) ? $data['integrated_trn'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
@@ -204,6 +200,30 @@ class RelatedResourceForLookupEventsOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
 
     /**
      * Gets integrated_trn
