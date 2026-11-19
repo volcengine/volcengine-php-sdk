@@ -32,6 +32,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         'subtitle_langs' => 'string[]',
         'subtitle_name' => 'string',
         'subtitle_url' => 'string',
+        'type' => 'int',
         'vid' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         'subtitle_langs' => null,
         'subtitle_name' => null,
         'subtitle_url' => null,
+        'type' => 'int32',
         'vid' => null
     ];
 
@@ -79,6 +81,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         'subtitle_langs' => 'subtitleLangs',
         'subtitle_name' => 'subtitleName',
         'subtitle_url' => 'subtitleUrl',
+        'type' => 'type',
         'vid' => 'vid'
     ];
 
@@ -92,6 +95,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         'subtitle_langs' => 'setSubtitleLangs',
         'subtitle_name' => 'setSubtitleName',
         'subtitle_url' => 'setSubtitleUrl',
+        'type' => 'setType',
         'vid' => 'setVid'
     ];
 
@@ -105,6 +109,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         'subtitle_langs' => 'getSubtitleLangs',
         'subtitle_name' => 'getSubtitleName',
         'subtitle_url' => 'getSubtitleUrl',
+        'type' => 'getType',
         'vid' => 'getVid'
     ];
 
@@ -162,6 +167,7 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
         $this->container['subtitle_langs'] = isset($data['subtitle_langs']) ? $data['subtitle_langs'] : null;
         $this->container['subtitle_name'] = isset($data['subtitle_name']) ? $data['subtitle_name'] : null;
         $this->container['subtitle_url'] = isset($data['subtitle_url']) ? $data['subtitle_url'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
@@ -281,6 +287,30 @@ class SubtitleForVideoProjectSubtitleUploadInput implements ModelInterface, Arra
     public function setSubtitleUrl($subtitle_url)
     {
         $this->container['subtitle_url'] = $subtitle_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

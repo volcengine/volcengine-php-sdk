@@ -28,6 +28,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'lip_sync_video_url' => 'string',
         'poster_url' => 'string',
         'source_last_time' => 'string',
         'source_name' => 'string',
@@ -48,6 +49,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'lip_sync_video_url' => null,
         'poster_url' => null,
         'source_last_time' => null,
         'source_name' => null,
@@ -89,6 +91,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
+        'lip_sync_video_url' => 'lipSyncVideoUrl',
         'poster_url' => 'posterUrl',
         'source_last_time' => 'sourceLastTime',
         'source_name' => 'sourceName',
@@ -109,6 +112,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
+        'lip_sync_video_url' => 'setLipSyncVideoUrl',
         'poster_url' => 'setPosterUrl',
         'source_last_time' => 'setSourceLastTime',
         'source_name' => 'setSourceName',
@@ -129,6 +133,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
+        'lip_sync_video_url' => 'getLipSyncVideoUrl',
         'poster_url' => 'getPosterUrl',
         'source_last_time' => 'getSourceLastTime',
         'source_name' => 'getSourceName',
@@ -193,6 +198,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
      */
     public function __construct($data = null)
     {
+        $this->container['lip_sync_video_url'] = isset($data['lip_sync_video_url']) ? $data['lip_sync_video_url'] : null;
         $this->container['poster_url'] = isset($data['poster_url']) ? $data['poster_url'] : null;
         $this->container['source_last_time'] = isset($data['source_last_time']) ? $data['source_last_time'] : null;
         $this->container['source_name'] = isset($data['source_name']) ? $data['source_name'] : null;
@@ -230,6 +236,30 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets lip_sync_video_url
+     *
+     * @return string
+     */
+    public function getLipSyncVideoUrl()
+    {
+        return $this->container['lip_sync_video_url'];
+    }
+
+    /**
+     * Sets lip_sync_video_url
+     *
+     * @param string $lip_sync_video_url lip_sync_video_url
+     *
+     * @return $this
+     */
+    public function setLipSyncVideoUrl($lip_sync_video_url)
+    {
+        $this->container['lip_sync_video_url'] = $lip_sync_video_url;
+
+        return $this;
+    }
 
     /**
      * Gets poster_url
