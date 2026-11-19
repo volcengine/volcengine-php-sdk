@@ -28,6 +28,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'connection_limit' => 'string',
+        'cps_limit' => 'int',
         'inbound_mbps_limit' => 'int',
         'limit_rule_id' => 'string',
         'outbound_mbps_limit' => 'int'
@@ -39,6 +41,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'connection_limit' => null,
+        'cps_limit' => null,
         'inbound_mbps_limit' => null,
         'limit_rule_id' => null,
         'outbound_mbps_limit' => null
@@ -71,6 +75,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'connection_limit' => 'ConnectionLimit',
+        'cps_limit' => 'CpsLimit',
         'inbound_mbps_limit' => 'InboundMbpsLimit',
         'limit_rule_id' => 'LimitRuleId',
         'outbound_mbps_limit' => 'OutboundMbpsLimit'
@@ -82,6 +88,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'connection_limit' => 'setConnectionLimit',
+        'cps_limit' => 'setCpsLimit',
         'inbound_mbps_limit' => 'setInboundMbpsLimit',
         'limit_rule_id' => 'setLimitRuleId',
         'outbound_mbps_limit' => 'setOutboundMbpsLimit'
@@ -93,6 +101,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'connection_limit' => 'getConnectionLimit',
+        'cps_limit' => 'getCpsLimit',
         'inbound_mbps_limit' => 'getInboundMbpsLimit',
         'limit_rule_id' => 'getLimitRuleId',
         'outbound_mbps_limit' => 'getOutboundMbpsLimit'
@@ -129,16 +139,6 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -158,6 +158,8 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
      */
     public function __construct($data = null)
     {
+        $this->container['connection_limit'] = isset($data['connection_limit']) ? $data['connection_limit'] : null;
+        $this->container['cps_limit'] = isset($data['cps_limit']) ? $data['cps_limit'] : null;
         $this->container['inbound_mbps_limit'] = isset($data['inbound_mbps_limit']) ? $data['inbound_mbps_limit'] : null;
         $this->container['limit_rule_id'] = isset($data['limit_rule_id']) ? $data['limit_rule_id'] : null;
         $this->container['outbound_mbps_limit'] = isset($data['outbound_mbps_limit']) ? $data['outbound_mbps_limit'] : null;
@@ -189,6 +191,54 @@ class ModifyNatIpLimitRuleAttributesRequest implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets connection_limit
+     *
+     * @return string
+     */
+    public function getConnectionLimit()
+    {
+        return $this->container['connection_limit'];
+    }
+
+    /**
+     * Sets connection_limit
+     *
+     * @param string $connection_limit connection_limit
+     *
+     * @return $this
+     */
+    public function setConnectionLimit($connection_limit)
+    {
+        $this->container['connection_limit'] = $connection_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets cps_limit
+     *
+     * @return int
+     */
+    public function getCpsLimit()
+    {
+        return $this->container['cps_limit'];
+    }
+
+    /**
+     * Sets cps_limit
+     *
+     * @param int $cps_limit cps_limit
+     *
+     * @return $this
+     */
+    public function setCpsLimit($cps_limit)
+    {
+        $this->container['cps_limit'] = $cps_limit;
+
+        return $this;
+    }
 
     /**
      * Gets inbound_mbps_limit
