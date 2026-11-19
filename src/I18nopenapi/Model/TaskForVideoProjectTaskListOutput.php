@@ -35,6 +35,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'deadline' => 'string',
         'drama_task_workflow' => 'int',
         'is_expedited' => 'bool',
+        'lip_sync_enabled' => 'bool',
         'name' => 'string',
         'project_name' => 'string',
         'source_language' => 'string',
@@ -57,6 +58,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'deadline' => null,
         'drama_task_workflow' => 'int32',
         'is_expedited' => null,
+        'lip_sync_enabled' => null,
         'name' => null,
         'project_name' => null,
         'source_language' => null,
@@ -100,6 +102,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'deadline' => 'deadline',
         'drama_task_workflow' => 'dramaTaskWorkflow',
         'is_expedited' => 'isExpedited',
+        'lip_sync_enabled' => 'lipSyncEnabled',
         'name' => 'name',
         'project_name' => 'projectName',
         'source_language' => 'sourceLanguage',
@@ -122,6 +125,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'deadline' => 'setDeadline',
         'drama_task_workflow' => 'setDramaTaskWorkflow',
         'is_expedited' => 'setIsExpedited',
+        'lip_sync_enabled' => 'setLipSyncEnabled',
         'name' => 'setName',
         'project_name' => 'setProjectName',
         'source_language' => 'setSourceLanguage',
@@ -144,6 +148,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         'deadline' => 'getDeadline',
         'drama_task_workflow' => 'getDramaTaskWorkflow',
         'is_expedited' => 'getIsExpedited',
+        'lip_sync_enabled' => 'getLipSyncEnabled',
         'name' => 'getName',
         'project_name' => 'getProjectName',
         'source_language' => 'getSourceLanguage',
@@ -210,6 +215,7 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
         $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
         $this->container['drama_task_workflow'] = isset($data['drama_task_workflow']) ? $data['drama_task_workflow'] : null;
         $this->container['is_expedited'] = isset($data['is_expedited']) ? $data['is_expedited'] : null;
+        $this->container['lip_sync_enabled'] = isset($data['lip_sync_enabled']) ? $data['lip_sync_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
@@ -407,6 +413,30 @@ class TaskForVideoProjectTaskListOutput implements ModelInterface, ArrayAccess
     public function setIsExpedited($is_expedited)
     {
         $this->container['is_expedited'] = $is_expedited;
+
+        return $this;
+    }
+
+    /**
+     * Gets lip_sync_enabled
+     *
+     * @return bool
+     */
+    public function getLipSyncEnabled()
+    {
+        return $this->container['lip_sync_enabled'];
+    }
+
+    /**
+     * Sets lip_sync_enabled
+     *
+     * @param bool $lip_sync_enabled lip_sync_enabled
+     *
+     * @return $this
+     */
+    public function setLipSyncEnabled($lip_sync_enabled)
+    {
+        $this->container['lip_sync_enabled'] = $lip_sync_enabled;
 
         return $this;
     }

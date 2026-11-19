@@ -564,6 +564,68 @@ class CLOUDTRAILApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function putEventSelectors($body = null)
+    {
+        list($response) = $this->putEventSelectorsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function putEventSelectorsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudtrail\Model\PutEventSelectorsResponse';
+        $request = $this->putEventSelectorsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function putEventSelectorsAsync($body = null)
+    {
+        return $this->putEventSelectorsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function putEventSelectorsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Cloudtrail\Model\PutEventSelectorsResponse';
+        $request = $this->putEventSelectorsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function putEventSelectorsRequest($body)
+    {
+        $resourcePath = '/PutEventSelectors/2021-09-01/cloud_trail/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function startLogging($body = null)
     {
         list($response) = $this->startLoggingWithHttpInfo($body);

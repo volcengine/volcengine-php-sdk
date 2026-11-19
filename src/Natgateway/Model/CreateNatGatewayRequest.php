@@ -37,6 +37,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         'period' => 'int',
         'period_unit' => 'string',
         'project_name' => 'string',
+        'renew_type' => 'int',
         'spec' => 'string',
         'subnet_id' => 'string',
         'tags' => '\Volcengine\Natgateway\Model\TagForCreateNatGatewayInput[]',
@@ -58,6 +59,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         'period' => null,
         'period_unit' => null,
         'project_name' => null,
+        'renew_type' => null,
         'spec' => null,
         'subnet_id' => null,
         'tags' => null,
@@ -100,6 +102,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
         'project_name' => 'ProjectName',
+        'renew_type' => 'RenewType',
         'spec' => 'Spec',
         'subnet_id' => 'SubnetId',
         'tags' => 'Tags',
@@ -121,6 +124,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
         'project_name' => 'setProjectName',
+        'renew_type' => 'setRenewType',
         'spec' => 'setSpec',
         'subnet_id' => 'setSubnetId',
         'tags' => 'setTags',
@@ -142,6 +146,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
         'project_name' => 'getProjectName',
+        'renew_type' => 'getRenewType',
         'spec' => 'getSpec',
         'subnet_id' => 'getSubnetId',
         'tags' => 'getTags',
@@ -179,16 +184,6 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -217,6 +212,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['spec'] = isset($data['spec']) ? $data['spec'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -462,6 +458,30 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets renew_type
+     *
+     * @return int
+     */
+    public function getRenewType()
+    {
+        return $this->container['renew_type'];
+    }
+
+    /**
+     * Sets renew_type
+     *
+     * @param int $renew_type renew_type
+     *
+     * @return $this
+     */
+    public function setRenewType($renew_type)
+    {
+        $this->container['renew_type'] = $renew_type;
 
         return $this;
     }

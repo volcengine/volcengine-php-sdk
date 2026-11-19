@@ -33,6 +33,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         'creation_time' => 'string',
         'deleted_time' => 'string',
         'description' => 'string',
+        'direct_mode' => 'bool',
         'dnat_entry_ids' => 'string[]',
         'eip_addresses' => '\Volcengine\Natgateway\Model\EipAddressForDescribeNatGatewayAttributesOutput[]',
         'expired_time' => 'string',
@@ -68,6 +69,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         'creation_time' => null,
         'deleted_time' => null,
         'description' => null,
+        'direct_mode' => null,
         'dnat_entry_ids' => null,
         'eip_addresses' => null,
         'expired_time' => null,
@@ -124,6 +126,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         'creation_time' => 'CreationTime',
         'deleted_time' => 'DeletedTime',
         'description' => 'Description',
+        'direct_mode' => 'DirectMode',
         'dnat_entry_ids' => 'DnatEntryIds',
         'eip_addresses' => 'EipAddresses',
         'expired_time' => 'ExpiredTime',
@@ -159,6 +162,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         'creation_time' => 'setCreationTime',
         'deleted_time' => 'setDeletedTime',
         'description' => 'setDescription',
+        'direct_mode' => 'setDirectMode',
         'dnat_entry_ids' => 'setDnatEntryIds',
         'eip_addresses' => 'setEipAddresses',
         'expired_time' => 'setExpiredTime',
@@ -194,6 +198,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         'creation_time' => 'getCreationTime',
         'deleted_time' => 'getDeletedTime',
         'description' => 'getDescription',
+        'direct_mode' => 'getDirectMode',
         'dnat_entry_ids' => 'getDnatEntryIds',
         'eip_addresses' => 'getEipAddresses',
         'expired_time' => 'getExpiredTime',
@@ -249,16 +254,6 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -283,6 +278,7 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['direct_mode'] = isset($data['direct_mode']) ? $data['direct_mode'] : null;
         $this->container['dnat_entry_ids'] = isset($data['dnat_entry_ids']) ? $data['dnat_entry_ids'] : null;
         $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
@@ -447,6 +443,30 @@ class DescribeNatGatewayAttributesResponse implements ModelInterface, ArrayAcces
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets direct_mode
+     *
+     * @return bool
+     */
+    public function getDirectMode()
+    {
+        return $this->container['direct_mode'];
+    }
+
+    /**
+     * Sets direct_mode
+     *
+     * @param bool $direct_mode direct_mode
+     *
+     * @return $this
+     */
+    public function setDirectMode($direct_mode)
+    {
+        $this->container['direct_mode'] = $direct_mode;
 
         return $this;
     }

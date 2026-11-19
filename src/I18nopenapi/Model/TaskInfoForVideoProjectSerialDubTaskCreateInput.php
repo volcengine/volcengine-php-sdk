@@ -39,6 +39,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'drama_title' => 'string',
         'dub_or_translation_task_id' => 'string',
         'dub_voice_mode' => 'int',
+        'enable_lip_sync' => 'bool',
         'is_dub' => 'bool',
         'llm_video_understanding_type' => 'int',
         'max_target_subtitle_lines' => 'int',
@@ -75,6 +76,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'drama_title' => null,
         'dub_or_translation_task_id' => null,
         'dub_voice_mode' => 'int32',
+        'enable_lip_sync' => null,
         'is_dub' => null,
         'llm_video_understanding_type' => 'int32',
         'max_target_subtitle_lines' => 'int32',
@@ -132,6 +134,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'drama_title' => 'dramaTitle',
         'dub_or_translation_task_id' => 'dubOrTranslationTaskID',
         'dub_voice_mode' => 'dubVoiceMode',
+        'enable_lip_sync' => 'enableLipSync',
         'is_dub' => 'isDub',
         'llm_video_understanding_type' => 'llmVideoUnderstandingType',
         'max_target_subtitle_lines' => 'maxTargetSubtitleLines',
@@ -168,6 +171,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'drama_title' => 'setDramaTitle',
         'dub_or_translation_task_id' => 'setDubOrTranslationTaskId',
         'dub_voice_mode' => 'setDubVoiceMode',
+        'enable_lip_sync' => 'setEnableLipSync',
         'is_dub' => 'setIsDub',
         'llm_video_understanding_type' => 'setLlmVideoUnderstandingType',
         'max_target_subtitle_lines' => 'setMaxTargetSubtitleLines',
@@ -204,6 +208,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'drama_title' => 'getDramaTitle',
         'dub_or_translation_task_id' => 'getDubOrTranslationTaskId',
         'dub_voice_mode' => 'getDubVoiceMode',
+        'enable_lip_sync' => 'getEnableLipSync',
         'is_dub' => 'getIsDub',
         'llm_video_understanding_type' => 'getLlmVideoUnderstandingType',
         'max_target_subtitle_lines' => 'getMaxTargetSubtitleLines',
@@ -284,6 +289,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         $this->container['drama_title'] = isset($data['drama_title']) ? $data['drama_title'] : null;
         $this->container['dub_or_translation_task_id'] = isset($data['dub_or_translation_task_id']) ? $data['dub_or_translation_task_id'] : null;
         $this->container['dub_voice_mode'] = isset($data['dub_voice_mode']) ? $data['dub_voice_mode'] : null;
+        $this->container['enable_lip_sync'] = isset($data['enable_lip_sync']) ? $data['enable_lip_sync'] : null;
         $this->container['is_dub'] = isset($data['is_dub']) ? $data['is_dub'] : null;
         $this->container['llm_video_understanding_type'] = isset($data['llm_video_understanding_type']) ? $data['llm_video_understanding_type'] : null;
         $this->container['max_target_subtitle_lines'] = isset($data['max_target_subtitle_lines']) ? $data['max_target_subtitle_lines'] : null;
@@ -587,6 +593,30 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     public function setDubVoiceMode($dub_voice_mode)
     {
         $this->container['dub_voice_mode'] = $dub_voice_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_lip_sync
+     *
+     * @return bool
+     */
+    public function getEnableLipSync()
+    {
+        return $this->container['enable_lip_sync'];
+    }
+
+    /**
+     * Sets enable_lip_sync
+     *
+     * @param bool $enable_lip_sync enable_lip_sync
+     *
+     * @return $this
+     */
+    public function setEnableLipSync($enable_lip_sync)
+    {
+        $this->container['enable_lip_sync'] = $enable_lip_sync;
 
         return $this;
     }

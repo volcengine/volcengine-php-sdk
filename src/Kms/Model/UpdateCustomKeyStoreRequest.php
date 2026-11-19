@@ -159,16 +159,6 @@ class UpdateCustomKeyStoreRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const XKS_PROXY_CONNECTIVITY_PUBLIC_ENDPOINT = 'PUBLIC_ENDPOINT';
     const XKS_PROXY_CONNECTIVITY_VPC_ENDPOINT_SERVICE = 'VPC_ENDPOINT_SERVICE';
     

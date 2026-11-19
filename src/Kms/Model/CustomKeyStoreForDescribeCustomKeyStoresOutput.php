@@ -164,16 +164,6 @@ class CustomKeyStoreForDescribeCustomKeyStoresOutput implements ModelInterface, 
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CONNECTION_STATE_CONNECTED = 'CONNECTED';
     const CONNECTION_STATE_CONNECTING = 'CONNECTING';
     const CONNECTION_STATE_FAILED = 'FAILED';

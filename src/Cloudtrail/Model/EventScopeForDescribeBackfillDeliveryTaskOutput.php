@@ -29,7 +29,8 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
       */
     protected static $swaggerTypes = [
         'event_rw' => 'int',
-        'event_sources' => 'string[]'
+        'event_sources' => 'string[]',
+        'include_all_event_sources' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
       */
     protected static $swaggerFormats = [
         'event_rw' => 'int32',
-        'event_sources' => null
+        'event_sources' => null,
+        'include_all_event_sources' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
      */
     protected static $attributeMap = [
         'event_rw' => 'EventRW',
-        'event_sources' => 'EventSources'
+        'event_sources' => 'EventSources',
+        'include_all_event_sources' => 'IncludeAllEventSources'
     ];
 
     /**
@@ -80,7 +83,8 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
      */
     protected static $setters = [
         'event_rw' => 'setEventRw',
-        'event_sources' => 'setEventSources'
+        'event_sources' => 'setEventSources',
+        'include_all_event_sources' => 'setIncludeAllEventSources'
     ];
 
     /**
@@ -90,7 +94,8 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
      */
     protected static $getters = [
         'event_rw' => 'getEventRw',
-        'event_sources' => 'getEventSources'
+        'event_sources' => 'getEventSources',
+        'include_all_event_sources' => 'getIncludeAllEventSources'
     ];
 
     /**
@@ -124,16 +129,6 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -155,6 +150,7 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
     {
         $this->container['event_rw'] = isset($data['event_rw']) ? $data['event_rw'] : null;
         $this->container['event_sources'] = isset($data['event_sources']) ? $data['event_sources'] : null;
+        $this->container['include_all_event_sources'] = isset($data['include_all_event_sources']) ? $data['include_all_event_sources'] : null;
     }
 
     /**
@@ -225,6 +221,30 @@ class EventScopeForDescribeBackfillDeliveryTaskOutput implements ModelInterface,
     public function setEventSources($event_sources)
     {
         $this->container['event_sources'] = $event_sources;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_all_event_sources
+     *
+     * @return bool
+     */
+    public function getIncludeAllEventSources()
+    {
+        return $this->container['include_all_event_sources'];
+    }
+
+    /**
+     * Sets include_all_event_sources
+     *
+     * @param bool $include_all_event_sources include_all_event_sources
+     *
+     * @return $this
+     */
+    public function setIncludeAllEventSources($include_all_event_sources)
+    {
+        $this->container['include_all_event_sources'] = $include_all_event_sources;
 
         return $this;
     }

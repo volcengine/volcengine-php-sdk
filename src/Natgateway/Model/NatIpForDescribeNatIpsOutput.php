@@ -154,37 +154,8 @@ class NatIpForDescribeNatIpsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    const USING_STATUS_IDLE = 'Idle';
-    const USING_STATUS_USED_BY_SNAT = 'UsedBySnat';
-    const USING_STATUS_USED_BY_DNAT = 'UsedByDnat';
-    const USING_STATUS_USED_BY_NAT = 'UsedByNat';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getUsingStatusAllowableValues()
-    {
-        return [
-            self::USING_STATUS_IDLE,
-            self::USING_STATUS_USED_BY_SNAT,
-            self::USING_STATUS_USED_BY_DNAT,
-            self::USING_STATUS_USED_BY_NAT,
-        ];
-    }
     
 
     /**
@@ -220,14 +191,6 @@ class NatIpForDescribeNatIpsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getUsingStatusAllowableValues();
-        if (!is_null($this->container['using_status']) && !in_array($this->container['using_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'using_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -431,15 +394,6 @@ class NatIpForDescribeNatIpsOutput implements ModelInterface, ArrayAccess
      */
     public function setUsingStatus($using_status)
     {
-        $allowedValues = $this->getUsingStatusAllowableValues();
-        if (!is_null($using_status) && !in_array($using_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'using_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['using_status'] = $using_status;
 
         return $this;

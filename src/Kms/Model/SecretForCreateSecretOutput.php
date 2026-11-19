@@ -209,16 +209,6 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const SECRET_STATE_ENABLE = 'Enable';
     const SECRET_STATE_DISABLE = 'Disable';
     const SECRET_STATE_PENDING_DELETE = 'PendingDelete';

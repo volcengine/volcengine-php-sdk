@@ -129,16 +129,6 @@ class MultiRegionConfigurationForCreateKeyOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const MULTI_REGION_KEY_TYPE_PRIMARY = 'PRIMARY';
     const MULTI_REGION_KEY_TYPE_REPLICA = 'REPLICA';
     

@@ -35,6 +35,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'drama_task_workflow' => 'int',
         'duration_count' => 'string',
         'id' => 'string',
+        'lip_sync_enabled' => 'bool',
         'name' => 'string',
         'need_term_validation' => 'bool',
         'project_id' => 'string',
@@ -64,6 +65,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'drama_task_workflow' => 'int32',
         'duration_count' => null,
         'id' => null,
+        'lip_sync_enabled' => null,
         'name' => null,
         'need_term_validation' => null,
         'project_id' => null,
@@ -114,6 +116,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'drama_task_workflow' => 'dramaTaskWorkflow',
         'duration_count' => 'durationCount',
         'id' => 'id',
+        'lip_sync_enabled' => 'lipSyncEnabled',
         'name' => 'name',
         'need_term_validation' => 'needTermValidation',
         'project_id' => 'projectId',
@@ -143,6 +146,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'drama_task_workflow' => 'setDramaTaskWorkflow',
         'duration_count' => 'setDurationCount',
         'id' => 'setId',
+        'lip_sync_enabled' => 'setLipSyncEnabled',
         'name' => 'setName',
         'need_term_validation' => 'setNeedTermValidation',
         'project_id' => 'setProjectId',
@@ -172,6 +176,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         'drama_task_workflow' => 'getDramaTaskWorkflow',
         'duration_count' => 'getDurationCount',
         'id' => 'getId',
+        'lip_sync_enabled' => 'getLipSyncEnabled',
         'name' => 'getName',
         'need_term_validation' => 'getNeedTermValidation',
         'project_id' => 'getProjectId',
@@ -245,6 +250,7 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         $this->container['drama_task_workflow'] = isset($data['drama_task_workflow']) ? $data['drama_task_workflow'] : null;
         $this->container['duration_count'] = isset($data['duration_count']) ? $data['duration_count'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['lip_sync_enabled'] = isset($data['lip_sync_enabled']) ? $data['lip_sync_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['need_term_validation'] = isset($data['need_term_validation']) ? $data['need_term_validation'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -449,6 +455,30 @@ class TaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lip_sync_enabled
+     *
+     * @return bool
+     */
+    public function getLipSyncEnabled()
+    {
+        return $this->container['lip_sync_enabled'];
+    }
+
+    /**
+     * Sets lip_sync_enabled
+     *
+     * @param bool $lip_sync_enabled lip_sync_enabled
+     *
+     * @return $this
+     */
+    public function setLipSyncEnabled($lip_sync_enabled)
+    {
+        $this->container['lip_sync_enabled'] = $lip_sync_enabled;
 
         return $this;
     }

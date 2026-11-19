@@ -244,54 +244,8 @@ class NatGatewayForDescribeNatGatewaysOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    const NETWORK_TYPE_INTERNET = 'internet';
-    const NETWORK_TYPE_INTRANET = 'intranet';
-    const SPEC_SMALL = 'Small';
-    const SPEC_MEDIUM = 'Medium';
-    const SPEC_LARGE = 'Large';
-    const SPEC_EXTRA_LARGE_1 = 'Extra_Large_1';
-    const SPEC_EXTRA_LARGE_2 = 'Extra_Large_2';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNetworkTypeAllowableValues()
-    {
-        return [
-            self::NETWORK_TYPE_INTERNET,
-            self::NETWORK_TYPE_INTRANET,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSpecAllowableValues()
-    {
-        return [
-            self::SPEC_SMALL,
-            self::SPEC_MEDIUM,
-            self::SPEC_LARGE,
-            self::SPEC_EXTRA_LARGE_1,
-            self::SPEC_EXTRA_LARGE_2,
-        ];
-    }
     
 
     /**
@@ -345,22 +299,6 @@ class NatGatewayForDescribeNatGatewaysOutput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getNetworkTypeAllowableValues();
-        if (!is_null($this->container['network_type']) && !in_array($this->container['network_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'network_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSpecAllowableValues();
-        if (!is_null($this->container['spec']) && !in_array($this->container['spec'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'spec', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -708,15 +646,6 @@ class NatGatewayForDescribeNatGatewaysOutput implements ModelInterface, ArrayAcc
      */
     public function setNetworkType($network_type)
     {
-        $allowedValues = $this->getNetworkTypeAllowableValues();
-        if (!is_null($network_type) && !in_array($network_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'network_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['network_type'] = $network_type;
 
         return $this;
@@ -861,15 +790,6 @@ class NatGatewayForDescribeNatGatewaysOutput implements ModelInterface, ArrayAcc
      */
     public function setSpec($spec)
     {
-        $allowedValues = $this->getSpecAllowableValues();
-        if (!is_null($spec) && !in_array($spec, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'spec', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['spec'] = $spec;
 
         return $this;
