@@ -30,6 +30,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'access_key_id' => 'string',
         'error_code' => 'string',
+        'event_category' => 'string',
         'event_detail' => 'string',
         'event_id' => 'string',
         'event_name' => 'string',
@@ -37,9 +38,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         'event_source' => 'string',
         'event_source_display' => 'string',
         'event_time' => 'string',
+        'recipient_account_id' => 'string',
         'region' => 'string',
         'related_resources' => '\Volcengine\Cloudtrail\Model\RelatedResourceForLookupEventsOutput[]',
         'request_id' => 'string',
+        'shared_event_id' => 'string',
         'source_ip_address' => 'string',
         'user_name' => 'string'
     ];
@@ -52,6 +55,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'access_key_id' => null,
         'error_code' => null,
+        'event_category' => null,
         'event_detail' => null,
         'event_id' => null,
         'event_name' => null,
@@ -59,9 +63,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         'event_source' => null,
         'event_source_display' => null,
         'event_time' => null,
+        'recipient_account_id' => null,
         'region' => null,
         'related_resources' => null,
         'request_id' => null,
+        'shared_event_id' => null,
         'source_ip_address' => null,
         'user_name' => null
     ];
@@ -95,6 +101,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'access_key_id' => 'AccessKeyID',
         'error_code' => 'ErrorCode',
+        'event_category' => 'EventCategory',
         'event_detail' => 'EventDetail',
         'event_id' => 'EventID',
         'event_name' => 'EventName',
@@ -102,9 +109,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         'event_source' => 'EventSource',
         'event_source_display' => 'EventSourceDisplay',
         'event_time' => 'EventTime',
+        'recipient_account_id' => 'RecipientAccountID',
         'region' => 'Region',
         'related_resources' => 'RelatedResources',
         'request_id' => 'RequestID',
+        'shared_event_id' => 'SharedEventID',
         'source_ip_address' => 'SourceIPAddress',
         'user_name' => 'UserName'
     ];
@@ -117,6 +126,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'access_key_id' => 'setAccessKeyId',
         'error_code' => 'setErrorCode',
+        'event_category' => 'setEventCategory',
         'event_detail' => 'setEventDetail',
         'event_id' => 'setEventId',
         'event_name' => 'setEventName',
@@ -124,9 +134,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         'event_source' => 'setEventSource',
         'event_source_display' => 'setEventSourceDisplay',
         'event_time' => 'setEventTime',
+        'recipient_account_id' => 'setRecipientAccountId',
         'region' => 'setRegion',
         'related_resources' => 'setRelatedResources',
         'request_id' => 'setRequestId',
+        'shared_event_id' => 'setSharedEventId',
         'source_ip_address' => 'setSourceIpAddress',
         'user_name' => 'setUserName'
     ];
@@ -139,6 +151,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'access_key_id' => 'getAccessKeyId',
         'error_code' => 'getErrorCode',
+        'event_category' => 'getEventCategory',
         'event_detail' => 'getEventDetail',
         'event_id' => 'getEventId',
         'event_name' => 'getEventName',
@@ -146,9 +159,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         'event_source' => 'getEventSource',
         'event_source_display' => 'getEventSourceDisplay',
         'event_time' => 'getEventTime',
+        'recipient_account_id' => 'getRecipientAccountId',
         'region' => 'getRegion',
         'related_resources' => 'getRelatedResources',
         'request_id' => 'getRequestId',
+        'shared_event_id' => 'getSharedEventId',
         'source_ip_address' => 'getSourceIpAddress',
         'user_name' => 'getUserName'
     ];
@@ -184,16 +199,6 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -215,6 +220,7 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
+        $this->container['event_category'] = isset($data['event_category']) ? $data['event_category'] : null;
         $this->container['event_detail'] = isset($data['event_detail']) ? $data['event_detail'] : null;
         $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
         $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
@@ -222,9 +228,11 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
         $this->container['event_source'] = isset($data['event_source']) ? $data['event_source'] : null;
         $this->container['event_source_display'] = isset($data['event_source_display']) ? $data['event_source_display'] : null;
         $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
+        $this->container['recipient_account_id'] = isset($data['recipient_account_id']) ? $data['recipient_account_id'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['related_resources'] = isset($data['related_resources']) ? $data['related_resources'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['shared_event_id'] = isset($data['shared_event_id']) ? $data['shared_event_id'] : null;
         $this->container['source_ip_address'] = isset($data['source_ip_address']) ? $data['source_ip_address'] : null;
         $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
     }
@@ -297,6 +305,30 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     public function setErrorCode($error_code)
     {
         $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_category
+     *
+     * @return string
+     */
+    public function getEventCategory()
+    {
+        return $this->container['event_category'];
+    }
+
+    /**
+     * Sets event_category
+     *
+     * @param string $event_category event_category
+     *
+     * @return $this
+     */
+    public function setEventCategory($event_category)
+    {
+        $this->container['event_category'] = $event_category;
 
         return $this;
     }
@@ -470,6 +502,30 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets recipient_account_id
+     *
+     * @return string
+     */
+    public function getRecipientAccountId()
+    {
+        return $this->container['recipient_account_id'];
+    }
+
+    /**
+     * Sets recipient_account_id
+     *
+     * @param string $recipient_account_id recipient_account_id
+     *
+     * @return $this
+     */
+    public function setRecipientAccountId($recipient_account_id)
+    {
+        $this->container['recipient_account_id'] = $recipient_account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -537,6 +593,30 @@ class TrailForLookupEventsOutput implements ModelInterface, ArrayAccess
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shared_event_id
+     *
+     * @return string
+     */
+    public function getSharedEventId()
+    {
+        return $this->container['shared_event_id'];
+    }
+
+    /**
+     * Sets shared_event_id
+     *
+     * @param string $shared_event_id shared_event_id
+     *
+     * @return $this
+     */
+    public function setSharedEventId($shared_event_id)
+    {
+        $this->container['shared_event_id'] = $shared_event_id;
 
         return $this;
     }

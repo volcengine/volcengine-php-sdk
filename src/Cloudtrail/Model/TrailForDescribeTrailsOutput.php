@@ -52,6 +52,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         'tos_ssekms_key_id' => 'string',
         'tos_write_role_trn' => 'string',
         'trail_name' => 'string',
+        'trail_region' => 'string',
         'trail_type' => 'int',
         'updated_time' => 'string'
     ];
@@ -86,6 +87,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         'tos_ssekms_key_id' => null,
         'tos_write_role_trn' => null,
         'trail_name' => null,
+        'trail_region' => null,
         'trail_type' => 'int32',
         'updated_time' => null
     ];
@@ -141,6 +143,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         'tos_ssekms_key_id' => 'TosSSEKMSKeyID',
         'tos_write_role_trn' => 'TosWriteRoleTrn',
         'trail_name' => 'TrailName',
+        'trail_region' => 'TrailRegion',
         'trail_type' => 'TrailType',
         'updated_time' => 'UpdatedTime'
     ];
@@ -175,6 +178,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         'tos_ssekms_key_id' => 'setTosSsekmsKeyId',
         'tos_write_role_trn' => 'setTosWriteRoleTrn',
         'trail_name' => 'setTrailName',
+        'trail_region' => 'setTrailRegion',
         'trail_type' => 'setTrailType',
         'updated_time' => 'setUpdatedTime'
     ];
@@ -209,6 +213,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         'tos_ssekms_key_id' => 'getTosSsekmsKeyId',
         'tos_write_role_trn' => 'getTosWriteRoleTrn',
         'trail_name' => 'getTrailName',
+        'trail_region' => 'getTrailRegion',
         'trail_type' => 'getTrailType',
         'updated_time' => 'getUpdatedTime'
     ];
@@ -242,16 +247,6 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     
@@ -297,6 +292,7 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
         $this->container['tos_ssekms_key_id'] = isset($data['tos_ssekms_key_id']) ? $data['tos_ssekms_key_id'] : null;
         $this->container['tos_write_role_trn'] = isset($data['tos_write_role_trn']) ? $data['tos_write_role_trn'] : null;
         $this->container['trail_name'] = isset($data['trail_name']) ? $data['trail_name'] : null;
+        $this->container['trail_region'] = isset($data['trail_region']) ? $data['trail_region'] : null;
         $this->container['trail_type'] = isset($data['trail_type']) ? $data['trail_type'] : null;
         $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
     }
@@ -897,6 +893,30 @@ class TrailForDescribeTrailsOutput implements ModelInterface, ArrayAccess
     public function setTrailName($trail_name)
     {
         $this->container['trail_name'] = $trail_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets trail_region
+     *
+     * @return string
+     */
+    public function getTrailRegion()
+    {
+        return $this->container['trail_region'];
+    }
+
+    /**
+     * Sets trail_region
+     *
+     * @param string $trail_region trail_region
+     *
+     * @return $this
+     */
+    public function setTrailRegion($trail_region)
+    {
+        $this->container['trail_region'] = $trail_region;
 
         return $this;
     }
