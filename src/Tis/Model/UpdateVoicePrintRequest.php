@@ -34,7 +34,8 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         'nick_name' => 'string',
         'product_key' => 'string',
         'type' => 'string',
-        'voice_print_id' => 'string'
+        'voice_print_id' => 'string',
+        'audio_base64' => 'string'
     ];
 
     /**
@@ -49,7 +50,8 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         'nick_name' => null,
         'product_key' => null,
         'type' => null,
-        'voice_print_id' => null
+        'voice_print_id' => null,
+        'audio_base64' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         'nick_name' => 'NickName',
         'product_key' => 'ProductKey',
         'type' => 'Type',
-        'voice_print_id' => 'VoicePrintId'
+        'voice_print_id' => 'VoicePrintId',
+        'audio_base64' => 'audioBase64'
     ];
 
     /**
@@ -100,7 +103,8 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         'nick_name' => 'setNickName',
         'product_key' => 'setProductKey',
         'type' => 'setType',
-        'voice_print_id' => 'setVoicePrintId'
+        'voice_print_id' => 'setVoicePrintId',
+        'audio_base64' => 'setAudioBase64'
     ];
 
     /**
@@ -115,7 +119,8 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         'nick_name' => 'getNickName',
         'product_key' => 'getProductKey',
         'type' => 'getType',
-        'voice_print_id' => 'getVoicePrintId'
+        'voice_print_id' => 'getVoicePrintId',
+        'audio_base64' => 'getAudioBase64'
     ];
 
     /**
@@ -149,16 +154,6 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -185,6 +180,7 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
         $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['voice_print_id'] = isset($data['voice_print_id']) ? $data['voice_print_id'] : null;
+        $this->container['audio_base64'] = isset($data['audio_base64']) ? $data['audio_base64'] : null;
     }
 
     /**
@@ -384,6 +380,30 @@ class UpdateVoicePrintRequest implements ModelInterface, ArrayAccess
     public function setVoicePrintId($voice_print_id)
     {
         $this->container['voice_print_id'] = $voice_print_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets audio_base64
+     *
+     * @return string
+     */
+    public function getAudioBase64()
+    {
+        return $this->container['audio_base64'];
+    }
+
+    /**
+     * Sets audio_base64
+     *
+     * @param string $audio_base64 audio_base64
+     *
+     * @return $this
+     */
+    public function setAudioBase64($audio_base64)
+    {
+        $this->container['audio_base64'] = $audio_base64;
 
         return $this;
     }
