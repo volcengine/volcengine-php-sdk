@@ -440,68 +440,6 @@ class EFSApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function createFilePreSignedUrl($body = null)
-    {
-        list($response) = $this->createFilePreSignedUrlWithHttpInfo($body);
-        return $response;
-    }
-
-    public function createFilePreSignedUrlWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Efs\Model\CreateFilePreSignedUrlResponse';
-        $request = $this->createFilePreSignedUrlRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function createFilePreSignedUrlAsync($body = null)
-    {
-        return $this->createFilePreSignedUrlAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function createFilePreSignedUrlAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Efs\Model\CreateFilePreSignedUrlResponse';
-        $request = $this->createFilePreSignedUrlRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function createFilePreSignedUrlRequest($body)
-    {
-        $resourcePath = '/CreateFilePreSignedUrl/2025-01-01/efs/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function createFileSystem($body = null)
     {
         list($response) = $this->createFileSystemWithHttpInfo($body);
@@ -2519,13 +2457,13 @@ class EFSApi
 
     protected function updateDataFlowTaskRequest($body)
     {
-        $resourcePath = '/UpdateDataFlowTask/2025-01-01/efs/get/text_plain/';
+        $resourcePath = '/UpdateDataFlowTask/2025-01-01/efs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];

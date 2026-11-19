@@ -129,16 +129,6 @@ class ImmediateExportForCreateDataFlowPolicyInput implements ModelInterface, Arr
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUCKET_DELETE_POLICY_NONE = 'None';
     const BUCKET_DELETE_POLICY_LATEST_VERSION_ONLY = 'LatestVersionOnly';
     const BUCKET_DELETE_POLICY_SPECIFIED_VERSION = 'SpecifiedVersion';

@@ -30,7 +30,7 @@ class ExportRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'conflict_policy' => 'string',
         'data_type' => 'string',
-        'entry_list_file' => '\Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput',
+        'entry_list_file' => '\Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput',
         'exclude_paths' => 'string[]',
         'include_paths' => 'string[]',
         'logic_operator' => 'string'
@@ -142,16 +142,6 @@ class ExportRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const CONFLICT_POLICY_SKIP = 'Skip';
@@ -343,7 +333,7 @@ class ExportRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     /**
      * Gets entry_list_file
      *
-     * @return \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput
+     * @return \Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput
      */
     public function getEntryListFile()
     {
@@ -353,7 +343,7 @@ class ExportRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     /**
      * Sets entry_list_file
      *
-     * @param \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput $entry_list_file entry_list_file
+     * @param \Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput $entry_list_file entry_list_file
      *
      * @return $this
      */

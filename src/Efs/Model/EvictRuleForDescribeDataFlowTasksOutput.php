@@ -29,7 +29,7 @@ class EvictRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAc
       */
     protected static $swaggerTypes = [
         'data_type' => 'string',
-        'entry_list_file' => '\Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput',
+        'entry_list_file' => '\Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput',
         'include_paths' => 'string[]',
         'last_access_time_interval' => '\Volcengine\Efs\Model\LastAccessTimeIntervalForDescribeDataFlowTasksOutput',
         'logic_operator' => 'string'
@@ -137,16 +137,6 @@ class EvictRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAc
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const DATA_TYPE_DATA_ONLY = 'DataOnly';
@@ -279,7 +269,7 @@ class EvictRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAc
     /**
      * Gets entry_list_file
      *
-     * @return \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput
+     * @return \Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput
      */
     public function getEntryListFile()
     {
@@ -289,7 +279,7 @@ class EvictRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAc
     /**
      * Sets entry_list_file
      *
-     * @param \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput $entry_list_file entry_list_file
+     * @param \Volcengine\Efs\Model\ConvertEntryListFileForDescribeDataFlowTasksOutput $entry_list_file entry_list_file
      *
      * @return $this
      */

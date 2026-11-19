@@ -124,16 +124,6 @@ class ExportIntervalForCreateDataFlowPolicyInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const UNIT_NANOSECOND = 'Nanosecond';
     const UNIT_MICROSECOND = 'Microsecond';
     const UNIT_MILLISECOND = 'Millisecond';

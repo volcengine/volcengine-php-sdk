@@ -139,16 +139,6 @@ class DeleteDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_DELETE_TYPE_RETAIN = 'Retain';
     const DATA_DELETE_TYPE_DELETE = 'Delete';
     

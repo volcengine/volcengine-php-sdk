@@ -28,10 +28,7 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'download_url' => 'string',
-        'file_bucket' => 'string',
-        'file_key' => 'string',
-        'file_name' => 'string'
+        
     ];
 
     /**
@@ -40,10 +37,7 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'download_url' => null,
-        'file_bucket' => null,
-        'file_key' => null,
-        'file_name' => null
+        
     ];
 
     /**
@@ -73,10 +67,7 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'download_url' => 'DownloadUrl',
-        'file_bucket' => 'FileBucket',
-        'file_key' => 'FileKey',
-        'file_name' => 'FileName'
+        
     ];
 
     /**
@@ -85,10 +76,7 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'download_url' => 'setDownloadUrl',
-        'file_bucket' => 'setFileBucket',
-        'file_key' => 'setFileKey',
-        'file_name' => 'setFileName'
+        
     ];
 
     /**
@@ -97,10 +85,7 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'download_url' => 'getDownloadUrl',
-        'file_bucket' => 'getFileBucket',
-        'file_key' => 'getFileKey',
-        'file_name' => 'getFileName'
+        
     ];
 
     /**
@@ -134,16 +119,6 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -163,10 +138,6 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
      */
     public function __construct($data = null)
     {
-        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
-        $this->container['file_bucket'] = isset($data['file_bucket']) ? $data['file_bucket'] : null;
-        $this->container['file_key'] = isset($data['file_key']) ? $data['file_key'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
     }
 
     /**
@@ -192,102 +163,6 @@ class EntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets download_url
-     *
-     * @return string
-     */
-    public function getDownloadUrl()
-    {
-        return $this->container['download_url'];
-    }
-
-    /**
-     * Sets download_url
-     *
-     * @param string $download_url download_url
-     *
-     * @return $this
-     */
-    public function setDownloadUrl($download_url)
-    {
-        $this->container['download_url'] = $download_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_bucket
-     *
-     * @return string
-     */
-    public function getFileBucket()
-    {
-        return $this->container['file_bucket'];
-    }
-
-    /**
-     * Sets file_bucket
-     *
-     * @param string $file_bucket file_bucket
-     *
-     * @return $this
-     */
-    public function setFileBucket($file_bucket)
-    {
-        $this->container['file_bucket'] = $file_bucket;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_key
-     *
-     * @return string
-     */
-    public function getFileKey()
-    {
-        return $this->container['file_key'];
-    }
-
-    /**
-     * Sets file_key
-     *
-     * @param string $file_key file_key
-     *
-     * @return $this
-     */
-    public function setFileKey($file_key)
-    {
-        $this->container['file_key'] = $file_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
-     *
-     * @return string
-     */
-    public function getFileName()
-    {
-        return $this->container['file_name'];
-    }
-
-    /**
-     * Sets file_name
-     *
-     * @param string $file_name file_name
-     *
-     * @return $this
-     */
-    public function setFileName($file_name)
-    {
-        $this->container['file_name'] = $file_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

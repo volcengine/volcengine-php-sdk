@@ -30,8 +30,7 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     protected static $swaggerTypes = [
         'export_type' => 'string',
         'immediate_export' => '\Volcengine\Efs\Model\ImmediateExportForCreateDataFlowPolicyInput',
-        'period_export' => '\Volcengine\Efs\Model\PeriodExportForCreateDataFlowPolicyInput',
-        'status' => 'string'
+        'period_export' => '\Volcengine\Efs\Model\PeriodExportForCreateDataFlowPolicyInput'
     ];
 
     /**
@@ -42,8 +41,7 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     protected static $swaggerFormats = [
         'export_type' => null,
         'immediate_export' => null,
-        'period_export' => null,
-        'status' => null
+        'period_export' => null
     ];
 
     /**
@@ -75,8 +73,7 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     protected static $attributeMap = [
         'export_type' => 'ExportType',
         'immediate_export' => 'ImmediateExport',
-        'period_export' => 'PeriodExport',
-        'status' => 'Status'
+        'period_export' => 'PeriodExport'
     ];
 
     /**
@@ -87,8 +84,7 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     protected static $setters = [
         'export_type' => 'setExportType',
         'immediate_export' => 'setImmediateExport',
-        'period_export' => 'setPeriodExport',
-        'status' => 'setStatus'
+        'period_export' => 'setPeriodExport'
     ];
 
     /**
@@ -99,8 +95,7 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     protected static $getters = [
         'export_type' => 'getExportType',
         'immediate_export' => 'getImmediateExport',
-        'period_export' => 'getPeriodExport',
-        'status' => 'getStatus'
+        'period_export' => 'getPeriodExport'
     ];
 
     /**
@@ -134,22 +129,8 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EXPORT_TYPE_IMMEDIATE = 'Immediate';
     const EXPORT_TYPE_PERIOD = 'Period';
-    const STATUS_STOPPED = 'Stopped';
-    const STATUS_STARTING = 'Starting';
-    const STATUS_RUNNING = 'Running';
-    const STATUS_STOPPING = 'Stopping';
     
 
     
@@ -163,21 +144,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
         return [
             self::EXPORT_TYPE_IMMEDIATE,
             self::EXPORT_TYPE_PERIOD,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_STOPPED,
-            self::STATUS_STARTING,
-            self::STATUS_RUNNING,
-            self::STATUS_STOPPING,
         ];
     }
     
@@ -200,7 +166,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
         $this->container['export_type'] = isset($data['export_type']) ? $data['export_type'] : null;
         $this->container['immediate_export'] = isset($data['immediate_export']) ? $data['immediate_export'] : null;
         $this->container['period_export'] = isset($data['period_export']) ? $data['period_export'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -216,14 +181,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
         if (!is_null($this->container['export_type']) && !in_array($this->container['export_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'export_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -320,39 +277,6 @@ class AutoExportRuleForCreateDataFlowPolicyInput implements ModelInterface, Arra
     public function setPeriodExport($period_export)
     {
         $this->container['period_export'] = $period_export;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }

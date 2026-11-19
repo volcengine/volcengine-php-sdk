@@ -129,16 +129,6 @@ class StartDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const AUTO_RULE_TYPES_IMPORT = 'Import';
     const AUTO_RULE_TYPES_EXPORT = 'Export';
     const AUTO_RULE_TYPES_EVICT = 'Evict';

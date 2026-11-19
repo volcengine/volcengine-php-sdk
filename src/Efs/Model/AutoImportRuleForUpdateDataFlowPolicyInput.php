@@ -31,8 +31,7 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         'bucket_event_types' => 'string[]',
         'data_type' => 'string',
         'file_system_delete_policy' => 'string',
-        'immediate_import' => 'bool',
-        'status' => 'string'
+        'immediate_import' => 'bool'
     ];
 
     /**
@@ -44,8 +43,7 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         'bucket_event_types' => null,
         'data_type' => null,
         'file_system_delete_policy' => null,
-        'immediate_import' => null,
-        'status' => null
+        'immediate_import' => null
     ];
 
     /**
@@ -78,8 +76,7 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         'bucket_event_types' => 'BucketEventTypes',
         'data_type' => 'DataType',
         'file_system_delete_policy' => 'FileSystemDeletePolicy',
-        'immediate_import' => 'ImmediateImport',
-        'status' => 'Status'
+        'immediate_import' => 'ImmediateImport'
     ];
 
     /**
@@ -91,8 +88,7 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         'bucket_event_types' => 'setBucketEventTypes',
         'data_type' => 'setDataType',
         'file_system_delete_policy' => 'setFileSystemDeletePolicy',
-        'immediate_import' => 'setImmediateImport',
-        'status' => 'setStatus'
+        'immediate_import' => 'setImmediateImport'
     ];
 
     /**
@@ -104,8 +100,7 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         'bucket_event_types' => 'getBucketEventTypes',
         'data_type' => 'getDataType',
         'file_system_delete_policy' => 'getFileSystemDeletePolicy',
-        'immediate_import' => 'getImmediateImport',
-        'status' => 'getStatus'
+        'immediate_import' => 'getImmediateImport'
     ];
 
     /**
@@ -139,26 +134,12 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUCKET_EVENT_TYPES_CREATE_AND_UPDATE = 'CreateAndUpdate';
     const BUCKET_EVENT_TYPES_DELETE = 'Delete';
     const DATA_TYPE_META_ONLY = 'MetaOnly';
     const DATA_TYPE_META_AND_DATA = 'MetaAndData';
     const FILE_SYSTEM_DELETE_POLICY_ALL_FILES = 'AllFiles';
     const FILE_SYSTEM_DELETE_POLICY_CORRUPTED_FILES = 'CorruptedFiles';
-    const STATUS_STOPPED = 'Stopped';
-    const STATUS_STARTING = 'Starting';
-    const STATUS_RUNNING = 'Running';
-    const STATUS_STOPPING = 'Stopping';
     
 
     
@@ -201,21 +182,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         ];
     }
     
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_STOPPED,
-            self::STATUS_STARTING,
-            self::STATUS_RUNNING,
-            self::STATUS_STOPPING,
-        ];
-    }
-    
 
     /**
      * Associative array for storing property values
@@ -236,7 +202,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['file_system_delete_policy'] = isset($data['file_system_delete_policy']) ? $data['file_system_delete_policy'] : null;
         $this->container['immediate_import'] = isset($data['immediate_import']) ? $data['immediate_import'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -260,14 +225,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
         if (!is_null($this->container['file_system_delete_policy']) && !in_array($this->container['file_system_delete_policy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'file_system_delete_policy', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -406,39 +363,6 @@ class AutoImportRuleForUpdateDataFlowPolicyInput implements ModelInterface, Arra
     public function setImmediateImport($immediate_import)
     {
         $this->container['immediate_import'] = $immediate_import;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }

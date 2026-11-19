@@ -134,16 +134,6 @@ class BucketForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const VERSION_STATUS_ENABLED = 'Enabled';
     const VERSION_STATUS_DISABLED = 'Disabled';
     const VERSION_STATUS_SUSPENDED = 'Suspended';

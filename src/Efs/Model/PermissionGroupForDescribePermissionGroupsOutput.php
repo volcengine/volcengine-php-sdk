@@ -169,16 +169,6 @@ class PermissionGroupForDescribePermissionGroupsOutput implements ModelInterface
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const STATUS_CREATING = 'Creating';
     const STATUS_AVAILABLE = 'Available';
     const STATUS_UPDATING = 'Updating';

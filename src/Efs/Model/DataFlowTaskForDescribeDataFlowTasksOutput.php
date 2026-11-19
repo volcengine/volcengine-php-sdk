@@ -40,8 +40,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'end_time' => 'string',
         'evict_rule' => '\Volcengine\Efs\Model\EvictRuleForDescribeDataFlowTasksOutput',
         'export_rule' => '\Volcengine\Efs\Model\ExportRuleForDescribeDataFlowTasksOutput',
-        'file_diff_result' => '\Volcengine\Efs\Model\FileDiffResultForDescribeDataFlowTasksOutput',
-        'file_diff_rule' => '\Volcengine\Efs\Model\FileDiffRuleForDescribeDataFlowTasksOutput',
         'file_system_id' => 'string',
         'file_system_name' => 'string',
         'file_system_path' => 'string',
@@ -72,8 +70,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'end_time' => null,
         'evict_rule' => null,
         'export_rule' => null,
-        'file_diff_result' => null,
-        'file_diff_rule' => null,
         'file_system_id' => null,
         'file_system_name' => null,
         'file_system_path' => null,
@@ -125,8 +121,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'end_time' => 'EndTime',
         'evict_rule' => 'EvictRule',
         'export_rule' => 'ExportRule',
-        'file_diff_result' => 'FileDiffResult',
-        'file_diff_rule' => 'FileDiffRule',
         'file_system_id' => 'FileSystemId',
         'file_system_name' => 'FileSystemName',
         'file_system_path' => 'FileSystemPath',
@@ -157,8 +151,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'end_time' => 'setEndTime',
         'evict_rule' => 'setEvictRule',
         'export_rule' => 'setExportRule',
-        'file_diff_result' => 'setFileDiffResult',
-        'file_diff_rule' => 'setFileDiffRule',
         'file_system_id' => 'setFileSystemId',
         'file_system_name' => 'setFileSystemName',
         'file_system_path' => 'setFileSystemPath',
@@ -189,8 +181,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         'end_time' => 'getEndTime',
         'evict_rule' => 'getEvictRule',
         'export_rule' => 'getExportRule',
-        'file_diff_result' => 'getFileDiffResult',
-        'file_diff_rule' => 'getFileDiffRule',
         'file_system_id' => 'getFileSystemId',
         'file_system_name' => 'getFileSystemName',
         'file_system_path' => 'getFileSystemPath',
@@ -234,16 +224,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_FLOW_TASK_MODE_MANUAL = 'Manual';
     const DATA_FLOW_TASK_MODE_INITIAL = 'Initial';
     const DATA_FLOW_TASK_MODE_PERIOD = 'Period';
@@ -251,7 +231,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
     const DATA_FLOW_TASK_TYPE_EXPORT = 'Export';
     const DATA_FLOW_TASK_TYPE_EVICT = 'Evict';
     const DATA_FLOW_TASK_TYPE_DELETE = 'Delete';
-    const DATA_FLOW_TASK_TYPE_FILE_DIFF = 'FileDiff';
     const STATUS_CREATING = 'Creating';
     const STATUS_PENDING = 'Pending';
     const STATUS_RUNNING = 'Running';
@@ -291,7 +270,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
             self::DATA_FLOW_TASK_TYPE_EXPORT,
             self::DATA_FLOW_TASK_TYPE_EVICT,
             self::DATA_FLOW_TASK_TYPE_DELETE,
-            self::DATA_FLOW_TASK_TYPE_FILE_DIFF,
         ];
     }
     
@@ -344,8 +322,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['evict_rule'] = isset($data['evict_rule']) ? $data['evict_rule'] : null;
         $this->container['export_rule'] = isset($data['export_rule']) ? $data['export_rule'] : null;
-        $this->container['file_diff_result'] = isset($data['file_diff_result']) ? $data['file_diff_result'] : null;
-        $this->container['file_diff_rule'] = isset($data['file_diff_rule']) ? $data['file_diff_rule'] : null;
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
         $this->container['file_system_name'] = isset($data['file_system_name']) ? $data['file_system_name'] : null;
         $this->container['file_system_path'] = isset($data['file_system_path']) ? $data['file_system_path'] : null;
@@ -708,54 +684,6 @@ class DataFlowTaskForDescribeDataFlowTasksOutput implements ModelInterface, Arra
     public function setExportRule($export_rule)
     {
         $this->container['export_rule'] = $export_rule;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_diff_result
-     *
-     * @return \Volcengine\Efs\Model\FileDiffResultForDescribeDataFlowTasksOutput
-     */
-    public function getFileDiffResult()
-    {
-        return $this->container['file_diff_result'];
-    }
-
-    /**
-     * Sets file_diff_result
-     *
-     * @param \Volcengine\Efs\Model\FileDiffResultForDescribeDataFlowTasksOutput $file_diff_result file_diff_result
-     *
-     * @return $this
-     */
-    public function setFileDiffResult($file_diff_result)
-    {
-        $this->container['file_diff_result'] = $file_diff_result;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_diff_rule
-     *
-     * @return \Volcengine\Efs\Model\FileDiffRuleForDescribeDataFlowTasksOutput
-     */
-    public function getFileDiffRule()
-    {
-        return $this->container['file_diff_rule'];
-    }
-
-    /**
-     * Sets file_diff_rule
-     *
-     * @param \Volcengine\Efs\Model\FileDiffRuleForDescribeDataFlowTasksOutput $file_diff_rule file_diff_rule
-     *
-     * @return $this
-     */
-    public function setFileDiffRule($file_diff_rule)
-    {
-        $this->container['file_diff_rule'] = $file_diff_rule;
 
         return $this;
     }

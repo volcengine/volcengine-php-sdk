@@ -149,16 +149,6 @@ class DescribeQuotasRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const LIMIT_TYPE_ACCOUNTING = 'Accounting';
     const LIMIT_TYPE_ENFORCEMENT = 'Enforcement';
     const QUOTA_TYPE_DIR_QUOTA = 'DirQuota';

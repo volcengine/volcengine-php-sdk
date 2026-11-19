@@ -169,18 +169,35 @@ class FilespaceForSyncCreateFilespaceOutput implements ModelInterface, ArrayAcce
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
+    const STATUS_UNKNOWN = 'Unknown';
+    const STATUS_CREATING = 'Creating';
+    const STATUS_CREATE_ERROR = 'CreateError';
+    const STATUS_RUNNING = 'Running';
+    const STATUS_UPDATING = 'Updating';
+    const STATUS_DELETING = 'Deleting';
+    const STATUS_DELETE_ERROR = 'DeleteError';
+    const STATUS_DELETED = 'Deleted';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_UNKNOWN,
+            self::STATUS_CREATING,
+            self::STATUS_CREATE_ERROR,
+            self::STATUS_RUNNING,
+            self::STATUS_UPDATING,
+            self::STATUS_DELETING,
+            self::STATUS_DELETE_ERROR,
+            self::STATUS_DELETED,
+        ];
+    }
     
 
     /**
@@ -219,6 +236,14 @@ class FilespaceForSyncCreateFilespaceOutput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -374,6 +399,15 @@ class FilespaceForSyncCreateFilespaceOutput implements ModelInterface, ArrayAcce
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
