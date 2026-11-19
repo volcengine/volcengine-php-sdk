@@ -164,16 +164,6 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const SECRET_TYPE_GENERIC = 'Generic';
     const SECRET_TYPE_IAM = 'IAM';
     const SECRET_TYPE_RDS = 'RDS';
