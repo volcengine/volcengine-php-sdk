@@ -6,6 +6,8 @@
 
 ### 结构化诊断与 HTTP 快照
 
+Guzzle `RequestException` 同时带 HTTP 响应及非零 cURL errno 时，优先使用传输诊断：18（传输截断）、61（内容解码失败）为 `ReadError`，92（HTTP/2 流错误）为 `RequestError`；其他 errno 保留对应传输分类。即使缓存流已到 EOF，快照仍为 `body_complete=false`，同时保留真实 HTTP 状态、已取得字节、RequestId 和原因。旧 message 与服务错误码 getter 不变，新诊断码本身不为原先不符合条件的响应增加重试。
+
 统一打印入口为 `Volcengine\Common\Utils::printError($writer, $error)`，`$writer` 是可写 PHP stream resource；成功无返回值，编码或写入失败抛出异常。`$error` 为 null 时不输出。同步调用与异步 `wait()` 可使用相同入口。
 
 ```php

@@ -4,6 +4,10 @@
 
 ## 访问凭据
 
+STS 使用独立的凭证交换重试规则：凭证被拒绝、凭证过期或请求过期本身不触发以相同交换参数再次尝试。瞬时网络、HTTP 状态码、限流规则和各 Provider 的次数语义保持不变。
+
+Default／Lazy 的来源绑定也支持客户子类。每个请求单独保存链路选择状态，不克隆客户对象；取凭证和失效操作仍在原对象上调用其继承或覆盖的方法。嵌套链共享叶 Provider 缓存，操作结束后恢复共享链路状态，客户方法抛异常时也会恢复。
+
 AssumeRole、OIDC、SAML 使用统一的响应诊断与校验：HTTP 非成功状态及 HTTP200 TOP／根级业务错误均保留真实状态、业务码、消息、RequestId 和独立正文快照。`Result.Credentials` 必须是对象，AK、SK、SessionToken 为非空字符串；已提供的 `CurrentTime`、`Expiration`、`ExpiredTime` 必须是有效 RFC3339 时间，全部校验通过后才能缓存。OIDC／SAML 未提供过期时间时仍使用原有本地 duration 估计。业务 Endpoint 不作为 STS Endpoint 兜底，代理与 TLS 配置优先级保持原有契约。
 
 内置缓存 Provider 提供可选 `invalidateCredentials()`。Default／Lazy／CLI 向实际来源委托，业务请求冻结 Default 链的成功来源，避免交错异步请求失效另一来源；OIDC／SAML／ECS 清理内存凭证。SSO 跳过被拒绝的 profile STS 凭证并重读 OAuth 磁盘缓存，保留磁盘文件；console-login 连续失效仍拒绝同一磁盘 access token，保留 token 轮换恢复流程。自定义 Provider 无须新增方法。

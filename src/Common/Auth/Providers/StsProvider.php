@@ -229,7 +229,7 @@ class StsProvider extends Provider implements StsProxyConfigurableProvider
             } catch (ApiException $e) {
                 $lastException = $e;
             }
-            if (!$retryer->shouldRetry(null, $attempt, $lastException)) {
+            if (!$retryer->shouldRetrySts(null, $attempt, $lastException)) {
                 throw $lastException;
             }
 

@@ -4,6 +4,10 @@
 
 ## Credentials
 
+STS uses separate retry rules for credential exchange. Rejected or expired credentials and expired requests alone do not trigger another attempt with unchanged exchange input. Transient network, HTTP status and throttling rules, and each provider's attempt budget, remain unchanged.
+
+Default/Lazy source binding also covers customer subclasses. Each request saves chain routing state separately, without cloning the customer object; retrieval and invalidation still call its inherited or overridden methods on that object. Nested chains share leaf caches, and routing state is restored after the operation even when a customer method throws.
+
 AssumeRole, OIDC and SAML share response diagnostics and validation. HTTP errors and HTTP200 TOP/root business errors retain the real status, business code, message, RequestId and an independent body snapshot. `Result.Credentials` must be an object with nonempty string AK, SK and SessionToken. Supplied `CurrentTime`, `Expiration` and `ExpiredTime` must be valid RFC3339 timestamps; validation completes before cache updates. OIDC/SAML retain their local duration estimate when no expiry is supplied. Business Endpoint is not a fallback for STS Endpoint, and existing proxy/TLS precedence is preserved.
 
 Built-in cached providers expose optional `invalidateCredentials()`. Default/Lazy/CLI delegate to the actual source; business requests freeze the successful Default chain source so interleaved asynchronous requests invalidate the correct provider. OIDC/SAML/ECS clear memory credentials. SSO skips rejected profile STS credentials and reloads the OAuth disk snapshot without deleting the file. Console-login retains its rejected-token marker across repeated invalidation and preserves disk token rotation recovery. Custom providers need no additional methods.

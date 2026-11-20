@@ -67,6 +67,15 @@ class ApiException extends Exception
                 sprintf('[%d] %s%s', $statusCode, $e->getMessage(), $body),
                 $e
             );
+            $context = $e->getHandlerContext();
+            $errno = isset($context['errno']) ? (int) $context['errno'] : 0;
+            if ($errno !== 0) {
+                $exception->diagnosticCode = in_array($errno, [18, 61], true) ? 'ReadError' : ErrorDetails::transportCode($e);
+                $exception->diagnosticMessage = $e->getMessage();
+                // EOF of Guzzle's buffered stream does not prove that cURL
+                // finished receiving/decoding the response.
+                $details['body_complete'] = false;
+            }
             return $exception->setResponseDetails($details);
         }
 

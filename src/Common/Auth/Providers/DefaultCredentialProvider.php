@@ -77,17 +77,33 @@ class DefaultCredentialProvider extends Provider
      */
     public function bindCredentialSource()
     {
-        $binding = clone $this;
-        if ($this->lastProvider !== null
-            && in_array(get_class($this->lastProvider), [self::class, LazyProvider::class], true)) {
-            $binding->lastProvider = $this->lastProvider->bindCredentialSource();
-            foreach ($binding->providers as $key => $provider) {
-                if ($provider === $this->lastProvider) {
-                    $binding->providers[$key] = $binding->lastProvider;
+        $lastProvider = $this->lastProvider;
+        $providers = $this->providers;
+        if ($lastProvider instanceof self || $lastProvider instanceof LazyProvider) {
+            $source = $lastProvider;
+            $lastProvider = $source->bindCredentialSource();
+            foreach ($providers as $key => $provider) {
+                if ($provider === $source) {
+                    $providers[$key] = $lastProvider;
                 }
             }
         }
-        return $binding;
+        // Execute inherited and overridden methods on the customer's object.
+        // Only routing state is request-local; counters and leaf caches stay shared.
+        return new CredentialSourceBinding(function ($method) use (&$lastProvider, &$providers) {
+            $sharedLastProvider = $this->lastProvider;
+            $sharedProviders = $this->providers;
+            $this->lastProvider = $lastProvider;
+            $this->providers = $providers;
+            try {
+                return $this->$method();
+            } finally {
+                $lastProvider = $this->lastProvider;
+                $providers = $this->providers;
+                $this->lastProvider = $sharedLastProvider;
+                $this->providers = $sharedProviders;
+            }
+        });
     }
 
     public function invalidateCredentials()
@@ -160,12 +176,30 @@ class LazyProvider extends Provider
     /** @internal Preserve a nested chain's successful source for one request. */
     public function bindCredentialSource()
     {
-        $binding = clone $this;
-        if ($this->delegate !== null
-            && in_array(get_class($this->delegate), [DefaultCredentialProvider::class, self::class], true)) {
-            $binding->delegate = $this->delegate->bindCredentialSource();
+        $delegate = $this->delegate;
+        $initialized = $this->initialized;
+        $initError = $this->initError;
+        if ($delegate instanceof DefaultCredentialProvider || $delegate instanceof self) {
+            $delegate = $delegate->bindCredentialSource();
         }
-        return $binding;
+        return new CredentialSourceBinding(function ($method) use (&$delegate, &$initialized, &$initError) {
+            $sharedDelegate = $this->delegate;
+            $sharedInitialized = $this->initialized;
+            $sharedInitError = $this->initError;
+            $this->delegate = $delegate;
+            $this->initialized = $initialized;
+            $this->initError = $initError;
+            try {
+                return $this->$method();
+            } finally {
+                $delegate = $this->delegate;
+                $initialized = $this->initialized;
+                $initError = $this->initError;
+                $this->delegate = $sharedDelegate;
+                $this->initialized = $sharedInitialized;
+                $this->initError = $sharedInitError;
+            }
+        });
     }
 
     public function invalidateCredentials()
@@ -177,5 +211,26 @@ class LazyProvider extends Provider
             $this->initialized = false;
             $this->initError = null;
         }
+    }
+}
+
+/** @internal Runs chain operations with the source captured for one request. */
+class CredentialSourceBinding extends Provider
+{
+    private $operation;
+
+    public function __construct(callable $operation)
+    {
+        $this->operation = $operation;
+    }
+
+    public function getCredentials()
+    {
+        return call_user_func($this->operation, 'getCredentials');
+    }
+
+    public function invalidateCredentials()
+    {
+        return call_user_func($this->operation, 'invalidateCredentials');
     }
 }

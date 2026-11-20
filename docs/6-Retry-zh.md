@@ -28,6 +28,12 @@ AssumeRole 请求超时。
 
 默认重试条件覆盖瞬时网络错误，以及 HTTP `429/500/502/503/504`。
 
+STS 凭证交换不因过期码本身重试，因为当前交换无法刷新其 AK/SK、OIDC token 或 SAML assertion。业务请求的凭证刷新、瞬时状态／网络／限流规则及 VE 的额外重试次数语义保持不变。
+
+Default／Lazy 请求保留原 Provider 对象，单独保存链路选择状态，包含客户子类及嵌套链。客户覆盖方法在原对象上执行，不调用 `__clone`；共享链路状态通过 `finally` 恢复。
+
+已取得 HTTP 响应的传输失败不会仅因新诊断码扩大重试范围，仍按真实状态和服务错误码判断，取消／TLS 优先终止。HTTP200 下 cURL 截断、解码失败和 HTTP/2 流错误默认不重试。
+
 错误识别会沿 `getPrevious()` 和 SDK 原因遍历，支持包装后的 TOP／根级业务码；最多检查 64 个异常对象。取消和 TLS 证书／握手错误优先终止重试。业务 API 的 `setRetryErrorCodes()` 可补充自定义码。重试前按头名忽略大小写清理旧签名和安全 token，并重新构建、签名。
 
 包装的原生 Guzzle `RequestException` 也可通过可 seek 正文识别 HTTP403 的限流或凭证过期码，检查后恢复流位置；不可 seek 的客户正文不被重试判断消耗，需由客户提供错误码。cURL errno 优先于消息文字，URL 中的 Action 名称不作为取消或 TLS 判断依据。OIDC／SAML 表单 STS 保留 HTTP429 和全部 5xx 重试范围，业务 API／AssumeRole 仍使用上述状态白名单。

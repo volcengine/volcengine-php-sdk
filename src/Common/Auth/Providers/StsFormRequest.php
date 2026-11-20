@@ -99,7 +99,7 @@ class StsFormRequest
             }
         }
         // Form STS historically retries every 5xx, including proxy statuses.
-        return $error->getStatusCode() >= 500 || $retryer->shouldRetry(null, $attempt, $error);
+        return $error->getStatusCode() >= 500 || $retryer->shouldRetrySts(null, $attempt, $error);
     }
 
     /**

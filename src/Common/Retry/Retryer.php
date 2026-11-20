@@ -95,6 +95,17 @@ class Retryer
 
     public function shouldRetry($response, $retryCount, $error)
     {
+        return $this->shouldRetryWithCredentialRefresh($response, $retryCount, $error, true);
+    }
+
+    /** @internal STS cannot refresh the credentials/token of the current exchange. */
+    public function shouldRetrySts($response, $retryCount, $error)
+    {
+        return $this->shouldRetryWithCredentialRefresh($response, $retryCount, $error, false);
+    }
+
+    private function shouldRetryWithCredentialRefresh($response, $retryCount, $error, $canRefreshCredentials)
+    {
         if ($retryCount >= $this->numMaxRetries) {
             return false;
         }
@@ -120,7 +131,8 @@ class Retryer
                 }
             }
             $code = self::nodeErrorCode($node);
-            if ($code !== null && (in_array($code, $this->getEffectiveRetryErrorCodes(), true) || self::isCredentialExpiryError($code))) {
+            if ($code !== null && (in_array($code, $this->getEffectiveRetryErrorCodes(), true)
+                || ($canRefreshCredentials && self::isCredentialExpiryError($code)))) {
                 return true;
             }
         }
@@ -134,7 +146,7 @@ class Retryer
             $errorCode = self::responseErrorCode($response);
             if ($errorCode !== null && (
                 in_array($errorCode, $this->getEffectiveRetryErrorCodes(), true)
-                || self::isCredentialExpiryError($errorCode)
+                || ($canRefreshCredentials && self::isCredentialExpiryError($errorCode))
             )) {
                 return true;
             }
@@ -223,6 +235,17 @@ class Retryer
     private static function nodeErrorCode($error)
     {
         if ($error instanceof ApiException) {
+            // A transport diagnosis must not add a retry by code to an HTTP
+            // response that historically qualified only by status/service code.
+            if ($error->getResponseDetails() !== null
+                && $error->getOriginalError() instanceof RequestException
+                && $error->getOriginalError()->getResponse() !== null) {
+                $context = $error->getOriginalError()->getHandlerContext();
+                if (!empty($context['errno'])) {
+                    $code = $error->getErrorCode();
+                    return $code !== null && $code !== '' ? $code : self::extractErrorCode($error->getResponseBody());
+                }
+            }
             return $error->getDiagnosticCode();
         }
         if (is_callable([$error, 'getErrorCode'])) {

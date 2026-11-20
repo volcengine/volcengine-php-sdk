@@ -6,6 +6,8 @@
 
 ### Structured diagnostics and HTTP snapshots
 
+When a Guzzle `RequestException` has both an HTTP response and a nonzero cURL errno, the transport diagnosis takes precedence: errno 18 (truncated transfer) and 61 (content decoding failure) use `ReadError`; errno 92 (HTTP/2 stream failure) uses `RequestError`. Other errno values keep their transport classification. The snapshot has `body_complete=false` even if the buffered stream reached EOF, while retaining the real HTTP status, acquired bytes, RequestId and cause. Legacy message and service-code getters are unchanged. These diagnostic codes alone do not add retries to responses that previously did not qualify.
+
 The standard entry point is `Volcengine\Common\Utils::printError($writer, $error)`. The writer is a writable PHP stream resource; success returns no value, while encoding or output failures throw an exception. A null error produces no output. Use the same entry point for synchronous calls and asynchronous `wait()`.
 
 ```php
