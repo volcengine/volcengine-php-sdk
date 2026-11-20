@@ -108,12 +108,20 @@ class DefaultCredentialProvider extends Provider
             } finally {
                 $lastProvider = $this->lastProvider;
                 $providers = $this->providers;
+                $captureError = null;
                 try {
                     // A refresh may select a previously unbound nested chain.
                     $this->captureSelectedSource($lastProvider, $providers);
-                } finally {
-                    $this->lastProvider = $sharedLastProvider;
-                    $this->providers = $sharedProviders;
+                } catch (\Exception $e) {
+                    $captureError = $e;
+                } catch (\Throwable $e) {
+                    $captureError = $e;
+                }
+                // Avoid nested finally blocks that can crash PHP 5.5.
+                $this->lastProvider = $sharedLastProvider;
+                $this->providers = $sharedProviders;
+                if ($captureError !== null) {
+                    throw $captureError;
                 }
             }
         });
@@ -232,14 +240,22 @@ class LazyProvider extends Provider
                 $delegate = $this->delegate;
                 $initialized = $this->initialized;
                 $initError = $this->initError;
+                $captureError = null;
                 try {
                     if ($delegate instanceof DefaultCredentialProvider || $delegate instanceof self) {
                         $delegate = $delegate->captureCredentialSource();
                     }
-                } finally {
-                    $this->delegate = $sharedDelegate;
-                    $this->initialized = $sharedInitialized;
-                    $this->initError = $sharedInitError;
+                } catch (\Exception $e) {
+                    $captureError = $e;
+                } catch (\Throwable $e) {
+                    $captureError = $e;
+                }
+                // Avoid nested finally blocks that can crash PHP 5.5.
+                $this->delegate = $sharedDelegate;
+                $this->initialized = $sharedInitialized;
+                $this->initError = $sharedInitError;
+                if ($captureError !== null) {
+                    throw $captureError;
                 }
             }
         });
