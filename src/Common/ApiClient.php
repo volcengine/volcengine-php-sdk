@@ -150,7 +150,7 @@ class ApiClient
             }
             $creds = $credentialProvider->getCredentials();
             if ($credentialProvider instanceof DefaultCredentialProvider || $credentialProvider instanceof LazyProvider) {
-                $request->credentialSourceBinding = $credentialProvider->bindCredentialSource();
+                $request->credentialSourceBinding = $credentialProvider->captureCredentialSource();
             }
             $request->ak = $creds['AccessKeyId'];
             $request->sk = $creds['SecretAccessKey'];
@@ -539,7 +539,7 @@ class ApiClient
         $creds = $provider->getCredentials();
         if ($request->credentialSourceBinding === null
             && ($provider instanceof DefaultCredentialProvider || $provider instanceof LazyProvider)) {
-            $request->credentialSourceBinding = $provider->bindCredentialSource();
+            $request->credentialSourceBinding = $provider->captureCredentialSource();
         }
         if (!is_array($creds)) {
             return;

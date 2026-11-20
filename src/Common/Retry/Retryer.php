@@ -243,7 +243,10 @@ class Retryer
                 $context = $error->getOriginalError()->getHandlerContext();
                 if (!empty($context['errno'])) {
                     $code = $error->getErrorCode();
-                    return $code !== null && $code !== '' ? $code : self::extractErrorCode($error->getResponseBody());
+                    if ($code === null || $code === '') {
+                        $code = self::extractErrorCode($error->getResponseBody());
+                    }
+                    return $code !== null && $code !== '' ? $code : 'UnknownError';
                 }
             }
             return $error->getDiagnosticCode();

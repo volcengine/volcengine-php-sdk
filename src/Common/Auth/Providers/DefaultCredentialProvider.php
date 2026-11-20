@@ -77,17 +77,25 @@ class DefaultCredentialProvider extends Provider
      */
     public function bindCredentialSource()
     {
-        $lastProvider = $this->lastProvider;
-        $providers = $this->providers;
-        if ($lastProvider instanceof self || $lastProvider instanceof LazyProvider) {
-            $source = $lastProvider;
-            $lastProvider = $source->bindCredentialSource();
-            foreach ($providers as $key => $provider) {
-                if ($provider === $source) {
-                    $providers[$key] = $lastProvider;
+        $binding = clone $this;
+        if ($this->lastProvider !== null
+            && in_array(get_class($this->lastProvider), [self::class, LazyProvider::class], true)) {
+            $binding->lastProvider = $this->lastProvider->bindCredentialSource();
+            foreach ($binding->providers as $key => $provider) {
+                if ($provider === $this->lastProvider) {
+                    $binding->providers[$key] = $binding->lastProvider;
                 }
             }
         }
+        return $binding;
+    }
+
+    /** @internal Capture request routing without cloning customer providers. */
+    public function captureCredentialSource()
+    {
+        $lastProvider = $this->lastProvider;
+        $providers = $this->providers;
+        $this->captureSelectedSource($lastProvider, $providers);
         // Execute inherited and overridden methods on the customer's object.
         // Only routing state is request-local; counters and leaf caches stay shared.
         return new CredentialSourceBinding(function ($method) use (&$lastProvider, &$providers) {
@@ -100,10 +108,28 @@ class DefaultCredentialProvider extends Provider
             } finally {
                 $lastProvider = $this->lastProvider;
                 $providers = $this->providers;
-                $this->lastProvider = $sharedLastProvider;
-                $this->providers = $sharedProviders;
+                try {
+                    // A refresh may select a previously unbound nested chain.
+                    $this->captureSelectedSource($lastProvider, $providers);
+                } finally {
+                    $this->lastProvider = $sharedLastProvider;
+                    $this->providers = $sharedProviders;
+                }
             }
         });
+    }
+
+    private function captureSelectedSource(&$lastProvider, &$providers)
+    {
+        if ($lastProvider instanceof self || $lastProvider instanceof LazyProvider) {
+            $source = $lastProvider;
+            $lastProvider = $source->captureCredentialSource();
+            foreach ($providers as $key => $provider) {
+                if ($provider === $source) {
+                    $providers[$key] = $lastProvider;
+                }
+            }
+        }
     }
 
     public function invalidateCredentials()
@@ -176,11 +202,22 @@ class LazyProvider extends Provider
     /** @internal Preserve a nested chain's successful source for one request. */
     public function bindCredentialSource()
     {
+        $binding = clone $this;
+        if ($this->delegate !== null
+            && in_array(get_class($this->delegate), [DefaultCredentialProvider::class, self::class], true)) {
+            $binding->delegate = $this->delegate->bindCredentialSource();
+        }
+        return $binding;
+    }
+
+    /** @internal Capture request routing without cloning customer providers. */
+    public function captureCredentialSource()
+    {
         $delegate = $this->delegate;
         $initialized = $this->initialized;
         $initError = $this->initError;
         if ($delegate instanceof DefaultCredentialProvider || $delegate instanceof self) {
-            $delegate = $delegate->bindCredentialSource();
+            $delegate = $delegate->captureCredentialSource();
         }
         return new CredentialSourceBinding(function ($method) use (&$delegate, &$initialized, &$initError) {
             $sharedDelegate = $this->delegate;
@@ -195,9 +232,15 @@ class LazyProvider extends Provider
                 $delegate = $this->delegate;
                 $initialized = $this->initialized;
                 $initError = $this->initError;
-                $this->delegate = $sharedDelegate;
-                $this->initialized = $sharedInitialized;
-                $this->initError = $sharedInitError;
+                try {
+                    if ($delegate instanceof DefaultCredentialProvider || $delegate instanceof self) {
+                        $delegate = $delegate->captureCredentialSource();
+                    }
+                } finally {
+                    $this->delegate = $sharedDelegate;
+                    $this->initialized = $sharedInitialized;
+                    $this->initError = $sharedInitError;
+                }
             }
         });
     }
