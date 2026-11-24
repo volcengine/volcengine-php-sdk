@@ -1,0 +1,9 @@
+{
+  "actions": [
+    "GetRevision",
+    "GetFunction"
+  ],
+  "description": "VEFAAS: 修改 GetFunction, GetRevision",
+  "modules": "service/vefaas",
+  "type": "feature"
+}

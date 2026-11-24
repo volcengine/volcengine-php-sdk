@@ -40,6 +40,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForGetFunctionOutput[]',
         'exclusive_mode' => 'bool',
+        'function_type' => 'string',
         'id' => 'string',
         'initializer_sec' => 'int',
         'instance_type' => 'string',
@@ -81,6 +82,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
+        'function_type' => null,
         'id' => null,
         'initializer_sec' => 'int32',
         'instance_type' => null,
@@ -143,6 +145,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
+        'function_type' => 'FunctionType',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
         'instance_type' => 'InstanceType',
@@ -184,6 +187,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
+        'function_type' => 'setFunctionType',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
         'instance_type' => 'setInstanceType',
@@ -225,6 +229,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
+        'function_type' => 'getFunctionType',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
         'instance_type' => 'getInstanceType',
@@ -310,6 +315,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
+        $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
@@ -641,6 +647,30 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     public function setExclusiveMode($exclusive_mode)
     {
         $this->container['exclusive_mode'] = $exclusive_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_type
+     *
+     * @return string
+     */
+    public function getFunctionType()
+    {
+        return $this->container['function_type'];
+    }
+
+    /**
+     * Sets function_type
+     *
+     * @param string $function_type function_type
+     *
+     * @return $this
+     */
+    public function setFunctionType($function_type)
+    {
+        $this->container['function_type'] = $function_type;
 
         return $this;
     }
