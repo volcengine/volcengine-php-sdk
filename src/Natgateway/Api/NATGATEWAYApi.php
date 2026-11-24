@@ -68,6 +68,68 @@ class NATGATEWAYApi
         return $this->config;
     }
 
+    public function batchDeleteNatProxyRules($body = null)
+    {
+        list($response) = $this->batchDeleteNatProxyRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchDeleteNatProxyRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\BatchDeleteNatProxyRulesResponse';
+        $request = $this->batchDeleteNatProxyRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchDeleteNatProxyRulesAsync($body = null)
+    {
+        return $this->batchDeleteNatProxyRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchDeleteNatProxyRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\BatchDeleteNatProxyRulesResponse';
+        $request = $this->batchDeleteNatProxyRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchDeleteNatProxyRulesRequest($body)
+    {
+        $resourcePath = '/BatchDeleteNatProxyRules/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createDnatEntry($body = null)
     {
         list($response) = $this->createDnatEntryWithHttpInfo($body);
@@ -288,6 +350,68 @@ class NATGATEWAYApi
     protected function createNatIpLimitRuleRequest($body)
     {
         $resourcePath = '/CreateNatIpLimitRule/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createNatProxyRule($body = null)
+    {
+        list($response) = $this->createNatProxyRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createNatProxyRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\CreateNatProxyRuleResponse';
+        $request = $this->createNatProxyRuleRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createNatProxyRuleAsync($body = null)
+    {
+        return $this->createNatProxyRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createNatProxyRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\CreateNatProxyRuleResponse';
+        $request = $this->createNatProxyRuleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createNatProxyRuleRequest($body)
+    {
+        $resourcePath = '/CreateNatProxyRule/2020-04-01/natgateway/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1246,6 +1370,68 @@ class NATGATEWAYApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeNatProxyRules($body = null)
+    {
+        list($response) = $this->describeNatProxyRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeNatProxyRulesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\DescribeNatProxyRulesResponse';
+        $request = $this->describeNatProxyRulesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeNatProxyRulesAsync($body = null)
+    {
+        return $this->describeNatProxyRulesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeNatProxyRulesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\DescribeNatProxyRulesResponse';
+        $request = $this->describeNatProxyRulesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeNatProxyRulesRequest($body)
+    {
+        $resourcePath = '/DescribeNatProxyRules/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function describeSessionLogs($body = null)
     {
         list($response) = $this->describeSessionLogsWithHttpInfo($body);
@@ -1432,6 +1618,68 @@ class NATGATEWAYApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function disableNatProxy($body = null)
+    {
+        list($response) = $this->disableNatProxyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableNatProxyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\DisableNatProxyResponse';
+        $request = $this->disableNatProxyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableNatProxyAsync($body = null)
+    {
+        return $this->disableNatProxyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableNatProxyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\DisableNatProxyResponse';
+        $request = $this->disableNatProxyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableNatProxyRequest($body)
+    {
+        $resourcePath = '/DisableNatProxy/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function disableSessionLog($body = null)
     {
         list($response) = $this->disableSessionLogWithHttpInfo($body);
@@ -1466,6 +1714,68 @@ class NATGATEWAYApi
     protected function disableSessionLogRequest($body)
     {
         $resourcePath = '/DisableSessionLog/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function enableNatProxy($body = null)
+    {
+        list($response) = $this->enableNatProxyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function enableNatProxyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\EnableNatProxyResponse';
+        $request = $this->enableNatProxyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function enableNatProxyAsync($body = null)
+    {
+        return $this->enableNatProxyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function enableNatProxyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\EnableNatProxyResponse';
+        $request = $this->enableNatProxyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function enableNatProxyRequest($body)
+    {
+        $resourcePath = '/EnableNatProxy/2020-04-01/natgateway/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1900,6 +2210,68 @@ class NATGATEWAYApi
     protected function modifyNatIpLimitRuleAttributesRequest($body)
     {
         $resourcePath = '/ModifyNatIpLimitRuleAttributes/2020-04-01/natgateway/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function modifyNatProxyRuleAttributes($body = null)
+    {
+        list($response) = $this->modifyNatProxyRuleAttributesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyNatProxyRuleAttributesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\ModifyNatProxyRuleAttributesResponse';
+        $request = $this->modifyNatProxyRuleAttributesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function modifyNatProxyRuleAttributesAsync($body = null)
+    {
+        return $this->modifyNatProxyRuleAttributesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyNatProxyRuleAttributesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Natgateway\Model\ModifyNatProxyRuleAttributesResponse';
+        $request = $this->modifyNatProxyRuleAttributesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function modifyNatProxyRuleAttributesRequest($body)
+    {
+        $resourcePath = '/ModifyNatProxyRuleAttributes/2020-04-01/natgateway/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
