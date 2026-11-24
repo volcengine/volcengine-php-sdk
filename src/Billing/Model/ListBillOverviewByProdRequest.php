@@ -219,9 +219,6 @@ class ListBillOverviewByProdRequest implements ModelInterface, ArrayAccess
         if ($this->container['bill_period'] === null) {
             $invalidProperties[] = "'bill_period' can't be null";
         }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
         return $invalidProperties;
     }
 
