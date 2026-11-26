@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "ListAmortizedCostBillDaily",
+    "ListAmortizedCostBillDetail",
+    "ListAmortizedCostBillMonthly",
+    "ListBill",
+    "ListBillDetail",
+    "ListBcFocusBill",
+    "ListBillOverviewByProd",
+    "ListSplitBillDetail"
+  ],
+  "description": "BILLING: 新增 ListBcFocusBill；修改 ListBillOverviewByProd, ListSplitBillDetail, ListAmortizedCostBillDaily, ListAmortizedCostBillDetail, ListAmortizedCostBillMonthly, ListBill, ListBillDetail",
+  "modules": "service/billing",
+  "type": "feature"
+}

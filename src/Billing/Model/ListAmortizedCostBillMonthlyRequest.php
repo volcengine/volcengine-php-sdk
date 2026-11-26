@@ -249,9 +249,6 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         if ($this->container['amortized_month'] === null) {
             $invalidProperties[] = "'amortized_month' can't be null";
         }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
         return $invalidProperties;
     }
 

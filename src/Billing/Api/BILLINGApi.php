@@ -1184,6 +1184,68 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listBcFocusBill($body = null)
+    {
+        list($response) = $this->listBcFocusBillWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listBcFocusBillWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListBcFocusBillResponse';
+        $request = $this->listBcFocusBillRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listBcFocusBillAsync($body = null)
+    {
+        return $this->listBcFocusBillAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listBcFocusBillAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\ListBcFocusBillResponse';
+        $request = $this->listBcFocusBillRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listBcFocusBillRequest($body)
+    {
+        $resourcePath = '/ListBcFocusBill/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listBill($body = null)
     {
         list($response) = $this->listBillWithHttpInfo($body);
