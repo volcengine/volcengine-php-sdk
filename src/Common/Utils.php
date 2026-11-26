@@ -4,6 +4,101 @@ namespace Volcengine\Common;
 
 class Utils
 {
+    /**
+     * Read explicitly: Stream::__toString() may silently swallow read failures.
+     * A read error retains only the bytes actually returned by the stream.
+     */
+    public static function readResponseBody($response)
+    {
+        $details = self::captureResponse($response);
+        return $details['body'];
+    }
+
+    public static function captureResponse($response)
+    {
+        $body = '';
+        $captured = false;
+        $complete = false;
+        try {
+            $stream = $response->getBody();
+            if ($stream->isSeekable()) {
+                $stream->rewind();
+                $complete = true;
+            } else {
+                try {
+                    $complete = $stream->tell() === 0;
+                } catch (\Exception $e) {
+                    // An unknown starting position cannot prove completeness.
+                } catch (\Throwable $e) {
+                }
+            }
+            while (!$stream->eof()) {
+                $chunk = $stream->read(8192);
+                if ($chunk === '' && !$stream->eof()) {
+                    throw new \RuntimeException('Response body stream made no progress');
+                }
+                $body .= $chunk;
+                $captured = true;
+            }
+            return ResponseDetails::fromResponse($response, $body, true, $complete);
+        } catch (\Exception $e) {
+            $error = ApiException::fromReadError($response->getStatusCode(), $response->getHeaders(), $captured ? $body : null, $e);
+            throw $error->setResponseDetails(ResponseDetails::fromResponse($response, $body, $captured, false));
+        } catch (\Throwable $e) {
+            $error = ApiException::fromReadError($response->getStatusCode(), $response->getHeaders(), $captured ? $body : null, $e);
+            throw $error->setResponseDetails(ResponseDetails::fromResponse($response, $body, $captured, false));
+        }
+    }
+
+    public static function getErrorDetails($error)
+    {
+        return ErrorDetails::get($error);
+    }
+
+    /**
+     * Write indented JSON plus a newline to a stream resource.
+     * Output failures are thrown; the supplied exception remains unchanged.
+     */
+    public static function printError($writer, $error)
+    {
+        if ($error === null) {
+            return;
+        }
+        if (!is_resource($writer) || get_resource_type($writer) !== 'stream') {
+            throw new \InvalidArgumentException('Error output writer must be a stream resource');
+        }
+        $data = json_encode(self::jsonSafe(self::getErrorDetails($error)), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        if ($data === false) {
+            throw new \RuntimeException('Failed to encode error details: ' . json_last_error());
+        }
+        $data .= "\n";
+        $length = strlen($data);
+        $offset = 0;
+        while ($offset < $length) {
+            $written = @fwrite($writer, substr($data, $offset));
+            if ($written === false || $written === 0) {
+                throw new \RuntimeException('Failed to print error details');
+            }
+            $offset += $written;
+        }
+    }
+
+    private static function jsonSafe($value)
+    {
+        if (is_array($value)) {
+            $result = [];
+            foreach ($value as $key => $child) {
+                $result[self::jsonSafe($key)] = self::jsonSafe($child);
+            }
+            return $result;
+        }
+        if (is_string($value) && preg_match('//u', $value) !== 1) {
+            // Response bytes use Base64; only display text uses replacement.
+            return preg_replace('/[\x80-\xFF]/', '?', $value);
+        }
+        return $value;
+    }
+
     public static function transRequest($data, $prefix = "")
     {
         $result = array();

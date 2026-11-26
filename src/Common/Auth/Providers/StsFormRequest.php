@@ -5,6 +5,9 @@ namespace Volcengine\Common\Auth\Providers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 use Volcengine\Common\ApiException;
+use Volcengine\Common\ErrorDetails;
+use Volcengine\Common\Retry\Retryer;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * Shared HTTP helper for STS form-encoded POST requests (AssumeRoleWithOIDC,
@@ -55,25 +58,48 @@ class StsFormRequest
         $providerName,
         $httpConfig = null
     ) {
+        $details = self::doPostWithRetryDetails($endpoint, $schema, $queryParams, $formBody, $maxRetries, $retryInterval, $providerName, $httpConfig);
+        return $details['body'];
+    }
+
+    public static function doPostWithRetryDetails(
+        $endpoint, $schema, $queryParams, $formBody, $maxRetries, $retryInterval, $providerName, $httpConfig = null
+    ) {
         $url = self::buildRequestUrl($endpoint, $schema, $queryParams);
         $clientOptions = self::buildClientOptions($httpConfig);
+        $retryer = new Retryer($maxRetries, 0, 0);
 
         $lastException = null;
         for ($attempt = 0; $attempt <= $maxRetries; $attempt++) {
             try {
                 return self::doPost($url, $formBody, $providerName, $clientOptions);
             } catch (ApiException $e) {
-                if (!self::isRetryable($e)) {
+                if (!self::shouldRetry($retryer, $attempt, $e)) {
                     throw $e;
                 }
                 $lastException = $e;
-                if ($attempt < $maxRetries) {
+                if ($attempt < $maxRetries && $retryInterval > 0) {
                     sleep($retryInterval);
                 }
             }
         }
 
         throw $lastException;
+    }
+
+    private static function shouldRetry($retryer, $attempt, $error)
+    {
+        if ($attempt >= $retryer->getNumMaxRetries()) {
+            return false;
+        }
+        foreach (ErrorDetails::walk($error) as $node) {
+            $code = $node instanceof ApiException ? $node->getDiagnosticCode() : ErrorDetails::transportCode($node);
+            if (in_array($code, ['RequestCanceled', 'TLSError'], true)) {
+                return false;
+            }
+        }
+        // Form STS historically retries every 5xx, including proxy statuses.
+        return $error->getStatusCode() >= 500 || $retryer->shouldRetrySts(null, $attempt, $error);
     }
 
     /**
@@ -111,40 +137,16 @@ class StsFormRequest
                 ],
                 'body' => $formBody,
             ]);
+        } catch (RequestException $e) {
+            throw ApiException::fromRequestException($e);
         } catch (TransferException $e) {
-            throw new ApiException(
+            throw ApiException::fromTransferError(
                 $providerName . ': STS request failed - ' . $e->getMessage(),
-                self::RETRYABLE_CODE
+                self::RETRYABLE_CODE, null, null, $e
             );
         }
 
-        $statusCode = $response->getStatusCode();
-        $responseBody = (string) $response->getBody();
-
-        if ($statusCode !== 200) {
-            throw new ApiException(
-                $providerName . ': STS request failed with status ' . $statusCode
-                . ($responseBody !== '' ? ' - ' . $responseBody : ''),
-                $statusCode,
-                $response->getHeaders(),
-                $responseBody
-            );
-        }
-
-        return $responseBody;
-    }
-
-    /**
-     * Determines whether the exception is retryable.
-     * Retries on: network errors (RETRYABLE_CODE), HTTP 5xx, HTTP 429.
-     */
-    private static function isRetryable(ApiException $e)
-    {
-        $code = $e->getCode();
-        if ($code === self::RETRYABLE_CODE) {
-            return true;
-        }
-        return $code === 429 || ($code >= 500 && $code < 600);
+        return StsResponse::read($response, $url);
     }
 
     /**
