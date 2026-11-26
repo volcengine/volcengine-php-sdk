@@ -36,6 +36,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'efs_mount_config' => '\Volcengine\Vefaas\Model\EfsMountConfigForGetRevisionOutput',
         'envs' => '\Volcengine\Vefaas\Model\EnvForGetRevisionOutput[]',
         'exclusive_mode' => 'bool',
+        'function_type' => 'string',
         'health_check_config' => '\Volcengine\Vefaas\Model\HealthCheckConfigForGetRevisionOutput',
         'id' => 'string',
         'initializer_sec' => 'int',
@@ -73,6 +74,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'efs_mount_config' => null,
         'envs' => null,
         'exclusive_mode' => null,
+        'function_type' => null,
         'health_check_config' => null,
         'id' => null,
         'initializer_sec' => 'int32',
@@ -131,6 +133,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'efs_mount_config' => 'EfsMountConfig',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
+        'function_type' => 'FunctionType',
         'health_check_config' => 'HealthCheckConfig',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
@@ -168,6 +171,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'efs_mount_config' => 'setEfsMountConfig',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
+        'function_type' => 'setFunctionType',
         'health_check_config' => 'setHealthCheckConfig',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
@@ -205,6 +209,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'efs_mount_config' => 'getEfsMountConfig',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
+        'function_type' => 'getFunctionType',
         'health_check_config' => 'getHealthCheckConfig',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
@@ -286,6 +291,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         $this->container['efs_mount_config'] = isset($data['efs_mount_config']) ? $data['efs_mount_config'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
+        $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
         $this->container['health_check_config'] = isset($data['health_check_config']) ? $data['health_check_config'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
@@ -521,6 +527,30 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
     public function setExclusiveMode($exclusive_mode)
     {
         $this->container['exclusive_mode'] = $exclusive_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_type
+     *
+     * @return string
+     */
+    public function getFunctionType()
+    {
+        return $this->container['function_type'];
+    }
+
+    /**
+     * Sets function_type
+     *
+     * @param string $function_type function_type
+     *
+     * @return $this
+     */
+    public function setFunctionType($function_type)
+    {
+        $this->container['function_type'] = $function_type;
 
         return $this;
     }
