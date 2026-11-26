@@ -33,7 +33,8 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         'file_url' => 'string',
         'nick_name' => 'string',
         'product_key' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'audio_base64' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         'file_url' => null,
         'nick_name' => null,
         'product_key' => null,
-        'type' => null
+        'type' => null,
+        'audio_base64' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         'file_url' => 'FileUrl',
         'nick_name' => 'NickName',
         'product_key' => 'ProductKey',
-        'type' => 'Type'
+        'type' => 'Type',
+        'audio_base64' => 'audioBase64'
     ];
 
     /**
@@ -96,7 +99,8 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         'file_url' => 'setFileUrl',
         'nick_name' => 'setNickName',
         'product_key' => 'setProductKey',
-        'type' => 'setType'
+        'type' => 'setType',
+        'audio_base64' => 'setAudioBase64'
     ];
 
     /**
@@ -110,7 +114,8 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         'file_url' => 'getFileUrl',
         'nick_name' => 'getNickName',
         'product_key' => 'getProductKey',
-        'type' => 'getType'
+        'type' => 'getType',
+        'audio_base64' => 'getAudioBase64'
     ];
 
     /**
@@ -144,16 +149,6 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     
 
     
@@ -179,6 +174,7 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
         $this->container['nick_name'] = isset($data['nick_name']) ? $data['nick_name'] : null;
         $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['audio_base64'] = isset($data['audio_base64']) ? $data['audio_base64'] : null;
     }
 
     /**
@@ -351,6 +347,30 @@ class CreateVoicePrintRequest implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets audio_base64
+     *
+     * @return string
+     */
+    public function getAudioBase64()
+    {
+        return $this->container['audio_base64'];
+    }
+
+    /**
+     * Sets audio_base64
+     *
+     * @param string $audio_base64 audio_base64
+     *
+     * @return $this
+     */
+    public function setAudioBase64($audio_base64)
+    {
+        $this->container['audio_base64'] = $audio_base64;
 
         return $this;
     }

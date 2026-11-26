@@ -89,7 +89,7 @@ class DefaultEndpointProvider extends EndpointProvider
                 ),
                 'tis' => new ServiceEndpointInfo(
                     'tis',
-                    true,
+                    false,
                     '',
                     []
                 ),
