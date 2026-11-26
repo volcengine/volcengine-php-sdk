@@ -159,6 +159,12 @@ class EcsRoleCredentialProvider extends Provider
         return new self($resolvedRoleName);
     }
 
+    public function invalidateCredentials()
+    {
+        $this->cachedCredentials = null;
+        $this->expirationTime = 0;
+    }
+
     public function getCredentials()
     {
         if ($this->cachedCredentials !== null && time() < $this->expirationTime) {

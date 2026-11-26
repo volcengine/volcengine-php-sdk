@@ -28,6 +28,8 @@ class Request
     public $autoRetry = true;
     public $retryer;
     public $credentialProvider;
+    /** @internal Per-request chain state; credentialProvider keeps its identity. */
+    public $credentialSourceBinding;
     public $runtimeOptions;
     public $connectTimeout;
     public $readTimeout;

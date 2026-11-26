@@ -40,12 +40,22 @@ class ConsoleLoginCredentialProvider extends Provider
     private $cacheDir;
     private $cachedCredentials;
     private $expirationTime = 0;
+    private $rejectedAccessToken;
 
     public function __construct($profileData, $profileName, $cacheDir)
     {
         $this->profileData = $profileData;
         $this->profileName = $profileName;
         $this->cacheDir = $cacheDir;
+    }
+
+    public function invalidateCredentials()
+    {
+        if ($this->cachedCredentials !== null) {
+            $this->rejectedAccessToken = $this->cachedCredentials;
+        }
+        $this->cachedCredentials = null;
+        $this->expirationTime = 0;
     }
 
     public function getCredentials()
@@ -124,6 +134,12 @@ class ConsoleLoginCredentialProvider extends Provider
             return null;
         }
         $stsCreds = $this->parseAccessToken($tokenCache, $tokenPath);
+        if ($this->rejectedAccessToken !== null
+            && $this->rejectedAccessToken['AccessKeyId'] === $stsCreds['access_key_id']
+            && $this->rejectedAccessToken['SecretAccessKey'] === $stsCreds['secret_access_key']
+            && $this->rejectedAccessToken['SessionToken'] === $stsCreds['session_token']) {
+            return null;
+        }
         $this->expirationTime = $expiration - self::EXPIRE_BUFFER_SECONDS;
         return [
             'AccessKeyId' => $stsCreds['access_key_id'],

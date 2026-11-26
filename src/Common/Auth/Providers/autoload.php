@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/StsResponse.php';
 // Auth/Providers/autoload.php
 
 require_once __DIR__ . '/Provider.php';

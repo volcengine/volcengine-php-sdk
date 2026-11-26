@@ -102,63 +102,26 @@ class OidcCredentialProvider extends Provider implements StsProxyConfigurablePro
 
         $formBody = http_build_query($bodyParams);
 
-        $responseBody = StsFormRequest::doPostWithRetry(
+        $details = StsFormRequest::doPostWithRetryDetails(
             $this->stsEndpoint, $this->schema, $queryParams,
             $formBody, $this->maxRetries, $this->retryInterval,
             self::PROVIDER_NAME, $this->httpConfig
         );
 
-        $content = json_decode($responseBody, true);
-        if (!is_array($content)) {
-            throw new ApiException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned empty response',
-                0, [], $responseBody
-            );
-        }
-
-        if (isset($content['ResponseMetadata']['Error'])) {
-            throw new ApiException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned error: '
-                . json_encode($content['ResponseMetadata']['Error']),
-                0, [], $responseBody
-            );
-        }
-
-        if (!isset($content['Result']['Credentials'])) {
-            throw new ApiException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC returned no credentials',
-                0, [], $responseBody
-            );
-        }
-
-        $creds = $content['Result']['Credentials'];
-        if (empty($creds['AccessKeyId']) || empty($creds['SecretAccessKey']) || empty($creds['SessionToken'])) {
-            if (empty($creds['AccessKeyId'])) {
-                $missing = 'AccessKeyId';
-            } elseif (empty($creds['SecretAccessKey'])) {
-                $missing = 'SecretAccessKey';
-            } else {
-                $missing = 'SessionToken';
-            }
-            throw new ApiException(
-                self::PROVIDER_NAME . ': AssumeRoleWithOIDC credentials missing field: ' . $missing,
-                0, [], $responseBody
-            );
-        }
+        $creds = StsResponse::credentials($details);
+        $expiration = StsResponse::expiration($details, $creds, time() + $this->durationSeconds);
         $this->cachedCredentials = [
             'AccessKeyId' => $creds['AccessKeyId'],
             'SecretAccessKey' => $creds['SecretAccessKey'],
             'SessionToken' => $creds['SessionToken'],
             'ProviderName' => self::PROVIDER_NAME,
         ];
-        // Prefer server-side Expiration; fallback to local duration estimate
-        $expiration = time() + $this->durationSeconds;
-        if (isset($creds['Expiration'])) {
-            $ts = strtotime($creds['Expiration']);
-            if ($ts !== false) {
-                $expiration = $ts;
-            }
-        }
         $this->expirationTime = $expiration - $this->expireBufferSeconds;
+    }
+
+    public function invalidateCredentials()
+    {
+        $this->cachedCredentials = null;
+        $this->expirationTime = 0;
     }
 }
