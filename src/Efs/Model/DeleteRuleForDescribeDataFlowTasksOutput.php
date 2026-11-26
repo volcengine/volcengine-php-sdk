@@ -30,7 +30,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'bucket_delete_policy' => 'string',
         'data_location' => 'string',
+        'download_url' => 'string',
+        'entry_list_file' => '\Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput',
         'exclude_paths' => 'string[]',
+        'file_bucket' => 'string',
+        'file_key' => 'string',
+        'file_name' => 'string',
         'include_paths' => 'string[]',
         'last_access_time_point' => 'string'
     ];
@@ -43,7 +48,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'bucket_delete_policy' => null,
         'data_location' => null,
+        'download_url' => null,
+        'entry_list_file' => null,
         'exclude_paths' => null,
+        'file_bucket' => null,
+        'file_key' => null,
+        'file_name' => null,
         'include_paths' => null,
         'last_access_time_point' => null
     ];
@@ -77,7 +87,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'bucket_delete_policy' => 'BucketDeletePolicy',
         'data_location' => 'DataLocation',
+        'download_url' => 'DownloadUrl',
+        'entry_list_file' => 'EntryListFile',
         'exclude_paths' => 'ExcludePaths',
+        'file_bucket' => 'FileBucket',
+        'file_key' => 'FileKey',
+        'file_name' => 'FileName',
         'include_paths' => 'IncludePaths',
         'last_access_time_point' => 'LastAccessTimePoint'
     ];
@@ -90,7 +105,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $setters = [
         'bucket_delete_policy' => 'setBucketDeletePolicy',
         'data_location' => 'setDataLocation',
+        'download_url' => 'setDownloadUrl',
+        'entry_list_file' => 'setEntryListFile',
         'exclude_paths' => 'setExcludePaths',
+        'file_bucket' => 'setFileBucket',
+        'file_key' => 'setFileKey',
+        'file_name' => 'setFileName',
         'include_paths' => 'setIncludePaths',
         'last_access_time_point' => 'setLastAccessTimePoint'
     ];
@@ -103,7 +123,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     protected static $getters = [
         'bucket_delete_policy' => 'getBucketDeletePolicy',
         'data_location' => 'getDataLocation',
+        'download_url' => 'getDownloadUrl',
+        'entry_list_file' => 'getEntryListFile',
         'exclude_paths' => 'getExcludePaths',
+        'file_bucket' => 'getFileBucket',
+        'file_key' => 'getFileKey',
+        'file_name' => 'getFileName',
         'include_paths' => 'getIncludePaths',
         'last_access_time_point' => 'getLastAccessTimePoint'
     ];
@@ -139,22 +164,13 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUCKET_DELETE_POLICY_NONE = 'None';
     const BUCKET_DELETE_POLICY_LATEST_VERSION_ONLY = 'LatestVersionOnly';
     const BUCKET_DELETE_POLICY_SPECIFIED_VERSION = 'SpecifiedVersion';
     const BUCKET_DELETE_POLICY_ALL_VERSIONS = 'AllVersions';
     const DATA_LOCATION_FILE_SYSTEM = 'FileSystem';
     const DATA_LOCATION_ALL = 'All';
+    const DATA_LOCATION_FILE_SYSTEM_CORRUPTED_FILES = 'FileSystemCorruptedFiles';
     
 
     
@@ -183,6 +199,7 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
         return [
             self::DATA_LOCATION_FILE_SYSTEM,
             self::DATA_LOCATION_ALL,
+            self::DATA_LOCATION_FILE_SYSTEM_CORRUPTED_FILES,
         ];
     }
     
@@ -204,7 +221,12 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     {
         $this->container['bucket_delete_policy'] = isset($data['bucket_delete_policy']) ? $data['bucket_delete_policy'] : null;
         $this->container['data_location'] = isset($data['data_location']) ? $data['data_location'] : null;
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
+        $this->container['entry_list_file'] = isset($data['entry_list_file']) ? $data['entry_list_file'] : null;
         $this->container['exclude_paths'] = isset($data['exclude_paths']) ? $data['exclude_paths'] : null;
+        $this->container['file_bucket'] = isset($data['file_bucket']) ? $data['file_bucket'] : null;
+        $this->container['file_key'] = isset($data['file_key']) ? $data['file_key'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['include_paths'] = isset($data['include_paths']) ? $data['include_paths'] : null;
         $this->container['last_access_time_point'] = isset($data['last_access_time_point']) ? $data['last_access_time_point'] : null;
     }
@@ -316,6 +338,54 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     }
 
     /**
+     * Gets download_url
+     *
+     * @return string
+     */
+    public function getDownloadUrl()
+    {
+        return $this->container['download_url'];
+    }
+
+    /**
+     * Sets download_url
+     *
+     * @param string $download_url download_url
+     *
+     * @return $this
+     */
+    public function setDownloadUrl($download_url)
+    {
+        $this->container['download_url'] = $download_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_list_file
+     *
+     * @return \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput
+     */
+    public function getEntryListFile()
+    {
+        return $this->container['entry_list_file'];
+    }
+
+    /**
+     * Sets entry_list_file
+     *
+     * @param \Volcengine\Efs\Model\EntryListFileForDescribeDataFlowTasksOutput $entry_list_file entry_list_file
+     *
+     * @return $this
+     */
+    public function setEntryListFile($entry_list_file)
+    {
+        $this->container['entry_list_file'] = $entry_list_file;
+
+        return $this;
+    }
+
+    /**
      * Gets exclude_paths
      *
      * @return string[]
@@ -335,6 +405,78 @@ class DeleteRuleForDescribeDataFlowTasksOutput implements ModelInterface, ArrayA
     public function setExcludePaths($exclude_paths)
     {
         $this->container['exclude_paths'] = $exclude_paths;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_bucket
+     *
+     * @return string
+     */
+    public function getFileBucket()
+    {
+        return $this->container['file_bucket'];
+    }
+
+    /**
+     * Sets file_bucket
+     *
+     * @param string $file_bucket file_bucket
+     *
+     * @return $this
+     */
+    public function setFileBucket($file_bucket)
+    {
+        $this->container['file_bucket'] = $file_bucket;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_key
+     *
+     * @return string
+     */
+    public function getFileKey()
+    {
+        return $this->container['file_key'];
+    }
+
+    /**
+     * Sets file_key
+     *
+     * @param string $file_key file_key
+     *
+     * @return $this
+     */
+    public function setFileKey($file_key)
+    {
+        $this->container['file_key'] = $file_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }

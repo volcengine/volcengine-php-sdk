@@ -40,7 +40,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         'file_system_id' => 'string',
         'file_system_name' => 'string',
         'file_system_path' => 'string',
-        'lazyload_rule' => '\Volcengine\Efs\Model\LazyloadRuleForDescribeDataFlowPoliciesOutput',
         'running_task_count' => 'int',
         'status' => 'string',
         'status_detail' => 'string',
@@ -67,7 +66,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         'file_system_id' => null,
         'file_system_name' => null,
         'file_system_path' => null,
-        'lazyload_rule' => null,
         'running_task_count' => 'int32',
         'status' => null,
         'status_detail' => null,
@@ -115,7 +113,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         'file_system_id' => 'FileSystemId',
         'file_system_name' => 'FileSystemName',
         'file_system_path' => 'FileSystemPath',
-        'lazyload_rule' => 'LazyloadRule',
         'running_task_count' => 'RunningTaskCount',
         'status' => 'Status',
         'status_detail' => 'StatusDetail',
@@ -142,7 +139,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         'file_system_id' => 'setFileSystemId',
         'file_system_name' => 'setFileSystemName',
         'file_system_path' => 'setFileSystemPath',
-        'lazyload_rule' => 'setLazyloadRule',
         'running_task_count' => 'setRunningTaskCount',
         'status' => 'setStatus',
         'status_detail' => 'setStatusDetail',
@@ -169,7 +165,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         'file_system_id' => 'getFileSystemId',
         'file_system_name' => 'getFileSystemName',
         'file_system_path' => 'getFileSystemPath',
-        'lazyload_rule' => 'getLazyloadRule',
         'running_task_count' => 'getRunningTaskCount',
         'status' => 'getStatus',
         'status_detail' => 'getStatusDetail',
@@ -207,16 +202,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const CONFLICT_POLICY_SKIP = 'Skip';
@@ -309,7 +294,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
         $this->container['file_system_name'] = isset($data['file_system_name']) ? $data['file_system_name'] : null;
         $this->container['file_system_path'] = isset($data['file_system_path']) ? $data['file_system_path'] : null;
-        $this->container['lazyload_rule'] = isset($data['lazyload_rule']) ? $data['lazyload_rule'] : null;
         $this->container['running_task_count'] = isset($data['running_task_count']) ? $data['running_task_count'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_detail'] = isset($data['status_detail']) ? $data['status_detail'] : null;
@@ -659,30 +643,6 @@ class DataFlowPolicyForDescribeDataFlowPoliciesOutput implements ModelInterface,
     public function setFileSystemPath($file_system_path)
     {
         $this->container['file_system_path'] = $file_system_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets lazyload_rule
-     *
-     * @return \Volcengine\Efs\Model\LazyloadRuleForDescribeDataFlowPoliciesOutput
-     */
-    public function getLazyloadRule()
-    {
-        return $this->container['lazyload_rule'];
-    }
-
-    /**
-     * Sets lazyload_rule
-     *
-     * @param \Volcengine\Efs\Model\LazyloadRuleForDescribeDataFlowPoliciesOutput $lazyload_rule lazyload_rule
-     *
-     * @return $this
-     */
-    public function setLazyloadRule($lazyload_rule)
-    {
-        $this->container['lazyload_rule'] = $lazyload_rule;
 
         return $this;
     }

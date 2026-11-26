@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, ArrayAccess
+class ConvertEntryListFileForDescribeDataFlowTasksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LazyloadRuleForDescribeDataFlowPoliciesOutput';
+    protected static $swaggerModelName = 'ConvertEntryListFileForDescribeDataFlowTasksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data_lazyload_mode' => 'string',
-        'enable_meta_lazyload' => 'bool'
+        'download_url' => 'string',
+        'file_bucket' => 'string',
+        'file_key' => 'string',
+        'file_name' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data_lazyload_mode' => null,
-        'enable_meta_lazyload' => null
+        'download_url' => null,
+        'file_bucket' => null,
+        'file_key' => null,
+        'file_name' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_lazyload_mode' => 'DataLazyloadMode',
-        'enable_meta_lazyload' => 'EnableMetaLazyload'
+        'download_url' => 'DownloadUrl',
+        'file_bucket' => 'FileBucket',
+        'file_key' => 'FileKey',
+        'file_name' => 'FileName'
     ];
 
     /**
@@ -79,8 +85,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'data_lazyload_mode' => 'setDataLazyloadMode',
-        'enable_meta_lazyload' => 'setEnableMetaLazyload'
+        'download_url' => 'setDownloadUrl',
+        'file_bucket' => 'setFileBucket',
+        'file_key' => 'setFileKey',
+        'file_name' => 'setFileName'
     ];
 
     /**
@@ -89,8 +97,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'data_lazyload_mode' => 'getDataLazyloadMode',
-        'enable_meta_lazyload' => 'getEnableMetaLazyload'
+        'download_url' => 'getDownloadUrl',
+        'file_bucket' => 'getFileBucket',
+        'file_key' => 'getFileKey',
+        'file_name' => 'getFileName'
     ];
 
     /**
@@ -124,31 +134,8 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    const DATA_LAZYLOAD_MODE_CACHE = 'Cache';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDataLazyloadModeAllowableValues()
-    {
-        return [
-            self::DATA_LAZYLOAD_MODE_CACHE,
-        ];
-    }
     
 
     /**
@@ -166,8 +153,10 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
      */
     public function __construct($data = null)
     {
-        $this->container['data_lazyload_mode'] = isset($data['data_lazyload_mode']) ? $data['data_lazyload_mode'] : null;
-        $this->container['enable_meta_lazyload'] = isset($data['enable_meta_lazyload']) ? $data['enable_meta_lazyload'] : null;
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
+        $this->container['file_bucket'] = isset($data['file_bucket']) ? $data['file_bucket'] : null;
+        $this->container['file_key'] = isset($data['file_key']) ? $data['file_key'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
     }
 
     /**
@@ -178,14 +167,6 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getDataLazyloadModeAllowableValues();
-        if (!is_null($this->container['data_lazyload_mode']) && !in_array($this->container['data_lazyload_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'data_lazyload_mode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -203,58 +184,97 @@ class LazyloadRuleForDescribeDataFlowPoliciesOutput implements ModelInterface, A
 
 
     /**
-     * Gets data_lazyload_mode
+     * Gets download_url
      *
      * @return string
      */
-    public function getDataLazyloadMode()
+    public function getDownloadUrl()
     {
-        return $this->container['data_lazyload_mode'];
+        return $this->container['download_url'];
     }
 
     /**
-     * Sets data_lazyload_mode
+     * Sets download_url
      *
-     * @param string $data_lazyload_mode data_lazyload_mode
+     * @param string $download_url download_url
      *
      * @return $this
      */
-    public function setDataLazyloadMode($data_lazyload_mode)
+    public function setDownloadUrl($download_url)
     {
-        $allowedValues = $this->getDataLazyloadModeAllowableValues();
-        if (!is_null($data_lazyload_mode) && !in_array($data_lazyload_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'data_lazyload_mode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['data_lazyload_mode'] = $data_lazyload_mode;
+        $this->container['download_url'] = $download_url;
 
         return $this;
     }
 
     /**
-     * Gets enable_meta_lazyload
+     * Gets file_bucket
      *
-     * @return bool
+     * @return string
      */
-    public function getEnableMetaLazyload()
+    public function getFileBucket()
     {
-        return $this->container['enable_meta_lazyload'];
+        return $this->container['file_bucket'];
     }
 
     /**
-     * Sets enable_meta_lazyload
+     * Sets file_bucket
      *
-     * @param bool $enable_meta_lazyload enable_meta_lazyload
+     * @param string $file_bucket file_bucket
      *
      * @return $this
      */
-    public function setEnableMetaLazyload($enable_meta_lazyload)
+    public function setFileBucket($file_bucket)
     {
-        $this->container['enable_meta_lazyload'] = $enable_meta_lazyload;
+        $this->container['file_bucket'] = $file_bucket;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_key
+     *
+     * @return string
+     */
+    public function getFileKey()
+    {
+        return $this->container['file_key'];
+    }
+
+    /**
+     * Sets file_key
+     *
+     * @param string $file_key file_key
+     *
+     * @return $this
+     */
+    public function setFileKey($file_key)
+    {
+        $this->container['file_key'] = $file_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }

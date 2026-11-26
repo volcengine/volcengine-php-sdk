@@ -30,6 +30,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     protected static $swaggerTypes = [
         'bucket_delete_policy' => 'string',
         'data_location' => 'string',
+        'entry_list_file' => '\Volcengine\Efs\Model\EntryListFileForCreateDataFlowTaskInput',
         'exclude_paths' => 'string[]',
         'include_paths' => 'string[]',
         'last_access_time_point' => 'string'
@@ -43,6 +44,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     protected static $swaggerFormats = [
         'bucket_delete_policy' => null,
         'data_location' => null,
+        'entry_list_file' => null,
         'exclude_paths' => null,
         'include_paths' => null,
         'last_access_time_point' => null
@@ -77,6 +79,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'bucket_delete_policy' => 'BucketDeletePolicy',
         'data_location' => 'DataLocation',
+        'entry_list_file' => 'EntryListFile',
         'exclude_paths' => 'ExcludePaths',
         'include_paths' => 'IncludePaths',
         'last_access_time_point' => 'LastAccessTimePoint'
@@ -90,6 +93,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     protected static $setters = [
         'bucket_delete_policy' => 'setBucketDeletePolicy',
         'data_location' => 'setDataLocation',
+        'entry_list_file' => 'setEntryListFile',
         'exclude_paths' => 'setExcludePaths',
         'include_paths' => 'setIncludePaths',
         'last_access_time_point' => 'setLastAccessTimePoint'
@@ -103,6 +107,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     protected static $getters = [
         'bucket_delete_policy' => 'getBucketDeletePolicy',
         'data_location' => 'getDataLocation',
+        'entry_list_file' => 'getEntryListFile',
         'exclude_paths' => 'getExcludePaths',
         'include_paths' => 'getIncludePaths',
         'last_access_time_point' => 'getLastAccessTimePoint'
@@ -139,22 +144,13 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUCKET_DELETE_POLICY_NONE = 'None';
     const BUCKET_DELETE_POLICY_LATEST_VERSION_ONLY = 'LatestVersionOnly';
     const BUCKET_DELETE_POLICY_SPECIFIED_VERSION = 'SpecifiedVersion';
     const BUCKET_DELETE_POLICY_ALL_VERSIONS = 'AllVersions';
     const DATA_LOCATION_FILE_SYSTEM = 'FileSystem';
     const DATA_LOCATION_ALL = 'All';
+    const DATA_LOCATION_FILE_SYSTEM_CORRUPTED_FILES = 'FileSystemCorruptedFiles';
     
 
     
@@ -183,6 +179,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
         return [
             self::DATA_LOCATION_FILE_SYSTEM,
             self::DATA_LOCATION_ALL,
+            self::DATA_LOCATION_FILE_SYSTEM_CORRUPTED_FILES,
         ];
     }
     
@@ -204,6 +201,7 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
     {
         $this->container['bucket_delete_policy'] = isset($data['bucket_delete_policy']) ? $data['bucket_delete_policy'] : null;
         $this->container['data_location'] = isset($data['data_location']) ? $data['data_location'] : null;
+        $this->container['entry_list_file'] = isset($data['entry_list_file']) ? $data['entry_list_file'] : null;
         $this->container['exclude_paths'] = isset($data['exclude_paths']) ? $data['exclude_paths'] : null;
         $this->container['include_paths'] = isset($data['include_paths']) ? $data['include_paths'] : null;
         $this->container['last_access_time_point'] = isset($data['last_access_time_point']) ? $data['last_access_time_point'] : null;
@@ -311,6 +309,30 @@ class DeleteRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
             );
         }
         $this->container['data_location'] = $data_location;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_list_file
+     *
+     * @return \Volcengine\Efs\Model\EntryListFileForCreateDataFlowTaskInput
+     */
+    public function getEntryListFile()
+    {
+        return $this->container['entry_list_file'];
+    }
+
+    /**
+     * Sets entry_list_file
+     *
+     * @param \Volcengine\Efs\Model\EntryListFileForCreateDataFlowTaskInput $entry_list_file entry_list_file
+     *
+     * @return $this
+     */
+    public function setEntryListFile($entry_list_file)
+    {
+        $this->container['entry_list_file'] = $entry_list_file;
 
         return $this;
     }

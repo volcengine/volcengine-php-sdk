@@ -159,16 +159,6 @@ class DescribeDataFlowTasksRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_FLOW_TASK_TYPES_IMPORT = 'Import';
     const DATA_FLOW_TASK_TYPES_EXPORT = 'Export';
     const DATA_FLOW_TASK_TYPES_EVICT = 'Evict';

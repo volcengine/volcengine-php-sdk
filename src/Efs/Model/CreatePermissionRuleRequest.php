@@ -134,16 +134,6 @@ class CreatePermissionRuleRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const RW_MODE_RW = 'RW';
     const RW_MODE_RO = 'RO';
     const USER_MODE_ROOT_SQUASH = 'Root_squash';

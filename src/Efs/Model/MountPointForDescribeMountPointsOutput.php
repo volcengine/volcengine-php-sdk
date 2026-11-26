@@ -189,16 +189,6 @@ class MountPointForDescribeMountPointsOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const STATUS_CREATING = 'Creating';
     const STATUS_CREATE_ERROR = 'CreateError';
     const STATUS_RUNNING = 'Running';

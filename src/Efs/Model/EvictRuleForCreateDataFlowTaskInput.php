@@ -139,16 +139,6 @@ class EvictRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_TYPE_DATA_ONLY = 'DataOnly';
     const LOGIC_OPERATOR__AND = 'And';
     const LOGIC_OPERATOR__OR = 'Or';

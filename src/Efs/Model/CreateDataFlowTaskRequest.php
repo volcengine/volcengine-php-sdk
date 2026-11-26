@@ -29,7 +29,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'bucket_name' => 'string',
-        'bucket_owner' => 'string',
         'bucket_prefix' => 'string',
         'data_flow_policy_id' => 'string',
         'data_flow_task_type' => 'string',
@@ -37,7 +36,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'enable_tls' => 'bool',
         'evict_rule' => '\Volcengine\Efs\Model\EvictRuleForCreateDataFlowTaskInput',
         'export_rule' => '\Volcengine\Efs\Model\ExportRuleForCreateDataFlowTaskInput',
-        'file_diff_rule' => '\Volcengine\Efs\Model\FileDiffRuleForCreateDataFlowTaskInput',
         'file_system_id' => 'string',
         'file_system_path' => 'string',
         'import_rule' => '\Volcengine\Efs\Model\ImportRuleForCreateDataFlowTaskInput',
@@ -51,7 +49,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'bucket_name' => null,
-        'bucket_owner' => null,
         'bucket_prefix' => null,
         'data_flow_policy_id' => null,
         'data_flow_task_type' => null,
@@ -59,7 +56,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'enable_tls' => null,
         'evict_rule' => null,
         'export_rule' => null,
-        'file_diff_rule' => null,
         'file_system_id' => null,
         'file_system_path' => null,
         'import_rule' => null,
@@ -94,7 +90,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'bucket_name' => 'BucketName',
-        'bucket_owner' => 'BucketOwner',
         'bucket_prefix' => 'BucketPrefix',
         'data_flow_policy_id' => 'DataFlowPolicyId',
         'data_flow_task_type' => 'DataFlowTaskType',
@@ -102,7 +97,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'enable_tls' => 'EnableTls',
         'evict_rule' => 'EvictRule',
         'export_rule' => 'ExportRule',
-        'file_diff_rule' => 'FileDiffRule',
         'file_system_id' => 'FileSystemId',
         'file_system_path' => 'FileSystemPath',
         'import_rule' => 'ImportRule',
@@ -116,7 +110,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'bucket_name' => 'setBucketName',
-        'bucket_owner' => 'setBucketOwner',
         'bucket_prefix' => 'setBucketPrefix',
         'data_flow_policy_id' => 'setDataFlowPolicyId',
         'data_flow_task_type' => 'setDataFlowTaskType',
@@ -124,7 +117,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'enable_tls' => 'setEnableTls',
         'evict_rule' => 'setEvictRule',
         'export_rule' => 'setExportRule',
-        'file_diff_rule' => 'setFileDiffRule',
         'file_system_id' => 'setFileSystemId',
         'file_system_path' => 'setFileSystemPath',
         'import_rule' => 'setImportRule',
@@ -138,7 +130,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'bucket_name' => 'getBucketName',
-        'bucket_owner' => 'getBucketOwner',
         'bucket_prefix' => 'getBucketPrefix',
         'data_flow_policy_id' => 'getDataFlowPolicyId',
         'data_flow_task_type' => 'getDataFlowTaskType',
@@ -146,7 +137,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'enable_tls' => 'getEnableTls',
         'evict_rule' => 'getEvictRule',
         'export_rule' => 'getExportRule',
-        'file_diff_rule' => 'getFileDiffRule',
         'file_system_id' => 'getFileSystemId',
         'file_system_path' => 'getFileSystemPath',
         'import_rule' => 'getImportRule',
@@ -184,23 +174,11 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_FLOW_TASK_TYPE_IMPORT = 'Import';
     const DATA_FLOW_TASK_TYPE_EXPORT = 'Export';
     const DATA_FLOW_TASK_TYPE_EVICT = 'Evict';
     const DATA_FLOW_TASK_TYPE_DELETE = 'Delete';
-    const DATA_FLOW_TASK_TYPE_FILE_DIFF = 'FileDiff';
     const TASK_MODE_MANUAL = 'Manual';
-    const TASK_MODE_INITIAL = 'Initial';
     const TASK_MODE_PERIOD = 'Period';
     
 
@@ -217,7 +195,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
             self::DATA_FLOW_TASK_TYPE_EXPORT,
             self::DATA_FLOW_TASK_TYPE_EVICT,
             self::DATA_FLOW_TASK_TYPE_DELETE,
-            self::DATA_FLOW_TASK_TYPE_FILE_DIFF,
         ];
     }
     
@@ -230,7 +207,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::TASK_MODE_MANUAL,
-            self::TASK_MODE_INITIAL,
             self::TASK_MODE_PERIOD,
         ];
     }
@@ -252,7 +228,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
     public function __construct($data = null)
     {
         $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_owner'] = isset($data['bucket_owner']) ? $data['bucket_owner'] : null;
         $this->container['bucket_prefix'] = isset($data['bucket_prefix']) ? $data['bucket_prefix'] : null;
         $this->container['data_flow_policy_id'] = isset($data['data_flow_policy_id']) ? $data['data_flow_policy_id'] : null;
         $this->container['data_flow_task_type'] = isset($data['data_flow_task_type']) ? $data['data_flow_task_type'] : null;
@@ -260,7 +235,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         $this->container['enable_tls'] = isset($data['enable_tls']) ? $data['enable_tls'] : null;
         $this->container['evict_rule'] = isset($data['evict_rule']) ? $data['evict_rule'] : null;
         $this->container['export_rule'] = isset($data['export_rule']) ? $data['export_rule'] : null;
-        $this->container['file_diff_rule'] = isset($data['file_diff_rule']) ? $data['file_diff_rule'] : null;
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
         $this->container['file_system_path'] = isset($data['file_system_path']) ? $data['file_system_path'] : null;
         $this->container['import_rule'] = isset($data['import_rule']) ? $data['import_rule'] : null;
@@ -330,30 +304,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
     public function setBucketName($bucket_name)
     {
         $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_owner
-     *
-     * @return string
-     */
-    public function getBucketOwner()
-    {
-        return $this->container['bucket_owner'];
-    }
-
-    /**
-     * Sets bucket_owner
-     *
-     * @param string $bucket_owner bucket_owner
-     *
-     * @return $this
-     */
-    public function setBucketOwner($bucket_owner)
-    {
-        $this->container['bucket_owner'] = $bucket_owner;
 
         return $this;
     }
@@ -531,30 +481,6 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
     public function setExportRule($export_rule)
     {
         $this->container['export_rule'] = $export_rule;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_diff_rule
-     *
-     * @return \Volcengine\Efs\Model\FileDiffRuleForCreateDataFlowTaskInput
-     */
-    public function getFileDiffRule()
-    {
-        return $this->container['file_diff_rule'];
-    }
-
-    /**
-     * Sets file_diff_rule
-     *
-     * @param \Volcengine\Efs\Model\FileDiffRuleForCreateDataFlowTaskInput $file_diff_rule file_diff_rule
-     *
-     * @return $this
-     */
-    public function setFileDiffRule($file_diff_rule)
-    {
-        $this->container['file_diff_rule'] = $file_diff_rule;
 
         return $this;
     }

@@ -32,14 +32,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'auto_export_rule' => '\Volcengine\Efs\Model\AutoExportRuleForCreateDataFlowPolicyInput',
         'auto_import_rule' => '\Volcengine\Efs\Model\AutoImportRuleForCreateDataFlowPolicyInput',
         'bucket_name' => 'string',
-        'bucket_owner' => 'string',
         'bucket_prefix' => 'string',
         'conflict_policy' => 'string',
         'data_flow_policy_name' => 'string',
         'enable_tls' => 'bool',
         'file_system_id' => 'string',
-        'file_system_path' => 'string',
-        'lazyload_rule' => '\Volcengine\Efs\Model\LazyloadRuleForCreateDataFlowPolicyInput'
+        'file_system_path' => 'string'
     ];
 
     /**
@@ -52,14 +50,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'auto_export_rule' => null,
         'auto_import_rule' => null,
         'bucket_name' => null,
-        'bucket_owner' => null,
         'bucket_prefix' => null,
         'conflict_policy' => null,
         'data_flow_policy_name' => null,
         'enable_tls' => null,
         'file_system_id' => null,
-        'file_system_path' => null,
-        'lazyload_rule' => null
+        'file_system_path' => null
     ];
 
     /**
@@ -93,14 +89,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'auto_export_rule' => 'AutoExportRule',
         'auto_import_rule' => 'AutoImportRule',
         'bucket_name' => 'BucketName',
-        'bucket_owner' => 'BucketOwner',
         'bucket_prefix' => 'BucketPrefix',
         'conflict_policy' => 'ConflictPolicy',
         'data_flow_policy_name' => 'DataFlowPolicyName',
         'enable_tls' => 'EnableTls',
         'file_system_id' => 'FileSystemId',
-        'file_system_path' => 'FileSystemPath',
-        'lazyload_rule' => 'LazyloadRule'
+        'file_system_path' => 'FileSystemPath'
     ];
 
     /**
@@ -113,14 +107,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'auto_export_rule' => 'setAutoExportRule',
         'auto_import_rule' => 'setAutoImportRule',
         'bucket_name' => 'setBucketName',
-        'bucket_owner' => 'setBucketOwner',
         'bucket_prefix' => 'setBucketPrefix',
         'conflict_policy' => 'setConflictPolicy',
         'data_flow_policy_name' => 'setDataFlowPolicyName',
         'enable_tls' => 'setEnableTls',
         'file_system_id' => 'setFileSystemId',
-        'file_system_path' => 'setFileSystemPath',
-        'lazyload_rule' => 'setLazyloadRule'
+        'file_system_path' => 'setFileSystemPath'
     ];
 
     /**
@@ -133,14 +125,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'auto_export_rule' => 'getAutoExportRule',
         'auto_import_rule' => 'getAutoImportRule',
         'bucket_name' => 'getBucketName',
-        'bucket_owner' => 'getBucketOwner',
         'bucket_prefix' => 'getBucketPrefix',
         'conflict_policy' => 'getConflictPolicy',
         'data_flow_policy_name' => 'getDataFlowPolicyName',
         'enable_tls' => 'getEnableTls',
         'file_system_id' => 'getFileSystemId',
-        'file_system_path' => 'getFileSystemPath',
-        'lazyload_rule' => 'getLazyloadRule'
+        'file_system_path' => 'getFileSystemPath'
     ];
 
     /**
@@ -174,19 +164,7 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    const CONFLICT_POLICY_SKIP = 'Skip';
     const CONFLICT_POLICY_KEEP_LATEST = 'KeepLatest';
-    const CONFLICT_POLICY_OVERWRITE = 'Overwrite';
     
 
     
@@ -198,9 +176,7 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
     public function getConflictPolicyAllowableValues()
     {
         return [
-            self::CONFLICT_POLICY_SKIP,
             self::CONFLICT_POLICY_KEEP_LATEST,
-            self::CONFLICT_POLICY_OVERWRITE,
         ];
     }
     
@@ -224,14 +200,12 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         $this->container['auto_export_rule'] = isset($data['auto_export_rule']) ? $data['auto_export_rule'] : null;
         $this->container['auto_import_rule'] = isset($data['auto_import_rule']) ? $data['auto_import_rule'] : null;
         $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
-        $this->container['bucket_owner'] = isset($data['bucket_owner']) ? $data['bucket_owner'] : null;
         $this->container['bucket_prefix'] = isset($data['bucket_prefix']) ? $data['bucket_prefix'] : null;
         $this->container['conflict_policy'] = isset($data['conflict_policy']) ? $data['conflict_policy'] : null;
         $this->container['data_flow_policy_name'] = isset($data['data_flow_policy_name']) ? $data['data_flow_policy_name'] : null;
         $this->container['enable_tls'] = isset($data['enable_tls']) ? $data['enable_tls'] : null;
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
         $this->container['file_system_path'] = isset($data['file_system_path']) ? $data['file_system_path'] : null;
-        $this->container['lazyload_rule'] = isset($data['lazyload_rule']) ? $data['lazyload_rule'] : null;
     }
 
     /**
@@ -373,30 +347,6 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
     public function setBucketName($bucket_name)
     {
         $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bucket_owner
-     *
-     * @return string
-     */
-    public function getBucketOwner()
-    {
-        return $this->container['bucket_owner'];
-    }
-
-    /**
-     * Sets bucket_owner
-     *
-     * @param string $bucket_owner bucket_owner
-     *
-     * @return $this
-     */
-    public function setBucketOwner($bucket_owner)
-    {
-        $this->container['bucket_owner'] = $bucket_owner;
 
         return $this;
     }
@@ -550,30 +500,6 @@ class CreateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
     public function setFileSystemPath($file_system_path)
     {
         $this->container['file_system_path'] = $file_system_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets lazyload_rule
-     *
-     * @return \Volcengine\Efs\Model\LazyloadRuleForCreateDataFlowPolicyInput
-     */
-    public function getLazyloadRule()
-    {
-        return $this->container['lazyload_rule'];
-    }
-
-    /**
-     * Sets lazyload_rule
-     *
-     * @param \Volcengine\Efs\Model\LazyloadRuleForCreateDataFlowPolicyInput $lazyload_rule lazyload_rule
-     *
-     * @return $this
-     */
-    public function setLazyloadRule($lazyload_rule)
-    {
-        $this->container['lazyload_rule'] = $lazyload_rule;
 
         return $this;
     }

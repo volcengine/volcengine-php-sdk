@@ -139,16 +139,6 @@ class ChargeConfigForDescribeFileSystemsOutput implements ModelInterface, ArrayA
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CHARGE_STATUS_WAITING_PAID = 'WaitingPaid';
     const CHARGE_STATUS_PENDING = 'Pending';
     const CHARGE_STATUS_MODIFYING = 'Modifying';

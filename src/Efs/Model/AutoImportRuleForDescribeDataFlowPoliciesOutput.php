@@ -139,16 +139,6 @@ class AutoImportRuleForDescribeDataFlowPoliciesOutput implements ModelInterface,
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BUCKET_EVENT_TYPES_CREATE_AND_UPDATE = 'CreateAndUpdate';
     const BUCKET_EVENT_TYPES_DELETE = 'Delete';
     const DATA_TYPE_META_ONLY = 'MetaOnly';

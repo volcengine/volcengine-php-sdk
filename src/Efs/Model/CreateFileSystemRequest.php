@@ -169,16 +169,6 @@ class CreateFileSystemRequest implements ModelInterface, ArrayAccess
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const BANDWIDTH_MODE_BASELINE = 'Baseline';
     const BANDWIDTH_MODE_PROVISIONED = 'Provisioned';
     const CHARGE_TYPE_PAY_AS_YOU_GO = 'PayAsYouGo';

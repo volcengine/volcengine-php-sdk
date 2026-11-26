@@ -204,16 +204,6 @@ class FileSystemForDescribeFileSystemsOutput implements ModelInterface, ArrayAcc
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const INSTANCE_TYPE_BASIC = 'Basic';
     const INSTANCE_TYPE_PREMIUM = 'Premium';
     const PERFORMANCE_DENSITY_BASIC_50 = 'Basic_50';

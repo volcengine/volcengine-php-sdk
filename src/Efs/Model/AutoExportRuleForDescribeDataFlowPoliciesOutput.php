@@ -134,16 +134,6 @@ class AutoExportRuleForDescribeDataFlowPoliciesOutput implements ModelInterface,
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const EXPORT_TYPE_IMMEDIATE = 'Immediate';
     const EXPORT_TYPE_PERIOD = 'Period';
     const STATUS_STOPPED = 'Stopped';

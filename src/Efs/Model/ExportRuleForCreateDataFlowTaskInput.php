@@ -144,16 +144,6 @@ class ExportRuleForCreateDataFlowTaskInput implements ModelInterface, ArrayAcces
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const CONFLICT_POLICY_SKIP = 'Skip';
     const CONFLICT_POLICY_KEEP_LATEST = 'KeepLatest';
     const CONFLICT_POLICY_OVERWRITE = 'Overwrite';

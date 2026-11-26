@@ -31,8 +31,7 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         'data_type' => 'string',
         'exclude_paths' => 'string[]',
         'last_access_time_interval' => '\Volcengine\Efs\Model\LastAccessTimeIntervalForCreateDataFlowPolicyInput',
-        'logic_operator' => 'string',
-        'status' => 'string'
+        'logic_operator' => 'string'
     ];
 
     /**
@@ -44,8 +43,7 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         'data_type' => null,
         'exclude_paths' => null,
         'last_access_time_interval' => null,
-        'logic_operator' => null,
-        'status' => null
+        'logic_operator' => null
     ];
 
     /**
@@ -78,8 +76,7 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         'data_type' => 'DataType',
         'exclude_paths' => 'ExcludePaths',
         'last_access_time_interval' => 'LastAccessTimeInterval',
-        'logic_operator' => 'LogicOperator',
-        'status' => 'Status'
+        'logic_operator' => 'LogicOperator'
     ];
 
     /**
@@ -91,8 +88,7 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         'data_type' => 'setDataType',
         'exclude_paths' => 'setExcludePaths',
         'last_access_time_interval' => 'setLastAccessTimeInterval',
-        'logic_operator' => 'setLogicOperator',
-        'status' => 'setStatus'
+        'logic_operator' => 'setLogicOperator'
     ];
 
     /**
@@ -104,8 +100,7 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         'data_type' => 'getDataType',
         'exclude_paths' => 'getExcludePaths',
         'last_access_time_interval' => 'getLastAccessTimeInterval',
-        'logic_operator' => 'getLogicOperator',
-        'status' => 'getStatus'
+        'logic_operator' => 'getLogicOperator'
     ];
 
     /**
@@ -139,23 +134,9 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         return self::$getters;
     }
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
     const DATA_TYPE_DATA_ONLY = 'DataOnly';
     const LOGIC_OPERATOR__AND = 'And';
     const LOGIC_OPERATOR__OR = 'Or';
-    const STATUS_STOPPED = 'Stopped';
-    const STATUS_STARTING = 'Starting';
-    const STATUS_RUNNING = 'Running';
-    const STATUS_STOPPING = 'Stopping';
     
 
     
@@ -184,21 +165,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         ];
     }
     
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_STOPPED,
-            self::STATUS_STARTING,
-            self::STATUS_RUNNING,
-            self::STATUS_STOPPING,
-        ];
-    }
-    
 
     /**
      * Associative array for storing property values
@@ -219,7 +185,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         $this->container['exclude_paths'] = isset($data['exclude_paths']) ? $data['exclude_paths'] : null;
         $this->container['last_access_time_interval'] = isset($data['last_access_time_interval']) ? $data['last_access_time_interval'] : null;
         $this->container['logic_operator'] = isset($data['logic_operator']) ? $data['logic_operator'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -243,14 +208,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
         if (!is_null($this->container['logic_operator']) && !in_array($this->container['logic_operator'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'logic_operator', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -380,39 +337,6 @@ class AutoEvictRuleForCreateDataFlowPolicyInput implements ModelInterface, Array
             );
         }
         $this->container['logic_operator'] = $logic_operator;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }

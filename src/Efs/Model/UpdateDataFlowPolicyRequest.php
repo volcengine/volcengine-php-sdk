@@ -35,8 +35,7 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'data_flow_policy_id' => 'string',
         'data_flow_policy_name' => 'string',
         'enable_tls' => 'bool',
-        'file_system_id' => 'string',
-        'lazyload_rule' => '\Volcengine\Efs\Model\LazyloadRuleForUpdateDataFlowPolicyInput'
+        'file_system_id' => 'string'
     ];
 
     /**
@@ -52,8 +51,7 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'data_flow_policy_id' => null,
         'data_flow_policy_name' => null,
         'enable_tls' => null,
-        'file_system_id' => null,
-        'lazyload_rule' => null
+        'file_system_id' => null
     ];
 
     /**
@@ -90,8 +88,7 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'data_flow_policy_id' => 'DataFlowPolicyId',
         'data_flow_policy_name' => 'DataFlowPolicyName',
         'enable_tls' => 'EnableTls',
-        'file_system_id' => 'FileSystemId',
-        'lazyload_rule' => 'LazyloadRule'
+        'file_system_id' => 'FileSystemId'
     ];
 
     /**
@@ -107,8 +104,7 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'data_flow_policy_id' => 'setDataFlowPolicyId',
         'data_flow_policy_name' => 'setDataFlowPolicyName',
         'enable_tls' => 'setEnableTls',
-        'file_system_id' => 'setFileSystemId',
-        'lazyload_rule' => 'setLazyloadRule'
+        'file_system_id' => 'setFileSystemId'
     ];
 
     /**
@@ -124,8 +120,7 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         'data_flow_policy_id' => 'getDataFlowPolicyId',
         'data_flow_policy_name' => 'getDataFlowPolicyName',
         'enable_tls' => 'getEnableTls',
-        'file_system_id' => 'getFileSystemId',
-        'lazyload_rule' => 'getLazyloadRule'
+        'file_system_id' => 'getFileSystemId'
     ];
 
     /**
@@ -157,16 +152,6 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
     public static function getters()
     {
         return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
     }
 
     const CONFLICT_POLICY_SKIP = 'Skip';
@@ -213,7 +198,6 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
         $this->container['data_flow_policy_name'] = isset($data['data_flow_policy_name']) ? $data['data_flow_policy_name'] : null;
         $this->container['enable_tls'] = isset($data['enable_tls']) ? $data['enable_tls'] : null;
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
-        $this->container['lazyload_rule'] = isset($data['lazyload_rule']) ? $data['lazyload_rule'] : null;
     }
 
     /**
@@ -451,30 +435,6 @@ class UpdateDataFlowPolicyRequest implements ModelInterface, ArrayAccess
     public function setFileSystemId($file_system_id)
     {
         $this->container['file_system_id'] = $file_system_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets lazyload_rule
-     *
-     * @return \Volcengine\Efs\Model\LazyloadRuleForUpdateDataFlowPolicyInput
-     */
-    public function getLazyloadRule()
-    {
-        return $this->container['lazyload_rule'];
-    }
-
-    /**
-     * Sets lazyload_rule
-     *
-     * @param \Volcengine\Efs\Model\LazyloadRuleForUpdateDataFlowPolicyInput $lazyload_rule lazyload_rule
-     *
-     * @return $this
-     */
-    public function setLazyloadRule($lazyload_rule)
-    {
-        $this->container['lazyload_rule'] = $lazyload_rule;
 
         return $this;
     }
