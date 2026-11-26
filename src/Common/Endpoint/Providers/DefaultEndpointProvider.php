@@ -620,6 +620,13 @@ class DefaultEndpointProvider extends EndpointProvider
                     '',
                     []
                 ),
+            
+                'bytehouse' => new ServiceEndpointInfo(
+                    'bytehouse',
+                    false,
+                    '',
+                    []
+                ),
             ];
         }
         $defaultEndpoint = self::$defaultEndpoint;
